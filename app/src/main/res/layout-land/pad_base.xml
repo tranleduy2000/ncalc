@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_pad_numberic"
+    android:orientation="vertical"
+    android:weightSum="5">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?colorAccent"
+            android:weightSum="6">
+
+            <com.example.duy.calculator.view.BaseButton
+                android:id="@+id/dec"
+                style="?buttonAdvanceStyle"
+                android:onClick="onButtonClick"
+                android:text="@string/dec" />
+
+            <com.example.duy.calculator.view.BaseButton
+
+                android:id="@+id/hex"
+                style="?buttonAdvanceStyle"
+                android:onClick="onButtonClick"
+                android:text="@string/hex" />
+
+            <com.example.duy.calculator.view.BaseButton
+
+                android:id="@+id/bin"
+                style="?buttonAdvanceStyle"
+                android:onClick="onButtonClick"
+                android:text="@string/bin" />
+
+            <com.example.duy.calculator.view.BaseButton
+
+                android:id="@+id/oct"
+                style="?buttonAdvanceStyle"
+                android:onClick="onButtonClick"
+                android:text="@string/oct" />
+
+            <com.example.duy.calculator.view.BaseButton
+
+                android:id="@+id/btn_clear"
+                style="?buttonAdvanceStyle"
+                android:onClick="onButtonClick"
+                android:scaleType="center"
+                android:text="@string/clear" />
+
+            <ImageButton
+                android:id="@+id/btn_delete"
+                style="?buttonClearStyle"
+                android:contentDescription="@string/delete"
+                android:src="@drawable/ic_backspace_white_24dp"
+                android:text="@string/delete" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="9">
+
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/op_and"
+            style="?buttonAdvanceStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/and"
+            android:visibility="visible" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/op_or"
+            style="?buttonAdvanceStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/or"
+            android:visibility="visible" />
+
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/op_xor"
+            style="?buttonAdvanceStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/not"
+            android:visibility="visible" />
+
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/F"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/F" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_neq"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/neq" />
+
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_left_paratheses"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/leftParen" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_right_parathese"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/rightParen" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_true"
+            style="?buttonAdvanceStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/mtrue" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_false"
+            style="?buttonAdvanceStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/mfalse" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="8">
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/A"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="A" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/B"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="B" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/C"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="C" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/D"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/D" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/E"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/E" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_geq"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/geq" />
+
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_leq"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/leq" />
+
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_gt"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/gt" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="8">
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit5"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit5" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit6"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit6" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit7"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit7" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit8"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit8" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit9"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit9" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_mul"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/mul" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_div"
+            style="?buttonDigitStyle"
+            android:enabled="false"
+            android:onClick="onButtonClick"
+            android:text="@string/div" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_lt"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/lt"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="8">
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/digit0"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit0" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/digit1"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit1" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit2"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit2" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit3"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit3" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/digit4"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/digit4" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_plus"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/plus" />
+
+        <com.example.duy.calculator.view.BaseButton
+
+            android:id="@+id/btn_minus"
+            style="?buttonDigitStyle"
+            android:onClick="onButtonClick"
+            android:text="@string/minus" />
+
+        <ImageButton
+            android:id="@+id/btn_equal"
+            style="?buttonEqualStyle"
+            android:onClick="onButtonClick"
+            android:src="@drawable/ic_equal"
+            android:text="@string/equal" />
+    </LinearLayout>
+
+
+</LinearLayout>

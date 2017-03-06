@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="display_text_size">40sp</dimen>
+    <dimen name="pad_page_margin">-10dip</dimen>
+
+    <dimen name="text_size_small_button_digit">16sp</dimen>
+    <dimen name="text_size_button_digit">28sp</dimen>
+
+    <dimen name="graph_panel_height">60dp</dimen>
+    <dimen name="fab_size_normal">50dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+</resources>

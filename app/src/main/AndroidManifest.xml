@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.duy.calculator">
+
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- <uses-feature android:name="android.hardware.camera" /> -->
+    <!-- <uses-feature android:name="android.hardware.camera.autofocus" /> -->
+    <!-- <uses-feature -->
+    <!-- android:name="android.hardware.camera.flash" -->
+    <!-- android:required="false" /> -->
+    <!-- <uses-permission android:name="android.permission.FLASHLIGHT" /> -->
+    <application
+        android:name=".CalcApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.Light.NoActionBar">
+
+        <!--
+        Set custom default icon. This is used when no icon is set for incoming notification messages.
+        See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/color_grey_700" />
+
+        <service android:name=".notify.FirebaseNotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".ActivitySplashScreen"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_CALCULATOR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".version_old.activities.BasicCalculatorActivity"
+            android:theme="@style/AppTheme.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".version_old.converter.UnitConverterParentAcitvity"
+            android:configChanges="keyboardHidden|screenSize"
+            android:label="@string/title_activity_unit_converter_acitvity" />
+        <activity android:name=".version_old.converter.UnitConverterChildActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".version_old.geom2d.GeometryDescartesActivity"
+            android:configChanges="keyboardHidden|screenSize"
+            android:label="@string/title_activity_geometry" />
+        <activity
+            android:name=".version_old.activities.BaseCalculatorActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".helper.AppAboutActivity"
+            android:label="@string/title_activity_app_about" />
+        <activity
+            android:name=".version_old.activities.MatrixCalculatorActivity"
+            android:configChanges="keyboardHidden|screenSize"
+            android:label="@string/title_activity_matrix_calculator" />
+        <activity
+            android:name=".version_old.activities.SolveEquationActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".version_old.activities.SimplifyEquationActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".version_old.activities.FactorExpressionActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".version_old.activities.DerivativeActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".version_old.activities.StatisticActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".version_old.activities.ExpandAllExpressionActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".view.MathViewActivity"
+            android:configChanges="keyboardHidden|screenSize" />
+        <activity
+            android:name=".version_old.graph.GraphActivity"
+            android:label="@string/title_activity_graph"></activity>
+        <activity
+            android:name=".version_old.graph.GraphAddFunction"
+            android:label="@string/add_function" />
+        <activity
+            android:name=".helper.HelperActivity"
+            android:label="@string/help" />
+        <activity
+            android:name=".history.HistoryActivity"
+            android:label="@string/history" />
+        <activity
+            android:name=".version_old.system_equation.SystemEquationActivity"
+            android:label="@string/solve_system_equation" />
+        <activity
+            android:name=".define.DefineVariableActivity"
+            android:label="@string/define_var" />
+        <activity
+            android:name=".version_old.activities.LimitActivity"
+            android:label="@string/limit" />
+        <activity
+            android:name=".version_old.activities.IntegrateActivity"
+            android:label="@string/integrate" />
+        <activity
+            android:name=".version_old.activities.PrimitiveActivity"
+            android:label="@string/primitive" />
+        <activity android:name=".helper.LicenseActivity" />
+        <activity android:name=".helper.InfoLicenseActivity" />
+        <activity android:name=".version_old.number_theory.FactorPrimeActivity" />
+        <activity android:name=".version_old.number_theory.PermutationActivity" />
+        <activity android:name=".version_old.number_theory.ModuleActivity" />
+        <activity
+            android:name=".dev.CommandActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".dev.StepByStepActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".notify.UpdateActivity"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.Splash" />
+
+        <activity android:name=".version_old.trigonometry.TrigActivity" />
+        <activity android:name=".version_old.number_theory.NumberActivity" />
+    </application>
+
+</manifest>

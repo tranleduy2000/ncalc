@@ -1,0 +1,133 @@
+<resources>
+
+
+    <style name="AppTheme.TextFunctionHint" parent="TextAppearance.AppCompat.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#bdbdbd</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:paddingLeft">1dp</item>
+    </style>
+
+
+    <style name="AppTheme.GraphPanelStyle">
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.EditText.Formula" parent="TextAppearance.AppCompat">
+        <item name="android:inputType">text|textNoSuggestions|textMultiLine</item>
+        <item name="minTextSize">24sp</item>
+        <item name="maxTextSize">64sp</item>
+        <item name="stepTextSize">8sp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:gravity">top|left</item>
+    </style>
+
+    <style name="AppTheme.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="AppTheme.EditText.InputMini">
+        <item name="minTextSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left</item>
+        <item name="maxTextSize">40sp</item>
+        <item name="stepTextSize">4sp</item>
+    </style>
+
+    <style name="EditTextSolve">
+        <item name="android:inputType">text|textNoSuggestions</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="minTextSize">20sp</item>
+        <item name="maxTextSize">40sp</item>
+        <item name="stepTextSize">2sp</item>
+    </style>
+
+    <style name="AppTheme.EditInputSolve">
+        <!--<item name="minTextSize">16sp</item>-->
+        <!--<item name="maxTextSize">32sp</item>-->
+        <!--<item name="stepTextSize">5sp</item>-->
+    </style>
+
+    <style name="AppTheme.EditText.Result">
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:gravity">right|center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:inputType">none|textNoSuggestions</item>
+        <item name="android:maxLines">1</item>
+        <item name="minTextSize">36sp</item>
+        <item name="maxTextSize">64sp</item>
+        <item name="stepTextSize">8sp</item>
+    </style>
+
+    <style name="Theme.Calculator.Display" parent="@android:style/Widget.Holo.EditText">
+        <item name="android:textSize">@dimen/display_text_size</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.Indigo.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.Indigo.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.BaseButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">?colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.BaseButtonStyle.Toggle" parent="AppTheme.BaseButtonStyle">
+        <item name="android:textColor">?colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Light.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.Light.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <color name="background_pad_numberic">#263238</color>
+
+    <style name="HistoryText" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="HistoryText.Query" parent="TextAppearance.AppCompat.Large">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">top</item>
+    </style>
+
+    <style name="HistoryText.Result" parent="TextAppearance.AppCompat.Large">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:gravity">right|bottom</item>
+        <item name="android:layout_gravity">right|bottom</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+</resources>

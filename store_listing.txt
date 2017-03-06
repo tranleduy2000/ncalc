@@ -1,0 +1,180 @@
+NCalc+ là một chiếc máy tính rất mạnh mẽ, toàn diện là một công rất có ích trong việc học tập và làm việc.
+Máy tính có thể thực hiện các phép tính từ cơ bản đến nâng cao, đáp ứng mọi nhu cầu cần thiết.
+
+<b>Máy tính làm việc không yêu cầu internet.</b>
+
+</b>ĐẠI SỐ</b>
+<b>1.  Máy tính khoa học </b>
+-	Biểu thức số học: cộng, trừ, nhân, chia.
+-	Căn bậc hai, căn bậc ba.
+-	Số mũ, logarit (ln, log)
+-	Các hàm lượng giác sin, cos, tan và các hàm ngược.
+-	Các hàm Hyperbolic sinh, cosh, tanh và các hàm ngược
+-	Ước chung lớn nhất, bội chung nhỏ nhất.
+-	Tổ hợp, chỉnh hợp.
+-	Các hàm khoa học: min, max, celing, floor, mod, exp.
+-	Lịch sử tính toán
+<b>2. Giải phương trình:</b>
+-	Tìm nghiệm của các đa thức, phương trình của một phương trình bất kì.
+	Ví dụ 2x+1=0; 2x^2 + 2x+3 = 0; 3x+1/x-2=3
+-	Giải phương trình có tham số.
+	Ví dụ a*x^2 + b*x + c = 0
+-	Kết quả ở dạng phân số hoặc số thập phân.
+	Ví dụ: x=1/2 hoặc x = 0.5
+-	Đối với đa thức bậc n sẽ tìm được n nghiệm.
+<b>3. Giải hệ phương trình n ẩn</b>
+-	Không giới hạn số lượng biến của hệ phương trình.
+-	Có 2 cách nhập hệ phương trình
+	+ Nhập hệ theo dạng ma trận
+		[1, 2, 3]
+		[0, 2, 1]
+	+ Nhập hệ theo dạng các phương trình riêng biệt
+		x - 3= -2y
+		2y = 1
+-	Nghiệm của hệ phương trình ở dạng phân số và số thập phân.
+-	Giải được hệ phương trình với tham số: 2x-3=a và x-a-y=2
+<b>4. Vẽ đồ thị </b>
+-	Vẽ các hàm số dưới dạng đồ thị 2D, đồ thị 3D
+-	Vẽ các hàm số cơ bản: đường thẳng, parabol, các hàm không liên tục…
+-	Vẽ đồ thị trong không gian 3 chiều.
+-	Biểu diễn đạo hàm trên đồ thị.
+<b>5. Hình học tọa độ Đề-cát, phù hợp với chương trình toán lớp 10</b>
+<b>6. Chuyển đổi đơn vị: </b>
+-	Nhiệt độ
+-	Cân nặng
+-	Độ dài
+-	Nguồn điện
+-	Tốc độ
+-	Thể tích
+-	Tốc độ bit
+-	Thời gian
+<b>8. Rút gọn biểu thức</b>
+	Cho phép rút gọn các biểu thức
+	Ví dụ 2x – x + 1 - 2 = x-1
+<b>9. Phân tích đa thức thành nhân tử. </b>
+	Phân tích các đa thức có nghiệm thành nhân tử
+	Ví dụ: x^2 -1 = (x+1)(x-1)
+<b>10. Khai triển nhị thức Niu-tơn</b>
+<b>11. Ma trận: </b>
+	Các phép tính cộng, trừ, nhân 2 ma trận, chuyển vị, nghịch đảo
+<b>12. Phân tích thừa số nguyên tố</b>
+
+<b>GIẢI TÍCH: </b>
+<b>1. Đạo hàm</b>
+<b>2. Nguyên hàm</b>
+<b>3. Tích phân xác định</b>
+<b>4. Tìm giới hạn của dãy số, hàm số</b>
+
+<b>XÁC XUẤT THỐNG KÊ</b>
+<b>1. Tổ hợp</b>
+<b>2. Chỉnh hợp</b>
+<b>3. Thống kê</b>
+
+<b>MỘT SỐ TÍNH NĂNG KHÁC</b>
+<b>1. Phân tích thừa số nguyên tố</b>
+<b>2. Chia lấy dư</b>
+
+Một số lưu ý
+- Máy tính không hiển thị các bước để giải quyết phương trình, hệ phương trình, đạo hàm... mà chỉ cho ra kết quả cuối cùng. 
+- Nhập sin(30°) để tính sin ở chế độ Degree
+
+Máy tính có thể làm việc ở hai chế độ
+- Chế độ số thập phân: kết quả trả về ở dạng số thập phân 0.1231231
+- Chế độ phân số: kết quả trả về dưới dạng phân số, cho kết quả với độ chính xác tùy ý, ví dụ 9^9999.
+
+Fanpage hỗ trợ ứng dụng: https://www.facebook.com/com.duy.calculator.n.plus/
+Mọi góp ý về ứng dụng xin gửi về mail: Tranleduy1233@gmail.com.
+
+----------------------------------------------------------------
+/////////////////////////////////////////////////////////////////
+---------------------------------------------------------
+
+NCalc+ is a very powerful computer, Comprehensive is a very useful in learning and work.
+Calculator N+ can calculations from basic to advanced, meet all the needs of pupils and students
+
+Calculator N+ do not require Internet.
+
+The Calculator provides the following features:
+<b> ALGEBRA </b>
+<b> 1. Computer science </b>
+- 	Expressions arithmetic: addition, subtraction, multiplication, and division.
+- 	Square root, cube root.
+- 	The exponent, logarithm (ln, log)
+- 	The trigonometric functions sin, cos, tan and inverse functions.
+- 	Hyperbolic functions sinh, cosh, tanh and reverse functions
+-	Estimate the greatest common, least common multiple.
+- 	Combination, permutation.
+- 	The scientific content: min, max, celing, floor, mod, exp.
+-	History of calculations
+<b> 2. Solving the equation: </b>
+- 	Find solutions of polynomial equations of any equation.
+	Example 
+		2x + 1 = 0;
+		2x ^ 2 + 2x + 3 = 0; 
+		3x + 1 / x-2 = 3
+- 	Solving the equation parameters.
+	For example:
+		a * x ^ 2 + b * x + c = 0
+- Results in the form of fractions or decimals: x = 1/2 or x = 0.5
+- The res will be return all root, include implicit root.
+<b> 3. Solve system equations</b>
+- 	Unlimited number of variables of equations.
+- 	There are two ways enter equations
+	+ Enter in the form of a matrix system
+		[1, 2, 3]
+		[0, 2, 1]
+	+ Enter the system in the form of separate equations
+		x - 3 = -2y
+		2y = 1
+- 	Acceptance of the system of equations in the form of fractions and decimals.
+- 	Solving equations with parameters: 2x-3 = a and x-a-y = 2
+<b> 4. Graphing </b>
+- 	Drawing functions 2D graphs, 3D graphs
+- 	Draw the basic functions: linear, parabolic, discontinuous functions ...
+- 	Graphing in 3D space.
+- 	Presentation of the derivative on the graph.
+<b> 5. Cartesian geometry sand, suitable for Grade 10 math program (Viet Nam Education)</b>
+<b> 6. Unit Conversions: </b>
+-	Temperature
+-	Weight
+-	Length
+-	Electricity supply
+-	Speed
+-	Volume
+- 	Bitrate
+-	Time
+<b> 8. Simplify expressions </b>
+	Enables simplified expressions
+	For example, 2x - x + 1-2 = x-1
+<b> 9. Polynomial factorization. </b>
+	Analysis of the test polynomial factorization
+	Example: x ^ 2 - 1 = (x + 1)(x-1)
+<b> 10. Binomial expansion Newton </b>
+<b> 11. Matrix: </b>
+	The calculations to add, subtract, multiply two matrices, transposition, inversion
+<b> 12. Analysis prime factors </b>
+
+<b> ANALYTICS: </b>
+<b> 1. The derivative </b>
+<b> 2. Primitives </b>
+<b> 3. Definite integrals </b>
+<b> 4. Find the limit of the sequence, function </b>
+
+<b> DETERMINATION OF STATISTICS </b>
+<b> 1. Combination </b>
+<b> 2. Permutation </b>
+<b> 3. Statistics </b>
+
+<b> SOME OTHER FEATURES </b>
+<b> 1. Analysis prime factors </b>
+<b> 2. Divide the balance </b>
+
+The Calculator does not show the steps to solve the equations, system of equations, derivative... but only for the final res.
+Enter sin(30°) to calculate sine Degree mode
+
+The computer can work in two modes:
+- 	Decimal mode: 0.12312312323
+- 	Mode fractions: for results with arbitrary precision, for example 9^99999
+
+Fanpage application support: https://www.facebook.com/com.duy.calculator.n.plus/
+Any suggestions on the application please send mail: Tranleduy1233@gmail.com.

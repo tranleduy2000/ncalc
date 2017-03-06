@@ -1,0 +1,700 @@
+<resources>
+
+    <string name="all_unit_converter">Unit Converter</string>
+    <string name="factor">Factor</string>
+    <string name="binomial_newton">Newton binomial expansion</string>
+    <string name="circle">Circle</string>
+    <string name="circle_interaction">Two circles intersect</string>
+    <string name="circle_tangent">Two circles intersect</string>
+    <string name="close">Close</string>
+    <string name="collinear">Straight</string>
+    <string name="column">column</string>
+    <string name="copied">Copied</string>
+    <string name="create">Create</string>
+    <string name="d_n_ph_n_m_m_ncalc">Software project NCalc +</string>
+    <string name="delete_desc">Erase</string>
+    <string name="derivative">Derivative</string>
+    <string name="error_input_num">Error type the number</string>
+    <string name="error">Error</string>
+    <string name="expand">Expand</string>
+    <string name="factor_prime">Prime factor</string>`
+    <string name="factor_polynomial">Factor polynomial</string>
+    <string name="ellipse">Ellipse</string>
+    <string name="feedback">Feedback</string>
+    <string name="gi_i_thi_u_v_calc">About Ncalc</string>
+    <string name="gi_tr_nh_nh_t">Smallest value</string>
+    <string name="graph">Graph</string>
+    <string name="help">Help</string>
+    <string name="enter_expression">Enter expression</string>
+    <string name="input_equation">Enter the equation</string>
+    <string name="inside">Inside</string>
+    <string name="interaction">Intersecting</string>
+    <string name="l_ch_chu_n">Standard deviation</string>
+    <string name="yes">Yes</string>
+    <string name="vector">vector</string>
+    <string name="title_activity_app_about">About NCalc+</string>
+    <string name="title_activity_geometry">2D Cartesian geometry</string>
+    <string name="title_activity_graph">Graph</string>
+    <string name="title_activity_matrix_calculator">Matrix</string>
+    <string name="title_activity_settings">Setting</string>
+    <string name="title_activity_unit_converter_acitvity">Unit Converter</string>
+    <string name="th_m_ph_ng_tr_nh">More</string>
+    <string name="table">Statistical</string>
+    <string name="t_ng">sum</string>
+    <string name="speech_not_supported">does not support voice recognition</string>
+    <string name="speak_expression">Read expressions</string>
+    <string name="solve_system_equation">Solve the system of equations</string>
+    <string name="solve_for_var">Solve equations with variable (x, y, z, …): </string>
+    <string name="solve_equation">Solve the equation</string>
+
+    <string name="simplify_expression">Simplify expression</string>
+    <string name="simplify">Simplify</string>
+    <string name="settings">Setting</string>
+    <string name="science_calculator">Calculator science</string>
+    <string name="row">row</string>
+    <string name="process">Handling</string>
+
+    <string name="polygon">polygon</string>
+    <string name="please_wait">Please wait until loaded</string>
+    <string name="parallel">Parallel</string>
+    <string name="outside">Outside</string>
+    <string name="auto_process">Automatic data processing</string>
+    <string name="line">Straight line</string>
+    <string name="linear_system">System equation</string>
+    <string name="logic_calculator">Calculator base</string>
+    <string name="matrix">Matrix</string>
+    <string name="matrix_op_inverse_a">Inverse A</string>
+    <string name="matrix_op_inverse_b">Inverse B</string>
+    <string name="matrix_op_tranpose_b">Trans B</string>
+    <string name="matrix_op_tranpose_a">Trans A</string>
+    <string name="maximum">The maximum value</string>
+    <string name="more">More …</string>
+    <string name="msg_delete_matrix">Do you want to create the matrix, this job will delete the existing matrix?</string>
+    <string name="nav_descartes">2D geometry</string>
+    <string name="nh_p_c_c_n_c_a_h">Enter the variable of the system of equations</string>
+    <string name="nh_p_d_li_u">Insert information …</string>
+    <string name="not_line">Not a straight line</string>
+    <string name="not_interaction">No intersections</string>
+    <string name="not_input">Empty data</string>
+    <string name="not_in_circle">None of the circle</string>
+    <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
+        Enter equations forming a system of equations, then enter the equation system hidden \n
+        For example: press the [more], then enter the following equation 3: \n
+         x + y + z = 2 \n
+         x - y + 2z = 6 \n
+         z + y = 2 \n
+        Then enter the hidden looking for is x, y, z \n
+        Press [find experimental]
+    </string>
+    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Data entry separated by a comma (,) \n \ For example: 12, 232.43, 4</string>
+    <string name="above_circle">Located on the circle</string>
+    <string name="not_input_equation">Unknown equations</string>
+    <string name="noFunDisp">There is no function to display</string>
+    <string name="tapFun">Choose to function</string>
+    <string name="save">Save</string>
+    <string name="add_function">Add function</string>
+    <string name="cannotwrite">Can not write</string>
+    <string name="not_variable">
+        <![CDATA[
+        No variable for solving equations </br>
+        Please enter equation with variable x</br>
+        Example 2x + 1 or 2x^2 + x - 2
+        ]]>
+    </string>
+    <string name="history">History</string>
+    <string name="pref_title_font">Font</string>
+    <string name="pref_title_theme">Theme</string>
+    <string name="solve">Solve</string>
+    <string name="tangent">tangent</string>
+    <string name="what_new">What new?</string>
+
+
+    <string name="help_main_calc" formatted="false"><![CDATA[
+
+<p>Default calculator mode Radian</p>
+<p>To calculate sin, cos, tan … the in degree, type <strong>sin (30 &deg;), cos (90 &deg;), </strong>…</p>
+<p>&nbsp;</p>
+<p>For expressions that contain parameters, enter an * (multiplication) between parameters and variables. Example:</p>
+<p>$$ 2x ^ 2 + mx + 2 = 0 $$ Enter &nbsp;<strong>2x ^ 2 + m * x + 2 = 0</strong></p>
+<p>$$\\frac{1}{2ax + b}$$ Enter <strong>1 &nbsp;/ (2a * x + b)</strong></p>
+<p>&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td colspan="2" width="100%">
+<p><strong>LEARN SOME OPERATORS SUPPORT</strong></p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>+ (Plus sign)</p>
+</td>
+<td width="57%">
+<p>Plus</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>- (Minus sign)</p>
+</td>
+<td width="57%">
+<p>Minus</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>* (Multiply sign)</p>
+</td>
+<td width="57%">
+<p>Multiply</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>/</p>
+</td>
+<td width="57%">
+<p>Divide</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>% (Percent sign)</p>
+</td>
+<td width="57%">
+<p>Percent</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>^</p>
+</td>
+<td width="57%">
+<p>Exponentiation</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>!</p>
+</td>
+<td width="57%">
+<p>Factorial</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<td colspan="2" width="590">
+<p><strong>Constants</strong> (Keyboard mExpression)</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>Pi</p>
+</td>
+<td width="337">
+<p>pi</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>HEY</p>
+</td>
+<td width="337">
+<p>e</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>i</p>
+</td>
+<td width="337">
+<p>Imaginary unit</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>Infinity</p>
+</td>
+<td width="337">
+<p>Infinity</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td colspan="2" width="100%">
+<p><strong>SIGHT AND MATHEMATICS CONTENT IS SUPPORTED</strong></p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Sqrt (x) or &radic; (x)</p>
+</td>
+<td width="56%">
+<p>Returns the positive square root of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Cbrt (x)</p>
+</td>
+<td width="56%">
+<p>Cube root of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Abs (x)</p>
+</td>
+<td width="56%">
+<p>Returns the absolute value of a number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sin (x)</p>
+</td>
+<td width="56%">
+<p>Returns the sine of angle x gave</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>cos (x)</p>
+</td>
+<td width="56%">
+<p>Returns the cosine of the angle x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>tan (x)</p>
+</td>
+<td width="56%">
+<p>Returns the tangent of the angle x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Asin (x) or Arcsin (x)</p>
+</td>
+<td width="56%">
+<p>Returns the inverse cosine of a number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Acos (x) or Arccos(x)</p>
+</td>
+<td width="56%">
+<p>Returns the arccosine of a number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Atan (x) or Arctan (x)</p>
+</td>
+<td width="56%">
+<p>The arctangent function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sinh (x)</p>
+</td>
+<td width="56%">
+<p>Sinh function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>cosh (x)</p>
+</td>
+<td width="56%">
+<p>Cosh function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>tanh (x)</p>
+</td>
+<td width="56%">
+<p>Tanh function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>C(n, k)</p>
+</td>
+<td width="56%">
+<p>Combinations</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>P(n, k)</p>
+</td>
+<td width="56%">
+<p>Permutation</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>asinh (x) or arcsinh (x)</p>
+</td>
+<td width="56%">
+<p>The hyperbolic arcsine function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>acosh (x) or arccosh (x)</p>
+</td>
+<td width="56%">
+<p>The hyperbolic arccosine function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>atanh (x) or arctanh (x)</p>
+</td>
+<td width="56%">
+<p>The hyperbolic arctangent function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>ln(x)</p>
+</td>
+<td width="56%">
+<p>Logarithm base e</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>log(x)</p>
+</td>
+<td width="56%">
+<p>Returns the natural logarithm of x..</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Log(a, b)</p>
+</td>
+<td width="56%">
+<p>Logarithm base a of b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Exp(x)</p>
+</td>
+<td width="56%">
+<p>Returns the ceiling value of&nbsp;x.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Celi (x)</p>
+</td>
+<td width="56%">
+<p>Rounds a number away from 0</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Floor (x)</p>
+</td>
+<td width="56%">
+<p>Returns the floor value of x.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Max (a, b)</p>
+</td>
+<td width="56%">
+<p>Returns the largest value in two numbers a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Min (a, b)</p>
+</td>
+<td width="56%">
+<p>Returns the smallest value in two numbers a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Rnd (a)</p>
+</td>
+<td width="56%">
+<p>Random function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>GDC(a, b)</p>
+</td>
+<td width="56%">
+<p>The least common multiple of a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>LCM(a, b)</p>
+</td>
+<td width="56%">
+<p>Greatest common divisor of a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Sign(x)</p>
+</td>
+<td width="56%">
+<p>Gives -1, 0 or 1 depending on whether x is negative, zero or positive.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+    ]]></string>
+    <string name="help_solve_equation" formatted="false">@string/help_main_calc</string>
+    <string name="help_derivative" formatted="false">@string/help_main_calc</string>
+    <string name="help_expression" formatted="false">@string/help_main_calc</string>
+
+    <string name="choose_mode">Select the mode 2D or 3D graphs</string>
+    <string name="reason">Reason</string>
+    <string name="math_error">Math Error</string>
+    <string name="add_equation">Add equation</string>
+    <string name="remove_equation">Delete equation</string>
+    <string name="enter_params">Enter the variable of the system of equations</string>
+    <string name="calc">Calc</string>
+
+    <string name="enter_value">Enter value</string>
+    <string name="name">Name</string>
+    <string name="define_var">Define Variable</string>
+    <string name="cannot_factor">Can not prime factor</string>
+    <string name="graph_2">Graph</string>
+    <string name="enter_limit">Enter limit</string>
+    <string name="eval">Evaluate</string>
+    <string name="input_limit">Input limit of function</string>
+    <string name="limit">Find Limit</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="integrate">Integrate</string>
+    <string name="enter_function">Enter function</string>
+    <string name="lower_limit">Lower limit</string>
+    <string name="upper_limit">Upper limit</string>
+    <string name="open_source_licenses">Open source licenses</string>
+
+    <string name="derivative_level">Derivative level</string>
+    <string name="der_level_desc">Select derivative level here</string>
+    <string name="input_der_here">Enter derivative functions needed in this line!</string>
+    <string name="input_equation_here">Enter equation need find root in this line!</string>
+    <string name="input_expand_here">Enter the expression need expand in this line!</string>
+    <string name="input_graph_here">Click here to add more functions</string>
+    <string name="input_integrate_here">Enter the function to integrate on this line!</string>
+    <string name="input_primitive_here">Enter the function to primitive on this line!</string>
+    <string name="primitive">Primitive</string>
+    <string name="limit_from_desc">Lower limit</string>
+    <string name="lic_desc">Open source license application</string>
+    <string name="push_analyze_button">Press this button to analyze the factorization of polynomials, the calculation process can take longer for first-time initialization data</string>
+    <string name="push_button_primitive">Then press the button to start the calculation, the calculation may take a long time for the first time initialization data</string>
+    <string name="push_der_button">Press this button to derivative function, the calculation process can take longer for first-time initialization data</string>
+    <string name="push_expand_button">Click this button to expand the expression, the calculation process can take longer for first-time initialization data</string>
+    <string name="push_integrate_button">Press this button to integrals, calculation process can take longer for first-time initialization data</string>
+    <string name="push_simplify_button">Press this button to shortened expression, the calculation process can take longer for first-time initialization data</string>
+    <string name="push_solve_button">Press this button to find root the equation, the calculation process can take longer for first-time initialization data</string>
+    <string name="t_c_gi_tr_n_l_duy">Author: LE DUY TRAN</string>
+    <string name="thpt_nguy_n_b_nh_khi_m">Nguyen Binh Khiem High School</string>
+    <string name="rate_desc">Rate this applications on the Google Play Store</string>
+    <string name="input_analyze_here">Enter polynomial needs analysis in this line!</string>
+    <string name="input_simplify_here">Enter the expression to simplify in this line!</string>
+    <string name="limit_to_desc">Upper limit</string>
+    <string name="ln_hint">
+        <![CDATA[
+<font color="red">Log(x) is the natural logarithm</font>
+        ]]></string>
+    <string name="analytics">Analytics</string>
+    <string name="algebra">Algebra</string>
+    <string name="language">Language</string>
+    <string name="default_">System</string>
+    <string name="summary_dev_mode">Developer mode (command)</string>
+    <string name="probability_statistics">Probability statistics</string>
+    <string name="combination">Combination</string>
+    <string name="permutation">Permutation</string>
+    <string name="module">Modulo</string>
+    <string name="input_number">Enter number</string>
+    <string name="enter_number">Enter number</string>
+    <string name="help_permutation">Enter the number \\(N\\) (there are many elements) and \\(L\\) (the number of elements selected)</string>
+    <string name="trace_mode">Trace mode</string>
+    <string name="dev_mode">Developer mode</string>
+    <string name="not_a_number">The data entered is not a number!</string>
+    <string name="gt_zero">Two numbers entered must be greater than zero number.</string>
+    <string name="number_theory">Number theory</string>
+    <string name="show_logo">Show logo on navigation</string>
+    <string name="summary_trace_mode">How computers perform math problems</string>
+    <string name="summary_percision">Precision</string>
+    <string name="go_to_facebook">Go to Facebook</string>
+    <string name="fb_desc">Support of the application. Receive bug reports.</string>
+    <string name="enter_variable">Enter variables here. Variables are separated by semicolons</string>
+    <string name="select_num_var">Select the number of variables</string>
+    <string name="num_of_var">Number of variable</string>
+    <string name="enter_coefficient">Enter coefficient here!</string>
+    <string name="select_num_var_des">Number of variable of the system equations need finding root.</string>
+    <string name="enter_coeff_desc">
+        Enter the coefficients of the equations. \n
+        Example\n
+            2x + y = 0\n
+            3x - 2y = 1\n
+        Enter the coefficients:\n
+            [1; 1; 0]\n
+            [3, -2; 1]</string>
+    <string name="enter_var_hint">Enter variable of system equation</string>
+    <string name="input_matrix">Input matrix</string>
+    <string name="input_equation_">Input equation</string>
+    <string name="my_own_title">Rate this app</string>
+    <string name="my_own_message">If you enjoy using this app, would you mind taking a moment to rate it? It will not take more than a minute. Thank for your support!</string>
+    <string name="my_own_rate">Rate now</string>
+    <string name="my_own_thanks">No, thanks</string>
+    <string name="my_own_cancel">Later</string>
+    <string name="precision_">Precision</string>
+    <string name="calculator">Calculator</string>
+    <string name="ui">User interface</string>
+    <string name="advance">Advance</string>
+    <string name="fraction_mode">Fraction mode</string>
+    <string name="fraction_decs">Show 1/2 instead of 0.5</string>
+    <string name="summary_instant_res">Automatically calculate results</string>
+    <string name="instant_res">Instant res</string>
+    <string name="not_find_root">Can not find root of the equation.</string>
+    <string name="no_root">The equation has no solution</string>
+    <string name="change_lang_msg">Restart app to apply language!</string>
+    <string name="anti_derivative">Antiderivative</string>
+    <string name="title_activity_evaluator" translatable="false">EvaluatorActivity</string>
+    <string name="large_text" translatable="false">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="latex_engine">LaTeX engine</string>
+
+    <string name="trig_expand_desc">Expands out trigonometric expressions.</string>
+    <string name="trig_reduce_desc">Rewrites products and powers of trigonometric functions in terms of trigonometric functions with combined arguments.</string>
+    <string name="trig_to_exp_desc">Converts trigonometric functions to exponential.</string>
+    <string name="tit_trig_expand">Trigonometry Expand</string>
+    <string name="tit_trig_reduce">Trigonometry Reduce</string>
+    <string name="tit_trig_to_exp">Trigonometry to Exponent</string>
+    <string name="trigonometry">Trigonometry</string>
+    <string name="latex_summary">KaTeX is faster than MathJax on mobile environment, but MathJax supports more features and is much more beautiful.</string>
+    <string name="close_drawer">Close drawer</string>
+    <string name="cannot_factor_polynomial">Can not factors the polynomial expression.</string>
+    <string name="catalan_number">Catalan Number</string>
+    <string name="prime">Prime Number</string>
+    <string name="fibonacci">Fibonaci Number</string>
+    <string name="please_enter_number">Please enter the number</string>
+    <string name="catalan_desc">Computes the nth Catalan number</string>
+    <string name="fibo_desc">Computes the nth Fibonacci number.</string>
+    <string name="prime_desc">Computes the nth Prime number.</string>
+    <string name="update">Update</string>
+    <string name="new_version_update">New version for app, do you want to update now!</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="notify_update">Update notifications</string>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="50"
+    android:background="?background_pad_numeric"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_solve_"
+            style="?buttonAdvanceStyle"
+            android:text="@string/solve_2" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_calc"
+            style="?buttonAdvanceStyle"
+            android:text="@string/calc"
+            android:visibility="gone" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_fact"
+            style="?buttonAdvanceStyle"
+            android:text="@string/fact" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_factor"
+            style="?buttonAdvanceStyle"
+            android:text="@string/factor" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_derivative"
+            style="?buttonAdvanceStyle"
+            android:text="@string/derivative" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_anti_derivative"
+            style="?buttonAdvanceStyle"
+            android:text="@string/anti_derivative" />
+
+        <com.example.duy.calculator.view.BaseButton
+            android:id="@+id/btn_define_int"
+            style="?buttonAdvanceStyle"
+            android:text="@string/integrate" />
+    </LinearLayout>
+
+</HorizontalScrollView>
