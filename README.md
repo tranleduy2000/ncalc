@@ -19,34 +19,41 @@ Các chức năng máy tính cung cấp:
 12. Phân tích thừa số nguyên tố
 
 **GIẢI TÍCH** 
+
 1. Đạo hàm
 2. Nguyên hàm
 3. Tích phân xác định
 4. Tìm giới hạn của dãy số, hàm số
 
 **LƯỢNG GIÁC**
+
 1. Phân tích hàm lượng giác
 2. Thu gọn hàm lượng giác
 3. Chuyển đổi hàm lượng giác sang hàm mũ
 
 **XÁC XUẤT THỐNG KÊ**
+
 1. Tổ hợp
 2. Chỉnh hợp
 
-LÝ THUYẾT SỐ
+**LÝ THUYẾT SỐ**
+
 1. Số nguyên tố
 2. Số Catalan
 3. Số Fibonacci
 
-MỘT SỐ TÍNH NĂNG KHÁC
+**MỘT SỐ TÍNH NĂNG KHÁC**
+
 1. Phân tích thừa số nguyên tố
 2. Chia lấy dư
 
-Một số lưu ý
+**Một số lưu ý**
+
 - Máy tính không hiển thị các bước để giải quyết phương trình, hệ phương trình, đạo hàm... mà chỉ cho ra kết quả cuối cùng. 
 - Nhập sin(30°) để tính sin ở chế độ Degree
 
-Máy tính có thể làm việc ở hai chế độ
+**Máy tính có thể làm việc ở hai chế độ**
+
 - Chế độ số thập phân: kết quả trả về ở dạng số thập phân 0.1231231
 - Chế độ phân số: kết quả trả về dưới dạng phân số, cho kết quả với độ chính xác tùy ý, ví dụ 9^9999.
 
