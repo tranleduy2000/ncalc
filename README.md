@@ -4,7 +4,8 @@
 
 Các chức năng máy tính cung cấp:
 
-ĐẠI SỐ
+**ĐẠI SỐ**
+
 1. Máy tính khoa học: có đầy đủ các tính năng cơ bản của một máy tính khoa học
 2. Giải phương trình: tìm tất cả các nghiệm của phương trình, giải phương trình cùng tham số.
 3. Giải hệ phương trình n ẩn
@@ -17,18 +18,18 @@ Các chức năng máy tính cung cấp:
 11. Ma trận: tính toán với ma trận
 12. Phân tích thừa số nguyên tố
 
-GIẢI TÍCH 
+**GIẢI TÍCH** 
 1. Đạo hàm
 2. Nguyên hàm
 3. Tích phân xác định
 4. Tìm giới hạn của dãy số, hàm số
 
-LƯỢNG GIÁC
+**LƯỢNG GIÁC**
 1. Phân tích hàm lượng giác
 2. Thu gọn hàm lượng giác
 3. Chuyển đổi hàm lượng giác sang hàm mũ
 
-XÁC XUẤT THỐNG KÊ
+**XÁC XUẤT THỐNG KÊ**
 1. Tổ hợp
 2. Chỉnh hợp
 
