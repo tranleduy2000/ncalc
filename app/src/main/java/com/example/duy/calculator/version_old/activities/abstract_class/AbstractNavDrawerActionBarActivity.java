@@ -42,7 +42,6 @@ import com.example.duy.calculator.version_old.trigonometry.TrigActivity;
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPAND;
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPONENT;
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.REDUCE;
-
 /**
  * Created by Duy on 19/7/2016
  */

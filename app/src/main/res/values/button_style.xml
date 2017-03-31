@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background_pad_advance">#30b7d3</color>
     <color name="background_pad_more_advance">#26a69a</color>
 
     <style name="AppTheme.BaseButton" parent="Widget.AppCompat.Button.Borderless">

@@ -1,5 +1,4 @@
 <resources>
-
     <string name="all_unit_converter">Unit Converter</string>
     <string name="factor">Factor</string>
     <string name="binomial_newton">Newton binomial expansion</string>
@@ -75,7 +74,6 @@
     <string name="nh_p_d_li_u">Insert information …</string>
     <string name="not_line">Not a straight line</string>
     <string name="not_interaction">No intersections</string>
-    <string name="not_input">Empty data</string>
     <string name="not_in_circle">None of the circle</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
         Enter equations forming a system of equations, then enter the equation system hidden \n
@@ -545,7 +543,6 @@
     <string name="not_a_number">The data entered is not a number!</string>
     <string name="gt_zero">Two numbers entered must be greater than zero number.</string>
     <string name="number_theory">Number theory</string>
-    <string name="show_logo">Show logo on navigation</string>
     <string name="summary_trace_mode">How computers perform math problems</string>
     <string name="summary_percision">Precision</string>
     <string name="go_to_facebook">Go to Facebook</string>
@@ -582,103 +579,8 @@
     <string name="not_find_root">Can not find root of the equation.</string>
     <string name="no_root">The equation has no solution</string>
     <string name="change_lang_msg">Restart app to apply language!</string>
-    <string name="anti_derivative">Antiderivative</string>
-    <string name="title_activity_evaluator" translatable="false">EvaluatorActivity</string>
-    <string name="large_text" translatable="false">
-        "Material is the metaphor.\n\n"
-
-        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
-        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
-        "technologically advanced and open to imagination and magic.\n"
-        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
-        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
-        "flexibility of the material creates new affordances that supercede those in the physical "
-        "world, without breaking the rules of physics.\n"
-        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
-        "interact, and exist in space and in relation to each other. Realistic lighting shows "
-        "seams, divides space, and indicates moving parts.\n\n"
-
-        "Bold, graphic, intentional.\n\n"
-
-        "The foundational elements of print based design typography, grids, space, scale, color, "
-        "and use of imagery guide visual treatments. These elements do far more than please the "
-        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
-        "imagery, large scale typography, and intentional white space create a bold and graphic "
-        "interface that immerse the user in the experience.\n"
-        "An emphasis on user actions makes core functionality immediately apparent and provides "
-        "waypoints for the user.\n\n"
-
-        "Motion provides meaning.\n\n"
-
-        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
-        "inflection points that initiate motion, transforming the whole design.\n"
-        "All action takes place in a single environment. Objects are presented to the user without "
-        "breaking the continuity of experience even as they transform and reorganize.\n"
-        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
-        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
-
-        "3D world.\n\n"
-
-        "The material environment is a 3D space, which means all objects have x, y, and z "
-        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
-        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
-        "position along the z-axis and has a standard 1dp thickness.\n"
-        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
-        "emulated by manipulating the y-axis.\n\n"
-
-        "Light and shadow.\n\n"
-
-        "Within the material environment, virtual lights illuminate the scene. Key lights create "
-        "directional shadows, while ambient light creates soft shadows from all angles.\n"
-        "Shadows in the material environment are cast by these two light sources. In Android "
-        "development, shadows occur when light sources are blocked by sheets of material at "
-        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
-        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
-
-        "Resting elevation.\n\n"
-
-        "All material objects, regardless of size, have a resting elevation, or default elevation "
-        "that does not change. If an object changes elevation, it should return to its resting "
-        "elevation as soon as possible.\n\n"
-
-        "Component elevations.\n\n"
-
-        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
-        "does not vary from 6dp in one app to 16dp in another app).\n"
-        "Components may have different resting elevations across platforms, depending on the depth "
-        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
-
-        "Responsive elevation and dynamic elevation offsets.\n\n"
-
-        "Some component types have responsive elevation, meaning they change elevation in response "
-        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
-        "changes are consistently implemented using dynamic elevation offsets.\n"
-        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
-        "to the component’s resting state. They ensure that elevation changes are consistent "
-        "across actions and component types. For example, all components that lift on press have "
-        "the same elevation change relative to their resting elevation.\n"
-        "Once the input event is completed or cancelled, the component will return to its resting "
-        "elevation.\n\n"
-
-        "Avoiding elevation interference.\n\n"
-
-        "Components with responsive elevations may encounter other components as they move between "
-        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
-        "through other material, components avoid interfering with one another any number of ways, "
-        "whether on a per component basis or using the entire app layout.\n"
-        "On a component level, components can move or be removed before they cause interference. "
-        "For example, a floating action button (FAB) can disappear or move off screen before a "
-        "user picks up a card, or it can move if a snackbar appears.\n"
-        "On the layout level, design your app layout to minimize opportunities for interference. "
-        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
-        "when a user tries to pick up one of cards.\n\n"
-    </string>
-    <string name="action_settings">Settings</string>
     <string name="latex_engine">LaTeX engine</string>
 
-    <string name="trig_expand_desc">Expands out trigonometric expressions.</string>
-    <string name="trig_reduce_desc">Rewrites products and powers of trigonometric functions in terms of trigonometric functions with combined arguments.</string>
-    <string name="trig_to_exp_desc">Converts trigonometric functions to exponential.</string>
     <string name="tit_trig_expand">Trigonometry Expand</string>
     <string name="tit_trig_reduce">Trigonometry Reduce</string>
     <string name="tit_trig_to_exp">Trigonometry to Exponent</string>
@@ -697,4 +599,91 @@
     <string name="new_version_update">New version for app, do you want to update now!</string>
     <string name="dismiss">Dismiss</string>
     <string name="notify_update">Update notifications</string>
+
+    <string name="unit1">Temperature</string>
+    <string name="unit2">Weight</string>
+    <string name="unit3">Length</string>
+    <string name="unit4">Power</string>
+    <string name="unit5">Energy</string>
+    <string name="unit6">Velocity</string>
+    <string name="unit7">Area</string>
+    <string name="unit8">Volume</string>
+    <string name="unit9">Bit Rate</string>
+    <string name="unit10">Time</string>
+
+    <string name="weightunitkg">Kilogam (Kg)</string>
+    <string name="weightunitgm">Gam (g)</string>
+    <string name="weightunitlb">Pound (lb)</string>
+    <string name="weightunitounce">Ounce (oz)</string>
+    <string name="weightunitmg">Miligam (mg)</string>
+
+
+    <string name="temperatureunitc">Celsius (ºC)</string>
+    <string name="temperatureunitf">Fahrenheit (ºF)</string>
+    <string name="temperatureunitk">Kelvin (ºK)</string>
+    <string name="temperatureunitn">Newton (ºN)</string>
+
+    <string name="lengthunitnm">nm</string>
+    <string name="lengthunitmicrom">µm</string>
+    <string name="lengthunitpm">pm</string>
+    <string name="lengthunitmm">mm</string>
+    <string name="lengthunitcm">cm</string>
+    <string name="lengthunitdm">dm</string>
+    <string name="lengthunitm">m</string>
+    <string name="lengthunitkm">km</string>
+
+
+    <string name="lengthunitfeet">ft</string>
+    <string name="lengthunitmile">mile</string>
+    <string name="lengthunitinch">inch</string>
+
+
+    <string name="powerunithorsepower">Horse Power (HP)</string>
+    <string name="powerunitwatts">Watt (W)</string>
+    <string name="powerunitkilowatts">Kilowatt (KW)</string>
+    <string name="powerunitmegawatt">Megawatt (MW)</string>
+    <string name="powerunitgigawatt">Gigawatt (GW)</string>
+
+
+    <string name="energyunitcalories">Calories (cal)</string>
+    <string name="energyunitkilocalories">Kilo Calories (kcal)</string>
+    <string name="energyunitjoules">Jun (J)</string>
+
+    <string name="velocityunitkmph">Km/h</string>
+    <string name="velocityunitmeterpers">m/s</string>
+    <string name="velocityunitmilesperh">miles/h</string>
+    <string name="velocityunitfeetpers">feet/s</string>
+
+
+    <string name="areaunitsqmm">mm²</string>
+    <string name="areaunitsqm">m²</string>
+    <string name="areaunitsqcm">cm²</string>
+    <string name="areaunitsqkm">km²</string>
+    <string name="areaunitsqmiles">(Miles) mi²</string>
+    <string name="areaunitsqyard">(Yard) yd²</string>
+
+
+    <string name="volumeunitcubicmm">mm³</string>
+    <string name="volumeunitcubiccm">cm³</string>
+    <string name="volumeunitcubicm">m³</string>
+    <string name="volumeunitcubicfeet">ft³</string>
+
+
+    <string name="bitrateunitbytes">Byte (B)/s</string>
+    <string name="bitrateunitkilobytes">KiloByte (KB)/s</string>
+    <string name="bitrateunitmegabytes">MegaByte (MB)/s</string>
+    <string name="bitrateunitgigabytes">GigaByte (GB)/s</string>
+    <string name="bitrateunitterabytes">TeraByte (TB)/s</string>
+    <string name="bitrateunitbits">Bit (b)/s</string>
+    <string name="bitrateunitkilobits">KiloBit (Kb)/s</string>
+    <string name="bitrateunitmegabits">MegaBit (Mb)/s</string>
+    <string name="bitrateunitgigabits">GigaBit (Gb)/s</string>
+    <string name="bitrateunitterabits">TeraBit (Tb)/s</string>
+
+    <string name="timeunitsecond">Seconds (s)</string>
+    <string name="timeunitminutes">Minutes (min)</string>
+    <string name="timeunithours">Hours (h)</string>
+    <string name="timeunitdays">Day (d)</string>
+    <string name="timeunitweeks">Weeks</string>
+    <string name="timeunitmiliseconds">Miliseconds (ms)</string>
 </resources>

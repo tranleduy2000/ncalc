@@ -38,7 +38,6 @@
                 android:text="@string/fact" />
 
             <com.example.duy.calculator.view.BaseButton
-                android:id="@+id/btn_graph"
                 style="?buttonAdvanceStyle"
                 android:enabled="false"
                 android:text="@string/graph_2"
