@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="all_unit_converter">Конвертер едениц измерения</string>
+    <string name="factor">Фактор</string>
+    <string name="binomial_newton">Биномиальное разложение Ньютона</string>
+    <string name="circle">Круг</string>
+    <string name="circle_interaction">Два круга пересекаются</string>
+    <string name="circle_tangent">Два круга пересекаются</string>
+    <string name="close">Закрыть</string>
+    <string name="collinear">Прямо</string>
+    <string name="column">колонка</string>
+    <string name="copied">Скопировано</string>
+    <string name="create">Создать</string>
+    <string name="d_n_ph_n_m_m_ncalc">Программный проект NCalc +</string>
+    <string name="delete_desc">Стереть</string>
+    <string name="derivative">Производные</string>
+    <string name="error_input_num">Номер ошибки</string>
+    <string name="error">Ошибка</string>
+    <string name="expand">Расширить</string>
+    <string name="factor_prime">главный фактор</string>`
+    <string name="factor_polynomial">Коэффициент полинома</string>
+    <string name="ellipse">Эллипс</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="gi_i_thi_u_v_calc">Об Ncalc</string>
+    <string name="gi_tr_nh_nh_t">Наименьшее значение</string>
+    <string name="graph">График</string>
+    <string name="help">Помощь</string>
+    <string name="enter_expression">Введите выражение</string>
+    <string name="input_equation">Введите уравнение</string>
+    <string name="inside">Внутри</string>
+    <string name="interaction">Пересечение</string>
+    <string name="l_ch_chu_n">Стандартное отклонение</string>
+    <string name="yes">Да</string>
+    <string name="vector">вектор</string>
+    <string name="title_activity_app_about">Об NCalc+</string>
+    <string name="title_activity_geometry">Двухмерная декартовая геометрия</string>
+    <string name="title_activity_graph">График</string>
+    <string name="title_activity_matrix_calculator">Матрица</string>
+    <string name="title_activity_settings">Настройка</string>
+    <string name="title_activity_unit_converter_acitvity">Конвертер едениц измерения</string>
+    <string name="th_m_ph_ng_tr_nh">Больше</string>
+    <string name="table">Статистический</string>
+    <string name="t_ng">сумма</string>
+    <string name="speech_not_supported">не поддерживает распознавание голоса</string>
+    <string name="speak_expression">Чтение выражений</string>
+    <string name="solve_system_equation">Решить систему уравнений</string>
+    <string name="solve_for_var">Решите уравнения с переменными (x, y, z, ...): </string>
+    <string name="solve_equation">Решить уравнение</string>
+
+    <string name="simplify_expression">Упростите выражение</string>
+    <string name="simplify">Упрощать</string>
+    <string name="settings">Настройка</string>
+    <string name="science_calculator">Научный калькулятор</string>
+    <string name="row">ряд</string>
+    <string name="process">Обработка</string>
+
+    <string name="polygon">Многоугольник</string>
+    <string name="please_wait">Подождите, пока загрузится</string>
+    <string name="parallel">Параллельно</string>
+    <string name="outside">За пределами</string>
+    <string name="auto_process">Автоматическая обработка данных</string>
+    <string name="line">Прямая линия</string>
+    <string name="linear_system">Системное уравнение</string>
+    <string name="logic_calculator">База калькулятора</string>
+    <string name="matrix">Матрица</string>
+    <string name="matrix_op_inverse_a">Обратное A</string>
+    <string name="matrix_op_inverse_b">Обратное B</string>
+    <string name="matrix_op_tranpose_b">Трансп B</string>
+    <string name="matrix_op_tranpose_a">Трансп A</string>
+    <string name="maximum">Максимальное значение переменной</string>
+    <string name="more">Больше …</string>
+    <string name="msg_delete_matrix">Вы хотите создать новую матрицу, удалив существующую матрицу?</string>
+    <string name="nav_descartes">Двухмерная геометрия</string>
+    <string name="nh_p_c_c_n_c_a_h">Введите переменную системы уравнений</string>
+    <string name="nh_p_d_li_u">Вставка информации ...</string>
+    <string name="not_line">Не прямая линия</string>
+    <string name="not_interaction">Нет пересечений</string>
+    <string name="not_in_circle">Ни один из кругов</string>
+    <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
+        Введите уравнения, образующие систему уравнений, затем введите систему уравнений \n
+        Например: нажмите [больше], затем введите следующее уравнение 3: \n
+         x + y + z = 2 \n
+         x - y + 2z = 6 \n
+         z + y = 2 \n
+        Затем введите x, y, z \n
+        Нажмите [выяснить эксперимент]
+    </string>
+    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Ввод данных через запятую (,) \ n \ Например: 12, 232.43, 4</string>
+    <string name="above_circle">Находится в круге</string>
+    <string name="not_input_equation">Неизвестные уравнения</string>
+    <string name="noFunDisp">Нет функции для отображения</string>
+    <string name="tapFun">Выберите функцию</string>
+    <string name="save">Сохранить</string>
+    <string name="add_function">Добавить функцию</string>
+    <string name="cannotwrite">Не удается записать</string>
+    <string name="not_variable">
+        <![CDATA[
+        No variable for solving equations </br>
+        Please enter equation with variable x</br>
+        Example 2x + 1 or 2x^2 + x - 2
+        ]]>
+    </string>
+    <string name="history">История</string>
+    <string name="pref_title_font">Шрифт</string>
+    <string name="pref_title_theme">Тема</string>
+    <string name="solve">Решить</string>
+    <string name="tangent">касательный</string>
+    <string name="what_new">Что нового?</string>
+
+
+    <string name="help_main_calc" formatted="false"><![CDATA[
+
+<p>Default calculator mode Radian</p>
+<p>To calculate sin, cos, tan … the in degree, type <strong>sin (30 &deg;), cos (90 &deg;), </strong>…</p>
+<p>&nbsp;</p>
+<p>For expressions that contain parameters, enter an * (multiplication) between parameters and variables. Example:</p>
+<p>$$ 2x ^ 2 + mx + 2 = 0 $$ Enter &nbsp;<strong>2x ^ 2 + m * x + 2 = 0</strong></p>
+<p>$$\\frac{1}{2ax + b}$$ Enter <strong>1 &nbsp;/ (2a * x + b)</strong></p>
+<p>&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td colspan="2" width="100%">
+<p><strong>LEARN SOME OPERATORS SUPPORT</strong></p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>+ (Plus sign)</p>
+</td>
+<td width="57%">
+<p>Plus</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>- (Minus sign)</p>
+</td>
+<td width="57%">
+<p>Minus</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>* (Multiply sign)</p>
+</td>
+<td width="57%">
+<p>Multiply</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>/</p>
+</td>
+<td width="57%">
+<p>Divide</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>% (Percent sign)</p>
+</td>
+<td width="57%">
+<p>Percent</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>^</p>
+</td>
+<td width="57%">
+<p>Exponentiation</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>!</p>
+</td>
+<td width="57%">
+<p>Factorial</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<td colspan="2" width="590">
+<p><strong>Constants</strong> (Keyboard mExpression)</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>Pi</p>
+</td>
+<td width="337">
+<p>pi</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>HEY</p>
+</td>
+<td width="337">
+<p>e</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>i</p>
+</td>
+<td width="337">
+<p>Imaginary unit</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>Infinity</p>
+</td>
+<td width="337">
+<p>Infinity</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td colspan="2" width="100%">
+<p><strong>SIGHT AND MATHEMATICS CONTENT IS SUPPORTED</strong></p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Sqrt (x) or &radic; (x)</p>
+</td>
+<td width="56%">
+<p>Returns the positive square root of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Cbrt (x)</p>
+</td>
+<td width="56%">
+<p>Cube root of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Abs (x)</p>
+</td>
+<td width="56%">
+<p>Returns the absolute value of a number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sin (x)</p>
+</td>
+<td width="56%">
+<p>Returns the sine of angle x gave</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>cos (x)</p>
+</td>
+<td width="56%">
+<p>Returns the cosine of the angle x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>tan (x)</p>
+</td>
+<td width="56%">
+<p>Returns the tangent of the angle x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Asin (x) or Arcsin (x)</p>
+</td>
+<td width="56%">
+<p>Returns the inverse cosine of a number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Acos (x) or Arccos(x)</p>
+</td>
+<td width="56%">
+<p>Returns the arccosine of a number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Atan (x) or Arctan (x)</p>
+</td>
+<td width="56%">
+<p>The arctangent function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sinh (x)</p>
+</td>
+<td width="56%">
+<p>Sinh function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>cosh (x)</p>
+</td>
+<td width="56%">
+<p>Cosh function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>tanh (x)</p>
+</td>
+<td width="56%">
+<p>Tanh function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>C(n, k)</p>
+</td>
+<td width="56%">
+<p>Combinations</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>P(n, k)</p>
+</td>
+<td width="56%">
+<p>Permutation</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>asinh (x) or arcsinh (x)</p>
+</td>
+<td width="56%">
+<p>The hyperbolic arcsine function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>acosh (x) or arccosh (x)</p>
+</td>
+<td width="56%">
+<p>The hyperbolic arccosine function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>atanh (x) or arctanh (x)</p>
+</td>
+<td width="56%">
+<p>The hyperbolic arctangent function.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>ln(x)</p>
+</td>
+<td width="56%">
+<p>Logarithm base e</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>log(x)</p>
+</td>
+<td width="56%">
+<p>Returns the natural logarithm of x..</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Log(a, b)</p>
+</td>
+<td width="56%">
+<p>Logarithm base a of b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Exp(x)</p>
+</td>
+<td width="56%">
+<p>Returns the ceiling value of&nbsp;x.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Celi (x)</p>
+</td>
+<td width="56%">
+<p>Rounds a number away from 0</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Floor (x)</p>
+</td>
+<td width="56%">
+<p>Returns the floor value of x.</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Max (a, b)</p>
+</td>
+<td width="56%">
+<p>Returns the largest value in two numbers a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Min (a, b)</p>
+</td>
+<td width="56%">
+<p>Returns the smallest value in two numbers a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Rnd (a)</p>
+</td>
+<td width="56%">
+<p>Random function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>GDC(a, b)</p>
+</td>
+<td width="56%">
+<p>The least common multiple of a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>LCM(a, b)</p>
+</td>
+<td width="56%">
+<p>Greatest common divisor of a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>Sign(x)</p>
+</td>
+<td width="56%">
+<p>Gives -1, 0 or 1 depending on whether x is negative, zero or positive.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+    ]]></string>
+    <string name="help_solve_equation" formatted="false">@string/help_main_calc</string>
+    <string name="help_derivative" formatted="false">@string/help_main_calc</string>
+    <string name="help_expression" formatted="false">@string/help_main_calc</string>
+
+    <string name="choose_mode">Выберите режим отображения графика</string>
+    <string name="reason">Причина</string>
+    <string name="math_error">Математическая ошибка</string>
+    <string name="add_equation">Добавить уравнение</string>
+    <string name="remove_equation">Удалить уравнение</string>
+    <string name="enter_params">Введите переменную системы уравнений</string>
+    <string name="calc">Расчёт</string>
+
+    <string name="enter_value">Введите значение</string>
+    <string name="name">Имя</string>
+    <string name="define_var">Определить переменную</string>
+    <string name="cannot_factor">Невозможно определить коэффициент</string>
+    <string name="graph_2">График</string>
+    <string name="enter_limit">Введите ограничение</string>
+    <string name="eval">Оценить</string>
+    <string name="input_limit">Предел ввода функции</string>
+    <string name="limit">Найти предел</string>
+    <string name="rate_this_app">Оцени это приложение</string>
+    <string name="integrate">Интеграция</string>
+    <string name="enter_function">Ввести функцию</string>
+    <string name="lower_limit">Нижний предел</string>
+    <string name="upper_limit">Верхний предел</string>
+    <string name="open_source_licenses">Лицензия с открытым исходным кодом</string>
+
+    <string name="derivative_level">Уровень производной</string>
+    <string name="der_level_desc">Выберите здесь уровень производной</string>
+    <string name="input_der_here">Введите уравнение в котором нужно найти производные в этой строке!</string>
+    <string name="input_equation_here">Введите уравнение, в котором нужно найти корень, в этой строке!</string>
+    <string name="input_expand_here">Введите выражение, которое нужно expand развернуть в этой строке!</string>
+    <string name="input_graph_here">Нажмите здесь, чтобы добавить дополнительные функции</string>
+    <string name="input_integrate_here">Введите функцию для интеграла в этой строке!</string>
+    <string name="input_primitive_here">В этой строке введите примитив функции!</string>
+    <string name="primitive">Примитивный</string>
+    <string name="limit_from_desc">Нижний предел</string>
+    <string name="lic_desc">Приложение с открытым исходным кодом</string>
+    <string name="push_analyze_button">Нажмите эту кнопку, чтобы проанализировать факторизацию многочленов, процесс расчета может занять больше времени для first-time initialization data</string>
+    <string name="push_button_primitive">Затем нажмите кнопку, чтобы начать расчет, расчет может занять много времени в первый раз из-за инициализации данных</string>
+    <string name="push_der_button">Нажмите эту кнопку для получения производной функции, процесс расчета может занять больше времени из-за первоначальной инициализации данных</string>
+    <string name="push_expand_button">Нажмите эту кнопку, чтобы развернуть выражение, процесс вычисления может занять больше времени из-за первоначальной инициализации данных</string>
+    <string name="push_integrate_button">Нажмите эту кнопку для интегралов, процесс расчета может занять больше времени из-за первоначальной инициализации данных</string>
+    <string name="push_simplify_button">Нажмите эту кнопку для сокращения выражения, процесс вычисления может занять больше времени из-за первоначальной инициализации данных</string>
+    <string name="push_solve_button">Нажмите эту кнопку, чтобы найти корень уравнения, процесс вычисления может занять больше времени из-за первоначальной инициализации данных</string>
+    <string name="t_c_gi_tr_n_l_duy">Автор: LE DUY TRAN</string>
+    <string name="thpt_nguy_n_b_nh_khi_m">Средняя школа Nguyen Binh Khiem</string>
+    <string name="rate_desc">Оцените эти приложения в Google Play</string>
+    <string name="input_analyze_here">Вводить полиномальные нужно в этой строке!</string>
+    <string name="input_simplify_here">Введите выражение для упрощения в этой строке!</string>
+    <string name="limit_to_desc">Верхний предел</string>
+    <string name="ln_hint">
+        <![CDATA[
+<font color="red">Log(x) is the natural logarithm</font>
+        ]]></string>
+    <string name="analytics">Аналитика</string>
+    <string name="algebra">Алгебра</string>
+    <string name="language">Язык</string>
+    <string name="default_">Система</string>
+    <string name="summary_dev_mode">Режим разработчика (команда)</string>
+    <string name="probability_statistics">Статистика вероятности</string>
+    <string name="combination">Комбинация</string>
+    <string name="permutation">Перестановка</string>
+    <string name="module">Остаток от деления</string>
+    <string name="input_number">Введите номер</string>
+    <string name="enter_number">Введите номер</string>
+    <string name="help_permutation">Введите номер \\(N\\) (есть много элементов) and \\(L\\) (количество выбранных элементов)</string>
+    <string name="trace_mode">Режим трассировки</string>
+    <string name="dev_mode">Режим разработчика</string>
+    <string name="not_a_number">Введенные данные не являются числом!</string>
+    <string name="gt_zero">Два введенных номера должны быть больше нуля.</string>
+    <string name="number_theory">Теория чисел</string>
+    <string name="summary_trace_mode">Как компьютеры выполняют математические задачи</string>
+    <string name="summary_percision">Точность</string>
+    <string name="go_to_facebook">Перейти к Facebook</string>
+    <string name="fb_desc">Поддержите приложение. Отправляете сообщения об ошибках.</string>
+    <string name="enter_variable">Введите здесь переменные. Переменные разделяются точкой с запятой</string>
+    <string name="select_num_var">Выберите количество переменных</string>
+    <string name="num_of_var">Количество переменных</string>
+    <string name="enter_coefficient">Введите коэффициент здесь!</string>
+    <string name="select_num_var_des">Число переменных в системе уравнений необходимо, чтобы найти корень.</string>
+    <string name="enter_coeff_desc">
+        Enter the coefficients of the equations. \n
+        Example\n
+            2x + y = 0\n
+            3x - 2y = 1\n
+        Enter the coefficients:\n
+            [1; 1; 0]\n
+            [3, -2; 1]</string>
+    <string name="enter_var_hint">Введите переменную уравнения системы</string>
+    <string name="input_matrix">Ввод матрицы</string>
+    <string name="input_equation_">Ввод уравнения</string>
+    <string name="my_own_title">Оцени это приложение</string>
+    <string name="my_own_message">Если вам нравится использовать это приложение, не могли бы вы воспользоваться моментом, чтобы оценить его? Это займет не больше минуты. Спасибо за вашу поддержку!</string>
+    <string name="my_own_rate">Оценить сейчас</string>
+    <string name="my_own_thanks">Нет, спасибо</string>
+    <string name="my_own_cancel">Позже</string>
+    <string name="precision_">Точность</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="ui">Пользовательский интерфейс</string>
+    <string name="advance">Позже</string>
+    <string name="fraction_mode">Режим фракции</string>
+    <string name="fraction_decs">Показывать 1/2 вместо 0.5</string>
+    <string name="summary_instant_res">Автоматически подсчитывать результаты</string>
+    <string name="instant_res">Мгновенное разрешение</string>
+    <string name="not_find_root">Не удается найти корень уравнения.</string>
+    <string name="no_root">Уравнение не имеет решения</string>
+    <string name="change_lang_msg">Перезапустите приложение, чтобы применить язык!</string>
+    <string name="latex_engine">LaTeX работает</string>
+
+    <string name="tit_trig_expand">Расширение тригонометрии</string>
+    <string name="tit_trig_reduce">Сокращение тригонометрии</string>
+    <string name="tit_trig_to_exp">Тригонометрическая экспонента</string>
+    <string name="trigonometry">Тригонометрия</string>
+    <string name="latex_summary">KaTeX быстрее MathJax в мобильной среде, но MathJax поддерживает больше функций и гораздо красивее.</string>
+    <string name="close_drawer">Закрыть ящик</string>
+    <string name="cannot_factor_polynomial">Не может влиять на выражение полинома.</string>
+    <string name="catalan_number">Каталонский номер</string>
+    <string name="prime">Простое число</string>
+    <string name="fibonacci">Число Фибоначчи</string>
+    <string name="please_enter_number">Введите номер</string>
+    <string name="catalan_desc">Вычисляет n-е каталонское число</string>
+    <string name="fibo_desc">Вычисляет n-е число Фибоначчи.</string>
+    <string name="prime_desc">Вычисляет n-ые простые числа.</string>
+    <string name="update">Обновить</string>
+    <string name="new_version_update">Новая версия для приложения, которую вы хотите обновить прямо сейчас!</string>
+    <string name="dismiss">Отклонить</string>
+    <string name="notify_update">Обновлять уведомления</string>
+
+    <string name="unit1">Температура</string>
+    <string name="unit2">Высота</string>
+    <string name="unit3">Длина</string>
+    <string name="unit4">Мощность</string>
+    <string name="unit5">Энергия</string>
+    <string name="unit6">Скорость</string>
+    <string name="unit7">Площадь</string>
+    <string name="unit8">Объем</string>
+    <string name="unit9">Битрейт</string>
+    <string name="unit10">Время</string>
+
+    <string name="weightunitkg">Килограмм (кг)</string>
+    <string name="weightunitgm">Грамм ()</string>
+    <string name="weightunitlb">Фунт (фунт)</string>
+    <string name="weightunitounce">Унция (ун)</string>
+    <string name="weightunitmg">Милигам (мг)</string>
+
+
+    <string name="temperatureunitc">Цельсий (ºC)</string>
+    <string name="temperatureunitf">Фаренгейт (ºF)</string>
+    <string name="temperatureunitk">Кельвин (ºK)</string>
+    <string name="temperatureunitn">Ньютон (º N)</string>
+
+    <string name="lengthunitnm">нм</string>
+    <string name="lengthunitmicrom">мкм</string>
+    <string name="lengthunitpm">пм</string>
+    <string name="lengthunitmm">мм</string>
+    <string name="lengthunitcm">см</string>
+    <string name="lengthunitdm">дм</string>
+    <string name="lengthunitm">м</string>
+    <string name="lengthunitkm">км</string>
+
+
+    <string name="lengthunitfeet">фут</string>
+    <string name="lengthunitmile">миль</string>
+    <string name="lengthunitinch">дюйм</string>
+
+
+    <string name="powerunithorsepower">Лошадиная сила (ЛС)</string>
+    <string name="powerunitwatts">Ватт (Вт)</string>
+    <string name="powerunitkilowatts">Киловатт (кВт)</string>
+    <string name="powerunitmegawatt">Megawatt (МВт)</string>
+    <string name="powerunitgigawatt">Гигаватт (ГВт)</string>
+
+
+    <string name="energyunitcalories">Калории (кал)</string>
+    <string name="energyunitkilocalories">Килокалории (ккал)</string>
+    <string name="energyunitjoules">Jun (J)</string>
+
+    <string name="velocityunitkmph">Км/ч</string>
+    <string name="velocityunitmeterpers">м/с</string>
+    <string name="velocityunitmilesperh">миль/ч</string>
+    <string name="velocityunitfeetpers">фут/с</string>
+
+
+    <string name="areaunitsqmm">мм²</string>
+    <string name="areaunitsqm">м²</string>
+    <string name="areaunitsqcm">см²</string>
+    <string name="areaunitsqkm">км²</string>
+    <string name="areaunitsqmiles">(Миль) миль²</string>
+    <string name="areaunitsqyard">(Ярдов) ярдов²</string>
+
+
+    <string name="volumeunitcubicmm">мм³</string>
+    <string name="volumeunitcubiccm">см³</string>
+    <string name="volumeunitcubicm">м³</string>
+    <string name="volumeunitcubicfeet">фут³</string>
+
+
+    <string name="bitrateunitbytes">Байт (B)/с</string>
+    <string name="bitrateunitkilobytes">Килобайт (KB)/с</string>
+    <string name="bitrateunitmegabytes">Мегабайт (MB)/с</string>
+    <string name="bitrateunitgigabytes">Гигабайт (GB)/с</string>
+    <string name="bitrateunitterabytes">Терабайт (TB)/с</string>
+    <string name="bitrateunitbits">Бит (b)/с</string>
+    <string name="bitrateunitkilobits">Килобит (Kb)/с</string>
+    <string name="bitrateunitmegabits">Мегабит (Mb)/с</string>
+    <string name="bitrateunitgigabits">Гигабит (Gb)/с</string>
+    <string name="bitrateunitterabits">Терабит (Tb)/с</string>
+
+    <string name="timeunitsecond">Секунд (с)</string>
+    <string name="timeunitminutes">Минут (мин)</string>
+    <string name="timeunithours">Часов (ч)</string>
+    <string name="timeunitdays">Дней (д)</string>
+    <string name="timeunitweeks">Недель</string>
+    <string name="timeunitmiliseconds">Миллисекунд (мс)</string>
+</resources>

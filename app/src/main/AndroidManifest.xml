@@ -107,7 +107,7 @@
             android:configChanges="keyboardHidden|screenSize" />
         <activity
             android:name=".version_old.graph.GraphActivity"
-            android:label="@string/title_activity_graph"></activity>
+            android:label="@string/title_activity_graph" />
         <activity
             android:name=".version_old.graph.GraphAddFunction"
             android:label="@string/add_function" />

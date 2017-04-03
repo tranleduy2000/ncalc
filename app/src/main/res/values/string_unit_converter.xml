@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-    <string-array name="bitrate">
+    <string-array name="bitrate" translatable="false">
         <item name="bitrateunitbytes">@string/bitrateunitbytes</item>
         <item name="bitrateunitkilobytes">@string/bitrateunitkilobytes</item>
         <item name="bitrateunitmegabytes">@string/bitrateunitmegabytes</item>
@@ -15,7 +14,7 @@
         <item name="bitrateunitterabits">T@string/bitrateunitterabits</item>
     </string-array>
 
-    <string-array name="time">
+    <string-array name="time" translatable="false">
         <item name="timeunitsecond">@string/timeunitsecond</item>
         <item name="timeunitminutes">@string/timeunitminutes</item>
         <item name="timeunithours">@string/timeunithours</item>
@@ -24,7 +23,7 @@
         <item name="timeunitmiliseconds">@string/timeunitmiliseconds</item>
 
     </string-array>
-    <string-array name="unit">
+    <string-array name="unit" translatable="false">
         <item name="unit1">@string/unit1</item>
         <item name="unit2">@string/unit2</item>
         <item name="unit3">@string/unit3</item>
@@ -37,7 +36,7 @@
         <item name="unit10">@string/unit10</item>
     </string-array>
 
-    <string-array name="weight">
+    <string-array name="weight" translatable="false">
         <item name="weightunitkg">@string/weightunitkg</item>
         <item name="weightunitgm">@string/weightunitgm</item>
         <item name="weightunitlb">@string/weightunitlb</item>
@@ -46,7 +45,7 @@
 
     </string-array>
 
-    <string-array name="temp">
+    <string-array name="temp" translatable="false">
         <item name="temperatureunitc">@string/temperatureunitc</item>
         <item name="temperatureunitf">@string/temperatureunitf</item>
         <item name="temperatureunitk">@string/temperatureunitk</item>
@@ -54,7 +53,7 @@
     </string-array>
 
 
-    <string-array name="length">
+    <string-array name="length" translatable="false">
         <item name="lengthunitcm">@string/lengthunitcm</item>
         <item name="lengthunitm">@string/lengthunitm</item>
         <item name="lengthunitmm">@string/lengthunitmm</item>
@@ -69,7 +68,7 @@
     </string-array>
 
 
-    <string-array name="power">
+    <string-array name="power" translatable="false">
         <item name="powerunithorsepower">@string/powerunithorsepower</item>
         <item name="powerunitwatts">@string/powerunitwatts</item>
         <item name="powerunitkilowatts">@string/powerunitkilowatts</item>
@@ -78,20 +77,20 @@
     </string-array>
 
 
-    <string-array name="energy">
+    <string-array name="energy" translatable="false">
         <item name="energyunitcalories">@string/energyunitcalories</item>
         <item name="energyunitjoules">@string/energyunitjoules</item>
         <item name="energyunitkilocalories">@string/energyunitkilocalories</item>
     </string-array>
 
-    <string-array name="velocity">
+    <string-array name="velocity" translatable="false">
         <item name="velocityunitkmph">@string/velocityunitkmph</item>
         <item name="velocityunitmeterpers">@string/velocityunitmeterpers</item>
         <item name="velocityunitmilesperh">@string/velocityunitmilesperh</item>
         <item name="velocityunitfeetpers">@string/velocityunitfeetpers</item>
     </string-array>
 
-    <string-array name="area">
+    <string-array name="area" translatable="false">
         <item name="areaunitsqmm">@string/areaunitsqmm</item>
         <item name="areaunitsqm">@string/areaunitsqm</item>
         <item name="areaunitsqcm">@string/areaunitsqcm</item>
@@ -100,7 +99,7 @@
         <item name="areaunitsqyard">@string/areaunitsqyard</item>
     </string-array>
 
-    <string-array name="volume">
+    <string-array name="volume" translatable="false">
         <item name="volumeunitcubicmm">@string/volumeunitcubicmm</item>
         <item name="volumeunitcubiccm">@string/volumeunitcubiccm</item>
         <item name="volumeunitcubicm">@string/volumeunitcubicm</item>

@@ -254,8 +254,8 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     public void showDialogUpdate() {
         boolean b = mSetting.isUpdate(this);
         if (b || ConfigApp.DEBUG) {
-            showDialog(getString(R.string.what_new), getString(R.string.update_new));
-            mSetting.setUpdate(true);
+//            showDialog(getString(R.string.what_new), getString(R.string.update_new));
+//            mSetting.setUpdate(true);
         }
     }
 

@@ -71,8 +71,8 @@ public class SimpleFunction implements Function {
     */
    public SimpleFunction(Expression e, Variable v) {
       this(e, new Variable[] { v });
-   }      
-   
+   }
+
    /**
     * Create a function.  The arity of the function is
     * the length of the array v.  The value of the function
@@ -87,15 +87,15 @@ public class SimpleFunction implements Function {
       this.v = v;
       save = new double[v.length];
    }
-   
+
    /**
     * Return the number of arguments of this function.
     */
    public int getArity() {
        return v.length;
    }
-      
-   /** 
+
+   /**
     * Find the value of the function at the argument values
     * argument[0], argument[1]....  (If not enough arguments are supplied,
     * an ArrayIndexOutOfBoundsException will be thrown.  Extra
@@ -104,8 +104,8 @@ public class SimpleFunction implements Function {
    public double getVal( double[] arguments ) {
        return getValueWithCases(arguments,null);
    }
-   
-   /**    
+
+   /**
     * Find the value of the function at the argument values
     * argument[0], argument[1]....  Information about "cases" is stored in
     * the Cases parameter, if it is non-null.  See the Cases
@@ -131,8 +131,8 @@ public class SimpleFunction implements Function {
           throw new IllegalArgumentException("Internal Error.  Function does not have an argument number  " + wrt);
        return new SimpleFunction(e.derivative(v[wrt-1]),v);
    }
-      
-   /** 
+
+   /**
     * Return the derivative of the function with respect to the
     * variable x.  (Note that the derivative w.r.t one of the variables
     * that are being used as the parameter of this function is ZERO!)

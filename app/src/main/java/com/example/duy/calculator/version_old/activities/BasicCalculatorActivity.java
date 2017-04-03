@@ -164,7 +164,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
         setModeFraction();
         showHelp();
-        showDialogUpdate();
+//        showDialogUpdate();
     }
 
 
@@ -250,7 +250,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         /**
          * check for update
          */
-        checkUpdate();
+//        checkUpdate();
 
     }
 
