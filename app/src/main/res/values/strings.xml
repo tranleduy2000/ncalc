@@ -105,6 +105,8 @@
     <string name="solve">Solve</string>
     <string name="tangent">tangent</string>
     <string name="what_new">What new?</string>
+    <string name="translate">Translate</string>
+    <string name="license">License</string>
 
 
     <string name="help_main_calc" formatted="false"><![CDATA[

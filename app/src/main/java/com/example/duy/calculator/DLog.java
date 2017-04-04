@@ -26,6 +26,10 @@ public class DLog {
         Log.i(TAG, msg);
     }
 
+    public static void i(Object... array) {
+
+    }
+
     public static void w(String msg) {
         Log.w(TAG, msg);
     }

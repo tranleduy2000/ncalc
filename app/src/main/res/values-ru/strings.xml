@@ -528,7 +528,7 @@
 <font color="red">Log(x) is the natural logarithm</font>
         ]]></string>
     <string name="analytics">Аналитика</string>
-    <string name="algebra">Алгебра</string>
+    <string name="algebra">Алгебра</string>   <string name="translate">Перевод</string>
     <string name="language">Язык</string>
     <string name="default_">Система</string>
     <string name="summary_dev_mode">Режим разработчика (команда)</string>
@@ -686,5 +686,6 @@
     <string name="timeunithours">Часов (ч)</string>
     <string name="timeunitdays">Дней (д)</string>
     <string name="timeunitweeks">Недель</string>
-    <string name="timeunitmiliseconds">Миллисекунд (мс)</string>
+    <string name="timeunitmiliseconds">Миллисекунд (мс)</string>    <string name="license">Лицензия</string>
+
 </resources>

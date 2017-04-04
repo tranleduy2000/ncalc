@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.example.duy.calculator.ICalculator;
 import com.example.duy.calculator.math_eval.Tokenizer;
 import com.example.duy.calculator.utils.ConfigApp;
 

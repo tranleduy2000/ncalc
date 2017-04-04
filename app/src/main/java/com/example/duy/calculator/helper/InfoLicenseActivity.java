@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.duy.calculator.AbstractAppCompatActivity;
+import com.example.duy.calculator.version_old.activities.abstract_class.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
 
 /**

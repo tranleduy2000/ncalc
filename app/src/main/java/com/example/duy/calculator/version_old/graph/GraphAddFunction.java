@@ -26,7 +26,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.duy.calculator.AbstractAppCompatActivity;
+import com.example.duy.calculator.version_old.activities.abstract_class.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
 
 

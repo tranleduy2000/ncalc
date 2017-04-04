@@ -1,4 +1,4 @@
-package com.example.duy.calculator;
+package com.example.duy.calculator.version_old.activities.abstract_class;
 
 import android.animation.Animator;
 import android.content.ActivityNotFoundException;
@@ -20,6 +20,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.duy.calculator.BuildConfig;
+import com.example.duy.calculator.R;
 import com.example.duy.calculator.data.CalculatorSetting;
 import com.example.duy.calculator.data.Database;
 import com.example.duy.calculator.notify.CheckUpdateTask;
@@ -175,10 +177,8 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
         if (s.equals(getResources().getString(R.string.key_pref_theme))) {
             setTheme(true);
-            DLog.i("Main: set theme ");
         } else if (s.equals(getString(R.string.key_pref_lang))) {
             setLocale(true);
-            DLog.i("Main: set language ");
             Toast.makeText(this, getString(R.string.change_lang_msg), Toast.LENGTH_SHORT).show();
         } else if (s.equals(getString(R.string.key_pref_font))) {
 
@@ -194,8 +194,8 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
+        super.onStop();
         if (mPreferences != null)
             mPreferences.unregisterOnSharedPreferenceChangeListener(this);
     }

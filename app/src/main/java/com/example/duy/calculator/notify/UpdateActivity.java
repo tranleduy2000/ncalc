@@ -3,7 +3,7 @@ package com.example.duy.calculator.notify;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.duy.calculator.AbstractAppCompatActivity;
+import com.example.duy.calculator.version_old.activities.abstract_class.AbstractAppCompatActivity;
 
 public class UpdateActivity extends AbstractAppCompatActivity {
 

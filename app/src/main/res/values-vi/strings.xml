@@ -714,4 +714,7 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="velocityunitfeetpers">feet/s</string>
     <string name="velocityunitmeterpers">m/s</string>
     <string name="velocityunitmilesperh">miles/h</string>
+    <string name="translate">Dịch thuật</string>
+    <string name="license">Giấy phép nguồn mở</string>
+
 </resources>

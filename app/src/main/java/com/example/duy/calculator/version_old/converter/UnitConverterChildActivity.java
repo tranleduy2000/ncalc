@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.duy.calculator.AbstractAppCompatActivity;
+import com.example.duy.calculator.version_old.activities.abstract_class.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.version_old.converter.utils.AreaStrategy;
 import com.example.duy.calculator.version_old.converter.utils.BitrateStrategy;

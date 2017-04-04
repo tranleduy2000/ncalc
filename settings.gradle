@@ -1,1 +1,1 @@
-include ':app', ':jcm1'
+include ':app'

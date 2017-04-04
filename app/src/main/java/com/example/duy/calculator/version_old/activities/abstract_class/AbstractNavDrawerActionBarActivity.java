@@ -10,9 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.duy.calculator.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.SettingsActivity;
+import com.example.duy.calculator.version_old.settings.SettingsActivity;
 import com.example.duy.calculator.version_old.activities.BaseCalculatorActivity;
 import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
 import com.example.duy.calculator.version_old.activities.DerivativeActivity;

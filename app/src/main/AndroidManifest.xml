@@ -41,7 +41,7 @@
         </service>
 
         <activity
-            android:name=".ActivitySplashScreen"
+            android:name=".version_old.activities.ActivitySplashScreen"
             android:noHistory="true"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
@@ -68,7 +68,7 @@
             android:label="@string/title_activity_unit_converter_acitvity" />
         <activity android:name=".version_old.converter.UnitConverterChildActivity" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".version_old.settings.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
             android:name=".version_old.geom2d.GeometryDescartesActivity"

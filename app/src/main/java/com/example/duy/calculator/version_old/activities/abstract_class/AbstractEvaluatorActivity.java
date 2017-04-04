@@ -81,11 +81,10 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     protected TextInputLayout mHint2;
     protected RecyclerView rcResult;
     private ResultAdapter resultAdapter;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_solve_equation);
+        setContentView(R.layout.activity_evaluator);
         initView();
         createData();
     }

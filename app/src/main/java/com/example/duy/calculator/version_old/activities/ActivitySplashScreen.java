@@ -1,11 +1,11 @@
-package com.example.duy.calculator;
+package com.example.duy.calculator.version_old.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
+import com.example.duy.calculator.R;
 
 
 public class ActivitySplashScreen extends AppCompatActivity {

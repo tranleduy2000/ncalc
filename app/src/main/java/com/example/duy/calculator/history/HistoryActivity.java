@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.duy.calculator.AbstractAppCompatActivity;
+import com.example.duy.calculator.version_old.activities.abstract_class.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.math_eval.Tokenizer;
 import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
