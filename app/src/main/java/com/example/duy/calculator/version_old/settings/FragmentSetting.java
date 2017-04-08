@@ -18,7 +18,7 @@ public class FragmentSetting extends PreferenceFragment {
         // updated to reflect the new value, per the Android Design
         // guidelines.
         bindPreferenceSummaryToValue(findPreference(getString(R.string.key_pref_precision)));
-        bindPreferenceSummaryToValue(findPreference(getString(R.string.key_pref_latex_mode)));
+//        bindPreferenceSummaryToValue(findPreference(getString(R.string.key_pref_latex_mode)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.key_pref_font)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.key_pref_lang)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.key_pref_theme)));

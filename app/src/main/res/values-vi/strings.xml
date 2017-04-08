@@ -716,5 +716,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="velocityunitmilesperh">miles/h</string>
     <string name="translate">Dịch thuật</string>
     <string name="license">Giấy phép nguồn mở</string>
+    <string name="hide_status_bar">Ẩn thanh trạng thái</string>
 
 </resources>

@@ -15,6 +15,7 @@
     <application
         android:name=".CalcApplication"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme.Light.NoActionBar">
@@ -54,6 +55,7 @@
         </activity>
         <activity
             android:name=".version_old.activities.BasicCalculatorActivity"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.Light.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
@@ -65,78 +67,121 @@
         <activity
             android:name=".version_old.converter.UnitConverterParentAcitvity"
             android:configChanges="keyboardHidden|screenSize"
-            android:label="@string/title_activity_unit_converter_acitvity" />
+            android:label="@string/title_activity_unit_converter_acitvity"
+
+            android:launchMode="singleTask" />
         <activity android:name=".version_old.converter.UnitConverterChildActivity" />
         <activity
             android:name=".version_old.settings.SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.geom2d.GeometryDescartesActivity"
             android:configChanges="keyboardHidden|screenSize"
-            android:label="@string/title_activity_geometry" />
+
+            android:label="@string/title_activity_geometry"
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.BaseCalculatorActivity"
-            android:configChanges="keyboardHidden|screenSize" />
-        <activity
-            android:name=".helper.AppAboutActivity"
-            android:label="@string/title_activity_app_about" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
+
         <activity
             android:name=".version_old.activities.MatrixCalculatorActivity"
             android:configChanges="keyboardHidden|screenSize"
-            android:label="@string/title_activity_matrix_calculator" />
+
+            android:label="@string/title_activity_matrix_calculator"
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.SolveEquationActivity"
-            android:configChanges="keyboardHidden|screenSize" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.SimplifyEquationActivity"
-            android:configChanges="keyboardHidden|screenSize" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.FactorExpressionActivity"
-            android:configChanges="keyboardHidden|screenSize" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.DerivativeActivity"
-            android:configChanges="keyboardHidden|screenSize" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.StatisticActivity"
-            android:configChanges="keyboardHidden|screenSize" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.ExpandAllExpressionActivity"
-            android:configChanges="keyboardHidden|screenSize" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".view.MathViewActivity"
-            android:configChanges="keyboardHidden|screenSize" />
+            android:configChanges="keyboardHidden|screenSize"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.graph.GraphActivity"
             android:label="@string/title_activity_graph" />
         <activity
             android:name=".version_old.graph.GraphAddFunction"
-            android:label="@string/add_function" />
+            android:label="@string/add_function"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".helper.HelperActivity"
-            android:label="@string/help" />
+            android:label="@string/help"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".history.HistoryActivity"
-            android:label="@string/history" />
+            android:label="@string/history"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.system_equation.SystemEquationActivity"
-            android:label="@string/solve_system_equation" />
+            android:label="@string/solve_system_equation"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".define.DefineVariableActivity"
-            android:label="@string/define_var" />
+            android:label="@string/define_var"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.LimitActivity"
-            android:label="@string/limit" />
+            android:label="@string/limit"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.IntegrateActivity"
-            android:label="@string/integrate" />
+            android:label="@string/integrate"
+
+            android:launchMode="singleTask" />
         <activity
             android:name=".version_old.activities.PrimitiveActivity"
-            android:label="@string/primitive" />
-        <activity android:name=".helper.LicenseActivity" />
-        <activity android:name=".helper.InfoLicenseActivity" />
-        <activity android:name=".version_old.number_theory.FactorPrimeActivity" />
-        <activity android:name=".version_old.number_theory.PermutationActivity" />
-        <activity android:name=".version_old.number_theory.ModuleActivity" />
+            android:label="@string/primitive"
+
+            android:launchMode="singleTask" />
+        <activity android:name=".helper.InfoActivity" />
+        <activity
+            android:name=".version_old.number_theory.FactorPrimeActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".version_old.number_theory.PermutationActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".version_old.number_theory.ModuleActivity"
+            android:launchMode="singleTask" />
         <activity
             android:name=".dev.CommandActivity"
             android:theme="@style/Theme.AppCompat" />
@@ -148,8 +193,12 @@
             android:noHistory="true"
             android:theme="@style/AppTheme.Splash" />
 
-        <activity android:name=".version_old.trigonometry.TrigActivity" />
-        <activity android:name=".version_old.number_theory.NumberActivity" />
+        <activity
+            android:name=".version_old.trigonometry.TrigActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".version_old.number_theory.NumberActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

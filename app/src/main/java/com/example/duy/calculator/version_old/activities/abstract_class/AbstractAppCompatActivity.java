@@ -9,12 +9,14 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -82,18 +84,47 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-        setLocale(false);
-
-        //set theme for app
-        setTheme(false);
-
         mHistoryDatabase = new Database(this);
         mSetting = new CalculatorSetting(this);
+
+        setLocale(false);
+        setTheme(false);  //set theme for app
+        setFullScreen();
+
+
+    }
+
+    private void setFullScreen() {
+        if (mSetting.useFullScreen()) {
+            hideStatusBar();
+        } else {
+            showStatusBar();
+        }
+    }
+
+    public void showStatusBar() {
+        if (Build.VERSION.SDK_INT < 30) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        } else {
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_VISIBLE;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
+    }
+
+    public void hideStatusBar() {
+        // TODO: 30-Mar-17
+        if (android.os.Build.VERSION.SDK_INT < 30) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+        } else {
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
     }
 
     /**
@@ -105,7 +136,6 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
         Locale locale;
         String code = mPreferences.getString(getString(R.string.key_pref_lang), "default_lang");
         if (code.equals("default_lang")) {
-            Log.d(TAG, "setLocale: default");
             locale = Locale.getDefault();
         } else {
             locale = new Locale(code);
@@ -181,7 +211,6 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
             setLocale(true);
             Toast.makeText(this, getString(R.string.change_lang_msg), Toast.LENGTH_SHORT).show();
         } else if (s.equals(getString(R.string.key_pref_font))) {
-
             //reload type face
             FontManager.loadTypefaceFromAsset(this);
             recreate();
@@ -191,14 +220,10 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
         if (mPreferences != null)
             mPreferences.unregisterOnSharedPreferenceChangeListener(this);
     }
+
 
     /**
      * show dialog choose email client

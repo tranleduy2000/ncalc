@@ -52,5 +52,6 @@
         <item>@string/katex</item>
     </string-array>
     <string name="key_pref_update" translatable="false">NOTIFY_UPDATE</string>
+    <string name="key_hide_status_bar" translatable="false">key_hide_status_bar</string>
 
 </resources>

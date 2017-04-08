@@ -18,7 +18,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-
 public class InfoActivity extends AppCompatActivity {
     private static final String TAG = InfoActivity.class.getClass().getSimpleName();
     @BindView(com.example.duy.calculator.R.id.list_translate)
@@ -67,7 +66,14 @@ public class InfoActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             dataTranslate = InfoAppUtil.readListTranslate(getResources().openRawResource(R.raw.help_translate));
-            dataLicense = InfoAppUtil.readListLicense(getResources().openRawResource(R.raw.license));
+//            dataLicense = InfoAppUtil.readListLicense(getResources().openRawResource(R.raw.license));
+
+            final String[] name = getResources().getStringArray(R.array.libs);
+            final String[] license = getResources().getStringArray(R.array.lics);
+            dataLicense = new ArrayList<>();
+            for (int i = 0; i < name.length; i++) {
+                dataLicense.add(new ItemInfo(name[i], license[i], ""));
+            }
             return null;
         }
 

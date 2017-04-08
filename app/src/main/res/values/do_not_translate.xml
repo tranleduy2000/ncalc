@@ -163,5 +163,5 @@
     <string name="power_three" translatable="false">^3</string>
     <string name="ten_power" translatable="false">10^x</string>
     <string name="d_dx" translatable="false">d/dx</string>
-
+    <string name="copy_right" translatable="false">Copyright (C) 2015-2017 by Le Duy Tran.\n All right reserve.</string>
 </resources>

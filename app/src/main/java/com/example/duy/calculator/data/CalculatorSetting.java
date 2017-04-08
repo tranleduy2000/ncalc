@@ -122,15 +122,27 @@ public class CalculatorSetting {
      * @return -1 if not found
      */
     public long getLong(String key) {
-        return sharedPreferences.getLong(key, -1);
+        try {
+            return sharedPreferences.getLong(key, -1);
+        } catch (Exception e) {
+            return -1;
+        }
     }
 
     public String getString(String key) {
-        return sharedPreferences.getString(key, "");
+        try {
+            return sharedPreferences.getString(key, "");
+        } catch (Exception e) {
+            return "";
+        }
     }
 
     public boolean getBoolean(String key) {
-        return sharedPreferences.getBoolean(key, false);
+        try {
+            return sharedPreferences.getBoolean(key, false);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public boolean isNewUpdate() {
@@ -143,5 +155,9 @@ public class CalculatorSetting {
 
     public void setNotifyUpdate(boolean b) {
         editor.putBoolean(NOTIFY_UPDATE, b).apply();
+    }
+
+    public boolean useFullScreen() {
+        return getBoolean(context.getString(R.string.key_hide_status_bar));
     }
 }

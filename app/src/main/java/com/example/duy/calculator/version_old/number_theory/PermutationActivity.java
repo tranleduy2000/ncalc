@@ -17,8 +17,8 @@ import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.Constants;
 import com.example.duy.calculator.math_eval.LogicEvaluator;
 import com.example.duy.calculator.utils.ConfigApp;
-import com.example.duy.calculator.version_old.activities.abstract_class.AbstractEvaluatorActivity;
 import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
+import com.example.duy.calculator.version_old.activities.abstract_class.AbstractEvaluatorActivity;
 
 /**
  * Created by DUy on 06-Jan-17.
@@ -31,6 +31,8 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     private static final String STARTED = FactorPrimeActivity.class.getName() + "started";
     private boolean isDataNull = true;
     private int type;
+    private BigEvaluator evaluator;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             finish();
             return;
         }
+        evaluator = BigEvaluator.getInstance(this);
         btnSolve.setText(R.string.eval);
 
         mHint2.setVisibility(View.VISIBLE);
@@ -142,16 +145,16 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
                     mInputDisplay2.getCleanText());
 
             //check input error
-            if (item.isError(BigEvaluator.getInstance(getApplicationContext()))) {
-                Toast.makeText(this, item.getError(BigEvaluator.getInstance(getApplicationContext()), getApplicationContext()), Toast.LENGTH_SHORT).show();
+            if (item.isError(evaluator)) {
+                Toast.makeText(this, item.getError(evaluator, getApplicationContext()), Toast.LENGTH_SHORT).show();
                 return; // return if input error
             }
             new TaskPermutation().execute(item); //execute task to evaluate
         } else {
             CombinationItem item = new CombinationItem(mInputDisplay.getCleanText(),
                     mInputDisplay2.getCleanText());
-            if (item.isError(BigEvaluator.getInstance(getApplicationContext()))) {
-                Toast.makeText(this, item.getError(BigEvaluator.getInstance(getApplicationContext()), getApplicationContext()), Toast.LENGTH_SHORT).show();
+            if (item.isError(evaluator)) {
+                Toast.makeText(this, item.getError(evaluator, getApplicationContext()), Toast.LENGTH_SHORT).show();
                 return;
             }
             new TaskPermutation().execute(item);
@@ -159,19 +162,19 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     }
 
 
-    protected class TaskPermutation extends ATaskEval {
+    private class TaskPermutation extends ATaskEval {
 
         @Override
         protected ItemResult doInBackground(IExprInput... params) {
             PermutationItem item = (PermutationItem) params[0];
             //check error
-            if (BigEvaluator.getInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), BigEvaluator.getInstance(getApplicationContext()).getError(item.getInput()),
+            if (evaluator.isSyntaxError(item.getInput())) {
+                return new ItemResult(item.getInput(), evaluator.getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            evaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluate(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);

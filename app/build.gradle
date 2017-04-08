@@ -12,8 +12,8 @@ android {
         applicationId "com.duy.calculator.free"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 59
-        versionName "Lite 3.7.9"
+        versionCode 60
+        versionName "Lite 3.8.0"
         multiDexEnabled true
     }
 

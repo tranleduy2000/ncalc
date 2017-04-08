@@ -1,11 +1,9 @@
 package com.example.duy.calculator.version_old.activities.abstract_class;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.example.duy.calculator.math_eval.Tokenizer;
-import com.example.duy.calculator.utils.ConfigApp;
 
 /**
  * abstract app
@@ -13,7 +11,7 @@ import com.example.duy.calculator.utils.ConfigApp;
  * Created by Duy on 19/7/2016
  */
 public abstract class AbstractCalculatorActivity extends AbstractNavDrawerActionBarActivity implements
-        SharedPreferences.OnSharedPreferenceChangeListener, ICalculator {
+       ICalculator {
     public Tokenizer mTokenizer;
 
     @Override
@@ -22,7 +20,6 @@ public abstract class AbstractCalculatorActivity extends AbstractNavDrawerAction
         mTokenizer = new Tokenizer(this);
     }
 
-    private boolean debug = ConfigApp.DEBUG;
 
     /**
      * insert text to display - not clear screen

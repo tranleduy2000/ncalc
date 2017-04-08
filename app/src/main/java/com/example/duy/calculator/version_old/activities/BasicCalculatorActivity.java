@@ -254,17 +254,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mPreferences.registerOnSharedPreferenceChangeListener(this);
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mPreferences.unregisterOnSharedPreferenceChangeListener(this);
-    }
+
+
 
     private void showHelp() {
         if (mPreferences.getBoolean(BasicCalculatorActivity.class.getSimpleName(), false)) {

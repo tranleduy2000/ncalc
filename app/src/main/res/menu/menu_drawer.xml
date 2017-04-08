@@ -123,11 +123,11 @@
                 android:title="@string/module" />
             <item
                 android:id="@+id/nav_catalan"
-                android:icon="@drawable/ic_mod_black"
+                android:icon="@drawable/ic_prime_black"
                 android:title="@string/catalan_number" />
             <item
                 android:id="@+id/nav_prime"
-                android:icon="@drawable/ic_mod_black"
+                android:icon="@drawable/ic_prime_black"
                 android:title="@string/prime" />
             <!--<item-->
                 <!--android:id="@+id/nav_gcd"-->
@@ -142,7 +142,7 @@
                 <!--android:title="@string/lcm" />-->
             <item
                 android:id="@+id/nav_fibo"
-                android:icon="@drawable/ic_mod_black"
+                android:icon="@drawable/ic_prime_black"
                 android:title="@string/fibonacci" />
         </menu>
     </item>

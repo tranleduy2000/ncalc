@@ -688,4 +688,7 @@
     <string name="timeunitdays">Day (d)</string>
     <string name="timeunitweeks">Weeks</string>
     <string name="timeunitmiliseconds">Miliseconds (ms)</string>
+
+    <string name="hide_status_bar">Hide status bar</string>
+
 </resources>

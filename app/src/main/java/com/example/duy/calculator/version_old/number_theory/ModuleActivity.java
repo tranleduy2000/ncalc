@@ -13,8 +13,8 @@ import com.example.duy.calculator.item_math_type.ModuleItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.LogicEvaluator;
 import com.example.duy.calculator.utils.ConfigApp;
-import com.example.duy.calculator.version_old.activities.abstract_class.AbstractEvaluatorActivity;
 import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
+import com.example.duy.calculator.version_old.activities.abstract_class.AbstractEvaluatorActivity;
 
 /**
  * Created by DUy on 06-Jan-17.
@@ -126,17 +126,26 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
 
     protected class TaskModule extends ATaskEval {
 
+        BigEvaluator bigEvaluator;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            bigEvaluator = BigEvaluator.getInstance(getApplicationContext()).getEvaluator();
+            bigEvaluator.setFraction(true);
+        }
+
         @Override
         protected ItemResult doInBackground(IExprInput... params) {
             ModuleItem item = (ModuleItem) params[0];
             //check error
-            if (BigEvaluator.getInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
+            if (bigEvaluator.isSyntaxError(item.getInput())) {
                 return new ItemResult(item.getInput(), BigEvaluator.getInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            bigEvaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluate(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
