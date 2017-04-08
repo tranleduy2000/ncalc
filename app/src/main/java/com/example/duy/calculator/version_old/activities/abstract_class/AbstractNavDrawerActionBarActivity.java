@@ -1,7 +1,9 @@
 package com.example.duy.calculator.version_old.activities.abstract_class;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -46,7 +48,8 @@ import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.REDUC
 /**
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
+    protected DrawerLayout mDrawerLayout;
     private boolean debug = ConfigApp.DEBUG;
     private Handler handler = new Handler();
 
@@ -55,10 +58,9 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
      */
     @Override
     public void onBackPressed() {
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawerLayout != null) {
-            if (drawerLayout.isDrawerOpen(GravityCompat.START))
-                drawerLayout.closeDrawer(GravityCompat.START);
+        if (mDrawerLayout != null) {
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.START))
+                mDrawerLayout.closeDrawer(GravityCompat.START);
             else super.onBackPressed();
         } else
             super.onBackPressed();
@@ -69,8 +71,13 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
      * and close when user click item navigation
      */
     public void closeDrawer() {
-        final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerLayout.closeDrawers();
+        mDrawerLayout.closeDrawers();
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -82,10 +89,12 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.setDrawerListener(toggle);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
+
+        mDrawerLayout.addDrawerListener(this);
 
         setupHeaderNavigation(navigationView);
     }
@@ -108,13 +117,15 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
         });
         header.findViewById(R.id.img_share).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {     closeDrawer();
+            public void onClick(View v) {
+                closeDrawer();
                 shareApp();
             }
         });
         header.findViewById(R.id.img_rate).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {     closeDrawer();
+            public void onClick(View v) {
+                closeDrawer();
                 rateApp();
             }
         });
@@ -259,5 +270,25 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         }
+    }
+
+    @Override
+    public void onDrawerSlide(View drawerView, float slideOffset) {
+
+    }
+
+    @Override
+    public void onDrawerOpened(View drawerView) {
+        hideKeyboard(null);
+    }
+
+    @Override
+    public void onDrawerClosed(View drawerView) {
+
+    }
+
+    @Override
+    public void onDrawerStateChanged(int newState) {
+
     }
 }

@@ -254,10 +254,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     }
 
-
-
-
-
     private void showHelp() {
         if (mPreferences.getBoolean(BasicCalculatorActivity.class.getSimpleName(), false)) {
             return;

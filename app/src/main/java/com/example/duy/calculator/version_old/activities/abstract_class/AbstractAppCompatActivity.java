@@ -92,7 +92,6 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
         setTheme(false);  //set theme for app
         setFullScreen();
 
-
     }
 
     private void setFullScreen() {
@@ -205,25 +204,27 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-        if (s.equals(getResources().getString(R.string.key_pref_theme))) {
+        Log.d(TAG, "onSharedPreferenceChanged: " + s);
+        if (s.equalsIgnoreCase(getResources().getString(R.string.key_pref_theme))) {
             setTheme(true);
-        } else if (s.equals(getString(R.string.key_pref_lang))) {
+        } else if (s.equalsIgnoreCase(getString(R.string.key_pref_lang))) {
             setLocale(true);
             Toast.makeText(this, getString(R.string.change_lang_msg), Toast.LENGTH_SHORT).show();
-        } else if (s.equals(getString(R.string.key_pref_font))) {
+        } else if (s.equalsIgnoreCase(getString(R.string.key_pref_font))) {
             //reload type face
             FontManager.loadTypefaceFromAsset(this);
             recreate();
+        } else if (s.equalsIgnoreCase(getString(R.string.key_hide_status_bar))) {
+            setFullScreen();
         }
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onStop() {
+        super.onStop();
         if (mPreferences != null)
             mPreferences.unregisterOnSharedPreferenceChangeListener(this);
     }
-
 
     /**
      * show dialog choose email client
@@ -299,10 +300,18 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     }
 
     protected void hideKeyboard(EditText editText) {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+        if (editText != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+        } else {
+            // Check if no view has focus:
+            View view = this.getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        }
     }
-
 
     public void checkUpdate() {
         boolean update;
