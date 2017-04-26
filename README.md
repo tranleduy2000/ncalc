@@ -1,11 +1,8 @@
 **Máy tính trên Android.**
 
-[https://play.google.com/store/apps/details?id=com.duy.calculator.free](Link URL)
-
-Các chức năng máy tính cung cấp:
+[<img src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png">](https://play.google.com/store/apps/details?id=com.duy.calculator.free)
 
 **ĐẠI SỐ**
-
 1. Máy tính khoa học: có đầy đủ các tính năng cơ bản của một máy tính khoa học
 2. Giải phương trình: tìm tất cả các nghiệm của phương trình, giải phương trình cùng tham số.
 3. Giải hệ phương trình n ẩn
