@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.duy.calculator.version_old.activities.abstract_class;
 
 import android.animation.Animator;
@@ -6,6 +22,7 @@ import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.inputmethodservice.Keyboard;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,11 +41,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.duy.keyboard.FloatingKeyboardView;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.adapters.ResultAdapter;
 import com.example.duy.calculator.history.HistoryEntry;
@@ -71,7 +88,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     protected Handler handler = new Handler();
     protected Button btnSolve;
-    protected ResizingEditText mInputDisplay;
+    protected ResizingEditText mInputFormula;
     protected ViewGroup mDisplayForeground;
     protected ContentLoadingProgressBar mProgress;
     protected AppCompatSpinner mSpinner;
@@ -92,7 +109,15 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     private void initView() {
         btnSolve = (Button) findViewById(R.id.btn_solve);
-        mInputDisplay = (ResizingEditText) findViewById(R.id.edit_input);
+        mInputFormula = (ResizingEditText) findViewById(R.id.edit_input);
+
+        FloatingKeyboardView mCustomKeyboard = (FloatingKeyboardView) findViewById(R.id.keyboard_view);
+        mCustomKeyboard.setKeyboard(new Keyboard(this, R.xml.symbols));
+        mCustomKeyboard.setPreviewEnabled(false); // NOTE Do not show the preview balloons
+        mCustomKeyboard.registerEditText(mInputFormula);
+        mCustomKeyboard.setAllignBottomCenter(true);
+
+
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
         mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar);
         mSpinner = (AppCompatSpinner) findViewById(R.id.spinner);
@@ -112,7 +137,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         editTo = (EditText) findViewById(R.id.edit_upper);
         mLayoutLimit = (LinearLayout) findViewById(R.id.layout_limit);
         mLayoutLimit.setVisibility(View.GONE);
-        mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
+        mInputFormula.setOnKeyListener(mFormulaOnKeyListener);
 
         rcResult = (RecyclerView) findViewById(R.id.rc_result);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -220,14 +245,14 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 //        /** if (b) onAnimate();*/
 //        //check input empty
 //        if (command.isEmpty()) {
-//            mInputDisplay.setError(getString(R.string.not_input));
-//            mInputDisplay.requestFocus();
+//            mInputFormula.setError(getString(R.string.not_input));
+//            mInputFormula.requestFocus();
 //            return;
 //        }
 //
 //        //translate to en
 //        final String finalCommand = mTokenizer.getNormalExpression(command);
-//        hideKeyboard(mInputDisplay);
+//        hideKeyboard(mInputFormula);
 //        final Thread thread = new Thread(new Runnable() {
 //            @Override
 //            public void run() {
@@ -321,7 +346,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
      */
     public void onClear() {
         /*onAnimate();*/
-        mInputDisplay.setText("");
+        mInputFormula.setText("");
 //        mMathView.setText(getString(getIdStringHelp()));
 
         if (editFrom.isShown() && editFrom.isEnabled()) editFrom.setText("");
@@ -356,7 +381,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
      * @param text
      */
     public void insertTextDisplay(String text) {
-        mInputDisplay.insert(text);
+        mInputFormula.insert(text);
     }
 
     /**
@@ -394,7 +419,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 //            mMathView.setText("");
             btnSolve.setEnabled(false);
             btnClear.setEnabled(false);
-            hideKeyboard(mInputDisplay);
+            hideKeyboard(mInputFormula);
             hideKeyboard(editFrom);
             hideKeyboard(editTo);
             resultAdapter.clear();

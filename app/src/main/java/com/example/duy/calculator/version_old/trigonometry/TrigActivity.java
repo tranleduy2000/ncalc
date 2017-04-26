@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.duy.calculator.version_old.trigonometry;
 
 import android.content.Intent;
@@ -55,7 +71,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
                 setTitle(R.string.tit_trig_expand);
                 started = mPreferences.getBoolean(TAG + "expand", false);
                 if (!started || ConfigApp.DEBUG) {
-                    mInputDisplay.setText(SampleData.TRIG_EXPAND_DATA[0]);
+                    mInputFormula.setText(SampleData.TRIG_EXPAND_DATA[0]);
                     mPreferences.edit().putBoolean(TAG + "expand", true).apply();
                 }
                 break;
@@ -63,7 +79,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
                 setTitle(R.string.tit_trig_reduce);
                 started = mPreferences.getBoolean(TAG + "reduce", false);
                 if (!started || ConfigApp.DEBUG) {
-                    mInputDisplay.setText(SampleData.TRIG_REDUCE_DATA[0]);
+                    mInputFormula.setText(SampleData.TRIG_REDUCE_DATA[0]);
                     mPreferences.edit().putBoolean(TAG + "reduce", true).apply();
                 }
                 break;
@@ -71,7 +87,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
                 setTitle(R.string.tit_trig_to_exp);
                 started = mPreferences.getBoolean(TAG + "exponent", false);
                 if (!started || ConfigApp.DEBUG) {
-                    mInputDisplay.setText(SampleData.TRIG_EXPONENT_DATA[0]);
+                    mInputFormula.setText(SampleData.TRIG_EXPONENT_DATA[0]);
                     mPreferences.edit().putBoolean(TAG + "exponent", true).apply();
                 }
                 break;
@@ -81,15 +97,15 @@ public class TrigActivity extends AbstractEvaluatorActivity {
 
     @Override
     public void doEval() {
-        if (mInputDisplay.getText().toString().isEmpty()) {
+        if (mInputFormula.getText().toString().isEmpty()) {
 //            Drawable drawable = getApplicationContext().getResources().getDrawable(
 //                    R.drawable.ic_mode_edit_white_24dp);
-//            mInputDisplay.setError(getString(R.string.enter_expression), drawable);
-            mInputDisplay.setError(getString(R.string.enter_expression));
+//            mInputFormula.setError(getString(R.string.enter_expression), drawable);
+            mInputFormula.setError(getString(R.string.enter_expression));
             return;
         }
         Log.d(TAG, "doEval: ");
-        TrigItem item = new TrigItem(mInputDisplay.getCleanText());
+        TrigItem item = new TrigItem(mInputFormula.getCleanText());
         switch (mType) {
             case EXPAND:
                 item.setType(EXPAND);

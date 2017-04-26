@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.duy.calculator.version_old.activities;
 
 import android.content.Intent;
@@ -47,7 +63,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) {
-                mInputDisplay.setText("1/x + 2");
+                mInputFormula.setText("1/x + 2");
                 editTo.setText("inf");
             }
             showHelp();
@@ -64,7 +80,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
         if (bundle != null) {
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
-                mInputDisplay.setText(data);
+                mInputFormula.setText(data);
                 data = new Tokenizer(this).getNormalExpression(data);
                 data = getExpression(data);
                 isDataNull = false;
@@ -91,7 +107,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
     @Override
     public void showHelp() {
         final SharedPreferences.Editor editor = mPreferences.edit();
-        TapTarget target0 = TapTarget.forView(mInputDisplay,
+        TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.enter_function));
         target0.drawShadow(true)
                 .cancelable(true)
@@ -140,12 +156,12 @@ public class LimitActivity extends AbstractEvaluatorActivity {
 
     @Override
     public void doEval() {
-        String inp = mInputDisplay.getCleanText();
+        String inp = mInputFormula.getCleanText();
 
         if (inp.isEmpty()) {
 //            showDialog(getString(R.string.input_expression));
-            mInputDisplay.requestFocus();
-            mInputDisplay.setError(getString(R.string.enter_function));
+            mInputFormula.requestFocus();
+            mInputFormula.setError(getString(R.string.enter_function));
             return;
         }
 
@@ -156,7 +172,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
             editTo.setError(getString(R.string.error));
             return;
         }
-        LimitItem item = new LimitItem(mInputDisplay.getCleanText(),
+        LimitItem item = new LimitItem(mInputFormula.getCleanText(),
                 "", editTo.getText().toString());
         new ATaskEval().execute(item);
     }

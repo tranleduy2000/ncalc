@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.duy.calculator.version_old.activities;
 
 import android.content.Intent;
@@ -45,7 +61,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = preferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
-            if (isDataNull) mInputDisplay.setText("x^4 - 1");
+            if (isDataNull) mInputFormula.setText("x^4 - 1");
             showHelp();
         }
     }
@@ -55,7 +71,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         final SharedPreferences.Editor editor = preferences.edit();
         //if is not start
 
-        TapTarget target0 = TapTarget.forView(mInputDisplay,
+        TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.enter_expression),
                 getString(R.string.input_analyze_here))
                 .drawShadow(true)
@@ -102,7 +118,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         if (bundle != null) {
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
-                mInputDisplay.setText(data);
+                mInputFormula.setText(data);
                 data = new Tokenizer(this).getNormalExpression(data);
                 isDataNull = false;
                 new FactorExpressionTask().execute(new FactorExpressionItem((data)));
@@ -116,15 +132,15 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
      */
     @Override
     public void doEval() {
-        String inp = mInputDisplay.getCleanText();
+        String inp = mInputFormula.getCleanText();
         if (inp.isEmpty()) {
 //            showDialog(getString(R.string.input_expression));
-            mInputDisplay.requestFocus();
-            mInputDisplay.setError(getString(R.string.enter_expression));
+            mInputFormula.requestFocus();
+            mInputFormula.setError(getString(R.string.enter_expression));
             return;
         }
 
-        new FactorExpressionTask().execute(new FactorExpressionItem(mInputDisplay.getCleanText()));
+        new FactorExpressionTask().execute(new FactorExpressionItem(mInputFormula.getCleanText()));
 
     }
 

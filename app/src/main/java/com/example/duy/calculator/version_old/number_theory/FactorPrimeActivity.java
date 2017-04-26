@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.duy.calculator.version_old.number_theory;
 
 import android.content.Intent;
@@ -34,7 +50,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
 
         btnSolve.setText(R.string.factor);
         mHint1.setHint(getString(R.string.input_number));
-        mInputDisplay.setInputType(InputType.TYPE_CLASS_NUMBER |
+        mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
 
         getIntentData();
@@ -42,7 +58,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) {
-                mInputDisplay.setText("102013124");
+                mInputFormula.setText("102013124");
             }
             showHelp();
         }
@@ -52,7 +68,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
 
     private void setAutoEval() {
         //auto eval
-      /*  mInputDisplay.addTextChangedListener(new TextWatcher() {
+      /*  mInputFormula.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -68,7 +84,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
                 if (editable.toString().length() <= 10
                         && editable.toString().length() >= 1) {
                     BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex("FactorInteger(" +
-                            mInputDisplay.getCleanText() + ")", new LogicEvaluator.EvaluateCallback() {
+                            mInputFormula.getCleanText() + ")", new LogicEvaluator.EvaluateCallback() {
                         @Override
                         public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
                             if (errorResourceId == LogicEvaluator.RESULT_OK) {
@@ -91,7 +107,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
     @Override
     public void showHelp() {
         final SharedPreferences.Editor editor = mPreferences.edit();
-        TapTarget target0 = TapTarget.forView(mInputDisplay,
+        TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.enter_number),
                 getString(R.string.input_integrate_here));
         target0.drawShadow(true)
@@ -153,7 +169,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         if (bundle != null) {
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
-                mInputDisplay.setText(data);
+                mInputFormula.setText(data);
                 isDataNull = false;
                 doEval();
             }
@@ -163,15 +179,15 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
 
     @Override
     public void doEval() {
-        String inp = mInputDisplay.getCleanText();
+        String inp = mInputFormula.getCleanText();
 
         //check empty input
         if (inp.isEmpty()) {
-            mInputDisplay.requestFocus();
-            mInputDisplay.setError(getString(R.string.enter_expression));
+            mInputFormula.requestFocus();
+            mInputFormula.setError(getString(R.string.enter_expression));
             return;
         }
-        new FactorTask().execute(new NumberIntegerItem(mInputDisplay.getCleanText()));
+        new FactorTask().execute(new NumberIntegerItem(mInputFormula.getCleanText()));
     }
 
     protected class FactorTask extends ATaskEval {

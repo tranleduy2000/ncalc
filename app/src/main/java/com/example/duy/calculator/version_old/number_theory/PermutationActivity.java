@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.duy.calculator.version_old.number_theory;
 
 import android.content.Intent;
@@ -63,7 +79,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         mHint1.setHint(Constants.C + " = ");
         mHint2.setHint(Constants.K + " = ");
 
-        mInputDisplay.setInputType(InputType.TYPE_CLASS_NUMBER |
+        mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
         mInputDisplay2.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
@@ -73,7 +89,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) {
-                mInputDisplay.setText("100");
+                mInputFormula.setText("100");
                 mInputDisplay2.setText("20");
             }
             showHelp();
@@ -87,7 +103,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         if (bundle != null) {
             try {
                 String num1 = bundle.getString("num1");
-                mInputDisplay.setText(num1);
+                mInputFormula.setText(num1);
 
                 String num2 = bundle.getString("num2");
                 if (num2 == null) return;
@@ -126,11 +142,11 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     @Override
     public void doEval() {
 
-        String inp = mInputDisplay.getCleanText();
+        String inp = mInputFormula.getCleanText();
         //check empty input
         if (inp.isEmpty()) {
-            mInputDisplay.requestFocus();
-            mInputDisplay.setError(getString(R.string.enter_number));
+            mInputFormula.requestFocus();
+            mInputFormula.setError(getString(R.string.enter_number));
             return;
         }
 
@@ -141,7 +157,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         }
 
         if (type == TYPE_PERMUTATION) {
-            PermutationItem item = new PermutationItem(mInputDisplay.getCleanText(),
+            PermutationItem item = new PermutationItem(mInputFormula.getCleanText(),
                     mInputDisplay2.getCleanText());
 
             //check input error
@@ -151,7 +167,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             }
             new TaskPermutation().execute(item); //execute task to evaluate
         } else {
-            CombinationItem item = new CombinationItem(mInputDisplay.getCleanText(),
+            CombinationItem item = new CombinationItem(mInputFormula.getCleanText(),
                     mInputDisplay2.getCleanText());
             if (item.isError(evaluator)) {
                 Toast.makeText(this, item.getError(evaluator, getApplicationContext()), Toast.LENGTH_SHORT).show();

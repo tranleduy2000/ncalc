@@ -1,3 +1,19 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.duy.calculator.version_old.number_theory;
 
 import android.content.Intent;
@@ -37,7 +53,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         mHint2.setHint("B = ");
         btnSolve.setText("A mod B");
 
-        mInputDisplay.setInputType(InputType.TYPE_CLASS_NUMBER |
+        mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
         mInputDisplay2.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
@@ -47,7 +63,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) {
-                mInputDisplay.setText("100");
+                mInputFormula.setText("100");
                 mInputDisplay2.setText("20");
             }
             showHelp();
@@ -61,7 +77,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         if (bundle != null) {
             try {
                 String num1 = bundle.getString("num1");
-                mInputDisplay.setText(num1);
+                mInputFormula.setText(num1);
 
                 String num2 = bundle.getString("num2");
                 if (num2 == null) return;
@@ -101,11 +117,11 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
     @Override
     public void doEval() {
 
-        String inp = mInputDisplay.getCleanText();
+        String inp = mInputFormula.getCleanText();
         //check empty input
         if (inp.isEmpty()) {
-            mInputDisplay.requestFocus();
-            mInputDisplay.setError(getString(R.string.enter_expression));
+            mInputFormula.requestFocus();
+            mInputFormula.setError(getString(R.string.enter_expression));
             return;
         }
 
@@ -115,10 +131,10 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
             return;
         }
         if (type == TYPE_PERMUTATION) {
-            new TaskModule().execute(new ModuleItem(mInputDisplay.getCleanText(),
+            new TaskModule().execute(new ModuleItem(mInputFormula.getCleanText(),
                     mInputDisplay2.getCleanText()));
         } else {
-            new TaskModule().execute(new ModuleItem(mInputDisplay.getCleanText(),
+            new TaskModule().execute(new ModuleItem(mInputFormula.getCleanText(),
                     mInputDisplay2.getCleanText()));
         }
     }

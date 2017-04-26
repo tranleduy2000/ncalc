@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="@dimen/key_spacing"
+    android:keyHeight="@dimen/key_height"
+    android:keyWidth="10%p"
+    android:verticalGap="@dimen/key_spacing">
+    <Row>
+        <Key
+            android:codes="48"
+            android:keyLabel="0"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="49"
+
+            android:keyLabel="1"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="50"
+            android:keyLabel="2"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="51"
+            android:keyLabel="3"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="52"
+
+            android:keyLabel="4"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="53"
+            android:keyLabel="5"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="54"
+            android:keyLabel="6"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="55"
+            android:keyLabel="7"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="56"
+            android:keyLabel="8"
+            android:popupKeyboard="@xml/kbd_popup_template" />
+        <Key
+            android:codes="57"
+            android:keyLabel="9"
+
+            android:popupKeyboard="@xml/kbd_popup_template" />
+    </Row> <!--Number row-->
+
+    <Row>
+        <Key
+            android:codes="@integer/keycode_acos"
+            android:keyLabel="ArcCos"
+            android:keyWidth="16%p" />
+        <Key
+            android:codes="@integer/keycode_asin"
+            android:keyLabel="ArcSin"
+            android:keyWidth="16%p" />
+        <Key
+            android:codes="@integer/keycode_atan"
+            android:keyLabel="ArcTan"
+            android:keyWidth="16%p" />
+        <Key
+            android:codes="@integer/keycode_acot"
+            android:keyLabel="ArcCot"
+            android:keyWidth="16%p" />
+        <Key
+            android:codes="@integer/keycode_exp"
+            android:keyLabel="Exp"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_floor"
+            android:keyLabel="Floor"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_ceil"
+            android:keyLabel="Ceil"
+            android:keyWidth="12%p" />
+
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/keycode_round"
+            android:keyLabel="Round"
+            android:keyWidth="13%p" />
+        <Key
+            android:codes="@integer/keycode_sinh"
+            android:keyLabel="Sinh"
+            android:keyWidth="13%p" />
+        <Key
+            android:codes="@integer/keycode_cosh"
+            android:keyLabel="Cosh"
+            android:keyWidth="13%p" />
+        <Key
+            android:codes="@integer/keycode_tanh"
+            android:keyLabel="Tanh"
+            android:keyWidth="13%p" />
+        <Key
+            android:codes="@integer/keycode_gcd"
+            android:keyLabel="GCD"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_lcm"
+            android:keyLabel="LCM"
+            android:keyWidth="12%p" />
+
+        <Key
+            android:codes="@integer/keycode_mod"
+            android:keyLabel="Mod"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_sign"
+            android:keyLabel="Sign"
+            android:keyWidth="12%p" />
+
+    </Row>
+
+    <Row>
+        <Key
+            android:codes="@integer/keycode_sin"
+            android:keyLabel="Sin"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_cos"
+            android:keyLabel="Cos"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_tan"
+            android:keyLabel="Tan"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_cot"
+            android:keyLabel="Cot"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_log"
+            android:keyLabel="Log"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_ln"
+            android:keyLabel="Ln"
+            android:keyWidth="12%p" />
+        <Key
+            android:codes="@integer/keycode_lim"
+            android:keyLabel="Lim"
+            android:keyWidth="12%p" />
+
+        <Key
+            android:codes="-5"
+            android:isRepeatable="true"
+            android:keyIcon="@drawable/ic_backspace_black_24dp"
+            android:keyWidth="16%p" />
+    </Row>
+
+    <Row android:rowEdgeFlags="bottom">
+
+        <Key
+            android:codes="@integer/keycode_change_qwerty"
+            android:keyLabel="ABC"
+            android:keyWidth="16%p" />
+        <Key
+            android:codes="@integer/keycode_symbol"
+            android:keyLabel="123"
+            android:keyWidth="16%p" />
+
+        <Key
+            android:codes="44"
+            android:keyLabel=","
+            android:keyWidth="16%p" />
+        <Key
+            android:codes="@integer/keycode_abs"
+            android:keyLabel="Abs"
+            android:keyWidth="16%p" />
+
+        <Key
+            android:codes="@integer/keycode_min"
+            android:keyLabel="Min"
+            android:keyWidth="16%p" />
+        <Key
+            android:codes="@integer/keycode_max"
+            android:keyLabel="Max"
+            android:keyWidth="16%p" />
+    </Row>
+</Keyboard>
