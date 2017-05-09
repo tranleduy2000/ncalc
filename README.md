@@ -1,74 +1,73 @@
-**Máy tính trên Android.**
+# Calculator Pro (NCalc+ pro)
+Powerful calculator for Android.
 
-[<img src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png">](https://play.google.com/store/apps/details?id=com.duy.calculator.free)
+Get lite version in Google Play Store
 
-**ĐẠI SỐ**
-1. Máy tính khoa học: có đầy đủ các tính năng cơ bản của một máy tính khoa học
-2. Giải phương trình: tìm tất cả các nghiệm của phương trình, giải phương trình cùng tham số.
-3. Giải hệ phương trình n ẩn
-4. Vẽ đồ thị: đồ thị 2 chiều và đồ thị 3 chiều
-5. Hình học tọa độ Đề-cát, phù hợp với chương trình toán lớp 10
-6. Chuyển đổi đơn vị: chuyển đổi các hệ đơn vị thông dụng nhất
-7. Rút gọn biểu thức
-9. Phân tích đa thức thành nhân tử 
-10. Khai triển nhị thức Niu-tơn
-11. Ma trận: tính toán với ma trận
-12. Phân tích thừa số nguyên tố
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="300">](https://play.google.com/store/apps/details?id=com.duy.calculator.free)
 
-**GIẢI TÍCH** 
+## ALGEBRA
 
-1. Đạo hàm
-2. Nguyên hàm
-3. Tích phân xác định
-4. Tìm giới hạn của dãy số, hàm số
+	1. Computer science
+	2. Solving the equation:
+	3. Solve system equations
+	4. Graphing
+	5. Cartesian geometry sand(Viet Nam Education)
+	6. Unit Conversions
+	8. Simplify expressions
+	9. Polynomial factorization.
+	10. Binomial expansion Newton
+	11. Matrix
 
-**LƯỢNG GIÁC**
+## ANALYTICS
 
-1. Phân tích hàm lượng giác
-2. Thu gọn hàm lượng giác
-3. Chuyển đổi hàm lượng giác sang hàm mũ
+	1. Derivative
+	2. Antiderivative
+	3. Definite integrals
+	4. Find the limit of the sequence, function
 
-**XÁC XUẤT THỐNG KÊ**
+## TRIGONOMETRIC
 
-1. Tổ hợp
-2. Chỉnh hợp
+	1. Trigonometric expand: sin(2x) -> 2sin(x)cos(x)
+	2. Trigonometric reduce: 2sin(x)cos(x) -> sin(2x)
+	3. Trigonometric to exponent: sinh(x) -> (e^x-e^(-x))/2
 
-**LÝ THUYẾT SỐ**
+## DETERMINATION OF STATISTICS
 
-1. Số nguyên tố
-2. Số Catalan
-3. Số Fibonacci
+	1. Combination
+	2. Permutation
 
-**MỘT SỐ TÍNH NĂNG KHÁC**
+## SOME OTHER FEATURES
 
-1. Phân tích thừa số nguyên tố
-2. Chia lấy dư
+	1. Prime factors
+	2. Modulo
+	3. Catalan number
+	4. Fibonacci number
 
-**Một số lưu ý**
+## Note
 
-- Máy tính không hiển thị các bước để giải quyết phương trình, hệ phương trình, đạo hàm... mà chỉ cho ra kết quả cuối cùng. 
-- Nhập sin(30°) để tính sin ở chế độ Degree
+The Calculator does not show the steps to solve the equations, system of equations, derivative... but only for the final result.
+Enter sin(30°) to calculate sine Degree mode
 
-**Máy tính có thể làm việc ở hai chế độ**
+The computer can work in two modes:
+- 	Decimal mode: 0.12312312323
+- 	Mode fractions: for results with arbitrary precision, for example 9^99999
 
-- Chế độ số thập phân: kết quả trả về ở dạng số thập phân 0.1231231
-- Chế độ phân số: kết quả trả về dưới dạng phân số, cho kết quả với độ chính xác tùy ý, ví dụ 9^9999.
+Fanpage application support: https://www.facebook.com/calculator.n.plus/
 
-Fanpage hỗ trợ ứng dụng: [https://www.facebook.com/calculator.n.plus/](Link URL)
-Mọi góp ý về ứng dụng xin gửi về mail: **Tranleduy1233@gmail.com.**
+Any suggestions on the application please send mail: Tranleduy1233@gmail.com.
 
-**License**
+## License
 
-    Copyright 2017 Tran Le Duy
+	Copyright 2017 Tran Le Duy
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
 
-        http://www.apache.org/licenses/LICENSE-2.0
+		http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
