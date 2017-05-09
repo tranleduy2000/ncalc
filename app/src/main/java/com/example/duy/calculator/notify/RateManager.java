@@ -42,7 +42,7 @@ public class RateManager {
     }
 
     /**
-     * create intent go to market play store
+     * create intent go to market playAnimatior store
      */
     public static void rateApp(Activity activity) {
         Uri uri = Uri.parse("market://details?id=com.duy.com.duy.calculator.free");
@@ -55,7 +55,7 @@ public class RateManager {
             activity.startActivity(goToMarket);
         } catch (ActivityNotFoundException e) {
             activity.startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://play.google.com/store/apps/details?id=com.duy.com.duy.calculator.free")));
+                    Uri.parse("http://playAnimatior.google.com/store/apps/details?id=com.duy.com.duy.calculator.free")));
         }
     }
 

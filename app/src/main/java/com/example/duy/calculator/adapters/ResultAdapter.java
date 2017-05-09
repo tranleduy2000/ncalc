@@ -154,7 +154,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
 
     }
 
-    static class ResultViewHolder extends RecyclerView.ViewHolder {
+    class ResultViewHolder extends RecyclerView.ViewHolder {
         MathView txtMath;
         MathView txtResult;
         CardView cardView;

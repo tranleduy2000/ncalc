@@ -33,7 +33,7 @@ import android.widget.TextView;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.data.CalculatorSetting;
 import com.example.duy.calculator.utils.ColorUtil;
-import com.example.duy.calculator.version_new_error.AbstractFragment;
+import com.example.duy.calculator.AbstractFragment;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;

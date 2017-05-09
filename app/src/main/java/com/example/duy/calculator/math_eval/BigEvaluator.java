@@ -826,6 +826,19 @@ public final class BigEvaluator extends LogicEvaluator {
         setFraction(last);
     }
 
+    public void minimizeBoolean(String expression, final EvaluateCallback callback) {
+        boolean last = isFraction;
+        setFraction(true);
+        expression = "BooleanMinimize(" + expression + ")";
+
+        evaluateWithResultAsTex(expression, new EvaluateCallback() {
+            @Override
+            public void onEvaluate(String expr, String result, int errorResourceId) {
+                callback.onEvaluate(expr, result, errorResourceId);
+            }
+        });
+    }
+
     public void integrateFunction(String input, EvaluateCallback callback) {
         simplifyExpression(input, callback);
     }

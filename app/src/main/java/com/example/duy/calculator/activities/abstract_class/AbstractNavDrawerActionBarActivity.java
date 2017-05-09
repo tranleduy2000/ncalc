@@ -30,16 +30,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.helper.HelperActivity;
-import com.example.duy.calculator.helper.InfoActivity;
-import com.example.duy.calculator.utils.ConfigApp;
-import com.example.duy.calculator.activities.BaseCalculatorActivity;
 import com.example.duy.calculator.activities.BasicCalculatorActivity;
 import com.example.duy.calculator.activities.DerivativeActivity;
 import com.example.duy.calculator.activities.ExpandAllExpressionActivity;
 import com.example.duy.calculator.activities.FactorExpressionActivity;
 import com.example.duy.calculator.activities.IntegrateActivity;
 import com.example.duy.calculator.activities.LimitActivity;
+import com.example.duy.calculator.activities.LogicCalculatorActivity;
 import com.example.duy.calculator.activities.MatrixCalculatorActivity;
 import com.example.duy.calculator.activities.PrimitiveActivity;
 import com.example.duy.calculator.activities.SimplifyEquationActivity;
@@ -53,9 +50,12 @@ import com.example.duy.calculator.core.number_theory.ModuleActivity;
 import com.example.duy.calculator.core.number_theory.NumberActivity;
 import com.example.duy.calculator.core.number_theory.NumberType;
 import com.example.duy.calculator.core.number_theory.PermutationActivity;
-import com.example.duy.calculator.core.settings.SettingsActivity;
 import com.example.duy.calculator.core.system_equation.SystemEquationActivity;
 import com.example.duy.calculator.core.trigonometry.TrigActivity;
+import com.example.duy.calculator.helper.HelperActivity;
+import com.example.duy.calculator.helper.InfoActivity;
+import com.example.duy.calculator.settings.SettingsActivity;
+import com.example.duy.calculator.utils.ConfigApp;
 
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPAND;
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPONENT;
@@ -174,7 +174,7 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
             intent = new Intent(getApplicationContext(), UnitConverterParentAcitvity.class);
             startIntent(intent);
         } else if (id == R.id.nav_base) {
-            intent = new Intent(getApplicationContext(), BaseCalculatorActivity.class);
+            intent = new Intent(getApplicationContext(), LogicCalculatorActivity.class);
             startIntent(intent);
         } else if (id == R.id.nav_geometric_descartes) {
             intent = new Intent(getApplicationContext(), GeometryDescartesActivity.class);

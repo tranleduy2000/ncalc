@@ -67,7 +67,7 @@ import com.example.duy.calculator.math_eval.base.Evaluator;
 import com.example.duy.calculator.utils.ClipboardManager;
 import com.example.duy.calculator.utils.VoiceUtils;
 import com.example.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
-import com.example.duy.calculator.core.settings.SettingsActivity;
+import com.example.duy.calculator.settings.SettingsActivity;
 import com.example.duy.calculator.view.AnimationFinishedListener;
 import com.example.duy.calculator.view.ButtonID;
 import com.example.duy.calculator.view.CalculatorEditText;
@@ -471,7 +471,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 foreground.removeView(revealView);
             }
         });
-        play(revealAnimator);
+        playAnimatior(revealAnimator);
     }
 
     public void insertText(String text) {

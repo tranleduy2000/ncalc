@@ -99,6 +99,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     protected TextInputLayout mHint2;
     protected RecyclerView rcResult;
     private ResultAdapter resultAdapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -215,10 +216,10 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         revealAnimator.addListener(new AnimationFinishedListener() {
             @Override
             public void onAnimationFinished() {
-                play(alphaAnimator);
+                playAnimatior(alphaAnimator);
             }
         });
-        play(revealAnimator);
+        playAnimatior(revealAnimator);
     }
 
 
@@ -467,5 +468,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         }
 
     }
+
 
 }

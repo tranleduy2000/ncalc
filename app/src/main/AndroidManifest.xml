@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2017 Tran Le Duy
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,16 +17,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.duy.calculator">
 
-    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- <uses-feature android:name="android.hardware.camera" /> -->
-    <!-- <uses-feature android:name="android.hardware.camera.autofocus" /> -->
-    <!-- <uses-feature -->
-    <!-- android:name="android.hardware.camera.flash" -->
-    <!-- android:required="false" /> -->
-    <!-- <uses-permission android:name="android.permission.FLASHLIGHT" /> -->
     <application
         android:name=".CalcApplication"
         android:allowBackup="true"
@@ -88,7 +80,7 @@
             android:launchMode="singleTask" />
         <activity android:name=".core.converter.UnitConverterChildActivity" />
         <activity
-            android:name=".core.settings.SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
 
             android:launchMode="singleTask" />
@@ -99,7 +91,7 @@
             android:label="@string/title_activity_geometry"
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.BaseCalculatorActivity"
+            android:name=".activities.LogicCalculatorActivity"
             android:configChanges="keyboardHidden|screenSize"
 
             android:launchMode="singleTask" />
