@@ -24,12 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.duy.calculator.version_old.graph.Graph3DView
+        <com.example.duy.calculator.core.graph.Graph3DView
             android:id="@+id/graph_3d"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.example.duy.calculator.version_old.graph.Graph2DView
+        <com.example.duy.calculator.core.graph.Graph2DView
             android:id="@+id/graph_2d"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

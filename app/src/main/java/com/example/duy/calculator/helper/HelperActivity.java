@@ -22,7 +22,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.duy.calculator.version_old.activities.abstract_class.AbstractAppCompatActivity;
+import com.example.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
 
 import io.github.kexanie.library.MathView;

@@ -14,26 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.duy.calculator.notify;
+package com.example.duy.calculator.core.converter.utils;
 
-import android.os.Bundle;
-import android.os.Handler;
-
-import com.example.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
-
-public class UpdateActivity extends AbstractAppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                rateApp();
-            }
-
-        }, 300);
-    }
+/**
+ * Created by tranleduy on 27-May-16.
+ */
+public interface Strategy {
+    public String getUnitDefault();
+    public double Convert(String from, String to, double input);
 }

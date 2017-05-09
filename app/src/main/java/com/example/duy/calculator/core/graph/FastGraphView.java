@@ -14,26 +14,31 @@
  * limitations under the License.
  */
 
-package com.example.duy.calculator.notify;
+package com.example.duy.calculator.core.graph;
 
-import android.os.Bundle;
-import android.os.Handler;
+import android.content.Context;
+import android.util.AttributeSet;
 
-import com.example.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
 
-public class UpdateActivity extends AbstractAppCompatActivity {
+public class FastGraphView extends Graph2DView {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
 
-            @Override
-            public void run() {
-                rateApp();
-            }
+    public FastGraphView(Context context) {
+        super(context);
+        init();
+    }
 
-        }, 300);
+    public FastGraphView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public FastGraphView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    public void init() {
+        setWindow(-3, -3, 3, 3, 1, 1);
     }
 }

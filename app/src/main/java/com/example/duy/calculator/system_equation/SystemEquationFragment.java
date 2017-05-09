@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 
 import com.example.duy.calculator.version_new_error.AbstractFragment;
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.version_old.system_equation.SectionPagerAdapter;
+import com.example.duy.calculator.core.system_equation.SectionPagerAdapter;
 
 
 /**

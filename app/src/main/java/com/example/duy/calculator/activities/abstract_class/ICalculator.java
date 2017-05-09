@@ -14,26 +14,19 @@
  * limitations under the License.
  */
 
-package com.example.duy.calculator.notify;
+package com.example.duy.calculator.activities.abstract_class;
 
-import android.os.Bundle;
-import android.os.Handler;
+/**
+ * Created by Duy on 3/7/2016
+ */
+public interface ICalculator {
+    public void onResult(final String result);
 
-import com.example.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
+    public void onError(final String errorResourceId);
 
-public class UpdateActivity extends AbstractAppCompatActivity {
+    public void onDelete();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+    public void onClear();
 
-            @Override
-            public void run() {
-                rateApp();
-            }
-
-        }, 300);
-    }
+    public void onEqual();
 }

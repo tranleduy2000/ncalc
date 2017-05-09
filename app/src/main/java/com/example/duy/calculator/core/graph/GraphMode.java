@@ -14,26 +14,9 @@
  * limitations under the License.
  */
 
-package com.example.duy.calculator.notify;
+package com.example.duy.calculator.core.graph;
 
-import android.os.Bundle;
-import android.os.Handler;
-
-import com.example.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
-
-public class UpdateActivity extends AbstractAppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                rateApp();
-            }
-
-        }, 300);
-    }
+public final class GraphMode {
+    public static final int TWO_D = 1;
+    public static final int THREE_D = 2;
 }

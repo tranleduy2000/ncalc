@@ -26,7 +26,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
+import com.example.duy.calculator.activities.BasicCalculatorActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

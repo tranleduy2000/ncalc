@@ -21,7 +21,7 @@ import android.util.Log;
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPAND;
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPONENT;
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.REDUCE;
-import static com.example.duy.calculator.version_old.trigonometry.TrigActivity.TAG;
+import static com.example.duy.calculator.core.trigonometry.TrigActivity.TAG;
 
 /**
  * Trigonometric Item
