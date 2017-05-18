@@ -73,19 +73,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".core.converter.UnitConverterParentAcitvity"
+            android:name=".converter.UnitConverterParentAcitvity"
             android:configChanges="keyboardHidden|screenSize"
             android:label="@string/title_activity_unit_converter_acitvity"
 
             android:launchMode="singleTask" />
-        <activity android:name=".core.converter.UnitConverterChildActivity" />
+        <activity android:name=".converter.UnitConverterChildActivity" />
         <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".core.geom2d.GeometryDescartesActivity"
+            android:name=".geom2d.GeometryDescartesActivity"
             android:configChanges="keyboardHidden|screenSize"
 
             android:label="@string/title_activity_geometry"
@@ -138,10 +138,10 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".core.graph.GraphActivity"
+            android:name=".graph.GraphActivity"
             android:label="@string/title_activity_graph" />
         <activity
-            android:name=".core.graph.GraphAddFunction"
+            android:name=".graph.GraphAddFunction"
             android:label="@string/add_function"
 
             android:launchMode="singleTask" />
@@ -156,7 +156,7 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".core.system_equation.SystemEquationActivity"
+            android:name=".system_equation.SystemEquationActivity"
             android:label="@string/solve_system_equation"
 
             android:launchMode="singleTask" />
@@ -182,13 +182,13 @@
             android:launchMode="singleTask" />
         <activity android:name=".helper.InfoActivity" />
         <activity
-            android:name=".core.number_theory.FactorPrimeActivity"
+            android:name=".number_theory.FactorPrimeActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".core.number_theory.PermutationActivity"
+            android:name=".number_theory.PermutationActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".core.number_theory.ModuleActivity"
+            android:name=".number_theory.ModuleActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".dev.CommandActivity"
@@ -202,10 +202,10 @@
             android:theme="@style/AppTheme.Splash" />
 
         <activity
-            android:name=".core.trigonometry.TrigActivity"
+            android:name=".trigonometry.TrigActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".core.number_theory.NumberActivity"
+            android:name=".number_theory.NumberActivity"
             android:launchMode="singleTask" />
     </application>
 

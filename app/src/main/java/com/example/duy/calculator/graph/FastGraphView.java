@@ -14,28 +14,31 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.google.gms:google-services:3.0.0'
-    }
-}
+package com.example.duy.calculator.graph;
 
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-        flatDir {
-            dirs '/libs'
-        }
+import android.content.Context;
+import android.util.AttributeSet;
+
+
+public class FastGraphView extends com.example.duy.calculator.graph.Graph2DView {
+
+
+    public FastGraphView(Context context) {
+        super(context);
+        init();
     }
 
-}
+    public FastGraphView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+    public FastGraphView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    public void init() {
+        setWindow(-3, -3, 3, 3, 1, 1);
+    }
 }

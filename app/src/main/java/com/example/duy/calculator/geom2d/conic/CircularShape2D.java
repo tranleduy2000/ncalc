@@ -14,28 +14,24 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.google.gms:google-services:3.0.0'
-    }
-}
+/**
+ * File: 	CircularShape2D.java
+ * Project: javaGeom
+ * 
+ * Distributed under the LGPL License.
+ *
+ * Created: 17 mai 09
+ */
+package com.example.duy.calculator.geom2d.conic;
 
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-        flatDir {
-            dirs '/libs'
-        }
-    }
 
-}
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+/**
+ * Tagging interface for grouping Circle2D and CircleArc2D.
+ * @author dlegland
+ *
+ */
+public interface CircularShape2D  {
+	public Circle2D supportingCircle();
+
 }

@@ -14,28 +14,31 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.google.gms:google-services:3.0.0'
-    }
-}
+/**
+ * 
+ */
 
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-        flatDir {
-            dirs '/libs'
-        }
+package com.example.duy.calculator.geom2d.util;
+
+/**
+ * Exception thrown when an unbounded shape is involved in an operation
+ * that assumes a bounded shape. 
+ * @author dlegland
+ */
+public class UnboundedShape2DException extends RuntimeException {
+
+	private Shape2D shape;
+	
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
+    public UnboundedShape2DException(Shape2D shape) {
+    	this.shape = shape;
     }
 
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
+    public Shape2D getShape() {
+    	return shape;
+    }
 }

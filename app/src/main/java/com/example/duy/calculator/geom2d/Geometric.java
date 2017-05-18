@@ -14,28 +14,13 @@
  * limitations under the License.
  */
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.google.gms:google-services:3.0.0'
-    }
-}
+package com.example.duy.calculator.geom2d;
 
-allprojects {
-    repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-        flatDir {
-            dirs '/libs'
-        }
-    }
-
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
+/**
+ * Created by Duy on 3/7/2016
+ */
+public interface Geometric {
+    public void onPrepare();
+    public void onResult();
+    public void onError();
 }
