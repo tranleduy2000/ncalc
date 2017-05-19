@@ -26,6 +26,7 @@ import com.example.duy.calculator.R;
 import com.example.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Duy on 19-May-17.
@@ -41,6 +42,8 @@ public class DocumentActivity extends AbstractAppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_document);
+        ButterKnife.bind(this);
+
         setSupportActionBar(toolbar);
 
         DocumentAdapter documentAdapter = new DocumentAdapter(this);
