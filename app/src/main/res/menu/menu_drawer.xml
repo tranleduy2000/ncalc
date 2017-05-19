@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2017 Tran Le Duy
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +15,11 @@
   -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_document"
+        android:icon="@drawable/ic_book_black_24dp"
+        android:title="@string/see_doc" />
+
     <item android:title="@string/algebra">
         <menu>
             <item
@@ -146,16 +150,16 @@
                 android:icon="@drawable/ic_prime_black"
                 android:title="@string/prime" />
             <!--<item-->
-                <!--android:id="@+id/nav_gcd"-->
-                <!--android:enabled="false"-->
-                <!--android:icon="@drawable/ic_mod_black"-->
-                <!--android:title="@string/gcd" />-->
+            <!--android:id="@+id/nav_gcd"-->
+            <!--android:enabled="false"-->
+            <!--android:icon="@drawable/ic_mod_black"-->
+            <!--android:title="@string/gcd" />-->
             <!--<item-->
-                <!--android:id="@+id/nav_lcm"-->
+            <!--android:id="@+id/nav_lcm"-->
 
-                <!--android:enabled="false"-->
-                <!--android:icon="@drawable/ic_mod_black"-->
-                <!--android:title="@string/lcm" />-->
+            <!--android:enabled="false"-->
+            <!--android:icon="@drawable/ic_mod_black"-->
+            <!--android:title="@string/lcm" />-->
             <item
                 android:id="@+id/nav_fibo"
                 android:icon="@drawable/ic_prime_black"

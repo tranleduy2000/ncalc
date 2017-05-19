@@ -37,24 +37,24 @@ import com.example.duy.calculator.activities.FactorExpressionActivity;
 import com.example.duy.calculator.activities.IntegrateActivity;
 import com.example.duy.calculator.activities.LimitActivity;
 import com.example.duy.calculator.activities.LogicCalculatorActivity;
-import com.example.duy.calculator.matrix.MatrixCalculatorActivity;
 import com.example.duy.calculator.activities.PrimitiveActivity;
 import com.example.duy.calculator.activities.SimplifyEquationActivity;
 import com.example.duy.calculator.activities.SolveEquationActivity;
 import com.example.duy.calculator.activities.StatisticActivity;
 import com.example.duy.calculator.converter.UnitConverterParentAcitvity;
+import com.example.duy.calculator.document.DocumentActivity;
+import com.example.duy.calculator.document.InfoActivity;
 import com.example.duy.calculator.geom2d.GeometryDescartesActivity;
 import com.example.duy.calculator.graph.GraphActivity;
+import com.example.duy.calculator.matrix.MatrixCalculatorActivity;
 import com.example.duy.calculator.number_theory.FactorPrimeActivity;
 import com.example.duy.calculator.number_theory.ModuleActivity;
 import com.example.duy.calculator.number_theory.NumberActivity;
 import com.example.duy.calculator.number_theory.NumberType;
 import com.example.duy.calculator.number_theory.PermutationActivity;
+import com.example.duy.calculator.settings.SettingsActivity;
 import com.example.duy.calculator.system_equation.SystemEquationActivity;
 import com.example.duy.calculator.trigonometry.TrigActivity;
-import com.example.duy.calculator.helper.HelperActivity;
-import com.example.duy.calculator.helper.InfoActivity;
-import com.example.duy.calculator.settings.SettingsActivity;
 import com.example.duy.calculator.utils.ConfigApp;
 
 import static com.example.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPAND;
@@ -121,7 +121,7 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
             @Override
             public void onClick(View v) {
                 closeDrawer();
-                startActivity(new Intent(getApplicationContext(), HelperActivity.class));
+                startActivity(new Intent(getApplicationContext(), DocumentActivity.class));
             }
         });
         header.findViewById(R.id.img_setting).setOnClickListener(new View.OnClickListener() {
@@ -246,23 +246,24 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
             intent = new Intent(getApplicationContext(), PermutationActivity.class);
             intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_COMBINATION);
             startIntent(intent);
-        }
-        switch (id) {
-            case R.id.nav_catalan:
-                intent = new Intent(getApplicationContext(), NumberActivity.class);
-                intent.putExtra(NumberActivity.DATA, NumberType.CATALAN);
-                startIntent(intent);
-                break;
-            case R.id.nav_fibo:
-                intent = new Intent(getApplicationContext(), NumberActivity.class);
-                intent.putExtra(NumberActivity.DATA, NumberType.FIBONACCI);
-                startIntent(intent);
-                break;
-            case R.id.nav_prime:
-                intent = new Intent(getApplicationContext(), NumberActivity.class);
-                intent.putExtra(NumberActivity.DATA, NumberType.PRIME);
-                startIntent(intent);
-                break;
+        } else if (id == R.id.nav_catalan) {
+            intent = new Intent(getApplicationContext(), NumberActivity.class);
+            intent.putExtra(NumberActivity.DATA, NumberType.CATALAN);
+            startIntent(intent);
+
+        } else if (id == R.id.nav_fibo) {
+            intent = new Intent(getApplicationContext(), NumberActivity.class);
+            intent.putExtra(NumberActivity.DATA, NumberType.FIBONACCI);
+            startIntent(intent);
+
+        } else if (id == R.id.nav_prime) {
+            intent = new Intent(getApplicationContext(), NumberActivity.class);
+            intent.putExtra(NumberActivity.DATA, NumberType.PRIME);
+            startIntent(intent);
+
+        } else if (id == R.id.action_document) {
+            intent = new Intent(getApplicationContext(), DocumentActivity.class);
+            startActivity(intent);
         }
         return true;
     }

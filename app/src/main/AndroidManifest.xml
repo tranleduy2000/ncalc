@@ -144,11 +144,7 @@
             android:label="@string/add_function"
 
             android:launchMode="singleTask" />
-        <activity
-            android:name=".helper.HelperActivity"
-            android:label="@string/help"
 
-            android:launchMode="singleTask" />
         <activity
             android:name=".history.HistoryActivity"
             android:label="@string/history"
@@ -179,7 +175,7 @@
             android:label="@string/primitive"
 
             android:launchMode="singleTask" />
-        <activity android:name=".helper.InfoActivity" />
+        <activity android:name=".document.InfoActivity" />
         <activity
             android:name=".number_theory.FactorPrimeActivity"
             android:launchMode="singleTask" />
@@ -206,6 +202,7 @@
         <activity
             android:name=".number_theory.NumberActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".document.DocumentActivity" />
     </application>
 
 </manifest>
