@@ -106,6 +106,9 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         createData();
     }
 
+    /**
+     * restore input
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -113,6 +116,9 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         mInputFormula.setText(input);
     }
 
+    /**
+     * save input
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -123,14 +129,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     private void initView() {
         btnSolve = (Button) findViewById(R.id.btn_solve);
         mInputFormula = (ResizingEditText) findViewById(R.id.edit_input);
-
-/*
-        FloatingKeyboardView mCustomKeyboard = (FloatingKeyboardView) findViewById(R.id.keyboard_view);
-        mCustomKeyboard.setKeyboard(new Keyboard(this, R.xml.symbols));
-        mCustomKeyboard.setPreviewEnabled(false); // NOTE Do not show the preview balloons
-        mCustomKeyboard.registerEditText(mInputFormula);
-        mCustomKeyboard.setAllignBottomCenter(true);
-*/
 
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
         mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar);
