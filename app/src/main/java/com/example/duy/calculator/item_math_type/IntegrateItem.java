@@ -26,7 +26,7 @@ import com.example.duy.calculator.math_eval.FormatExpression;
  * Created by DUy on 29-Dec-16.
  */
 
-public class IntegrateItem extends IExprInput {
+public class IntegrateItem extends AExprInput {
     protected final String var = "x";
     protected String from, to;
     protected String input;

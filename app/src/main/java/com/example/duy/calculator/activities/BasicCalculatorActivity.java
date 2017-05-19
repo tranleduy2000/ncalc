@@ -58,7 +58,7 @@ import com.example.duy.calculator.helper.HelperActivity;
 import com.example.duy.calculator.history.HistoryActivity;
 import com.example.duy.calculator.history.ResultEntry;
 import com.example.duy.calculator.item_math_type.DerivativeItem;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.NumberIntegerItem;
 import com.example.duy.calculator.item_math_type.SolveItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -985,7 +985,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * <p>
      * onPostExecute: hide process bar, set mResult to math view
      */
-    protected class ATaskEval extends AsyncTask<IExprInput, Void, String> {
+    protected class ATaskEval extends AsyncTask<AExprInput, Void, String> {
 
         @Override
         protected void onPreExecute() {
@@ -1011,8 +1011,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         }
 
         @Override
-        protected String doInBackground(IExprInput... params) {
-            IExprInput item = params[0];
+        protected String doInBackground(AExprInput... params) {
+            AExprInput item = params[0];
             String expr = item.getInput();
             final String[] res = {""};
             if (params[0].getClass().equals(NumberIntegerItem.class)) {

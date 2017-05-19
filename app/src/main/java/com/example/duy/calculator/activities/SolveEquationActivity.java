@@ -25,7 +25,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.item_math_type.SolveItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -158,8 +158,8 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
     public class TaskSolve extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(IExprInput... iExprInputs) {
-            SolveItem item = (SolveItem) iExprInputs[0];
+        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+            SolveItem item = (SolveItem) aExprInputs[0];
             if (ConfigApp.DEBUG) Log.d(TAG, "doInBackground: " + item.getInput());
             if (!item.getExpr().contains("x")) {
                 return new ItemResult(item.toString(),

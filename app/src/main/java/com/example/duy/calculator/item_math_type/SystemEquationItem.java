@@ -28,7 +28,7 @@ import java.util.ArrayList;
  * Created by DUy on 09-Jan-17.
  */
 
-public class SystemEquationItem extends IExprInput {
+public class SystemEquationItem extends AExprInput {
     private static final String TAG = SystemEquationItem.class.getSimpleName();
     private boolean define = true;
     private int row, col;

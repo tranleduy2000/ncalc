@@ -27,7 +27,7 @@ import com.example.duy.calculator.math_eval.Constants;
  * Created by DUy on 06-Jan-17.
  */
 
-public class PermutationItem extends IExprInput{
+public class PermutationItem extends AExprInput {
     private static final String TAG = PermutationItem.class.getSimpleName();
     protected String numberN = "0";
     protected String numberK = "0";

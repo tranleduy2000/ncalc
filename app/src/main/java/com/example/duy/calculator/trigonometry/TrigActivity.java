@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.data.SampleData;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.item_math_type.TrigItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -136,7 +136,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
      */
     private class TrigTask extends ATaskEval {
         @Override
-        protected ItemResult doInBackground(IExprInput... params) {
+        protected ItemResult doInBackground(AExprInput... params) {
             Log.d(TAG, "doInBackground: trig task");
             BigEvaluator.newInstance(getApplicationContext()).setFraction(true);
             return super.doInBackground(params);

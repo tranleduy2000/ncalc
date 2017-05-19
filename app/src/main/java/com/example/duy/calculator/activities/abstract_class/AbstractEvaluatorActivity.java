@@ -47,7 +47,7 @@ import android.widget.LinearLayout;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.adapters.ResultAdapter;
 import com.example.duy.calculator.history.ResultEntry;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.LogicEvaluator;
@@ -321,7 +321,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
      * <p>
      * onPostExecute: hide process bar, set mResult to math view
      */
-    public class ATaskEval extends AsyncTask<IExprInput, Void, ItemResult> {
+    public class ATaskEval extends AsyncTask<AExprInput, Void, ItemResult> {
         protected BigEvaluator mEvaluator;
 
         @Override
@@ -339,8 +339,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         }
 
         @Override
-        protected ItemResult doInBackground(IExprInput... params) {
-            IExprInput item = params[0];
+        protected ItemResult doInBackground(AExprInput... params) {
+            AExprInput item = params[0];
             Log.d(TAG, "doInBackground: " + item.getInput());
 
             //check error

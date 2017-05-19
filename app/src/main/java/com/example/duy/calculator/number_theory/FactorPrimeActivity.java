@@ -24,7 +24,7 @@ import android.text.InputType;
 import android.view.View;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.item_math_type.NumberIntegerItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -193,8 +193,8 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
     protected class FactorTask extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(IExprInput... iExprInputs) {
-            NumberIntegerItem item = (NumberIntegerItem) iExprInputs[0];
+        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+            NumberIntegerItem item = (NumberIntegerItem) aExprInputs[0];
             //check error
             if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
                 return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),

@@ -706,5 +706,6 @@
     <string name="timeunitmiliseconds">Miliseconds (ms)</string>
 
     <string name="hide_status_bar">Hide status bar</string>
+    <string name="result">Result</string>
 
 </resources>

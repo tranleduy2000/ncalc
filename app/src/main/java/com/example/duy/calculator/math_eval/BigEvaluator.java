@@ -23,11 +23,13 @@ import android.util.Log;
 import com.example.duy.calculator.DLog;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.data.CalculatorSetting;
+import com.example.duy.calculator.item_math_type.StepItem;
 import com.example.duy.calculator.utils.ConfigApp;
 
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.eval.TeXUtilities;
+import org.matheclipse.core.interfaces.AbstractEvalStepListener;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -843,4 +845,34 @@ public class BigEvaluator extends LogicEvaluator {
     public void integrateFunction(String input, EvaluateCallback callback) {
         simplifyExpression(input, callback);
     }
+
+    /**
+     * @param expression: input expression
+     * @return step  by step eval of expression
+     */
+    public ArrayList<StepItem> getStep(String expression) {
+        final ArrayList<StepItem> listStep = new ArrayList<>();
+
+        ExprEvaluator util = new ExprEvaluator();
+        EvalEngine engine = util.getEvalEngine();
+        engine.setStepListener(new AbstractEvalStepListener() {
+            @Override
+            public void add(IExpr input, IExpr result, int depth, long l, String s) {
+                StringWriter stringWriterInput = new StringWriter();
+                mTexEngine.toTeX(input, stringWriterInput);
+                StringWriter stringWriterOutput = new StringWriter();
+                mTexEngine.toTeX(result, stringWriterOutput);
+                listStep.add(new StepItem(stringWriterInput.toString(),
+                        stringWriterOutput.toString(), depth));
+
+                Log.d(TAG, "add() called with: input = [" + input + "], result = ["
+                        + result + "], i = [" + depth + "], l = [" + l + "], s = [" + s + "]");
+
+            }
+        });
+        util.evaluate(expression);
+        engine.setTraceMode(false);
+        return listStep;
+    }
+
 }

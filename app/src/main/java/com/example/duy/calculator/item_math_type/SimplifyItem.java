@@ -25,7 +25,7 @@ import com.example.duy.calculator.math_eval.FormatExpression;
  * Created by DUy on 29-Dec-16.
  */
 
-public class SimplifyItem extends IExprInput {
+public class SimplifyItem extends AExprInput {
     private static final String TAG = "SimplifyItem";
     private String expr;
 

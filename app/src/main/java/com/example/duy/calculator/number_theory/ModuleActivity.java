@@ -23,7 +23,7 @@ import android.text.InputType;
 import android.view.View;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.item_math_type.ModuleItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -152,7 +152,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         }
 
         @Override
-        protected ItemResult doInBackground(IExprInput... params) {
+        protected ItemResult doInBackground(AExprInput... params) {
             ModuleItem item = (ModuleItem) params[0];
             //check error
             if (bigEvaluator.isSyntaxError(item.getInput())) {

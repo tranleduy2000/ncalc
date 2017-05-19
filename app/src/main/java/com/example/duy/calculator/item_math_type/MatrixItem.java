@@ -24,7 +24,7 @@ import com.example.duy.calculator.math_eval.BigEvaluator;
  * Created by DUy on 09-Jan-17.
  */
 
-public class MatrixItem extends IExprInput {
+public class MatrixItem extends AExprInput {
     private int row, col;
     private String[][] matrix;
     private String[] vector; //dont uses

@@ -26,7 +26,7 @@ import com.example.duy.calculator.math_eval.FormatExpression;
  * Created by DUy on 01-Jan-17.
  */
 
-public class SolveItem extends IExprInput {
+public class SolveItem extends AExprInput {
     private String leftExpr = "x";
     private String rightExpr = "0";
 

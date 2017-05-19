@@ -22,7 +22,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.IntegrateItem;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.math_eval.FormatExpression;
@@ -190,8 +190,8 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
     protected class TaskIntegrate extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(IExprInput... iExprInputs) {
-            IExprInput item = iExprInputs[0];
+        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+            AExprInput item = aExprInputs[0];
             //check error
             if (mEvaluator.isSyntaxError(item.getInput())) {
                 return new ItemResult(item.getInput(), mEvaluator.getError(item.getInput()),

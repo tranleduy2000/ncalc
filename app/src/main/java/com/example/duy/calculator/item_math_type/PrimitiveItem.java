@@ -27,7 +27,7 @@ import com.example.duy.calculator.math_eval.FormatExpression;
  * Created by DUy on 29-Dec-16.
  */
 
-public class PrimitiveItem extends IExprInput {
+public class PrimitiveItem extends AExprInput {
     @Override
     public String getError(BigEvaluator evaluator, Context applicationContext) {
         return null;

@@ -26,7 +26,7 @@ import com.example.duy.calculator.math_eval.FormatExpression;
  * Created by DUy on 29-Dec-16.
  */
 
-public class FunctionItem extends IExprInput {
+public class FunctionItem extends AExprInput {
     private String leftExpr = "y";
     private String rightExpr = "";
     public FunctionItem(String rightExpr) {

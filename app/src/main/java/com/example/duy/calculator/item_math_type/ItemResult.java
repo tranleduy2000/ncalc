@@ -19,7 +19,7 @@ package com.example.duy.calculator.item_math_type;
 public class ItemResult {
     public int mResultState;
     public String mExpression, mResult;
-    private IExprInput mInput;
+    private AExprInput mInput;
     private int mType;
     private String texFraction, texNumeric;
 
@@ -35,7 +35,7 @@ public class ItemResult {
         this.mResult = res;
     }
 
-    public ItemResult(IExprInput mInput, String mExpression, String mResult, int mResultState) {
+    public ItemResult(AExprInput mInput, String mExpression, String mResult, int mResultState) {
         this.mInput = mInput;
         this.mExpression = mExpression;
         this.mResult = mResult;
@@ -47,11 +47,11 @@ public class ItemResult {
         return this.mExpression + " = " + mResult + " | " + mResultState;
     }
 
-    public IExprInput getInput() {
+    public AExprInput getInput() {
         return mInput;
     }
 
-    public void setInput(IExprInput mInput) {
+    public void setInput(AExprInput mInput) {
         this.mInput = mInput;
     }
 

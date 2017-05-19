@@ -24,7 +24,7 @@ import android.support.annotation.Nullable;
 
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.item_math_type.FactorExpressionItem;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.LogicEvaluator;
@@ -148,8 +148,8 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
     protected class FactorExpressionTask extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(IExprInput... iExprInputs) {
-            FactorExpressionItem item = (FactorExpressionItem) iExprInputs[0];
+        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+            FactorExpressionItem item = (FactorExpressionItem) aExprInputs[0];
             //check error
             if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
                 return new ItemResult(item.getExpr(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),

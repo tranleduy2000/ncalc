@@ -102,7 +102,7 @@
             android:configChanges="keyboardHidden|screenSize"
             android:label="@string/title_activity_matrix_calculator"
             android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.SolveEquationActivity"
             android:configChanges="keyboardHidden|screenSize"

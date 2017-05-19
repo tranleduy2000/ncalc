@@ -27,7 +27,7 @@ import com.example.duy.calculator.math_eval.FormatExpression;
  * Created by DUy on 01-Jan-17.
  */
 
-public class DerivativeItem extends IExprInput {
+public class DerivativeItem extends AExprInput {
     private static final String TAG = "DerivativeItem";
     private String input;
     private String var = "x";

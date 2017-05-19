@@ -22,7 +22,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.item_math_type.PrimitiveItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -160,8 +160,8 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
     protected class TaskEvalPrimitive extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(IExprInput... iExprInputs) {
-            PrimitiveItem item = (PrimitiveItem) iExprInputs[0];
+        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+            PrimitiveItem item = (PrimitiveItem) aExprInputs[0];
             //check error
             if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
                 return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),

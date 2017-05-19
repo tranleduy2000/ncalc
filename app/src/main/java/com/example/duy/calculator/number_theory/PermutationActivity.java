@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.item_math_type.CombinationItem;
-import com.example.duy.calculator.item_math_type.IExprInput;
+import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.item_math_type.PermutationItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -181,7 +181,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     private class TaskPermutation extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(IExprInput... params) {
+        protected ItemResult doInBackground(AExprInput... params) {
             PermutationItem item = (PermutationItem) params[0];
             //check error
             if (evaluator.isSyntaxError(item.getInput())) {
