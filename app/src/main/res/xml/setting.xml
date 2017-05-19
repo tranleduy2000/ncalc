@@ -28,7 +28,7 @@
             android:summary="@string/fraction_decs"
             android:title="@string/fraction_mode" />
         <EditTextPreference
-            android:defaultValue="10"
+            android:defaultValue="9"
             android:key="@string/key_pref_precision"
             android:summary="@string/summary_percision"
             android:title="@string/precision_" />
