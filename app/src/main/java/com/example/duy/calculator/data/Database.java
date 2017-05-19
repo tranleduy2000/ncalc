@@ -25,7 +25,7 @@ import android.util.Log;
 
 import com.example.duy.calculator.DLog;
 import com.example.duy.calculator.define.VariableEntry;
-import com.example.duy.calculator.history.HistoryEntry;
+import com.example.duy.calculator.history.ResultEntry;
 
 import java.util.ArrayList;
 
@@ -74,22 +74,22 @@ public class Database extends SQLiteOpenHelper {
     /**
      * Save item history to database
      *
-     * @param historyEntry - {@link HistoryEntry}
+     * @param resultEntry - {@link ResultEntry}
      * @return - <tt>true</tt> if ok, otherwise <tt>false</tt>
      */
-    public long saveHistory(HistoryEntry historyEntry) {
+    public long saveHistory(ResultEntry resultEntry) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_HISTORY_ID, historyEntry.getTime());
-        contentValues.put(KEY_HISTORY_INPUT, historyEntry.getMath());
-        contentValues.put(KEY_HISTORY_RESULT, historyEntry.getResult());
-        contentValues.put(KEY_HISTORY_COLOR, historyEntry.getColor());
-        contentValues.put(KEY_HISTORY_TYPE, historyEntry.getType());
+        contentValues.put(KEY_HISTORY_ID, resultEntry.getTime());
+        contentValues.put(KEY_HISTORY_INPUT, resultEntry.getExpression());
+        contentValues.put(KEY_HISTORY_RESULT, resultEntry.getResult());
+        contentValues.put(KEY_HISTORY_COLOR, resultEntry.getColor());
+        contentValues.put(KEY_HISTORY_TYPE, resultEntry.getType());
         return sqLiteDatabase.insert(HISTORY_DATABASE_NAME, null, contentValues);
     }
 
-    public ArrayList<HistoryEntry> getAllItemHistory() {
-        ArrayList<HistoryEntry> itemHistories = new ArrayList<>();
+    public ArrayList<ResultEntry> getAllItemHistory() {
+        ArrayList<ResultEntry> itemHistories = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String query = "SELECT * FROM " + HISTORY_DATABASE_NAME;
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
@@ -102,8 +102,8 @@ public class Database extends SQLiteOpenHelper {
                         String result = cursor.getString(cursor.getColumnIndex(KEY_HISTORY_RESULT));
                         int color = cursor.getInt(cursor.getColumnIndex(KEY_HISTORY_COLOR));
                         int type = cursor.getInt(cursor.getColumnIndex(KEY_HISTORY_TYPE));
-                        HistoryEntry historyEntry = new HistoryEntry(math, result, color, time, type);
-                        itemHistories.add(historyEntry);
+                        ResultEntry resultEntry = new ResultEntry(math, result, color, time, type);
+                        itemHistories.add(resultEntry);
                         Log.d(TAG, "getAllItemHistory: " + time + " " + math + " " + result);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -118,8 +118,8 @@ public class Database extends SQLiteOpenHelper {
         return itemHistories;
     }
 
-    public long removeItemHistory(HistoryEntry historyEntry) {
-        long id = historyEntry.getTime();
+    public long removeItemHistory(ResultEntry resultEntry) {
+        long id = resultEntry.getTime();
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         long res = -1;
         try {
@@ -224,8 +224,8 @@ public class Database extends SQLiteOpenHelper {
         return list;
     }
 
-    public void saveHistory(ArrayList<HistoryEntry> histories) {
-        for (HistoryEntry h : histories) {
+    public void saveHistory(ArrayList<ResultEntry> histories) {
+        for (ResultEntry h : histories) {
             saveHistory(h);
         }
         DLog.d(TAG, "saveHistory: ok");

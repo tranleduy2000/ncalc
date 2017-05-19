@@ -16,16 +16,25 @@
 
 package com.example.duy.calculator.math_eval;
 
+import java.util.LinkedList;
+
 /**
- * Created by DUy on 22-Jan-17.
+ * Created by Duy on 18-May-17.
  */
+public class StepFactory {
 
-public class MathExceptionManager {
-    private final BigEvaluator mEvaluator;
-
-    public MathExceptionManager(BigEvaluator e) {
-        this.mEvaluator = e;
+    /**
+     * parse the input data
+     * <p>
+     * {{2, 3}, {3, 4}, {3, 2, 7}}
+     * <p>
+     * -> return the list [{2, 3} , {3, 4} , {3, 2, 7}]
+     */
+    public LinkedList<String> parse(String in) {
+        return null;
     }
 
-
+    public String getBracket() {
+        return null;
+    }
 }

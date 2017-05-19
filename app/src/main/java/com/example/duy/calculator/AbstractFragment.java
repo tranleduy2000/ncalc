@@ -37,8 +37,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.duy.calculator.DLog;
-import com.example.duy.calculator.R;
 import com.example.duy.calculator.data.CalculatorSetting;
 import com.example.duy.calculator.data.Database;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -99,16 +97,16 @@ public abstract class AbstractFragment extends Fragment
      */
     protected void setModeFraction() {
         try {
-            BigEvaluator.getInstance(getActivity()).setFraction(mSetting.useFraction());
+            BigEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
             SwitchCompat switchCompat = (SwitchCompat) getActivity().findViewById(R.id.sw_fraction);
             switchCompat.setChecked(mSetting.useFraction());
-            BigEvaluator.getInstance(getActivity()).setFraction(mSetting.useFraction());
+            BigEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
             switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked != mSetting.useFraction()) {
                         mSetting.setFraction(isChecked);
-                        BigEvaluator.getInstance(getActivity()).setFraction(isChecked);
+                        BigEvaluator.newInstance(getActivity()).setFraction(isChecked);
                     }
                     onChangeModeFraction();
                 }
@@ -139,10 +137,6 @@ public abstract class AbstractFragment extends Fragment
 
     /**
      * get view group
-     *
-     * @param inflater
-     * @param container
-     * @return
      */
     protected abstract View getView(LayoutInflater inflater, ViewGroup container);
 

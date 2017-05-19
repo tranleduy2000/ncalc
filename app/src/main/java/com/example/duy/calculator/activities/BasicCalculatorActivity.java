@@ -51,12 +51,12 @@ import android.widget.Toast;
 import com.example.duy.calculator.DLog;
 import com.example.duy.calculator.EInputState;
 import com.example.duy.calculator.R;
+import com.example.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
 import com.example.duy.calculator.data.CalculatorSetting;
 import com.example.duy.calculator.define.DefineVariableActivity;
 import com.example.duy.calculator.helper.HelperActivity;
 import com.example.duy.calculator.history.HistoryActivity;
-import com.example.duy.calculator.history.HistoryAdapter;
-import com.example.duy.calculator.history.HistoryEntry;
+import com.example.duy.calculator.history.ResultEntry;
 import com.example.duy.calculator.item_math_type.DerivativeItem;
 import com.example.duy.calculator.item_math_type.IExprInput;
 import com.example.duy.calculator.item_math_type.NumberIntegerItem;
@@ -64,10 +64,9 @@ import com.example.duy.calculator.item_math_type.SolveItem;
 import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.LogicEvaluator;
 import com.example.duy.calculator.math_eval.base.Evaluator;
+import com.example.duy.calculator.settings.SettingsActivity;
 import com.example.duy.calculator.utils.ClipboardManager;
 import com.example.duy.calculator.utils.VoiceUtils;
-import com.example.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
-import com.example.duy.calculator.settings.SettingsActivity;
 import com.example.duy.calculator.view.AnimationFinishedListener;
 import com.example.duy.calculator.view.ButtonID;
 import com.example.duy.calculator.view.CalculatorEditText;
@@ -88,11 +87,17 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public static final String DATA = "DATA_BUNDLE";
     private static final int REQ_CODE_HISTORY = 1111;
     private static final int REQ_CODE_DEFINE_VAR = 1234;
-    private final int REQ_CODE_SPEECH_INPUT = 1235;
+    private static final int REQ_CODE_SPEECH_INPUT = 1235;
+
+    /**
+     * Evaluate when text change
+     */
+    private final InstantResultWatcher mFormulaTextWatcher = new InstantResultWatcher();
+
     public MathView mMathView;
     public ContentLoadingProgressBar mProgress;
     public FrameLayout mAnimateSolve;
-    SwitchCompat switchCompat;
+    SwitchCompat mFractionSwitch;
     FrameLayout mContainerSolve;
     DrawerLayout drawerLayout;
     SlidingUpPanelLayout padAdvance;
@@ -102,6 +107,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     FloatingActionButton mFabClose;
     private View mCurrentButton = null;
     private BasicCalculatorActivity.CalculatorState mCurrentState = BasicCalculatorActivity.CalculatorState.INPUT;
+    private BigEvaluator mEvaluator;
     private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
         @Override
         public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
@@ -116,29 +122,10 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             return false;
         }
     };
-    private final TextWatcher mFormulaTextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int start, int count, int after) {
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            setState(BasicCalculatorActivity.CalculatorState.INPUT);
-            if (mSetting.instantResult())
-                BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(mInputDisplay.getCleanText(), BasicCalculatorActivity.this);
-//                new TaskEval().execute();
-        }
-    };
-    private PagerState mPageState;
     private EInputState mEInputState = EInputState.PAD;
-    private HistoryAdapter mHistoryAdapter;
     private Handler handler = new Handler();
 
-    private void initView() {
+    private void bindView() {
         mFabClose = (FloatingActionButton) findViewById(R.id.fab_close);
         mReview = (MathView) findViewById(R.id.math_view);
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
@@ -146,24 +133,35 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         padAdvance = (SlidingUpPanelLayout) findViewById(R.id.slide);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mContainerSolve = (FrameLayout) findViewById(R.id.container_solve);
-        switchCompat = (SwitchCompat) findViewById(R.id.sw_fraction);
+        mFractionSwitch = (SwitchCompat) findViewById(R.id.sw_fraction);
         mAnimateSolve = (FrameLayout) findViewById(R.id.result_animation);
         mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar_main);
         mMathView = (MathView) findViewById(R.id.math_result);
-        mMathView.zoomIn();
-        mMathView.zoomIn();
-        mMathView.zoomIn();
+
+        mFractionSwitch.setChecked(mCalculatorSetting.useFraction());
+        mFractionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mCalculatorSetting.setFraction(isChecked);
+            }
+        });
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mEvaluator = BigEvaluator.newInstance(this);
+        mEvaluator.loadSetting();
+
         setContentView(R.layout.activity_basic_calculator);
-        initView();
+        bindView();
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mInputDisplay.setShowSoftInputOnFocus(false);
         }
+
         mInputDisplay.addTextChangedListener(mFormulaTextWatcher);
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
         setInputState(EInputState.PAD);
@@ -180,24 +178,23 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
         setModeFraction();
         showHelp();
-//        showDialogUpdate();
     }
 
 
     private void setModeFraction() {
-        switchCompat.setChecked(mSetting.useFraction());
-        BigEvaluator.getInstance(getApplicationContext()).setFraction(mSetting.useFraction());
-        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mFractionSwitch.setChecked(mSetting.useFraction());
+        mEvaluator.setFraction(mSetting.useFraction());
+        mFractionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked != mSetting.useFraction()) {
                     mSetting.setFraction(isChecked);
-                    BigEvaluator.getInstance(getApplicationContext()).setFraction(isChecked);
+                    mEvaluator.setFraction(isChecked);
                 }
                 onChangeModeFraction();
             }
         });
-        switchCompat.setOnLongClickListener(new View.OnLongClickListener() {
+        mFractionSwitch.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 Toast.makeText(BasicCalculatorActivity.this, R.string.fraction_decs, Toast.LENGTH_SHORT).show();
@@ -237,16 +234,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public void onResume() {
         super.onResume();
 
-
-        /**
-         * create evaluate engine
-         */
-
-        BigEvaluator.getInstance(this);
-
-        //load all class eval engine and integrate to memory
-//        new SymjaLoader().execute();
-
         CalculatorSetting preferences = new CalculatorSetting(this);
         String math = preferences.getString(CalculatorSetting.INPUT_MATH);
         mInputDisplay.setText(math);
@@ -271,13 +258,13 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     private void showHelp() {
-        if (mPreferences.getBoolean(BasicCalculatorActivity.class.getSimpleName(), false)) {
+        if (mCalculatorSetting.getBoolean(BasicCalculatorActivity.class.getSimpleName())) {
             return;
         }
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                TapTarget target = TapTarget.forView(switchCompat,
+                TapTarget target = TapTarget.forView(mFractionSwitch,
                         getString(R.string.fraction_mode),
                         getString(R.string.fraction_decs))
                         .drawShadow(true)
@@ -335,18 +322,18 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 Log.d(TAG, "onActivityResult: history");
                 if (resultCode == RESULT_OK) {
                     Bundle bundle = data.getBundleExtra(DATA);
-                    final HistoryEntry history = (HistoryEntry) bundle.getSerializable(DATA);
-                    Log.d(TAG, "onActivityResult: " + history.getMath() + " " + history.getResult());
+                    final ResultEntry history = (ResultEntry) bundle.getSerializable(DATA);
+                    Log.d(TAG, "onActivityResult: " + history.getExpression() + " " + history.getResult());
                     mInputDisplay.post(new Runnable() {
                         @Override
                         public void run() {
-                            mInputDisplay.setText(history.getMath());
+                            mInputDisplay.setText(history.getExpression());
                         }
                     });
                 }
                 break;
             case REQ_CODE_DEFINE_VAR:
-                BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultNormal(mInputDisplay.getCleanText(), this);
+                mEvaluator.evaluateWithResultNormal(mInputDisplay.getCleanText(), this);
                 //onEqual();
                 break;
         }
@@ -361,16 +348,12 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mEInputState = pad;
     }
 
-    private void setPageState(PagerState state) {
-        mPageState = state;
-    }
-
     public void define(String var, double value) {
-        BigEvaluator.getInstance(getApplicationContext()).define(var, value);
+        mEvaluator.define(var, value);
     }
 
     public void define(String var, String value) {
-        BigEvaluator.getInstance(getApplicationContext()).define(var, value);
+        mEvaluator.define(var, value);
     }
 
 
@@ -507,7 +490,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public void onEqual() {
         String text = mInputDisplay.getCleanText();
         setState(BasicCalculatorActivity.CalculatorState.EVALUATE);
-        BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultNormal(text, BasicCalculatorActivity.this);
+        mEvaluator.evaluateWithResultNormal(text, BasicCalculatorActivity.this);
     }
 
     public void onInputVoice() {
@@ -576,7 +559,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     @Override
-    public void onEvaluate(String expr, String result, int resultId) {
+    public void onEvaluated(String expr, String result, int resultId) {
         if (resultId == LogicEvaluator.RESULT_ERROR) {
             if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
                 setTextResult(""); //clear
@@ -596,7 +579,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
                 onResult(result);
                 saveHistory(expr, result, true);
-                BigEvaluator.getInstance(getApplicationContext()).define("ans", result);
+                mEvaluator.define("ans", result);
             } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
                 if (result == null) {
                     setTextResult("");
@@ -709,7 +692,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     protected boolean saveHistory(String expr, String result, boolean ensureResult) {
         DLog.i("Save history: " + expr + " = " + result);
-        mHistoryDatabase.saveHistory(new HistoryEntry(expr, result));
+        mHistoryDatabase.saveHistory(new ResultEntry(expr, result));
         return false;
     }
 
@@ -732,7 +715,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     protected void onChangeModeFraction() {
-        BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(mInputDisplay.getCleanText(), this);
+        mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(), this);
     }
 
     @Override
@@ -943,9 +926,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 //        @Override
 //        protected ItemResult doInBackground(Void... params) {
 //            final ItemResult[] r = new ItemResult[1];
-//            BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultNormal(input, new LogicEvaluator.EvaluateCallback() {
+//            mEvaluator.evaluateWithResultNormal(input, new LogicEvaluator.EvaluateCallback() {
 //                @Override
-//                public void onEvaluate(String expr, String result, int errorResourceId) {
+//                public void onEvaluated(String expr, String result, int errorResourceId) {
 //                    r[0] = new ItemResult(errorResourceId, expr, result);
 //                }
 //            });
@@ -975,7 +958,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 //                if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
 //                    onResult(aVoid.mResult);
 //                    saveHistory(aVoid.mExpression, aVoid.mResult, true);
-//                    BigEvaluator.getInstance(getApplicationContext()).define("ans", aVoid.mResult);
+//                    mEvaluator.define("ans", aVoid.mResult);
 //                } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
 //                    if (aVoid.mResult == null) {
 //                        setTextResult("");
@@ -990,6 +973,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 //        }
 //    }
 
+
+    public static enum PagerState {PAGE_SCIENCE, PAGE_NUMBER, PAGE_HISTORY, PAGE_CONSTANT}
 
     /**
      * class for eval extend AsyncTask
@@ -1031,30 +1016,30 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             String expr = item.getInput();
             final String[] res = {""};
             if (params[0].getClass().equals(NumberIntegerItem.class)) {
-                BigEvaluator.getInstance(getApplicationContext()).factorPrime(expr, new LogicEvaluator.EvaluateCallback() {
+                mEvaluator.factorPrime(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
-                    public void onEvaluate(String expr, String result, int errorResourceId) {
+                    public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
                     }
                 });
             } else if (params[0].getClass().equals(SolveItem.class)) {
-                BigEvaluator.getInstance(getApplicationContext()).solveEquation(expr, new LogicEvaluator.EvaluateCallback() {
+                mEvaluator.solveEquation(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
-                    public void onEvaluate(String expr, String result, int errorResourceId) {
+                    public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
                     }
                 });
             } else if (params[0].getClass().equals(DerivativeItem.class)) {
-                BigEvaluator.getInstance(getApplicationContext()).derivativeFunction(expr, new LogicEvaluator.EvaluateCallback() {
+                mEvaluator.derivativeFunction(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
-                    public void onEvaluate(String expr, String result, int errorResourceId) {
+                    public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
                     }
                 });
             } else {
-                BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(expr, new LogicEvaluator.EvaluateCallback() {
+                mEvaluator.evaluateWithResultAsTex(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
-                    public void onEvaluate(String expr, String result, int errorResourceId) {
+                    public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
                     }
                 });
@@ -1079,5 +1064,22 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         }
     }
 
-    public static enum PagerState {PAGE_SCIENCE, PAGE_NUMBER, PAGE_HISTORY, PAGE_CONSTANT}
+    private class InstantResultWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int start, int count, int after) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            setState(BasicCalculatorActivity.CalculatorState.INPUT);
+            if (mSetting.instantResult()) {
+                mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(),
+                        BasicCalculatorActivity.this);
+            }
+        }
+    }
 }

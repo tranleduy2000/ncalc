@@ -24,7 +24,7 @@ import java.util.Date;
  * <p/>
  * Created by Duy on 3/7/2016
  */
-public class HistoryEntry implements Serializable {
+public class ResultEntry implements Serializable {
     public static final int TYPE_SCIENCE = 0;
     public static final int TYPE_LOGIC = 1;
     public static final int TYPE_COMPLEX = 2;
@@ -35,27 +35,27 @@ public class HistoryEntry implements Serializable {
 
     public static final long serialVersionUID = 4L;
     private int type = 0;
-    private String math = "";
+    private String expression = "";
     private String result = "";
     private String inputTex = "";
     private String resultTex = "";
     private int color = 0;
     private long time = 0; //id
 
-    public HistoryEntry(String math, String res) {
-        this(math, res, 0, new Date().getTime());
+    public ResultEntry(String expression, String res) {
+        this(expression, res, 0, new Date().getTime());
     }
 
-    public HistoryEntry(String math, String result, long time) {
-        this(math, result, 0, time);
+    public ResultEntry(String expression, String result, long time) {
+        this(expression, result, 0, time);
     }
 
-    public HistoryEntry(String math, String result, int color, long time) {
-        this(math, result, color, time, TYPE_SCIENCE);
+    public ResultEntry(String expression, String result, int color, long time) {
+        this(expression, result, color, time, TYPE_SCIENCE);
     }
 
-    public HistoryEntry(String math, String result, int color, long time, int type) {
-        this.math = math;
+    public ResultEntry(String expression, String result, int color, long time, int type) {
+        this.expression = expression;
         this.result = result;
         this.color = color;
         this.time = time;
@@ -70,12 +70,12 @@ public class HistoryEntry implements Serializable {
         this.type = type;
     }
 
-    public String getMath() {
-        return math;
+    public String getExpression() {
+        return expression;
     }
 
-    public void setMath(String math) {
-        this.math = math;
+    public void setExpression(String expression) {
+        this.expression = expression;
     }
 
     public String getResult() {
@@ -96,7 +96,7 @@ public class HistoryEntry implements Serializable {
 
     @Override
     public String toString() {
-        return this.math + " = " + this.result;
+        return this.expression + " = " + this.result;
     }
 
     public long getTime() {

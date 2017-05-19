@@ -37,7 +37,7 @@ import com.example.duy.calculator.activities.FactorExpressionActivity;
 import com.example.duy.calculator.activities.IntegrateActivity;
 import com.example.duy.calculator.activities.LimitActivity;
 import com.example.duy.calculator.activities.LogicCalculatorActivity;
-import com.example.duy.calculator.activities.MatrixCalculatorActivity;
+import com.example.duy.calculator.matrix.MatrixCalculatorActivity;
 import com.example.duy.calculator.activities.PrimitiveActivity;
 import com.example.duy.calculator.activities.SimplifyEquationActivity;
 import com.example.duy.calculator.activities.SolveEquationActivity;

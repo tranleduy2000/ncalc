@@ -153,7 +153,7 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
             mEvaluator.setFraction(false);
             mEvaluator.simplifyExpression(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });

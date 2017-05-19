@@ -72,7 +72,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             finish();
             return;
         }
-        evaluator = BigEvaluator.getInstance(this);
+        evaluator = BigEvaluator.newInstance(this);
         btnSolve.setText(R.string.eval);
 
         mHint2.setVisibility(View.VISIBLE);
@@ -192,7 +192,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             final ItemResult[] res = new ItemResult[1];
             evaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });

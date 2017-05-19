@@ -201,7 +201,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
             final ItemResult[] res = new ItemResult[1];
             mEvaluator.integrateFunction(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });

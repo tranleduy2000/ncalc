@@ -138,7 +138,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
         @Override
         protected ItemResult doInBackground(IExprInput... params) {
             Log.d(TAG, "doInBackground: trig task");
-            BigEvaluator.getInstance(getApplicationContext()).setFraction(true);
+            BigEvaluator.newInstance(getApplicationContext()).setFraction(true);
             return super.doInBackground(params);
         }
     }

@@ -561,7 +561,7 @@
     <string name="not_a_number">The data entered is not a number!</string>
     <string name="gt_zero">Two numbers entered must be greater than zero number.</string>
     <string name="number_theory">Number theory</string>
-    <string name="summary_trace_mode">How computers perform math problems</string>
+    <string name="summary_trace_mode">How computers perform expression problems</string>
     <string name="summary_percision">Precision</string>
     <string name="go_to_facebook">Go to Facebook</string>
     <string name="fb_desc">Support of the application. Receive bug reports.</string>

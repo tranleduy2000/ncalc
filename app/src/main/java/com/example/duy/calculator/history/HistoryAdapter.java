@@ -35,7 +35,7 @@ import com.example.duy.calculator.utils.ClipboardManager;
 import java.util.ArrayList;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
-    private ArrayList<HistoryEntry> itemHistories = new ArrayList<>();
+    private ArrayList<ResultEntry> itemHistories = new ArrayList<>();
     private Activity context;
     private HistoryListener listener = null;
     private Database database;
@@ -46,16 +46,16 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         database = new Database(context);
         this.itemHistories = database.getAllItemHistory();
         this.tokenizer = tokenizer;
-        for (HistoryEntry entry : itemHistories) {
+        for (ResultEntry entry : itemHistories) {
             DLog.i("HistoryEntry : " + entry.toString());
         }
     }
 
-    public ArrayList<HistoryEntry> getItemHistories() {
+    public ArrayList<ResultEntry> getItemHistories() {
         return itemHistories;
     }
 
-    public void setItemHistories(ArrayList<HistoryEntry> itemHistories) {
+    public void setItemHistories(ArrayList<ResultEntry> itemHistories) {
         this.itemHistories = itemHistories;
     }
 
@@ -67,15 +67,15 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         this.listener = listener;
     }
 
-    public void addHistory(HistoryEntry historyEntry) {
-        itemHistories.add(historyEntry);
-        database.removeItemHistory(historyEntry.getTime());
+    public void addHistory(ResultEntry resultEntry) {
+        itemHistories.add(resultEntry);
+        database.removeItemHistory(resultEntry.getTime());
         notifyItemInserted(itemHistories.size() - 1);
     }
 
-    public void removeHistory(HistoryEntry historyEntry, int position) {
-        itemHistories.remove(historyEntry);
-        database.removeItemHistory(historyEntry.getTime());
+    public void removeHistory(ResultEntry resultEntry, int position) {
+        itemHistories.remove(resultEntry);
+        database.removeItemHistory(resultEntry.getTime());
         notifyItemRemoved(position);
     }
 
@@ -92,35 +92,35 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        final HistoryEntry historyEntry = itemHistories.get(position);
-        holder.txtMath.setText(tokenizer.getLocalizedExpression(historyEntry.getMath()));
+        final ResultEntry resultEntry = itemHistories.get(position);
+        holder.txtMath.setText(tokenizer.getLocalizedExpression(resultEntry.getExpression()));
         holder.txtMath.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if (listener != null) listener.onItemLongClickListener(v, historyEntry);
+                if (listener != null) listener.onItemLongClickListener(v, resultEntry);
                 return false;
             }
         });
         holder.txtMath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (listener != null) listener.onItemClickListener(v, historyEntry);
+                if (listener != null) listener.onItemClickListener(v, resultEntry);
 
             }
         });
 
-        holder.txtResult.setText(historyEntry.getResult());
+        holder.txtResult.setText(resultEntry.getResult());
         holder.txtResult.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if (listener != null) listener.onItemLongClickListener(v, historyEntry);
+                if (listener != null) listener.onItemLongClickListener(v, resultEntry);
                 return false;
             }
         });
         holder.txtResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (listener != null) listener.onItemClickListener(v, historyEntry);
+                if (listener != null) listener.onItemClickListener(v, resultEntry);
 
             }
         });
@@ -128,7 +128,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         holder.imgCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ClipboardManager.setClipboard(context, historyEntry.getMath());
+                ClipboardManager.setClipboard(context, resultEntry.getExpression());
             }
         });
         holder.imgShare.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +136,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, historyEntry.getMath() + " = " + historyEntry.getResult());
+                intent.putExtra(Intent.EXTRA_TEXT, resultEntry.getExpression() + " = " + resultEntry.getResult());
                 intent.setType("text/plain");
                 context.startActivity(intent);
             }
@@ -164,7 +164,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         return itemHistories.size();
     }
 
-    public HistoryEntry getItem(int index) {
+    public ResultEntry getItem(int index) {
         return itemHistories.get(index);
     }
 
@@ -175,9 +175,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
 
     public interface HistoryListener {
-        void onItemClickListener(View view, HistoryEntry historyEntry);
+        void onItemClickListener(View view, ResultEntry resultEntry);
 
-        void onItemLongClickListener(View view, HistoryEntry historyEntry);
+        void onItemLongClickListener(View view, ResultEntry resultEntry);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -151,16 +151,16 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         protected ItemResult doInBackground(IExprInput... iExprInputs) {
             FactorExpressionItem item = (FactorExpressionItem) iExprInputs[0];
             //check error
-            if (BigEvaluator.getInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
-                return new ItemResult(item.getExpr(), BigEvaluator.getInstance(getApplicationContext()).getError(item.getInput()),
+            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
+                return new ItemResult(item.getExpr(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.getInstance(getApplicationContext())
+            BigEvaluator.newInstance(getApplicationContext())
                     .factorPolynomial(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });
@@ -168,7 +168,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
 //            //task 2
 //            try {
 //                SolveItem solveItem = new SolveItem(item.getInput(), Constants.ZERO);
-//                IExpr iExpr = BigEvaluator.getInstance(getApplicationContext()).getEvalUtilities().evaluate(solveItem.getInput());
+//                IExpr iExpr = BigEvaluator.newInstance(getApplicationContext()).getEvalUtilities().evaluate(solveItem.getInput());
 //                String s1 = iExpr.toString();
 //                Log.d(TAG, "doInBackground: " + s1);
 //                if (s1.contains(Constants.SOLVE)) {
@@ -198,25 +198,25 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
 //                }
 //                Log.i(TAG, "doInBackground: " + mExpression.toString());
 //
-//                boolean last = BigEvaluator.getInstance(getApplicationContext()).isFraction();
-//                BigEvaluator.getInstance(getApplicationContext()).setFraction(true);
-//                BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(mExpression.toString(), new LogicEvaluator.EvaluateCallback() {
+//                boolean last = BigEvaluator.newInstance(getApplicationContext()).isFraction();
+//                BigEvaluator.newInstance(getApplicationContext()).setFraction(true);
+//                BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex(mExpression.toString(), new LogicEvaluator.EvaluateCallback() {
 //                    @Override
-//                    public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
+//                    public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
 //                        res[0] += Constants.WEB_SEPARATOR;
 //                        res[0] += mResult;
 //                    }
 //                });
 //
-//                BigEvaluator.getInstance(getApplicationContext()).setFraction(false);
-//                BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(mExpression.toString(), new LogicEvaluator.EvaluateCallback() {
+//                BigEvaluator.newInstance(getApplicationContext()).setFraction(false);
+//                BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex(mExpression.toString(), new LogicEvaluator.EvaluateCallback() {
 //                    @Override
-//                    public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
+//                    public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
 //                        res[0] += Constants.WEB_SEPARATOR;
 //                        res[0] += mResult;
 //                    }
 //                });
-//                BigEvaluator.getInstance(getApplicationContext()).setFraction(last);
+//                BigEvaluator.newInstance(getApplicationContext()).setFraction(last);
 //            } catch (Exception e) {
 //                e.printStackTrace();
 //            }

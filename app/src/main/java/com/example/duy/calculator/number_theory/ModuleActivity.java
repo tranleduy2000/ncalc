@@ -147,7 +147,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            bigEvaluator = BigEvaluator.getInstance(getApplicationContext()).getEvaluator();
+            bigEvaluator = BigEvaluator.newInstance(getApplicationContext()).getEvaluator();
             bigEvaluator.setFraction(true);
         }
 
@@ -156,14 +156,14 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
             ModuleItem item = (ModuleItem) params[0];
             //check error
             if (bigEvaluator.isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), BigEvaluator.getInstance(getApplicationContext()).getError(item.getInput()),
+                return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
             bigEvaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });

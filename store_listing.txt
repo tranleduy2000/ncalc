@@ -133,7 +133,7 @@ The Calculator provides the following features:
 - 	Draw the basic functions: linear, parabolic, discontinuous functions ...
 - 	Graphing in 3D space.
 - 	Presentation of the derivative on the graph.
-<b> 5. Cartesian geometry sand, suitable for Grade 10 math program (Viet Nam Education)</b>
+<b> 5. Cartesian geometry sand, suitable for Grade 10 expression program (Viet Nam Education)</b>
 <b> 6. Unit Conversions: </b>
 -	Temperature
 -	Weight

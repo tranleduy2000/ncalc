@@ -83,10 +83,10 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
             public void afterTextChanged(Editable editable) {
                 if (editable.toString().length() <= 10
                         && editable.toString().length() >= 1) {
-                    BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex("FactorInteger(" +
+                    BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex("FactorInteger(" +
                             mInputFormula.getCleanText() + ")", new LogicEvaluator.EvaluateCallback() {
                         @Override
-                        public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
+                        public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
                             if (errorResourceId == LogicEvaluator.RESULT_OK) {
 //                                mMathView.setText(mResult);
                             }
@@ -196,15 +196,15 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         protected ItemResult doInBackground(IExprInput... iExprInputs) {
             NumberIntegerItem item = (NumberIntegerItem) iExprInputs[0];
             //check error
-            if (BigEvaluator.getInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), BigEvaluator.getInstance(getApplicationContext()).getError(item.getInput()),
+            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
+                return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.getInstance(getApplicationContext()).factorPrime(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            BigEvaluator.newInstance(getApplicationContext()).factorPrime(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });

@@ -106,7 +106,7 @@ public class NumberActivity extends AbstractEvaluatorActivity {
                 break;
         }
         //disable fraction mode
-        BigEvaluator.getInstance(this).setFraction(true);
+        BigEvaluator.newInstance(this).setFraction(true);
         //create new task eval and exec it with NumberIntegerItem
         new ATaskEval().execute(item);
     }

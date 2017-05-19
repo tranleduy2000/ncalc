@@ -22,7 +22,6 @@ import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.inputmethodservice.Keyboard;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -45,10 +44,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.duy.keyboard.FloatingKeyboardView;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.adapters.ResultAdapter;
-import com.example.duy.calculator.history.HistoryEntry;
+import com.example.duy.calculator.history.ResultEntry;
 import com.example.duy.calculator.item_math_type.IExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.math_eval.BigEvaluator;
@@ -112,12 +110,13 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         btnSolve = (Button) findViewById(R.id.btn_solve);
         mInputFormula = (ResizingEditText) findViewById(R.id.edit_input);
 
+/*
         FloatingKeyboardView mCustomKeyboard = (FloatingKeyboardView) findViewById(R.id.keyboard_view);
         mCustomKeyboard.setKeyboard(new Keyboard(this, R.xml.symbols));
         mCustomKeyboard.setPreviewEnabled(false); // NOTE Do not show the preview balloons
         mCustomKeyboard.registerEditText(mInputFormula);
         mCustomKeyboard.setAllignBottomCenter(true);
-
+*/
 
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
         mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar);
@@ -128,11 +127,9 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         mHint1 = (TextInputLayout) findViewById(R.id.hint_1);
         mHint2 = (TextInputLayout) findViewById(R.id.hint_2);
 
-//        mMathView.setText(getString(getIdStringHelp()));
         btnClear.setOnClickListener(this);
         btnSolve.setOnClickListener(this);
         mProgress.hide();
-//        mFull.setOnClickListener(this);
         findViewById(R.id.fab_help).setOnClickListener(this);
         editFrom = (EditText) findViewById(R.id.edit_lower);
         editTo = (EditText) findViewById(R.id.edit_upper);
@@ -240,75 +237,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     }
 
 
-//    public void onResult(String command, boolean b) {
-//        Tokenizer mTokenizer = new Tokenizer(this);
-//        Log.d(TAG, "onResult: " + command);
-//        /** if (b) onAnimate();*/
-//        //check input empty
-//        if (command.isEmpty()) {
-//            mInputFormula.setError(getString(R.string.not_input));
-//            mInputFormula.requestFocus();
-//            return;
-//        }
-//
-//        //translate to en
-//        final String finalCommand = mTokenizer.getNormalExpression(command);
-//        hideKeyboard(mInputFormula);
-//        final Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            mProgress.show();
-//                            btnSolve.setEnabled(false);
-//                        }
-//                    });
-//                    mEvaluator.getEvalUtils().evaluate(finalCommand);    //catch error
-//                    mEvaluator.setFraction(true);
-//
-//                    mEvaluator.evaluateWithResultAsTex(finalCommand, new LogicEvaluator.EvaluateCallback() {
-//                        @Override
-//                        public void onEvaluate(String mExpression, String mResult, final int errorResourceId) {
-//                            final String finalResult = mResult;
-//                            handler.post(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    if (errorResourceId == LogicEvaluator.RESULT_OK) {
-//                                        mMathView.setText(finalResult);
-//                                    } else {
-//                                        String res = "<h3>" + getString(R.string.error) + "</h3>"
-//                                                + finalResult;
-//                                        mMathView.setText(res);
-//                                    }
-//                                    btnSolve.setEnabled(true);
-//                                    mProgress.hide();
-//                                }
-//                            });
-//                        }
-//                    });
-//
-//                } catch (final Exception e) {
-//                    handler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            String er = mEvaluator.getExceptionMessage(e, true);
-//                            mMathView.setText("\\(" + er + "\\)");
-//                        }
-//                    });
-//                }
-//            }
-//        });
-//        thread.start();
-//    }
-
-
     /**
      * show dialog with title and messenger
-     *
-     * @param title - title
-     * @param msg   - messenger
      */
     protected void showDialog(String title, String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -326,9 +256,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     public void onClick(View v) {
         Log.d(TAG, "onClick: " + v.getId());
         switch (v.getId()) {
-//            case R.id.fab:
-//                expandResult();
-//                break;
             case R.id.btn_clear:
                 onClear();
                 break;
@@ -355,21 +282,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         mInputDisplay2.setText("");
     }
 
-    /**
-     * show #MathViewActivity with webview
-     * fix bug for android 6, 7
-     */
-    protected void expandResult() {
-        //start activity to show mResult
-        /*
-        Intent intent = new Intent(this, MathViewActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString(MathViewActivity.DATA, mMathView.getText());
-        intent.putExtra(MathViewActivity.DATA, bundle);
-        this.startActivity(intent);
-        */
-        //ok
-    }
 
     /***
      * method for evalute input
@@ -415,7 +327,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mEvaluator = BigEvaluator.getInstance(getApplicationContext());
+            mEvaluator = BigEvaluator.newInstance(getApplicationContext());
             mProgress.show();
 //            mMathView.setText("");
             btnSolve.setEnabled(false);
@@ -440,7 +352,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             final ItemResult[] res = new ItemResult[1];
             mEvaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });
@@ -460,7 +372,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
                     btnClear.setEnabled(true);
 
 //                    resultAdapter.addItem(new HistoryEntry("$$" + s.mExpression + "$$", s.mResult));
-                    resultAdapter.addItem(new HistoryEntry("", s.mResult));
+                    resultAdapter.addItem(new ResultEntry("", s.mResult));
                     if (resultAdapter.getItemCount() > 0)
                         rcResult.scrollToPosition(0);
                 }

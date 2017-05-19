@@ -118,7 +118,7 @@ public class HistoryActivity extends AbstractAppCompatActivity implements Histor
     }
 
     private void doSave() {
-        ArrayList<HistoryEntry> histories = mHistoryAdapter.getItemHistories();
+        ArrayList<ResultEntry> histories = mHistoryAdapter.getItemHistories();
         mHistoryDatabase.clearHistory();
         mHistoryDatabase.saveHistory(histories);
     }
@@ -136,14 +136,14 @@ public class HistoryActivity extends AbstractAppCompatActivity implements Histor
      * set bundle data and finish activity
      *
      * @param view
-     * @param historyEntry
+     * @param resultEntry
      */
     @Override
-    public void onItemClickListener(View view, HistoryEntry historyEntry) {
+    public void onItemClickListener(View view, ResultEntry resultEntry) {
         //finish
         Intent intent = getIntent();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(BasicCalculatorActivity.DATA, historyEntry);
+        bundle.putSerializable(BasicCalculatorActivity.DATA, resultEntry);
         intent.putExtra(BasicCalculatorActivity.DATA, bundle);
         setResult(RESULT_OK, intent);
         finish();
@@ -153,13 +153,13 @@ public class HistoryActivity extends AbstractAppCompatActivity implements Histor
      * history long click, copy text to clipboard
      *
      * @param view
-     * @param historyEntry
+     * @param resultEntry
      */
     @Override
-    public void onItemLongClickListener(View view, HistoryEntry historyEntry) {
+    public void onItemLongClickListener(View view, ResultEntry resultEntry) {
         Toast.makeText(HistoryActivity.this,
                 getString(R.string.copied) + " \n" +
-                        historyEntry.getMath(),
+                        resultEntry.getExpression(),
                 Toast.LENGTH_SHORT).show();
     }
 }

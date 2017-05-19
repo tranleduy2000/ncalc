@@ -344,16 +344,16 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             if (!isOk) return "";
             String input = equation.toString();
             Log.d(TAG, input);
-            if (BigEvaluator.getInstance(getActivity()).isSyntaxError(input)) return getString(R.string.error);
+            if (BigEvaluator.newInstance(getActivity()).isSyntaxError(input)) return getString(R.string.error);
             final String[] res = {""};
 
             /**
              * evaluate with mResult as fraction
              */
-            BigEvaluator.getInstance(getActivity()).setFraction(true);
-            BigEvaluator.getInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
+            BigEvaluator.newInstance(getActivity()).setFraction(true);
+            BigEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) res[0] = result;
                 }
             });
@@ -361,10 +361,10 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             /**
              * evaluate with mResult as numeric
              */
-            BigEvaluator.getInstance(getActivity()).setFraction(false);
-            BigEvaluator.getInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
+            BigEvaluator.newInstance(getActivity()).setFraction(false);
+            BigEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) {
                         res[0] += Constants.WEB_SEPARATOR;
                         res[0] += result;

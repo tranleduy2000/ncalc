@@ -66,11 +66,6 @@ public class DecimalFactory {
      */
     public static String round(String val, int i) {
         try {
-//            String p = "#.";
-//            for (int j = 0; j < i; j++) {
-//                p += "#";
-//            }
-//            format = new DecimalFormat(p);
             java.math.BigDecimal bigDecimal = new java.math.BigDecimal(val);
             String res = bigDecimal.round(new MathContext(i)).toString();
             return res;
@@ -109,7 +104,7 @@ public class DecimalFactory {
             final String[] res = {""};
             mEvaluator.evaluateWithResultNormal(result1, new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = result;
                 }
             });

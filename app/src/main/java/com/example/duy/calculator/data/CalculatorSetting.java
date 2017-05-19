@@ -128,7 +128,21 @@ public class CalculatorSetting {
     }
 
     public int getInt(String key) {
-        return sharedPreferences.getInt(key, -1);
+        return getInt(key, -1);
+    }
+
+    public int getInt(String key, int def) {
+        try {
+            return sharedPreferences.getInt(key, def);
+        } catch (Exception e) {
+            String value = getString(context.getString(R.string.key_pref_precision));
+            try {
+                return Integer.parseInt(value);
+            } catch (Exception e1) {
+
+            }
+        }
+        return def;
     }
 
     /**
@@ -153,12 +167,16 @@ public class CalculatorSetting {
         }
     }
 
-    public boolean getBoolean(String key) {
+    public String getString(String key, String def) {
         try {
-            return sharedPreferences.getBoolean(key, false);
+            return sharedPreferences.getString(key, def);
         } catch (Exception e) {
-            return false;
+            return def;
         }
+    }
+
+    public boolean getBoolean(String key) {
+        return getBoolean(key, false);
     }
 
     public boolean isNewUpdate() {
@@ -175,5 +193,28 @@ public class CalculatorSetting {
 
     public boolean useFullScreen() {
         return getBoolean(context.getString(R.string.key_hide_status_bar));
+    }
+
+    public SharedPreferences.Editor getEditor() {
+        return sharedPreferences.edit();
+    }
+
+    public int getPrecision() {
+        return getInt(context.getString(R.string.key_pref_precision));
+    }
+
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener
+                                                                 onSharedPreferenceChangeListener) {
+        sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+    }
+
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener
+                                                                   onSharedPreferenceChangeListener) {
+        sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+    }
+
+    public boolean getBoolean(String key, boolean def) {
+        return sharedPreferences.getBoolean(key, def);
+
     }
 }

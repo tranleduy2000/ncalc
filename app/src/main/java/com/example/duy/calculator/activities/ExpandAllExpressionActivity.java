@@ -141,19 +141,19 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
         protected ItemResult doInBackground(IExprInput... params) {
             IExprInput item = params[0];
             //check error
-            if (BigEvaluator.getInstance(getApplicationContext())
+            if (BigEvaluator.newInstance(getApplicationContext())
                     .isSyntaxError(item.getInput())) {
                 return new ItemResult(item.getInput(),
-                        BigEvaluator.getInstance(getApplicationContext()).getError(item.getInput()),
+                        BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.getInstance(getApplicationContext())
+            BigEvaluator.newInstance(getApplicationContext())
                     .expandAll(item.getInput(),
                             new LogicEvaluator.EvaluateCallback() {
                                 @Override
-                                public void onEvaluate(String expr, String result, int errorResourceId) {
+                                public void onEvaluated(String expr, String result, int errorResourceId) {
                                     res[0] = new ItemResult(expr, result, errorResourceId);
                                 }
                             });

@@ -27,7 +27,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.history.HistoryEntry;
+import com.example.duy.calculator.history.ResultEntry;
 import com.example.duy.calculator.utils.ClipboardManager;
 
 import java.util.ArrayList;
@@ -40,24 +40,23 @@ import io.github.kexanie.library.MathView;
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultViewHolder> {
     final static String TAG = "ResultAdapter";
     private Activity mActivity;
-    private ArrayList<HistoryEntry> mResults = new ArrayList<>();
+    private ArrayList<ResultEntry> mResults = new ArrayList<>();
     private OnItemListener listener = null;
 
 
     public ResultAdapter(Activity activity) {
         mActivity = activity;
-
     }
 
-    public ArrayList<HistoryEntry> getResults() {
+    public ArrayList<ResultEntry> getResults() {
         return mResults;
     }
 
-    public void setResults(ArrayList<HistoryEntry> mResults) {
+    public void setResults(ArrayList<ResultEntry> mResults) {
         this.mResults = mResults;
     }
 
-    public void addItem(HistoryEntry item) {
+    public void addItem(ResultEntry item) {
         mResults.add(0, item);
         notifyItemInserted(0);
     }
@@ -71,9 +70,9 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
         return true;
     }
 
-    public HistoryEntry getResult(int position) {
+    public ResultEntry getResult(int position) {
         if (position > mResults.size() - 1) {
-            return new HistoryEntry("0", "0");
+            return new ResultEntry("0", "0");
         }
         return mResults.get(position);
     }
@@ -101,9 +100,9 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
 
     @Override
     public void onBindViewHolder(ResultViewHolder holder, final int position) {
-        final HistoryEntry item = mResults.get(position);
-        Log.d(TAG, "onBindViewHolder: " + item.getMath() + " = " + item.getResult());
-        holder.txtMath.setText(item.getMath());
+        final ResultEntry item = mResults.get(position);
+        Log.d(TAG, "onBindViewHolder: " + item.getExpression() + " = " + item.getResult());
+        holder.txtMath.setText(item.getExpression());
         holder.txtResult.setText(item.getResult());
         holder.imgCopy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,7 +115,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, item.getMath() + " = " + item.getResult());
+                intent.putExtra(Intent.EXTRA_TEXT, item.getExpression() + " = " + item.getResult());
                 intent.setType("text/plain");
                 mActivity.startActivity(intent);
             }
@@ -146,11 +145,11 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
     }
 
     public interface OnItemListener {
-        void onItemClickListener(View view, HistoryEntry historyEntry);
+        void onItemClickListener(View view, ResultEntry resultEntry);
 
-        void onItemLongClickListener(View view, HistoryEntry historyEntry);
+        void onItemLongClickListener(View view, ResultEntry resultEntry);
 
-        void onEditExpr(HistoryEntry item);
+        void onEditExpr(ResultEntry item);
 
     }
 

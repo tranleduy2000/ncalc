@@ -90,7 +90,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         public void afterTextChanged(Editable editable) {
             setState(LogicCalculatorActivity.CalculatorState.INPUT);
             Log.d(TAG, mInputDisplay.getCleanText());
-            BigEvaluator.getInstance(getApplicationContext()).evaluateBase(mInputDisplay.getCleanText(), LogicCalculatorActivity.this);
+            BigEvaluator.newInstance(getApplicationContext()).evaluateBase(mInputDisplay.getCleanText(), LogicCalculatorActivity.this);
         }
     };
     private NumberBaseManager mBaseManager;
@@ -116,7 +116,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         mInputDisplay.setFormatText(false);
 
         txtResult = (TextView) findViewById(R.id.txtResult);
-        mBaseManager = new NumberBaseManager(BigEvaluator.getInstance(getApplicationContext()).getSolver().getBase());
+        mBaseManager = new NumberBaseManager(BigEvaluator.newInstance(getApplicationContext()).getSolver().getBase());
         initPad();
 
 
@@ -180,19 +180,19 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     public void onPause() {
         super.onPause();
-        Base base = BigEvaluator.getInstance(getApplicationContext()).getSolver().getBase();
-        int iBase = BigEvaluator.getInstance(getApplicationContext()).getSolver().getBaseModule().getBaseNumber(base);
+        Base base = BigEvaluator.newInstance(getApplicationContext()).getSolver().getBase();
+        int iBase = BigEvaluator.newInstance(getApplicationContext()).getSolver().getBaseModule().getBaseNumber(base);
         mSetting.put(CalculatorSetting.BASE, iBase);
         mSetting.put(CalculatorSetting.INPUT_BASE, mInputDisplay.getCleanText());
     }
 
     public void setBase(final Base base) {
         mBaseManager.setNumberBase(base);
-        BigEvaluator.getInstance(getApplicationContext()).setBase(mInputDisplay.getCleanText(), base, new LogicEvaluator.EvaluateCallback() {
+        BigEvaluator.newInstance(getApplicationContext()).setBase(mInputDisplay.getCleanText(), base, new LogicEvaluator.EvaluateCallback() {
             @Override
-            public void onEvaluate(String expr, String result, int errorResourceId) {
+            public void onEvaluated(String expr, String result, int errorResourceId) {
                 if (errorResourceId == LogicEvaluator.RESULT_ERROR) {
-                    Log.d(TAG, "onEvaluate: error on evaluate " + expr);
+                    Log.d(TAG, "onEvaluated: error on evaluate " + expr);
                     onError(getResources().getString(R.string.error));
                 } else {
                     txtResult.setText(result);
@@ -206,7 +206,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
 
     private void updateUI() {
         Log.d(TAG, "updateUI: ");
-        setSelectionButton(BigEvaluator.getInstance(getApplicationContext()).getSolver().getBase());
+        setSelectionButton(BigEvaluator.newInstance(getApplicationContext()).getSolver().getBase());
         for (int id : mBaseManager.getViewIds()) {
             final View view = findViewById(id);
             if (view != null) {
@@ -439,7 +439,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         String text = mInputDisplay.getCleanText();
         if (mCurrentState == LogicCalculatorActivity.CalculatorState.INPUT) {
             setState(LogicCalculatorActivity.CalculatorState.EVALUATE);
-            BigEvaluator.getInstance(getApplicationContext()).evaluateBase(text, this);
+            BigEvaluator.newInstance(getApplicationContext()).evaluateBase(text, this);
         }
     }
 
@@ -449,8 +449,8 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
 //    }
 
     @Override
-    public void onEvaluate(String expr, String result, int resultId) {
-        Log.d(TAG, "onEvaluate " + expr + " = " + result + " with error " + resultId);
+    public void onEvaluated(String expr, String result, int resultId) {
+        Log.d(TAG, "onEvaluated " + expr + " = " + result + " with error " + resultId);
         if (resultId == LogicEvaluator.RESULT_ERROR) {
             if (mCurrentState == LogicCalculatorActivity.CalculatorState.INPUT) {
                 txtResult.setText(null);

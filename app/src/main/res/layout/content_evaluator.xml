@@ -179,7 +179,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.duy.keyboard.FloatingKeyboardView
+  <!--  <com.duy.keyboard.FloatingKeyboardView
         android:id="@+id/keyboard_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -189,5 +189,5 @@
         android:keyBackground="@drawable/bg_keyboard"
         android:keyTextColor="#384850"
         android:minWidth="300dp"
-        android:visibility="gone"/>
+        android:visibility="gone"/>-->
 </RelativeLayout>

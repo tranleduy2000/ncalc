@@ -27,7 +27,6 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -62,7 +61,7 @@ import java.util.Locale;
 public abstract class AbstractAppCompatActivity extends AppCompatActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String TAG = "MainActivity";
-    protected SharedPreferences mPreferences;
+    protected CalculatorSetting mCalculatorSetting;
     protected Database mHistoryDatabase;
     protected CalculatorSetting mSetting;
 
@@ -98,7 +97,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mCalculatorSetting = new CalculatorSetting(this);
         mHistoryDatabase = new Database(this);
         mSetting = new CalculatorSetting(this);
 
@@ -145,7 +144,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
      */
     private void setLocale(boolean create) {
         Locale locale;
-        String code = mPreferences.getString(getString(R.string.key_pref_lang), "default_lang");
+        String code = mCalculatorSetting.getString(getString(R.string.key_pref_lang), "default_lang");
         if (code.equals("default_lang")) {
             locale = Locale.getDefault();
         } else {
@@ -168,8 +167,8 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        if (mPreferences != null)
-            mPreferences.registerOnSharedPreferenceChangeListener(this);
+        if (mCalculatorSetting != null)
+            mCalculatorSetting.registerOnSharedPreferenceChangeListener(this);
         // Monitor launch times and interval from installation
         RateThisApp.onStart(this);
         // If the criteria is satisfied, "Rate this app" dialog will be shown
@@ -202,7 +201,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
      * @param recreate - call method onCreate
      */
     protected void setTheme(boolean recreate) {
-        String name = mPreferences.getString(getResources().getString(R.string.key_pref_theme), "");
+        String name = mCalculatorSetting.getString(getResources().getString(R.string.key_pref_theme), "");
         ThemeEngine themeEngine = new ThemeEngine(getApplicationContext());
         int themeId = themeEngine.getTheme(name);
         if (themeId != ThemeEngine.THEME_NOT_FOUND) {
@@ -234,8 +233,8 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mPreferences != null)
-            mPreferences.unregisterOnSharedPreferenceChangeListener(this);
+        if (mCalculatorSetting != null)
+            mCalculatorSetting.unregisterOnSharedPreferenceChangeListener(this);
     }
 
     /**
@@ -327,7 +326,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
 
     public void checkUpdate() {
         boolean update;
-        update = mPreferences.getBoolean(CalculatorSetting.NOTIFY_UPDATE, false);
+        update = mCalculatorSetting.getBoolean(CalculatorSetting.NOTIFY_UPDATE, false);
         if (update) {
             new CheckUpdateTask(this).execute();
         }

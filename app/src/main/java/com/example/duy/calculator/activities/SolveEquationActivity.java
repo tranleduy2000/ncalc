@@ -166,15 +166,15 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
                         getString(R.string.not_variable), LogicEvaluator.RESULT_FAILED);
             }
             //check error
-            if (BigEvaluator.getInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
-                return new ItemResult(item.getExpr(), BigEvaluator.getInstance(getApplicationContext()).getError(item.getExpr()),
+            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
+                return new ItemResult(item.getExpr(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getExpr()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.getInstance(getApplicationContext()).solveEquation(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            BigEvaluator.newInstance(getApplicationContext()).solveEquation(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });

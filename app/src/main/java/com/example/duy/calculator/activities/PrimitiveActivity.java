@@ -163,15 +163,15 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
         protected ItemResult doInBackground(IExprInput... iExprInputs) {
             PrimitiveItem item = (PrimitiveItem) iExprInputs[0];
             //check error
-            if (BigEvaluator.getInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), BigEvaluator.getInstance(getApplicationContext()).getError(item.getInput()),
+            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
+                return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
+                public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
                 }
             });

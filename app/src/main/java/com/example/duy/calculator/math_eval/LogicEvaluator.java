@@ -57,10 +57,10 @@ public abstract class LogicEvaluator {
             String result = mEvaluator.evaluate(expr, getEvaluator());
             result = mTokenizer.getLocalizedExpression(result);
             Log.d(TAG, "evaluate: mResult = " + result);
-            callback.onEvaluate(expr, result, LogicEvaluator.RESULT_OK);
+            callback.onEvaluated(expr, result, LogicEvaluator.RESULT_OK);
         } catch (SyntaxException e) {
             String result = e.message + ";" + e.position;
-            callback.onEvaluate(expr, result, LogicEvaluator.RESULT_ERROR_WITH_INDEX);
+            callback.onEvaluated(expr, result, LogicEvaluator.RESULT_ERROR_WITH_INDEX);
         } catch (Exception e) {
         }
     }
@@ -70,10 +70,10 @@ public abstract class LogicEvaluator {
             String result;
             result = mEvaluator.getBaseModule().setBase(expr, base);
             if (result.isEmpty()) {
-                callback.onEvaluate(expr, result, INPUT_EMPTY);
+                callback.onEvaluated(expr, result, INPUT_EMPTY);
                 return;
             }
-            callback.onEvaluate(expr, result, RESULT_OK);
+            callback.onEvaluated(expr, result, RESULT_OK);
         } catch (SyntaxException e) {
 //            e.printStackTrace();
         }
@@ -88,6 +88,6 @@ public abstract class LogicEvaluator {
 
 
     public interface EvaluateCallback {
-        void onEvaluate(String expr, String result, int errorResourceId);
+        void onEvaluated(String expr, String result, int errorResourceId);
     }
 }

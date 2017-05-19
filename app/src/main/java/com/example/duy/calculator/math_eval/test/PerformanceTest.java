@@ -40,63 +40,63 @@ public class PerformanceTest {
     public void test() {
 //        evaluateWithResultNormal("2+3+2", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
 //        getResultAsTex("sqrt(2)+sin(3)", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //            }
 //        });
 //        getResultAsTex("23/23/23.", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
 //        getResultAsTex("sin(x) + cos(x)", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
 //        getResultAsTex("2^32+ 23+236^32", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
 //        getResultAsTex("tan(x) - 2x^2 + 100!", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
 //        getResultAsTex("{1, 2, 3} + {2, 3, 4}", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
 //        getResultAsTex("{{1, 2, 3}, {2, 3, 4}} + {{2, 3, 4}, {1, 2, 3}}", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
 //        getResultAsTex("{{1, 2}, {3, 5}} * {{2, 3}, {5,4}}", new Evaluator.EvaluateCallback() {
 //            @Override
-//            public void onEvaluate(String mExpression, String mResult, int errorResourceId) {
-//                d(TAG, "onEvaluate: " + mExpression + " = " + mResult);
+//            public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
+//                d(TAG, "onEvaluated: " + mExpression + " = " + mResult);
 //
 //            }
 //        });
@@ -105,8 +105,8 @@ public class PerformanceTest {
         for (int i = 0; i < 100; i++) {
             evaluator.evaluateWithResultNormal(i + "+" + (i / 3) + " * " + "sqrt(" + i + ") * " + i * 2, new LogicEvaluator.EvaluateCallback() {
                 @Override
-                public void onEvaluate(String expr, String result, int errorResourceId) {
-                    Log.d(TAG, "onEvaluate: " + expr + " = " + result);
+                public void onEvaluated(String expr, String result, int errorResourceId) {
+                    Log.d(TAG, "onEvaluated: " + expr + " = " + result);
 
                 }
             });

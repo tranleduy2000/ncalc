@@ -82,12 +82,12 @@ public class GraphActivity extends AbstractAppCompatActivity {
             }
         });
 
-        boolean is2d = mPreferences.getBoolean("is2d", false);
+        boolean is2d = mCalculatorSetting.getBoolean("is2d", false);
         mModeGraph.setChecked(is2d);
         mModeGraph.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                mPreferences.edit().putBoolean("is2d", b).apply();
+                mCalculatorSetting.getEditor().putBoolean("is2d", b).apply();
                 invalidate(b);
             }
         });
@@ -130,12 +130,12 @@ public class GraphActivity extends AbstractAppCompatActivity {
             }
         });
 
-        if (!(mPreferences.getBoolean(GRAPH_STATED, false))
+        if (!(mCalculatorSetting.getBoolean(GRAPH_STATED, false))
                 || ConfigApp.DEBUG)
             showHelp();
 
-        if (!mPreferences.getBoolean(GRAPH_STATED, false)) {
-            SharedPreferences.Editor editor = mPreferences.edit();
+        if (!mCalculatorSetting.getBoolean(GRAPH_STATED, false)) {
+            SharedPreferences.Editor editor = mCalculatorSetting.getEditor();
             editor.putString("f1", "x^2");
             editor.apply();
             editor.putBoolean(GRAPH_STATED, true);
@@ -258,12 +258,12 @@ public class GraphActivity extends AbstractAppCompatActivity {
         sequence.listener(new TapTargetSequence.Listener() {
             @Override
             public void onSequenceFinish() {
-                mPreferences.edit().putBoolean(GRAPH_STATED, true).apply();
+                mCalculatorSetting.getEditor().putBoolean(GRAPH_STATED, true).apply();
             }
 
             @Override
             public void onSequenceCanceled(TapTarget lastTarget) {
-                mPreferences.edit().putBoolean(GRAPH_STATED, true).apply();
+                mCalculatorSetting.getEditor().putBoolean(GRAPH_STATED, true).apply();
             }
         });
         sequence.start();
@@ -311,7 +311,7 @@ public class GraphActivity extends AbstractAppCompatActivity {
         Bundle bundle = intent.getBundleExtra(DATA);
         if (bundle != null) {
             String fx = bundle.getString(FUNC);
-            if (!fx.isEmpty()) mPreferences.edit().putString("f1", fx).apply();
+            if (!fx.isEmpty()) mCalculatorSetting.getEditor().putString("f1", fx).apply();
             Log.d(TAG, "receiveData: " + fx);
             Log.d(TAG, "onResume: ok");
         } else {
@@ -322,14 +322,14 @@ public class GraphActivity extends AbstractAppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        this.mode = mPreferences.getInt("GraphMode", GraphMode.TWO_D);
+        this.mode = mCalculatorSetting.getInt("GraphMode", GraphMode.TWO_D);
         invalidate(mode == GraphMode.TWO_D);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mPreferences.edit().putInt("GraphMode", mode).apply();
+        mCalculatorSetting.getEditor().putInt("GraphMode", mode).apply();
     }
 
     @Override

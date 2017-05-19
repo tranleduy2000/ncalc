@@ -14,21 +14,20 @@
  * limitations under the License.
  */
 
-package com.example.duy.calculator.math_eval;
+package com.example.duy.calculator.math_eval.exceptions;
+
+import com.example.duy.calculator.math_eval.BigEvaluator;
 
 /**
- * Error when handling large numbers or small numers
- * <p>
- * Created by DUy on 24-Jan-17.
+ * Created by DUy on 22-Jan-17.
  */
-public class TooBigNumberException extends Exception {
 
-    /**
-     * Constructor
-     * @param isTooBig - is value too big
-     */
-    public TooBigNumberException(boolean isTooBig) {
-        super(isTooBig ? "Number too big" : "Number to small");
+public class MathExceptionManager {
+    private final BigEvaluator mEvaluator;
+
+    public MathExceptionManager(BigEvaluator e) {
+        this.mEvaluator = e;
     }
+
 
 }
