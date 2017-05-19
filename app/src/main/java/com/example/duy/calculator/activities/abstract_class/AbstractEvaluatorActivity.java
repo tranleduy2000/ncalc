@@ -106,6 +106,20 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         createData();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String input = mCalculatorSetting.getString("input_key" + getClass().getSimpleName());
+        mInputFormula.setText(input);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mCalculatorSetting.put("input_key" + getClass().getSimpleName(),
+                mInputFormula.getText().toString());
+    }
+
     private void initView() {
         btnSolve = (Button) findViewById(R.id.btn_solve);
         mInputFormula = (ResizingEditText) findViewById(R.id.edit_input);
@@ -273,9 +287,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
      * clear text
      */
     public void onClear() {
-        /*onAnimate();*/
         mInputFormula.setText("");
-//        mMathView.setText(getString(getIdStringHelp()));
 
         if (editFrom.isShown() && editFrom.isEnabled()) editFrom.setText("");
         if (editTo.isShown()) editTo.setText("");
