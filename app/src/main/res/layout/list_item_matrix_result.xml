@@ -28,11 +28,18 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <TextView
+        <View
             android:id="@+id/padding"
-            android:layout_width="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center"
+            android:background="?colorAccent" />
+
+        <View
+            android:layout_width="3dp"
             android:layout_height="match_parent"
-            android:background="#00f" />
+            android:layout_gravity="center"
+            android:background="?colorAccent" />
 
         <com.example.duy.calculator.view.MathFormulaView
             android:id="@+id/txt_result"

@@ -17,7 +17,9 @@
 package com.example.duy.calculator.matrix;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,12 +34,12 @@ import io.github.kexanie.library.MathView;
 /**
  * adapter for recycle view mResult
  */
-public class MatrixResultAdapter extends RecyclerView.Adapter<MatrixResultAdapter.ResultViewHolder> {
+public class StepResultAdapter extends RecyclerView.Adapter<StepResultAdapter.ResultViewHolder> {
     final static String TAG = "ResultAdapter";
     private Context mContext;
     private ArrayList<StepItem> stepItems = new ArrayList<>();
 
-    public MatrixResultAdapter(Context activity) {
+    public StepResultAdapter(Context activity) {
         mContext = activity;
     }
 
@@ -47,6 +49,12 @@ public class MatrixResultAdapter extends RecyclerView.Adapter<MatrixResultAdapte
 
     public void setResults(ArrayList<StepItem> mResults) {
         this.stepItems = mResults;
+
+        //add the final result at top of recycle view
+        StepItem element = stepItems.get(stepItems.size() - 1);
+        //set input empty
+        element.setInput("");
+        stepItems.add(0, element);
     }
 
     @Override
@@ -59,7 +67,11 @@ public class MatrixResultAdapter extends RecyclerView.Adapter<MatrixResultAdapte
     public void onBindViewHolder(ResultViewHolder holder, final int position) {
         StepItem stepItem = stepItems.get(position);
         ViewGroup.LayoutParams layoutParams = holder.padding.getLayoutParams();
-        layoutParams.width = stepItem.getDepth() * 15;
+
+        Resources r = mContext.getResources();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15, r.getDisplayMetrics());
+        layoutParams.width = stepItem.getDepth() * px;
+
         holder.padding.setLayoutParams(layoutParams);
         holder.txtResult.setText(stepItem.toTex());
     }

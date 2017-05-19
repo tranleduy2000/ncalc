@@ -42,10 +42,10 @@ import java.util.Arrays;
 /**
  * Created by Duy on 18-May-17.
  */
-public class FragmentMatrixEval extends AppCompatDialogFragment {
+public class FragmentStepEval extends AppCompatDialogFragment {
     public static final String TAG = "FragmentMatrixEval";
     private static final java.lang.String EXPRESSION_KEY = "expression_key";
-    private MatrixResultAdapter resultAdapter;
+    private StepResultAdapter resultAdapter;
     private RecyclerView resultView;
     private ProgressBar progressBar;
 
@@ -54,11 +54,11 @@ public class FragmentMatrixEval extends AppCompatDialogFragment {
      *
      * @param expression - input matrix
      */
-    public static FragmentMatrixEval newInstance(String expression) {
+    public static FragmentStepEval newInstance(String expression) {
         Bundle args = new Bundle();
         args.putString(EXPRESSION_KEY, expression);
 
-        FragmentMatrixEval fragment = new FragmentMatrixEval();
+        FragmentStepEval fragment = new FragmentStepEval();
         fragment.setArguments(args);
         return fragment;
     }
@@ -101,7 +101,7 @@ public class FragmentMatrixEval extends AppCompatDialogFragment {
         resultView = (RecyclerView) view.findViewById(R.id.recycle_view);
         resultView.setHasFixedSize(false);
         resultView.setLayoutManager(new LinearLayoutManager(getContext()));
-        resultAdapter = new MatrixResultAdapter(getContext());
+        resultAdapter = new StepResultAdapter(getContext());
         resultView.setAdapter(resultAdapter);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
 

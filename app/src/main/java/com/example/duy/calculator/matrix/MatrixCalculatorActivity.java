@@ -45,8 +45,8 @@ public class MatrixCalculatorActivity extends AbstractNavDrawerActionBarActivity
 
     @Override
     public void doCalculate(final String expression) {
-        FragmentMatrixEval fragmentMatrixEval = FragmentMatrixEval.newInstance(expression);
-        fragmentMatrixEval.show(getSupportFragmentManager(), FragmentMatrixEval.TAG);
+        FragmentStepEval fragmentMatrixEval = FragmentStepEval.newInstance(expression);
+        fragmentMatrixEval.show(getSupportFragmentManager(), FragmentStepEval.TAG);
     }
 
 

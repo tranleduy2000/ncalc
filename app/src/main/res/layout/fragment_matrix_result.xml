@@ -14,16 +14,23 @@
   ~ limitations under the License.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minHeight="200dp"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/result"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycle_view"
@@ -41,4 +48,4 @@
     </FrameLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

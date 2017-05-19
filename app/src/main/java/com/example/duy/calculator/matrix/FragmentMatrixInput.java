@@ -29,7 +29,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -293,7 +292,7 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
         mAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
 
-        //add handler for spinner select, if user change operator,
+     /*   //add handler for spinner select, if user change operator,
         // it will be pre calculate matrix
         spinOperator.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -304,7 +303,7 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
-        });
+        });*/
         spinOperator.setAdapter(mAdapter);
     }
 

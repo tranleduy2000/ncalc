@@ -48,7 +48,15 @@ public class StepItem extends AExprInput {
     }
 
     public String getInput() {
-        return input + " = " + result;
+        if (input == null) {
+            return result;
+        } else {
+            return input + " = " + result;
+        }
+    }
+
+    public void setInput(String input) {
+        this.input = input;
     }
 
     @Override
@@ -57,7 +65,7 @@ public class StepItem extends AExprInput {
     }
 
     public int getDepth() {
-        return depth;
+        return Math.max(0, depth - 1);
     }
 
     public void setDepth(int depth) {
