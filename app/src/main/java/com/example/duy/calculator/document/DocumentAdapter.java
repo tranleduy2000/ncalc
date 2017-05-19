@@ -18,42 +18,51 @@ package com.example.duy.calculator.document;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.duy.calculator.R;
+import com.mukesh.MarkdownView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedList;
 
-import us.feras.mdv.MarkdownView;
 
 /**
  * Created by Duy on 19-May-17.
  */
 
 class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
-    private static final String DOC_PATH = "file:///android_asset/functions/";
+    private static final String DOC_PATH = "functions/";
+    private static final String TAG = "DocumentAdapter";
     private Context context;
-    private LinkedList<String> name = new LinkedList<>();
+    private ArrayList<String> names = new ArrayList<>();
+    private ArrayList<String> originalData = new ArrayList<>();
+    private LayoutInflater inflater;
 
     DocumentAdapter(Context context) {
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
         loadData();
     }
 
     private void loadData() {
+        Log.d(TAG, "loadData() called");
+
         try {
             String[] functions = context.getAssets().list("functions");
-            Collections.addAll(name, functions);
+            Collections.addAll(names, functions);
+            originalData.addAll(names);
+            Log.d(TAG, "loadData: " + Arrays.toString(functions));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private LayoutInflater inflater;
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(inflater.inflate(R.layout.list_item_document, parent, false));
@@ -61,12 +70,24 @@ class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.markdownView.loadMarkdownFile(DOC_PATH + name.get(position));
+        Log.d(TAG, "onBindViewHolder() called with: holder = [" + holder + "], position = [" + position + "]");
+        holder.markdownView.loadMarkdownFromAssets(DOC_PATH + names.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return names.size();
+    }
+
+    public void query(String query) {
+        names.clear();
+        notifyDataSetChanged();
+        for (String s : originalData) {
+            if (s.toLowerCase().contains(query.toLowerCase())) {
+                names.add(s);
+                notifyItemInserted(names.size() - 1);
+            }
+        }
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
