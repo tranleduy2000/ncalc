@@ -75,7 +75,7 @@
         </activity>
         <activity
             android:name=".converter.UnitConverterParentAcitvity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_unit_converter_acitvity"
 
             android:launchMode="singleTask" />
@@ -87,55 +87,54 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".geom2d.GeometryDescartesActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:label="@string/title_activity_geometry"
             android:launchMode="singleTask" />
         <activity
             android:name=".activities.LogicCalculatorActivity"
-            android:configChanges="keyboardHidden|screenSize"
-
+            android:configChanges="keyboardHidden|screenSize|orientation"
             android:launchMode="singleTask" />
 
         <activity
             android:name=".matrix.MatrixCalculatorActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_matrix_calculator"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.SolveEquationActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
             android:name=".activities.SimplifyEquationActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
             android:name=".activities.FactorExpressionActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
             android:name=".activities.DerivativeActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
             android:name=".activities.StatisticActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
             android:name=".activities.ExpandAllExpressionActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
             android:name=".view.MathViewActivity"
-            android:configChanges="keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
