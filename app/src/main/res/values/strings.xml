@@ -708,5 +708,6 @@
     <string name="hide_status_bar">Hide status bar</string>
     <string name="result">Result</string>
     <string name="see_doc">See document</string>
+    <string name="loading">Loading data...</string>
 
 </resources>

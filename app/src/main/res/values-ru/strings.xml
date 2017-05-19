@@ -301,4 +301,7 @@
     <string name="license">лицензия</string>
     <string name="translate">перевести</string>
     <string name="hide_status_bar">Скрыть строку состояния</string>
+    <string name="loading">Loading data...</string>
+    <string name="result">pезультат</string>
+    <string name="see_doc">См. Документ</string>
 </resources>
