@@ -22,14 +22,14 @@ android {
     }
 
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
         applicationId "com.duy.calculator.free"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 61
-        versionName "Lite 3.8.1"
+        versionCode 63
+        versionName "3.8.3"
         multiDexEnabled true
     }
 
