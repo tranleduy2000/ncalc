@@ -51,6 +51,8 @@ public class DocumentActivity extends AbstractAppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle(R.string.see_doc);
 
         documentAdapter = new DocumentAdapter(this);
         recyclerView.setHasFixedSize(false);
@@ -95,6 +97,14 @@ public class DocumentActivity extends AbstractAppCompatActivity {
         searchView.setMenuItem(item);
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

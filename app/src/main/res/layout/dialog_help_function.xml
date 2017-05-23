@@ -18,8 +18,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minHeight="200dp"
-    android:minWidth="200dp"
     android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/progressBar4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
 
     <com.mukesh.MarkdownView
         android:id="@+id/markdown_view"

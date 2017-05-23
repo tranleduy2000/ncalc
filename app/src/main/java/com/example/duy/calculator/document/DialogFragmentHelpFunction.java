@@ -16,11 +16,13 @@
 
 package com.example.duy.calculator.document;
 
+import android.app.Dialog;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,7 @@ import com.example.duy.calculator.R;
 import com.mukesh.MarkdownView;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Created by Duy on 23-May-17.
@@ -43,6 +46,20 @@ public class DialogFragmentHelpFunction extends AppCompatDialogFragment {
         DialogFragmentHelpFunction fragment = new DialogFragmentHelpFunction();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    /**
+     * set full height for dialog
+     */
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Dialog dialog = getDialog();
+        if (dialog != null) {
+            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
     }
 
     @Nullable
@@ -66,17 +83,18 @@ public class DialogFragmentHelpFunction extends AppCompatDialogFragment {
         private AssetManager assetManager;
 
         LoadDataTask(MarkdownView markdownView, AssetManager assetManager) {
-
             this.markdownView = markdownView;
             this.assetManager = assetManager;
         }
 
         @Override
         protected String doInBackground(String... params) {
+            Log.d(TAG, "doInBackground() called with: params = [" + Arrays.toString(params) + "]");
+            String key = params[0] + ".md";
             try {
                 String[] functions = assetManager.list("functions");
                 for (String function : functions) {
-                    if (function.equalsIgnoreCase(params[0])) {
+                    if (function.equalsIgnoreCase(key)) {
                         return "functions/" + function;
                     }
                 }
@@ -89,6 +107,8 @@ public class DialogFragmentHelpFunction extends AppCompatDialogFragment {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            Log.d(TAG, "onPostExecute() called with: s = [" + s + "]");
+
             if (s != null) {
                 markdownView.loadMarkdownFromAssets(s);
             }

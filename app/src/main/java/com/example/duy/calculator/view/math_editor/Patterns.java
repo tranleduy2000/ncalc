@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  */
 
 public class Patterns {
-    public static final Pattern FUNCTION_PATTERN = Pattern.compile("\\b(sin|cos|tan|Abs|AddTo|All|AllTrue|And|AngleVector|" +
+    public static final Pattern FUNCTION_PATTERN = Pattern.compile("\\b(Abs|AddTo|All|AllTrue|And|AngleVector|" +
                     "AnyTrue|Apart|Append|AppendTo|Apply|ArcCos|ArcCosh|ArcCot|ArcCoth|ArcCsc|ArcCsch|ArcSec|ArcSech|ArcSin|" +
                     "ArcSinh|ArcTan|ArcTanh|Array|ArrayDepth|ArrayQ|AtomQ|Attributes|BernoulliB|Binomial|BitLength|Block|Boole|" +
                     "BooleanMinimize|BooleanQ|Booleans|BrayCurtisDistance|Break|CanberraDistance|Cancel|CartesianProduct|Cases|" +
@@ -61,7 +61,7 @@ public class Patterns {
                     "ValueQ|VandermondeMatrix|Variables|VectorAngle|VectorQ|Which|While|Xor|YuleDissimilarity|Zeta)\\b",
             Pattern.CASE_INSENSITIVE);
     public static final String[] KEY_WORDS = new String[]{
-            "sin", "cos", "tan", "Abs", "AddTo", "All", "AllTrue", "And", "AngleVector", "AnyTrue",
+            "Abs", "AddTo", "All", "AllTrue", "And", "AngleVector", "AnyTrue",
             "Apart", "Append", "AppendTo", "Apply", "ArcCos", "ArcCosh", "ArcCot", "ArcCoth",
             "ArcCsc", "ArcCsch", "ArcSec", "ArcSech", "ArcSin", "ArcSinh", "ArcTan", "ArcTanh",
             "Array", "ArrayDepth", "ArrayQ", "AtomQ", "Attributes", "BernoulliB", "Binomial",

@@ -18,7 +18,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="4dp">
 
     <TextView
         android:id="@+id/txt_name"
@@ -26,17 +27,15 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/img_info"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/img_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
         android:padding="4dp"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/ic_info_black_24dp" />

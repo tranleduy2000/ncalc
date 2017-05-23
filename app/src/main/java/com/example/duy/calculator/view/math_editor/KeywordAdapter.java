@@ -117,9 +117,6 @@ public class KeywordAdapter extends ArrayAdapter<String> {
         return mFilter;
     }
 
-    public OnSuggestionListener getOnSuggestionListener() {
-        return onSuggestionListener;
-    }
 
     public void setOnSuggestionListener(OnSuggestionListener onSuggestionListener) {
         this.onSuggestionListener = onSuggestionListener;
