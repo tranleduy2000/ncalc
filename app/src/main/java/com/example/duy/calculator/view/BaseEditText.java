@@ -19,6 +19,8 @@ package com.example.duy.calculator.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.example.duy.calculator.view.math_editor.AutoCompleteFunctionEditText;
+
 import static com.example.duy.calculator.userinterface.FontManager.loadTypefaceFromAsset;
 
 /**

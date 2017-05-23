@@ -132,7 +132,7 @@ public class InfoActivity extends AppCompatActivity {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = inflater.inflate(R.layout.item_list_info, parent, false);
+            View view = inflater.inflate(R.layout.list_item_info, parent, false);
             Log.d(TAG, "onCreateViewHolder: ");
             return new ViewHolder(view);
         }
@@ -194,7 +194,7 @@ public class InfoActivity extends AppCompatActivity {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = inflater.inflate(R.layout.item_list_info, parent, false);
+            View view = inflater.inflate(R.layout.list_item_info, parent, false);
             Log.d(TAG, "onCreateViewHolder: ");
             return new ViewHolder(view);
         }

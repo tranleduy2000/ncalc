@@ -46,6 +46,7 @@ import android.widget.LinearLayout;
 
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.adapters.ResultAdapter;
+import com.example.duy.calculator.document.DialogFragmentHelpFunction;
 import com.example.duy.calculator.history.ResultEntry;
 import com.example.duy.calculator.item_math_type.AExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
@@ -54,6 +55,7 @@ import com.example.duy.calculator.math_eval.LogicEvaluator;
 import com.example.duy.calculator.view.AnimationFinishedListener;
 import com.example.duy.calculator.view.ResizingEditText;
 import com.example.duy.calculator.view.RevealView;
+import com.example.duy.calculator.view.math_editor.KeywordAdapter;
 
 
 /**
@@ -62,7 +64,7 @@ import com.example.duy.calculator.view.RevealView;
  * Created by Duy on 19/7/2016
  */
 public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionBarActivity
-        implements View.OnClickListener {
+        implements View.OnClickListener, KeywordAdapter.OnSuggestionListener {
     private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
         @Override
         public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
@@ -129,6 +131,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     private void initView() {
         btnSolve = (Button) findViewById(R.id.btn_solve);
         mInputFormula = (ResizingEditText) findViewById(R.id.edit_input);
+        mInputFormula.setOnHelpListener(this);
 
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
         mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar);
@@ -321,6 +324,12 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     protected void onChangeModeFraction() {
         doEval();
+    }
+
+    @Override
+    public void onShowInfo(String key) {
+        DialogFragmentHelpFunction dialogFragmentHelp = DialogFragmentHelpFunction.newInstance(key);
+        dialogFragmentHelp.show(getSupportFragmentManager(), DialogFragmentHelpFunction.TAG);
     }
 
 

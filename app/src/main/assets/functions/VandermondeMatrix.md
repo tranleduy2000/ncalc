@@ -6,9 +6,6 @@ VandermondeMatrix(n)
 
 > gives the Vandermonde matrix with `n` rows and columns.
 
-See:  
-* [Wikipedia - Vandermonde matrix](http://en.wikipedia.org/wiki/Vandermonde_matrix)
-
 ### Examples
  
 ```

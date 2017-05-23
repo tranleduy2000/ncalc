@@ -8,10 +8,6 @@ Curl({f1, f2, f3}, {x1, x2, x3})
 
 > gives the curl.
  
-
-See:  
-* [Wikipedia - Curl (mathematics)](http://en.wikipedia.org/wiki/Curl_%28mathematics%29)
-
 ### Examples
 ```
 >> Curl({f(u,v,w),f(v,w,u),f(w,u,v),f(x)}, {u,v,w})

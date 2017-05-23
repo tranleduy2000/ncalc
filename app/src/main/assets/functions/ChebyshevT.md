@@ -11,6 +11,3 @@ ChebyshevT(n, x)
 >> ChebyshevT(8, x)    
 1-32*x^2+160*x^4-256*x^6+128*x^8  
 ```
-    
-    
-    
