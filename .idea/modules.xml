@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-pro/app-pro.iml" filepath="$PROJECT_DIR$/app-pro/app-pro.iml" />
       <module fileurl="file://$PROJECT_DIR$/floatingkeyboardview/floatingkeyboardview.iml" filepath="$PROJECT_DIR$/floatingkeyboardview/floatingkeyboardview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mathlibrary/mathlibrary.iml" filepath="$PROJECT_DIR$/mathlibrary/mathlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ncalc.iml" filepath="$PROJECT_DIR$/ncalc.iml" />
     </modules>
   </component>
