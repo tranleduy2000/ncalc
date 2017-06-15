@@ -708,6 +708,51 @@
     <string name="hide_status_bar">Hide status bar</string>
     <string name="result">Result</string>
     <string name="see_doc">See document</string>
-    <string name="loading">Loading data...</string>
+    <string name="loading">Loading data…</string>
+
+    <!--geometric -->
+    <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Center circle O1, radius R1</string>
+    <string name="o1_x1_y1">O1(x1, y1)</string>
+    <string name="ph_ng_tr_nh_ng_tr_n">Equation of circle</string>
+    <string name="chu_vi">Perimeter</string>
+    <string name="di_n_t_ch">Acreage</string>
+    <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">Center circle O2, radius R2</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Relative position between two circles</string>
+    <string name="v_tr_t_ng_i_v_i_ng_th_ng">Position relative to straight line</string>
+    <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Equation equation in M</string>
+    <string name="v_tr_t_ng_i_v_i_i_m">Position relative to the point</string>
+    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Enter the coordinates of the line AB, the starting point is A(xa, ya) and the endpoint is B(xb, yb).</string>
+    <string name="d_i_o_n_th_ng_ab">AB straight line length</string>
+    <string name="kho_ng_c_ch_t_a_n_b">Distance from A to B</string>
+    <string name="g_c_t_o_v_i_ox">Angle with Ox axis</string>
+    <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Angle between AB and Ox axis</string>
+    <string name="trung_i_m">Mid point</string>
+    <string name="trung_i_m_c_a_o_n_th_ng_ab">Center of the AB segment</string>
+    <string name="vector_ch_ph_ng">Vectors</string>
+    <string name="vector_ph_p_tuy_n">Vector normal</string>
+    <string name="ph_ng_tr_nh_tham_s">Parameter equations</string>
+    <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">Equation line equation AB</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t">General equation</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab">General equation of straight line AB</string>
+    <string name="ng_th_ng_cd">Linear CD</string>
+    <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">Enter two coordinates of a straight line CD</string>
+    <string name="v_tr_t_ng_i">Relative position</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">The relative position between AB and CD lines</string>
+    <string name="g_c_gi_a_2_ng_th_ng">Angle between two straight lines</string>
+    <string name="nh_p_t_a_i_m_m">Enter the coordinates point M</string>
+    <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">Distance from M to straight line AB</string>
+    <string name="kho_ng_c_ch">Distance</string>
+    <string name="nh_p_vector">Enter vector</string>
+    <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">Enter 2 vectors a (x_a, y_a), b (x_b, y_b)</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Check if two vectors a, b are aligned or not.</string>
+    <string name="vu_ng_g_c">Perpendicular</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Check if two vectors a, b are perpendicular to each other.</string>
+    <string name="g_c_gi_a_hai_vector">Angle between two vectors</string>
+    <string name="t_ng_2_vector">Sum of 2 vectors</string>
+    <string name="hi_u_2_vector">Subtraction of 2 vectors</string>
+    <string name="t_ch_vector_v_i_s_k">The product of the vector with the number k</string>
+    <string name="t_ch_v_h_ng">Scalar</string>
+    <string name="t_ch_v_h_ng_c_a_2_vector">The scalar product of two vectors</string>
+    <string name="ng_th_ng_ab">Linear AB</string>
 
 </resources>

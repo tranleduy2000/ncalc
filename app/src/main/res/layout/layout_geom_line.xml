@@ -42,13 +42,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Đường thẳng AB"
+                    android:text="@string/ng_th_ng_ab"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nhập tọa độ của đường thang AB, điểm đầu là A(xa, ya) và điểm cuối có tọa độ là B(xb, yb)" />
+                    android:text="@string/nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,13 +126,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Độ dài đoạn thẳng AB"
+                android:text="@string/d_i_o_n_th_ng_ab"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Khoảng cách từ A đến B" />
+                android:text="@string/kho_ng_c_ch_t_a_n_b" />
 
             <TextView
                 android:id="@+id/txtLength"
@@ -152,13 +152,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Góc tạo với Ox"
+                android:text="@string/g_c_t_o_v_i_ox"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Góc giữa đường thẳng AB và Ox" />
+                android:text="@string/g_c_gi_a_ng_th_ng_ab_v_ox" />
 
             <TextView
                 android:id="@+id/txtAngleOx"
@@ -177,13 +177,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Trung điểm"
+                android:text="@string/trung_i_m"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trung điểm của đoạn thẳng AB" />
+                android:text="@string/trung_i_m_c_a_o_n_th_ng_ab" />
 
             <TextView
                 android:id="@+id/txtMid"
@@ -204,7 +204,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Vector chỉ phương"
+            android:text="@string/vector_ch_ph_ng"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -224,7 +224,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vector pháp tuyến"
+            android:text="@string/vector_ph_p_tuy_n"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -244,13 +244,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phương trình tham số"
+            android:text="@string/ph_ng_tr_nh_tham_s"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phương trình tham số của đường thẳng AB" />
+            android:text="@string/ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab" />
 
         <TextView
             android:id="@+id/txtParameter"
@@ -269,13 +269,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phương trình tổng quát"
+            android:text="@string/ph_ng_tr_nh_t_ng_qu_t"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phương trình tổng quát của đường thẳng AB" />
+            android:text="@string/ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab" />
 
         <TextView
             android:id="@+id/txtGenaralEquation"
@@ -302,13 +302,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="0"
-                android:text="Đường thẳng CD"
+                android:text="@string/ng_th_ng_cd"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nhập tọa độ 2 điểm thuộc đường thẳng CD" />
+                android:text="@string/nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -389,13 +389,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Vị trí tương đối"
+            android:text="@string/v_tr_t_ng_i"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vị trí tương đối giữa 2 đường thẳng AB và CD" />
+            android:text="@string/v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd" />
 
 
         <TextView
@@ -416,7 +416,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Góc giữa 2 đường thẳng"
+            android:text="@string/g_c_gi_a_2_ng_th_ng"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -443,13 +443,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Điểm M(xm, ym)"
+                android:text="M(xm, ym)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nhập tọa độ điểm M" />
+                android:text="@string/nh_p_t_a_i_m_m" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -487,13 +487,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Khoảng cách"
+            android:text="@string/kho_ng_c_ch"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Khoảng cách từ M đến đường thẳng AB" />
+            android:text="@string/kho_ng_c_ch_t_m_n_ng_th_ng_ab" />
 
         <TextView
             android:id="@+id/txtDistancePoint"

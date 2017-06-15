@@ -39,13 +39,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nhập vector"
+                    android:text="@string/nh_p_vector"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nhập 2 vector a(x_a, y_a), b(x_b, y_)" />
+                    android:text="@string/nh_p_2_vector_a_x_a_y_a_b_x_b_y" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -143,7 +143,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kiểm tra xem 2 vector a, b có thẳng hàng hay không." />
+                    android:text="@string/ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng" />
 
                 <CheckBox
                     android:id="@+id/ckbColinear"
@@ -160,13 +160,13 @@
                     android:layout_height="match_parent"
                     android:layout_column="0"
                     android:gravity="left|center"
-                    android:text="Vuông góc"
+                    android:text="@string/vu_ng_g_c"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kiểm tra xem 2 vector a, b có vuông góc với nhau hay không." />
+                    android:text="@string/ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng" />
 
                 <CheckBox
                     android:id="@+id/ckbOrthoganal"
@@ -219,7 +219,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Góc giữa hai vector" />
+                    android:text="@string/g_c_gi_a_hai_vector" />
 
                 <io.github.kexanie.library.MathView
                     android:layout_width="wrap_content"
@@ -246,7 +246,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tổng 2 vector" />
+                    android:text="@string/t_ng_2_vector" />
 
                 <io.github.kexanie.library.MathView
                     android:layout_width="wrap_content"
@@ -273,7 +273,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hiệu 2 vector" />
+                    android:text="@string/hi_u_2_vector" />
 
                 <io.github.kexanie.library.MathView
                     android:layout_width="wrap_content"
@@ -306,7 +306,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Tích vector với số k"
+                        android:text="@string/t_ch_vector_v_i_s_k"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <EditText
@@ -371,13 +371,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tích vô hướng"
+                    android:text="@string/t_ch_v_h_ng"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tích vô hướng của 2 vector" />
+                    android:text="@string/t_ch_v_h_ng_c_a_2_vector" />
 
                 <io.github.kexanie.library.MathView
                     android:layout_width="match_parent"

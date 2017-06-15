@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_span="3"
-                    android:text="Đường tròn tâm O1, bán kính R1"
+                    android:text="@string/ng_tr_n_t_m_o1_b_n_k_nh_r1"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <LinearLayout
@@ -57,7 +57,7 @@
 
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="O1(x1, y1)" />
+                        android:text="@string/o1_x1_y1" />
 
                     <EditText
                         android:id="@+id/editX1"
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginTop="4dp"
-                    android:text="Phương trình đường tròn"
+                    android:text="@string/ph_ng_tr_nh_ng_tr_n"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
@@ -130,7 +130,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chu vi"
+                    android:text="@string/chu_vi"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
@@ -151,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Diện tích"
+                    android:text="@string/di_n_t_ch"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
@@ -179,7 +179,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Đường tròn tâm O2, bán kính R2"
+                    android:text="@string/ng_tr_n_t_m_o2_b_n_k_nh_r2"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <LinearLayout
@@ -242,7 +242,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vị trí tương đối giữa 2 đường tròn"
+                    android:text="@string/v_tr_t_ng_i_gi_a_2_ng_tr_n"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
@@ -273,7 +273,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_span="3"
-                    android:text="Đường thẳng AB"
+                    android:text="@string/ng_th_ng_ab"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <LinearLayout
@@ -341,7 +341,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_span="3"
-                    android:text="Vị trí tương đối với đường thẳng"
+                    android:text="@string/v_tr_t_ng_i_v_i_ng_th_ng"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <TextView
@@ -369,7 +369,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Phương trình tiếp tuyến tại M"
+                    android:text="@string/ph_ng_tr_nh_ti_p_tuy_n_t_i_m"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <LinearLayout
@@ -442,7 +442,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_span="4"
-                        android:text="Vị trí tương đối với điểm"
+                        android:text="@string/v_tr_t_ng_i_v_i_i_m"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <LinearLayout
