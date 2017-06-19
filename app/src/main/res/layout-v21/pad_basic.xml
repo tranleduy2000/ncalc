@@ -40,12 +40,12 @@
             android:orientation="horizontal"
             android:weightSum="6">
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_solve_"
                 style="?buttonAdvanceStyle"
                 android:text="@string/solve_2" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_fact"
                 style="?buttonAdvanceStyle"
                 android:text="@string/fact" />
@@ -59,19 +59,19 @@
                 android:visibility="gone" />
 
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_derivative"
                 style="?buttonAdvanceStyle"
                 android:text="@string/d_dx" />
 
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_comma"
                 style="?buttonAdvanceStyle"
                 android:layout_weight="0.5"
                 android:text="@string/comma" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_degree"
                 style="?buttonAdvanceStyle"
                 android:layout_weight="0.5"
@@ -84,14 +84,14 @@
                 android:src="@drawable/ic_keyboard_voice_white_24dp"
                 android:visibility="gone" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_varx"
                 style="?buttonAdvanceStyle"
                 android:text="@string/x"
                 android:textStyle="bold"
                 android:typeface="monospace" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_cbrt"
                 style="?buttonAdvanceStyle"
                 android:text="@string/op_cbrt" />
@@ -110,37 +110,37 @@
             android:orientation="horizontal"
             android:weightSum="7">
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_sin"
                 style="?buttonAdvanceStyle"
                 android:text="@string/sin" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_cos"
                 style="?buttonAdvanceStyle"
                 android:text="@string/cos" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_tan"
                 style="?buttonAdvanceStyle"
                 android:text="@string/tan" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_vara"
                 style="?buttonAdvanceStyle"
                 android:text="@string/A" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_varb"
                 style="?buttonAdvanceStyle"
                 android:text="@string/B" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_varc"
                 style="?buttonAdvanceStyle"
                 android:text="@string/C" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_ten_power"
                 style="?buttonAdvanceStyle"
                 android:text="@string/ten_power" />
@@ -156,37 +156,37 @@
             android:orientation="horizontal"
             android:weightSum="7">
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_left_paratheses"
                 style="?buttonAdvanceStyle"
                 android:text="@string/leftParen" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_right_parathese"
                 style="?buttonAdvanceStyle"
                 android:text="@string/rightParen" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_factorial"
                 style="?buttonAdvanceStyle"
                 android:text="@string/factorial" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_power"
                 style="?buttonAdvanceStyle"
                 android:text="@string/power" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_power_2"
                 style="?buttonAdvanceStyle"
                 android:text="@string/power_two" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_power_3"
                 style="?buttonAdvanceStyle"
                 android:text="@string/power_three" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_sqrt"
                 style="?buttonAdvanceStyle"
                 android:text="@string/sqrt_sym" />
@@ -211,22 +211,22 @@
             android:orientation="horizontal"
             android:weightSum="5">
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit7"
                 style="?buttonDigitStyle"
                 android:text="@string/digit7" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit8"
                 style="?buttonDigitStyle"
                 android:text="@string/digit8" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit9"
                 style="?buttonDigitStyle"
                 android:text="@string/digit9" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_clear"
                 style="?buttonClearStyle"
                 android:text="@string/clear" />
@@ -246,27 +246,27 @@
             android:orientation="horizontal"
             android:weightSum="5">
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit4"
                 style="?buttonDigitStyle"
                 android:text="@string/digit4" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit5"
                 style="?buttonDigitStyle"
                 android:text="@string/digit5" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit6"
                 style="?buttonDigitStyle"
                 android:text="@string/digit6" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_mul"
                 style="?buttonOptStyle"
                 android:text="@string/mul" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_div"
                 style="?buttonOptStyle"
                 android:text="@string/div" />
@@ -279,27 +279,27 @@
             android:orientation="horizontal"
             android:weightSum="5">
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit1"
                 style="?buttonDigitStyle"
                 android:text="@string/digit1" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit2"
                 style="?buttonDigitStyle"
                 android:text="@string/digit2" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit3"
                 style="?buttonDigitStyle"
                 android:text="@string/digit3" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_plus"
                 style="?buttonOptStyle"
                 android:text="@string/plus" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_minus"
                 style="?buttonOptStyle"
                 android:text="@string/minus" />
@@ -312,22 +312,22 @@
             android:orientation="horizontal"
             android:weightSum="5">
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/digit0"
                 style="?buttonDigitStyle"
                 android:text="@string/digit0" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_dot"
                 style="?buttonSmallDigitStyle"
                 android:text="@string/dot" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_pi"
                 style="?buttonSmallDigitStyle"
                 android:text="@string/pi_symbol" />
 
-            <com.example.duy.calculator.view.BaseButton
+            <com.duy.calculator.view.BaseButton
                 android:id="@+id/btn_ans"
                 style="?buttonSmallDigitStyle"
                 android:text="@string/ans" />

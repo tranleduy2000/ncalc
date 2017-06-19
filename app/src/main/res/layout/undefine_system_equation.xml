@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.example.duy.calculator.view.BaseEditText
+                <com.duy.calculator.view.BaseEditText
                     android:id="@+id/edit_params"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,14 +99,14 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone" />
 
-                    <com.example.duy.calculator.view.MathFormulaView
+                    <com.duy.calculator.view.MathFormulaView
                         android:id="@+id/math_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:engine="KaTeX"
                         app:text="$$Calculator N+$$">
 
-                    </com.example.duy.calculator.view.MathFormulaView>
+                    </com.duy.calculator.view.MathFormulaView>
                 </FrameLayout>
             </android.support.v7.widget.CardView>
 

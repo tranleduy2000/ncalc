@@ -68,12 +68,12 @@
             android:background="#FFF"
             android:visibility="gone">
 
-            <com.example.duy.calculator.view.MathFormulaView
+            <com.duy.calculator.view.MathFormulaView
                 android:id="@+id/math_result"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            </com.example.duy.calculator.view.MathFormulaView>
+            </com.duy.calculator.view.MathFormulaView>
 
             <android.support.v4.widget.ContentLoadingProgressBar
                 android:id="@+id/progress_bar_main"

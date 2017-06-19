@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:661933145827:android:6987242234d1d469",
         "android_client_info": {
-          "package_name": "com.example.duy.calculator"
+          "package_name": "com.duy.calculator"
         }
       },
       "oauth_client": [

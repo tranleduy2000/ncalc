@@ -28,14 +28,14 @@
         android:orientation="vertical"
         android:padding="4dp">
 
-        <com.example.duy.calculator.view.MathFormulaView
+        <com.duy.calculator.view.MathFormulaView
             android:id="@+id/txt_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             app:engine="KaTeX" />
 
-        <com.example.duy.calculator.view.MathFormulaView
+        <com.duy.calculator.view.MathFormulaView
             android:id="@+id/txt_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
