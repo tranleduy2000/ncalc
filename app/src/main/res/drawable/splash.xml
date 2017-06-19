@@ -29,6 +29,6 @@
             android:layout_height="wrap_content"
             android:antialias="true"
             android:gravity="center"
-            android:src="@mipmap/splash" />
+            android:src="@drawable/icon_splash" />
     </item>
 </layer-list>

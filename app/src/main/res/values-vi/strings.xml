@@ -779,5 +779,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="o1_x1_y1">O1(x1, y1)</string>
     <string name="di_n_t_ch">Diện tích</string>
     <string name="chu_vi">Chu vi</string>
+    <string name="th_ng_h_ng">Thẳng hàng</string>
 
 </resources>

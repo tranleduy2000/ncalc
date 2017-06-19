@@ -50,7 +50,7 @@
                     android:layout_height="120dp"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/splash" />
+                    android:src="@drawable/icon_splash" />
 
                 <TextView
                     style="@style/TextAppearance.AppCompat.Large"

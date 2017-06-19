@@ -34,7 +34,7 @@
             android:layout_height="120dp"
             android:layout_gravity=""
             android:scaleType="centerInside"
-            app:srcCompat="@mipmap/splash" />
+            app:srcCompat="@drawable/icon_splash" />
 
         <TextView
             android:layout_width="match_parent"

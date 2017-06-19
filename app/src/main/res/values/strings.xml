@@ -754,5 +754,6 @@
     <string name="t_ch_v_h_ng">Scalar</string>
     <string name="t_ch_v_h_ng_c_a_2_vector">The scalar product of two vectors</string>
     <string name="ng_th_ng_ab">Linear AB</string>
+    <string name="th_ng_h_ng">Straight</string>
 
 </resources>
