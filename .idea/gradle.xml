@@ -10,8 +10,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app-pro" />
+            <option value="$PROJECT_DIR$/casiofx" />
             <option value="$PROJECT_DIR$/floatingkeyboardview" />
             <option value="$PROJECT_DIR$/mathlibrary" />
+            <option value="$PROJECT_DIR$/naturalview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -23,7 +23,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.google.gms:google-services:3.0.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.2-4"
     }
 }
 
@@ -40,4 +40,13 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+ext{
+    sdkVersion = 26
+    compileSdkVersion = 26
+    minSdkVersion = 15
+    minSdkVersionDev = 21
+    targetSdkVersion = 26
+    androidSupportVersion = '26.0.0-alpha1'
+    buildToolsVersion = "25.0.3"
 }

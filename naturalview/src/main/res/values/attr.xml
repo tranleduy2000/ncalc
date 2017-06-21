@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="buttonOperator" format="reference" />
+    <attr name="buttonFunction" format="reference" />
+    <attr name="buttonNum" format="reference" />
+    <attr name="buttonSpecial" format="reference" />
+    <attr name="buttonToggle" format="reference" />
+    <attr name="spinnerTextStyle" format="reference" />
+    <attr name="toggle" format="reference" />
+    <attr name="change_img" format="reference" />
+    <attr name="frac_img" format="reference" />
+    <attr name="history_img" format="reference" />
+    <attr name="settings_img" format="reference" />
+    <attr name="displayColor" format="reference" />
+    <attr name="buttonTextColor" format="reference" />
+    <attr name="history_style" format="reference" />
+</resources>

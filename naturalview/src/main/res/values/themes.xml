@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorControlNormal">?colorAccent</item>
+        <item name="colorControlHighlight">?colorAccent</item>
+        <item name="android:buttonStyle">@style/buttonDark</item>
+        <item name="buttonFunction">@style/buttonDark</item>
+        <item name="buttonOperator">@style/buttonPrimary</item>
+        <item name="buttonSpecial">@style/buttonDark.MediumText</item>
+        <item name="buttonToggle">@style/buttonDark.MediumText</item>
+        <item name="buttonNum">@style/buttonPrimaryHighlight</item>
+        <item name="displayColor">?colorPrimary</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="change_img">@drawable/change_white</item>
+        <item name="frac_img">@drawable/frac_white</item>
+        <item name="history_img">@drawable/history_white</item>
+        <item name="settings_img">@drawable/settings_white</item>
+    </style>
+
+    <style name="actionBar" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">?colorAccent</item>
+        <item name="background">?colorAccent</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorControlNormal">?colorAccent</item>
+        <item name="colorControlHighlight">?colorAccent</item>
+        <item name="colorAccent">@color/byThemeHighlight</item>
+        <item name="colorPrimary">@color/byThemePrimary</item>
+        <item name="colorPrimaryDark">@color/byThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/byThemeTextColor</item>
+        <item name="android:actionBarStyle">@style/actionBar</item>
+        <item name="actionBarStyle">@style/actionBar</item>
+    </style>
+
+    <style name="AppTheme.BlackAndYellow">
+        <item name="colorAccent">@color/byThemeHighlight</item>
+        <item name="colorPrimary">@color/byThemePrimary</item>
+        <item name="colorPrimaryDark">@color/byThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/byThemeTextColor</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.BlackAndYellow">
+        <item name="colorAccent">@color/byThemeHighlight</item>
+        <item name="colorPrimary">@color/byThemePrimary</item>
+        <item name="colorPrimaryDark">@color/byThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/byThemeTextColor</item>
+    </style>
+
+    <style name="AppTheme.David">
+        <item name="colorAccent">@color/dThemeHighlight</item>
+        <item name="colorPrimary">@color/dThemePrimary</item>
+        <item name="colorPrimaryDark">@color/dThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/dThemeTextColor</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.David">
+        <item name="colorAccent">@color/dThemeHighlight</item>
+        <item name="colorPrimary">@color/dThemePrimary</item>
+        <item name="colorPrimaryDark">@color/dThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/dThemeTextColor</item>
+    </style>
+
+    <style name="AppTheme.Purple">
+        <item name="colorAccent">@color/pThemeHighlight</item>
+        <item name="colorPrimary">@color/pThemePrimary</item>
+        <item name="colorPrimaryDark">@color/pThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/pThemeTextColor</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.Purple">
+        <item name="colorAccent">@color/pThemeHighlight</item>
+        <item name="colorPrimary">@color/pThemePrimary</item>
+        <item name="colorPrimaryDark">@color/pThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/pThemeTextColor</item>
+    </style>
+
+    <style name="AppTheme.Blue">
+        <item name="colorAccent">@color/bThemeHighlight</item>
+        <item name="colorPrimary">@color/bThemePrimary</item>
+        <item name="colorPrimaryDark">@color/bThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/bThemeTextColor</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.Blue">
+        <item name="colorAccent">@color/bThemeHighlight</item>
+        <item name="colorPrimary">@color/bThemePrimary</item>
+        <item name="colorPrimaryDark">@color/bThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/bThemeTextColor</item>
+    </style>
+
+    <style name="AppTheme.BlueGreen">
+        <item name="colorAccent">@color/bgThemeHighlight</item>
+        <item name="colorPrimary">@color/bgThemePrimary</item>
+        <item name="colorPrimaryDark">@color/bgThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/bgThemeTextColor</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.BlueGreen">
+        <item name="colorAccent">@color/bgThemeHighlight</item>
+        <item name="colorPrimary">@color/bgThemePrimary</item>
+        <item name="colorPrimaryDark">@color/bgThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/bgThemeTextColor</item>
+    </style>
+
+    <style name="AppTheme.Donate">
+        <item name="colorAccent">@color/donateThemeHighlight</item>
+        <item name="colorPrimary">@color/donateThemePrimary</item>
+        <item name="colorPrimaryDark">@color/donateThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/donateThemeTextColor</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.Donate">
+        <item name="colorAccent">@color/donateThemeHighlight</item>
+        <item name="colorPrimary">@color/donateThemePrimary</item>
+        <item name="colorPrimaryDark">@color/donateThemePrimaryDark</item>
+        <item name="buttonTextColor">@color/donateThemeTextColor</item>
+    </style>
+</resources>

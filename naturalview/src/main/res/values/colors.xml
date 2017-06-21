@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <color name="byThemePrimaryDark">#ff282f34</color>
+    <color name="byThemeHighlight">#ffFF9900</color>
+    <color name="byThemePrimary">#ff333c42</color>
+    <color name="byThemeTextColor">#fff</color>
+
+    <color name="dThemePrimaryDark">#21303f</color>
+    <color name="dThemePrimary">#ff34495d</color>
+    <color name="dThemeTextColor">#ecf0f0</color>
+    <color name="dThemeHighlight">#ef4848</color>
+
+    <color name="pThemePrimaryDark">#1b0b22</color>
+    <color name="pThemePrimary">#3a215f</color>
+    <color name="pThemeTextColor">#ecf0f0</color>
+    <color name="pThemeHighlight">#d1a7ff</color>
+
+    <color name="bThemePrimaryDark">#1c393a</color>
+    <color name="bThemePrimary">#245554</color>
+    <color name="bThemeTextColor">#ecf0f0</color>
+    <color name="bThemeHighlight">#9affd0</color>
+
+    <color name="bgThemePrimaryDark">#0B486B</color>
+    <color name="bgThemePrimary">#3B8686</color>
+    <color name="bgThemeTextColor">#ecf0f0</color>
+    <color name="bgThemeHighlight">#98f0b6</color>
+
+    <color name="donateThemePrimaryDark">#c5b210</color>
+    <color name="donateThemePrimary">#e8c400</color>
+    <color name="donateThemeTextColor">#ecf0f0</color>
+    <color name="donateThemeHighlight">#ffe113</color>
+
+    <color name="darkenOverlay">#33000000</color>
+    <color name="textColor">#222</color>
+
+</resources>
