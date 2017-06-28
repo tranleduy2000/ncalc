@@ -1,1 +1,0 @@
-Core calculate of application

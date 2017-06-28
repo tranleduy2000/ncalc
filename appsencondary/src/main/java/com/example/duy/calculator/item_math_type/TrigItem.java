@@ -2,9 +2,9 @@ package com.example.duy.calculator.item_math_type;
 
 import android.util.Log;
 
-import static com.example.duy.calculator.version_old.trigonometry.TRIG_TYPE.EXPAND;
-import static com.example.duy.calculator.version_old.trigonometry.TRIG_TYPE.EXPONENT;
-import static com.example.duy.calculator.version_old.trigonometry.TRIG_TYPE.REDUCE;
+import static com.example.duy.calculator.trigonometry.TRIG_TYPE.EXPAND;
+import static com.example.duy.calculator.trigonometry.TRIG_TYPE.EXPONENT;
+import static com.example.duy.calculator.trigonometry.TRIG_TYPE.REDUCE;
 
 
 /**

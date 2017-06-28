@@ -77,4 +77,6 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'net.gotev:speech:1.1.7'
+    compile 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
 }

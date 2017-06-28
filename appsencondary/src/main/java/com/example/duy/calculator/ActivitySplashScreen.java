@@ -13,7 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
+import com.example.duy.calculator.activities.BasicCalculatorActivity;
 
 
 public class ActivitySplashScreen extends AppCompatActivity {

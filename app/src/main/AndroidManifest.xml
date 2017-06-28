@@ -185,12 +185,7 @@
         <activity
             android:name=".number_theory.ModuleActivity"
             android:launchMode="singleTask" />
-        <activity
-            android:name=".dev.CommandActivity"
-            android:theme="@style/Theme.AppCompat" />
-        <activity
-            android:name=".dev.StepByStepActivity"
-            android:theme="@style/Theme.AppCompat" />
+
         <activity
             android:name=".notify.UpdateActivity"
             android:noHistory="true"

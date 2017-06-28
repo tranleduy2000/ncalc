@@ -25,9 +25,9 @@ public class DLog {
             Log.e(TAG, msg);
     }
 
-    public static void i(String msg) {
+    public static void i(Object msg) {
         if (DEBUG)
-            Log.i(TAG, msg);
+            Log.i(TAG, msg + "");
     }
 
     public static void w(String msg) {

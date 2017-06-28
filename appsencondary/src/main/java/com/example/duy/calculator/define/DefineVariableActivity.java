@@ -14,7 +14,7 @@ import android.view.View;
 import com.example.duy.calculator.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.math_eval.BigEvaluator;
-import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
+import com.example.duy.calculator.activities.BasicCalculatorActivity;
 
 import java.util.ArrayList;
 

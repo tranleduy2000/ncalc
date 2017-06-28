@@ -73,7 +73,7 @@
         <item name="android:windowFullscreen">true</item>
         <!--<item name="android:windowContentOverlay">@null</item>-->
         <!--<item name="android:windowIsTranslucent">true</item>-->
-        <item name="android:windowBackground">@drawable/icon_splash</item>
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">

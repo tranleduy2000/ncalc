@@ -14,7 +14,7 @@ import com.example.duy.calculator.AbstractAppCompatActivity;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.utils.ClipboardManager;
 import com.example.duy.calculator.utils.FileUtils;
-import com.example.duy.calculator.version_old.activities.BasicCalculatorActivity;
+import com.example.duy.calculator.activities.BasicCalculatorActivity;
 import com.myscript.atk.core.CaptureInfo;
 import com.myscript.atk.math.widget.MathWidgetApi;
 

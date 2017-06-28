@@ -1,63 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
 <resources>
     <string name="error">Lỗi</string>
 
-    <!-- Menu item text to take user to the screen with the graph. -->
-    <!-- Menu item text to take user to the screen with the function operators. -->
-
-
-    <!-- History menu item for removing item from history -->
-    <!-- History menu item for viewing history -->
-    <!-- History menu item for hiding history -->
-    <!-- History menu item for entering settings -->
     <string name="settings">Cài đặt</string>
-
-
-    <!-- Menu item text to take user to the screen with the basic digits and operators. -->
-    <!-- Menu item text to take user to the screen with the advanced functions, such as sin, cos, ln, log, etc. -->
-    <!-- Menu item text to clear the calculation history. -->
-    <!-- Toast shown when text is copied to the clipboard. -->
-
-    <!--Content descriptions for accessibility. These strings will be read aloud to users who are using the calculator with
-    accessibility features enabled and should reflect the mathematical concept instead of a direct representation of what is shown
-    on the button-->
 
     <string name="title_activity_graph">Đồ thị</string>
     <string name="all_unit_converter">Chuyển đổi đơn vị</string>
+    <string name="title_activity_unit_converter_acitvity">Chuyển đổi đơn vị</string>
 
-    <!-- Content description for \'e\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'π\' button. [CHAR_LIMIT=NONE] -->
+    <string name="title_activity_settings">Cài đặt</string>
 
-    <!-- Content description for \'.\' button. [CHAR_LIMIT=NONE] -->
-
-    <!-- Content description for \'(\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \')\' button. [CHAR_LIMIT=NONE] -->
-
-    <!-- Content description for \'cos\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'ln\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'log\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'sin\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'tan\' button. [CHAR_LIMIT=NONE] -->
-
-    <!-- Content description for \'+\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'÷\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'!\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'×\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'^\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'√\' button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'-\' button. [CHAR_LIMIT=NONE] -->
-
-    <!-- Content description for "clr" button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for "del" button. [CHAR_LIMIT=NONE] -->
-    <!-- Content description for \'=\' button. [CHAR_LIMIT=NONE] -->
-
-
-    <!-- Descriptions for trig functions -->
-
-
-    <!-- Displayed on button on screen for the cube root function. -->
-
-
+    <string name="title_activity_geometry">Hình học 2D Descartes</string>
     <string name="nav_descartes">Hình học 2D</string>
     <string name="polygon">Đa giác</string>
     <string name="circle">Đường tròn</string>
@@ -87,6 +56,7 @@
     <string name="logic_calculator">Máy tính cơ số</string>
 
     <string name="science_calculator">Máy tính khoa học</string>
+    <string name="title_activity_matrix_calculator">Ma trận</string>
 
     <string name="matrix">Ma trận</string>
     <string name="row">dòng</string>
@@ -157,7 +127,7 @@
 
     <string name="not_input_equation">Chưa nhập hệ phương trình</string>
     <string name="add_function">Thêm hàm số</string>
-    <string name="update">Lưu</string>
+    <string name="save">Lưu</string>
 
     <string name="tapFun">Chọn vào hàm số</string>
     <string name="noFunDisp">Không có hàm số để hiển thị</string>
@@ -553,6 +523,7 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="add_equation">Thêm phương trình</string>
     <string name="calc">Calc</string>
     <string name="cannot_factor">Không thể phân tích thừa số nguyên tố</string>
+    <string name="define_var">Định nghĩa giá trị của biến</string>
 
     <string name="enter_value">Nhập giá trị</string>
     <string name="name">Tên</string>
@@ -617,7 +588,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="input_number">Nhập số</string>
     <string name="not_a_number">Dữ liệu nhập vào không phải là số!</string>
     <string name="number_theory">Lý thuyết về số</string>
-    <string name="show_logo">Hiển thị logo bên trái của ứng dụng.</string>
     <string name="summary_dev_mode">Chế độ nhà phát triển (command)</string>
     <string name="summary_trace_mode">Cách máy tính thực hiện giải các bài toán</string>
     <string name="summary_percision">Số chữ số thập phân sẽ được hiển thị</string>
@@ -640,6 +610,11 @@ Ví dụ như 2x + 1, 2x^2-x-1
     </string>
     <string name="input_matrix">Ma trận</string>
     <string name="input_equation_">Phương trình</string>
+    <string name="my_own_cancel">Để sau</string>
+    <string name="my_own_rate">Đánh giá</string>
+    <string name="my_own_thanks">Không, cảm ơn.</string>
+    <string name="my_own_title">Đánh giá ứng dụng</string>
+    <string name="my_own_message">Nếu bạn thích sử dụng ứng dụng này, bạn có thể chút thời gian để đánh giá để ủng hộ nhà phát triển? Nó sẽ không mất nhiều hơn một phút. Cảm ơn sự ủng hộ của bạn!</string>
     <string name="advance">Nâng cao</string>
     <string name="calculator">Máy tính</string>
     <string name="ui">Giao diện</string>
@@ -652,18 +627,13 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="no_root">Phương trình vô nghiệm</string>
     <string name="not_find_root">Không thể tìm nghiệm</string>
     <string name="change_lang_msg">Khởi động lại ứng dụng để thay đổi ngôn ngữ.</string>
-    <string name="camera">Máy ảnh</string>
-    <string name="delete_x">Xóa</string>
-    <string name="hand_geome">Vẽ hình học</string>
-    <string name="redo">Redo</string>
-    <string name="hand_pad">Chạm để mở bàn phím</string>
-    <string name="permission_required">Bạn cần cho phép ứng dụng ghi âm</string>
-    <string name="undo">Undo</string>
-
+    <string name="latex_summary">KaTeX là nhanh hơn so với MathJax trên môi trường di động, nhưng MathJax hỗ trợ nhiều tính năng hơn và đẹp hơn rất nhiều.</string>
+    <string name="latex_engine">LaTeX engine</string>
     <string name="tit_trig_expand">Phân tích hàm lượng giác</string>
     <string name="tit_trig_reduce">Thu gọn hàm lượng giác</string>
     <string name="tit_trig_to_exp">Hàm lượng giác sang hàm mũ</string>
     <string name="trigonometry">Lượng giác</string>
+    <string name="close_drawer">Đóng drawer</string>
     <string name="cannot_factor_polynomial">Không thể phân tích đa thức thành nhân tử</string>
     <string name="catalan_desc">Tính số Catalan thứ n</string>
     <string name="please_enter_number">Vui lòng nhập số.</string>
@@ -672,4 +642,150 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="catalan_number">Số Catalan</string>
     <string name="fibonacci">Số fibonacci</string>
     <string name="prime">Số nguyên tố</string>
+    <string name="update">Cập nhật</string>
+    <string name="new_version_update">Đã có bản cập nhật mới cho ứng dụng, bạn có muốn cập nhật bây giờ!</string>
+    <string name="dismiss">Không hiện lại</string>
+    <string name="notify_update">Thông báo cập nhật ứng dụng.</string>
+
+    <string name="unit1">Nhiệt độ</string>
+    <string name="unit2">Cân nặng</string>
+    <string name="unit3">Độ dài</string>
+    <string name="unit4">Nguồn điện</string>
+    <string name="unit5">Năng lượng</string>
+    <string name="unit6">Tốc độ</string>
+    <string name="unit7">Diện tích</string>
+    <string name="unit8">Thể tích</string>
+    <string name="unit9">Tốc độ bit</string>
+    <string name="unit10">Thời gian</string>
+
+    <string name="weightunitkg">Kilogam (Kg)</string>
+    <string name="weightunitgm">Gam (g)</string>
+    <string name="weightunitlb">Pound (lb)</string>
+    <string name="weightunitounce">Ounce (oz)</string>
+    <string name="weightunitmg">Miligam (mg)</string>
+
+
+    <string name="temperatureunitc">Độ C (ºC)</string>
+    <string name="temperatureunitf">Độ F (ºF)</string>
+    <string name="temperatureunitk">Độ Kelvin (ºK)</string>
+    <string name="temperatureunitn">Độ Newton (ºN)</string>
+
+    <string name="lengthunitnm">Nano mét (nm)</string>
+    <string name="lengthunitmicrom">Micro mét (µm)</string>
+    <string name="lengthunitpm">Pico mét (pm)</string>
+    <string name="lengthunitmm">Mili mét (mm)</string>
+    <string name="lengthunitcm">Centimét (cm)</string>
+    <string name="lengthunitdm">Đề-ci-mét (dm)</string>
+    <string name="lengthunitm">Mét (m)</string>
+    <string name="lengthunitkm">Kilomét (km)</string>
+    <string name="lengthunitfeet">Feet (ft)</string>
+    <string name="lengthunitmile">Dặm (mile)</string>
+    <string name="lengthunitinch">inch</string>
+
+
+    <string name="powerunithorsepower">Horse Power (HP)</string>
+    <string name="powerunitwatts">Watt (W)</string>
+    <string name="powerunitkilowatts">Kilowatt (KW)</string>
+    <string name="powerunitmegawatt">Megawatt (MW)</string>
+    <string name="powerunitgigawatt">Gigawatt (GW)</string>
+
+
+    <string name="energyunitcalories">Calo (cal)</string>
+    <string name="energyunitkilocalories">Kilocalo (kcal)</string>
+    <string name="energyunitjoules">Jun (J)</string>
+
+
+    <string name="areaunitsqmm">mm²</string>
+    <string name="areaunitsqm">m²</string>
+    <string name="areaunitsqcm">cm²</string>
+    <string name="areaunitsqkm">km²</string>
+    <string name="areaunitsqmiles">(Miles) mi²</string>
+    <string name="areaunitsqyard">(Yard) yd²</string>
+
+
+    <string name="volumeunitcubicmm">mm³</string>
+    <string name="volumeunitcubiccm">cm³</string>
+    <string name="volumeunitcubicm">m³</string>
+    <string name="volumeunitcubicfeet">ft³</string>
+
+
+    <string name="bitrateunitbytes">Byte (B)/s</string>
+    <string name="bitrateunitkilobytes">KiloByte (KB)/s</string>
+    <string name="bitrateunitmegabytes">MegaByte (MB)/s</string>
+    <string name="bitrateunitgigabytes">GigaByte (GB)/s</string>
+    <string name="bitrateunitterabytes">TeraByte (TB)/s</string>
+    <string name="bitrateunitbits">Bit (b)/s</string>
+    <string name="bitrateunitkilobits">KiloBit (Kb)/s</string>
+    <string name="bitrateunitmegabits">MegaBit (Mb)/s</string>
+    <string name="bitrateunitgigabits">GigaBit (Gb)/s</string>
+    <string name="bitrateunitterabits">TeraBit (Tb)/s</string>
+
+    <string name="timeunitsecond">Giây (s)</string>
+    <string name="timeunitminutes">Phút (min)</string>
+    <string name="timeunithours">Giờ (h)</string>
+    <string name="timeunitdays">Ngày (d)</string>
+    <string name="timeunitweeks">Tuần </string>
+    <string name="timeunitmiliseconds">Mili giây (ms)</string>
+    <string name="velocityunitkmph">Km/h</string>
+    <string name="velocityunitfeetpers">feet/s</string>
+    <string name="velocityunitmeterpers">m/s</string>
+    <string name="velocityunitmilesperh">miles/h</string>
+    <string name="translate">Dịch thuật</string>
+    <string name="license">Giấy phép nguồn mở</string>
+    <string name="hide_status_bar">Ẩn thanh trạng thái</string>
+    <string name="loading">Loading data...</string>
+    <string name="result">Kết quả</string>
+    <string name="see_doc">Xem tài liệu</string>
+    <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Đường tròn tâm O1, bán kính R1</string>
+    <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">Đường tròn tâm O2, bán kính R2</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Vị trí tương đối giữa 2 đường tròn</string>
+    <string name="ng_th_ng_ab">Đường thẳng AB</string>
+    <string name="v_tr_t_ng_i_v_i_ng_th_ng">Vị trí tương đối với đường thẳng</string>
+    <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Phương trình tiếp tuyến tại M</string>
+    <string name="v_tr_t_ng_i_v_i_i_m">Vị trí tương đối với điểm</string>
+    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Nhập tọa độ của đường thẳng AB, điểm đầu là A(xa, ya) và điểm cuối có tọa độ là B(xb, yb)</string>
+    <string name="d_i_o_n_th_ng_ab">Độ dài đoạn thẳng AB</string>
+    <string name="kho_ng_c_ch_t_a_n_b">Khoảng cách từ A đến B</string>
+    <string name="g_c_t_o_v_i_ox">Góc tạo với Ox</string>
+    <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Góc giữa đường thẳng AB và Ox</string>
+    <string name="trung_i_m">Trung điểm</string>
+    <string name="trung_i_m_c_a_o_n_th_ng_ab">Trung điểm của đoạn thẳng AB</string>
+    <string name="vector_ch_ph_ng">Vector chỉ phương</string>
+    <string name="vector_ph_p_tuy_n">Vector pháp tuyến</string>
+    <string name="ph_ng_tr_nh_tham_s">Phương trình tham số</string>
+    <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">Phương trình tham số của đường thẳng AB</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t">Phương trình tổng quát</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab">Phương trình tổng quát của đường thẳng AB</string>
+    <string name="ng_th_ng_cd">Đường thẳng CD</string>
+    <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">Nhập tọa độ 2 điểm thuộc đường thẳng CD</string>
+    <string name="v_tr_t_ng_i">Vị trí tương đối</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">Vị trí tương đối giữa 2 đường thẳng AB và CD</string>
+    <string name="g_c_gi_a_2_ng_th_ng">Góc giữa 2 đường thẳng</string>
+    <string name="nh_p_t_a_i_m_m">Nhập tọa độ điểm M</string>
+    <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">Khoảng cách từ M đến đường thẳng AB</string>
+    <string name="kho_ng_c_ch">Khoảng cách</string>
+    <string name="nh_p_vector">Nhập vector</string>
+    <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">Nhập 2 vector a(x_a, y_a), b(x_b, y_b)</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Kiểm tra xem 2 vector a, b có thẳng hàng hay không.</string>
+    <string name="vu_ng_g_c">Vuông góc</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Kiểm tra xem 2 vector a, b có vuông góc với nhau hay không.</string>
+    <string name="g_c_gi_a_hai_vector">Góc giữa hai vector</string>
+    <string name="t_ng_2_vector">Tổng của 2 vector</string>
+    <string name="hi_u_2_vector">Hiệu 2 vector</string>
+    <string name="t_ch_vector_v_i_s_k">Tích vector với số k</string>
+    <string name="t_ch_v_h_ng">Tích vô hướng</string>
+    <string name="t_ch_v_h_ng_c_a_2_vector">Tích vô hướng của 2 vector</string>
+    <string name="ph_ng_tr_nh_ng_tr_n">Phương trình đường tròn</string>
+    <string name="o1_x1_y1">O1(x1, y1)</string>
+    <string name="di_n_t_ch">Diện tích</string>
+    <string name="chu_vi">Chu vi</string>
+    <string name="th_ng_h_ng">Thẳng hàng</string>
+    <string name="permission_required">You need to grant the permission to use the microphone</string>
+    <string name="redo">Redo</string>
+    <string name="undo">Undo</string>
+    <string name="hand_pad">Touch to open hand pad</string>
+    <string name="camera">Máy ảnh</string>
+    <string name="delete_x">Xóa</string>
+    <string name="copy_right">Copyright 2017 by Tran Le Duy</string>
+
 </resources>

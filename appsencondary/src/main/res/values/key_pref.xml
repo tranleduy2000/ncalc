@@ -12,6 +12,7 @@
         <item>@string/default_</item>
         <item>Tiếng Việt</item>
         <item>English</item>
+        <item>Russia</item>
     </string-array>
 
     <string-array name="language_code" translatable="false">
@@ -43,6 +44,14 @@
 
     <string name="key_pref_latex_mode" translatable="false">key_pref_latex_mode</string>
 
+    <string name="mathjax" translatable="false">MathJax</string>
     <string name="katex" translatable="false">KaTeX</string>
+
+    <string-array name="latex_entries" translatable="false">
+        <item>@string/mathjax</item>
+        <item>@string/katex</item>
+    </string-array>
+    <string name="key_pref_update" translatable="false">NOTIFY_UPDATE</string>
+    <string name="key_hide_status_bar" translatable="false">key_hide_status_bar</string>
 
 </resources>

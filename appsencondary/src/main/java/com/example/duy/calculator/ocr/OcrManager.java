@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import android.util.Log;
 
 import com.example.duy.calculator.R;
-import com.example.duy.calculator.version_old.activities.abstract_class.AbstractCalculatorActivity;
+import com.example.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
 import com.microblink.activity.SegmentScanActivity;
 import com.microblink.activity.ShowOcrResultMode;
 import com.microblink.hardware.camera.VideoResolutionPreset;

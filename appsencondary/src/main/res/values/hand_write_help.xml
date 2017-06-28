@@ -19,9 +19,7 @@
     <string name="how_to_use">Using</string>
     <string name="hand_geometry">Hand Geometry</string>
     <string name="action_share">Share</string>
-    <string name="action_out_image">c</string>
-
-    <string name="save">Save</string>
+    <string name="action_out_image">Save</string>
     <string name="edit_length">Length of segment</string>
     <string name="edit_label">Label of point</string>
     <string name="edit_angle">Value of angle</string>
@@ -29,4 +27,5 @@
     <string name="hand_pad">Touch to open hand pad</string>
 
     <string name="hand_calc">Hand Calculator</string>
+    <string name="hand_geome">Hand geometric</string>
 </resources>

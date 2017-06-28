@@ -94,7 +94,7 @@
 
         </FrameLayout>
 
-        <com.example.duy.calculator.version_old.graph.FastGraphView
+        <com.example.duy.calculator.graph.FastGraphView
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>

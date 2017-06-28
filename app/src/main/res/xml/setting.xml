@@ -91,13 +91,6 @@
         <SwitchPreference
             android:defaultValue="false"
             android:enabled="false"
-            android:icon="@drawable/ic_developer_mode_black_24dp"
-            android:key="@string/key_pref_dev"
-            android:summary="@string/summary_dev_mode"
-            android:title="@string/dev_mode" />
-        <SwitchPreference
-            android:defaultValue="false"
-            android:enabled="false"
             android:key="@string/key_pref_trace_mode"
             android:summary="@string/summary_trace_mode"
             android:title="@string/trace_mode" />

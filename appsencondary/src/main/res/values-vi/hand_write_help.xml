@@ -15,8 +15,8 @@
     <string name="hand_geometry">Vẽ hình học</string>
     <string name="edit_label">Tên của điểm</string>
     <string name="edit_length">Độ dài của đường thẳng</string>
-    <string name="save">Lưu</string>
 
     <string name="hand_calc">Máy tính vẽ tay</string>
+    <string name="hand_geome">Hand geometric</string>
 
 </resources>
