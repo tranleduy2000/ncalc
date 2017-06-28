@@ -53,7 +53,7 @@
             android:id="@+id/btn_arctan"
             style="?buttonAdvanceStyle"
             android:text="@string/arctan" />
-        <!--<com.example.duy.org.solovyev.android.com.duy.calculator.view.Padcom.duy.calculator.view.CalcButtonBasicCalculator-->
+        <!--<com.example.duy. calculator.view.Padcom.duy.calculator.view.CalcButtonBasicCalculator-->
         <!--android:id="@+id/btnTable"-->
         <!--style="?buttonAdvanceStyle"-->
         <!--android:layout_weight="1"-->
@@ -89,7 +89,7 @@
             android:id="@+id/btn_tanh"
             style="?buttonAdvanceStyle"
             android:text="@string/tanh" />
-        <!--<com.example.duy.org.solovyev.android.com.duy.calculator.view.Padcom.duy.calculator.view.CalcButtonBasicCalculator-->
+        <!--<com.example.duy. calculator.view.Padcom.duy.calculator.view.CalcButtonBasicCalculator-->
         <!--android:id="@+id/btnTable"-->
         <!--style="?buttonAdvanceStyle"-->
         <!--android:layout_weight="1"-->

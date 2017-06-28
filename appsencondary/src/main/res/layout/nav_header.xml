@@ -24,7 +24,7 @@
     <!--style="?imageButtonStyle"-->
     <!--android:padding="8dp"-->
     <!--android:src="@drawable/ic_content_copy_white_24dp" />-->
-    <!--&lt;!&ndash;<com.example.duy.org.solovyev.android.calculator.view.PadButtonBasicCalculator&ndash;&gt;-->
+    <!--&lt;!&ndash;<com.example.duy.calculator.view.PadButtonBasicCalculator&ndash;&gt;-->
     <!--&lt;!&ndash;android:id="@+id/btnTable"&ndash;&gt;-->
     <!--&lt;!&ndash;style="?buttonAdvanceStyle"&ndash;&gt;-->
     <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->

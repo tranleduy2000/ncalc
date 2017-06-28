@@ -57,12 +57,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--<com.example.duy.org.solovyev.android.com.duy.calculator.view.CalculatorEditText-->
+                <!--<com.example.duy. calculator.view.CalculatorEditText-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:text="3x+2y = 0"-->
                 <!--android:layout_height="wrap_content" />-->
 
-                <!--<com.example.duy.org.solovyev.android.com.duy.calculator.view.CalculatorEditText-->
+                <!--<com.example.duy. calculator.view.CalculatorEditText-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:text="2x-2y=5"-->
                 <!--android:layout_height="wrap_content" />-->

@@ -50,7 +50,6 @@ public class OcrManager {
                 .addCharToWhitelist('/', OcrFont.OCR_FONT_ANY)
                 .addCharToWhitelist('.', OcrFont.OCR_FONT_ANY)
                 .addCharToWhitelist('x', OcrFont.OCR_FONT_ANY)
-//                .addCharToWhitelist('^', OcrFont.OCR_FONT_ANY)
                 .addCharToWhitelist('(', OcrFont.OCR_FONT_ANY)
                 .addCharToWhitelist(')', OcrFont.OCR_FONT_ANY)
                 //sin, cos, tan
@@ -65,15 +64,12 @@ public class OcrManager {
         Intent intent = new Intent(activity.getApplicationContext(), SegmentScanActivity.class);
         /** Set the license key */
         intent.putExtra(SegmentScanActivity.EXTRAS_LICENSE_KEY, LICENSE_KEY);
-        ScanConfiguration[] configurations = new ScanConfiguration[]{
-                createScanConfigurations()
-        };
+        ScanConfiguration[] configurations = new ScanConfiguration[]{createScanConfigurations()};
         intent.putExtra(SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION, configurations);
         intent.putExtra(SegmentScanActivity.EXTRAS_CAMERA_VIDEO_PRESET, (Parcelable) VideoResolutionPreset.VIDEO_RESOLUTION_720p);
         intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.STATIC_CHARS);
         intent.putExtra(SegmentScanActivity.EXTRAS_USE_LEGACY_CAMERA_API, true);
         activity.startActivityForResult(intent, OCR_REQUEST_CODE);
-        //  Toast.makeText(this, R.string.not_support_scan, Toast.LENGTH_SHORT).show();
     }
 
     public void processResult(AbstractCalculatorActivity activity, int resultCode, Intent data) {

@@ -40,7 +40,7 @@ public abstract class AbstractCalculatorActivity extends AbstractNavDrawerAction
     /**
      * insert text to display - not clear screen
      * <p/>
-     * use only for org.solovyev.android.com.duy.calculator (base, science, complex)
+     * use only for  calculator (base, science, complex)
      *
      * @param s - text
      */
@@ -57,7 +57,7 @@ public abstract class AbstractCalculatorActivity extends AbstractNavDrawerAction
     /**
      * get text input display
      * <p/>
-     * use only for org.solovyev.android.com.duy.calculator (base, science, complex)
+     * use only for  calculator (base, science, complex)
      *
      * @return - string text input
      */
@@ -67,7 +67,7 @@ public abstract class AbstractCalculatorActivity extends AbstractNavDrawerAction
     /**
      * clear screen
      * <p/>
-     * set text display - use only for org.solovyev.android.com.duy.calculator (base, science, complex)
+     * set text display - use only for  calculator (base, science, complex)
      * <p/>
      * set text for input edit text (eval)
      * <p/>

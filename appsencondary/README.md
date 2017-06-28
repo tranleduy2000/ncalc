@@ -9,7 +9,6 @@
 - Voice input (Google Voice Engine)
 - Symja (Math library)
 
-
 ## ALGEBRA
 
 	1. Computer science

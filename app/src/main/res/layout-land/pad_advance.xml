@@ -57,7 +57,7 @@
             android:id="@+id/btn_tanh"
             style="?buttonAdvanceStyle"
             android:text="@string/tanh" />
-        <!--<com.example.duy.org.solovyev.android.com.duy.calculator.view.Padcom.duy.calculator.view.CalcButton
+        <!--<com.example.duy. calculator.view.Padcom.duy.calculator.view.CalcButton
          BasicCalculator-->
         <!--android:id="@+id/btnTable"-->
         <!--style="?buttonAdvanceStyle"-->

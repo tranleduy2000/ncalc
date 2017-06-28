@@ -18,7 +18,7 @@
     <!-- Menu item text to clear the calculation history. -->
     <!-- Toast shown when text is copied to the clipboard. -->
 
-    <!--Content descriptions for accessibility. These strings will be read aloud to users who are using the org.solovyev.android.calculator with
+    <!--Content descriptions for accessibility. These strings will be read aloud to users who are using the calculator with
     accessibility features enabled and should reflect the mathematical concept instead of a direct representation of what is shown
     on the button-->
 

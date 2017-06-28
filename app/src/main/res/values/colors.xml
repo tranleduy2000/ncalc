@@ -20,9 +20,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <!-- Text color for the formula in the org.solovyev.android.com.duy.calculator display. -->
+    <!-- Text color for the formula in the  calculator display. -->
 
-    <!-- Text color for the res in the org.solovyev.android.com.duy.calculator display. -->
+    <!-- Text color for the res in the  calculator display. -->
 
     <!-- card colors -->
 
