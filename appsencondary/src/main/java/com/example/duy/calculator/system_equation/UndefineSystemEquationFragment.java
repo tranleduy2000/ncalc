@@ -141,7 +141,7 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
                 editParams.setText("x, y, z");
                 break;
             default:
-                Toast.makeText(context, R.string.input_params, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.enter_params, Toast.LENGTH_SHORT).show();
         }
     }
 

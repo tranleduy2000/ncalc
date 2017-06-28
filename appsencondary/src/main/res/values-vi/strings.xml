@@ -786,6 +786,5 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="hand_pad">Touch to open hand pad</string>
     <string name="camera">Máy ảnh</string>
     <string name="delete_x">Xóa</string>
-    <string name="copy_right">Copyright 2017 by Tran Le Duy</string>
 
 </resources>

@@ -29,7 +29,7 @@
         android:orientation="horizontal"
         android:weightSum="6">
 
-        <ImageButton
+        <android.support.v7.widget.AppCompatImageButton
             android:id="@+id/img_zoom_out"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -38,7 +38,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/ic_zoom_out_black_24dp" />
 
-        <ImageButton
+        <android.support.v7.widget.AppCompatImageButton
             android:id="@+id/img_zoom_in"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -48,7 +48,7 @@
             android:src="@drawable/ic_zoom_in_black_24dp" />
 
 
-        <ImageButton
+        <android.support.v7.widget.AppCompatImageButton
             android:id="@+id/img_add_fun"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -56,7 +56,7 @@
             android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_add_black_24dp" />
 
-        <ImageButton
+        <android.support.v7.widget.AppCompatImageButton
             android:id="@+id/btn_help"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -96,17 +96,17 @@
             android:id="@+id/btn_der"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dx_dy"
+            android:text="@string/dy_dx"
             android:textAllCaps="false" />
     </android.support.v7.widget.CardView>
 
-    <Button
+   <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_save"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/dx_dy"
+        android:text="@string/dy_dx"
         android:visibility="gone" />
 
     <android.support.v7.widget.CardView
