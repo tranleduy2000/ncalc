@@ -1,0 +1,297 @@
+stroke
+{
+  -myscript-pen-brush: FeltPen;
+}
+
+.invisibleStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #00000000;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.dotStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #000000ff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-fill-style:solid;
+  -myscript-pen-fill-color:#000000ff;
+  -myscript-pen-brush:geom-item;
+}
+
+.primitiveStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #000000ff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.primitiveStyleSelect
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #ff693b;
+  -myscript-pen-width:1.5;
+  -myscript-pen-brush:geom-item;
+}
+
+
+.primitiveCenterStyle
+{
+  color: #7f7f7fff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.primitiveDarkGrayColor
+{
+  color: #545454ff;
+}
+
+.primitiveBlueColor
+{
+  color: #0000ffff;
+}
+
+.primitiveWhiteColor
+{
+  color: #ffffffff;
+}
+
+.primitiveGreenColor
+{
+  color: #00ff00ff;
+}
+
+.primitiveRedColor
+{
+  color: #ff0000ff;
+}
+
+.primitiveBlackColor
+{
+  color: #000000ff;
+}
+
+.primitiveThickness1
+{
+  -myscript-pen-width:0.5;
+}
+
+.primitiveThickness2
+{
+  -myscript-pen-width:1;
+}
+
+.primitiveThickness3
+{
+  -myscript-pen-width:1.5;
+}
+
+.primitiveDashedBrush
+{
+  -myscript-pen-brush:dash;
+}
+
+.selectConstraint
+{
+  color: #0000ff7f;
+  -myscript-pen-width: 1.5;
+}
+
+.sameConstraintsColor1
+{
+  color: #d5c3037f;
+}
+
+.sameConstraintsColor2
+{
+  color: #ea00df7f;
+}
+
+.sameConstraintsColor3
+{
+  color: #f970007f;
+}
+
+.sameConstraintsColor4
+{
+  color: #ce05057f;
+}
+
+.sameConstraintsColor5
+{
+  color: #3cd5af7f;
+}
+
+.sameConstraintsColor6
+{
+  color: #59260d7f;
+}
+
+.sameConstraintsColor7
+{
+  color: #f9acf77f;
+}
+
+.sameConstraintsColor8
+{
+  color: #205c917f;
+}
+
+.sameConstraintsColor9
+{
+  color: #ffe6037f;
+}
+
+.implicitHorizontalStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.implicitVerticalStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.explicitPerpendicularStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #000000ff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.implicitPerpendicularStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.explicitLengthValueStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #000000ff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.implicitAngleAttractionStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.explicitConcentricStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.implicitConcentricStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.explicitConnectionStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.implicitConnectionStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.explicitJunctionStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.implicitJunctionStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #14a4fcff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.parallelismsStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #000000ff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-fill-style: solid;
+  -myscript-pen-brush:geom-item;
+}
+
+.sameLengthsStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #000000ff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.sameAnglesStyle
+{
+  font-family:arial;
+  font-size:4.0;
+  color: #000000ff;
+  -myscript-pen-width:0.5;
+  -myscript-pen-brush:geom-item;
+}
+
+.primitiveMyColor
+{
+ color: #02867A;
+}
+
+.primitiveMyThickness
+{
+  -myscript-pen-width:1.6;
+}

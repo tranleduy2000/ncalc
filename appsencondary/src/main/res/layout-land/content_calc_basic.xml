@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <include
+        layout="@layout/display_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.35" />
+
+    <FrameLayout
+        android:id="@+id/animation_pad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.65">
+
+
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/slide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            sothree:umanoOverlay="false"
+            sothree:umanoPanelHeight="30dp"
+            sothree:umanoParallaxOffset="100dp"
+            sothree:umanoShadowHeight="0dp">
+            <!---->
+            <include
+                layout="@layout/pad_basic"
+                android:id="@+id/pad_basic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <include
+                android:id="@+id/pad_advance"
+                layout="@layout/pad_advance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+        <!--Math View and control-->
+        <FrameLayout
+            android:id="@+id/container_solve"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            android:visibility="gone">
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/math_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </io.github.kexanie.library.MathView>
+
+            <android.support.v4.widget.ContentLoadingProgressBar
+                android:id="@+id/progress_bar_main"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_close"
+                android:layout_width="@dimen/fab_size_normal"
+                android:layout_height="@dimen/fab_size_normal"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="@dimen/fab_margin"
+                android:src="@drawable/ic_close" />
+        </FrameLayout>
+
+        <!--Animate-->
+        <FrameLayout
+            android:id="@+id/result_animation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

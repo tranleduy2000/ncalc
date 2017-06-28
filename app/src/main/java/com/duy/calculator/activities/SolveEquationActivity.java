@@ -180,6 +180,5 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
             });
             return res[0];
         }
-
     }
 }

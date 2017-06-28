@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':app', ':floatingkeyboardview', ':mathlibrary', ':app-pro', ':naturalview', ':casiofx'
+include ':app', ':floatingkeyboardview', ':mathlibrary', ':app-pro', ':jcm1', ':appsencondary'

@@ -348,7 +348,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             super.onPreExecute();
             mEvaluator = BigEvaluator.newInstance(getApplicationContext());
             mProgress.show();
-//            mMathView.setText("");
             btnSolve.setEnabled(false);
             btnClear.setEnabled(false);
             hideKeyboard(mInputFormula);
@@ -381,7 +380,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         @Override
         protected void onPostExecute(final ItemResult s) {
             super.onPostExecute(s);
-//            mMathView.setText(s);
             Log.d(TAG, "onPostExecute: " + s.toString());
             handler.postDelayed(new Runnable() {
                 @Override

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_new">
+        Phiên bản 3.7.5\n
+        Cập nhật thêm 8 giao diện cho máy tính.\n
+        Cập nhật thêm 4 font chữ.\n
+        \n
+        Hệ phương trình nghiệm thập phân và phân số\n
+        Cải tiến hiệu suất của đồ thị.\n
+        Khi nhập bằng bàn phím sẽ hiện gợi ý các hàm toán học.\n
+        Sửa một số lỗi.\n
+        -----------------------------\n
+        Phiên bản 3.6.5\n
+        * Cập nhật giao diện mới
+        * Sửa lỗi
+        * Cải tiến hiệu suất
+        -----------------------------\n
+        Phiên bản 3.6.3\n
+        * Sửa lỗi đồ thị. \n
+        -----------------------------\n
+        Phiên bản 3.6.1\n
+        * Tính năng mới:\n
+        Thay đổi giao diện giải hệ phương trình.\n
+        -----------------------------\n
+        Phiên bản 3.6.1\n
+        * Tính năng mới:\n
+        1. Tổ hợp\n
+        2. Chỉnh hợp\n
+        3. Phân tích thừa số nguyên tố\n
+        4. Chia lấy dư\n
+        * Sửa một số lỗi.\n
+        - Fix crash ripple view\n
+        - Remove function panel\n
+        - Remove logo on navigation\n
+    </string>
+</resources>

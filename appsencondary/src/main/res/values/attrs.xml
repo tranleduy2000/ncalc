@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ResizingEditText">
+        <attr name="minTextSize" format="dimension" />
+        <attr name="maxTextSize" format="dimension" />
+        <attr name="stepTextSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CalculatorAttrs">
+        <attr name="buttonDigitStyle" format="reference" />
+        <attr name="buttonSmallDigitStyle" format="reference" />
+        <attr name="buttonEqualStyle" format="reference" />
+        <attr name="buttonDeleteStyle" format="reference" />
+        <attr name="buttonClearStyle" format="reference" />
+        <attr name="buttonOptStyle" format="reference" />
+        <attr name="itemHistoryStyle" format="reference" />
+        <attr name="editTextDisplayStyle" format="reference" />
+        <attr name="textViewResultStyle" format="reference" />
+        <attr name="textButtonColor" format="color" />
+        <attr name="colorResultError" format="color" />
+        <attr name="colorClearScreen" format="color" />
+        <attr name="colorHistoryBackground" format="color" />
+        <attr name="backgroundDeleteButton" format="integer" />
+        <attr name="rippleViewStyle" format="reference" />
+        <attr name="textEquationStyle" format="reference" />
+        <attr name="graphPanelStyle" format="reference" />
+        <attr name="textColor" format="color" />
+        <attr name="textFunctionHintStyle" format="reference" />
+        <attr name="buttonAdvanceStyle" format="reference" />
+        <attr name="imageButtonStyle" format="reference" />
+        <attr name="background_pad_numeric" format="integer" />
+        <attr name="text_pad_basic_color" format="integer" />
+    </declare-styleable>
+</resources>

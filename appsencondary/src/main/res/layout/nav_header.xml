@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?colorAccent"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/img_setting"
+        style="?imageButtonStyle"
+        android:contentDescription="@string/settings"
+        android:padding="8dp"
+        android:src="@drawable/ic_settings_white_24dp" />
+
+    <ImageButton
+        android:id="@+id/img_share"
+        style="?imageButtonStyle"
+        android:contentDescription="share"
+        android:padding="8dp"
+        android:src="@drawable/ic_share_white_24dp" />
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/img_copy"-->
+    <!--style="?imageButtonStyle"-->
+    <!--android:padding="8dp"-->
+    <!--android:src="@drawable/ic_content_copy_white_24dp" />-->
+    <!--&lt;!&ndash;<com.example.duy.org.solovyev.android.calculator.view.PadButtonBasicCalculator&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/btnTable"&ndash;&gt;-->
+    <!--&lt;!&ndash;style="?buttonAdvanceStyle"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="@string/table"/>&ndash;&gt;-->
+    <!--<ImageButton-->
+    <!--android:id="@+id/img_paste"-->
+    <!--style="?imageButtonStyle"-->
+    <!--android:padding="8dp"-->
+    <!--android:src="@drawable/ic_content_paste_white_24dp" />-->
+
+    <ImageButton
+        android:id="@+id/img_help"
+        style="?imageButtonStyle"
+        android:contentDescription="@string/help"
+        android:padding="8dp"
+        android:src="@drawable/ic_help_white_24dp" />
+
+    <ImageButton
+        android:id="@+id/img_rate"
+        style="?imageButtonStyle"
+        android:contentDescription="@string/help"
+        android:padding="8dp"
+        android:src="@drawable/ic_star_rate_white_18dp" />
+
+</LinearLayout>
+

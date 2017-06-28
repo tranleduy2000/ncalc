@@ -1,0 +1,26 @@
+<LinearLayout xmlns:auto="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <io.github.kexanie.library.MathView
+        android:id="@+id/math_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        auto:engine="KaTeX" />
+
+
+</LinearLayout>

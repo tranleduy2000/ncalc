@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource>
+    <item>
+        <key>không</key>
+        <replace>0</replace>
+    </item>
+    <item>
+        <key>một</key>
+        <replace>1</replace>
+    </item>
+    <item>
+        <key>hai</key>
+        <replace>2</replace>
+    </item>
+    <item>
+        <key>ba</key>
+        <replace>3</replace>
+    </item>
+    <item>
+        <key>bốn</key>
+        <replace>4</replace>
+    </item>
+    <item>
+        <key>năm</key>
+        <replace>5</replace>
+    </item>
+    <item>
+        <key>lăm</key>
+        <replace>5</replace>
+    </item>
+    <item>
+        <key>sáu</key>
+        <replace>6</replace>
+    </item>
+
+    <item>
+        <key>bảy</key>
+        <replace>7</replace>
+    </item>
+    <item>
+        <key>bẩy</key>
+        <replace>7</replace>
+    </item>
+    <item>
+        <key>tám</key>
+        <replace>8</replace>
+    </item>
+
+    <item>
+        <key>chín</key>
+        <replace>9</replace>
+    </item>
+    <item>
+        <key>chính</key>
+        <replace>9</replace>
+    </item>
+    <item>
+        <key>mười</key>
+        <replace>10</replace>
+    </item>
+
+    <item>
+        <key>cộng</key>
+        <replace>+</replace>
+    </item>
+    <item>
+        <key>trừ</key>
+        <replace>-</replace>
+    </item>
+    <item>
+        <key>chừ</key>
+        <replace>-</replace>
+    </item>
+    <item>
+        <key>nhân</key>
+        <replace>*</replace>
+    </item>
+    <item>
+        <key>chia</key>
+        <replace>/</replace>
+    </item>
+
+    <item>
+        <key>mũ</key>
+        <replace>^</replace>
+    </item>
+    <item>
+        <key>mủ</key>
+        <replace>^</replace>
+    </item>
+    <item>
+        <key>mẫu</key>
+        <replace>^</replace>
+    </item>
+
+    <item>
+        <key>giai thừa</key>
+        <replace>!</replace>
+    </item>
+
+    <item>
+        <key>căn bậc hai</key>
+        <replace>sqrt(</replace>
+    </item>
+    <item>
+        <key>căn bậc 2</key>
+        <replace>sqrt(</replace>
+    </item>
+    <item>
+        <key>căn bậc 3</key>
+        <replace>cbrt(</replace>
+    </item>
+    <item>
+        <key>căn bậc ba</key>
+        <replace>cbrt(</replace>
+    </item>
+    <item>
+        <key>căn</key>
+        <replace>sqrt(</replace>
+    </item>
+    <item>
+        <key>đóng ngoặc</key>
+        <replace>)</replace>
+    </item>
+    <item>
+        <key>mở ngoặc</key>
+        <replace>(</replace>
+    </item>
+
+    <item>
+        <key>giá trị tuyệt đối</key>
+        <replace>abs(</replace>
+    </item>
+    <item>
+        <key>trị tuyệt đối</key>
+        <replace>abs(</replace>
+    </item>
+
+    <item>
+        <key>sin</key>
+        <replace>sin(</replace>
+    </item>
+    <item>
+        <key>cos</key>
+        <replace>cos(</replace>
+    </item>
+    <item>
+        <key>cos</key>
+        <replace>cos(</replace>
+    </item>
+    <item>
+        <key>tăng</key>
+        <replace>tan(</replace>
+    </item>
+    <item>
+        <key>cô tăng</key>
+        <replace>cotan(</replace>
+    </item>
+    <item>
+        <key>độ</key>
+        <replace>degree</replace>
+    </item>
+</resource>

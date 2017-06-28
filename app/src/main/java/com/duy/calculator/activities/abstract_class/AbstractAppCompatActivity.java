@@ -311,6 +311,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     }
 
     protected void hideKeyboard(EditText editText) {
+
         if (editText != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
@@ -323,6 +324,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
             }
         }
     }
+
 
     public void checkUpdate() {
         boolean update;

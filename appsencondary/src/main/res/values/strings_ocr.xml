@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="raw_title" translatable="false">QUÉT BIỂU THỨC TOÁN</string>
+    <string name="raw_msg" translatable="false">Chọn biểu thức 1 dòng</string>
+    <string name="camera">Camera</string>
+
+</resources>

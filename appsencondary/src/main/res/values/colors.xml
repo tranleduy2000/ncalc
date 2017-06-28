@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Text color for the formula in the org.solovyev.android.calculator display. -->
+
+    <!-- Text color for the res in the org.solovyev.android.calculator display. -->
+
+    <!-- card colors -->
+
+    <!--OCR color-->
+
+    <color name="transparent">#00000000</color>
+
+    <!--Graph-->
+    <color name="black">#000000</color>
+
+    <color name="red">#D50000</color>
+    <color name="purple">#AA00ff</color>
+    <color name="indigo">#3f51b5</color>
+    <color name="teal">#009688</color>
+    <color name="lime">#CDDC39</color>
+
+</resources>
