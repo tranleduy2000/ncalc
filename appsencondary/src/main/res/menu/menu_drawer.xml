@@ -11,6 +11,10 @@
                 android:icon="@drawable/ic_calculator_black"
                 android:title="@string/science_calculator"/>
             <item
+                android:id="@+id/nav_natural_calc"
+                android:icon="@drawable/ic_calculator_black"
+                android:title="@string/natural_calc"/>
+            <item
                 android:id="@+id/nav_hand_calc"
                 android:icon="@drawable/ic_gesture_black_24dp"
                 android:title="@string/hand_calc"/>

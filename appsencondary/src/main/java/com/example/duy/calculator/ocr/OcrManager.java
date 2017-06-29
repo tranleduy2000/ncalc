@@ -22,7 +22,7 @@ import com.microblink.results.ocr.OcrFont;
 
 public class OcrManager {
     public static final String LICENSE_KEY =
-            "JQ7UTMTX-7RBQTQDK-UJ7VLJRZ-4KIW56GP-ZNIYLJNA-DVTSCQY6-IUX6RPVL-WKZNPLCZ";
+            "CF45MVGT-FZV44A77-XFUESMDY-72NH6HLH-EFBR4RJP-5APEKL7I-DZCS6SCH-YBLFTYA3";
     public static final int OCR_REQUEST_CODE = 12321;
     private static final String TAG = OcrManager.class.getSimpleName();
 

@@ -48,11 +48,7 @@
     <string name="yes">Yes</string>
     <string name="vector">vector</string>
     <string name="title_activity_app_about">About NCalc+</string>
-    <string name="title_activity_geometry">2D Cartesian geometry</string>
     <string name="title_activity_graph">Graph</string>
-    <string name="title_activity_matrix_calculator">Matrix</string>
-    <string name="title_activity_settings">Setting</string>
-    <string name="title_activity_unit_converter_acitvity">Unit Converter</string>
     <string name="th_m_ph_ng_tr_nh">More</string>
     <string name="table">Statistical</string>
     <string name="t_ng">sum</string>
@@ -120,7 +116,6 @@
     <string name="pref_title_theme">Theme</string>
     <string name="solve">Solve</string>
     <string name="tangent">tangent</string>
-    <string name="what_new">What new?</string>
     <string name="translate">Translate</string>
     <string name="license">License</string>
 
@@ -502,7 +497,6 @@
 
     <string name="enter_value">Enter value</string>
     <string name="name">Name</string>
-    <string name="define_var">Define Variable</string>
     <string name="cannot_factor">Can not prime factor</string>
     <string name="graph_2">Graph</string>
     <string name="enter_limit">Enter limit</string>
@@ -548,7 +542,6 @@
     <string name="algebra">Algebra</string>
     <string name="language">Language</string>
     <string name="default_">System</string>
-    <string name="summary_dev_mode">Developer mode (command)</string>
     <string name="probability_statistics">Probability statistics</string>
     <string name="combination">Combination</string>
     <string name="permutation">Permutation</string>
@@ -557,7 +550,6 @@
     <string name="enter_number">Enter number</string>
     <string name="help_permutation">Enter the number \\(N\\) (there are many elements) and \\(L\\) (the number of elements selected)</string>
     <string name="trace_mode">Trace mode</string>
-    <string name="dev_mode">Developer mode</string>
     <string name="not_a_number">The data entered is not a number!</string>
     <string name="gt_zero">Two numbers entered must be greater than zero number.</string>
     <string name="number_theory">Number theory</string>
@@ -581,11 +573,6 @@
     <string name="enter_var_hint">Enter variable of system equation</string>
     <string name="input_matrix">Input matrix</string>
     <string name="input_equation_">Input equation</string>
-    <string name="my_own_title">Rate this app</string>
-    <string name="my_own_message">If you enjoy using this app, would you mind taking a moment to rate it? It will not take more than a minute. Thank for your support!</string>
-    <string name="my_own_rate">Rate now</string>
-    <string name="my_own_thanks">No, thanks</string>
-    <string name="my_own_cancel">Later</string>
     <string name="precision_">Precision</string>
     <string name="calculator">Calculator</string>
     <string name="ui">User interface</string>
@@ -604,7 +591,6 @@
     <string name="tit_trig_to_exp">Trigonometry to Exponent</string>
     <string name="trigonometry">Trigonometry</string>
     <string name="latex_summary">KaTeX is faster than MathJax on mobile environment, but MathJax supports more features and is much more beautiful.</string>
-    <string name="close_drawer">Close drawer</string>
     <string name="cannot_factor_polynomial">Can not factors the polynomial expression.</string>
     <string name="catalan_number">Catalan Number</string>
     <string name="prime">Prime Number</string>
@@ -614,8 +600,6 @@
     <string name="fibo_desc">Computes the nth Fibonacci number.</string>
     <string name="prime_desc">Computes the nth Prime number.</string>
     <string name="update">Update</string>
-    <string name="new_version_update">New version for app, do you want to update now!</string>
-    <string name="dismiss">Dismiss</string>
     <string name="notify_update">Update notifications</string>
 
     <string name="unit1">Temperature</string>
@@ -706,54 +690,9 @@
     <string name="timeunitmiliseconds">Miliseconds (ms)</string>
 
     <string name="hide_status_bar">Hide status bar</string>
-    <string name="result">Result</string>
     <string name="see_doc">See document</string>
     <string name="loading">Loading data…</string>
 
     <!--geometric -->
-    <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Center circle O1, radius R1</string>
-    <string name="o1_x1_y1">O1(x1, y1)</string>
-    <string name="ph_ng_tr_nh_ng_tr_n">Equation of circle</string>
-    <string name="chu_vi">Perimeter</string>
-    <string name="di_n_t_ch">Acreage</string>
-    <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">Center circle O2, radius R2</string>
-    <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Relative position between two circles</string>
-    <string name="v_tr_t_ng_i_v_i_ng_th_ng">Position relative to straight line</string>
-    <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Equation equation in M</string>
-    <string name="v_tr_t_ng_i_v_i_i_m">Position relative to the point</string>
-    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Enter the coordinates of the line AB, the starting point is A(xa, ya) and the endpoint is B(xb, yb).</string>
-    <string name="d_i_o_n_th_ng_ab">AB straight line length</string>
-    <string name="kho_ng_c_ch_t_a_n_b">Distance from A to B</string>
-    <string name="g_c_t_o_v_i_ox">Angle with Ox axis</string>
-    <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Angle between AB and Ox axis</string>
-    <string name="trung_i_m">Mid point</string>
-    <string name="trung_i_m_c_a_o_n_th_ng_ab">Center of the AB segment</string>
-    <string name="vector_ch_ph_ng">Vectors</string>
-    <string name="vector_ph_p_tuy_n">Vector normal</string>
-    <string name="ph_ng_tr_nh_tham_s">Parameter equations</string>
-    <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">Equation line equation AB</string>
-    <string name="ph_ng_tr_nh_t_ng_qu_t">General equation</string>
-    <string name="ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab">General equation of straight line AB</string>
-    <string name="ng_th_ng_cd">Linear CD</string>
-    <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">Enter two coordinates of a straight line CD</string>
-    <string name="v_tr_t_ng_i">Relative position</string>
-    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">The relative position between AB and CD lines</string>
-    <string name="g_c_gi_a_2_ng_th_ng">Angle between two straight lines</string>
-    <string name="nh_p_t_a_i_m_m">Enter the coordinates point M</string>
-    <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">Distance from M to straight line AB</string>
-    <string name="kho_ng_c_ch">Distance</string>
-    <string name="nh_p_vector">Enter vector</string>
-    <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">Enter 2 vectors a (x_a, y_a), b (x_b, y_b)</string>
-    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Check if two vectors a, b are aligned or not.</string>
-    <string name="vu_ng_g_c">Perpendicular</string>
-    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Check if two vectors a, b are perpendicular to each other.</string>
-    <string name="g_c_gi_a_hai_vector">Angle between two vectors</string>
-    <string name="t_ng_2_vector">Sum of 2 vectors</string>
-    <string name="hi_u_2_vector">Subtraction of 2 vectors</string>
-    <string name="t_ch_vector_v_i_s_k">The product of the vector with the number k</string>
-    <string name="t_ch_v_h_ng">Scalar</string>
-    <string name="t_ch_v_h_ng_c_a_2_vector">The scalar product of two vectors</string>
-    <string name="ng_th_ng_ab">Linear AB</string>
-    <string name="th_ng_h_ng">Straight</string>
 
 </resources>

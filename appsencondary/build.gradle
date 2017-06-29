@@ -11,7 +11,9 @@ android {
         versionName "3.5.3"
         multiDexEnabled true
     }
-
+    lintOptions {
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="font_size">Font Size</string>
+    <string name="casio_ans">Ans</string>
+    <string name="preference_key">com.duy.calc.casio.PREFERENCES</string>
+    <string name="haptic">Vibrate</string>
+    <string name="decimals">Digits</string>
+    <string name="theme">Change Themes</string>
+    <string name="casio_arcsin"><![CDATA[sin<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arcsinh"><![CDATA[sinh<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arccos"><![CDATA[cos<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arccosh"><![CDATA[cosh<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arctan"><![CDATA[tan<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arctanh"><![CDATA[tanh<sup><small>-1</small></sup>]]></string>
+    <string name="done">DONE</string>
+    <string name="num">#</string>
+    <string name="edit">EDIT</string>
+    <string name="newe"><![CDATA[[ ]<sup><small>+</small></sup>]]></string>
+    <string name="rank">rank</string>
+    <string name="ref">REF</string>
+    <string name="rref">RREF</string>
+    <string name="det">det</string>
+    <string name="decomp">DECOMP</string>
+    <string name="tr">tr</string>
+    <string name="lambda">λ</string>
+    <string name="transpose"><![CDATA[A<sup><small>t</small></sup>]]></string>
+    <string name="matrix_pow"><![CDATA[A<sup><small>y</small></sup>]]></string>
+    <string name="inverse_a"><![CDATA[A<sup><small>-></small></sup>]]></string>
+    <string name="casio_clear">CLR</string>
+    <string name="plusminus">±</string>
+    <string name="decimal">.</string>
+    <string name="multiply">×</string>
+    <string name="divide">÷</string>
+    <string name="open_bracket">(</string>
+    <string name="closed_bracket">)</string>
+    <string name="open_square_bracket">[</string>
+    <string name="closed_square_bracket">]</string>
+    <string name="magnitude_open">‖(</string>
+    <string name="magnitude_close">)‖</string>
+    <string name="unit_vector">Û</string>
+    <string name="scalar">SCALAR</string>
+    <string name="angle_between_vectors">∠</string>
+    <string name="vect_u">U</string>
+    <string name="vect_v">V</string>
+    <string name="s">s</string>
+    <string name="t">t</string>
+    <string name="casio_dot">•</string>
+    <string name="casio_comma">,</string>
+    <string name="hyp">hyp</string>
+    <string name="pi">π</string>
+    <string name="e">e</string>
+    <string name="shift">Shift</string>
+    <string name="backspace">⇤</string>
+    <string name="sqrt"><![CDATA[√<small>□</small>]]></string>
+    <string name="cbrt"><![CDATA[³√<small>□</small>]]></string>
+
+    <string name="reciprocal"><![CDATA[x<sup><small>-1</small></sup>]]></string>
+
+    <string name="square"><![CDATA[x<sup><small>2</small></sup>]]></string>
+
+    <string name="x_power"><![CDATA[x<sup><small>□</small></sup>]]></string>
+
+    <string name="cube"><![CDATA[x<sup><small>3</small></sup>]]></string>
+
+    <string name="pow_of_ten"><![CDATA[10<sup><small>x</small></sup>]]></string>
+
+    <string name="mul_pow_of_ten"><![CDATA[×10<sup><small>□</small></sup>]]></string>
+
+    <string name="pow_of_e"><![CDATA[e<sup><small>□</small></sup>]]></string>
+
+    <string name="logn"><![CDATA[log<sub><small>□</small></sub>□]]></string>
+
+    <string name="casio_integrate"><![CDATA[∫<sub><small>□</small></sub>□dx]]></string>
+
+    <string name="surd"><![CDATA[<sup><small>□</small></sup>√<small>□</small>]]></string>
+    <string name="equals">=</string>
+    <string name="seven">7</string>
+    <string name="six">6</string>
+    <string name="five">5</string>
+    <string name="four">4</string>
+    <string name="three">3</string>
+    <string name="two">2</string>
+    <string name="one">1</string>
+    <string name="zero">0</string>
+    <string name="nine">9</string>
+    <string name="eight">8</string>
+    <string name="casio_log10">log</string>
+    <string name="store">STO</string>
+    <string name="varA">A</string>
+    <string name="varB">B</string>
+    <string name="varC">C</string>
+    <string name="casio_factorial">x!</string>
+    <string name="casio_derivative">d/dx</string>
+    <string name="leftscroll">⇦</string>
+    <string name="rightscroll">⇨</string>
+    <string name="eigen">eigen</string>
+    <string name="autocalculate">Automatically Calculate</string>
+    <string name="casio_delete">DEL</string>
+    <string name="degree_button">°\'\"</string>
+    <string name="negative">(-)</string>
+    <string name="alpha">Alpha</string>
+    <string name="arrow_left">⇐</string>
+    <string name="implicit">i</string>
+    <string name="add">+</string>
+    <string name="mode">MODE</string>
+    <string name="s_d">S⇌D</string>
+    <string name="ac">AC</string>
+    <string name="del">DEL</string>
+    <string name="constanst">Constants</string>
+    <string name="angle_mode">Angle Mode</string>
+    <string name="radian">Radian</string>
+    <string name="degree">Degree</string>
+    <string name="round">Round</string>
+    <string name="display">Display</string>
+    <string name="system">System</string>
+    <string name="show_status_bar">Show status bar</string>
+    <string name="default_output">Default output</string>
+    <string name="fraction">Fraction</string>
+    <string name="decimal_">Decimal</string>
+    <string name="key_vibrarte">pref_key_vibrate</string>
+    <string name="key_instant_result">pref_key_instant_result</string>
+    <string name="key_round">pref_key_round</string>
+    <string name="key_font_size">pref_key_font_size</string>
+    <string name="key_show_status_bar">pref_show_status_bar</string>
+    <string name="key_fraction">pref_key_fraction</string>
+    <string name="key_radian">key_pref_angle</string>
+    <string name="report_a_bug">Report a bug</string>
+    <string name="get_pro_version">Get pro version</string>
+    <string name="rate_app">Rate app</string>
+    <string name="unsupported_history_in_current_version">Unsupported history in current version</string>
+    <string name="natural_calc">Natural calc</string>
+</resources>

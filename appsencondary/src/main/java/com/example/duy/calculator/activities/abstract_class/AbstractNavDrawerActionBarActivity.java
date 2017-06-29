@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.duy.calc.casio.calculator.CalculatorActivity;
 import com.example.duy.calculator.AbstractAppCompatActivity;
 import com.example.duy.calculator.DLog;
 import com.example.duy.calculator.R;
@@ -34,7 +35,6 @@ import com.example.duy.calculator.geom2d.GeometryDescartesActivity;
 import com.example.duy.calculator.graph.GraphActivity;
 import com.example.duy.calculator.hand_write.HandCalculatorActivity;
 import com.example.duy.calculator.hand_write.HandGeometryActivity;
-import com.example.duy.calculator.helper.AppAboutActivity;
 import com.example.duy.calculator.helper.HelperActivity;
 import com.example.duy.calculator.number_theory.FactorPrimeActivity;
 import com.example.duy.calculator.number_theory.ModuleActivity;
@@ -240,6 +240,9 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
 
         } else if (id == R.id.action_document) {
             intent = new Intent(getApplicationContext(), DocumentActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_natural_calc) {
+            intent = new Intent(getApplicationContext(), CalculatorActivity.class);
             startActivity(intent);
         }
         return true;

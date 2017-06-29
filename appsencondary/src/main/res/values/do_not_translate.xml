@@ -248,25 +248,8 @@
     <string name="mtrue" translatable="false">true</string>
     <string name="mfalse" translatable="false">false</string>
 
-    <string-array name="precision" translatable="false">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-    </string-array>
     <string name="nullable" translatable="false"> </string>
 
-    <string name="cmd" translatable="false">Command</string>
-    <string name="step_by_step" translatable="false">Step By Step</string>
     <string name="an_giang" translatable="false">Châu Thành - An Giang</string>
     <string name="email_tranleduy1233_gmail_com" translatable="false">Email: Tranleduy1233@Gmail.com</string>
     <string name="power_two" translatable="false">^2</string>

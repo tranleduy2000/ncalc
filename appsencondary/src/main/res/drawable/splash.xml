@@ -27,7 +27,6 @@
         <bitmap
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:antialias="true"
             android:gravity="center"
             android:src="@drawable/icon_splash" />
     </item>

@@ -22,11 +22,7 @@
 
     <string name="title_activity_graph">Đồ thị</string>
     <string name="all_unit_converter">Chuyển đổi đơn vị</string>
-    <string name="title_activity_unit_converter_acitvity">Chuyển đổi đơn vị</string>
 
-    <string name="title_activity_settings">Cài đặt</string>
-
-    <string name="title_activity_geometry">Hình học 2D Descartes</string>
     <string name="nav_descartes">Hình học 2D</string>
     <string name="polygon">Đa giác</string>
     <string name="circle">Đường tròn</string>
@@ -56,7 +52,6 @@
     <string name="logic_calculator">Máy tính cơ số</string>
 
     <string name="science_calculator">Máy tính khoa học</string>
-    <string name="title_activity_matrix_calculator">Ma trận</string>
 
     <string name="matrix">Ma trận</string>
     <string name="row">dòng</string>
@@ -143,7 +138,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="pref_title_font">Phông chữ</string>
     <string name="pref_title_theme">Chủ đề</string>
     <string name="solve">Tìm nghiệm</string>
-    <string name="what_new">Có gì mới?</string>
 
     <string name="help_main_calc" formatted="false"><![CDATA[
 
@@ -523,7 +517,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="add_equation">Thêm phương trình</string>
     <string name="calc">Calc</string>
     <string name="cannot_factor">Không thể phân tích thừa số nguyên tố</string>
-    <string name="define_var">Định nghĩa giá trị của biến</string>
 
     <string name="enter_value">Nhập giá trị</string>
     <string name="name">Tên</string>
@@ -582,13 +575,11 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="trace_mode">Chế độ truy vết</string>
     <string name="probability_statistics">Xác xuất, thống kê</string>
     <string name="module">Chia lấy dư</string>
-    <string name="dev_mode">Chế độ nhà phát triển</string>
     <string name="enter_number">Nhập số</string>
     <string name="gt_zero">Hai số nhập vào phải là số tự nhiên</string>
     <string name="input_number">Nhập số</string>
     <string name="not_a_number">Dữ liệu nhập vào không phải là số!</string>
     <string name="number_theory">Lý thuyết về số</string>
-    <string name="summary_dev_mode">Chế độ nhà phát triển (command)</string>
     <string name="summary_trace_mode">Cách máy tính thực hiện giải các bài toán</string>
     <string name="summary_percision">Số chữ số thập phân sẽ được hiển thị</string>
     <string name="help_permutation">Nhập vào số \\(N\\) (có tất cả bao nhiêu phần tử) và số \\(K\\) (số phần tử được chọn)</string>
@@ -610,11 +601,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     </string>
     <string name="input_matrix">Ma trận</string>
     <string name="input_equation_">Phương trình</string>
-    <string name="my_own_cancel">Để sau</string>
-    <string name="my_own_rate">Đánh giá</string>
-    <string name="my_own_thanks">Không, cảm ơn.</string>
-    <string name="my_own_title">Đánh giá ứng dụng</string>
-    <string name="my_own_message">Nếu bạn thích sử dụng ứng dụng này, bạn có thể chút thời gian để đánh giá để ủng hộ nhà phát triển? Nó sẽ không mất nhiều hơn một phút. Cảm ơn sự ủng hộ của bạn!</string>
     <string name="advance">Nâng cao</string>
     <string name="calculator">Máy tính</string>
     <string name="ui">Giao diện</string>
@@ -633,7 +619,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="tit_trig_reduce">Thu gọn hàm lượng giác</string>
     <string name="tit_trig_to_exp">Hàm lượng giác sang hàm mũ</string>
     <string name="trigonometry">Lượng giác</string>
-    <string name="close_drawer">Đóng drawer</string>
     <string name="cannot_factor_polynomial">Không thể phân tích đa thức thành nhân tử</string>
     <string name="catalan_desc">Tính số Catalan thứ n</string>
     <string name="please_enter_number">Vui lòng nhập số.</string>
@@ -643,8 +628,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="fibonacci">Số fibonacci</string>
     <string name="prime">Số nguyên tố</string>
     <string name="update">Cập nhật</string>
-    <string name="new_version_update">Đã có bản cập nhật mới cho ứng dụng, bạn có muốn cập nhật bây giờ!</string>
-    <string name="dismiss">Không hiện lại</string>
     <string name="notify_update">Thông báo cập nhật ứng dụng.</string>
 
     <string name="unit1">Nhiệt độ</string>
@@ -734,52 +717,7 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="license">Giấy phép nguồn mở</string>
     <string name="hide_status_bar">Ẩn thanh trạng thái</string>
     <string name="loading">Loading data...</string>
-    <string name="result">Kết quả</string>
     <string name="see_doc">Xem tài liệu</string>
-    <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Đường tròn tâm O1, bán kính R1</string>
-    <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">Đường tròn tâm O2, bán kính R2</string>
-    <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Vị trí tương đối giữa 2 đường tròn</string>
-    <string name="ng_th_ng_ab">Đường thẳng AB</string>
-    <string name="v_tr_t_ng_i_v_i_ng_th_ng">Vị trí tương đối với đường thẳng</string>
-    <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Phương trình tiếp tuyến tại M</string>
-    <string name="v_tr_t_ng_i_v_i_i_m">Vị trí tương đối với điểm</string>
-    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Nhập tọa độ của đường thẳng AB, điểm đầu là A(xa, ya) và điểm cuối có tọa độ là B(xb, yb)</string>
-    <string name="d_i_o_n_th_ng_ab">Độ dài đoạn thẳng AB</string>
-    <string name="kho_ng_c_ch_t_a_n_b">Khoảng cách từ A đến B</string>
-    <string name="g_c_t_o_v_i_ox">Góc tạo với Ox</string>
-    <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Góc giữa đường thẳng AB và Ox</string>
-    <string name="trung_i_m">Trung điểm</string>
-    <string name="trung_i_m_c_a_o_n_th_ng_ab">Trung điểm của đoạn thẳng AB</string>
-    <string name="vector_ch_ph_ng">Vector chỉ phương</string>
-    <string name="vector_ph_p_tuy_n">Vector pháp tuyến</string>
-    <string name="ph_ng_tr_nh_tham_s">Phương trình tham số</string>
-    <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">Phương trình tham số của đường thẳng AB</string>
-    <string name="ph_ng_tr_nh_t_ng_qu_t">Phương trình tổng quát</string>
-    <string name="ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab">Phương trình tổng quát của đường thẳng AB</string>
-    <string name="ng_th_ng_cd">Đường thẳng CD</string>
-    <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">Nhập tọa độ 2 điểm thuộc đường thẳng CD</string>
-    <string name="v_tr_t_ng_i">Vị trí tương đối</string>
-    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">Vị trí tương đối giữa 2 đường thẳng AB và CD</string>
-    <string name="g_c_gi_a_2_ng_th_ng">Góc giữa 2 đường thẳng</string>
-    <string name="nh_p_t_a_i_m_m">Nhập tọa độ điểm M</string>
-    <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">Khoảng cách từ M đến đường thẳng AB</string>
-    <string name="kho_ng_c_ch">Khoảng cách</string>
-    <string name="nh_p_vector">Nhập vector</string>
-    <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">Nhập 2 vector a(x_a, y_a), b(x_b, y_b)</string>
-    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Kiểm tra xem 2 vector a, b có thẳng hàng hay không.</string>
-    <string name="vu_ng_g_c">Vuông góc</string>
-    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Kiểm tra xem 2 vector a, b có vuông góc với nhau hay không.</string>
-    <string name="g_c_gi_a_hai_vector">Góc giữa hai vector</string>
-    <string name="t_ng_2_vector">Tổng của 2 vector</string>
-    <string name="hi_u_2_vector">Hiệu 2 vector</string>
-    <string name="t_ch_vector_v_i_s_k">Tích vector với số k</string>
-    <string name="t_ch_v_h_ng">Tích vô hướng</string>
-    <string name="t_ch_v_h_ng_c_a_2_vector">Tích vô hướng của 2 vector</string>
-    <string name="ph_ng_tr_nh_ng_tr_n">Phương trình đường tròn</string>
-    <string name="o1_x1_y1">O1(x1, y1)</string>
-    <string name="di_n_t_ch">Diện tích</string>
-    <string name="chu_vi">Chu vi</string>
-    <string name="th_ng_h_ng">Thẳng hàng</string>
     <string name="permission_required">You need to grant the permission to use the microphone</string>
     <string name="redo">Redo</string>
     <string name="undo">Undo</string>

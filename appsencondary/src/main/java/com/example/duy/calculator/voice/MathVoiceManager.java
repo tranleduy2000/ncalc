@@ -1,6 +1,7 @@
 package com.example.duy.calculator.voice;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import net.gotev.speech.GoogleVoiceTypingDisabledException;
 import net.gotev.speech.Logger;
@@ -12,8 +13,6 @@ import net.gotev.speech.ui.SpeechProgressView;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
-
-import static org.apache.commons.math4.util.MathArrays.Position.HEAD;
 
 /**
  * Created by DUy on 12-Jan-17.
@@ -83,8 +82,9 @@ public class MathVoiceManager implements SpeechDelegate {
         Speech.getInstance().stopTextToSpeech();
         try {
             Speech.getInstance().startListening(progress, this);
-        } catch (SpeechRecognitionNotAvailable | GoogleVoiceTypingDisabledException speechRecognitionNotAvailable) {
-            speechRecognitionNotAvailable.printStackTrace();
+        } catch (SpeechRecognitionNotAvailable | GoogleVoiceTypingDisabledException e) {
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
         }
 
     }

@@ -101,6 +101,9 @@ public final class BigEvaluator extends LogicEvaluator {
         addFunction();
         String ans_val = mPref.getString(ANS_VAR, "0");
         define("ans", ans_val);
+
+        boolean isFraction = mPref.getBoolean(mContext.getString(R.string.key_fraction), false);
+        this.setFraction(isFraction);
     }
 
     /**

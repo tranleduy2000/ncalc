@@ -130,4 +130,39 @@
         <item name="android:layout_height">wrap_content</item>
 
     </style>
+
+    <style name="rootButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="buttonDark" parent="rootButtonStyle">
+        <item name="android:background">@drawable/ripple_button_dark</item>
+        <item name="android:textColor">?buttonTextColor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="primaryButtonStyle" parent="rootButtonStyle">
+        <item name="android:background">@drawable/ripple_button_dark</item>
+        <item name="android:textColor">?buttonTextColor</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="primaryButtonStyleHighlight" parent="rootButtonStyle">
+        <item name="android:background">@drawable/ripple_button_dark</item>
+        <item name="android:textSize">20sp</item>
+    </style> <style name="buttonDark.MediumText">
+
+</style>
+
+    <style name="primaryButtonStyle.MediumText">
+
+    </style>
+
+    <style name="primaryButtonStyleHighlight.MediumText">
+
+    </style>
+
 </resources>

@@ -157,10 +157,7 @@ public abstract class AbstractCalculatorActivity extends AbstractNavDrawerAction
     }
 
     /**
-     * convert result for "speech"
-     *
-     * @param result
-     * @return
+     * convert result for speech, I only develop for Viet Nam language
      */
     private String processResult(String result) {
         String res = BigEvaluator.newInstance(this).evaluateWithResultNormal(result);
