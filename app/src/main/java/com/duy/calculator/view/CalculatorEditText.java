@@ -26,8 +26,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.duy.calculator.R;
-import com.duy.calculator.math_eval.Constants;
-import com.duy.calculator.math_eval.base.Evaluator;
+import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.utils.TextUtil;
 
 import java.util.ArrayList;

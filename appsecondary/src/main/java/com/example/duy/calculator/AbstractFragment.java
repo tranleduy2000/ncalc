@@ -1,20 +1,4 @@
-/*
- * Copyright 2017 Tran Le Duy
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.duy.calculator;
+package com.example.duy.calculator;
 
 import android.animation.Animator;
 import android.app.Activity;
@@ -37,11 +21,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.data.Database;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.Tokenizer;
-import com.duy.calculator.view.AnimationFinishedListener;
+import com.example.duy.calculator.data.CalculatorSetting;
+import com.example.duy.calculator.data.Database;
+import com.example.duy.calculator.math_eval.BigEvaluator;
+import com.example.duy.calculator.math_eval.Tokenizer;
+import com.example.duy.calculator.view.AnimationFinishedListener;
 
 import java.util.Locale;
 
@@ -97,16 +81,16 @@ public abstract class AbstractFragment extends Fragment
      */
     protected void setModeFraction() {
         try {
-            MathEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
+            BigEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
             SwitchCompat switchCompat = (SwitchCompat) getActivity().findViewById(R.id.sw_fraction);
             switchCompat.setChecked(mSetting.useFraction());
-            MathEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
+            BigEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
             switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked != mSetting.useFraction()) {
                         mSetting.setFraction(isChecked);
-                        MathEvaluator.newInstance(getActivity()).setFraction(isChecked);
+                        BigEvaluator.newInstance(getActivity()).setFraction(isChecked);
                     }
                     onChangeModeFraction();
                 }
@@ -137,6 +121,10 @@ public abstract class AbstractFragment extends Fragment
 
     /**
      * get view group
+     *
+     * @param inflater
+     * @param container
+     * @return
      */
     protected abstract View getView(LayoutInflater inflater, ViewGroup container);
 
@@ -167,7 +155,7 @@ public abstract class AbstractFragment extends Fragment
 
 
     /**
-     * playAnimatior animator
+     * play animator
      *
      * @param animator - animator object
      */

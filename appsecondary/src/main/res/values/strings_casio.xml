@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="font_size" translatable="false">Font Size</string>
+    <string name="casio_ans" translatable="false">Ans</string>
+    <string name="preference_key" translatable="false">com.duy.calc.casio.PREFERENCES</string>
+    <string name="haptic" translatable="false">Vibrate</string>
+    <string name="decimals" translatable="false">Digits</string>
+    <string name="theme" translatable="false">Change Themes</string>
+    <string name="casio_arcsin" translatable="false"><![CDATA[sin<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arcsinh" translatable="false"><![CDATA[sinh<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arccos" translatable="false"><![CDATA[cos<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arccosh" translatable="false"><![CDATA[cosh<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arctan" translatable="false"><![CDATA[tan<sup><small>-1</small></sup>]]></string>
+    <string name="casio_arctanh" translatable="false"><![CDATA[tanh<sup><small>-1</small></sup>]]></string>
+    <string name="done" translatable="false">DONE</string>
+    <string name="num" translatable="false">#</string>
+    <string name="edit" translatable="false">EDIT</string>
+    <string name="newe" translatable="false"><![CDATA[[ ]<sup><small>+</small></sup>]]></string>
+    <string name="rank" translatable="false">rank</string>
+    <string name="ref" translatable="false">REF</string>
+    <string name="rref" translatable="false">RREF</string>
+    <string name="det" translatable="false">det</string>
+    <string name="decomp" translatable="false">DECOMP</string>
+    <string name="tr" translatable="false">tr</string>
+    <string name="lambda" translatable="false">λ</string>
+    <string name="transpose" translatable="false"><![CDATA[A<sup><small>t</small></sup>]]></string>
+    <string name="matrix_pow" translatable="false"><![CDATA[A<sup><small>y</small></sup>]]></string>
+    <string name="inverse_a" translatable="false"><![CDATA[A<sup><small>-></small></sup>]]></string>
+    <string name="casio_clear" translatable="false">CLR</string>
+    <string name="plusminus" translatable="false">±</string>
+    <string name="decimal" translatable="false">.</string>
+    <string name="multiply" translatable="false">×</string>
+    <string name="divide" translatable="false">÷</string>
+    <string name="open_bracket" translatable="false">(</string>
+    <string name="closed_bracket" translatable="false">)</string>
+    <string name="open_square_bracket" translatable="false">[</string>
+    <string name="closed_square_bracket" translatable="false">]</string>
+    <string name="magnitude_open" translatable="false">‖(</string>
+    <string name="magnitude_close" translatable="false">)‖</string>
+    <string name="unit_vector" translatable="false">Û</string>
+    <string name="scalar" translatable="false">SCALAR</string>
+    <string name="angle_between_vectors" translatable="false">∠</string>
+    <string name="vect_u" translatable="false">U</string>
+    <string name="vect_v" translatable="false">V</string>
+    <string name="s" translatable="false">s</string>
+    <string name="t" translatable="false">t</string>
+    <string name="casio_dot" translatable="false">•</string>
+    <string name="casio_comma" translatable="false">,</string>
+    <string name="hyp" translatable="false">hyp</string>
+    <string name="pi" translatable="false">π</string>
+    <string name="e" translatable="false">e</string>
+    <string name="shift" translatable="false">Shift</string>
+    <string name="backspace" translatable="false">⇤</string>
+    <string name="sqrt" translatable="false"><![CDATA[√<small>□</small>]]></string>
+    <string name="cbrt" translatable="false"><![CDATA[³√<small>□</small>]]></string>
+
+    <string name="reciprocal" translatable="false"><![CDATA[x<sup><small>-1</small></sup>]]></string>
+
+    <string name="square" translatable="false"><![CDATA[x<sup><small>2</small></sup>]]></string>
+
+    <string name="x_power" translatable="false"><![CDATA[x<sup><small>□</small></sup>]]></string>
+
+    <string name="cube" translatable="false"><![CDATA[x<sup><small>3</small></sup>]]></string>
+
+    <string name="pow_of_ten" translatable="false"><![CDATA[10<sup><small>x</small></sup>]]></string>
+
+    <string name="mul_pow_of_ten" translatable="false"><![CDATA[×10<sup><small>□</small></sup>]]></string>
+
+    <string name="pow_of_e" translatable="false"><![CDATA[e<sup><small>□</small></sup>]]></string>
+
+    <string name="logn" translatable="false"><![CDATA[log<sub><small>□</small></sub>□]]></string>
+
+    <string name="casio_integrate" translatable="false"><![CDATA[∫<sub><small>□</small></sub>□dx]]></string>
+
+    <string name="surd" translatable="false"><![CDATA[<sup><small>□</small></sup>√<small>□</small>]]></string>
+    <string name="equals" translatable="false">=</string>
+    <string name="seven" translatable="false">7</string>
+    <string name="six" translatable="false">6</string>
+    <string name="five" translatable="false">5</string>
+    <string name="four" translatable="false">4</string>
+    <string name="three" translatable="false">3</string>
+    <string name="two" translatable="false">2</string>
+    <string name="one" translatable="false">1</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="nine" translatable="false">9</string>
+    <string name="eight" translatable="false">8</string>
+    <string name="casio_log10" translatable="false">log</string>
+    <string name="store" translatable="false">STO</string>
+    <string name="varA" translatable="false">A</string>
+    <string name="varB" translatable="false">B</string>
+    <string name="varC" translatable="false">C</string>
+    <string name="casio_factorial" translatable="false">x!</string>
+    <string name="casio_derivative" translatable="false">d/dx</string>
+    <string name="leftscroll" translatable="false">⇦</string>
+    <string name="rightscroll" translatable="false">⇨</string>
+    <string name="eigen" translatable="false">eigen</string>
+    <string name="autocalculate" translatable="false">Automatically Calculate</string>
+    <string name="casio_delete" translatable="false">DEL</string>
+    <string name="degree_button" translatable="false">°\'\"</string>
+    <string name="negative" translatable="false">(-)</string>
+    <string name="alpha" translatable="false">Alpha</string>
+    <string name="arrow_left" translatable="false">⇐</string>
+    <string name="implicit" translatable="false">i</string>
+    <string name="add" translatable="false">+</string>
+    <string name="mode" translatable="false">MODE</string>
+    <string name="s_d" translatable="false">S⇌D</string>
+    <string name="ac" translatable="false">AC</string>
+    <string name="del" translatable="false">DEL</string>
+    <string name="constanst" translatable="false">Constants</string>
+    <string name="angle_mode" translatable="false">Angle Mode</string>
+    <string name="radian" translatable="false">Radian</string>
+    <string name="degree" translatable="false">Degree</string>
+    <string name="round" translatable="false">Round</string>
+    <string name="display" translatable="false">Display</string>
+    <string name="system" translatable="false">System</string>
+    <string name="show_status_bar" translatable="false">Show status bar</string>
+    <string name="default_output" translatable="false">Default output</string>
+    <string name="fraction" translatable="false">Fraction</string>
+    <string name="decimal_" translatable="false">Decimal</string>
+    <string name="key_vibrarte" translatable="false">pref_key_vibrate</string>
+    <string name="key_instant_result" translatable="false">pref_key_instant_result</string>
+    <string name="key_round" translatable="false">pref_key_round</string>
+    <string name="key_font_size" translatable="false">pref_key_font_size</string>
+    <string name="key_show_status_bar" translatable="false">pref_show_status_bar</string>
+    <string name="key_fraction" translatable="false">pref_key_fraction</string>
+    <string name="key_radian" translatable="false">key_pref_angle</string>
+    <string name="report_a_bug" translatable="false">Report a bug</string>
+    <string name="get_pro_version" translatable="false">Get pro version</string>
+    <string name="rate_app" translatable="false">Rate app</string>
+    <string name="unsupported_history_in_current_version" translatable="false">Unsupported history in current version</string>
+    <string name="natural_calc">Natural calc</string>
+</resources>

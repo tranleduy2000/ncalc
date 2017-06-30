@@ -1,34 +1,18 @@
-/*
- * Copyright 2017 Tran Le Duy
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.duy.calculator.evaluator;
+package com.example.duy.calculator.math_eval;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.duy.calculator.DLog;
-import com.duy.calculator.R;
-import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.item_math_type.StepItem;
+import com.example.duy.calculator.DLog;
+import com.example.duy.calculator.R;
+import com.example.duy.calculator.data.CalculatorSetting;
+import com.example.duy.calculator.utils.ConfigApp;
 
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.eval.TeXUtilities;
-import org.matheclipse.core.interfaces.AbstractEvalStepListener;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -38,17 +22,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Pattern;
 
-import static com.duy.calculator.evaluator.exceptions.ExceptionManager.getExceptionMessage;
-import static com.duy.calculator.evaluator.FormatExpression.clean;
-import static com.duy.calculator.evaluator.Utility.isAcceptResultDecimal;
-import static com.duy.calculator.evaluator.Utility.isAcceptResultFraction;
-
 
 /**
  * Evaluator
  * <p>
  * - Solve equation
- * - Factor Prime
+ * - Prime Factor
  * - Integrate
  * - Derivative
  * ...
@@ -59,38 +38,16 @@ import static com.duy.calculator.evaluator.Utility.isAcceptResultFraction;
  * Created by DUy on 21-Nov-16.
  */
 
-public class MathEvaluator extends LogicEvaluator {
+public final class BigEvaluator extends LogicEvaluator {
     private static final String ANS_VAR = "ans";
     private static final String TAG = "BigEvaluator";
 
+    private int numDecimal = 10;
     /**
-     * evaluate engine
+     * symja parser
      */
-    private static final ExprEvaluator EVAL_ENGINE;
-
-    /**
-     * convert expr to latex
-     */
-    private static final TeXUtilities TEX_ENGINE;
-
-    static {
-        //init evaluator
-        EVAL_ENGINE = new ExprEvaluator();
-
-        String combination = "C(n_, k_):=(factorial(Ceiling(n)) / " + "(factorial(Ceiling(k)) * " +
-                "factorial(Ceiling(n - k))))";
-        EVAL_ENGINE.evaluate(combination);
-
-        String binomial = "P(n_, k_):=Binomial(n, k)";
-        EVAL_ENGINE.evaluate(binomial);
-
-        String cbrt = "cbrt(x_):= x^(1/3)";
-        EVAL_ENGINE.evaluate(cbrt);
-
-        TEX_ENGINE = new TeXUtilities(EVAL_ENGINE.getEvalEngine(), true);
-    }
-
-    public MathEvaluator mEvaluator;
+    private ExprEvaluator mEvalUtils;
+    private EvalEngine mEngine;
     /**
      * set value <code>true</code> if use mode degress
      * set value <code>false</code> if use mode radian
@@ -101,71 +58,30 @@ public class MathEvaluator extends LogicEvaluator {
      * set value <code>false</code> if use mode mResult as decimal value
      */
     private boolean isFraction = true;
+    //debug
+    private boolean debug = ConfigApp.DEBUG;
     //android context
     private Context mContext;
+    private TeXUtilities mTexEngine;
     /**
      * SharedPreferences for save value variable
      */
-    private CalculatorSetting mCalculatorSetting;
+    private SharedPreferences mPref;
 
     /**
      * constructor
      *
      * @param context
      */
-    private MathEvaluator(Context context) {
+    private BigEvaluator(Context context) {
         super(new Tokenizer(context));
 
         this.mContext = context;
-
-        this.mCalculatorSetting = new CalculatorSetting(context);
+        this.mEvalUtils = new ExprEvaluator();
+        this.mEngine = mEvalUtils.getEvalEngine();
+        this.mTexEngine = new TeXUtilities(mEngine, true);
+        this.mPref = PreferenceManager.getDefaultSharedPreferences(mContext);
         loadSetting();
-    }
-
-    public static ExprEvaluator getInstance() {
-        return EVAL_ENGINE;
-    }
-
-    /**
-     * @param exprInput The expression to doCalculate
-     * @return The  value of the expression
-     * @throws IllegalArgumentException If the user has input a invalid expression
-     */
-    public static String evaluateSimple(String exprInput, EvaluateConfig config) {
-        IExpr result = MathEvaluator.getInstance().evaluate(exprInput);
-        DLog.d(TAG, "Input expr = " + exprInput + "; result = " + result);
-
-        if (result.isNumber() && !result.isFraction()) {
-            return clean(result.toString());
-        }
-
-        if (!isAcceptResultFraction(result)) {
-            String expr = "N(" + result.toString() + "," + config.getRoundTo() + ")";
-            result = MathEvaluator.getInstance().evaluate(expr);
-            if (isAcceptResultDecimal(result)) {
-                return clean(result.toString());
-            } else {
-                throw new UnsupportedOperationException(clean(result.toString()));
-            }
-        } else {
-            if (config.getEvaluateMode() == EvaluateConfig.FRACTION) {
-                return (clean(result.toString()));
-            } else {
-                String expr = "N(" + result.toString() + "," + config.getRoundTo() + ")";
-                result = MathEvaluator.getInstance().evaluate(expr);
-                if (result.isNumeric()) {
-                    if (isAcceptResultDecimal(result)) {
-
-                        return (clean(result.toString()));
-                    } else {
-                        throw new UnsupportedOperationException(result.toString());
-                    }
-                } else {
-
-                    throw new UnsupportedOperationException(result.toString());
-                }
-            }
-        }
     }
 
     /**
@@ -174,8 +90,8 @@ public class MathEvaluator extends LogicEvaluator {
      * @param context - android context
      * @return - mEvaluator
      */
-    public static MathEvaluator newInstance(Context context) {
-        return new MathEvaluator(context);
+    public static BigEvaluator newInstance(Context context) {
+        return new BigEvaluator(context);
     }
 
     /**
@@ -183,10 +99,11 @@ public class MathEvaluator extends LogicEvaluator {
      * such as number of precision, mode fraction/real, ...
      */
     public void loadSetting() {
-        isFraction = mCalculatorSetting.useFraction();
-
-        String ans_val = mCalculatorSetting.getString(ANS_VAR, "0");
+        addFunction();
+        String ans_val = mPref.getString(ANS_VAR, "0");
         define("ans", ans_val);
+        CalculatorSetting setting = new CalculatorSetting(mContext);
+        this.setFraction(setting.useFraction());
     }
 
     /**
@@ -194,23 +111,39 @@ public class MathEvaluator extends LogicEvaluator {
      * save last answer value
      */
     public void saveSetting() {
-        SharedPreferences.Editor editor = mCalculatorSetting.getEditor();
-        if (EVAL_ENGINE.getVariable(ANS_VAR).toString() == null) {
+        SharedPreferences.Editor editor = mPref.edit();
+        if (mEvalUtils.getVariable(ANS_VAR).toString() == null) {
             editor.putString(ANS_VAR, "0");
         } else {
-            editor.putString(ANS_VAR, EVAL_ENGINE.getVariable(ANS_VAR).toString());
+            editor.putString(ANS_VAR, mEvalUtils.getVariable(ANS_VAR).toString());
         }
         editor.apply();
     }
 
     @Override
-    public MathEvaluator getEvaluator() {
+    public BigEvaluator getEvaluator() {
         return this;
     }
 
+    /**
+     * add define function
+     */
+    private void addFunction() {
+        try {
+            mEvalUtils.evaluate("C(n_, k_):=(factorial(Ceiling(n)) / " + "(factorial(Ceiling(k)) * factorial(Ceiling(n - k))))");
+            mEvalUtils.evaluate("P(n_, k_):=(factorial(Ceiling(n)) / (factorial(Ceiling(n - k))))");
+            mEvalUtils.evaluate("cbrt(x_):= x^(1/3)");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public ExprEvaluator getEvalUtils() {
-        return EVAL_ENGINE;
+        return mEvalUtils;
+    }
+
+    public EvalEngine getEngine() {
+        return mEngine;
     }
 
 
@@ -220,14 +153,12 @@ public class MathEvaluator extends LogicEvaluator {
      *
      * @param expression - input expression String Obe
      * @param callback   - interface for call back event
-     * @ {@link com.duy.calculator.evaluator.LogicEvaluator.EvaluateCallback}
+     * @ {@link com.example.duy.calculator.math_eval.LogicEvaluator.EvaluateCallback}
      */
     public void evaluateWithResultNormal(String expression, LogicEvaluator.EvaluateCallback callback) {
         //if input is empty, do not working
-        if (expression.isEmpty()) {
-            callback.onEvaluated(expression, "", LogicEvaluator.INPUT_EMPTY);
-            return;
-        }
+        if (expression.isEmpty())
+            callback.onEvaluate(expression, "", LogicEvaluator.INPUT_EMPTY);
 
         expression = FormatExpression.cleanExpression(expression, mTokenizer);
         expression = addUserDefinedVariable(expression); //$ans = ...
@@ -237,111 +168,50 @@ public class MathEvaluator extends LogicEvaluator {
             IExpr res;
             //if mode is real
             if (!isFraction) {
-                res = EVAL_ENGINE.evaluate("N(" + expression + ")");
+                EvalEngine evalEngine = new EvalEngine();
+                mEngine.setNumericMode(true, 5);
+                res = mEngine.evaluate("N(" + expression + ")");
                 Log.d(TAG, "evaluateWithResultNormal: numeric " + expression);
                 if (res.isNumeric()) {
                     try {
                         //format comma, dot
                         String sFormat;
-                        int numDecimal = 10;
                         sFormat = DecimalFactory.round(res.toString(), numDecimal);
 //                        sFormat = res.toString();
                         Log.i(TAG, "evaluateWithResultNormal: isNumeric " + res.toString()
                                 + " = " + sFormat);
-                        callback.onEvaluated(expression, sFormat, LogicEvaluator.RESULT_OK);
+                        callback.onEvaluate(expression, sFormat, LogicEvaluator.RESULT_OK);
                     } catch (Exception e) {
                         //  e.printStackTrace();
                         // if not is numeric,
                         // it will be throw exception, although mResult as true
-                        callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
+                        callback.onEvaluate(expression, res.toString(), LogicEvaluator.RESULT_OK);
                     }
                 } else {
                     //if not is numeric, callback
                     //such as 2x + 1 + 2 = 2x + 3
-                    callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
+                    callback.onEvaluate(expression, res.toString(), LogicEvaluator.RESULT_OK);
                 }
             } else { //mode is fraction
                 Log.d(TAG, "evaluateWithResultNormal: fraction " + expression);
 
-                res = EVAL_ENGINE.evaluate(expression);
-                callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
+                res = mEvalUtils.evaluate(expression);
+                callback.onEvaluate(expression, res.toString(), LogicEvaluator.RESULT_OK);
             }
         } catch (SyntaxError e) {
-            callback.onEvaluated(expression, getExceptionMessage(mContext, e, isFraction),
-                    LogicEvaluator.RESULT_ERROR_WITH_INDEX);
+            callback.onEvaluate(expression, getExceptionMessage(e, isFraction), LogicEvaluator.RESULT_ERROR_WITH_INDEX);
         } catch (Exception e) {
-            callback.onEvaluated(expression, getExceptionMessage(mContext, e, isFraction),
-                    LogicEvaluator.RESULT_ERROR);
-        }
-    }
-
-    /**
-     * evaluate expression, the mResult will be return callback via interface
-     * #EvaluateCallback
-     *
-     * @param expression - input expression String Obe
-     * @param callback   - interface for call back event
-     * @ {@link com.duy.calculator.evaluator.LogicEvaluator.EvaluateCallback}
-     */
-    public void evaluateWithResultNormal(String expression, LogicEvaluator.EvaluateCallback callback,
-                                         EvaluateConfig config) {
-        //if input is empty, do not working
-        if (expression.isEmpty()) {
-            callback.onEvaluated(expression, "", LogicEvaluator.INPUT_EMPTY);
-            return;
-        }
-
-        expression = FormatExpression.cleanExpression(expression, mTokenizer);
-        expression = addUserDefinedVariable(expression); //$ans = ...
-
-        Log.d(TAG, "evaluateWithResultNormal: " + expression);
-        try {
-            IExpr res;
-            //if mode is real
-            if (!isFraction) {
-                res = EVAL_ENGINE.evaluate("N(" + expression + ")");
-                Log.d(TAG, "evaluateWithResultNormal: numeric " + expression);
-                if (res.isNumeric()) {
-                    try {
-                        //format comma, dot
-                        String sFormat;
-                        int numDecimal = 10;
-                        sFormat = DecimalFactory.round(res.toString(), numDecimal);
-//                        sFormat = res.toString();
-                        Log.i(TAG, "evaluateWithResultNormal: isNumeric " + res.toString()
-                                + " = " + sFormat);
-                        callback.onEvaluated(expression, sFormat, LogicEvaluator.RESULT_OK);
-                    } catch (Exception e) {
-                        //  e.printStackTrace();
-                        // if not is numeric,
-                        // it will be throw exception, although mResult as true
-                        callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-                    }
-                } else {
-                    //if not is numeric, callback
-                    //such as 2x + 1 + 2 = 2x + 3
-                    callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-                }
-            } else { //mode is fraction
-                Log.d(TAG, "evaluateWithResultNormal: fraction " + expression);
-
-                res = EVAL_ENGINE.evaluate(expression);
-                callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-            }
-        } catch (SyntaxError e) {
-            callback.onEvaluated(expression, getExceptionMessage(mContext, e, isFraction), LogicEvaluator.RESULT_ERROR_WITH_INDEX);
-        } catch (Exception e) {
-            callback.onEvaluated(expression, getExceptionMessage(mContext, e, isFraction), LogicEvaluator.RESULT_ERROR);
+            callback.onEvaluate(expression, getExceptionMessage(e, isFraction), LogicEvaluator.RESULT_ERROR);
         }
     }
 
     private String addUserDefinedVariable(String expression) {
         if (!expression.contains("ans")) return expression;
         try {
-            if (EVAL_ENGINE.getVariable("ans").toString().equals("null")) {
+            if (mEvalUtils.getVariable("ans").toString().equals("null")) {
                 expression = expression.replace("ans", "(0)");
             } else {
-                expression = expression.replace("ans", "(" + EVAL_ENGINE.getVariable("ans") + ")");
+                expression = expression.replace("ans", "(" + mEvalUtils.getVariable("ans") + ")");
             }
         } catch (Exception e) {
             expression = expression.replace("ans", "(0)");
@@ -369,7 +239,7 @@ public class MathEvaluator extends LogicEvaluator {
         final String[] res = {""};
         evaluateWithResultNormal(expression, new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
         });
@@ -408,14 +278,14 @@ public class MathEvaluator extends LogicEvaluator {
         //mResult as fraction
         evaluateWithResultAsTex(expr, new EvaluateCallback() { //catch error
             @Override
-            public void onEvaluated(final String expr0, String result0, final int errorResourceId0) {
+            public void onEvaluate(final String expr0, String result0, final int errorResourceId0) {
                 if (errorResourceId0 == LogicEvaluator.RESULT_OK) {
                     resFraction[0] = result0;
                     next[0] = true;
                 } else {
                     //return error
                     next[0] = false;
-                    callback.onEvaluated(expr0, result0, LogicEvaluator.RESULT_ERROR);
+                    callback.onEvaluate(expr0, result0, LogicEvaluator.RESULT_ERROR);
                 }
             }
         });
@@ -430,7 +300,7 @@ public class MathEvaluator extends LogicEvaluator {
             setFraction(false);
             evaluateWithResultAsTex(inp, new EvaluateCallback() {
                 @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
+                public void onEvaluate(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) {
                         resReal[0] = result;
                     }
@@ -452,7 +322,7 @@ public class MathEvaluator extends LogicEvaluator {
         }
 
         //call back feedback
-        callback.onEvaluated(expr,
+        callback.onEvaluate(expr,
                 stringBuilder.toString(),
                 RESULT_OK);
     }
@@ -473,25 +343,25 @@ public class MathEvaluator extends LogicEvaluator {
         //mResult as fraction
         evaluateWithResultNormal(expr, new EvaluateCallback() { //catch error
             @Override
-            public void onEvaluated(final String expr0, String result0, final int errorResourceId0) {
+            public void onEvaluate(final String expr0, String result0, final int errorResourceId0) {
                 if (errorResourceId0 == LogicEvaluator.RESULT_OK) {
                     resFraction[0] = result0;
                 } else {
                     //return error
-                    callback.onEvaluated(expr0, result0, LogicEvaluator.RESULT_ERROR);
+                    callback.onEvaluate(expr0, result0, LogicEvaluator.RESULT_ERROR);
                 }
             }
         });
 
         if (resFraction[0].toLowerCase().contains("solve")) {
             String c = getString(R.string.not_find_root);
-            callback.onEvaluated(expr, c, RESULT_OK);
+            callback.onEvaluate(expr, c, RESULT_OK);
             return;
             //return if EvalEngine can not find solution of the equation
             //solve(x^1/3 = - 1)
         } else if (resFraction[0].contains("{}")) {
             String c = getString(R.string.no_root);
-            callback.onEvaluated(expr, c, RESULT_OK);
+            callback.onEvaluate(expr, c, RESULT_OK);
             return; //return if the equation no root
         }
 
@@ -530,7 +400,7 @@ public class MathEvaluator extends LogicEvaluator {
         setFraction(last);
 
         //call back feedback, mResult ok
-        callback.onEvaluated(expr, b, RESULT_OK);
+        callback.onEvaluate(expr, b, RESULT_OK);
     }
 
     /**
@@ -543,7 +413,7 @@ public class MathEvaluator extends LogicEvaluator {
         final String[] res = new String[1];
         evaluateWithResultAsTex(expr, new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
         });
@@ -561,45 +431,97 @@ public class MathEvaluator extends LogicEvaluator {
         //string for mResult callback
         StringWriter writer = new StringWriter();
         try {
-            if (!isFraction) {
-                expr = "N(" + expr + "," + mCalculatorSetting.getPrecision() + ")";
-            }
+            if (!isFraction) expr = "N(" + expr + ")";
 
             //$ans = ...
             expr = addUserDefinedVariable(expr);
 
-            IExpr r = EVAL_ENGINE.evaluate(expr);
+            IExpr r = mEvalUtils.evaluate(expr);
             // TODO: 29-Jan-17 round mResult if mode is numeric.
             //if mResult is numeric, round it, if not round value, mResult will be wrong
             //such as sqrt(2)*sqrt(2) = 2.0000000000004 -> wrong answer;
             if (r.isNumeric()) {
-                TEX_ENGINE.toTeX(r, writer);
+                mTexEngine.toTeX(DecimalFactory.round(r.toScript(), numDecimal), writer);
             } else {
-                TEX_ENGINE.toTeX(r, writer);
+                mTexEngine.toTeX(r, writer);
             }
-
-            callback.onEvaluated(expr, "$$" + writer.toString() + "$$", LogicEvaluator.RESULT_OK);
         } catch (SyntaxError e) {
-            callback.onEvaluated(expr, getExceptionMessage(mContext, e, isFraction),
-                    LogicEvaluator.RESULT_ERROR_WITH_INDEX);
+            callback.onEvaluate(expr, getExceptionMessage(e, isFraction), LogicEvaluator.RESULT_ERROR_WITH_INDEX);
         } catch (Exception e) {
-            callback.onEvaluated(expr, getExceptionMessage(mContext, e, isFraction),
-                    LogicEvaluator.RESULT_ERROR);
+            callback.onEvaluate(expr, getExceptionMessage(e, isFraction), LogicEvaluator.RESULT_ERROR);
         }
+        DLog.d(writer.toString());
+        callback.onEvaluate(expr, "$$" + writer.toString() + "$$", LogicEvaluator.RESULT_OK);
     }
 
+    /**
+     * get exception message
+     *
+     * @param e          - Exception
+     * @param isFraction - mode is fraction or real,
+     *                   if is mode fraction input look like 2/3 + 1/2 + error ...
+     *                   else input look like N(...)
+     * @return String Object
+     */
+    public String getExceptionMessage(Exception e, boolean isFraction) {
+        if (debug)
+            e.printStackTrace();
+        if (e instanceof SyntaxError) {
+            SyntaxError copyException = (SyntaxError) e;
+            String res = copyException.getCurrentLine();
+            int index = copyException.getStartOffset();
+            try {
+                //set selected handler error
+                if (res.length() > 0) {
+                    res = res.substring(0, index) + // text before error
+                            LogicEvaluator.ERROR_INDEX_STRING + "" +
+                            res.substring(index, res.length()); //text after error
+                } else res = "";
+                //if not use fraction, remove N()
+                if (!isFraction) {
+                    res = res.substring(2, res.length() - 1);
+                }
+                return res;
+            } catch (Exception ex) {
+                return "";
+            }
+        } else if (e instanceof MathException) {
+            String s = "<h3>" + getString(R.string.math_error) + "</h3>" +
+                    getString(R.string.reason) + "</br>"
+                    + e.getMessage();
+            DLog.e(s);
+            return s;
+        }
+        return e.getMessage();
+    }
 
     public ExprEvaluator getEvalUtilities() {
-        return EVAL_ENGINE;
+        return mEvalUtils;
     }
 
     public TeXUtilities getTexEngine() {
-        return TEX_ENGINE;
+        return mTexEngine;
+    }
+
+    public boolean isUseDegree() {
+        return isUseDegree;
+    }
+
+    public void setUseDegree(boolean useDegree) {
+        isUseDegree = useDegree;
+    }
+
+    public int getNumDecimal() {
+        return numDecimal;
+    }
+
+    public void setNumDecimal(int numDecimal) {
+        this.numDecimal = numDecimal;
     }
 
     public void define(String var, double value) {
         try {
-            EVAL_ENGINE.defineVariable(var, value);
+            mEvalUtils.defineVariable(var, value);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -613,8 +535,8 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public void define(String var, String value) {
         try {
-            IExpr iExpr = EVAL_ENGINE.evaluate(value);
-            EVAL_ENGINE.defineVariable(var, iExpr);
+            IExpr iExpr = mEvalUtils.evaluate(value);
+            mEvalUtils.defineVariable(var, iExpr);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -628,7 +550,7 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public boolean isNumber(String value) {
         try {
-            boolean res = Boolean.valueOf(String.valueOf(EVAL_ENGINE.evaluate("NumberQ(" + value + ")")));
+            boolean res = Boolean.valueOf(String.valueOf(mEvalUtils.evaluate("NumberQ(" + value + ")")));
             //     Log.d(TAG, "isNumber: " + value + "  - " + res);
             return res;
         } catch (Exception e) {
@@ -664,7 +586,7 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public boolean isSyntaxError(String expr) {
         try {
-            EVAL_ENGINE.getEvalEngine().parse(expr);
+            mEngine.parse(expr);
         } catch (SyntaxError e) {
             DLog.printStack(e);
             return true;
@@ -682,7 +604,7 @@ public class MathEvaluator extends LogicEvaluator {
         final String[] res = {""};
         evaluateWithResultNormal(expr, new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 if (errorResourceId == LogicEvaluator.RESULT_OK) res[0] = "";
                 else res[0] = result;
             }
@@ -709,7 +631,7 @@ public class MathEvaluator extends LogicEvaluator {
         setFraction(true);
         String s = evaluateWithResultNormal("FactorInteger(" + input + ")");
         if (s.toLowerCase().contains("FactorInteger".toLowerCase())) {
-            callback.onEvaluated(input, getString(R.string.cannot_factor), RESULT_FAILED);
+            callback.onEvaluate(input, getString(R.string.cannot_factor), RESULT_FAILED);
             return;
         }
         DLog.i("Factor prime: " + s);
@@ -734,7 +656,7 @@ public class MathEvaluator extends LogicEvaluator {
         }
         result = result.substring(0, result.length() - "\\times ".length()); //remove dot
         result = "$$=" + result + "$$"; //add input 12 = 2^2 * 3
-        callback.onEvaluated(input, result, RESULT_OK);
+        callback.onEvaluate(input, result, RESULT_OK);
         DLog.i("factor prime: " + result);
         setFraction(last);
     }
@@ -755,13 +677,13 @@ public class MathEvaluator extends LogicEvaluator {
         //mResult as fraction
         evaluateWithResultNormal(expr, new EvaluateCallback() {
             @Override
-            public void onEvaluated(final String input, String result, final int resultState) {
+            public void onEvaluate(final String input, String result, final int resultState) {
                 if (resultState == LogicEvaluator.RESULT_OK) {
                     temp[0] = result;
-                    Log.d(TAG, "onEvaluated: " + result);
+                    Log.d(TAG, "onEvaluate: " + result);
                 } else {
                     //return error
-                    callback.onEvaluated(input, result, LogicEvaluator.RESULT_ERROR);
+                    callback.onEvaluate(input, result, LogicEvaluator.RESULT_ERROR);
                     hasNext[0] = false;
                 }
             }
@@ -770,13 +692,13 @@ public class MathEvaluator extends LogicEvaluator {
         if (!hasNext[0]) return;
         if (temp[0].toLowerCase().contains("solve")) {
             String c = getString(R.string.not_find_root);
-            callback.onEvaluated(expr, c, RESULT_OK);
+            callback.onEvaluate(expr, c, RESULT_OK);
             return;
             //return if EvalEngine can not find solution of the equation
             //solve(x^1/3 = - 1)
         } else if (temp[0].contains("{}")) {
             String c = getString(R.string.no_root);
-            callback.onEvaluated(expr, c, RESULT_OK);
+            callback.onEvaluate(expr, c, RESULT_OK);
             return; //return if the equation no root
         }
 
@@ -810,27 +732,27 @@ public class MathEvaluator extends LogicEvaluator {
             b += evaluateWithResultAsTex(result.get(i));
         }
         setFraction(last);
-        callback.onEvaluated(expr, b, RESULT_OK);
+        callback.onEvaluate(expr, b, RESULT_OK);
     }
 
     /**
-     * Factors the polynomial expression in <b>input</b>
+     * factors the polynomial expression in <b>input</b>
      *
-     * @param input    - input expression
-     * @param callback - result callback or exception
+     * @param input
+     * @param callback
      */
     public void factorPolynomial(String input, final EvaluateCallback callback) {
         boolean last = isFraction;
         setFraction(true);
         evaluateWithResultAsTex(input, new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 if (result.toLowerCase().contains("factor")) {
-                    callback.onEvaluated(expr,
+                    callback.onEvaluate(expr,
                             getString(R.string.cannot_factor_polynomial),
                             errorResourceId);
                 } else {
-                    callback.onEvaluated(expr, result, errorResourceId);
+                    callback.onEvaluate(expr, result, errorResourceId);
                 }
 
             }
@@ -850,7 +772,7 @@ public class MathEvaluator extends LogicEvaluator {
         final String[] res = new String[1];
         evaluateWithResultAsTex("ExpandAll(" + input + ")", new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
         });
@@ -858,9 +780,9 @@ public class MathEvaluator extends LogicEvaluator {
         setFraction(false);
         evaluateWithResultAsTex("ExpandAll(" + input + ")", new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 res[0] += result;
-                callback.onEvaluated(expr, res[0], errorResourceId);
+                callback.onEvaluate(expr, res[0], errorResourceId);
             }
         });
         setFraction(last);
@@ -872,7 +794,7 @@ public class MathEvaluator extends LogicEvaluator {
         final String[] res = new String[1];
         evaluateWithResultAsTex(input, new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
         });
@@ -880,58 +802,15 @@ public class MathEvaluator extends LogicEvaluator {
         setFraction(false);
         evaluateWithResultAsTex(input, new EvaluateCallback() {
             @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
+            public void onEvaluate(String expr, String result, int errorResourceId) {
                 res[0] += result;
-                callback.onEvaluated(expr, res[0], errorResourceId);
+                callback.onEvaluate(expr, res[0], errorResourceId);
             }
         });
         setFraction(last);
     }
 
-    public void minimizeBoolean(String expression, final EvaluateCallback callback) {
-        boolean last = isFraction;
-        setFraction(true);
-        expression = "BooleanMinimize(" + expression + ")";
-
-        evaluateWithResultAsTex(expression, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                callback.onEvaluated(expr, result, errorResourceId);
-            }
-        });
-    }
-
     public void integrateFunction(String input, EvaluateCallback callback) {
         simplifyExpression(input, callback);
     }
-
-    /**
-     * @param expression: input expression
-     * @return step  by step eval of expression
-     */
-    public ArrayList<StepItem> getStep(String expression) {
-        final ArrayList<StepItem> listStep = new ArrayList<>();
-
-        ExprEvaluator util = new ExprEvaluator();
-        EvalEngine engine = util.getEvalEngine();
-        engine.setStepListener(new AbstractEvalStepListener() {
-            @Override
-            public void add(IExpr input, IExpr result, int depth, long l, String s) {
-                StringWriter stringWriterInput = new StringWriter();
-                TEX_ENGINE.toTeX(input, stringWriterInput);
-                StringWriter stringWriterOutput = new StringWriter();
-                TEX_ENGINE.toTeX(result, stringWriterOutput);
-                listStep.add(new StepItem(stringWriterInput.toString(),
-                        stringWriterOutput.toString(), depth));
-
-                Log.d(TAG, "add() called with: input = [" + input + "], result = ["
-                        + result + "], i = [" + depth + "], l = [" + l + "], s = [" + s + "]");
-
-            }
-        });
-        util.evaluate(expression);
-        engine.setTraceMode(false);
-        return listStep;
-    }
-
 }

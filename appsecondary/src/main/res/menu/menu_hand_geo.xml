@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/clear"
+        android:icon="@drawable/ic_delete_black_48dp"
+        android:title="@string/delete_x"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/undo"
+        android:icon="@drawable/ic_undo_black_24dp"
+        android:title="@string/undo"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/redo"
+        android:icon="@drawable/ic_redo_black_24dp"
+        android:title="@string/redo"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_out_img"
+        android:icon="@drawable/ic_save_black_24dp"
+        android:title="@string/action_out_image"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_share_black_24dp"
+        android:title="@string/action_share"
+        app:showAsAction="ifRoom" />
+
+</menu>

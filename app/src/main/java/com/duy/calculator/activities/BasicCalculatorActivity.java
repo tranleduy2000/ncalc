@@ -55,15 +55,16 @@ import com.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.define.DefineVariableActivity;
 import com.duy.calculator.document.DocumentActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.history.HistoryActivity;
 import com.duy.calculator.history.ResultEntry;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.DerivativeItem;
 import com.duy.calculator.item_math_type.NumberIntegerItem;
 import com.duy.calculator.item_math_type.SolveItem;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
-import com.duy.calculator.math_eval.base.Evaluator;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.utils.ClipboardManager;
 import com.duy.calculator.utils.VoiceUtils;
@@ -107,7 +108,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     FloatingActionButton mFabClose;
     private View mCurrentButton = null;
     private BasicCalculatorActivity.CalculatorState mCurrentState = BasicCalculatorActivity.CalculatorState.INPUT;
-    private BigEvaluator mEvaluator;
+    private MathEvaluator mEvaluator;
     private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
         @Override
         public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
@@ -151,7 +152,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mEvaluator = BigEvaluator.newInstance(this);
+        mEvaluator = MathEvaluator.newInstance(this);
         mEvaluator.loadSetting();
 
         setContentView(R.layout.activity_basic_calculator);
@@ -490,7 +491,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public void onEqual() {
         String text = mInputDisplay.getCleanText();
         setState(BasicCalculatorActivity.CalculatorState.EVALUATE);
-        mEvaluator.evaluateWithResultNormal(text, BasicCalculatorActivity.this);
+        mEvaluator.evaluateWithResultNormal(text, BasicCalculatorActivity.this,
+                EvaluateConfig.loadFromSetting(this));
     }
 
     public void onInputVoice() {

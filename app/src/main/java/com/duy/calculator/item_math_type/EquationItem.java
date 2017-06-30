@@ -18,8 +18,8 @@ package com.duy.calculator.item_math_type;
 
 import android.content.Context;
 
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.FormatExpression;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.FormatExpression;
 
 import java.util.regex.Pattern;
 
@@ -75,7 +75,7 @@ public class EquationItem extends AExprInput {
 
 
     @Override
-    public boolean isError(BigEvaluator evaluator) {
+    public boolean isError(MathEvaluator evaluator) {
         if (evaluator.isSyntaxError(left)){
             return true;
         } else if (evaluator.isSyntaxError(right)){
@@ -90,7 +90,7 @@ public class EquationItem extends AExprInput {
     }
 
     @Override
-    public String getError(BigEvaluator evaluator, Context applicationContext) {
+    public String getError(MathEvaluator evaluator, Context applicationContext) {
         return evaluator.getError(getInput());
     }
 }

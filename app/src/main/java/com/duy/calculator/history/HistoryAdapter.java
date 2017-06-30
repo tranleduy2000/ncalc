@@ -29,7 +29,7 @@ import android.widget.TextView;
 import com.duy.calculator.DLog;
 import com.duy.calculator.R;
 import com.duy.calculator.data.Database;
-import com.duy.calculator.math_eval.Tokenizer;
+import com.duy.calculator.evaluator.Tokenizer;
 import com.duy.calculator.utils.ClipboardManager;
 
 import java.util.ArrayList;

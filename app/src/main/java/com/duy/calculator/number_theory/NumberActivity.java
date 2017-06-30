@@ -22,7 +22,7 @@ import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.NumberIntegerItem;
-import com.duy.calculator.math_eval.BigEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 
 /**
@@ -106,7 +106,7 @@ public class NumberActivity extends AbstractEvaluatorActivity {
                 break;
         }
         //disable fraction mode
-        BigEvaluator.newInstance(this).setFraction(true);
+        MathEvaluator.newInstance(this).setFraction(true);
         //create new task eval and exec it with NumberIntegerItem
         new ATaskEval().execute(item);
     }

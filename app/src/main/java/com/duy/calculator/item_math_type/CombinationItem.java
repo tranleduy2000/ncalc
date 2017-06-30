@@ -16,8 +16,8 @@
 
 package com.duy.calculator.item_math_type;
 
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.Constants;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.Constants;
 
 /**
  * Created by DUy on 07-Jan-17.
@@ -28,7 +28,7 @@ public class CombinationItem extends PermutationItem {
     }
 
     @Override
-    public boolean isError(BigEvaluator evaluator) {
+    public boolean isError(MathEvaluator evaluator) {
         return super.isError(evaluator);
     }
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/container_gesture"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <com.myscript.atk.math.widget.MathWidget
+        android:id="@+id/math_widget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--</LinearLayout>-->
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:id="@+id/btn_close"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_close" />
+</FrameLayout>
