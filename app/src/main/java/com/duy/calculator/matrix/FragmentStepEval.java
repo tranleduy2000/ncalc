@@ -33,7 +33,7 @@ import android.widget.ProgressBar;
 
 import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.StepItem;
-import com.duy.calculator.math_eval.BigEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -123,7 +123,7 @@ public class FragmentStepEval extends AppCompatDialogFragment {
         @Override
         protected ArrayList<StepItem> doInBackground(String... params) {
             Log.d(TAG, "doInBackground() called with: params = [" + Arrays.toString(params) + "]");
-            BigEvaluator evaluator = BigEvaluator.newInstance(getContext());
+            MathEvaluator evaluator = MathEvaluator.newInstance(getContext());
             return evaluator.getStep(params[0]);
         }
 

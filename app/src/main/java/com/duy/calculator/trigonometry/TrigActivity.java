@@ -27,7 +27,7 @@ import com.duy.calculator.data.SampleData;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.TrigItem;
-import com.duy.calculator.math_eval.BigEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 
@@ -138,7 +138,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
         @Override
         protected ItemResult doInBackground(AExprInput... params) {
             Log.d(TAG, "doInBackground: trig task");
-            BigEvaluator.newInstance(getApplicationContext()).setFraction(true);
+            MathEvaluator.newInstance(getApplicationContext()).setFraction(true);
             return super.doInBackground(params);
         }
     }

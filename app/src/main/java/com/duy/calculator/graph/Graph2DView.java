@@ -30,7 +30,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-import com.duy.calculator.math_eval.DecimalFactory;
+import com.duy.calculator.evaluator.DecimalFactory;
 
 import edu.hws.jcm.data.ParseError;
 import edu.hws.jcm.data.Parser;

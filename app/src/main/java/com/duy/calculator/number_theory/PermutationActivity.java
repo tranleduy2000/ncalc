@@ -29,9 +29,9 @@ import com.duy.calculator.item_math_type.CombinationItem;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.PermutationItem;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.Constants;
-import com.duy.calculator.math_eval.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
@@ -47,7 +47,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     private static final String STARTED = FactorPrimeActivity.class.getName() + "started";
     private boolean isDataNull = true;
     private int type;
-    private BigEvaluator evaluator;
+    private MathEvaluator evaluator;
 
 
     @Override
@@ -72,7 +72,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             finish();
             return;
         }
-        evaluator = BigEvaluator.newInstance(this);
+        evaluator = MathEvaluator.newInstance(this);
         btnSolve.setText(R.string.eval);
 
         mHint2.setVisibility(View.VISIBLE);

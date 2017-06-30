@@ -18,8 +18,8 @@ package com.duy.calculator.item_math_type;
 
 import android.content.Context;
 
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.FormatExpression;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.FormatExpression;
 
 /**
  * Created by DUy on 29-Dec-16.
@@ -33,7 +33,7 @@ public class FactorExpressionItem extends AExprInput {
     }
 
     @Override
-    public String getError(BigEvaluator evaluator, Context applicationContext) {
+    public String getError(MathEvaluator evaluator, Context applicationContext) {
         return null;
     }
 
@@ -46,7 +46,7 @@ public class FactorExpressionItem extends AExprInput {
     }
 
     @Override
-    public boolean isError(BigEvaluator evaluator) {
+    public boolean isError(MathEvaluator evaluator) {
         return false;
     }
 

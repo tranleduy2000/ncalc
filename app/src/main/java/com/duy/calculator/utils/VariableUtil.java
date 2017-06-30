@@ -20,7 +20,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.duy.calculator.R;
-import com.duy.calculator.math_eval.Constants;
+import com.duy.calculator.evaluator.Constants;
 
 import java.util.ArrayList;
 

@@ -20,7 +20,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.duy.calculator.R;
-import com.duy.calculator.math_eval.BigEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
 
 import java.util.ArrayList;
 
@@ -70,7 +70,7 @@ public class SystemEquationItem extends AExprInput {
     }
 
     @Override
-    public boolean isError(BigEvaluator evaluator) {
+    public boolean isError(MathEvaluator evaluator) {
         if (define) {
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
@@ -140,7 +140,7 @@ public class SystemEquationItem extends AExprInput {
     }
 
     @Override
-    public String getError(BigEvaluator evaluator, Context applicationContext) {
+    public String getError(MathEvaluator evaluator, Context applicationContext) {
         if (define) {
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {

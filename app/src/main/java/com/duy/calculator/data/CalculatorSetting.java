@@ -21,6 +21,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.duy.calculator.R;
+import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.utils.ConfigApp;
 
 /**
@@ -217,4 +218,14 @@ public class CalculatorSetting {
         return sharedPreferences.getBoolean(key, def);
 
     }
+
+    public static EvaluateConfig createEvaluateConfig(Context context) {
+        CalculatorSetting setting = new CalculatorSetting(context);
+        EvaluateConfig config = EvaluateConfig.newInstance();
+        config.setEvalMode(setting.useFraction() ? EvaluateConfig.FRACTION : EvaluateConfig.DECIMAL);
+        config.setRoundTo(setting.getPrecision());
+//        config.setTrigMode(setting.useRadian() ? EvaluateConfig.RADIAN : EvaluateConfig.DEGREE);
+        return config;
+    }
+
 }

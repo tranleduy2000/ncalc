@@ -28,9 +28,9 @@ import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.SolveItem;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
-import com.duy.calculator.math_eval.Tokenizer;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -166,13 +166,13 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
                         getString(R.string.not_variable), LogicEvaluator.RESULT_FAILED);
             }
             //check error
-            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
-                return new ItemResult(item.getExpr(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getExpr()),
+            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
+                return new ItemResult(item.getExpr(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getExpr()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.newInstance(getApplicationContext()).solveEquation(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            MathEvaluator.newInstance(getApplicationContext()).solveEquation(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);

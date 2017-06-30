@@ -19,7 +19,7 @@ package com.duy.calculator.activities.abstract_class;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.duy.calculator.math_eval.Tokenizer;
+import com.duy.calculator.evaluator.Tokenizer;
 
 /**
  * abstract app

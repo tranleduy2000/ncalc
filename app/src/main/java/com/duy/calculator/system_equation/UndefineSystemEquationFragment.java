@@ -37,9 +37,9 @@ import android.widget.Toast;
 
 import com.duy.calculator.CalcApplication;
 import com.duy.calculator.R;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.Constants;
-import com.duy.calculator.math_eval.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.AbstractFragment;
 import com.duy.calculator.view.ResizingEditText;
@@ -344,14 +344,14 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             if (!isOk) return "";
             String input = equation.toString();
             Log.d(TAG, input);
-            if (BigEvaluator.newInstance(getActivity()).isSyntaxError(input)) return getString(R.string.error);
+            if (MathEvaluator.newInstance(getActivity()).isSyntaxError(input)) return getString(R.string.error);
             final String[] res = {""};
 
             /**
              * evaluate with mResult as fraction
              */
-            BigEvaluator.newInstance(getActivity()).setFraction(true);
-            BigEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
+            MathEvaluator.newInstance(getActivity()).setFraction(true);
+            MathEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) res[0] = result;
@@ -361,8 +361,8 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             /**
              * evaluate with mResult as numeric
              */
-            BigEvaluator.newInstance(getActivity()).setFraction(false);
-            BigEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
+            MathEvaluator.newInstance(getActivity()).setFraction(false);
+            MathEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) {

@@ -29,8 +29,8 @@ import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.DerivativeItem;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.AExprInput;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -200,12 +200,12 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
         @Override
         protected ItemResult doInBackground(AExprInput... aExprInputs) {
             DerivativeItem item = (DerivativeItem) aExprInputs[0];
-            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
+            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
+                return new ItemResult(item.getInput(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.newInstance(getApplicationContext()).derivativeFunction(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            MathEvaluator.newInstance(getApplicationContext()).derivativeFunction(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);

@@ -20,8 +20,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.duy.calculator.R;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.Constants;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.Constants;
 
 /**
  * Created by DUy on 06-Jan-17.
@@ -54,7 +54,7 @@ public class PermutationItem extends AExprInput {
     }
 
     @Override
-    public boolean isError(BigEvaluator evaluator) {
+    public boolean isError(MathEvaluator evaluator) {
         try {
             long a1 = Long.parseLong(numberN);
             long a2 = Long.parseLong(numberK);
@@ -84,7 +84,7 @@ public class PermutationItem extends AExprInput {
     }
 
     @Override
-    public String getError(BigEvaluator evaluator, Context context) {
+    public String getError(MathEvaluator evaluator, Context context) {
         try {
             long a1 = Long.parseLong(numberN);
             long a2 = Long.parseLong(numberK);

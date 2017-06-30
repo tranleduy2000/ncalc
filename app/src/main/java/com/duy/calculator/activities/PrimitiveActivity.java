@@ -25,9 +25,9 @@ import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.PrimitiveItem;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.Constants;
-import com.duy.calculator.math_eval.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -163,13 +163,13 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
         protected ItemResult doInBackground(AExprInput... aExprInputs) {
             PrimitiveItem item = (PrimitiveItem) aExprInputs[0];
             //check error
-            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
+            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
+                return new ItemResult(item.getInput(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
+            MathEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);

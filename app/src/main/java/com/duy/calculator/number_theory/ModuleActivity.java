@@ -26,8 +26,8 @@ import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.ModuleItem;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
@@ -142,12 +142,12 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
 
     protected class TaskModule extends ATaskEval {
 
-        BigEvaluator bigEvaluator;
+        MathEvaluator bigEvaluator;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            bigEvaluator = BigEvaluator.newInstance(getApplicationContext()).getEvaluator();
+            bigEvaluator = MathEvaluator.newInstance(getApplicationContext()).getEvaluator();
             bigEvaluator.setFraction(true);
         }
 
@@ -156,7 +156,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
             ModuleItem item = (ModuleItem) params[0];
             //check error
             if (bigEvaluator.isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
+                return new ItemResult(item.getInput(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 

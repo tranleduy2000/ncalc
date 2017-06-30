@@ -29,8 +29,8 @@ import android.view.View;
 
 import com.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
 import com.duy.calculator.R;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.Tokenizer;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.Tokenizer;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
 
 public class DefineVariableActivity extends AbstractAppCompatActivity {
     String TAG = DefineVariableActivity.class.getSimpleName();
-    private BigEvaluator mEvaluator;
+    private MathEvaluator mEvaluator;
     private Tokenizer mTokenizer;
     private VariableAdapter adapter;
 

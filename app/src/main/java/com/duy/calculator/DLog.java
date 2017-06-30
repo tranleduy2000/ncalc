@@ -23,8 +23,9 @@ import android.util.Log;
  * Created by DUy on 18-Jan-17.
  */
 public class DLog {
-    public static final boolean DEBUG = true;
-    private static final String TAG = DLog.class.getSimpleName();
+    public static final boolean DEBUG = false;
+
+    private static final String TAG = "DLog";
 
     public static void d(String msg) {
         Log.d(TAG, msg);

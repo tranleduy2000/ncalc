@@ -26,9 +26,9 @@ import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.FactorExpressionItem;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
-import com.duy.calculator.math_eval.Tokenizer;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -151,13 +151,13 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         protected ItemResult doInBackground(AExprInput... aExprInputs) {
             FactorExpressionItem item = (FactorExpressionItem) aExprInputs[0];
             //check error
-            if (BigEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
-                return new ItemResult(item.getExpr(), BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
+            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
+                return new ItemResult(item.getExpr(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.newInstance(getApplicationContext())
+            MathEvaluator.newInstance(getApplicationContext())
                     .factorPolynomial(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {

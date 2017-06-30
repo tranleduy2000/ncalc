@@ -38,8 +38,8 @@ import android.widget.Toast;
 
 import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.SystemEquationItem;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.AbstractFragment;
 import com.duy.calculator.view.ResizingEditText;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -351,13 +351,13 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
             String input = params[0].getInput();
             Log.d(TAG, "doInBackground: " + input);
 
-            if (params[0].isError(BigEvaluator.newInstance(getActivity()))) {
+            if (params[0].isError(MathEvaluator.newInstance(getActivity()))) {
                 Log.e(TAG, "doInBackground: input error");
-                return params[0].getError(BigEvaluator.newInstance(getActivity()), mContext);
+                return params[0].getError(MathEvaluator.newInstance(getActivity()), mContext);
             }
 
             final String[] res = {getString(R.string.error)};
-            BigEvaluator.newInstance(getActivity()).solveSystemEquation(input,
+            MathEvaluator.newInstance(getActivity()).solveSystemEquation(input,
                     new LogicEvaluator.EvaluateCallback() {
                         @Override
                         public void onEvaluated(String expr, String result, int errorResourceId) {

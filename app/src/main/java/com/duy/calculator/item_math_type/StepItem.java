@@ -18,7 +18,7 @@ package com.duy.calculator.item_math_type;
 
 import android.content.Context;
 
-import com.duy.calculator.math_eval.BigEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
 
 /**
  * Created by Duy on 19-May-17.
@@ -36,7 +36,7 @@ public class StepItem extends AExprInput {
     }
 
     @Override
-    public boolean isError(BigEvaluator evaluator) {
+    public boolean isError(MathEvaluator evaluator) {
         return false;
     }
 
@@ -60,7 +60,7 @@ public class StepItem extends AExprInput {
     }
 
     @Override
-    public String getError(BigEvaluator evaluator, Context applicationContext) {
+    public String getError(MathEvaluator evaluator, Context applicationContext) {
         return null;
     }
 

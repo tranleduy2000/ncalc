@@ -18,7 +18,7 @@ package com.duy.calculator.item_math_type;
 
 import android.content.Context;
 
-import com.duy.calculator.math_eval.BigEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
 
 /**
  * Created by DUy on 29-Dec-16.
@@ -31,7 +31,7 @@ public abstract class AExprInput {
      * @param evaluator - Class for evaluate
      * @return - true if input error
      */
-    public abstract boolean isError(BigEvaluator evaluator);
+    public abstract boolean isError(MathEvaluator evaluator);
 
     /**
      * build and return input
@@ -54,5 +54,5 @@ public abstract class AExprInput {
      * @param applicationContext - mContext of application for get string language
      * @return - error found
      */
-    public abstract String getError(BigEvaluator evaluator, Context applicationContext);
+    public abstract String getError(MathEvaluator evaluator, Context applicationContext);
 }

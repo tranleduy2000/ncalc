@@ -26,9 +26,9 @@ import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.ExpressionItem;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
-import com.duy.calculator.math_eval.Tokenizer;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -141,15 +141,15 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
         protected ItemResult doInBackground(AExprInput... params) {
             AExprInput item = params[0];
             //check error
-            if (BigEvaluator.newInstance(getApplicationContext())
+            if (MathEvaluator.newInstance(getApplicationContext())
                     .isSyntaxError(item.getInput())) {
                 return new ItemResult(item.getInput(),
-                        BigEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
+                        MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
                         LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
-            BigEvaluator.newInstance(getApplicationContext())
+            MathEvaluator.newInstance(getApplicationContext())
                     .expandAll(item.getInput(),
                             new LogicEvaluator.EvaluateCallback() {
                                 @Override

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            app:logo="@drawable/ic_calculator_black"
+            app:title=" " />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:gravity="right|center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/img_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/camera"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_photo_camera_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/img_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/history"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_history_black_24dp" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/sw_fraction"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:gravity="center"
+                android:text="A/B"
+                app:switchTextAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_eval"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:indeterminate="true"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</android.support.design.widget.AppBarLayout>

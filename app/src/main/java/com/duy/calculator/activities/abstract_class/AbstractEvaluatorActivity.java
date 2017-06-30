@@ -50,8 +50,8 @@ import com.duy.calculator.document.DialogFragmentHelpFunction;
 import com.duy.calculator.history.ResultEntry;
 import com.duy.calculator.item_math_type.AExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.math_eval.BigEvaluator;
-import com.duy.calculator.math_eval.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ResizingEditText;
 import com.duy.calculator.view.RevealView;
@@ -341,12 +341,12 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
      * onPostExecute: hide process bar, set mResult to math view
      */
     public class ATaskEval extends AsyncTask<AExprInput, Void, ItemResult> {
-        protected BigEvaluator mEvaluator;
+        protected MathEvaluator mEvaluator;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mEvaluator = BigEvaluator.newInstance(getApplicationContext());
+            mEvaluator = MathEvaluator.newInstance(getApplicationContext());
             mProgress.show();
             btnSolve.setEnabled(false);
             btnClear.setEnabled(false);
