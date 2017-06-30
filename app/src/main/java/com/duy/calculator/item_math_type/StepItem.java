@@ -24,7 +24,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
  * Created by Duy on 19-May-17.
  */
 
-public class StepItem extends AExprInput {
+public class StepItem extends ExprInput {
     private String input;
     private String result;
     private int depth;

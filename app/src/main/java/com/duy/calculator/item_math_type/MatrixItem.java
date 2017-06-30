@@ -24,7 +24,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
  * Created by DUy on 09-Jan-17.
  */
 
-public class MatrixItem extends AExprInput {
+public class MatrixItem extends ExprInput {
     private int row, col;
     private String[][] matrix;
     private String[] vector; //dont uses

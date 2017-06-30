@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
  * 1/sin(x) + 2cos(pi) = 0;
  */
 
-public class EquationItem extends AExprInput {
+public class EquationItem extends ExprInput {
     private String left;
     private String right = "0";
 

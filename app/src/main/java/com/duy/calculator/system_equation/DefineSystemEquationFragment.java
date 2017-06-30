@@ -364,6 +364,11 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
                             if (errorResourceId == LogicEvaluator.RESULT_OK)
                                 res[0] = result;
                         }
+
+                        @Override
+                        public void onCalculateError(Exception e) {
+
+                        }
                     });
             Log.d(TAG, "doInBackground: result = " + res[0]);
             return res[0];

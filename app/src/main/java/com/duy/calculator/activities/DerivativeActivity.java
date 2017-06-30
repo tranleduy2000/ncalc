@@ -28,7 +28,7 @@ import android.widget.ArrayAdapter;
 import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.DerivativeItem;
 import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.AExprInput;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.utils.ConfigApp;
@@ -198,7 +198,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
     protected class TaskDerivative extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+        protected ItemResult doInBackground(ExprInput... aExprInputs) {
             DerivativeItem item = (DerivativeItem) aExprInputs[0];
             if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
                 return new ItemResult(item.getInput(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
@@ -209,6 +209,11 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
+                }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
                 }
             });
             return res[0];

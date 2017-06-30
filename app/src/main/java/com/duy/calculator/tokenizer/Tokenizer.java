@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.evaluator;
+package com.duy.calculator.tokenizer;
 
 import android.content.Context;
 
 import com.duy.calculator.R;
+import com.duy.calculator.evaluator.Constants;
 
 import java.util.ArrayList;
 

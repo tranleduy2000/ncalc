@@ -23,6 +23,7 @@ import android.text.Spanned;
 
 import com.duy.calculator.evaluator.base.BaseModule;
 import com.duy.calculator.evaluator.base.Evaluator;
+import com.duy.calculator.tokenizer.Tokenizer;
 
 import java.util.regex.Pattern;
 

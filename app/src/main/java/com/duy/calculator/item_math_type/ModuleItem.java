@@ -25,7 +25,7 @@ import com.duy.calculator.evaluator.Constants;
  * Created by DUy on 06-Jan-17.
  */
 
-public class ModuleItem extends AExprInput {
+public class ModuleItem extends ExprInput {
     protected String num1 = "0";
     protected String num2 = "0";
 

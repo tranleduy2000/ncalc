@@ -25,7 +25,7 @@ import com.duy.calculator.evaluator.FormatExpression;
  * Created by DUy on 29-Dec-16.
  */
 
-public class ExpressionItem extends AExprInput {
+public class ExpressionItem extends ExprInput {
     private String expr;
 
     public ExpressionItem(String expr) {

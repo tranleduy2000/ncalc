@@ -25,7 +25,7 @@ import org.matheclipse.core.interfaces.IExpr;
 /**
  * Class that loads the Symja library in a separate thread
  */
-public class SymjaLoader extends AsyncTask<Void, Void, Void> {
+public class SystemLoader extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... args) {
         // Simply do a simple (yet beautiful :D) calculation to make the system load Symja

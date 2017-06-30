@@ -107,6 +107,11 @@ public class DecimalFactory {
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = result;
                 }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
+                }
             });
             return res[0];
         } catch (Exception e) {

@@ -40,7 +40,7 @@ import android.widget.Toast;
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.data.Database;
 import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.Tokenizer;
+import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.view.AnimationFinishedListener;
 
 import java.util.Locale;

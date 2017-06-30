@@ -24,7 +24,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.AExprInput;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.SimplifyItem;
 import com.duy.calculator.evaluator.LogicEvaluator;
@@ -138,7 +138,7 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
     protected class TaskSimplify extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(AExprInput... params) {
+        protected ItemResult doInBackground(ExprInput... params) {
             SimplifyItem item = (SimplifyItem) params[0];
             Log.d(TAG, "doInBackground: " + item.getInput());
 
@@ -155,6 +155,11 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
+                }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
                 }
             });
             return res[0];

@@ -24,6 +24,7 @@ import com.duy.calculator.DLog;
 import com.duy.calculator.R;
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.item_math_type.StepItem;
+import com.duy.calculator.tokenizer.Tokenizer;
 
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
@@ -38,10 +39,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Pattern;
 
-import static com.duy.calculator.evaluator.exceptions.ExceptionManager.getExceptionMessage;
 import static com.duy.calculator.evaluator.FormatExpression.clean;
 import static com.duy.calculator.evaluator.Utility.isAcceptResultDecimal;
 import static com.duy.calculator.evaluator.Utility.isAcceptResultFraction;
+import static com.duy.calculator.evaluator.exceptions.ExceptionManager.getExceptionMessage;
 
 
 /**
@@ -90,15 +91,9 @@ public class MathEvaluator extends LogicEvaluator {
         TEX_ENGINE = new TeXUtilities(EVAL_ENGINE.getEvalEngine(), true);
     }
 
-    public MathEvaluator mEvaluator;
     /**
-     * set value <code>true</code> if use mode degress
-     * set value <code>false</code> if use mode radian
-     */
-    private boolean isUseDegree = false;
-    /**
-     * set value <code>true</code> if use mode mResult as fraction vaue
-     * set value <code>false</code> if use mode mResult as decimal value
+     * set value <code>true</code> if use mode result as fraction vaue
+     * set value <code>false</code> if use mode result as decimal value
      */
     private boolean isFraction = true;
     //android context
@@ -108,16 +103,10 @@ public class MathEvaluator extends LogicEvaluator {
      */
     private CalculatorSetting mCalculatorSetting;
 
-    /**
-     * constructor
-     *
-     * @param context
-     */
+
     private MathEvaluator(Context context) {
         super(new Tokenizer(context));
-
         this.mContext = context;
-
         this.mCalculatorSetting = new CalculatorSetting(context);
         loadSetting();
     }
@@ -215,7 +204,7 @@ public class MathEvaluator extends LogicEvaluator {
 
 
     /**
-     * evaluate expression, the mResult will be return callback via interface
+     * evaluate expression, the result will be return callback via interface
      * #EvaluateCallback
      *
      * @param expression - input expression String Obe
@@ -232,27 +221,21 @@ public class MathEvaluator extends LogicEvaluator {
         expression = FormatExpression.cleanExpression(expression, mTokenizer);
         expression = addUserDefinedVariable(expression); //$ans = ...
 
-        Log.d(TAG, "evaluateWithResultNormal: " + expression);
         try {
             IExpr res;
             //if mode is real
             if (!isFraction) {
                 res = EVAL_ENGINE.evaluate("N(" + expression + ")");
-                Log.d(TAG, "evaluateWithResultNormal: numeric " + expression);
                 if (res.isNumeric()) {
                     try {
                         //format comma, dot
                         String sFormat;
                         int numDecimal = 10;
                         sFormat = DecimalFactory.round(res.toString(), numDecimal);
-//                        sFormat = res.toString();
-                        Log.i(TAG, "evaluateWithResultNormal: isNumeric " + res.toString()
-                                + " = " + sFormat);
                         callback.onEvaluated(expression, sFormat, LogicEvaluator.RESULT_OK);
                     } catch (Exception e) {
-                        //  e.printStackTrace();
                         // if not is numeric,
-                        // it will be throw exception, although mResult as true
+                        // it will be throw exception, although result as true
                         callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
                     }
                 } else {
@@ -261,8 +244,6 @@ public class MathEvaluator extends LogicEvaluator {
                     callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
                 }
             } else { //mode is fraction
-                Log.d(TAG, "evaluateWithResultNormal: fraction " + expression);
-
                 res = EVAL_ENGINE.evaluate(expression);
                 callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
             }
@@ -276,7 +257,7 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     /**
-     * evaluate expression, the mResult will be return callback via interface
+     * evaluate expression, the result will be return callback via interface
      * #EvaluateCallback
      *
      * @param expression - input expression String Obe
@@ -314,7 +295,7 @@ public class MathEvaluator extends LogicEvaluator {
                     } catch (Exception e) {
                         //  e.printStackTrace();
                         // if not is numeric,
-                        // it will be throw exception, although mResult as true
+                        // it will be throw exception, although result as true
                         callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
                     }
                 } else {
@@ -360,7 +341,7 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     /**
-     * evaluate expression, the mResult will be return String Object
+     * evaluate expression, the result will be return String Object
      *
      * @param expression - input expression
      * @return - String
@@ -372,13 +353,18 @@ public class MathEvaluator extends LogicEvaluator {
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
         return res[0];
     }
 
 
     /**
-     * use fraction in mResult
+     * use fraction in result
      *
      * @return - boolean
      */
@@ -405,7 +391,7 @@ public class MathEvaluator extends LogicEvaluator {
 
         boolean last = isFraction;
         setFraction(true);
-        //mResult as fraction
+        //result as fraction
         evaluateWithResultAsTex(expr, new EvaluateCallback() { //catch error
             @Override
             public void onEvaluated(final String expr0, String result0, final int errorResourceId0) {
@@ -418,9 +404,14 @@ public class MathEvaluator extends LogicEvaluator {
                     callback.onEvaluated(expr0, result0, LogicEvaluator.RESULT_ERROR);
                 }
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
 
-        //mResult as real number
+        //result as real number
 
         if (next[0]) {
             String inp = Constants.SIMPLIFY
@@ -435,12 +426,17 @@ public class MathEvaluator extends LogicEvaluator {
                         resReal[0] = result;
                     }
                 }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
+                }
             });
         }
 
         setFraction(last);
 
-        //mResult
+        //result
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder
                 .append(resFraction[0])
@@ -458,7 +454,7 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     /**
-     * Solve equation and return string mResult, and real, and fraction
+     * Solve equation and return string result, and real, and fraction
      *
      * @param expr
      * @param callback
@@ -470,7 +466,7 @@ public class MathEvaluator extends LogicEvaluator {
         final String[] resFraction = new String[1];
         resFraction[0] = "";
 
-        //mResult as fraction
+        //result as fraction
         evaluateWithResultNormal(expr, new EvaluateCallback() { //catch error
             @Override
             public void onEvaluated(final String expr0, String result0, final int errorResourceId0) {
@@ -480,6 +476,11 @@ public class MathEvaluator extends LogicEvaluator {
                     //return error
                     callback.onEvaluated(expr0, result0, LogicEvaluator.RESULT_ERROR);
                 }
+            }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
             }
         });
 
@@ -518,7 +519,7 @@ public class MathEvaluator extends LogicEvaluator {
         String b = "";
         setFraction(true);
 
-        //puts terms in a sum over a common denominator and cancels factors in the mResult.
+        //puts terms in a sum over a common denominator and cancels factors in the result.
         for (int i = 0; i < result.size(); i++) {
             b += evaluateWithResultAsTex(result.get(i));
         }
@@ -529,7 +530,7 @@ public class MathEvaluator extends LogicEvaluator {
         }
         setFraction(last);
 
-        //call back feedback, mResult ok
+        //call back feedback, result ok
         callback.onEvaluated(expr, b, RESULT_OK);
     }
 
@@ -546,6 +547,11 @@ public class MathEvaluator extends LogicEvaluator {
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
         return res[0];
     }
@@ -558,7 +564,7 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public void evaluateWithResultAsTex(String expr, EvaluateCallback callback) {
         expr = FormatExpression.cleanExpression(expr, mTokenizer);
-        //string for mResult callback
+        //string for result callback
         StringWriter writer = new StringWriter();
         try {
             if (!isFraction) {
@@ -569,8 +575,8 @@ public class MathEvaluator extends LogicEvaluator {
             expr = addUserDefinedVariable(expr);
 
             IExpr r = EVAL_ENGINE.evaluate(expr);
-            // TODO: 29-Jan-17 round mResult if mode is numeric.
-            //if mResult is numeric, round it, if not round value, mResult will be wrong
+            // TODO: 29-Jan-17 round result if mode is numeric.
+            //if result is numeric, round it, if not round value, result will be wrong
             //such as sqrt(2)*sqrt(2) = 2.0000000000004 -> wrong answer;
             if (r.isNumeric()) {
                 TEX_ENGINE.toTeX(r, writer);
@@ -686,6 +692,11 @@ public class MathEvaluator extends LogicEvaluator {
                 if (errorResourceId == LogicEvaluator.RESULT_OK) res[0] = "";
                 else res[0] = result;
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
         return res[0];
     }
@@ -740,7 +751,7 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     /**
-     * Solve system equations and return string mResult, and real, and fraction
+     * Solve system equations and return string result, and real, and fraction
      *
      * @param expr     - input -> Solve({2x^2 + y == 0, x + 2y == -1},{x, y});
      * @param callback - callback for finish evaluate
@@ -752,7 +763,7 @@ public class MathEvaluator extends LogicEvaluator {
 
         final String[] temp = new String[]{""};
         final boolean[] hasNext = {true};
-        //mResult as fraction
+        //result as fraction
         evaluateWithResultNormal(expr, new EvaluateCallback() {
             @Override
             public void onEvaluated(final String input, String result, final int resultState) {
@@ -764,6 +775,11 @@ public class MathEvaluator extends LogicEvaluator {
                     callback.onEvaluated(input, result, LogicEvaluator.RESULT_ERROR);
                     hasNext[0] = false;
                 }
+            }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
             }
         });
 
@@ -780,10 +796,10 @@ public class MathEvaluator extends LogicEvaluator {
             return; //return if the equation no root
         }
 
-        //if input can eval and mResult
+        //if input can eval and result
         //process data fraction
         String sCopy = temp[0];
-        DLog.i("solve mResult = " + sCopy);
+        DLog.i("solve result = " + sCopy);
         /*
          * solve({2x^2 + y ==0, x + 2y == -1}, {x, y})
          * {{x->1/8-Sqrt(17)/8,y->-9/16+Sqrt(17)/16},{x->1/8+Sqrt(17)/8,y->-9/16-Sqrt(17)/16}}
@@ -800,7 +816,7 @@ public class MathEvaluator extends LogicEvaluator {
         }
 
         String b = "";
-        //call back feedback, mResult ok
+        //call back feedback, result ok
         for (int i = 0; i < result.size(); i++) {
             b += evaluateWithResultAsTex(result.get(i));
         }
@@ -834,6 +850,11 @@ public class MathEvaluator extends LogicEvaluator {
                 }
 
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
         setFraction(last);
     }
@@ -853,6 +874,11 @@ public class MathEvaluator extends LogicEvaluator {
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
         res[0] += Constants.WEB_SEPARATOR;
         setFraction(false);
@@ -861,6 +887,11 @@ public class MathEvaluator extends LogicEvaluator {
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 res[0] += result;
                 callback.onEvaluated(expr, res[0], errorResourceId);
+            }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
             }
         });
         setFraction(last);
@@ -875,6 +906,11 @@ public class MathEvaluator extends LogicEvaluator {
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 res[0] = result;
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
         res[0] += Constants.WEB_SEPARATOR;
         setFraction(false);
@@ -883,6 +919,11 @@ public class MathEvaluator extends LogicEvaluator {
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 res[0] += result;
                 callback.onEvaluated(expr, res[0], errorResourceId);
+            }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
             }
         });
         setFraction(last);
@@ -897,6 +938,11 @@ public class MathEvaluator extends LogicEvaluator {
             @Override
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 callback.onEvaluated(expr, result, errorResourceId);
+            }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
             }
         });
     }

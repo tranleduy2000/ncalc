@@ -356,6 +356,11 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) res[0] = result;
                 }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
+                }
             });
 
             /**
@@ -369,6 +374,11 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
                         res[0] += Constants.WEB_SEPARATOR;
                         res[0] += result;
                     }
+                }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
                 }
             });
             return res[0];

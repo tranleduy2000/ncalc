@@ -25,7 +25,7 @@ import com.duy.calculator.evaluator.Constants;
  * Created by DUy on 06-Jan-17.
  */
 
-public class NumberIntegerItem extends AExprInput {
+public class NumberIntegerItem extends ExprInput {
     private String number = "";
     private String cmd = "";
 

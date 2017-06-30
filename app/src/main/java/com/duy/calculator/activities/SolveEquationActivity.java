@@ -25,12 +25,12 @@ import android.util.Log;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.AExprInput;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.SolveItem;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.evaluator.Tokenizer;
+import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -158,7 +158,7 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
     public class TaskSolve extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+        protected ItemResult doInBackground(ExprInput... aExprInputs) {
             SolveItem item = (SolveItem) aExprInputs[0];
             if (ConfigApp.DEBUG) Log.d(TAG, "doInBackground: " + item.getInput());
             if (!item.getExpr().contains("x")) {
@@ -176,6 +176,11 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
+                }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
                 }
             });
             return res[0];

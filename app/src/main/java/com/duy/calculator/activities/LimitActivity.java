@@ -26,7 +26,7 @@ import android.view.View;
 import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.LimitItem;
 import com.duy.calculator.evaluator.FormatExpression;
-import com.duy.calculator.evaluator.Tokenizer;
+import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;

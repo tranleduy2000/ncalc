@@ -20,6 +20,7 @@ import android.util.Log;
 
 import com.duy.calculator.evaluator.base.Base;
 import com.duy.calculator.evaluator.base.Evaluator;
+import com.duy.calculator.tokenizer.Tokenizer;
 
 import org.javia.arity.SyntaxException;
 
@@ -85,9 +86,9 @@ public abstract class LogicEvaluator {
     }
 
 
-
-
     public interface EvaluateCallback {
         void onEvaluated(String expr, String result, int errorResourceId);
+
+        void onCalculateError(Exception e);
     }
 }

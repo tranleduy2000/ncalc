@@ -24,11 +24,11 @@ import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
 import com.duy.calculator.item_math_type.ExpressionItem;
-import com.duy.calculator.item_math_type.AExprInput;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.evaluator.Tokenizer;
+import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -138,8 +138,8 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
     private class ExpandTask extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(AExprInput... params) {
-            AExprInput item = params[0];
+        protected ItemResult doInBackground(ExprInput... params) {
+            ExprInput item = params[0];
             //check error
             if (MathEvaluator.newInstance(getApplicationContext())
                     .isSyntaxError(item.getInput())) {
@@ -155,6 +155,11 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
                                 @Override
                                 public void onEvaluated(String expr, String result, int errorResourceId) {
                                     res[0] = new ItemResult(expr, result, errorResourceId);
+                                }
+
+                                @Override
+                                public void onCalculateError(Exception e) {
+
                                 }
                             });
             return res[0];

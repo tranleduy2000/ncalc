@@ -200,6 +200,11 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
                     setState(LogicCalculatorActivity.CalculatorState.INPUT);
                 }
             }
+
+            @Override
+            public void onCalculateError(Exception e) {
+
+            }
         });
         updateUI();
     }
@@ -471,6 +476,11 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         } else if (resultId == LogicEvaluator.INPUT_EMPTY) {
 
         }
+    }
+
+    @Override
+    public void onCalculateError(Exception e) {
+
     }
 
     @Override

@@ -48,7 +48,7 @@ import com.duy.calculator.R;
 import com.duy.calculator.adapters.ResultAdapter;
 import com.duy.calculator.document.DialogFragmentHelpFunction;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.item_math_type.AExprInput;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.LogicEvaluator;
@@ -340,7 +340,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
      * <p>
      * onPostExecute: hide process bar, set mResult to math view
      */
-    public class ATaskEval extends AsyncTask<AExprInput, Void, ItemResult> {
+    public class ATaskEval extends AsyncTask<ExprInput, Void, ItemResult> {
         protected MathEvaluator mEvaluator;
 
         @Override
@@ -357,8 +357,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         }
 
         @Override
-        protected ItemResult doInBackground(AExprInput... params) {
-            AExprInput item = params[0];
+        protected ItemResult doInBackground(ExprInput... params) {
+            ExprInput item = params[0];
             Log.d(TAG, "doInBackground: " + item.getInput());
 
             //check error
@@ -372,6 +372,11 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
+                }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
                 }
             });
             return res[0];

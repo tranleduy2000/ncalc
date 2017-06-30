@@ -22,7 +22,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.AExprInput;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.item_math_type.PrimitiveItem;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -160,7 +160,7 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
     protected class TaskEvalPrimitive extends ATaskEval {
 
         @Override
-        protected ItemResult doInBackground(AExprInput... aExprInputs) {
+        protected ItemResult doInBackground(ExprInput... aExprInputs) {
             PrimitiveItem item = (PrimitiveItem) aExprInputs[0];
             //check error
             if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
@@ -173,6 +173,11 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     res[0] = new ItemResult(expr, result, errorResourceId);
+                }
+
+                @Override
+                public void onCalculateError(Exception e) {
+
                 }
             });
             return res[0];

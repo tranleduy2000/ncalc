@@ -61,7 +61,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.history.HistoryActivity;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.item_math_type.AExprInput;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.DerivativeItem;
 import com.duy.calculator.item_math_type.NumberIntegerItem;
 import com.duy.calculator.item_math_type.SolveItem;
@@ -594,6 +594,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         }
     }
 
+    @Override
+    public void onCalculateError(Exception e) {
+
+    }
+
     /**
      * error with index
      *
@@ -987,7 +992,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * <p>
      * onPostExecute: hide process bar, set mResult to math view
      */
-    protected class ATaskEval extends AsyncTask<AExprInput, Void, String> {
+    protected class ATaskEval extends AsyncTask<ExprInput, Void, String> {
 
         @Override
         protected void onPreExecute() {
@@ -1013,8 +1018,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         }
 
         @Override
-        protected String doInBackground(AExprInput... params) {
-            AExprInput item = params[0];
+        protected String doInBackground(ExprInput... params) {
+            ExprInput item = params[0];
             String expr = item.getInput();
             final String[] res = {""};
             if (params[0].getClass().equals(NumberIntegerItem.class)) {
@@ -1023,12 +1028,22 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
                     }
+
+                    @Override
+                    public void onCalculateError(Exception e) {
+
+                    }
                 });
             } else if (params[0].getClass().equals(SolveItem.class)) {
                 mEvaluator.solveEquation(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
                     public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
+                    }
+
+                    @Override
+                    public void onCalculateError(Exception e) {
+
                     }
                 });
             } else if (params[0].getClass().equals(DerivativeItem.class)) {
@@ -1037,12 +1052,22 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
                     }
+
+                    @Override
+                    public void onCalculateError(Exception e) {
+
+                    }
                 });
             } else {
                 mEvaluator.evaluateWithResultAsTex(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
                     public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
+                    }
+
+                    @Override
+                    public void onCalculateError(Exception e) {
+
                     }
                 });
             }

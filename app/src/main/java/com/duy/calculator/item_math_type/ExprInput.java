@@ -24,7 +24,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
  * Created by DUy on 29-Dec-16.
  */
 
-public abstract class AExprInput {
+public abstract class ExprInput {
     /**
      * check error syntax for input
      *
