@@ -20,7 +20,7 @@ public class PowerStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
         if ((from.equals(context.getResources().getString(R.string.powerunitwatts))
                 && to.equals(context.getResources().getString(R.string.powerunithorsepower)))) {

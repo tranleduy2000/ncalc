@@ -53,6 +53,8 @@ import com.duy.calculator.document.DialogFragmentHelpFunction;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
+import com.duy.calculator.evaluator.exceptions.ParsingException;
 import com.duy.calculator.evaluator.thread.BaseThread;
 import com.duy.calculator.evaluator.thread.CalculateThread;
 import com.duy.calculator.evaluator.thread.Command;
@@ -63,6 +65,9 @@ import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ResizingEditText;
 import com.duy.calculator.view.RevealView;
 import com.duy.calculator.view.math_editor.SuggestAdapter;
+
+import org.matheclipse.parser.client.SyntaxError;
+import org.matheclipse.parser.client.math.MathException;
 
 import java.util.ArrayList;
 
@@ -90,7 +95,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     protected TextInputLayout mHint1;
     protected TextInputLayout mHint2;
     protected RecyclerView rcResult;
-    private ResultAdapter resultAdapter;
+    private ResultAdapter mResultAdapter;
     private CalculatorPresenter mPresenter;
     private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
         @Override
@@ -164,8 +169,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         linearLayoutManager.setStackFromEnd(false);
         rcResult.setHasFixedSize(true);
         rcResult.setLayoutManager(linearLayoutManager);
-        resultAdapter = new ResultAdapter(this);
-        rcResult.setAdapter(resultAdapter);
+        mResultAdapter = new ResultAdapter(this);
+        rcResult.setAdapter(mResultAdapter);
     }
 
     /**
@@ -308,6 +313,14 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             return;
         }
 
+        try {
+            ExpressionChecker.checkExpression(mInputFormula.getCleanText());
+        } catch (Exception e) {
+            hideKeyboard();
+            handleExceptions(e);
+            return;
+        }
+
         String expr = getExpression();
         if (expr == null) {
             Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
@@ -319,7 +332,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         btnSolve.setEnabled(false);
         btnClear.setEnabled(false);
         hideKeyboard();
-        resultAdapter.clear();
+        mResultAdapter.clear();
 
         CalculateThread calculateThread = new CalculateThread(mPresenter,
                 EvaluateConfig.loadFromSetting(this), new BaseThread.ResultCallback() {
@@ -327,15 +340,16 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             public void onSuccess(ArrayList<String> result) {
                 Log.d(TAG, "onSuccess() called with: result = [" + result + "]");
 
+                hideKeyboard();
                 mProgress.hide();
                 btnSolve.setEnabled(true);
                 btnClear.setEnabled(true);
 
                 for (String entry : result) {
-                    resultAdapter.addItem(new ResultEntry("", entry));
+                    mResultAdapter.addItem(new ResultEntry("", entry));
                 }
 
-                if (resultAdapter.getItemCount() > 0) {
+                if (mResultAdapter.getItemCount() > 0) {
                     rcResult.scrollToPosition(0);
                 }
             }
@@ -354,8 +368,22 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     }
 
     private void handleExceptions(Exception e) {
-        e.printStackTrace();
-        // TODO: 30-Jun-17 handle expception
+        if (e instanceof SyntaxError) {
+            int start = Math.min(mInputFormula.length(), ((SyntaxError) e).getColumnIndex() - 1);
+            int end = Math.min(mInputFormula.length(), ((SyntaxError) e).getColumnIndex());
+            mInputFormula.setSelection(start, end);
+            mResultAdapter.clear();
+            mResultAdapter.addItem(new ResultEntry("SYNTAX ERROR", e.getMessage()));
+        } else if (e instanceof MathException) {
+            mResultAdapter.clear();
+            mResultAdapter.addItem(new ResultEntry("MATH ERROR", e.getMessage()));
+        } else if (e instanceof ParsingException) {
+            int start = Math.min(mInputFormula.length(), ((ParsingException) e).getIndex());
+            int end = Math.min(mInputFormula.length(), ((ParsingException) e).getIndex() + 1);
+            mInputFormula.setSelection(start, end);
+            mResultAdapter.clear();
+            mResultAdapter.addItem(new ResultEntry("SYNTAX ERROR", e.getMessage()));
+        }
     }
 
     protected String getExpression() {
@@ -407,7 +435,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             hideKeyboard(mInputFormula);
             hideKeyboard(editFrom);
             hideKeyboard(editTo);
-            resultAdapter.clear();
+            mResultAdapter.clear();
         }
 
         @Override
@@ -425,7 +453,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             mEvaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
+                    res[0] = new ItemResult(expr, result);
                 }
 
                 @Override
@@ -445,8 +473,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
                     mProgress.hide();
                     btnSolve.setEnabled(true);
                     btnClear.setEnabled(true);
-                    resultAdapter.addItem(new ResultEntry("", s.mResult));
-                    if (resultAdapter.getItemCount() > 0) {
+                    mResultAdapter.addItem(new ResultEntry("", s.mResult));
+                    if (mResultAdapter.getItemCount() > 0) {
                         rcResult.scrollToPosition(0);
                     }
                 }

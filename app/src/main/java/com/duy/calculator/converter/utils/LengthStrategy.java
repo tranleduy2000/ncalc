@@ -36,7 +36,7 @@ public class LengthStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
         //Application app = UnitConverterActivity.StrategyClass
         if ((from.equals(context.getResources().getString(R.string.lengthunitkm)) && to.equals(context.getResources().getString(R.string.lengthunitmile)))) {

@@ -37,7 +37,7 @@ public class WeightStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
         if ((from.equals(context.getResources().getString(R.string.weightunitkg)) && to.equals(context.getResources().getString(R.string.weightunitgm)))) {
             //if((from.equals("Kg")) && (to.equals("gm"))){

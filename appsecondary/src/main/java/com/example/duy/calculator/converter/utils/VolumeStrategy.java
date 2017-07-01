@@ -21,7 +21,7 @@ public class VolumeStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
 
 //        if ((from.equals(mContext.getResources().getString(R.string.volumeunitlitres)) && to.equals(mContext.getResources().getString(R.string.volumeunitmillilitres)))) {

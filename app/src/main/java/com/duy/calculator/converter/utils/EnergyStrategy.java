@@ -36,7 +36,7 @@ public class EnergyStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
         if ((from.equals(context.getResources().getString(R.string.energyunitcalories)) && to.equals(context.getResources().getString(R.string.energyunitkilocalories)))) {
             //if((from.equals("calories")) &&(to.equals("kilocalories"))){

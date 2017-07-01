@@ -17,34 +17,30 @@
 package com.duy.calculator.item_math_type;
 
 public class ItemResult {
-    public int mResultState;
     public String mExpression, mResult;
     private ExprInput mInput;
     private int mType;
     private String texFraction, texNumeric;
 
     public ItemResult(int mResultState, String mExpression, String res) {
-        this.mResultState = mResultState;
         this.mExpression = mExpression;
         this.mResult = res;
     }
 
-    public ItemResult(String mExpression, String res, int mResultState) {
-        this.mResultState = mResultState;
+    public ItemResult(String mExpression, String res) {
         this.mExpression = mExpression;
         this.mResult = res;
     }
 
-    public ItemResult(ExprInput mInput, String mExpression, String mResult, int mResultState) {
+    public ItemResult(ExprInput mInput, String mExpression, String mResult) {
         this.mInput = mInput;
         this.mExpression = mExpression;
         this.mResult = mResult;
-        this.mResultState = mResultState;
     }
 
     @Override
     public String toString() {
-        return this.mExpression + " = " + mResult + " | " + mResultState;
+        return this.mExpression + " = " + mResult ;
     }
 
     public ExprInput getInput() {

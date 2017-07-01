@@ -15,7 +15,7 @@ public class VelocityStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
         if ((from.equals(context.getResources().getString(R.string.velocityunitmilesperh)) && to.equals(context.getResources().getString(R.string.velocityunitkmph)))) {
             //if((from.equals("miles/hr")) && (to.equals("Km/hr"))){

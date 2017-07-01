@@ -15,7 +15,7 @@ public class AreaStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
         if ((from.equals(context.getResources().getString(R.string.areaunitsqmiles)) && to.equals((context.getResources().getString(R.string.areaunitsqkm))))) {
             //if((from.equals("square miles")) && (to.equals("square km"))){

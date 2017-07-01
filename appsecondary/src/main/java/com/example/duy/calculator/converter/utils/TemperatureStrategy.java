@@ -15,7 +15,7 @@ public class TemperatureStrategy implements Strategy {
     }
 
     public double Convert(String from, String to, double input) {
-        // TODO Auto-generated method stub
+
 
         if ((from.equals(context.getResources().getString(R.string.temperatureunitc)) && to.equals((context.getResources().getString(R.string.temperatureunitf))))) {
             return (input * 9 / 5) + 32;
