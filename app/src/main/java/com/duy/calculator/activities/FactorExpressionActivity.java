@@ -31,6 +31,7 @@ import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -128,8 +129,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
 
     @Override
     protected String getExpression() {
-        String expr = mInputFormula.getCleanText();
-        return "Factor(" + expr + ", GaussianIntegers->True)";
+        return mInputFormula.getCleanText();
     }
 
     @Override
@@ -139,16 +139,9 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
             public ArrayList<String> execute(String input) {
 
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                String fraction = MathEvaluator.getInstance().factorPolynomial(input,
                         config.setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        config.setEvalMode(EvaluateConfig.DECIMAL));
-
-                ArrayList<String> result = new ArrayList<>();
-                result.add(fraction);
-                result.add(decimal);
-                return result;
+                return Lists.newArrayList(fraction);
             }
         };
     }

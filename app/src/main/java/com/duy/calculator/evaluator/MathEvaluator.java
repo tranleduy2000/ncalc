@@ -148,6 +148,10 @@ public class MathEvaluator extends LogicEvaluator {
         return INSTANCE;
     }
 
+    public static TeXUtilities getTexEngine() {
+        return TEX_ENGINE;
+    }
+
     private IExpr evaluate(String exprInput) {
         return EVAL_ENGINE.evaluate(exprInput);
     }
@@ -156,7 +160,6 @@ public class MathEvaluator extends LogicEvaluator {
     public MathEvaluator getEvaluator() {
         return this;
     }
-
 
     /**
      * evaluate expression, the result will be return callback via interface
@@ -305,7 +308,6 @@ public class MathEvaluator extends LogicEvaluator {
         return res[0];
     }
 
-
     /**
      * use fraction in result
      *
@@ -318,6 +320,8 @@ public class MathEvaluator extends LogicEvaluator {
     public void setFraction(boolean fraction) {
         isFraction = fraction;
     }
+
+    // TODO: 01-Jul-17 fraction mode
 
     /**
      * return derivative of function
@@ -338,25 +342,16 @@ public class MathEvaluator extends LogicEvaluator {
         return builder.toString();
     }
 
-    // TODO: 01-Jul-17 fraction mode
-
     /**
      * return derivative of function
      */
     public String evaluateWithResultAsTex(String exprStr, EvaluateConfig config) {
-        StringWriter stringWriter = new StringWriter();
-        TEX_ENGINE.toTeX(EVAL_ENGINE.evaluate(exprStr), stringWriter);
-        String result = "$$" + stringWriter + "$$";
-
-        //result
-        StringBuilder builder = new StringBuilder();
-        builder.append(result);
-        if (builder.toString().contains("log")) {
-            builder.append(Constants.WEB_SEPARATOR) //<hr>
-                    .append(getString(R.string.ln_hint)); //log(x) is the natural logarithm
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+            exprStr = "N(" + exprStr + ")";
         }
-
-        return builder.toString();
+        StringWriter writer = new StringWriter();
+        TEX_ENGINE.toTeX(EVAL_ENGINE.evaluate(exprStr), writer);
+        return "$$" + writer + "$$";
     }
 
     /**
@@ -444,7 +439,6 @@ public class MathEvaluator extends LogicEvaluator {
         }
     }
 
-
     public void define(String var, double value) {
         try {
             EVAL_ENGINE.defineVariable(var, value);
@@ -526,7 +520,6 @@ public class MathEvaluator extends LogicEvaluator {
         }
         return null;
     }
-
 
     /**
      * factor prime number
@@ -648,31 +641,22 @@ public class MathEvaluator extends LogicEvaluator {
     /**
      * Factors the polynomial expression in <b>input</b>
      *
-     * @param input    - input expression
-     * @param callback - result callback or exception
+     * @param input - input expression
      */
-    public void factorPolynomial(String input, final EvaluateCallback callback) {
-        boolean last = isFraction;
-        setFraction(true);
-        evaluateWithResultAsTex(input, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                if (result.toLowerCase().contains("factor")) {
-                    callback.onEvaluated(expr,
-                            getString(R.string.cannot_factor_polynomial),
-                            errorResourceId);
-                } else {
-                    callback.onEvaluated(expr, result, errorResourceId);
-                }
-
+    public String factorPolynomial(String input, final EvaluateConfig config) {
+        String factorStr = "Factor(" + input + ")";
+        IExpr result = EVAL_ENGINE.evaluate(factorStr);
+        if (result.toString().toLowerCase().contains("factor")) {
+            factorStr = "Factor(" + input + ", GaussianIntegers->True)";
+            result = EVAL_ENGINE.evaluate(factorStr);
+            if (result.toString().toLowerCase().contains("factor")) {
+                return input;
+            } else {
+                return LaTexFactory.toLaTeX(result);
             }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-        setFraction(last);
+        } else {
+            return LaTexFactory.toLaTeX(result);
+        }
     }
 
     /**
