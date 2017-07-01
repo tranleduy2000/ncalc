@@ -20,7 +20,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 /**
- * Created by DUy on 04-Nov-16.
+ * Created by Duy on 04-Nov-16.
  */
 
 public class ClipboardManager {

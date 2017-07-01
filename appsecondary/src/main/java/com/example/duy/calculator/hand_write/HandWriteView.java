@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.myscript.atk.math.widget.MathWidget;
 
 /**
- * Created by DUy on 24-Jan-17.
+ * Created by Duy on 24-Jan-17.
  */
 
 public class HandWriteView extends MathWidget {

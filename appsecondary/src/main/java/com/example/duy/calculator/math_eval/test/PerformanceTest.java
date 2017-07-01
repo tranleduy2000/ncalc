@@ -7,7 +7,7 @@ import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.LogicEvaluator;
 
 /**
- * Created by DUy on 18-Jan-17.
+ * Created by Duy on 18-Jan-17.
  */
 
 public class PerformanceTest {

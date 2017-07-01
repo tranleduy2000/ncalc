@@ -8,7 +8,7 @@ import com.example.duy.calculator.math_eval.FormatExpression;
 import java.util.regex.Pattern;
 
 /**
- * Created by DUy on 29-Dec-16.
+ * Created by Duy on 29-Dec-16.
  * <p>
  * Item for Input Equation
  * <p>

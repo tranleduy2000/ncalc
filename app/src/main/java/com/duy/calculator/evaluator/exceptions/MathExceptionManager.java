@@ -19,7 +19,7 @@ package com.duy.calculator.evaluator.exceptions;
 import com.duy.calculator.evaluator.MathEvaluator;
 
 /**
- * Created by DUy on 22-Jan-17.
+ * Created by Duy on 22-Jan-17.
  */
 
 public class MathExceptionManager {

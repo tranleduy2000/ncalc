@@ -36,7 +36,7 @@ import com.getkeepsafe.taptargetview.TapTargetSequence;
 import java.util.ArrayList;
 
 /**
- * Created by DUy on 06-Jan-17.
+ * Created by Duy on 06-Jan-17.
  */
 
 public class FactorPrimeActivity extends AbstractEvaluatorActivity {

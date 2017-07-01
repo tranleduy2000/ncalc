@@ -27,6 +27,7 @@ import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.LimitItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
@@ -34,7 +35,7 @@ import com.getkeepsafe.taptargetview.TapTargetSequence;
 import java.util.ArrayList;
 
 /**
- * Created by DUy on 07-Dec-16.
+ * Created by Duy on 07-Dec-16.
  */
 
 public class LimitActivity extends AbstractEvaluatorActivity {
@@ -144,21 +145,25 @@ public class LimitActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
+    protected String getExpression() {
+        String expr = mInputFormula.getCleanText();
+        String limit = editTo.getText().toString();
+        LimitItem limitItem = new LimitItem(expr, limit);
+        return limitItem.getInput();
+    }
+
+    @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
 
-                String factorStr = "Int(" + input + ")";
-                // TODO: 30-Jun-17 limit
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();
                 result.add(fraction);

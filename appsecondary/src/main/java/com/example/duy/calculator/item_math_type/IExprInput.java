@@ -11,7 +11,7 @@ import java.io.Serializable;
  * Abstract class for Item Input Math
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 29-Dec-16.
+ * Created by Duy on 29-Dec-16.
  */
 
 public abstract class IExprInput implements Serializable {

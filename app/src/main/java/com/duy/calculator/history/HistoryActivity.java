@@ -37,7 +37,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by DUy on 29-Nov-16.
+ * Created by Duy on 29-Nov-16.
  */
 
 public class HistoryActivity extends AbstractAppCompatActivity implements HistoryAdapter.HistoryListener {

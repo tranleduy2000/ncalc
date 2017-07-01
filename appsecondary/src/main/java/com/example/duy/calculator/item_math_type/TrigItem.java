@@ -9,7 +9,7 @@ import static com.example.duy.calculator.trigonometry.TRIG_TYPE.REDUCE;
 
 /**
  * Trigonometric Item
- * Created by DUy on 31-Jan-17.
+ * Created by Duy on 31-Jan-17.
  */
 
 public class TrigItem extends ExpressionItem {

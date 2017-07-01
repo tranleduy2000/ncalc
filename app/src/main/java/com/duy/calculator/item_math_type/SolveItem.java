@@ -23,7 +23,7 @@ import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.FormatExpression;
 
 /**
- * Created by DUy on 01-Jan-17.
+ * Created by Duy on 01-Jan-17.
  */
 
 public class SolveItem extends ExprInput {

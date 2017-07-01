@@ -8,7 +8,7 @@ import com.example.duy.calculator.R;
  * <p>
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 15-Jan-17.
+ * Created by Duy on 15-Jan-17.
  */
 
 public class ButtonID {

@@ -10,7 +10,7 @@ import java.io.StringWriter;
  * <p>
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 21-Jan-17.
+ * Created by Duy on 21-Jan-17.
  */
 
 public class LaTexFactory {

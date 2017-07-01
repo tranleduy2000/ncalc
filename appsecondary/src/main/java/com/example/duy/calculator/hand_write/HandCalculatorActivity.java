@@ -24,7 +24,7 @@ import java.util.Date;
 /**
  * Hand calculator
  * <p>
- * Created by DUy on 10/29/2016.
+ * Created by Duy on 10/29/2016.
  */
 
 public class HandCalculatorActivity extends AbstractAppCompatActivity {

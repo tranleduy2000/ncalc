@@ -17,7 +17,7 @@ import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
 /**
- * Created by DUy on 07-Dec-16.
+ * Created by Duy on 07-Dec-16.
  */
 
 public class LimitActivity extends AbstractEvaluatorActivity {

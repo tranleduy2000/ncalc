@@ -10,7 +10,7 @@ import com.example.duy.calculator.utils.ColorUtil;
 import com.myscript.atk.math.widget.MathWidgetApi;
 
 /**
- * Created by DUy on 04-Jan-17.
+ * Created by Duy on 04-Jan-17.
  */
 
 public class HandWriteManager {

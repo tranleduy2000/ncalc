@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
  * <p>
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 29-Nov-16.
+ * Created by Duy on 29-Nov-16.
  */
 
 public class HistoryActivity extends AbstractAppCompatActivity implements HistoryAdapter.HistoryListener {

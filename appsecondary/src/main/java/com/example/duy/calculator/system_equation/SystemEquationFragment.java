@@ -13,7 +13,7 @@ import com.example.duy.calculator.AbstractFragment;
 
 
 /**
- * Created by DUy on 18-Nov-16.
+ * Created by Duy on 18-Nov-16.
  */
 
 public class SystemEquationFragment extends AbstractFragment {

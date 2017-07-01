@@ -26,7 +26,7 @@ import com.duy.calculator.R;
 import com.kobakei.ratethisapp.RateThisApp;
 
 /**
- * Created by DUy on 13-Jan-17.
+ * Created by Duy on 13-Jan-17.
  */
 
 public class RateManager {

@@ -4,7 +4,7 @@ import com.example.duy.calculator.BuildConfig;
 
 /**
  * Uses {@link BuildConfig} instead of this class
- * Created by DUy on 28-Nov-16.
+ * Created by Duy on 28-Nov-16.
  */
 @Deprecated
 public class ConfigApp {

@@ -19,7 +19,7 @@ package com.duy.calculator.view;
 import com.duy.calculator.R;
 
 /**
- * Created by DUy on 15-Jan-17.
+ * Created by Duy on 15-Jan-17.
  */
 
 public class ButtonID {

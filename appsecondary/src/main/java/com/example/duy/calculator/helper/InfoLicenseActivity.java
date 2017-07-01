@@ -16,7 +16,7 @@ import com.example.duy.calculator.R;
  * <p>
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 12-Dec-16.
+ * Created by Duy on 12-Dec-16.
  */
 
 public class InfoLicenseActivity extends AbstractAppCompatActivity {

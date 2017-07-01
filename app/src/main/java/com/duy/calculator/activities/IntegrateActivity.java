@@ -36,9 +36,8 @@ import java.util.ArrayList;
 /**
  * Integrate(f(x), {x, a, b})
  * Integrate of function f(x) with variable x, with lower limit a, upper limit b
- * Created by DUy on 07-Dec-16.
+ * Created by Duy on 07-Dec-16.
  */
-
 public class IntegrateActivity extends AbstractEvaluatorActivity {
     private static final String STARTED = IntegrateActivity.class.getName() + "started";
     private boolean isDataNull = true;

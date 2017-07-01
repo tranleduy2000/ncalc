@@ -8,7 +8,7 @@ import com.example.duy.calculator.math_eval.Constants;
 import com.example.duy.calculator.math_eval.FormatExpression;
 
 /**
- * Created by DUy on 01-Jan-17.
+ * Created by Duy on 01-Jan-17.
  */
 
 public class DerivativeItem extends IExprInput {

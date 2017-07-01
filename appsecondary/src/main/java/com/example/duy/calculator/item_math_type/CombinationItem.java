@@ -4,7 +4,7 @@ import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.Constants;
 
 /**
- * Created by DUy on 07-Jan-17.
+ * Created by Duy on 07-Jan-17.
  */
 public class CombinationItem extends PermutationItem {
 

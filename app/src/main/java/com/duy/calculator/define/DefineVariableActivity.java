@@ -39,7 +39,7 @@ import java.util.ArrayList;
 /**
  * Definetion getValue() of list variable
  * <p>
- * Created by DUy on 04-Dec-16.
+ * Created by Duy on 04-Dec-16.
  */
 
 public class DefineVariableActivity extends AbstractAppCompatActivity {

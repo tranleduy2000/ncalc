@@ -15,7 +15,7 @@ import io.github.kexanie.library.MathView;
 
 /**
  * MathView custom as mContext
- * Created by DUy on 04-Nov-16.
+ * Created by Duy on 04-Nov-16.
  */
 
 public class MathViewActivity extends AppCompatActivity {

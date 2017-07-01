@@ -1,7 +1,7 @@
 package com.example.duy.calculator.item_math_type;
 
 /**
- * Created by DUy on 29-Dec-16.
+ * Created by Duy on 29-Dec-16.
  */
 
 public class InputException extends Exception {

@@ -20,7 +20,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.Constants;
 
 /**
- * Created by DUy on 07-Jan-17.
+ * Created by Duy on 07-Jan-17.
  */
 public class CombinationItem extends PermutationItem {
     public CombinationItem(String n, String k) {

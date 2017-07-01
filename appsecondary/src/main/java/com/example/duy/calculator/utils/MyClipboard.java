@@ -7,7 +7,7 @@ import com.example.duy.calculator.R;
 
 /**
  * uses {@link ClipboardManager} instead of this class
- * Created by DUy on 04-Nov-16.
+ * Created by Duy on 04-Nov-16.
  */
 @Deprecated
 public class MyClipboard {

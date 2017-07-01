@@ -33,7 +33,7 @@ import com.duy.calculator.utils.ConfigApp;
 import java.util.ArrayList;
 
 /**
- * Created by DUy on 06-Jan-17.
+ * Created by Duy on 06-Jan-17.
  */
 
 public class ModuleActivity extends AbstractEvaluatorActivity {

@@ -24,7 +24,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import java.util.regex.Pattern;
 
 /**
- * Created by DUy on 29-Dec-16.
+ * Created by Duy on 29-Dec-16.
  * <p>
  * Item for Input Equation
  * <p>

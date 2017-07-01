@@ -9,7 +9,7 @@ import org.matheclipse.core.interfaces.IExpr;
 import java.util.ArrayList;
 
 /**
- * Created by DUy on 21-Jan-17.
+ * Created by Duy on 21-Jan-17.
  */
 
 public class TestStepEvaluate {

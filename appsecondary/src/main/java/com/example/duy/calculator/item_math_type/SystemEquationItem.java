@@ -9,7 +9,7 @@ import com.example.duy.calculator.math_eval.BigEvaluator;
 import java.util.ArrayList;
 
 /**
- * Created by DUy on 09-Jan-17.
+ * Created by Duy on 09-Jan-17.
  */
 
 public class SystemEquationItem extends IExprInput {

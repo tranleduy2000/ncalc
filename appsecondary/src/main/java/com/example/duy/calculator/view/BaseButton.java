@@ -11,7 +11,7 @@ import com.example.duy.calculator.userinterface.FontManager;
 import static org.apache.commons.math4.util.MathArrays.Position.HEAD;
 
 /**
- * Created by DUy on 21-Jan-17.
+ * Created by Duy on 21-Jan-17.
  */
 
 public class BaseButton extends android.support.v7.widget.AppCompatButton {

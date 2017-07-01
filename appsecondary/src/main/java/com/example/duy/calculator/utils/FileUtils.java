@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
  * File manager
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 04-Nov-16.
+ * Created by Duy on 04-Nov-16.
  */
 
 public class FileUtils {

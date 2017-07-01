@@ -5,7 +5,7 @@ import android.content.Context;
 import com.example.duy.calculator.math_eval.BigEvaluator;
 
 /**
- * Created by DUy on 09-Jan-17.
+ * Created by Duy on 09-Jan-17.
  */
 
 public class MatrixItem extends IExprInput {

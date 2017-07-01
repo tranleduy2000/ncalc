@@ -25,7 +25,7 @@ import android.widget.Button;
 import com.duy.calculator.userinterface.FontManager;
 
 /**
- * Created by DUy on 21-Jan-17.
+ * Created by Duy on 21-Jan-17.
  */
 
 public class BaseButton extends Button {

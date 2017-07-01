@@ -17,7 +17,7 @@
 package com.duy.calculator.data;
 
 /**
- * Created by DUy on 29-Jan-17.
+ * Created by Duy on 29-Jan-17.
  */
 
 public class SampleData {

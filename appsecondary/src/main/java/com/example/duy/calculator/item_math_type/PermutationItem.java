@@ -8,7 +8,7 @@ import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.Constants;
 
 /**
- * Created by DUy on 06-Jan-17.
+ * Created by Duy on 06-Jan-17.
  */
 
 public class PermutationItem extends IExprInput {

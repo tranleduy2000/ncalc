@@ -5,7 +5,7 @@ import com.myscript.atk.math.widget.MathWidgetApi;
 
 /**
  * Handler event for handw rite view
- * Created by DUy on 04-Jan-17.
+ * Created by Duy on 04-Jan-17.
  */
 
 public class CalcHandWriteCallback implements MathWidgetApi.OnSolvingListener,

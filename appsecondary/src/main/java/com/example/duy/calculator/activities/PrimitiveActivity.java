@@ -20,7 +20,7 @@ import com.getkeepsafe.taptargetview.TapTargetSequence;
 /**
  * Integrate(f(x), {x, a, b})
  * Integrate of function f(x) with variable x, from a to b
- * Created by DUy on 07-Dec-16.
+ * Created by Duy on 07-Dec-16.
  */
 
 public class PrimitiveActivity extends AbstractEvaluatorActivity {

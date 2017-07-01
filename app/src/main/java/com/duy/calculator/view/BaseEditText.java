@@ -25,7 +25,7 @@ import static com.duy.calculator.userinterface.FontManager.loadTypefaceFromAsset
 
 /**
  * Base Edit Text
- * Created by DUy on 21-Jan-17.
+ * Created by Duy on 21-Jan-17.
  */
 
 public class BaseEditText extends AutoCompleteFunctionEditText {

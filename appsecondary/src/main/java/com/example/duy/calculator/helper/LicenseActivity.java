@@ -18,7 +18,7 @@ import com.example.duy.calculator.R;
  * License view
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 12-Dec-16.
+ * Created by Duy on 12-Dec-16.
  */
 
 public class LicenseActivity extends AbstractAppCompatActivity {

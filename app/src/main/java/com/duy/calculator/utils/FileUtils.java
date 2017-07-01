@@ -23,7 +23,7 @@ import android.widget.Toast;
 import java.io.FileOutputStream;
 
 /**
- * Created by DUy on 04-Nov-16.
+ * Created by Duy on 04-Nov-16.
  */
 
 public class FileUtils {

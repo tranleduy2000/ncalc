@@ -19,7 +19,7 @@ package com.duy.calculator.utils;
 import com.duy.calculator.BuildConfig;
 
 /**
- * Created by DUy on 28-Nov-16.
+ * Created by Duy on 28-Nov-16.
  */
 public class ConfigApp {
     public static final boolean DEBUG = false;

@@ -19,7 +19,7 @@ package com.duy.calculator.evaluator.exceptions;
 /**
  * Error when handling large numbers or small numers
  * <p>
- * Created by DUy on 24-Jan-17.
+ * Created by Duy on 24-Jan-17.
  */
 public class TooBigNumberException extends Exception {
 

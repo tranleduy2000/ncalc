@@ -17,7 +17,7 @@ import com.example.duy.calculator.activities.abstract_class.AbstractEvaluatorAct
 import com.example.duy.calculator.activities.BasicCalculatorActivity;
 
 /**
- * Created by DUy on 06-Jan-17.
+ * Created by Duy on 06-Jan-17.
  */
 
 public class ModuleActivity extends AbstractEvaluatorActivity {

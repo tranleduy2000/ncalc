@@ -3,7 +3,7 @@ package com.example.duy.calculator.math_eval.test;
 import com.example.duy.calculator.DLog;
 
 /**
- * Created by DUy on 20-Jan-17.
+ * Created by Duy on 20-Jan-17.
  */
 
 public abstract class TestCase {

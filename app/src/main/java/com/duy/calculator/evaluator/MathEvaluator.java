@@ -52,7 +52,7 @@ import static com.duy.calculator.evaluator.Utility.isAcceptResultFraction;
  * evaluate expression
  * <p>
  * convert text to text
- * Created by DUy on 21-Nov-16.
+ * Created by Duy on 21-Nov-16.
  */
 
 public class MathEvaluator extends LogicEvaluator {

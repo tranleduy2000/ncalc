@@ -5,7 +5,7 @@ package com.example.duy.calculator.data;
  * Math sample for some functions
  * =======
  * >>>>>>> refs/remotes/origin/master
- * Created by DUy on 29-Jan-17.
+ * Created by Duy on 29-Jan-17.
  */
 
 public class SampleData {

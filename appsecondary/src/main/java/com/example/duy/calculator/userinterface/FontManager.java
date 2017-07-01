@@ -10,7 +10,7 @@ import com.example.duy.calculator.R;
 
 /**
  * Font Manager
- * Created by DUy on 23-Jan-17.
+ * Created by Duy on 23-Jan-17.
  */
 
 public final class FontManager {

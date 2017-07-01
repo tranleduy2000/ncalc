@@ -21,7 +21,7 @@ import android.content.Context;
 import com.duy.calculator.evaluator.MathEvaluator;
 
 /**
- * Created by DUy on 09-Jan-17.
+ * Created by Duy on 09-Jan-17.
  */
 
 public class MatrixItem extends ExprInput {

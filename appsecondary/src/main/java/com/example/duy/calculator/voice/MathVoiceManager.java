@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by DUy on 12-Jan-17.
+ * Created by Duy on 12-Jan-17.
  */
 
 public class MathVoiceManager implements SpeechDelegate {

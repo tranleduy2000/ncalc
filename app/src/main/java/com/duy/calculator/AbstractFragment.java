@@ -47,7 +47,7 @@ import java.util.Locale;
 
 /**
  * Abstract Fragment
- * Created by DUy on 09-Jan-17.
+ * Created by Duy on 09-Jan-17.
  */
 
 public abstract class AbstractFragment extends Fragment

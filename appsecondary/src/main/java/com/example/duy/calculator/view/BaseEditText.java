@@ -8,7 +8,7 @@ import static org.apache.commons.math4.util.MathArrays.Position.HEAD;
 
 /**
  * Base Edit Text
- * Created by DUy on 21-Jan-17.
+ * Created by Duy on 21-Jan-17.
  */
 
 public class BaseEditText extends AutoCompleteFunctionEditText {

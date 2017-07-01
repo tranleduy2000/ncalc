@@ -1,7 +1,7 @@
 package com.example.duy.calculator.math_eval;
 
 /**
- * Created by DUy on 22-Jan-17.
+ * Created by Duy on 22-Jan-17.
  */
 
 public class MathExceptionManager {

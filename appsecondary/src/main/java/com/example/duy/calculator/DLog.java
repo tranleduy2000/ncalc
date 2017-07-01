@@ -4,7 +4,7 @@ import android.util.Log;
 
 /**
  * My Logger
- * Created by DUy on 18-Jan-17.
+ * Created by Duy on 18-Jan-17.
  */
 public class DLog {
     public static final boolean DEBUG = true;

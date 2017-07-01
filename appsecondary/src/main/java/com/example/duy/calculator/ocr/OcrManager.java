@@ -17,7 +17,7 @@ import com.microblink.recognizers.blinkocr.parser.generic.RawParserSettings;
 import com.microblink.results.ocr.OcrFont;
 
 /**
- * Created by DUy on 02-Jan-17.
+ * Created by Duy on 02-Jan-17.
  */
 
 public class OcrManager {

@@ -19,7 +19,7 @@ import static org.matheclipse.core.expression.F.Sinc;
 import static org.matheclipse.core.expression.F.Times;
 
 /**
- * Created by DUy on 21-Dec-16.
+ * Created by Duy on 21-Dec-16.
  */
 
 public class TestPerformance {

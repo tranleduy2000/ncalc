@@ -14,7 +14,7 @@ import static io.github.kexanie.library.MathView.Engine.KATEX;
 import static io.github.kexanie.library.MathView.Engine.MATHJAX;
 
 /**
- * Created by DUy on 26-Jan-17.
+ * Created by Duy on 26-Jan-17.
  */
 
 public class MathFormulaView extends MathView {
