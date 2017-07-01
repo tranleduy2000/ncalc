@@ -21,17 +21,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.SimplifyItem;
-import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+
+import java.util.ArrayList;
 
 /**
  * Created by Duy on 19/7/2016
@@ -46,20 +46,6 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
         return R.string.help_expression;
     }
 
-    /**
-     * convert expression to english
-     */
-    @Override
-    public void doEval() {
-        String inp = mInputFormula.getCleanText();
-        if (inp.isEmpty()) {
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
-
-        new TaskSimplify().execute(new SimplifyItem(inp));
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,12 +58,12 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
         boolean isStarted = preferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) mInputFormula.setText("a - b + 2a - b");
-            showHelp();
+            clickHelp();
         }
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
         final SharedPreferences.Editor editor = preferences.edit();
 
         TapTarget target0 = TapTarget.forView(mInputFormula,
@@ -108,12 +94,12 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
             @Override
             public void onSequenceCanceled(TapTarget lastTarget) {
-                doEval();
+                clickEvaluate();
             }
         });
         sequence.start();
@@ -130,40 +116,36 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
             if (data != null) {
                 mInputFormula.setText(data);
                 isDataNull = false;
-                doEval();
+                clickEvaluate();
             }
         }
     }
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String primitiveStr = "Integrate(" + input + ",x)";
 
-    protected class TaskSimplify extends ATaskEval {
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
 
-        @Override
-        protected ItemResult doInBackground(ExprInput... params) {
-            SimplifyItem item = (SimplifyItem) params[0];
-            Log.d(TAG, "doInBackground: " + item.getInput());
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
 
-            //check error
-            if (mEvaluator.isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(),
-                        mEvaluator.getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
             }
-
-            final ItemResult[] res = new ItemResult[1];
-            mEvaluator.setFraction(false);
-            mEvaluator.simplifyExpression(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-        }
+        };
     }
-
 }

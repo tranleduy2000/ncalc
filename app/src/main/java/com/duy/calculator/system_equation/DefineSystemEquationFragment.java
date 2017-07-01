@@ -351,13 +351,13 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
             String input = params[0].getInput();
             Log.d(TAG, "doInBackground: " + input);
 
-            if (params[0].isError(MathEvaluator.newInstance(getActivity()))) {
+            if (params[0].isError(MathEvaluator.getInstance())) {
                 Log.e(TAG, "doInBackground: input error");
-                return params[0].getError(MathEvaluator.newInstance(getActivity()), mContext);
+                return params[0].getError(MathEvaluator.getInstance(), mContext);
             }
 
             final String[] res = {getString(R.string.error)};
-            MathEvaluator.newInstance(getActivity()).solveSystemEquation(input,
+            MathEvaluator.getInstance().solveSystemEquation(input,
                     new LogicEvaluator.EvaluateCallback() {
                         @Override
                         public void onEvaluated(String expr, String result, int errorResourceId) {

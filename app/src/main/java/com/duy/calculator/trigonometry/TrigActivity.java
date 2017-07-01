@@ -19,17 +19,17 @@ package com.duy.calculator.trigonometry;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.duy.calculator.R;
-import com.duy.calculator.data.SampleData;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.TrigItem;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.data.SampleData;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.utils.ConfigApp;
+
+import java.util.ArrayList;
 
 import static com.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPAND;
 import static com.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPONENT;
@@ -95,8 +95,8 @@ public class TrigActivity extends AbstractEvaluatorActivity {
         }
     }
 
-    @Override
-    public void doEval() {
+   /* @Override
+    public void clickEvaluate() {
         if (mInputFormula.getText().toString().isEmpty()) {
 //            Drawable drawable = getApplicationContext().getResources().getDrawable(
 //                    R.drawable.ic_mode_edit_white_24dp);
@@ -104,7 +104,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
             mInputFormula.setError(getString(R.string.enter_expression));
             return;
         }
-        Log.d(TAG, "doEval: ");
+        Log.d(TAG, "clickEvaluate: ");
         TrigItem item = new TrigItem(mInputFormula.getCleanText());
         switch (mType) {
             case EXPAND:
@@ -118,7 +118,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
                 break;
         }
         new TrigTask().execute(item);
-    }
+    }*/
 
 
     @Override
@@ -127,19 +127,37 @@ public class TrigActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
 
     }
 
-    /**
-     * class for trig evaluate
-     */
-    private class TrigTask extends ATaskEval {
-        @Override
-        protected ItemResult doInBackground(ExprInput... params) {
-            Log.d(TAG, "doInBackground: trig task");
-            MathEvaluator.newInstance(getApplicationContext()).setFraction(true);
-            return super.doInBackground(params);
-        }
+
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String primitiveStr = "Integrate(" + input + ",x)";
+// TODO: 30-Jun-17  trig
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
+
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
+            }
+        };
     }
 }

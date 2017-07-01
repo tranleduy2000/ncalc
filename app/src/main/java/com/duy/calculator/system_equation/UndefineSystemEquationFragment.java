@@ -221,7 +221,7 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             }
         });
         if ((!isStarted) || ConfigApp.DEBUG) {
-//            showHelp();
+//            clickHelp();
         }
 
         addParams("2x - y = 2");
@@ -344,14 +344,14 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             if (!isOk) return "";
             String input = equation.toString();
             Log.d(TAG, input);
-            if (MathEvaluator.newInstance(getActivity()).isSyntaxError(input)) return getString(R.string.error);
+            if (MathEvaluator.getInstance().isSyntaxError(input)) return getString(R.string.error);
             final String[] res = {""};
 
             /**
              * evaluate with mResult as fraction
              */
-            MathEvaluator.newInstance(getActivity()).setFraction(true);
-            MathEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
+            MathEvaluator.getInstance().setFraction(true);
+            MathEvaluator.getInstance().evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) res[0] = result;
@@ -366,8 +366,8 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             /**
              * evaluate with mResult as numeric
              */
-            MathEvaluator.newInstance(getActivity()).setFraction(false);
-            MathEvaluator.newInstance(getActivity()).evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
+            MathEvaluator.getInstance().setFraction(false);
+            MathEvaluator.getInstance().evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
                 @Override
                 public void onEvaluated(String expr, String result, int errorResourceId) {
                     if (errorResourceId == LogicEvaluator.RESULT_OK) {

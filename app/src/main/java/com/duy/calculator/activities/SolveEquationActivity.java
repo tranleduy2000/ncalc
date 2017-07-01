@@ -21,20 +21,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
-import android.util.Log;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.SolveItem;
+import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.SolveItem;
 import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+
+import java.util.ArrayList;
 
 import static com.duy.calculator.R.string.solve;
 
@@ -44,7 +44,7 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
         View.OnClickListener {
     private static final String STARTED = SolveEquationActivity.class.getName() + "started";
 
-    SharedPreferences preferences;
+    protected SharedPreferences preferences;
     private boolean isDataNull = true;
 
     @Override
@@ -64,12 +64,12 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
         boolean isStarted = preferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) mInputFormula.setText("2x^2 + 3x + 1");
-            showHelp();
+            clickHelp();
         }
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
         final SharedPreferences.Editor editor = preferences.edit();
         TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.input_equation),
@@ -98,12 +98,12 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
             @Override
             public void onSequenceCanceled(TapTarget lastTarget) {
-                doEval();
+                clickEvaluate();
             }
         });
         sequence.start();
@@ -119,10 +119,10 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
                 mInputFormula.setText(data);
-                data = new Tokenizer(this).getNormalExpression(data);
+                data = new Tokenizer().getNormalExpression(data);
                 isDataNull = false;
                 if (!data.isEmpty()) {
-                    new TaskSolve().execute(new SolveItem(data));
+                    clickEvaluate();
                 } else {
                     //
                 }
@@ -130,60 +130,36 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
         }
     }
 
-
     @Override
     public int getIdStringHelp() {
         return R.string.help_solve_equation;
     }
 
+    @Override
+    protected String getExpression() {
+        String expr = mInputFormula.getCleanText();
+        SolveItem solveItem = new SolveItem(expr);
+        return solveItem.getInput();
+    }
 
     @Override
-    public void doEval() {
-        String inp = mInputFormula.getCleanText();
-        if (inp.isEmpty()) {
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                String fraction = MathEvaluator.getInstance().solveEquation(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
 
-        SolveItem item = new SolveItem(inp);
-        TaskSolve solve = new TaskSolve();
-        solve.execute(item);
+                String decimal = MathEvaluator.getInstance().solveEquation(input,
+                        config.setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
+            }
+        };
     }
 
-
-    /**
-     * clickSolveEquation equation with activity
-     */
-    public class TaskSolve extends ATaskEval {
-
-        @Override
-        protected ItemResult doInBackground(ExprInput... aExprInputs) {
-            SolveItem item = (SolveItem) aExprInputs[0];
-            if (ConfigApp.DEBUG) Log.d(TAG, "doInBackground: " + item.getInput());
-            if (!item.getExpr().contains("x")) {
-                return new ItemResult(item.toString(),
-                        getString(R.string.not_variable), LogicEvaluator.RESULT_FAILED);
-            }
-            //check error
-            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
-                return new ItemResult(item.getExpr(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getExpr()),
-                        LogicEvaluator.RESULT_ERROR);
-            }
-
-            final ItemResult[] res = new ItemResult[1];
-            MathEvaluator.newInstance(getApplicationContext()).solveEquation(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-        }
-    }
 }

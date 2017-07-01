@@ -23,16 +23,16 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.FactorExpressionItem;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
+import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+
+import java.util.ArrayList;
 
 /**
  * Created by Duy on 19/7/2016
@@ -62,12 +62,12 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         boolean isStarted = preferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) mInputFormula.setText("x^4 - 1");
-            showHelp();
+            clickHelp();
         }
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
         final SharedPreferences.Editor editor = preferences.edit();
         //if is not start
 
@@ -98,7 +98,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
             @Override
@@ -119,113 +119,42 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
                 mInputFormula.setText(data);
-                data = new Tokenizer(this).getNormalExpression(data);
+                data = new Tokenizer().getNormalExpression(data);
                 isDataNull = false;
-                new FactorExpressionTask().execute(new FactorExpressionItem((data)));
+                clickEvaluate();
             }
         }
     }
 
 
-    /**
-     * convert expression to english
-     */
     @Override
-    public void doEval() {
-        String inp = mInputFormula.getCleanText();
-        if (inp.isEmpty()) {
-//            showDialog(getString(R.string.input_expression));
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
-
-        new FactorExpressionTask().execute(new FactorExpressionItem(mInputFormula.getCleanText()));
-
-    }
-
-
-    protected class FactorExpressionTask extends ATaskEval {
-
-        @Override
-        protected ItemResult doInBackground(ExprInput... aExprInputs) {
-            FactorExpressionItem item = (FactorExpressionItem) aExprInputs[0];
-            //check error
-            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getExpr())) {
-                return new ItemResult(item.getExpr(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
-            }
-
-            final ItemResult[] res = new ItemResult[1];
-            MathEvaluator.newInstance(getApplicationContext())
-                    .factorPolynomial(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
                 }
+                String factorStr = "Factor(" + input + ", GaussianIntegers->True)";
 
-                        @Override
-                        public void onCalculateError(Exception e) {
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
 
-                        }
-                    });
-            return res[0];
-//            //task 2
-//            try {
-//                SolveItem solveItem = new SolveItem(item.getInput(), Constants.ZERO);
-//                IExpr iExpr = BigEvaluator.newInstance(getApplicationContext()).getEvalUtilities().evaluate(solveItem.getInput());
-//                String s1 = iExpr.toString();
-//                Log.d(TAG, "doInBackground: " + s1);
-//                if (s1.contains(Constants.SOLVE)) {
-//                    throw new Exception("Can not find root of equation " + solveItem.toString());
-//                }
-//                //{{x -> 1}, {x -> 2}}
-//                s1 = s1.trim();
-//                s1 = s1.substring(1);
-//                s1 = s1.substring(0, s1.length() - 1);
-//                String[] roots = s1.split(",");
-//                StringBuilder mExpression = new StringBuilder();
-//                for (int i = 0; i < roots.length; i++) {
-//                    String r = roots[i];
-//                    r = r.trim();
-//                    r = r.replace("{", "(").replace("}", ")").replace("x->", "");
-//                    roots[i] = r;
-//
-//                    Log.d(TAG, "r = " + r);
-//
-//                    mExpression.append("(").append("x").append("-");
-//                    mExpression.append(r).append(")");
-//                    if (i == roots.length - 1) {
-////                        mExpression.append("*");
-//                    } else {
-//                        mExpression.append("*");
-//                    }
-//                }
-//                Log.i(TAG, "doInBackground: " + mExpression.toString());
-//
-//                boolean last = BigEvaluator.newInstance(getApplicationContext()).isFraction();
-//                BigEvaluator.newInstance(getApplicationContext()).setFraction(true);
-//                BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex(mExpression.toString(), new LogicEvaluator.EvaluateCallback() {
-//                    @Override
-//                    public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
-//                        res[0] += Constants.WEB_SEPARATOR;
-//                        res[0] += mResult;
-//                    }
-//                });
-//
-//                BigEvaluator.newInstance(getApplicationContext()).setFraction(false);
-//                BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex(mExpression.toString(), new LogicEvaluator.EvaluateCallback() {
-//                    @Override
-//                    public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
-//                        res[0] += Constants.WEB_SEPARATOR;
-//                        res[0] += mResult;
-//                    }
-//                });
-//                BigEvaluator.newInstance(getApplicationContext()).setFraction(last);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            return res[0];
-        }
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
+            }
+        };
     }
+
+
 }

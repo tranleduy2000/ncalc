@@ -33,7 +33,7 @@ public abstract class AbstractCalculatorActivity extends AbstractNavDrawerAction
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTokenizer = new Tokenizer(this);
+        mTokenizer = new Tokenizer();
     }
 
 

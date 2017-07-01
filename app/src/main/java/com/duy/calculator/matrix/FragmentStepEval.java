@@ -123,7 +123,7 @@ public class FragmentStepEval extends AppCompatDialogFragment {
         @Override
         protected ArrayList<StepItem> doInBackground(String... params) {
             Log.d(TAG, "doInBackground() called with: params = [" + Arrays.toString(params) + "]");
-            MathEvaluator evaluator = MathEvaluator.newInstance(getContext());
+            MathEvaluator evaluator = MathEvaluator.getInstance();
             return evaluator.getStep(params[0]);
         }
 

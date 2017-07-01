@@ -47,7 +47,7 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
             highlight(getEditableText());
         }
     };
-    private KeywordAdapter mAdapter;
+    private SuggestAdapter mAdapter;
 
     public AutoCompleteFunctionEditText(Context context) {
         super(context);
@@ -69,7 +69,7 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
             String[] keyWords = Patterns.KEY_WORDS;
             ArrayList<String> data = new ArrayList<>();
             Collections.addAll(data, keyWords);
-            mAdapter = new KeywordAdapter(getContext(), R.layout.list_item_suggest, data);
+            mAdapter = new SuggestAdapter(getContext(), R.layout.list_item_suggest, data);
             setAdapter(mAdapter);
             setTokenizer(new FunctionTokenizer());
             setThreshold(1);
@@ -77,7 +77,7 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
         }
     }
 
-    public void setOnHelpListener(KeywordAdapter.OnSuggestionListener onHelpListener) {
+    public void setOnHelpListener(SuggestAdapter.OnSuggestionListener onHelpListener) {
         mAdapter.setOnSuggestionListener(onHelpListener);
     }
 

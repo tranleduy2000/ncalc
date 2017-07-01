@@ -25,16 +25,17 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.CombinationItem;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.PermutationItem;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.Constants;
-import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.CombinationItem;
+import com.duy.calculator.item_math_type.PermutationItem;
+import com.duy.calculator.utils.ConfigApp;
+
+import java.util.ArrayList;
 
 /**
  * Created by DUy on 06-Jan-17.
@@ -72,7 +73,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             finish();
             return;
         }
-        evaluator = MathEvaluator.newInstance(this);
+        evaluator = MathEvaluator.getInstance();
         btnSolve.setText(R.string.eval);
 
         mHint2.setVisibility(View.VISIBLE);
@@ -92,7 +93,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
                 mInputFormula.setText("100");
                 mInputDisplay2.setText("20");
             }
-            showHelp();
+            clickHelp();
         }
 
     }
@@ -109,7 +110,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
                 if (num2 == null) return;
                 mInputDisplay2.setText(num2);
                 isDataNull = false;
-                doEval();
+                clickEvaluate();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -122,7 +123,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
 
     }
 
@@ -131,16 +132,17 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         int id = view.getId();
         switch (id) {
             case R.id.btn_solve:
-                doEval();
+                clickEvaluate();
                 break;
             case R.id.btn_clear:
-                super.onClear();
+                super.clickClear();
                 break;
         }
     }
 
     @Override
-    public void doEval() {
+    public void clickEvaluate() {
+        super.clickEvaluate();
 
         String inp = mInputFormula.getCleanText();
         //check empty input
@@ -165,7 +167,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
                 Toast.makeText(this, item.getError(evaluator, getApplicationContext()), Toast.LENGTH_SHORT).show();
                 return; // return if input error
             }
-            new TaskPermutation().execute(item); //execute task to evaluate
+//            new TaskPermutation().execute(item); //execute task to evaluate
         } else {
             CombinationItem item = new CombinationItem(mInputFormula.getCleanText(),
                     mInputDisplay2.getCleanText());
@@ -173,35 +175,37 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
                 Toast.makeText(this, item.getError(evaluator, getApplicationContext()), Toast.LENGTH_SHORT).show();
                 return;
             }
-            new TaskPermutation().execute(item);
+//            new TaskPermutation().execute(item);
         }
     }
 
 
-    private class TaskPermutation extends ATaskEval {
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String primitiveStr = "Integrate(" + input + ",x)";
+// TODO: 30-Jun-17  trig
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
 
-        @Override
-        protected ItemResult doInBackground(ExprInput... params) {
-            PermutationItem item = (PermutationItem) params[0];
-            //check error
-            if (evaluator.isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), evaluator.getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
             }
-
-            final ItemResult[] res = new ItemResult[1];
-            evaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-        }
+        };
     }
 }

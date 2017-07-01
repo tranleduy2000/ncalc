@@ -80,7 +80,7 @@ public abstract class AbstractFragment extends Fragment
         mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         mSetting = new CalculatorSetting(mPreferences, mContext);
 
-        mTokenizer = new Tokenizer(mContext);
+        mTokenizer = new Tokenizer();
 
 
     }
@@ -97,16 +97,16 @@ public abstract class AbstractFragment extends Fragment
      */
     protected void setModeFraction() {
         try {
-            MathEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
+            MathEvaluator.getInstance().setFraction(mSetting.useFraction());
             SwitchCompat switchCompat = (SwitchCompat) getActivity().findViewById(R.id.sw_fraction);
             switchCompat.setChecked(mSetting.useFraction());
-            MathEvaluator.newInstance(getActivity()).setFraction(mSetting.useFraction());
+            MathEvaluator.getInstance().setFraction(mSetting.useFraction());
             switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked != mSetting.useFraction()) {
                         mSetting.setFraction(isChecked);
-                        MathEvaluator.newInstance(getActivity()).setFraction(isChecked);
+                        MathEvaluator.getInstance().setFraction(isChecked);
                     }
                     onChangeModeFraction();
                 }

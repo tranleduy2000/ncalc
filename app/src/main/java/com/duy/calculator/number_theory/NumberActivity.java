@@ -21,9 +21,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.NumberIntegerItem;
-import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.NumberIntegerItem;
+
+import java.util.ArrayList;
 
 /**
  * Number activity
@@ -79,7 +83,8 @@ public class NumberActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void doEval() {
+    public void clickEvaluate() {
+        super.clickEvaluate();
         if (mInputFormula.getCleanText().isEmpty()) {
             mInputFormula.setError(getString(R.string.please_enter_number));
             return;
@@ -106,7 +111,7 @@ public class NumberActivity extends AbstractEvaluatorActivity {
                 break;
         }
         //disable fraction mode
-        MathEvaluator.newInstance(this).setFraction(true);
+        MathEvaluator.getInstance().setFraction(true);
         //create new task eval and exec it with NumberIntegerItem
         new ATaskEval().execute(item);
     }
@@ -117,7 +122,37 @@ public class NumberActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
 
+    }
+
+
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String primitiveStr = "Integrate(" + input + ",x)";
+// TODO: 30-Jun-17  trig
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
+
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
+            }
+        };
     }
 }

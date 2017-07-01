@@ -36,9 +36,9 @@ public abstract class LogicEvaluator {
     private final Evaluator mEvaluator;
     private String TAG = LogicEvaluator.class.getName();
 
-    public LogicEvaluator(Tokenizer tokenizer) {
+    public LogicEvaluator() {
         mEvaluator = new Evaluator();
-        mTokenizer = tokenizer;
+        mTokenizer = new Tokenizer();
     }
 
     public Tokenizer getTokenizer() {

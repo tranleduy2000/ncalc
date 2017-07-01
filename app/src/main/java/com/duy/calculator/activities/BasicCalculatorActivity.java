@@ -61,8 +61,8 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.history.HistoryActivity;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.DerivativeItem;
+import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.NumberIntegerItem;
 import com.duy.calculator.item_math_type.SolveItem;
 import com.duy.calculator.settings.SettingsActivity;
@@ -152,8 +152,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mEvaluator = MathEvaluator.newInstance(this);
-        mEvaluator.loadSetting();
+        mEvaluator = MathEvaluator.getInstance();
 
         setContentView(R.layout.activity_basic_calculator);
         bindView();
@@ -1035,7 +1034,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     }
                 });
             } else if (params[0].getClass().equals(SolveItem.class)) {
-                mEvaluator.solveEquation(expr, new LogicEvaluator.EvaluateCallback() {
+                /*mEvaluator.solveEquation(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
                     public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
@@ -1045,9 +1044,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     public void onCalculateError(Exception e) {
 
                     }
-                });
+                });*/
             } else if (params[0].getClass().equals(DerivativeItem.class)) {
-                mEvaluator.derivativeFunction(expr, new LogicEvaluator.EvaluateCallback() {
+                /*mEvaluator.derivativeFunction(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
                     public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
@@ -1057,7 +1056,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     public void onCalculateError(Exception e) {
 
                     }
-                });
+                });*/
+                // TODO: 30-Jun-17  solve
             } else {
                 mEvaluator.evaluateWithResultAsTex(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
@@ -1074,11 +1074,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             return res[0];
         }
 
-
         @Override
         protected void onPostExecute(final String s) {
             super.onPostExecute(s);
-            Log.d(TAG, "onPostExecute: done " + s);
             mMathView.setText(s);
             handler.postDelayed(new Runnable() {
                 @Override

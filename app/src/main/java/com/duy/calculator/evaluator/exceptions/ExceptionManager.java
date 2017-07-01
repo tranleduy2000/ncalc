@@ -19,7 +19,6 @@ package com.duy.calculator.evaluator.exceptions;
 import android.content.Context;
 
 import com.duy.calculator.R;
-import com.duy.calculator.evaluator.LogicEvaluator;
 
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -27,39 +26,20 @@ import org.matheclipse.parser.client.math.MathException;
 /**
  * Created by Duy on 30-Jun-17.
  */
-
 public class ExceptionManager {
 
 
     /**
      * get exception message
-     *
-     * @param e          - Exception
-     * @param isFraction - mode is fraction or real,
-     *                   if is mode fraction input look like 2/3 + 1/2 + error ...
-     *                   else input look like N(...)
-     * @return String Object
      */
-    public static String getExceptionMessage(Context context, Exception e, boolean isFraction) {
+    public static String getExceptionMessage(Context context, Exception e) {
+        // TODO: 30-Jun-17  uses eval config
         if (e instanceof SyntaxError) {
-            SyntaxError syntaxError = (SyntaxError) e;
-            String res = syntaxError.getCurrentLine();
-            int index = syntaxError.getStartOffset();
-            try {
-                //set selected handler error
-                if (res.length() > 0) {
-                    res = res.substring(0, index) + // text before error
-                            LogicEvaluator.ERROR_INDEX_STRING + "" +
-                            res.substring(index, res.length()); //text after error
-                } else res = "";
-                //if not use fraction, remove N()
-                if (!isFraction) {
-                    res = res.substring(2, res.length() - 1);
-                }
-                return res;
-            } catch (Exception ex) {
-                return "";
-            }
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("<h3>").append(context.getString(R.string.syntax_error))
+                    .append("</h3>").append(context.getString(R.string.reason))
+                    .append("</br>").append(e.getMessage());
+
         } else if (e instanceof MathException) {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("<h3>").append(context.getString(R.string.math_error))

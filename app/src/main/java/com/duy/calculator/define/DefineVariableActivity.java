@@ -130,9 +130,7 @@ public class DefineVariableActivity extends AbstractAppCompatActivity {
             Log.d(TAG, "doSave: " + e.getName() + e.getValue());
             if (mEvaluator.isNumber(e.getValue()) && !e.getName().isEmpty()) {
                 mEvaluator.define(e.getName(), e.getValue());
-//                mHistoryDatabase.addVariable(e.getName(), e.getValue());
             } else {
-                // Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
             }
         }
 

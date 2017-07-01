@@ -99,7 +99,7 @@ public class FormatExpression {
      * @return - math language
      */
     public static String cleanExpression(String expr, Context context) {
-        return cleanExpression(expr, new Tokenizer(context));
+        return cleanExpression(expr, new Tokenizer());
     }
 
     /**

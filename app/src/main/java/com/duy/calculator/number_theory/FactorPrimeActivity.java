@@ -24,16 +24,16 @@ import android.text.InputType;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.NumberIntegerItem;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.utils.ConfigApp;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.activities.BasicCalculatorActivity;
+import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+
+import java.util.ArrayList;
 
 /**
  * Created by DUy on 06-Jan-17.
@@ -60,7 +60,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
             if (isDataNull) {
                 mInputFormula.setText("102013124");
             }
-            showHelp();
+            clickHelp();
         }
 
        setAutoEval();
@@ -83,7 +83,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
             public void afterTextChanged(Editable editable) {
                 if (editable.toString().length() <= 10
                         && editable.toString().length() >= 1) {
-                    BigEvaluator.newInstance(getApplicationContext()).evaluateWithResultAsTex("FactorInteger(" +
+                    BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex("FactorInteger(" +
                             mInputFormula.getCleanText() + ")", new LogicEvaluator.EvaluateCallback() {
                         @Override
                         public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
@@ -105,7 +105,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
         final SharedPreferences.Editor editor = mPreferences.edit();
         TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.enter_number),
@@ -135,7 +135,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
             @Override
@@ -151,10 +151,10 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         int id = view.getId();
         switch (id) {
             case R.id.btn_solve:
-                doEval();
+                clickEvaluate();
                 break;
             case R.id.btn_clear:
-                super.onClear();
+                super.clickClear();
                 break;
         }
     }
@@ -171,50 +171,39 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
             if (data != null) {
                 mInputFormula.setText(data);
                 isDataNull = false;
-                doEval();
+                clickEvaluate();
             }
         }
     }
+
 
 
     @Override
-    public void doEval() {
-        String inp = mInputFormula.getCleanText();
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String primitiveStr = "Integrate(" + input + ",x)";
+// TODO: 30-Jun-17  trig
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
 
-        //check empty input
-        if (inp.isEmpty()) {
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
-        new FactorTask().execute(new NumberIntegerItem(mInputFormula.getCleanText()));
-    }
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
 
-    protected class FactorTask extends ATaskEval {
-
-        @Override
-        protected ItemResult doInBackground(ExprInput... aExprInputs) {
-            NumberIntegerItem item = (NumberIntegerItem) aExprInputs[0];
-            //check error
-            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
             }
-
-            final ItemResult[] res = new ItemResult[1];
-            MathEvaluator.newInstance(getApplicationContext()).factorPrime(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-        }
+        };
     }
-
 }

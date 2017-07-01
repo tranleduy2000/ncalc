@@ -22,15 +22,20 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.duy.calculator.R;
+import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.FormatExpression;
+import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.IntegrateItem;
 import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.evaluator.FormatExpression;
-import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.utils.ConfigApp;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+
+import java.util.ArrayList;
 
 /**
  * Integrate(f(x), {x, a, b})
@@ -61,7 +66,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
                 editFrom.setText("sqrt(2)/2");
                 editTo.setText("1");
             }
-            showHelp();
+            clickHelp();
         }
 
     }
@@ -77,7 +82,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
             if (data != null) {
                 mInputFormula.setText(data);
                 isDataNull = false;
-                doEval();
+                clickEvaluate();
             }
         }
     }
@@ -89,7 +94,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
         final SharedPreferences.Editor editor = mPreferences.edit();
         TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.enter_function),
@@ -138,7 +143,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
             @Override
@@ -151,7 +156,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
 
     //evaluate
     @Override
-    public void doEval() {
+    public void clickEvaluate() {
         String inp = mInputFormula.getCleanText();
 
         //check empty input
@@ -184,36 +189,34 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         new ATaskEval().execute(integrateItem);
     }
 
-    /**
-     * task for evaluate anti derivative
-     */
-    protected class TaskIntegrate extends ATaskEval {
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String factorStr = "Int(" + input + ")";
 
-        @Override
-        protected ItemResult doInBackground(ExprInput... aExprInputs) {
-            ExprInput item = aExprInputs[0];
-            //check error
-            if (mEvaluator.isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), mEvaluator.getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
+
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
             }
-
-            final ItemResult[] res = new ItemResult[1];
-            mEvaluator.integrateFunction(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-
-        }
-
+        };
     }
+
 
 }

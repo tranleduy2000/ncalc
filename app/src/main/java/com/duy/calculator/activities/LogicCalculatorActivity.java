@@ -90,7 +90,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         public void afterTextChanged(Editable editable) {
             setState(LogicCalculatorActivity.CalculatorState.INPUT);
             Log.d(TAG, mInputDisplay.getCleanText());
-            MathEvaluator.newInstance(getApplicationContext()).evaluateBase(mInputDisplay.getCleanText(), LogicCalculatorActivity.this);
+            MathEvaluator.getInstance().evaluateBase(mInputDisplay.getCleanText(), LogicCalculatorActivity.this);
         }
     };
     private NumberBaseManager mBaseManager;
@@ -116,7 +116,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         mInputDisplay.setFormatText(false);
 
         txtResult = (TextView) findViewById(R.id.txtResult);
-        mBaseManager = new NumberBaseManager(MathEvaluator.newInstance(getApplicationContext()).getSolver().getBase());
+        mBaseManager = new NumberBaseManager(MathEvaluator.getInstance().getSolver().getBase());
         initPad();
 
 
@@ -180,15 +180,15 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     public void onPause() {
         super.onPause();
-        Base base = MathEvaluator.newInstance(getApplicationContext()).getSolver().getBase();
-        int iBase = MathEvaluator.newInstance(getApplicationContext()).getSolver().getBaseModule().getBaseNumber(base);
+        Base base = MathEvaluator.getInstance().getSolver().getBase();
+        int iBase = MathEvaluator.getInstance().getSolver().getBaseModule().getBaseNumber(base);
         mSetting.put(CalculatorSetting.BASE, iBase);
         mSetting.put(CalculatorSetting.INPUT_BASE, mInputDisplay.getCleanText());
     }
 
     public void setBase(final Base base) {
         mBaseManager.setNumberBase(base);
-        MathEvaluator.newInstance(getApplicationContext()).setBase(mInputDisplay.getCleanText(), base, new LogicEvaluator.EvaluateCallback() {
+        MathEvaluator.getInstance().setBase(mInputDisplay.getCleanText(), base, new LogicEvaluator.EvaluateCallback() {
             @Override
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 if (errorResourceId == LogicEvaluator.RESULT_ERROR) {
@@ -211,7 +211,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
 
     private void updateUI() {
         Log.d(TAG, "updateUI: ");
-        setSelectionButton(MathEvaluator.newInstance(getApplicationContext()).getSolver().getBase());
+        setSelectionButton(MathEvaluator.getInstance().getSolver().getBase());
         for (int id : mBaseManager.getViewIds()) {
             final View view = findViewById(id);
             if (view != null) {
@@ -256,7 +256,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
 
     @Override
     public void onResult(final String result) {
-        Log.d(TAG, "doEval " + result);
+        Log.d(TAG, "clickEvaluate " + result);
         final float resultScale =
                 mInputDisplay.getTextSize() / txtResult.getTextSize();
         final float resultTranslationX = (1.0f - resultScale) *
@@ -444,7 +444,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         String text = mInputDisplay.getCleanText();
         if (mCurrentState == LogicCalculatorActivity.CalculatorState.INPUT) {
             setState(LogicCalculatorActivity.CalculatorState.EVALUATE);
-            MathEvaluator.newInstance(getApplicationContext()).evaluateBase(text, this);
+            MathEvaluator.getInstance().evaluateBase(text, this);
         }
     }
 

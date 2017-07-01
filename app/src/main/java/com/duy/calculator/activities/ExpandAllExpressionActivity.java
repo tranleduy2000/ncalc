@@ -23,16 +23,16 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.ExpressionItem;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
+import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+
+import java.util.ArrayList;
 
 /**
  * Created by Duy on 19/7/2016
@@ -61,12 +61,12 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
         boolean isStarted = preferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) mInputFormula.setText("(x + 2a)^8");
-            showHelp();
+            clickHelp();
         }
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
         //if is not start
         final SharedPreferences.Editor editor = preferences.edit();
         TapTarget target0 = TapTarget.forView(mInputFormula,
@@ -95,7 +95,7 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
             @Override
@@ -104,6 +104,36 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
             }
         });
         sequence.start();
+    }
+
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                StringBuilder diffStr = new StringBuilder();
+                diffStr.append("ExpandAll(").append(input).append(")");
+
+                String fraction = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
+                        EvaluateConfig.loadFromSetting(ExpandAllExpressionActivity.this)
+                                .setEvalMode(EvaluateConfig.FRACTION));
+
+                String decimal = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
+                        EvaluateConfig.loadFromSetting(ExpandAllExpressionActivity.this)
+                                .setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
+            }
+        };
     }
 
     /**
@@ -116,53 +146,10 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
                 mInputFormula.setText(data);
-                data = new Tokenizer(this).getNormalExpression(data);
+                data = new Tokenizer().getNormalExpression(data);
                 isDataNull = false;
-                new ExpandTask().execute(new ExpressionItem(data));
+                clickEvaluate();
             }
-        }
-    }
-
-
-    @Override
-    public void doEval() {
-        String inp = mInputFormula.getCleanText();
-        if (inp.isEmpty()) {
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
-        new ExpandTask().execute(new ExpressionItem(inp));
-    }
-
-    private class ExpandTask extends ATaskEval {
-
-        @Override
-        protected ItemResult doInBackground(ExprInput... params) {
-            ExprInput item = params[0];
-            //check error
-            if (MathEvaluator.newInstance(getApplicationContext())
-                    .isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(),
-                        MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
-            }
-
-            final ItemResult[] res = new ItemResult[1];
-            MathEvaluator.newInstance(getApplicationContext())
-                    .expandAll(item.getInput(),
-                            new LogicEvaluator.EvaluateCallback() {
-                                @Override
-                                public void onEvaluated(String expr, String result, int errorResourceId) {
-                                    res[0] = new ItemResult(expr, result, errorResourceId);
-                                }
-
-                                @Override
-                                public void onCalculateError(Exception e) {
-
-                                }
-                            });
-            return res[0];
         }
     }
 

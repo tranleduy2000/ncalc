@@ -27,6 +27,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.ContentLoadingProgressBar;
@@ -44,18 +45,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.R;
 import com.duy.calculator.adapters.ResultAdapter;
 import com.duy.calculator.document.DialogFragmentHelpFunction;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.BaseThread;
+import com.duy.calculator.evaluator.thread.CalculateThread;
+import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.history.ResultEntry;
 import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ResizingEditText;
 import com.duy.calculator.view.RevealView;
-import com.duy.calculator.view.math_editor.KeywordAdapter;
+import com.duy.calculator.view.math_editor.SuggestAdapter;
+
+import java.util.ArrayList;
 
 
 /**
@@ -64,28 +72,11 @@ import com.duy.calculator.view.math_editor.KeywordAdapter;
  * Created by Duy on 19/7/2016
  */
 public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionBarActivity
-        implements View.OnClickListener, KeywordAdapter.OnSuggestionListener {
-    private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
-        @Override
-        public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-            switch (keyCode) {
-                case KeyEvent.KEYCODE_NUMPAD_ENTER:
-                case KeyEvent.KEYCODE_ENTER:
-                    if (keyEvent.getAction() == KeyEvent.ACTION_UP) {
-                        doEval();
-                    }
-                    return true;
-            }
-            return false;
-        }
-    };
+        implements View.OnClickListener, SuggestAdapter.OnSuggestionListener {
     protected String TAG = AbstractEvaluatorActivity.class.getName();
-
     protected EditText editFrom, editTo;
     protected LinearLayout mLayoutLimit;
     protected SharedPreferences mPreferences;
-
-
     protected Handler handler = new Handler();
     protected Button btnSolve;
     protected ResizingEditText mInputFormula;
@@ -99,6 +90,21 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     protected TextInputLayout mHint2;
     protected RecyclerView rcResult;
     private ResultAdapter resultAdapter;
+    private CalculatorPresenter mPresenter;
+    private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
+        @Override
+        public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_NUMPAD_ENTER:
+                case KeyEvent.KEYCODE_ENTER:
+                    if (keyEvent.getAction() == KeyEvent.ACTION_UP) {
+                        clickEvaluate();
+                    }
+                    return true;
+            }
+            return false;
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -168,7 +174,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
-
     /**
      * animate ripple, only support lollipop device
      *
@@ -234,7 +239,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         playAnimatior(revealAnimator);
     }
 
-
     /**
      * show ripple animate when user click button eval
      */
@@ -250,7 +254,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             }
         }, true);
     }
-
 
     /**
      * show dialog with title and messenger
@@ -269,45 +272,89 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     @Override
     public void onClick(View v) {
-        Log.d(TAG, "onClick: " + v.getId());
+        Log.d(TAG, "onClick() called with: v = [" + v + "]");
+
         switch (v.getId()) {
             case R.id.btn_clear:
-                onClear();
+                clickClear();
                 break;
             case R.id.btn_solve:
-                doEval();
+                clickEvaluate();
                 break;
             case R.id.fab_help:
-                showHelp();
+                clickHelp();
                 break;
 
         }
     }
 
-    /**
-     * clear text
-     */
-    public void onClear() {
+    public void clickClear() {
         mInputFormula.setText("");
-
-        if (editFrom.isShown() && editFrom.isEnabled()) editFrom.setText("");
-        if (editTo.isShown()) editTo.setText("");
+        editFrom.setText("");
+        editTo.setText("");
         mInputDisplay2.setText("");
     }
 
-
-    /***
-     * method for evalute input
-     */
-    public abstract void doEval();
-
     /**
-     * insert text to display, text on recycler view
-     *
-     * @param text
+     * Evaluate expression
      */
-    public void insertTextDisplay(String text) {
-        mInputFormula.insert(text);
+    @CallSuper
+    public void clickEvaluate() {
+        //if input empty, do not evaluate
+        if (mInputFormula.getText().toString().isEmpty()) {
+            mInputFormula.requestFocus();
+            mInputFormula.setError(getString(R.string.enter_expression));
+            return;
+        }
+
+        String expr = getExpression();
+        Command<ArrayList<String>, String> command = getCommand();
+
+        mProgress.show();
+        btnSolve.setEnabled(false);
+        btnClear.setEnabled(false);
+        hideKeyboard();
+        resultAdapter.clear();
+
+        CalculateThread calculateThread = new CalculateThread(mPresenter,
+                EvaluateConfig.loadFromSetting(this), new BaseThread.ResultCallback() {
+            @Override
+            public void onSuccess(ArrayList<String> result) {
+                Log.d(TAG, "onSuccess() called with: result = [" + result + "]");
+
+                mProgress.hide();
+                btnSolve.setEnabled(true);
+                btnClear.setEnabled(true);
+
+                for (String entry : result) {
+                    resultAdapter.addItem(new ResultEntry("", entry));
+                }
+
+                if (resultAdapter.getItemCount() > 0) {
+                    rcResult.scrollToPosition(0);
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.d(TAG, "onError() called with: e = [" + e + "]");
+
+                handleExceptions(e);
+                mProgress.hide();
+                btnSolve.setEnabled(true);
+                btnClear.setEnabled(true);
+            }
+        });
+        calculateThread.execute(command, expr);
+    }
+
+    private void handleExceptions(Exception e) {
+        e.printStackTrace();
+        // TODO: 30-Jun-17 handle expception
+    }
+
+    protected String getExpression() {
+        return mInputFormula.getCleanText();
     }
 
     /**
@@ -320,10 +367,10 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     /**
      * show target helper
      */
-    public abstract void showHelp();
+    public abstract void clickHelp();
 
     protected void onChangeModeFraction() {
-        doEval();
+        clickEvaluate();
     }
 
     @Override
@@ -332,6 +379,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         dialogFragmentHelp.show(getSupportFragmentManager(), DialogFragmentHelpFunction.TAG);
     }
 
+    @Nullable
+    public abstract Command<ArrayList<String>, String> getCommand();
 
     /**
      * class for eval extend AsyncTask
@@ -346,7 +395,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mEvaluator = MathEvaluator.newInstance(getApplicationContext());
+            mEvaluator = MathEvaluator.getInstance();
             mProgress.show();
             btnSolve.setEnabled(false);
             btnClear.setEnabled(false);
@@ -363,8 +412,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
             //check error
             if (mEvaluator.isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), mEvaluator.getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
+//                return new ItemResult(item.getInput(), mEvaluator.getError(item.getInput()),
+//                        LogicEvaluator.RESULT_ERROR);
             }
 
             final ItemResult[] res = new ItemResult[1];
@@ -385,22 +434,19 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         @Override
         protected void onPostExecute(final ItemResult s) {
             super.onPostExecute(s);
-            Log.d(TAG, "onPostExecute: " + s.toString());
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mProgress.hide();
                     btnSolve.setEnabled(true);
                     btnClear.setEnabled(true);
-
-//                    resultAdapter.addItem(new HistoryEntry("$$" + s.mExpression + "$$", s.mResult));
                     resultAdapter.addItem(new ResultEntry("", s.mResult));
-                    if (resultAdapter.getItemCount() > 0)
+                    if (resultAdapter.getItemCount() > 0) {
                         rcResult.scrollToPosition(0);
+                    }
                 }
             }, 300);
         }
-
     }
 
 

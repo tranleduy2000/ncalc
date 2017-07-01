@@ -26,13 +26,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.DerivativeItem;
-import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
@@ -78,7 +76,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) mInputFormula.setText("sqrt(x) + ln(x)");
-            showHelp();
+            clickHelp();
         }
     }
 
@@ -93,14 +91,14 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
             if (data != null) {
                 mInputFormula.setText(data);
                 isDataNull = false;
-                doEval();
+                clickEvaluate();
             }
         }
     }
 
     @Override
-    public void showHelp() {
-        Log.d(TAG, "showHelp: ");
+    public void clickHelp() {
+        Log.d(TAG, "clickHelp: ");
         final SharedPreferences.Editor editor = mPreferences.edit();
         TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.enter_function),
@@ -139,7 +137,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
 
@@ -147,10 +145,38 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
             public void onSequenceCanceled(TapTarget lastTarget) {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
         });
         sequence.start();
+    }
+
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                StringBuilder diffStr = new StringBuilder();
+                diffStr.append("D(").append(input).append(",{x,")
+                        .append(mSpinner.getSelectedItem().toString()).append("})");
+                String fraction = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
+                        EvaluateConfig.loadFromSetting(DerivativeActivity.this).setEvalMode(EvaluateConfig.FRACTION));
+
+                String decimal = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
+                        EvaluateConfig.loadFromSetting(DerivativeActivity.this).setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
+            }
+        };
     }
 
 
@@ -159,31 +185,12 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
         int id = view.getId();
         switch (id) {
             case R.id.btn_solve:
-                doEval();
+                clickEvaluate();
                 break;
             case R.id.btn_clear:
-                super.onClear();
+                super.clickClear();
                 break;
         }
-    }
-
-
-    @Override
-    public void doEval() {
-        String inp = mInputFormula.getCleanText();
-
-        //if input empty, do not evaluate
-        if (inp.isEmpty()) {
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
-        DerivativeItem item = new DerivativeItem(
-                mInputFormula.getCleanText(),
-                "x",
-                mSpinner.getSelectedItem().toString()
-        );
-        new TaskDerivative().execute(item);
     }
 
 
@@ -192,31 +199,4 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
         return R.string.help_derivative;
     }
 
-    /**
-     * task for evaluate derivative
-     */
-    protected class TaskDerivative extends ATaskEval {
-
-        @Override
-        protected ItemResult doInBackground(ExprInput... aExprInputs) {
-            DerivativeItem item = (DerivativeItem) aExprInputs[0];
-            if (MathEvaluator.newInstance(getApplicationContext()).isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
-            }
-            final ItemResult[] res = new ItemResult[1];
-            MathEvaluator.newInstance(getApplicationContext()).derivativeFunction(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-        }
-    }
 }

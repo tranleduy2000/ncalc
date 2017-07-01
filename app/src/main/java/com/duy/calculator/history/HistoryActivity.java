@@ -57,7 +57,7 @@ public class HistoryActivity extends AbstractAppCompatActivity implements Histor
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Tokenizer tokenizer = new Tokenizer(this);
+        Tokenizer tokenizer = new Tokenizer();
 
         mHistoryAdapter = new HistoryAdapter(this, tokenizer);
         mHistoryAdapter.setListener(this);

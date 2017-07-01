@@ -19,18 +19,19 @@ package com.duy.calculator.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.LimitItem;
-import com.duy.calculator.evaluator.FormatExpression;
-import com.duy.calculator.tokenizer.Tokenizer;
-import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+
+import java.util.ArrayList;
 
 /**
  * Created by DUy on 07-Dec-16.
@@ -66,7 +67,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
                 mInputFormula.setText("1/x + 2");
                 editTo.setText("inf");
             }
-            showHelp();
+            clickHelp();
         }
 
     }
@@ -81,22 +82,10 @@ public class LimitActivity extends AbstractEvaluatorActivity {
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
                 mInputFormula.setText(data);
-                data = new Tokenizer(this).getNormalExpression(data);
-                data = getExpression(data);
                 isDataNull = false;
-//                onResult(data, false);
+                clickEvaluate();
             }
         }
-    }
-
-    private String getExpression(String inp) {
-        inp = FormatExpression.cleanExpression(inp, this);
-        String params = "x";
-        String limit = editTo.getText().toString();
-        String expression = "Limit(" + inp + "," + params + "-> " + limit + ")";
-        expression = expression.toLowerCase();
-        Log.d(TAG, "getExpression: " + expression);
-        return expression;
     }
 
     @Override
@@ -105,7 +94,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
         final SharedPreferences.Editor editor = mPreferences.edit();
         TapTarget target0 = TapTarget.forView(mInputFormula,
                 getString(R.string.enter_function));
@@ -141,41 +130,46 @@ public class LimitActivity extends AbstractEvaluatorActivity {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
 
             @Override
             public void onSequenceCanceled(TapTarget lastTarget) {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                doEval();
+                clickEvaluate();
             }
         });
         sequence.start();
     }
 
     @Override
-    public void doEval() {
-        String inp = mInputFormula.getCleanText();
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String factorStr = "Int(" + input + ")";
+                // TODO: 30-Jun-17 limit
 
-        if (inp.isEmpty()) {
-//            showDialog(getString(R.string.input_expression));
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_function));
-            return;
-        }
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
 
-        String to = editTo.getText().toString();
-        if (to.isEmpty()) {
-//            showDialog(getString(R.string.enter_to));
-            editTo.requestFocus();
-            editTo.setError(getString(R.string.error));
-            return;
-        }
-        LimitItem item = new LimitItem(mInputFormula.getCleanText(),
-                "", editTo.getText().toString());
-        new ATaskEval().execute(item);
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
+
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
+            }
+        };
     }
-
-
 }

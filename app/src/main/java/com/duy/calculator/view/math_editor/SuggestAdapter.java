@@ -35,7 +35,7 @@ import java.util.ArrayList;
  * Created by Duy on 23-May-17.
  */
 
-public class KeywordAdapter extends ArrayAdapter<String> {
+public class SuggestAdapter extends ArrayAdapter<String> {
     @NonNull
     private final Context context;
     private LayoutInflater inflater;
@@ -78,7 +78,7 @@ public class KeywordAdapter extends ArrayAdapter<String> {
         }
     };
 
-    public KeywordAdapter(@NonNull Context context, @LayoutRes int resource, ArrayList<String> items) {
+    public SuggestAdapter(@NonNull Context context, @LayoutRes int resource, ArrayList<String> items) {
         super(context, resource, items);
         this.context = context;
         this.items = items;
@@ -92,7 +92,7 @@ public class KeywordAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_item_suggest, parent, false);
         }
-        TextView txtName = (TextView) convertView.findViewById(R.id.txt_name);
+        TextView txtName = convertView.findViewById(R.id.txt_name);
         txtName.setText(items.get(position));
         View btnInfo = convertView.findViewById(R.id.img_info);
         btnInfo.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +124,5 @@ public class KeywordAdapter extends ArrayAdapter<String> {
 
     public interface OnSuggestionListener {
         void onShowInfo(String key);
-
     }
 }

@@ -23,14 +23,14 @@ import android.text.InputType;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
-import com.duy.calculator.item_math_type.ModuleItem;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.utils.ConfigApp;
+
+import java.util.ArrayList;
 
 /**
  * Created by DUy on 06-Jan-17.
@@ -66,7 +66,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
                 mInputFormula.setText("100");
                 mInputDisplay2.setText("20");
             }
-            showHelp();
+            clickHelp();
         }
 
     }
@@ -83,7 +83,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
                 if (num2 == null) return;
                 mInputDisplay2.setText(num2);
                 isDataNull = false;
-                doEval();
+                clickEvaluate();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -96,83 +96,38 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void showHelp() {
+    public void clickHelp() {
 
     }
+
 
     @Override
-    public void onClick(View view) {
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @Override
+            public ArrayList<String> execute(String input) {
+                //if input empty, do not evaluate
+                if (input.isEmpty()) {
+                    mInputFormula.requestFocus();
+                    mInputFormula.setError(getString(R.string.enter_expression));
+                    return null;
+                }
+                String primitiveStr = "Integrate(" + input + ",x)";
+// TODO: 30-Jun-17  trig
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.FRACTION));
 
-        int id = view.getId();
-        switch (id) {
-            case R.id.btn_solve:
-                doEval();
-                break;
-            case R.id.btn_clear:
-                super.onClear();
-                break;
-        }
-    }
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                        EvaluateConfig.loadFromSetting(getApplicationContext())
+                                .setEvalMode(EvaluateConfig.DECIMAL));
 
-    @Override
-    public void doEval() {
-
-        String inp = mInputFormula.getCleanText();
-        //check empty input
-        if (inp.isEmpty()) {
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
-
-        if (mInputDisplay2.getCleanText().isEmpty()) {
-            mInputDisplay2.requestFocus();
-            mInputDisplay2.setError(getString(R.string.enter_expression));
-            return;
-        }
-        if (type == TYPE_PERMUTATION) {
-            new TaskModule().execute(new ModuleItem(mInputFormula.getCleanText(),
-                    mInputDisplay2.getCleanText()));
-        } else {
-            new TaskModule().execute(new ModuleItem(mInputFormula.getCleanText(),
-                    mInputDisplay2.getCleanText()));
-        }
-    }
-
-
-    protected class TaskModule extends ATaskEval {
-
-        MathEvaluator bigEvaluator;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            bigEvaluator = MathEvaluator.newInstance(getApplicationContext()).getEvaluator();
-            bigEvaluator.setFraction(true);
-        }
-
-        @Override
-        protected ItemResult doInBackground(ExprInput... params) {
-            ModuleItem item = (ModuleItem) params[0];
-            //check error
-            if (bigEvaluator.isSyntaxError(item.getInput())) {
-                return new ItemResult(item.getInput(), MathEvaluator.newInstance(getApplicationContext()).getError(item.getInput()),
-                        LogicEvaluator.RESULT_ERROR);
+                ArrayList<String> result = new ArrayList<>();
+                result.add(fraction);
+                result.add(decimal);
+                return result;
             }
-
-            final ItemResult[] res = new ItemResult[1];
-            bigEvaluator.evaluateWithResultAsTex(item.getInput(), new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = new ItemResult(expr, result, errorResourceId);
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-        }
+        };
     }
+
 }

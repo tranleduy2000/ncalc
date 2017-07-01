@@ -71,7 +71,7 @@ public class DialogFragmentHelpFunction extends AppCompatDialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        MarkdownView markdownView = (MarkdownView) view.findViewById(R.id.markdown_view);
+        MarkdownView markdownView = view.findViewById(R.id.markdown_view);
         String key = getArguments().getString("key");
         if (key != null) {
             new LoadDataTask(markdownView, getContext().getAssets()).execute(key);
