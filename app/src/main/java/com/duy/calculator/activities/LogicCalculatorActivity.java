@@ -162,6 +162,9 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
             case 16:
                 setBase(Base.HEXADECIMAL);
                 break;
+            default:
+                setBase(Base.DECIMAL);
+                break;
         }
         mInputDisplay.setText(mSetting.getString(CalculatorSetting.INPUT_BASE));
         txtResult.setText(mSetting.getString(CalculatorSetting.RESULT_BASE));
