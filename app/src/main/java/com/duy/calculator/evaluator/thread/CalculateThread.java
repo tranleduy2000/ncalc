@@ -26,7 +26,8 @@ import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
-import static android.os.Process.*;
+import static android.os.Process.THREAD_PRIORITY_MORE_FAVORABLE;
+import static android.os.Process.setThreadPriority;
 
 /**
  * Created by Duy on 24-Jun-17.
@@ -51,7 +52,7 @@ public class CalculateThread extends BaseThread {
         Command<ArrayList<String>, String> task = new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                return Lists.newArrayList(MathEvaluator.getInstance().evaluateWithResultAsTex(input));
+                return Lists.newArrayList(MathEvaluator.getInstance().evaluateWithResultAsTex(input, config));
             }
         };
 

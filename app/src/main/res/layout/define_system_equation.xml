@@ -136,7 +136,7 @@
                     android:minHeight="200dp">
 
 
-                    <io.github.kexanie.library.MathView
+                    <com.duy.calculator.view.MathFormulaView
                         android:id="@+id/math_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

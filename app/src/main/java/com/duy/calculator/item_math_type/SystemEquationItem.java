@@ -140,14 +140,14 @@ public class SystemEquationItem extends ExprInput {
     }
 
     @Override
-    public String getError(MathEvaluator evaluator, Context applicationContext) {
+    public String getError(MathEvaluator evaluator, Context context) {
         if (define) {
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     if (evaluator.isSyntaxError(matrix[i][j])) {
                         Log.d(TAG, "getError: " + matrix[i][j]);
                         return
-                                "<h2>" + applicationContext.getString(R.string.error)
+                                "<h2>" + context.getString(R.string.error)
                                         + "[" + (i + 1) + "," + (j + 1) + "]" + "</h2>";
                     }
                 }
@@ -155,7 +155,7 @@ public class SystemEquationItem extends ExprInput {
         } else {
             for (int i = 0; i < equations.size(); i++) {
                 if (evaluator.isSyntaxError(equations.get(i))) {
-                    return "<h2>" + applicationContext.getString(R.string.error)
+                    return "<h2>" + context.getString(R.string.error)
                             + " " + equations.get(i);
                 }
             }

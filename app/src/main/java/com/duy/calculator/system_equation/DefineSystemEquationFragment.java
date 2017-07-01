@@ -16,6 +16,7 @@
 
 package com.duy.calculator.system_equation;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,15 +37,19 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.SystemEquationItem;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.AbstractFragment;
+import com.duy.calculator.R;
+import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.ResultCallback;
+import com.duy.calculator.item_math_type.SystemEquationItem;
 import com.duy.calculator.view.ResizingEditText;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Pattern;
 
@@ -153,7 +158,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
         @IdRes int index = 1;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                EditText editText = (EditText) mContainer.findViewById(index);
+                EditText editText = mContainer.findViewById(index);
                 String s = editText.getText().toString();
                 if (s.isEmpty()) s = "0";
                 index++;
@@ -181,19 +186,37 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
 
         if (var.length != numOfVariable) {
             editVar.requestFocus();
-            editVar.setError("Number variable is " + numOfVariable
-                    + ". But current number variable is " + var.length);
-            Toast.makeText(mContext, "Number variable is " + numOfVariable
-                    + ". But current number variable is " + var.length, Toast.LENGTH_SHORT).show();
+            String msg = "Number variable is " + numOfVariable
+                    + ". But current number variable is " + var.length;
+            editVar.setError(msg);
+            Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
             return;
         }
 
         for (int i = 0; i < numOfVariable; i++) {
             var[i] = String.valueOf(defaultVariable[i]);
         }
-        SystemEquationItem item = new
-                SystemEquationItem(numOfVariable, numOfVariable + 1, arr, var);
-        new TaskSolveSystemEquation().execute(item);
+        mProgressBar.setVisibility(View.VISIBLE);
+        mMathView.setText("");
+        SystemEquationItem item = new SystemEquationItem(numOfVariable, numOfVariable + 1, arr, var);
+        TaskSolveSystemEquation task = new TaskSolveSystemEquation(new ResultCallback() {
+            @Override
+            public void onSuccess(ArrayList<String> result) {
+                mProgressBar.setVisibility(GONE);
+                StringBuilder res = new StringBuilder();
+                for (String s : result) {
+                    res.append(s).append("</br>").append(Constants.WEB_SEPARATOR);
+                }
+                mMathView.setText(res.toString());
+            }
+
+            @Override
+            public void onError(Exception e) {
+                mProgressBar.setVisibility(GONE);
+                mMathView.setText(e.getMessage());
+            }
+        }, getContext());
+        task.execute(item);
     }
 
     private void showHelp() {
@@ -344,49 +367,48 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
     /**
      * clickSolveEquation system equation
      */
-    private class TaskSolveSystemEquation
-            extends AsyncTask<SystemEquationItem, Void, String> {
+    private class TaskSolveSystemEquation extends AsyncTask<SystemEquationItem, Void, ArrayList<String>> {
+        private ResultCallback resultCallback;
+        private Context context;
+        private Exception exception = null;
+
+        public TaskSolveSystemEquation(ResultCallback resultCallback, Context context) {
+            this.resultCallback = resultCallback;
+            this.context = context;
+        }
+
         @Override
-        protected String doInBackground(SystemEquationItem... params) {
+        protected ArrayList<String> doInBackground(SystemEquationItem... params) {
             String input = params[0].getInput();
-            Log.d(TAG, "doInBackground: " + input);
 
             if (params[0].isError(MathEvaluator.getInstance())) {
-                Log.e(TAG, "doInBackground: input error");
-                return params[0].getError(MathEvaluator.getInstance(), mContext);
+                String msg = params[0].getError(MathEvaluator.getInstance(), context);
+                exception = new RuntimeException(msg);
+                return null;
             }
 
-            final String[] res = {getString(R.string.error)};
-            MathEvaluator.getInstance().solveSystemEquation(input,
-                    new LogicEvaluator.EvaluateCallback() {
-                        @Override
-                        public void onEvaluated(String expr, String result, int errorResourceId) {
-                            if (errorResourceId == LogicEvaluator.RESULT_OK)
-                                res[0] = result;
-                        }
-
-                        @Override
-                        public void onCalculateError(Exception e) {
-
-                        }
-                    });
-            Log.d(TAG, "doInBackground: result = " + res[0]);
-            return res[0];
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mProgressBar.setVisibility(View.VISIBLE);
-            mMathView.setText("");
+            EvaluateConfig config = EvaluateConfig.loadFromSetting(context);
+            try {
+                String fraction = MathEvaluator.getInstance()
+                        .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.FRACTION), context);
+                String decimal = MathEvaluator.getInstance()
+                        .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.DECIMAL), context);
+                return Lists.newArrayList(fraction, decimal);
+            } catch (Exception e) {
+                this.exception = e;
+            }
+            return null;
         }
 
 
         @Override
-        protected void onPostExecute(String aVoid) {
-            super.onPostExecute(aVoid);
-            mProgressBar.setVisibility(GONE);
-            mMathView.setText(aVoid);
+        protected void onPostExecute(ArrayList<String> result) {
+            super.onPostExecute(result);
+            if (exception != null) {
+                resultCallback.onError(exception);
+            } else {
+                resultCallback.onSuccess(result);
+            }
         }
     }
 

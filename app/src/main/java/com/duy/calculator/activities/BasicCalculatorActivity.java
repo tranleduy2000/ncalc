@@ -631,8 +631,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             setState(BasicCalculatorActivity.CalculatorState.ERROR);
             setTextError(result);
         }
-
-
     }
 
     public void copyText() {
@@ -656,7 +654,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * clickSolveEquation equation
      */
     public void clickSolveEquation() {
-
         String inp = mTokenizer.getNormalExpression(mInputDisplay.getCleanText());
         if (inp.isEmpty()) {
             Toast.makeText(this, R.string.enter_expression, Toast.LENGTH_SHORT).show();
@@ -1020,58 +1017,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         protected String doInBackground(ExprInput... params) {
             ExprInput item = params[0];
             String expr = item.getInput();
-            final String[] res = {""};
-            if (params[0].getClass().equals(NumberIntegerItem.class)) {
-                /*mEvaluator.factorPrime(expr, new LogicEvaluator.EvaluateCallback() {
-                    @Override
-                    public void onEvaluated(String expr, String result, int errorResourceId) {
-                        res[0] = result;
-                    }
 
-                    @Override
-                    public void onCalculateError(Exception e) {
-
-                    }
-                });*/
-            } else if (params[0].getClass().equals(SolveItem.class)) {
-                /*mEvaluator.solveEquation(expr, new LogicEvaluator.EvaluateCallback() {
-                    @Override
-                    public void onEvaluated(String expr, String result, int errorResourceId) {
-                        res[0] = result;
-                    }
-
-                    @Override
-                    public void onCalculateError(Exception e) {
-
-                    }
-                });*/
-            } else if (params[0].getClass().equals(DerivativeItem.class)) {
-                /*mEvaluator.derivativeFunction(expr, new LogicEvaluator.EvaluateCallback() {
-                    @Override
-                    public void onEvaluated(String expr, String result, int errorResourceId) {
-                        res[0] = result;
-                    }
-
-                    @Override
-                    public void onCalculateError(Exception e) {
-
-                    }
-                });*/
-                // TODO: 30-Jun-17  solve
-            } else {
-                mEvaluator.evaluateWithResultAsTex(expr, new LogicEvaluator.EvaluateCallback() {
-                    @Override
-                    public void onEvaluated(String expr, String result, int errorResourceId) {
-                        res[0] = result;
-                    }
-
-                    @Override
-                    public void onCalculateError(Exception e) {
-
-                    }
-                });
-            }
-            return res[0];
+            EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+            return MathEvaluator.getInstance().evaluateWithResultAsTex(expr, config);
         }
 
         @Override

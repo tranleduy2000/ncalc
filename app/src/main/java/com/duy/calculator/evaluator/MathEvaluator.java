@@ -16,6 +16,7 @@
 
 package com.duy.calculator.evaluator;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.duy.calculator.DLog;
@@ -33,7 +34,6 @@ import org.matheclipse.parser.client.math.MathException;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.regex.Pattern;
 
 import static com.duy.calculator.evaluator.FormatExpression.clean;
 import static com.duy.calculator.evaluator.Utility.isAcceptResultDecimal;
@@ -349,9 +349,7 @@ public class MathEvaluator extends LogicEvaluator {
         if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
             exprStr = "N(" + exprStr + ")";
         }
-        StringWriter writer = new StringWriter();
-        TEX_ENGINE.toTeX(EVAL_ENGINE.evaluate(exprStr), writer);
-        return "$$" + writer + "$$";
+        return LaTexFactory.toLaTeX(EVAL_ENGINE.evaluate(exprStr));
     }
 
     /**
@@ -383,32 +381,11 @@ public class MathEvaluator extends LogicEvaluator {
 
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < listRoot.size(); i++) {
-            result.append(evaluateWithResultAsTex(listRoot.get(i)));
+            result.append(evaluateWithResultAsTex(listRoot.get(i), config));
         }
         return result.toString();
     }
 
-    /**
-     * convert math text to latex
-     *
-     * @param expr - input
-     * @return - out
-     */
-    public String evaluateWithResultAsTex(String expr) {
-        final String[] res = new String[1];
-        evaluateWithResultAsTex(expr, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                res[0] = result;
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-        return res[0];
-    }
 
     /**
      * convert math text to latex
@@ -550,82 +527,35 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     /**
-     * Solve system equations and return string result, and real, and fraction
-     *
-     * @param expr     - input -> Solve({2x^2 + y == 0, x + 2y == -1},{x, y});
-     * @param callback - callback for finish evaluate
+     * Solve system equations and return string result
      */
-    public void solveSystemEquation(String expr, final EvaluateCallback callback) {
-        Log.d(TAG, "solveEquation: " + expr);
-        boolean last = isFraction;
-        setFraction(true);
-
-        final String[] temp = new String[]{""};
-        final boolean[] hasNext = {true};
-        //result as fraction
-        evaluateWithResultNormal(expr, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(final String input, String result, final int resultState) {
-                if (resultState == LogicEvaluator.RESULT_OK) {
-                    temp[0] = result;
-                    Log.d(TAG, "onEvaluated: " + result);
-                } else {
-                    //return error
-                    callback.onEvaluated(input, result, LogicEvaluator.RESULT_ERROR);
-                    hasNext[0] = false;
-                }
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-
-        if (!hasNext[0]) return;
-        if (temp[0].toLowerCase().contains("solve")) {
-            String c = getString(R.string.not_find_root);
-            callback.onEvaluated(expr, c, RESULT_OK);
-            return;
-            //return if EvalEngine can not find solution of the equation
-            //solve(x^1/3 = - 1)
-        } else if (temp[0].contains("{}")) {
-            String c = getString(R.string.no_root);
-            callback.onEvaluated(expr, c, RESULT_OK);
-            return; //return if the equation no root
+    public String solveSystemEquation(String expr, EvaluateConfig config, Context context) {
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+            expr = "N(" + expr + ")";
         }
-
-        //if input can eval and result
-        //process data fraction
-        String sCopy = temp[0];
-        DLog.i("solve result = " + sCopy);
-        /*
-         * solve({2x^2 + y ==0, x + 2y == -1}, {x, y})
-         * {{x->1/8-Sqrt(17)/8,y->-9/16+Sqrt(17)/16},{x->1/8+Sqrt(17)/8,y->-9/16-Sqrt(17)/16}}
-         */
-        ArrayList<String> result = new ArrayList<>();
-        String[] s1 = sCopy.split(Pattern.quote("},{"));
+        IExpr result = evaluate(expr);
+        if (result.toString().toLowerCase().contains("solve")) {
+            return context.getString(R.string.not_find_root);
+        } else if (result.toString().equalsIgnoreCase("{}")) {
+            return context.getString(R.string.no_root);
+        }
+        return LaTexFactory.toLaTeX(result);
+       /* ArrayList<String> listRoots = new ArrayList<>();
+        String[] s1 = result.split(Pattern.quote("},{"));
         for (int i = 0; i < s1.length; i++) {
             s1[i] = s1[i].replace("{", "").replace("}", "").replace("->", "==");
             String[] s2 = s1[i].split(Pattern.quote(","));
             for (int j = 0; j < s2.length; j++) {
-                Log.d(TAG, "solveSystemEquation: " + s2[j]);
-                result.add(s2[j]);
+                listRoots.add(s2[j]);
             }
-        }
-
-        String b = "";
-        //call back feedback, result ok
-        for (int i = 0; i < result.size(); i++) {
-            b += evaluateWithResultAsTex(result.get(i));
-        }
-        b += Constants.WEB_SEPARATOR;
-        setFraction(false);
-        for (int i = 0; i < result.size(); i++) {
-            b += evaluateWithResultAsTex(result.get(i));
-        }
-        setFraction(last);
-        callback.onEvaluated(expr, b, RESULT_OK);
+        }*/
+/*
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < listRoots.size(); i++) {
+            builder.append(evaluateWithResultAsTex(listRoots.get(i), config)).append(" ");
+        }*/
+    /*    Log.d(TAG, "solveSystemEquation() returned: " + builder);
+        return builder.toString();*/
     }
 
     /**
@@ -649,94 +579,6 @@ public class MathEvaluator extends LogicEvaluator {
         }
     }
 
-    /**
-     * expands out all positive integer powers and products of sums in input.
-     */
-    public void expandAll(String input, final EvaluateCallback callback) {
-        boolean last = isFraction;
-        setFraction(true);
-        final String[] res = new String[1];
-        evaluateWithResultAsTex("ExpandAll(" + input + ")", new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                res[0] = result;
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-        res[0] += Constants.WEB_SEPARATOR;
-        setFraction(false);
-        evaluateWithResultAsTex("ExpandAll(" + input + ")", new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                res[0] += result;
-                callback.onEvaluated(expr, res[0], errorResourceId);
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-        setFraction(last);
-    }
-
-    public void simplifyExpression(String input, final EvaluateCallback callback) {
-        boolean last = isFraction;
-        setFraction(true);
-        final String[] res = new String[1];
-        evaluateWithResultAsTex(input, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                res[0] = result;
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-        res[0] += Constants.WEB_SEPARATOR;
-        setFraction(false);
-        evaluateWithResultAsTex(input, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                res[0] += result;
-                callback.onEvaluated(expr, res[0], errorResourceId);
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-        setFraction(last);
-    }
-
-    public void minimizeBoolean(String expression, final EvaluateCallback callback) {
-        boolean last = isFraction;
-        setFraction(true);
-        expression = "BooleanMinimize(" + expression + ")";
-
-        evaluateWithResultAsTex(expression, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                callback.onEvaluated(expr, result, errorResourceId);
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-    }
-
-    public void integrateFunction(String input, EvaluateCallback callback) {
-        simplifyExpression(input, callback);
-    }
 
     /**
      * @param expression: input expression

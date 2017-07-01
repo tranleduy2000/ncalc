@@ -107,7 +107,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     @BindView(R.id.rc_result)
     RecyclerView rcResult;
 
-    // TODO: 23-Feb-17 View for hand write
     private MathWidget mMathWidget; //math widget
     private SlidingUpPanelLayout mSlidingUpPanel; //slide for scroll mathWidget
     private FloatingActionButton btnHelp; //

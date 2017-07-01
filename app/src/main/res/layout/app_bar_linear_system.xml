@@ -21,7 +21,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
     android:orientation="vertical"
-    tools:context=".core.system_equation.SystemEquationFragment">
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:fitsSystemWindows="false"
-            app:layout_scrollFlags="scroll|snap|enterAlways" />
+         />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tab"
