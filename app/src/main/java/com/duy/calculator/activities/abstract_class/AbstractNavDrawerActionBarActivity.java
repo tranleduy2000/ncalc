@@ -40,7 +40,7 @@ import com.duy.calculator.activities.LogicCalculatorActivity;
 import com.duy.calculator.activities.PrimitiveActivity;
 import com.duy.calculator.activities.SimplifyEquationActivity;
 import com.duy.calculator.activities.SolveEquationActivity;
-import com.duy.calculator.activities.StatisticActivity;
+import com.duy.calculator.deprecated.StatisticActivity;
 import com.duy.calculator.converter.UnitConverterParentAcitvity;
 import com.duy.calculator.document.DocumentActivity;
 import com.duy.calculator.document.InfoActivity;

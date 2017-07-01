@@ -1022,7 +1022,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             String expr = item.getInput();
             final String[] res = {""};
             if (params[0].getClass().equals(NumberIntegerItem.class)) {
-                mEvaluator.factorPrime(expr, new LogicEvaluator.EvaluateCallback() {
+                /*mEvaluator.factorPrime(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override
                     public void onEvaluated(String expr, String result, int errorResourceId) {
                         res[0] = result;
@@ -1032,7 +1032,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     public void onCalculateError(Exception e) {
 
                     }
-                });
+                });*/
             } else if (params[0].getClass().equals(SolveItem.class)) {
                 /*mEvaluator.solveEquation(expr, new LogicEvaluator.EvaluateCallback() {
                     @Override

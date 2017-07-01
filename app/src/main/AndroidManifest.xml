@@ -122,7 +122,7 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.StatisticActivity"
+            android:name=".deprecated.StatisticActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />

@@ -524,39 +524,29 @@ public class MathEvaluator extends LogicEvaluator {
     /**
      * factor prime number
      */
-    public void factorPrime(String input, EvaluateCallback callback) {
-        boolean last = isFraction();
-        setFraction(true);
-        String s = evaluateWithResultNormal("FactorInteger(" + input + ")");
-        if (s.toLowerCase().contains("FactorInteger".toLowerCase())) {
-            callback.onEvaluated(input, getString(R.string.cannot_factor), RESULT_FAILED);
-            return;
+    public String factorPrime(String input) {
+        String s = EVAL_ENGINE.evaluate("FactorInteger(" + input + ")").toString();
+        if (s.toLowerCase().contains("factorinteger")) {
+            return input;
         }
-        DLog.i("Factor prime: " + s);
 
-        s = s.replace(" ", "");
-        int j;
-        j = 1;
-        String result = "";
-        for (int i = 1; //{{7,1},{1427,1}}
-             i < s.length() - 1;
-             i++) {
+        s = s.replaceAll("\\s+", "");
+        int j = 1;
+        StringBuilder result = new StringBuilder();
+        for (int i = 1; i < s.length() - 1; i++) {
             if (s.charAt(i) == '}') {
                 String tmp = s.substring(j + 1, i);
                 j = i + 2;
                 i += 2;
-                DLog.i(tmp);
                 String arr[] = tmp.split(",");
-                result += arr[0];
-                result += "^{" + arr[1] + "}";
-                result += "\\times "; //character mutiply
+                result.append(arr[0]);
+                result.append("^{").append(arr[1]).append("}");
+                result.append("\\times "); //character mutiply
             }
         }
-        result = result.substring(0, result.length() - "\\times ".length()); //remove dot
-        result = "$$=" + result + "$$"; //add input 12 = 2^2 * 3
-        callback.onEvaluated(input, result, RESULT_OK);
-        DLog.i("factor prime: " + result);
-        setFraction(last);
+        result.delete(result.length() - "\\times ".length(), result.length()); //remove dot
+        result.insert(0, "$$=").append("$$");
+        return result.toString();
     }
 
     /**

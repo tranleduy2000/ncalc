@@ -21,17 +21,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.InputType;
-import android.view.View;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
-import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -63,40 +62,6 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
             clickHelp();
         }
 
-       setAutoEval();
-    }
-
-    private void setAutoEval() {
-        //auto eval
-      /*  mInputFormula.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.toString().length() <= 10
-                        && editable.toString().length() >= 1) {
-                    BigEvaluator.getInstance(getApplicationContext()).evaluateWithResultAsTex("FactorInteger(" +
-                            mInputFormula.getCleanText() + ")", new LogicEvaluator.EvaluateCallback() {
-                        @Override
-                        public void onEvaluated(String mExpression, String mResult, int errorResourceId) {
-                            if (errorResourceId == LogicEvaluator.RESULT_OK) {
-//                                mMathView.setText(mResult);
-                            }
-                        }
-                    });
-                }
-//                else mMathView.setText("");
-            }
-        });
-*/
     }
 
     @Override
@@ -146,20 +111,6 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         sequence.start();
     }
 
-    @Override
-    public void onClick(View view) {
-        int id = view.getId();
-        switch (id) {
-            case R.id.btn_solve:
-                clickEvaluate();
-                break;
-            case R.id.btn_clear:
-                super.clickClear();
-                break;
-        }
-    }
-
-
     /**
      * get data from activity start it
      */
@@ -176,28 +127,13 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         }
     }
 
-
-
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-
-                String primitiveStr = "Integrate(" + input + ",x)";
-// TODO: 30-Jun-17  trig
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
-
-                ArrayList<String> result = new ArrayList<>();
-                result.add(fraction);
-                result.add(decimal);
-                return result;
+                String fraction = MathEvaluator.getInstance().factorPrime(input);
+                return Lists.newArrayList(fraction);
             }
         };
     }

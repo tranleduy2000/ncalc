@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.activities;
+package com.duy.calculator.deprecated;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,7 +31,6 @@ import android.widget.TextView;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.abstract_class.AbstractNavDrawerActionBarActivity;
 import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.deprecated.StatisticFragment;
 import com.duy.calculator.utils.ColorUtil;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
