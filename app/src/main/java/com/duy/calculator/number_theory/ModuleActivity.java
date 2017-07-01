@@ -28,7 +28,9 @@ import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.ModuleItem;
 import com.duy.calculator.utils.ConfigApp;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -100,27 +102,28 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
 
     }
 
+    @Override
+    protected String getExpression() {
+        String numberA = mInputFormula.getCleanText();
+        if (mInputDisplay2.getCleanText().isEmpty()) {
+            mInputDisplay2.requestFocus();
+            mInputDisplay2.setError(getString(R.string.enter_expression));
+            return null;
+        }
+        String numberB = mInputDisplay2.getCleanText();
+        return new ModuleItem(numberA, numberB).getInput();
+
+    }
 
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-
-                String primitiveStr = "Integrate(" + input + ",x)";
-// TODO: 30-Jun-17  trig
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         EvaluateConfig.loadFromSetting(getApplicationContext())
                                 .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
-
-                ArrayList<String> result = new ArrayList<>();
-                result.add(fraction);
-                result.add(decimal);
-                return result;
+                return Lists.newArrayList(fraction);
             }
         };
     }

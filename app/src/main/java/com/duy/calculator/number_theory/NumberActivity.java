@@ -26,6 +26,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.item_math_type.NumberIntegerItem;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -83,37 +84,29 @@ public class NumberActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public void clickEvaluate() {
-        super.clickEvaluate();
-        if (mInputFormula.getCleanText().isEmpty()) {
-            mInputFormula.setError(getString(R.string.please_enter_number));
-            return;
-        }
-        String input = mInputFormula.getCleanText();
-        NumberIntegerItem item = new NumberIntegerItem(input);
+    protected String getExpression() {
+        String number = mInputFormula.getCleanText();
+        NumberIntegerItem item = new NumberIntegerItem(number);
         switch (type) {
             case NumberType.CATALAN:
-                item.setCmd(NumberType.CATALAN_CMD);
+                item.setFunction(NumberType.CATALAN_CMD);
                 break;
             case NumberType.FIBONACCI:
-                item.setCmd(NumberType.FIBONACCI_CMD);
+                item.setFunction(NumberType.FIBONACCI_CMD);
                 break;
             case NumberType.PRIME:
-                item.setCmd(NumberType.PRIME_CMD);
+                item.setFunction(NumberType.PRIME_CMD);
                 break;
             case NumberType.GCD:
-                item.setCmd(NumberType.GCD_CMD);
+                item.setFunction(NumberType.GCD_CMD);
                 break;
             case NumberType.LCM:
-                item.setCmd(NumberType.LCM_CMD);
+                item.setFunction(NumberType.LCM_CMD);
                 break;
             default:
                 break;
         }
-        //disable fraction mode
-        MathEvaluator.getInstance().setFraction(true);
-        //create new task eval and exec it with NumberIntegerItem
-        new ATaskEval().execute(item);
+        return item.getInput();
     }
 
     @Override
@@ -126,27 +119,16 @@ public class NumberActivity extends AbstractEvaluatorActivity {
 
     }
 
-
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
 
-                String primitiveStr = "Integrate(" + input + ",x)";
-// TODO: 30-Jun-17  trig
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         EvaluateConfig.loadFromSetting(getApplicationContext())
                                 .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
-
-                ArrayList<String> result = new ArrayList<>();
-                result.add(fraction);
-                result.add(decimal);
-                return result;
+                return Lists.newArrayList(fraction);
             }
         };
     }

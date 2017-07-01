@@ -27,7 +27,7 @@ import com.duy.calculator.evaluator.Constants;
 
 public class NumberIntegerItem extends ExprInput {
     private String number = "";
-    private String cmd = "";
+    private String function = "";
 
     public NumberIntegerItem(String number) {
         this.number = number;
@@ -48,7 +48,7 @@ public class NumberIntegerItem extends ExprInput {
 
     @Override
     public String getInput() {
-        return this.cmd + "(" + number + ")";
+        return this.function + "(" + number + ")";
     }
 
     @Override
@@ -61,11 +61,11 @@ public class NumberIntegerItem extends ExprInput {
         return null;
     }
 
-    public String getCmd() {
-        return cmd;
+    public String getFunction() {
+        return function;
     }
 
-    public void setCmd(String cmd) {
-        this.cmd = cmd;
+    public void setFunction(String cmd) {
+        this.function = cmd;
     }
 }
