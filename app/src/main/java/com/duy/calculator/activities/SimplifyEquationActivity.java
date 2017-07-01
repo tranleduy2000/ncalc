@@ -27,6 +27,7 @@ import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.SimplifyItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
@@ -105,6 +106,12 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
         sequence.start();
     }
 
+    @Override
+    protected String getExpression() {
+        SimplifyItem simplifyItem = new SimplifyItem(mInputFormula.getCleanText());
+        return simplifyItem.getInput();
+    }
+
     /**
      * get data from activity start it
      */
@@ -120,21 +127,18 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
             }
         }
     }
+
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String primitiveStr = "Integrate(" + input + ",x)";
-
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();
                 result.add(fraction);
