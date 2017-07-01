@@ -22,7 +22,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,52 +34,38 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.duy.calculator.CalcApplication;
-import com.duy.calculator.R;
-import com.duy.calculator.evaluator.MathEvaluator;
-import com.duy.calculator.evaluator.Constants;
-import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.AbstractFragment;
+import com.duy.calculator.R;
+import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.BaseThread;
+import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.view.ResizingEditText;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
 import io.github.kexanie.library.MathView;
 
-public class UndefineSystemEquationFragment extends AbstractFragment {
+import static android.view.View.GONE;
+
+public class UndefineSystemEquationFragment extends AbstractFragment implements View.OnClickListener {
     private static final String STARTED = "UndefineSystemEquationFragment";
     private static final String TAG = UndefineSystemEquationFragment.class.getSimpleName();
-    private ProgressBar progressBar;
+    private ProgressBar mProgressBar;
     private SharedPreferences preferences;
     private int mCountView = 0;
     private LinearLayout mContainer;
     private MathView mMathView;
     private Context context;
-    private View.OnClickListener btnSolveClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            if (mContainer.getChildCount() == 0) {
-                Toast.makeText(context, R.string.not_input_equation, Toast.LENGTH_SHORT).show();
-                return;
-            }
-            new TaskSolveSystemEquations((CalcApplication) getActivity().getApplicationContext()).execute();
-            if (mContainer.getChildCount() > 0) {
-                try {
-                    hideKeyboard(mContainer.getChildAt(0));
-                } catch (Exception ignored) {
-                    ignored.printStackTrace();
-                }
-            }
-        }
-    };
+
     private EditText editParams;
     private View.OnClickListener clearClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-//            mContainer.removeAllViews();
             if (!(mCountView > 0)) {
                 return;
             }
@@ -177,8 +162,8 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         mContainer = (LinearLayout) findViewById(R.id.container);
         mMathView = (MathView) findViewById(R.id.math_view);
@@ -204,11 +189,11 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
                 return true;
             }
         });
-        progressBar = (ProgressBar) findViewById(R.id.progressBar2);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar2);
         editParams = (EditText) findViewById(R.id.edit_params);
 
         findViewById(R.id.btn_add).setOnClickListener(btnAddClick);
-        findViewById(R.id.btn_solve).setOnClickListener(btnSolveClick);
+        findViewById(R.id.btn_solve).setOnClickListener(this);
         findViewById(R.id.btn_clear).setOnClickListener(clearClick);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -228,12 +213,11 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
         addParams("3x + 2y = 0");
     }
 
-
     private void showHelp() {
         final SharedPreferences.Editor editor = preferences.edit();
 
         View btnAdd = findViewById(R.id.btn_add);
-        View btnSolve = findViewById(R.id.btn_solve);
+        final View btnSolve = findViewById(R.id.btn_solve);
         View btnClear = findViewById(R.id.btn_clear);
 
         //if is not start
@@ -275,12 +259,12 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
             public void onSequenceFinish() {
                 editor.putBoolean(STARTED, true);
                 editor.apply();
-                new TaskSolveSystemEquations((CalcApplication) getActivity().getApplicationContext()).execute();
+                onClick(btnSolve);
             }
 
             @Override
             public void onSequenceCanceled(TapTarget lastTarget) {
-                new TaskSolveSystemEquations((CalcApplication) getActivity().getApplicationContext()).execute();
+                onClick(btnSolve);
             }
         });
 //        addParams("2x - y = 2");
@@ -288,108 +272,126 @@ public class UndefineSystemEquationFragment extends AbstractFragment {
         sequence.start();
     }
 
-
-    public class TaskSolveSystemEquations extends AsyncTask<Void, Void, String> {
-        private ArrayList<String> arrayList = new ArrayList<>();
-        private StringBuilder equation = new StringBuilder();
-        private boolean isOk = true;
-
-        public TaskSolveSystemEquations(CalcApplication context) {
-            for (int i = 0; i < mContainer.getChildCount(); i++) {
-                ResizingEditText editText = (ResizingEditText) mContainer.getChildAt(i);
-                String exp = editText.getCleanText();
-                exp = mTokenizer.getNormalExpression(exp);
-                exp = replaceEqualSymbol(exp);
-                if (!exp.isEmpty()) arrayList.add(exp);
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.btn_solve) {
+            if (mContainer.getChildCount() == 0) {
+                Toast.makeText(context, R.string.not_input_equation, Toast.LENGTH_SHORT).show();
+                return;
             }
-
-            equation.append("Solve({");
-            for (int i = 0; i < arrayList.size(); i++) {
-                String s = arrayList.get(i);
-                s = replaceEqualSymbol(s);
-                if (i != arrayList.size() - 1) {
-                    equation.append(s);
-                    equation.append(",");
-                } else {
-                    equation.append(s);
-                }
-            }
-            equation.append("}");
-            equation.append(",");
-            equation.append("{").append(editParams.getText().toString()).append("}");
-            equation.append(")");
-        }
-
-        /**
-         * replace equal symbol to symja
-         *
-         * @param s
-         * @return
-         */
-        private String replaceEqualSymbol(String s) {
-            if (!s.contains("=")) s = s + "==0";
-            if (!s.contains("==")) s = s.replace("=", "==");
-            while (s.contains("===")) s = s.replace("===", "==");
-            return s;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        protected String doInBackground(Void... voids) {
-            if (!isOk) return "";
-            String input = equation.toString();
-            Log.d(TAG, input);
-            if (MathEvaluator.getInstance().isSyntaxError(input)) return getString(R.string.error);
-            final String[] res = {""};
-
-            /**
-             * evaluate with mResult as fraction
-             */
-            MathEvaluator.getInstance().setFraction(true);
-            MathEvaluator.getInstance().evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
+            String expression = createExpression();
+            TaskSolveSystemEquation task = new TaskSolveSystemEquation(new BaseThread.ResultCallback() {
                 @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    if (errorResourceId == LogicEvaluator.RESULT_OK) res[0] = result;
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-
-            /**
-             * evaluate with mResult as numeric
-             */
-            MathEvaluator.getInstance().setFraction(false);
-            MathEvaluator.getInstance().evaluateWithResultAsTex(input, new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    if (errorResourceId == LogicEvaluator.RESULT_OK) {
-                        res[0] += Constants.WEB_SEPARATOR;
-                        res[0] += result;
+                public void onSuccess(ArrayList<String> result) {
+                    mProgressBar.setVisibility(GONE);
+                    StringBuilder res = new StringBuilder();
+                    for (String s : result) {
+                        res.append(s).append("</br>").append(Constants.WEB_SEPARATOR);
                     }
+                    mMathView.setText(res.toString());
                 }
 
                 @Override
-                public void onCalculateError(Exception e) {
-
+                public void onError(Exception e) {
+                    mProgressBar.setVisibility(GONE);
+                    mMathView.setText(e.getMessage());
                 }
-            });
-            return res[0];
+            }, getContext());
+            task.execute(expression);
+
+
+            if (mContainer.getChildCount() > 0) {
+                try {
+                    hideKeyboard(mContainer.getChildAt(0));
+                } catch (Exception ignored) {
+                    ignored.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+    private String createExpression() {
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        for (int i = 0; i < mContainer.getChildCount(); i++) {
+            ResizingEditText editText = (ResizingEditText) mContainer.getChildAt(i);
+            String exp = editText.getCleanText();
+            exp = mTokenizer.getNormalExpression(exp);
+            exp = replaceEqualSymbol(exp);
+            if (!exp.isEmpty()) arrayList.add(exp);
+        }
+
+        StringBuilder equation = new StringBuilder();
+        equation.append("Solve({");
+        for (int i = 0; i < arrayList.size(); i++) {
+            String s = arrayList.get(i);
+            s = replaceEqualSymbol(s);
+            if (i != arrayList.size() - 1) {
+                equation.append(s);
+                equation.append(",");
+            } else {
+                equation.append(s);
+            }
+        }
+        equation.append("}");
+        equation.append(",");
+        equation.append("{").append(editParams.getText().toString()).append("}");
+        equation.append(")");
+        return equation.toString();
+    }
+
+    private String replaceEqualSymbol(String s) {
+        if (!s.contains("=")) s = s + "==0";
+        if (!s.contains("==")) s = s.replace("=", "==");
+        while (s.contains("===")) s = s.replace("===", "==");
+        return s;
+    }
+
+    /**
+     * clickSolveEquation system equation
+     */
+    private class TaskSolveSystemEquation extends AsyncTask<String, Void, ArrayList<String>> {
+        private BaseThread.ResultCallback resultCallback;
+        private Context context;
+        private Exception exception = null;
+
+        public TaskSolveSystemEquation(BaseThread.ResultCallback resultCallback, Context context) {
+            this.resultCallback = resultCallback;
+            this.context = context;
         }
 
         @Override
-        protected void onPostExecute(String aVoid) {
-            super.onPostExecute(aVoid);
-            progressBar.setVisibility(View.GONE);
-            Log.d(TAG, "onPostExecute: " + aVoid);
-            mMathView.setText(aVoid.replace("\\to", "="));
+        protected ArrayList<String> doInBackground(String... params) {
+
+            String input = params[0];
+
+            if (MathEvaluator.getInstance().isSyntaxError(input)) {
+                exception = MathEvaluator.getError(input);
+                return null;
+            }
+            EvaluateConfig config = EvaluateConfig.loadFromSetting(context);
+            try {
+                String fraction = MathEvaluator.getInstance()
+                        .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.FRACTION), context);
+                String decimal = MathEvaluator.getInstance()
+                        .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.DECIMAL), context);
+                return Lists.newArrayList(fraction, decimal);
+            } catch (Exception e) {
+                this.exception = e;
+            }
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(ArrayList<String> result) {
+            super.onPostExecute(result);
+            if (exception != null) {
+                resultCallback.onError(exception);
+            } else {
+                resultCallback.onSuccess(result);
+            }
         }
     }
 

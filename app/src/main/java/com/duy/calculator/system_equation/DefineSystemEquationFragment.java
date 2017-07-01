@@ -62,7 +62,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
     private static final String STARTED = DefineSystemEquationFragment.class.getSimpleName() + "started";
     char[] defaultVariable = "xyztuvabcdefgh".toCharArray();
     private RelativeLayout mContainer;
-    private int numOfVariable = 1;
+    private int numberVariable = 1;
     private boolean isDebug = true;
     private Random random = new Random(231378L);
     private Spinner mSpinnerVariable;
@@ -115,9 +115,9 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
         mSpinnerVariable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                int old = numOfVariable;
-                numOfVariable = Integer.parseInt(mSpinnerVariable.getSelectedItem().toString());
-                new CreateMatrixTask(old, old + 1, numOfVariable, numOfVariable + 1, mContainer).execute();
+                int old = numberVariable;
+                numberVariable = Integer.parseInt(mSpinnerVariable.getSelectedItem().toString());
+                new CreateMatrixTask(old, old + 1, numberVariable, numberVariable + 1, mContainer).execute();
             }
 
             @Override
@@ -135,7 +135,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
                 doEval();
                 break;
             case R.id.btn_clear:
-                clear(numOfVariable, numOfVariable + 1);
+                clear(numberVariable, numberVariable + 1);
                 break;
         }
     }
@@ -181,24 +181,24 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
 
 
     public void doEval() {
-        String[][] arr = getMatrix(numOfVariable, numOfVariable + 1);
+        String[][] arr = getMatrix(numberVariable, numberVariable + 1);
         String[] var = editVar.getText().toString().split(Pattern.quote(","));
 
-        if (var.length != numOfVariable) {
+        if (var.length != numberVariable) {
             editVar.requestFocus();
-            String msg = "Number variable is " + numOfVariable
+            String msg = "Number variable is " + numberVariable
                     + ". But current number variable is " + var.length;
             editVar.setError(msg);
             Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        for (int i = 0; i < numOfVariable; i++) {
+        for (int i = 0; i < numberVariable; i++) {
             var[i] = String.valueOf(defaultVariable[i]);
         }
         mProgressBar.setVisibility(View.VISIBLE);
         mMathView.setText("");
-        SystemEquationItem item = new SystemEquationItem(numOfVariable, numOfVariable + 1, arr, var);
+        SystemEquationItem item = new SystemEquationItem(numberVariable, numberVariable + 1, arr, var);
         TaskSolveSystemEquation task = new TaskSolveSystemEquation(new ResultCallback() {
             @Override
             public void onSuccess(ArrayList<String> result) {
@@ -356,9 +356,9 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
             btnClear.setEnabled(true);
             mSpinnerVariable.setEnabled(true);
             String s = "";
-            for (int i = 0; i < numOfVariable; i++) {
+            for (int i = 0; i < numberVariable; i++) {
                 s += defaultVariable[i];
-                if (i != numOfVariable - 1) s += ",";
+                if (i != numberVariable - 1) s += ",";
             }
             editVar.setText(s);
         }

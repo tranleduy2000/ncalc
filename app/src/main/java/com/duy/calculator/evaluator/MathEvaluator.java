@@ -152,6 +152,15 @@ public class MathEvaluator extends LogicEvaluator {
         return TEX_ENGINE;
     }
 
+    public static Exception getError(String expr) {
+        try {
+            EvalEngine.get().parse(expr);
+        } catch (Exception e) {
+            return e;
+        }
+        return null;
+    }
+
     private IExpr evaluate(String exprInput) {
         return EVAL_ENGINE.evaluate(exprInput);
     }
@@ -317,11 +326,11 @@ public class MathEvaluator extends LogicEvaluator {
         return isFraction;
     }
 
+    // TODO: 01-Jul-17 fraction mode
+
     public void setFraction(boolean fraction) {
         isFraction = fraction;
     }
-
-    // TODO: 01-Jul-17 fraction mode
 
     /**
      * return derivative of function
@@ -385,7 +394,6 @@ public class MathEvaluator extends LogicEvaluator {
         }
         return result.toString();
     }
-
 
     /**
      * convert math text to latex
@@ -487,15 +495,6 @@ public class MathEvaluator extends LogicEvaluator {
             return true;
         }
         return false;
-    }
-
-    public Exception getError(String expr) {
-        try {
-            EvalEngine.get().parse(expr);
-        } catch (Exception e) {
-            return e;
-        }
-        return null;
     }
 
     /**
