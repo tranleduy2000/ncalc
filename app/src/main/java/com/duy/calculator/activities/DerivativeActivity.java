@@ -30,6 +30,7 @@ import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.DerivativeItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
@@ -152,23 +153,22 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
+    protected String getExpression() {
+        String expr = mInputFormula.getCleanText();
+        String lever = mSpinner.getSelectedItem().toString();
+        DerivativeItem derivativeItem = new DerivativeItem(expr, "x", lever);
+        return derivativeItem.getInput();
+    }
+
+    @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                //if input empty, do not evaluate
-                if (input.isEmpty()) {
-                    mInputFormula.requestFocus();
-                    mInputFormula.setError(getString(R.string.enter_expression));
-                    return null;
-                }
-                StringBuilder diffStr = new StringBuilder();
-                diffStr.append("D(").append(input).append(",{x,")
-                        .append(mSpinner.getSelectedItem().toString()).append("})");
-                String fraction = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
+                String fraction = MathEvaluator.getInstance().derivativeFunction(input,
                         EvaluateConfig.loadFromSetting(DerivativeActivity.this).setEvalMode(EvaluateConfig.FRACTION));
 
-                String decimal = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
+                String decimal = MathEvaluator.getInstance().derivativeFunction(input,
                         EvaluateConfig.loadFromSetting(DerivativeActivity.this).setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();

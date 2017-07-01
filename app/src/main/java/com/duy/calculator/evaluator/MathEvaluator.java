@@ -321,13 +321,12 @@ public class MathEvaluator extends LogicEvaluator {
 
     /**
      * return derivative of function
-     *
-     * @param diffStr - expression
      */
     public String derivativeFunction(String diffStr, EvaluateConfig config) {
-        StringWriter stringWriter = new StringWriter();
-        TEX_ENGINE.toTeX(evaluateSimple(diffStr, config), stringWriter);
-        String result = "$$" + stringWriter + "$$";
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+            diffStr = "N(" + diffStr + ")";
+        }
+        String result = evaluateWithResultAsTex(diffStr, config);
 
         //result
         StringBuilder builder = new StringBuilder();
@@ -336,7 +335,6 @@ public class MathEvaluator extends LogicEvaluator {
             builder.append(Constants.WEB_SEPARATOR) //<hr>
                     .append(getString(R.string.ln_hint)); //log(x) is the natural logarithm
         }
-
         return builder.toString();
     }
 

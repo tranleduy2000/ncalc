@@ -194,12 +194,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                //if input empty, do not evaluate
-                if (input.isEmpty()) {
-                    mInputFormula.requestFocus();
-                    mInputFormula.setError(getString(R.string.enter_expression));
-                    return null;
-                }
+
                 String factorStr = "Int(" + input + ")";
 
                 String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
