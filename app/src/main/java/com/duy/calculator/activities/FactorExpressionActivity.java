@@ -126,6 +126,11 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         }
     }
 
+    @Override
+    protected String getExpression() {
+        String expr = mInputFormula.getCleanText();
+        return "Factor(" + expr + ", GaussianIntegers->True)";
+    }
 
     @Override
     public Command<ArrayList<String>, String> getCommand() {
@@ -133,15 +138,12 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
 
-                String factorStr = "Factor(" + input + ", GaussianIntegers->True)";
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();
                 result.add(fraction);

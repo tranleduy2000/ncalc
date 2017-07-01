@@ -107,21 +107,23 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
+    protected String getExpression() {
+        String expr = mInputFormula.getCleanText();
+        return "ExpandAll(" + expr + ")";
+    }
+
+    @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
 
-                StringBuilder diffStr = new StringBuilder();
-                diffStr.append("ExpandAll(").append(input).append(")");
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(ExpandAllExpressionActivity.this);
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String fraction = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
-                        EvaluateConfig.loadFromSetting(ExpandAllExpressionActivity.this)
-                                .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().derivativeFunction(diffStr.toString(),
-                        EvaluateConfig.loadFromSetting(ExpandAllExpressionActivity.this)
-                                .setEvalMode(EvaluateConfig.DECIMAL));
+                String decimal = MathEvaluator.getInstance().derivativeFunction(input,
+                        config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();
                 result.add(fraction);
@@ -132,7 +134,7 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
     }
 
     /**
-     * get data from activity start it
+     * get data from another (eg. clipboard)
      */
     private void getIntentData() {
         Intent intent = getIntent();
