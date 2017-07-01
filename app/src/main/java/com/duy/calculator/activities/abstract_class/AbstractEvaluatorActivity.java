@@ -44,6 +44,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.R;
@@ -308,6 +309,10 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         }
 
         String expr = getExpression();
+        if (expr == null) {
+            Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Command<ArrayList<String>, String> command = getCommand();
 
         mProgress.show();

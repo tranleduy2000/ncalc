@@ -24,13 +24,9 @@ import android.view.View;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
-import com.duy.calculator.evaluator.FormatExpression;
-import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
-import com.duy.calculator.item_math_type.ExprInput;
 import com.duy.calculator.item_math_type.IntegrateItem;
-import com.duy.calculator.item_math_type.ItemResult;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
@@ -154,23 +150,16 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         sequence.start();
     }
 
-    //evaluate
     @Override
-    public void clickEvaluate() {
+    protected String getExpression() {
         String inp = mInputFormula.getCleanText();
 
-        //check empty input
-        if (inp.isEmpty()) {
-            mInputFormula.requestFocus();
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
         //check empty input
         String from = editFrom.getText().toString();
         if (from.isEmpty()) {
             editFrom.requestFocus();
             editFrom.setError(getString(R.string.enter_limit));
-            return;
+            return null;
         }
 
         //check empty input
@@ -178,15 +167,13 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         if (to.isEmpty()) {
             editTo.requestFocus();
             editTo.setError(getString(R.string.enter_limit));
-            return;
+            return null;
         }
-
-        inp = FormatExpression.cleanExpression(inp, this);
 
         IntegrateItem integrateItem = new IntegrateItem(inp,
                 editFrom.getText().toString(),
                 editTo.getText().toString());
-        new ATaskEval().execute(integrateItem);
+        return integrateItem.getInput();
     }
 
     @Override
@@ -194,16 +181,12 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String factorStr = "Int(" + input + ")";
-
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(factorStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();
                 result.add(fraction);
