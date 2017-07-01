@@ -160,10 +160,8 @@ public class MathEvaluator extends LogicEvaluator {
             callback.onEvaluated(expression, "", LogicEvaluator.INPUT_EMPTY);
             return;
         }
-
         expression = FormatExpression.cleanExpression(expression, mTokenizer);
         expression = addUserDefinedVariable(expression); //$ans = ...
-
         try {
             IExpr res;
             //if mode is real
@@ -199,7 +197,7 @@ public class MathEvaluator extends LogicEvaluator {
      * evaluate expression, the result will be return callback via interface
      * #EvaluateCallback
      *
-     * @param expression - input expression String Obe
+     * @param expression - input expression S
      * @param callback   - interface for call back event
      * @ {@link com.duy.calculator.evaluator.LogicEvaluator.EvaluateCallback}
      */
@@ -216,7 +214,7 @@ public class MathEvaluator extends LogicEvaluator {
 
         try {
             IExpr iExpr = evaluateSimple(expression, config);
-            callback.onEvaluated(expression, LaTexFactory.toLaTeX(iExpr), RESULT_OK);
+            callback.onEvaluated(expression, iExpr.toString(), RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
         }
@@ -246,12 +244,6 @@ public class MathEvaluator extends LogicEvaluator {
         return "";
     }
 
-    /**
-     * evaluate expression, the result will be return String Object
-     *
-     * @param expression - input expression
-     * @return - String
-     */
     public String evaluateWithResultNormal(String expression) {
         final String[] res = {""};
         evaluateWithResultNormal(expression, new EvaluateCallback() {
@@ -266,6 +258,19 @@ public class MathEvaluator extends LogicEvaluator {
             }
         });
         return res[0];
+    }
+
+    public void evaluateWithResultAsTex(String expr, EvaluateCallback callback) {
+        expr = FormatExpression.cleanExpression(expr, mTokenizer);
+        try {
+            //$ans = ...
+            expr = addUserDefinedVariable(expr);
+
+            IExpr r = EVAL_ENGINE.evaluate(expr);
+            callback.onEvaluated(expr, LaTexFactory.toLaTeX(r), LogicEvaluator.RESULT_OK);
+        } catch (Exception e) {
+            callback.onCalculateError(e);
+        }
     }
 
     /**
@@ -346,24 +351,6 @@ public class MathEvaluator extends LogicEvaluator {
         return result.toString();
     }
 
-    /**
-     * convert math text to latex
-     *
-     * @param expr - input
-     * @return - out
-     */
-    public void evaluateWithResultAsTex(String expr, EvaluateCallback callback) {
-        expr = FormatExpression.cleanExpression(expr, mTokenizer);
-        try {
-            //$ans = ...
-            expr = addUserDefinedVariable(expr);
-
-            IExpr r = EVAL_ENGINE.evaluate(expr);
-            callback.onEvaluated(expr, LaTexFactory.toLaTeX(r), LogicEvaluator.RESULT_OK);
-        } catch (Exception e) {
-            callback.onCalculateError(e);
-        }
-    }
 
     public void define(String var, double value) {
         try {

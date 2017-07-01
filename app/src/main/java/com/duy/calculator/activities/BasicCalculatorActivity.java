@@ -59,11 +59,12 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Evaluator;
+import com.duy.calculator.evaluator.thread.ResultCallback;
 import com.duy.calculator.history.HistoryActivity;
 import com.duy.calculator.history.ResultEntry;
 import com.duy.calculator.item_math_type.DerivativeItem;
 import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.NumberIntegerItem;
+import com.duy.calculator.item_math_type.PrimeFactorItem;
 import com.duy.calculator.item_math_type.SolveItem;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.utils.ClipboardManager;
@@ -74,6 +75,7 @@ import com.duy.calculator.view.CalculatorEditText;
 import com.duy.calculator.view.RevealView;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.google.common.collect.Lists;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.ArrayList;
@@ -384,8 +386,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mReview.setText(result);
     }
 
-    public void setTextError(final String result) {
-        mReview.setText("<h2>" + result + "</h2>");
+    public void setTextError(String msg) {
+        mReview.setText(msg);
     }
 
     public void onResult(final String result) {
@@ -650,7 +652,25 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             Toast.makeText(this, R.string.not_variable, Toast.LENGTH_SHORT).show();
             return;
         }
-        new ATaskEval().execute(item);
+        new ATaskEval(new ResultCallback() {
+            @Override
+            public void onSuccess(ArrayList<String> result) {
+                mMathView.setText(result.get(0));
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mProgress.hide();
+                        mFabClose.show();
+                        Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                    }
+                }, 500);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                onCalculateError(e);
+            }
+        }).execute(item);
     }
 
 
@@ -699,8 +719,26 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             Toast.makeText(this, R.string.enter_expression, Toast.LENGTH_SHORT).show();
             return;
         }
-        NumberIntegerItem numberIntegerItem = new NumberIntegerItem(mInputDisplay.getCleanText());
-        new ATaskEval().execute(numberIntegerItem);
+        PrimeFactorItem item = new PrimeFactorItem(mInputDisplay.getCleanText());
+        new ATaskEval(new ResultCallback() {
+            @Override
+            public void onSuccess(ArrayList<String> result) {
+                mMathView.setText(result.get(0));
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mProgress.hide();
+                        mFabClose.show();
+                        Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                    }
+                }, 500);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                onCalculateError(e);
+            }
+        }).execute(item);
     }
 
     protected void onChangeModeFraction() {
@@ -715,28 +753,17 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 return;
             }
         }
-
         if (mEInputState == EInputState.RESULT_VIEW) {
             closeMathView();
             return;
         }
-
-        /**
-         * collapse pad
-         */
         if (padAdvance != null) {
             if (padAdvance.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
                 padAdvance.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
                 return;
             }
         }
-
-//        if (mGraphView.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
-//            mGraphView.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
-//            return;
-//        }
         super.onBackPressed();
-
     }
 
     @Override
@@ -884,7 +911,25 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
         //check error before evaluate
         DerivativeItem item = new DerivativeItem(mInputDisplay.getCleanText(), "x", "1");
-        new ATaskEval().execute(item);
+        new ATaskEval(new ResultCallback() {
+            @Override
+            public void onSuccess(ArrayList<String> result) {
+                mMathView.setText(result.get(0));
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mProgress.hide();
+                        mFabClose.show();
+                        Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                    }
+                }, 500);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                onCalculateError(e);
+            }
+        }).execute(item);
     }
 
     public void clickGraph() {
@@ -973,6 +1018,12 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * onPostExecute: hide process bar, set mResult to math view
      */
     protected class ATaskEval extends AsyncTask<ExprInput, Void, String> {
+        private Exception exception;
+        private ResultCallback resultCallback;
+
+        public ATaskEval(ResultCallback resultCallback) {
+            this.resultCallback = resultCallback;
+        }
 
         @Override
         protected void onPreExecute() {
@@ -1001,23 +1052,24 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         protected String doInBackground(ExprInput... params) {
             ExprInput item = params[0];
             String expr = item.getInput();
-
-            EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
-            return MathEvaluator.getInstance().evaluateWithResultAsTex(expr, config);
+            try {
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                return MathEvaluator.getInstance().evaluateWithResultAsTex(expr, config);
+            } catch (Exception e) {
+                this.exception = e;
+                return null;
+            }
         }
 
         @Override
         protected void onPostExecute(final String s) {
             super.onPostExecute(s);
-            mMathView.setText(s);
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mProgress.hide();
-                    mFabClose.show();
-                    Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
-                }
-            }, 500);
+            if (exception != null) {
+                resultCallback.onError(exception);
+            } else {
+                resultCallback.onSuccess(Lists.newArrayList(s));
+            }
+
         }
     }
 
