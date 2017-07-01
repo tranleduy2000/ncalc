@@ -317,7 +317,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             ExpressionChecker.checkExpression(mInputFormula.getCleanText());
         } catch (Exception e) {
             hideKeyboard();
-            handleExceptions(e);
+            handleExceptions(mInputFormula, e);
             return;
         }
 
@@ -358,7 +358,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             public void onError(Exception e) {
                 Log.d(TAG, "onError() called with: e = [" + e + "]");
 
-                handleExceptions(e);
+                handleExceptions(mInputFormula, e);
                 mProgress.hide();
                 btnSolve.setEnabled(true);
                 btnClear.setEnabled(true);
@@ -367,23 +367,27 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         calculateThread.execute(command, expr);
     }
 
-    private void handleExceptions(Exception e) {
+    protected void handleExceptions(EditText editText, Exception e) {
         if (e instanceof SyntaxError) {
-            int start = Math.min(mInputFormula.length(), ((SyntaxError) e).getColumnIndex() - 1);
-            int end = Math.min(mInputFormula.length(), ((SyntaxError) e).getColumnIndex());
-            mInputFormula.setSelection(start, end);
+            int start = Math.min(editText.length(), ((SyntaxError) e).getColumnIndex() - 1);
+            int end = Math.min(editText.length(), ((SyntaxError) e).getColumnIndex());
+            editText.setSelection(start, end);
             mResultAdapter.clear();
             mResultAdapter.addItem(new ResultEntry("SYNTAX ERROR", e.getMessage()));
         } else if (e instanceof MathException) {
             mResultAdapter.clear();
             mResultAdapter.addItem(new ResultEntry("MATH ERROR", e.getMessage()));
         } else if (e instanceof ParsingException) {
-            int start = Math.min(mInputFormula.length(), ((ParsingException) e).getIndex());
-            int end = Math.min(mInputFormula.length(), ((ParsingException) e).getIndex() + 1);
-            mInputFormula.setSelection(start, end);
+            int start = Math.min(editText.length(), ((ParsingException) e).getIndex());
+            int end = Math.min(editText.length(), ((ParsingException) e).getIndex() + 1);
+            editText.setSelection(start, end);
             mResultAdapter.clear();
             mResultAdapter.addItem(new ResultEntry("SYNTAX ERROR", e.getMessage()));
+        } else {
+            mResultAdapter.clear();
+            mResultAdapter.addItem(new ResultEntry("Unknown error", e.getMessage()));
         }
+        editText.setError("Error!");
     }
 
     protected String getExpression() {

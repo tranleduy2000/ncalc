@@ -26,6 +26,7 @@ import com.duy.calculator.R;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.item_math_type.LimitItem;
 import com.duy.calculator.utils.ConfigApp;
@@ -149,6 +150,15 @@ public class LimitActivity extends AbstractEvaluatorActivity {
     protected String getExpression() {
         String expr = mInputFormula.getCleanText();
         String limit = editTo.getText().toString();
+
+        try {
+            ExpressionChecker.checkExpression(limit);
+        } catch (Exception e) {
+            hideKeyboard();
+            handleExceptions(editTo, e);
+            return null;
+        }
+
         LimitItem limitItem = new LimitItem(expr, limit);
         return limitItem.getInput();
     }

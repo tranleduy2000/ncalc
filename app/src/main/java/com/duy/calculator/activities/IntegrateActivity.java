@@ -25,6 +25,7 @@ import com.duy.calculator.R;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.item_math_type.IntegrateItem;
 import com.duy.calculator.utils.ConfigApp;
@@ -161,11 +162,27 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
             return null;
         }
 
+        try {
+            ExpressionChecker.checkExpression(from);
+        } catch (Exception e) {
+            hideKeyboard();
+            handleExceptions(editFrom, e);
+            return null;
+        }
+
         //check empty input
         String to = editTo.getText().toString();
         if (to.isEmpty()) {
             editTo.requestFocus();
             editTo.setError(getString(R.string.enter_limit));
+            return null;
+        }
+
+        try {
+            ExpressionChecker.checkExpression(to);
+        } catch (Exception e) {
+            hideKeyboard();
+            handleExceptions(editTo, e);
             return null;
         }
 
