@@ -27,7 +27,9 @@ import com.duy.calculator.data.SampleData;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
+import com.duy.calculator.item_math_type.TrigItem;
 import com.duy.calculator.utils.ConfigApp;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -95,16 +97,8 @@ public class TrigActivity extends AbstractEvaluatorActivity {
         }
     }
 
-   /* @Override
-    public void clickEvaluate() {
-        if (mInputFormula.getText().toString().isEmpty()) {
-//            Drawable drawable = getApplicationContext().getResources().getDrawable(
-//                    R.drawable.ic_mode_edit_white_24dp);
-//            mInputFormula.setError(getString(R.string.enter_expression), drawable);
-            mInputFormula.setError(getString(R.string.enter_expression));
-            return;
-        }
-        Log.d(TAG, "clickEvaluate: ");
+    @Override
+    protected String getExpression() {
         TrigItem item = new TrigItem(mInputFormula.getCleanText());
         switch (mType) {
             case EXPAND:
@@ -117,9 +111,8 @@ public class TrigActivity extends AbstractEvaluatorActivity {
                 item.setType(EXPONENT);
                 break;
         }
-        new TrigTask().execute(item);
-    }*/
-
+        return item.getInput();
+    }
 
     @Override
     public int getIdStringHelp() {
@@ -138,20 +131,10 @@ public class TrigActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
 
-                String primitiveStr = "Integrate(" + input + ",x)";
-// TODO: 30-Jun-17  trig
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         EvaluateConfig.loadFromSetting(getApplicationContext())
                                 .setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(primitiveStr,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.DECIMAL));
-
-                ArrayList<String> result = new ArrayList<>();
-                result.add(fraction);
-                result.add(decimal);
-                return result;
+                return Lists.newArrayList(fraction);
             }
         };
     }
