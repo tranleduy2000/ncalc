@@ -555,28 +555,12 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         CalculatorSetting preferences = new CalculatorSetting(this);
         String math = mInputDisplay.getCleanText();
         preferences.put(CalculatorSetting.INPUT_MATH, math);
-//       fix bug -> mMathView.setText(""); -> mReview
         mReview.setText("");
     }
 
     @Override
     public void onEvaluated(String expr, String result, int resultId) {
-        if (resultId == LogicEvaluator.RESULT_ERROR) {
-            if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
-                setTextResult(""); //clear
-            } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
-                onError(getResources().getString(R.string.error)); //process error if user push equal button
-                saveHistory(expr, getResources().getString(R.string.error), true); //save history
-            }
-        } else if (resultId == LogicEvaluator.RESULT_ERROR_WITH_INDEX) {
-            if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
-                setTextResult("");
-            } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
-                //process output
-                onError(result, getResources().getString(R.string.error));
-                saveHistory(expr, getResources().getString(R.string.error), true);
-            }
-        } else if (resultId == LogicEvaluator.RESULT_OK) {
+        if (resultId == LogicEvaluator.RESULT_OK) {
             if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
                 onResult(result);
                 saveHistory(expr, result, true);
@@ -588,14 +572,16 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     setTextResult(result);
                 }
             }
-        } else if (resultId == LogicEvaluator.INPUT_EMPTY) {
-
         }
     }
 
     @Override
     public void onCalculateError(Exception e) {
-
+        if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
+            setTextResult(""); //clear
+        } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
+            onError(getResources().getString(R.string.error) + " " + e.getMessage());
+        }
     }
 
     /**
@@ -976,8 +962,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 //        }
 //    }
 
-
-    public static enum PagerState {PAGE_SCIENCE, PAGE_NUMBER, PAGE_HISTORY, PAGE_CONSTANT}
 
     /**
      * class for eval extend AsyncTask

@@ -35,10 +35,6 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.duy.calculator.evaluator.FormatExpression.clean;
-import static com.duy.calculator.evaluator.Utility.isAcceptResultDecimal;
-import static com.duy.calculator.evaluator.Utility.isAcceptResultFraction;
-
 
 /**
  * Evaluator
@@ -104,35 +100,15 @@ public class MathEvaluator extends LogicEvaluator {
      * @throws IllegalArgumentException If the user has input a invalid expression
      */
     public static IExpr evaluateSimple(String exprInput, EvaluateConfig config) {
-        IExpr result = MathEvaluator.getInstance().evaluate(exprInput);
+        IExpr result = evaluate(exprInput);
         DLog.d(TAG, "Input expr = " + exprInput + "; result = " + result);
         if (result.isNumber() && !result.isFraction()) {
             return result;
         }
-        if (!isAcceptResultFraction(result)) {
-            String expr = "N(" + result.toString() + "," + config.getRoundTo() + ")";
-            result = MathEvaluator.getInstance().evaluate(expr);
-            if (isAcceptResultDecimal(result)) {
-                return result;
-            } else {
-                throw new UnsupportedOperationException(clean(result.toString()));
-            }
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+            return evaluate("N(" + exprInput + ")");
         } else {
-            if (config.getEvaluateMode() == EvaluateConfig.FRACTION) {
-                return result;
-            } else {
-                String expr = "N(" + result.toString() + "," + config.getRoundTo() + ")";
-                result = MathEvaluator.getInstance().evaluate(expr);
-                if (result.isNumeric()) {
-                    if (isAcceptResultDecimal(result)) {
-                        return result;
-                    } else {
-                        throw new UnsupportedOperationException(result.toString());
-                    }
-                } else {
-                    throw new UnsupportedOperationException(result.toString());
-                }
-            }
+            return result;
         }
     }
 
@@ -161,7 +137,7 @@ public class MathEvaluator extends LogicEvaluator {
         return null;
     }
 
-    private IExpr evaluate(String exprInput) {
+    public static IExpr evaluate(String exprInput) {
         return EVAL_ENGINE.evaluate(exprInput);
     }
 
@@ -239,33 +215,8 @@ public class MathEvaluator extends LogicEvaluator {
         expression = addUserDefinedVariable(expression); //$ans = ...
 
         try {
-            IExpr res;
-            //if mode is real
-            if (!isFraction) {
-                res = EVAL_ENGINE.evaluate("N(" + expression + ")");
-                if (res.isNumeric()) {
-                    try {
-                        //format comma, dot
-                        String sFormat;
-                        int numDecimal = 10;
-                        sFormat = DecimalFactory.round(res.toString(), numDecimal);
-                        callback.onEvaluated(expression, sFormat, LogicEvaluator.RESULT_OK);
-                    } catch (Exception e) {
-                        // if not is numeric,
-                        // it will be throw exception, although result as true
-                        callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-                    }
-                } else {
-                    //if not is numeric, callback
-                    //such as 2x + 1 + 2 = 2x + 3
-                    callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-                }
-            } else { //mode is fraction
-                Log.d(TAG, "evaluateWithResultNormal: fraction " + expression);
-
-                res = EVAL_ENGINE.evaluate(expression);
-                callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-            }
+            IExpr iExpr = evaluateSimple(expression, config);
+            callback.onEvaluated(expression, LaTexFactory.toLaTeX(iExpr), RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
         }
@@ -403,22 +354,12 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public void evaluateWithResultAsTex(String expr, EvaluateCallback callback) {
         expr = FormatExpression.cleanExpression(expr, mTokenizer);
-        //string for result callback
-        StringWriter writer = new StringWriter();
         try {
-            if (!isFraction) {
-//                expr = "N(" + expr + "," + mCalculatorSetting.getPrecision() + ")";
-                // TODO: 30-Jun-17 uses eval config
-            }
-
             //$ans = ...
             expr = addUserDefinedVariable(expr);
 
             IExpr r = EVAL_ENGINE.evaluate(expr);
-            // TODO: 29-Jan-17 round result if mode is numeric.
-            TEX_ENGINE.toTeX(r, writer);
-
-            callback.onEvaluated(expr, "$$" + writer.toString() + "$$", LogicEvaluator.RESULT_OK);
+            callback.onEvaluated(expr, LaTexFactory.toLaTeX(r), LogicEvaluator.RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
         }
