@@ -34,6 +34,7 @@ import com.duy.calculator.item_math_type.DerivativeItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -165,16 +166,10 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(DerivativeActivity.this);
                 String fraction = MathEvaluator.getInstance().derivativeFunction(input,
-                        EvaluateConfig.loadFromSetting(DerivativeActivity.this).setEvalMode(EvaluateConfig.FRACTION));
-
-                String decimal = MathEvaluator.getInstance().derivativeFunction(input,
-                        EvaluateConfig.loadFromSetting(DerivativeActivity.this).setEvalMode(EvaluateConfig.DECIMAL));
-
-                ArrayList<String> result = new ArrayList<>();
-                result.add(fraction);
-                result.add(decimal);
-                return result;
+                        config.setEvalMode(EvaluateConfig.FRACTION));
+                return Lists.newArrayList(fraction);
             }
         };
     }
