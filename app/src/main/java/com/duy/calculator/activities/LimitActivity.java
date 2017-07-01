@@ -31,6 +31,7 @@ import com.duy.calculator.item_math_type.LimitItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -162,13 +163,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
                 String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        config.setEvalMode(EvaluateConfig.DECIMAL));
-
-                ArrayList<String> result = new ArrayList<>();
-                result.add(fraction);
-                result.add(decimal);
-                return result;
+                return Lists.newArrayList(fraction);
             }
         };
     }

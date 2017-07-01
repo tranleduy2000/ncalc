@@ -29,7 +29,7 @@ public class LimitItem extends IntegrateItem {
      * @param to    - upper limit, x -> inf
      */
     public LimitItem(String input, String to) {
-        super(input, null, to);
+        super(input, "", to);
     }
 
     @Override

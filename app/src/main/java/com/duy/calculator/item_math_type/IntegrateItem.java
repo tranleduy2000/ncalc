@@ -17,10 +17,11 @@
 package com.duy.calculator.item_math_type;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
-import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.FormatExpression;
+import com.duy.calculator.evaluator.MathEvaluator;
 
 /**
  * Created by Duy on 29-Dec-16.
@@ -31,7 +32,7 @@ public class IntegrateItem extends ExprInput {
     protected String from, to;
     protected String input;
 
-    public IntegrateItem(String input, String f, String t) {
+    public IntegrateItem(@NonNull String input, @NonNull String f, @NonNull String t) {
         this.from = FormatExpression.cleanExpression(f);
         this.to = FormatExpression.cleanExpression(t);
         this.input = FormatExpression.cleanExpression(input);
