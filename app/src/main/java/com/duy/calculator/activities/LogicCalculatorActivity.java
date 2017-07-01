@@ -39,12 +39,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.duy.calculator.R;
+import com.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
 import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Base;
 import com.duy.calculator.evaluator.base.NumberBaseManager;
-import com.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
 import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ButtonID;
 import com.duy.calculator.view.CalculatorEditText;
@@ -105,7 +105,13 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_calculator);
         setTitle(R.string.calculator);
+        bindView();
+        initPad();
+        mBaseManager = new NumberBaseManager(MathEvaluator.getInstance().getBaseEvaluator().getBase());
 
+    }
+
+    private void bindView() {
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
         mInputDisplay = (CalculatorEditText) findViewById(R.id.txtDisplay);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -116,18 +122,6 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         mInputDisplay.setFormatText(false);
 
         txtResult = (TextView) findViewById(R.id.txtResult);
-        mBaseManager = new NumberBaseManager(MathEvaluator.getInstance().getSolver().getBase());
-        initPad();
-
-
-        boolean dieuKien = true;
-        if (dieuKien == true) {
-            System.out.println("DK dung");
-        } else {
-            System.out.println("DK sai");
-        }
-
-
     }
 
     private void initPad() {
@@ -154,10 +148,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     public void onResume() {
         super.onResume();
-
         int base = mSetting.getInt(CalculatorSetting.BASE);
-        mInputDisplay.setText(mSetting.getString(CalculatorSetting.INPUT_BASE));
-        txtResult.setText(mSetting.getString(CalculatorSetting.RESULT_BASE));
         switch (base) {
             case 2:
                 setBase(Base.BINARY);
@@ -172,6 +163,8 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
                 setBase(Base.HEXADECIMAL);
                 break;
         }
+        mInputDisplay.setText(mSetting.getString(CalculatorSetting.INPUT_BASE));
+        txtResult.setText(mSetting.getString(CalculatorSetting.RESULT_BASE));
     }
 
     /**
@@ -180,8 +173,8 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     public void onPause() {
         super.onPause();
-        Base base = MathEvaluator.getInstance().getSolver().getBase();
-        int iBase = MathEvaluator.getInstance().getSolver().getBaseModule().getBaseNumber(base);
+        Base base = MathEvaluator.getInstance().getBaseEvaluator().getBase();
+        int iBase = MathEvaluator.getInstance().getBaseEvaluator().getBaseModule().getBaseNumber(base);
         mSetting.put(CalculatorSetting.BASE, iBase);
         mSetting.put(CalculatorSetting.INPUT_BASE, mInputDisplay.getCleanText());
     }
@@ -192,7 +185,6 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
             @Override
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 if (errorResourceId == LogicEvaluator.RESULT_ERROR) {
-                    Log.d(TAG, "onEvaluated: error on evaluate " + expr);
                     onError(getResources().getString(R.string.error));
                 } else {
                     txtResult.setText(result);
@@ -210,8 +202,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     private void updateUI() {
-        Log.d(TAG, "updateUI: ");
-        setSelectionButton(MathEvaluator.getInstance().getSolver().getBase());
+        setSelectionButton(MathEvaluator.getInstance().getBaseEvaluator().getBase());
         for (int id : mBaseManager.getViewIds()) {
             final View view = findViewById(id);
             if (view != null) {
@@ -577,7 +568,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     }
 
 
-    public enum CalculatorState {
-        INPUT, EVALUATE, RESULT, GRAPHING, ERROR
+    private enum CalculatorState {
+        INPUT, EVALUATE, RESULT, ERROR
     }
 }

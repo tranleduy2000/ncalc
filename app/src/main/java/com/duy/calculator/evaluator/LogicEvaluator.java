@@ -16,8 +16,6 @@
 package com.duy.calculator.evaluator;
 
 
-import android.util.Log;
-
 import com.duy.calculator.evaluator.base.Base;
 import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.tokenizer.Tokenizer;
@@ -30,11 +28,9 @@ public abstract class LogicEvaluator {
     public static final int RESULT_ERROR = -1;
     public static final int INPUT_EMPTY = 2;
     public static final int RESULT_ERROR_WITH_INDEX = 3;
-    public static final int RESULT_FAILED = 4;
     public static final String ERROR_INDEX_STRING = "?";
     protected final Tokenizer mTokenizer;
     private final Evaluator mEvaluator;
-    private String TAG = LogicEvaluator.class.getName();
 
     public LogicEvaluator() {
         mEvaluator = new Evaluator();
@@ -53,11 +49,9 @@ public abstract class LogicEvaluator {
 
     private void evaluate(String expr, EvaluateCallback callback) {
         expr = FormatExpression.cleanExpression(expr, mTokenizer);
-        Log.d(TAG, "evaluate: " + expr);
         try {
             String result = mEvaluator.evaluate(expr, getEvaluator());
             result = mTokenizer.getLocalizedExpression(result);
-            Log.d(TAG, "evaluate: mResult = " + result);
             callback.onEvaluated(expr, result, LogicEvaluator.RESULT_OK);
         } catch (SyntaxException e) {
             String result = e.message + ";" + e.position;
@@ -76,12 +70,10 @@ public abstract class LogicEvaluator {
             }
             callback.onEvaluated(expr, result, RESULT_OK);
         } catch (SyntaxException e) {
-//            e.printStackTrace();
         }
-
     }
 
-    public Evaluator getSolver() {
+    public Evaluator getBaseEvaluator() {
         return mEvaluator;
     }
 
