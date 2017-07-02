@@ -54,7 +54,6 @@ public class Tokenizer {
         mReplacements.add(new Localize("arctanh", "atanh"));
         mReplacements.add(new Localize("infinity", Character.toString(Constants.INFINITY_UNICODE)));
         mReplacements.add(new Localize("sqrt", "√"));
-        mReplacements.add(new Localize("ceiling", "ceil"));
         mReplacements.add(new Localize("<=", "≤"));
         mReplacements.add(new Localize(">=", "≥"));
         mReplacements.add(new Localize("!=", "≠"));

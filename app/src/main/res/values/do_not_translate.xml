@@ -49,8 +49,10 @@
     <string name="digit8" translatable="false">8</string>
     <string name="digit9" translatable="false">9</string>
     <string name="clear" translatable="false">CLR</string>
-    <string name="div" translatable="false">÷</string>
-    <string name="mul" translatable="false">×</string>
+    <!--<string name="div" translatable="false">÷</string>-->
+    <string name="div" translatable="false">/</string>
+    <!--<string name="mul" translatable="false">×</string>-->
+    <string name="mul" translatable="false">*</string>
     <string name="plus" translatable="false">+</string>
     <string name="minus" translatable="false">−</string>
     <string name="minus2" translatable="false">\u2010</string>

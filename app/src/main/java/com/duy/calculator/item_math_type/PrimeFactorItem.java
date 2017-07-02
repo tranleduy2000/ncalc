@@ -27,6 +27,10 @@ import com.duy.calculator.evaluator.MathEvaluator;
 public class PrimeFactorItem extends ExprInput {
     private String number;
 
+    public String getNumber() {
+        return number;
+    }
+
     public PrimeFactorItem(String number) {
 
         this.number = number;

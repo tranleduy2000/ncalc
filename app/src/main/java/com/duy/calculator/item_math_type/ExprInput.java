@@ -55,4 +55,6 @@ public abstract class ExprInput {
      * @return - error found
      */
     public abstract String getError(MathEvaluator evaluator, Context applicationContext);
+
+
 }

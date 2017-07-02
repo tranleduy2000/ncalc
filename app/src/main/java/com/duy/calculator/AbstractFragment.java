@@ -39,7 +39,6 @@ import android.widget.Toast;
 
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.data.Database;
-import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.view.AnimationFinishedListener;
 
@@ -97,16 +96,13 @@ public abstract class AbstractFragment extends Fragment
      */
     protected void setModeFraction() {
         try {
-            MathEvaluator.getInstance().setFraction(mSetting.useFraction());
-            SwitchCompat switchCompat = (SwitchCompat) getActivity().findViewById(R.id.sw_fraction);
+            SwitchCompat switchCompat = getActivity().findViewById(R.id.sw_fraction);
             switchCompat.setChecked(mSetting.useFraction());
-            MathEvaluator.getInstance().setFraction(mSetting.useFraction());
             switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked != mSetting.useFraction()) {
                         mSetting.setFraction(isChecked);
-                        MathEvaluator.getInstance().setFraction(isChecked);
                     }
                     onChangeModeFraction();
                 }

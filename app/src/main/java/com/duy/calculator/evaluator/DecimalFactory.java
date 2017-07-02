@@ -75,49 +75,6 @@ public class DecimalFactory {
         }
     }
 
-    /**
-     * true if is a number
-     *
-     * @param value
-     * @return
-     */
-    public boolean isNumber(String value) {
-        try {
-            boolean res = Boolean.valueOf(String.valueOf(mEvaluator.evaluateWithResultNormal("NumberQ(" + value + ")")));
-            //     Log.d(TAG, "isNumber: " + value + "  - " + res);
-            return res;
-        } catch (Exception e) {
-            return false;
-        }
-    }
 
-
-    /**
-     * convert fraction to real number
-     *
-     * @param result1
-     * @return
-     */
-    private String convertToReal(String result1) {
-        try {
-            result1 = "N(" + result1 + ")";
-            final String[] res = {""};
-            mEvaluator.evaluateWithResultNormal(result1, new LogicEvaluator.EvaluateCallback() {
-                @Override
-                public void onEvaluated(String expr, String result, int errorResourceId) {
-                    res[0] = result;
-                }
-
-                @Override
-                public void onCalculateError(Exception e) {
-
-                }
-            });
-            return res[0];
-        } catch (Exception e) {
-            return "";
-        }
-
-    }
 
 }

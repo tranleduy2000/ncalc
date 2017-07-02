@@ -80,14 +80,11 @@ public class MathEvaluator extends LogicEvaluator {
         String cbrt = "cbrt(x_):= x^(1/3)";
         EVAL_ENGINE.evaluate(cbrt);
 
+        String ceiling = "Ceil(x_):=Ceiling(x)";
+        EVAL_ENGINE.evaluate(ceiling);
+
         TEX_ENGINE = new TeXUtilities(EVAL_ENGINE.getEvalEngine(), true);
     }
-
-    /**
-     * set value <code>true</code> if use mode result as fraction vaue
-     * set value <code>false</code> if use mode result as decimal value
-     */
-    private boolean isFraction = true;
 
     private MathEvaluator() {
 
@@ -101,7 +98,6 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public static IExpr evaluateSimple(String exprInput, EvaluateConfig config) {
         IExpr result = evaluate(exprInput);
-        DLog.d(TAG, "Input expr = " + exprInput + "; result = " + result);
         if (result.isNumber() && !result.isFraction()) {
             return result;
         }
@@ -146,52 +142,6 @@ public class MathEvaluator extends LogicEvaluator {
         return this;
     }
 
-    /**
-     * evaluate expression, the result will be return callback via interface
-     * #EvaluateCallback
-     *
-     * @param expression - input expression String Obe
-     * @param callback   - interface for call back event
-     * @ {@link com.duy.calculator.evaluator.LogicEvaluator.EvaluateCallback}
-     */
-    public void evaluateWithResultNormal(String expression, LogicEvaluator.EvaluateCallback callback) {
-        //if input is empty, do not working
-        if (expression.isEmpty()) {
-            callback.onEvaluated(expression, "", LogicEvaluator.INPUT_EMPTY);
-            return;
-        }
-        expression = FormatExpression.cleanExpression(expression, mTokenizer);
-        expression = addUserDefinedVariable(expression); //$ans = ...
-        try {
-            IExpr res;
-            //if mode is real
-            if (!isFraction) {
-                res = EVAL_ENGINE.evaluate("N(" + expression + ")");
-                if (res.isNumeric()) {
-                    try {
-                        //format comma, dot
-                        String sFormat;
-                        int numDecimal = 10;
-                        sFormat = DecimalFactory.round(res.toString(), numDecimal);
-                        callback.onEvaluated(expression, sFormat, LogicEvaluator.RESULT_OK);
-                    } catch (Exception e) {
-                        // if not is numeric,
-                        // it will be throw exception, although result as true
-                        callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-                    }
-                } else {
-                    //if not is numeric, callback
-                    //such as 2x + 1 + 2 = 2x + 3
-                    callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-                }
-            } else { //mode is fraction
-                res = EVAL_ENGINE.evaluate(expression);
-                callback.onEvaluated(expression, res.toString(), LogicEvaluator.RESULT_OK);
-            }
-        } catch (Exception e) {
-            callback.onCalculateError(e);
-        }
-    }
 
     /**
      * evaluate expression, the result will be return callback via interface
@@ -245,22 +195,12 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     public String evaluateWithResultNormal(String expression) {
-        final String[] res = {""};
-        evaluateWithResultNormal(expression, new EvaluateCallback() {
-            @Override
-            public void onEvaluated(String expr, String result, int errorResourceId) {
-                res[0] = result;
-            }
-
-            @Override
-            public void onCalculateError(Exception e) {
-
-            }
-        });
-        return res[0];
+        IExpr iExpr = evaluateSimple(expression,
+                EvaluateConfig.newInstance().setEvalMode(EvaluateConfig.FRACTION));
+        return iExpr.toString();
     }
 
-    public void evaluateWithResultAsTex(String expr, EvaluateCallback callback) {
+    public void evaluateWithResultAsTex(String expr, EvaluateConfig config, EvaluateCallback callback) {
         expr = FormatExpression.cleanExpression(expr, mTokenizer);
         try {
             //$ans = ...
@@ -273,20 +213,6 @@ public class MathEvaluator extends LogicEvaluator {
         }
     }
 
-    /**
-     * use fraction in result
-     *
-     * @return - boolean
-     */
-    public boolean isFraction() {
-        return isFraction;
-    }
-
-    // TODO: 01-Jul-17 fraction mode
-
-    public void setFraction(boolean fraction) {
-        isFraction = fraction;
-    }
 
     /**
      * return derivative of function
@@ -315,6 +241,21 @@ public class MathEvaluator extends LogicEvaluator {
             exprStr = "N(" + exprStr + ")";
         }
         return LaTexFactory.toLaTeX(EVAL_ENGINE.evaluate(exprStr));
+    }
+
+    /**
+     * return derivative of function
+     */
+    public void evaluateWithResultAsTex(String exprStr, EvaluateCallback callback, EvaluateConfig config) {
+        try {
+            if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+                exprStr = "N(" + exprStr + ")";
+            }
+            String result = LaTexFactory.toLaTeX(EVAL_ENGINE.evaluate(exprStr));
+            callback.onEvaluated(exprStr, result, RESULT_OK);
+        } catch (Exception e) {
+            callback.onCalculateError(e);
+        }
     }
 
     /**
@@ -392,7 +333,7 @@ public class MathEvaluator extends LogicEvaluator {
     public ArrayList<String> getListVariables(String expr) {
         ArrayList<String> variables = new ArrayList<>();
         try {
-            String res = evaluateWithResultNormal("Variables(" + expr + ")");
+            String res = EVAL_ENGINE.evaluate("Variables(" + expr + ")").toString();
             res = res.replace("{", "");
             res = res.replace("}", "");
             String tmp[] = res.split(",");

@@ -146,6 +146,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mCalculatorSetting.setFraction(isChecked);
+                onChangeModeFraction();
             }
         });
     }
@@ -185,13 +186,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     private void setModeFraction() {
         mFractionSwitch.setChecked(mSetting.useFraction());
-        mEvaluator.setFraction(mSetting.useFraction());
         mFractionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked != mSetting.useFraction()) {
                     mSetting.setFraction(isChecked);
-                    mEvaluator.setFraction(isChecked);
                 }
                 onChangeModeFraction();
             }
@@ -335,7 +334,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 }
                 break;
             case REQ_CODE_DEFINE_VAR:
-                mEvaluator.evaluateWithResultNormal(mInputDisplay.getCleanText(), this);
+                mEvaluator.evaluateWithResultNormal(mInputDisplay.getCleanText(), this,
+                        EvaluateConfig.loadFromSetting(this));
                 //onEqual();
                 break;
         }
@@ -742,7 +742,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     protected void onChangeModeFraction() {
-        mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(), this);
+        mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(),
+                EvaluateConfig.loadFromSetting(this), this);
     }
 
     @Override
@@ -1054,6 +1055,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             String expr = item.getInput();
             try {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                if (item instanceof PrimeFactorItem) {
+                    return MathEvaluator.getInstance().factorPrime(((PrimeFactorItem) item).getNumber());
+                }
                 return MathEvaluator.getInstance().evaluateWithResultAsTex(expr, config);
             } catch (Exception e) {
                 this.exception = e;
@@ -1087,7 +1091,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             setState(BasicCalculatorActivity.CalculatorState.INPUT);
             if (mSetting.instantResult()) {
                 mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(),
-                        BasicCalculatorActivity.this);
+                        BasicCalculatorActivity.this, EvaluateConfig.loadFromSetting(BasicCalculatorActivity.this));
             }
         }
     }
