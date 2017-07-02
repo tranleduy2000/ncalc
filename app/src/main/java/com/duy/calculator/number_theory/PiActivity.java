@@ -24,11 +24,13 @@ import android.text.InputType;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
-import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.LaTexFactory;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.utils.ConfigApp;
 import com.google.common.collect.Lists;
+
+import org.matheclipse.core.interfaces.IExpr;
 
 import java.util.ArrayList;
 
@@ -45,8 +47,8 @@ public class PiActivity extends AbstractEvaluatorActivity {
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.pi_number));
 
-        btnSolve.setText(R.string.calc);
-        mHint1.setHint(getString(R.string.input_number));
+        btnSolve.setText(R.string.eval);
+        mHint1.setHint(getString(R.string.precision_));
         mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
 
@@ -98,8 +100,8 @@ public class PiActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                String result = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        EvaluateConfig.newInstance().setEvalMode(EvaluateConfig.DECIMAL));
+                IExpr iExpr = MathEvaluator.evaluate(input);
+                String result = LaTexFactory.toLaTeX(iExpr);
                 return Lists.newArrayList(result);
             }
         };

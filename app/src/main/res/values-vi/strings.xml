@@ -780,5 +780,7 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="di_n_t_ch">Diện tích</string>
     <string name="chu_vi">Chu vi</string>
     <string name="th_ng_h_ng">Thẳng hàng</string>
+    <string name="divisors">Ước số</string>
+    <string name="pi_number">Số pi</string>
 
 </resources>

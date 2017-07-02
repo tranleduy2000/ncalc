@@ -153,6 +153,10 @@
                 android:id="@+id/action_divisors"
                 android:icon="@drawable/ic_prime_black"
                 android:title="@string/divisors"/>
+            <item
+                android:id="@+id/action_pi_number"
+                android:icon="@drawable/ic_prime_black"
+                android:title="@string/pi_number"/>
             <!--<item-->
             <!--android:id="@+id/nav_gcd"-->
             <!--android:enabled="false"-->

@@ -52,6 +52,7 @@ import com.duy.calculator.number_theory.ModuleActivity;
 import com.duy.calculator.number_theory.NumberActivity;
 import com.duy.calculator.number_theory.NumberType;
 import com.duy.calculator.number_theory.PermutationActivity;
+import com.duy.calculator.number_theory.PiActivity;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.system_equation.SystemEquationActivity;
 import com.duy.calculator.trigonometry.TrigActivity;
@@ -264,6 +265,10 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
         } else if (id == R.id.action_divisors) {
             intent = new Intent(getApplicationContext(), NumberActivity.class);
             intent.putExtra(NumberActivity.DATA, NumberType.DIVISORS);
+            startIntent(intent);
+
+        } else if (id == R.id.action_pi_number) {
+            intent = new Intent(getApplicationContext(), PiActivity.class);
             startIntent(intent);
 
         } else if (id == R.id.action_document) {

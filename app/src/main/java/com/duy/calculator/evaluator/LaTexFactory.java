@@ -25,7 +25,7 @@ import java.io.StringWriter;
  * Created by Duy on 01-Jul-17.
  */
 
-class LaTexFactory {
+public class LaTexFactory {
     public static String toLaTeX(IExpr result) {
         StringWriter stringWriter = new StringWriter();
         TeXUtilities texEngine = MathEvaluator.getTexEngine();
