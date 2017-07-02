@@ -742,8 +742,10 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     protected void onChangeModeFraction() {
+        Log.d(TAG, "onChangeModeFraction() called");
+
         mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(),
-                EvaluateConfig.loadFromSetting(this), this);
+                BasicCalculatorActivity.this, EvaluateConfig.loadFromSetting(BasicCalculatorActivity.this));
     }
 
     @Override

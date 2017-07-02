@@ -46,12 +46,6 @@ public class Tokenizer {
         mReplacements.add(new Localize("-", "\u2796"));
 
         mReplacements.add(new Localize("cbrt", "³√"));
-        mReplacements.add(new Localize("arcsin", "asin"));
-        mReplacements.add(new Localize("arccos", "acos"));
-        mReplacements.add(new Localize("arctan", "atan"));
-        mReplacements.add(new Localize("arcsinh", "asinh"));
-        mReplacements.add(new Localize("arccosh", "acosh"));
-        mReplacements.add(new Localize("arctanh", "atanh"));
         mReplacements.add(new Localize("infinity", Character.toString(Constants.INFINITY_UNICODE)));
         mReplacements.add(new Localize("sqrt", "√"));
         mReplacements.add(new Localize("<=", "≤"));

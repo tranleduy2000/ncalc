@@ -21,6 +21,7 @@ import android.util.Log;
 
 import com.duy.calculator.DLog;
 import com.duy.calculator.R;
+import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.item_math_type.StepItem;
 
 import org.matheclipse.core.eval.EvalEngine;
@@ -200,20 +201,6 @@ public class MathEvaluator extends LogicEvaluator {
         return iExpr.toString();
     }
 
-    public void evaluateWithResultAsTex(String expr, EvaluateConfig config, EvaluateCallback callback) {
-        expr = FormatExpression.cleanExpression(expr, mTokenizer);
-        try {
-            //$ans = ...
-            expr = addUserDefinedVariable(expr);
-
-            IExpr r = EVAL_ENGINE.evaluate(expr);
-            callback.onEvaluated(expr, LaTexFactory.toLaTeX(r), LogicEvaluator.RESULT_OK);
-        } catch (Exception e) {
-            callback.onCalculateError(e);
-        }
-    }
-
-
     /**
      * return derivative of function
      */
@@ -237,21 +224,28 @@ public class MathEvaluator extends LogicEvaluator {
      * return derivative of function
      */
     public String evaluateWithResultAsTex(String exprStr, EvaluateConfig config) {
-        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
-            exprStr = "N(" + exprStr + ")";
+        //if input is empty, do not working
+        if (exprStr.isEmpty()) {
+            return exprStr;
         }
-        return LaTexFactory.toLaTeX(EVAL_ENGINE.evaluate(exprStr));
+
+        exprStr = FormatExpression.cleanExpression(exprStr, mTokenizer);
+        exprStr = addUserDefinedVariable(exprStr); //$ans = ...
+
+        ExpressionChecker.checkExpression(exprStr);
+
+        IExpr result = evaluateSimple(exprStr, config);
+        return LaTexFactory.toLaTeX(result);
     }
 
     /**
+     * @see MathEvaluator#evaluateWithResultAsTex(String, EvaluateConfig)
+     * <p>
      * return derivative of function
      */
     public void evaluateWithResultAsTex(String exprStr, EvaluateCallback callback, EvaluateConfig config) {
         try {
-            if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
-                exprStr = "N(" + exprStr + ")";
-            }
-            String result = LaTexFactory.toLaTeX(EVAL_ENGINE.evaluate(exprStr));
+            String result = evaluateWithResultAsTex(exprStr, config);
             callback.onEvaluated(exprStr, result, RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
@@ -261,16 +255,16 @@ public class MathEvaluator extends LogicEvaluator {
     /**
      * Solve equation and return string result
      */
-    public String solveEquation(String solveStr, final EvaluateConfig config) {
+    public String solveEquation(String solveStr, final EvaluateConfig config, Context context) {
         if (!(config.getEvaluateMode() == EvaluateConfig.DECIMAL)) {
             solveStr = "N(" + solveStr + ")";
         }
         String roots = EVAL_ENGINE.evaluate(solveStr).toString();
 
         if (roots.toLowerCase().contains("solve")) {
-            return getString(R.string.not_find_root);
+            return context.getString(R.string.not_find_root);
         } else if (roots.contains("{}")) {
-            return getString(R.string.no_root);
+            return context.getString(R.string.no_root);
         }
 
         roots = roots.replaceAll("\\s+", "").replaceAll("->", "==");

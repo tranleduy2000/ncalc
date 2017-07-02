@@ -131,24 +131,38 @@ public class FormatExpression {
                     break;
             }
         }
+        StringBuilder result = new StringBuilder(input);
         if (open > close) {
             for (int j = 0; j < open - close; j++) {
-                input += ")";
+                result.append(")");
             }
         } else if (close > open) {
             for (int j = 0; j < close - open; j++) {
-                input = "(" + input;
+                result.insert(0, "(");
             }
         }
         if (open2 > close2)
-            for (int j = 0; j < open2 - close2; j++) input += "]";
-        else
-            for (int j = 0; j < close2 - open2; j++) input = "[" + input;
-        if (open3 > close3)
-            for (int j = 0; j < open3 - close3; j++) input += "}";
-        else
-            for (int j = 0; j < close3 - open3; j++) input = "{" + input;
-        return input;
+            for (int j = 0; j < open2 - close2; j++) {
+                result.append("]");
+            }
+        else {
+            for (int j = 0; j < close2 - open2; j++) {
+                result.insert(0, "[");
+            }
+        }
+        if (open3 > close3) {
+            for (int j = 0; j < open3 - close3; j++) {
+                result.append("}");
+            }
+        } else
+            for (int j = 0; j < close3 - open3; j++) {
+                result.insert(0, "{");
+            }
+        return result.toString();
+    }
+
+    public static String clean(String string) {
+        return string.replaceAll(Pattern.quote("\\"), "").replaceAll("\\s+", "");
     }
 
     /**
@@ -238,7 +252,6 @@ public class FormatExpression {
         return addComas(evaluator, text, -1).replace(BaseModule.SELECTION_HANDLE + "", "");
     }
 
-
     /**
      * Add comas to an equation or mResult.
      * A temp character (BaseModule.SELECTION_HANDLE) will be added
@@ -256,11 +269,6 @@ public class FormatExpression {
 
     public String format(Evaluator evaluator, String text) {
         return appendParenthesis(insertSupScripts(addComas(evaluator, text)));
-    }
-
-
-    public static String clean(String string) {
-        return string.replaceAll(Pattern.quote("\\"), "").replaceAll("\\s+", "");
     }
 
 }
