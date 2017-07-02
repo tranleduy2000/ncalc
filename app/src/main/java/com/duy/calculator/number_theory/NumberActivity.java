@@ -22,6 +22,7 @@ import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.document.DialogFragmentHelpFunction;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
@@ -29,6 +30,8 @@ import com.duy.calculator.item_math_type.NumberIntegerItem;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
+
+import static com.duy.calculator.number_theory.NumberType.CATALAN_FUNCTION;
 
 /**
  * Number activity
@@ -71,12 +74,9 @@ public class NumberActivity extends AbstractEvaluatorActivity {
                 mHint1.setHint(getString(R.string.prime_desc));
                 setTitle(R.string.prime);
                 break;
-            case NumberType.GCD:
-                setTitle(R.string.gcd);
-                break;
-            case NumberType.LCM:
-                setTitle(R.string.lcm);
-                break;
+            case NumberType.DIVISORS:
+                mHint1.setHint(getString(R.string.divisors));
+                setTitle(R.string.divisors);
             default:
                 mHint1.setHint(getString(R.string.enter_number));
                 break;
@@ -89,19 +89,16 @@ public class NumberActivity extends AbstractEvaluatorActivity {
         NumberIntegerItem item = new NumberIntegerItem(number);
         switch (type) {
             case NumberType.CATALAN:
-                item.setFunction(NumberType.CATALAN_CMD);
+                item.setFunction(CATALAN_FUNCTION);
                 break;
             case NumberType.FIBONACCI:
-                item.setFunction(NumberType.FIBONACCI_CMD);
+                item.setFunction(NumberType.FIBONACCI_FUNCTION);
                 break;
             case NumberType.PRIME:
-                item.setFunction(NumberType.PRIME_CMD);
+                item.setFunction(NumberType.PRIME_FUNCTION);
                 break;
-            case NumberType.GCD:
-                item.setFunction(NumberType.GCD_CMD);
-                break;
-            case NumberType.LCM:
-                item.setFunction(NumberType.LCM_CMD);
+            case NumberType.DIVISORS:
+                item.setFunction(NumberType.DIVISORS_FUNCTION);
                 break;
             default:
                 break;
@@ -116,7 +113,26 @@ public class NumberActivity extends AbstractEvaluatorActivity {
 
     @Override
     public void clickHelp() {
-
+        String function;
+        switch (type) {
+            case NumberType.CATALAN:
+                function = NumberType.CATALAN_FUNCTION;
+                break;
+            case NumberType.FIBONACCI:
+                function = (NumberType.FIBONACCI_FUNCTION);
+                break;
+            case NumberType.PRIME:
+                function = (NumberType.PRIME_FUNCTION);
+                break;
+            case NumberType.DIVISORS:
+                function = (NumberType.DIVISORS_FUNCTION);
+                break;
+            default:
+                function = "";
+                break;
+        }
+        DialogFragmentHelpFunction dialogFragmentHelp = DialogFragmentHelpFunction.newInstance(function);
+        dialogFragmentHelp.show(getSupportFragmentManager(), DialogFragmentHelpFunction.TAG);
     }
 
     @Override
@@ -124,7 +140,6 @@ public class NumberActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-
                 String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         EvaluateConfig.loadFromSetting(getApplicationContext())
                                 .setEvalMode(EvaluateConfig.FRACTION));

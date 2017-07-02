@@ -261,6 +261,11 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
             intent.putExtra(NumberActivity.DATA, NumberType.PRIME);
             startIntent(intent);
 
+        } else if (id == R.id.action_divisors) {
+            intent = new Intent(getApplicationContext(), NumberActivity.class);
+            intent.putExtra(NumberActivity.DATA, NumberType.DIVISORS);
+            startIntent(intent);
+
         } else if (id == R.id.action_document) {
             intent = new Intent(getApplicationContext(), DocumentActivity.class);
             startActivity(intent);

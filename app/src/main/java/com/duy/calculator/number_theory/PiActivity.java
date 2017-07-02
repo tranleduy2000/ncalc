@@ -24,6 +24,7 @@ import android.text.InputType;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.utils.ConfigApp;
@@ -35,16 +36,16 @@ import java.util.ArrayList;
  * Created by Duy on 06-Jan-17.
  */
 
-public class FactorPrimeActivity extends AbstractEvaluatorActivity {
-    private static final String STARTED = FactorPrimeActivity.class.getName() + "started";
+public class PiActivity extends AbstractEvaluatorActivity {
+    private static final String STARTED = PiActivity.class.getName() + "started";
     private boolean isDataNull = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(getString(R.string.factor_prime));
+        setTitle(getString(R.string.pi_number));
 
-        btnSolve.setText(R.string.factor);
+        btnSolve.setText(R.string.calc);
         mHint1.setHint(getString(R.string.input_number));
         mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
@@ -54,7 +55,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
         if ((!isStarted) || ConfigApp.DEBUG) {
             if (isDataNull) {
-                mInputFormula.setText("102013124");
+                mInputFormula.setText("1000");
             }
             clickHelp();
         }
@@ -88,12 +89,18 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
+    protected String getExpression() {
+        return "N(Pi," + mInputFormula.getCleanText() + ")";
+    }
+
+    @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                String fraction = MathEvaluator.getInstance().factorPrime(input);
-                return Lists.newArrayList(fraction);
+                String result = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        EvaluateConfig.newInstance().setEvalMode(EvaluateConfig.DECIMAL));
+                return Lists.newArrayList(result);
             }
         };
     }

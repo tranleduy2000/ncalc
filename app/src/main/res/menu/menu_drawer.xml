@@ -18,14 +18,14 @@
     <item
         android:id="@+id/action_document"
         android:icon="@drawable/ic_book_black_24dp"
-        android:title="@string/see_doc" />
+        android:title="@string/see_doc"/>
 
     <item android:title="@string/algebra">
         <menu>
             <item
                 android:id="@+id/nav_sci_calc"
                 android:icon="@drawable/ic_calculator_black"
-                android:title="@string/science_calculator" />
+                android:title="@string/science_calculator"/>
             <!--<item-->
             <!--android:id="@+id/nav_hand_calc"-->
             <!--android:icon="@drawable/ic_gesture_black_24dp"-->
@@ -38,54 +38,54 @@
             <item
                 android:id="@+id/nav_base"
                 android:icon="@drawable/ic_base_black"
-                android:title="@string/logic_calculator" />
+                android:title="@string/logic_calculator"/>
             <item
                 android:id="@+id/nav_solve_equation"
                 android:icon="@drawable/ic_functions_2_black"
-                android:title="@string/solve_equation" />
+                android:title="@string/solve_equation"/>
             <item
                 android:id="@+id/system_equation"
                 android:icon="@drawable/ic_functions_2_black"
-                android:title="@string/linear_system" />
+                android:title="@string/linear_system"/>
             <item
                 android:id="@+id/nav_graph"
                 android:icon="@drawable/ic_graph_black"
-                android:title="@string/title_activity_graph" />
+                android:title="@string/title_activity_graph"/>
             <item
                 android:id="@+id/nav_geometric_descartes"
                 android:icon="@drawable/ic_graph_black"
-                android:title="@string/nav_descartes" />
+                android:title="@string/nav_descartes"/>
 
             <item
                 android:id="@+id/nav_simplify_equation"
                 android:icon="@drawable/ic_functions_2_black"
-                android:title="@string/simplify_expression" />
+                android:title="@string/simplify_expression"/>
 
             <item
                 android:id="@+id/nav_factor_equation"
                 android:icon="@drawable/ic_functions_2_black"
-                android:title="@string/factor_polynomial" />
+                android:title="@string/factor_polynomial"/>
 
             <item
                 android:id="@+id/nav_unit"
                 android:icon="@drawable/ic_unit_converter"
-                android:title="@string/all_unit_converter" />
+                android:title="@string/all_unit_converter"/>
 
             <item
                 android:id="@+id/nav_expand_binomial"
                 android:icon="@drawable/ic_functions_2_black"
-                android:title="@string/binomial_newton" />
+                android:title="@string/binomial_newton"/>
 
             <item
                 android:id="@+id/nav_matrix"
                 android:icon="@drawable/ic_matrix_black"
-                android:title="@string/matrix" />
+                android:title="@string/matrix"/>
 
 
             <item
                 android:icon="@drawable/ic_more_vert_black_24dp"
                 android:title="@string/more"
-                android:visible="false" />
+                android:visible="false"/>
         </menu>
     </item>
 
@@ -94,22 +94,22 @@
             <item
                 android:id="@+id/nav_derivitive"
                 android:icon="@drawable/ic_der_black"
-                android:title="@string/derivative" />
+                android:title="@string/derivative"/>
 
             <item
                 android:id="@+id/nav_primitive"
                 android:icon="@drawable/ic_primitive_black"
-                android:title="@string/primitive" />
+                android:title="@string/primitive"/>
 
             <item
                 android:id="@+id/nav_integrate"
                 android:icon="@drawable/ic_integral"
-                android:title="@string/integrate" />
+                android:title="@string/integrate"/>
 
             <item
                 android:id="@+id/nav_limit"
                 android:icon="@drawable/ic_lim_black"
-                android:title="@string/limit" />
+                android:title="@string/limit"/>
         </menu>
     </item>
 
@@ -118,17 +118,17 @@
             <item
                 android:id="@+id/nav_combination"
                 android:icon="@drawable/ic_combination_black"
-                android:title="@string/combination" />
+                android:title="@string/combination"/>
             <item
                 android:id="@+id/nav_permutation"
                 android:icon="@drawable/ic_permutation_black"
-                android:title="@string/permutation" />
+                android:title="@string/permutation"/>
 
             <item
                 android:id="@+id/nav_table"
                 android:icon="@mipmap/ic_fraction_black"
                 android:title="@string/table"
-                android:visible="false" />
+                android:visible="false"/>
         </menu>
     </item>
     <item android:title="@string/number_theory">
@@ -136,19 +136,23 @@
             <item
                 android:id="@+id/nav_prime_factor"
                 android:icon="@drawable/ic_prime_black"
-                android:title="@string/factor_prime" />
+                android:title="@string/factor_prime"/>
             <item
                 android:id="@+id/nav_mod"
                 android:icon="@drawable/ic_mod_black"
-                android:title="@string/module" />
+                android:title="@string/module"/>
             <item
                 android:id="@+id/nav_catalan"
                 android:icon="@drawable/ic_prime_black"
-                android:title="@string/catalan_number" />
+                android:title="@string/catalan_number"/>
             <item
                 android:id="@+id/nav_prime"
                 android:icon="@drawable/ic_prime_black"
-                android:title="@string/prime" />
+                android:title="@string/prime"/>
+            <item
+                android:id="@+id/action_divisors"
+                android:icon="@drawable/ic_prime_black"
+                android:title="@string/divisors"/>
             <!--<item-->
             <!--android:id="@+id/nav_gcd"-->
             <!--android:enabled="false"-->
@@ -163,7 +167,7 @@
             <item
                 android:id="@+id/nav_fibo"
                 android:icon="@drawable/ic_prime_black"
-                android:title="@string/fibonacci" />
+                android:title="@string/fibonacci"/>
         </menu>
     </item>
     <item
@@ -173,15 +177,15 @@
             <item
                 android:id="@+id/nav_trig_expand"
                 android:icon="@drawable/ic_trig_black"
-                android:title="@string/tit_trig_expand" />
+                android:title="@string/tit_trig_expand"/>
             <item
                 android:id="@+id/nav_trig_reduce"
                 android:icon="@drawable/ic_trig_black"
-                android:title="@string/tit_trig_reduce" />
+                android:title="@string/tit_trig_reduce"/>
             <item
                 android:id="@+id/nav_trig_to_exp"
                 android:icon="@drawable/ic_trig_black"
-                android:title="@string/tit_trig_to_exp" />
+                android:title="@string/tit_trig_to_exp"/>
         </menu>
     </item>
     <item android:title="@string/more">
@@ -189,15 +193,15 @@
             <item
                 android:id="@+id/nav_setting"
                 android:icon="@drawable/ic_settings_black_48dp"
-                android:title="@string/settings" />
+                android:title="@string/settings"/>
             <item
                 android:id="@+id/nav_rate"
                 android:icon="@drawable/ic_star_rate_black_18dp"
-                android:title="@string/rate_this_app" />
+                android:title="@string/rate_this_app"/>
             <item
                 android:id="@+id/nav_about_app"
                 android:icon="@drawable/ic_info_black_24dp"
-                android:title="@string/gi_i_thi_u_v_calc" />
+                android:title="@string/gi_i_thi_u_v_calc"/>
         </menu>
     </item>
 </menu>

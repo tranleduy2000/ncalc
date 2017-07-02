@@ -756,5 +756,7 @@
     <string name="ng_th_ng_ab">Linear AB</string>
     <string name="th_ng_h_ng">Straight</string>
     <string name="syntax_error" translatable="false">Syntax Error</string>
+    <string name="divisors">Divisors</string>
+    <string name="pi_number">Pi number</string>
 
 </resources>
