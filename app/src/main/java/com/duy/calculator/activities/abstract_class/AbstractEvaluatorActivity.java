@@ -301,10 +301,19 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             case NaturalKeyboardAPI.REQUEST_INPUT:
                 if (resultCode == RESULT_OK) {
                     final String expr = NaturalKeyboardAPI.processResult(data);
+                    if (expr.isEmpty()) return;
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            mInputFormula.setText(expr);
+                            if (mInputFormula.hasFocus()) {
+                                mInputFormula.setText(expr);
+                            } else if (editFrom.hasFocus()) {
+                                editFrom.setText(expr);
+                            } else if (editTo.hasFocus()) {
+                                editTo.setText(expr);
+                            } else {
+                                mInputFormula.setText(expr);
+                            }
                         }
                     }, 100);
                 }

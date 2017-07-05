@@ -18,9 +18,9 @@ package com.duy.calculator.item_math_type;
 
 import android.content.Context;
 
-import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.FormatExpression;
+import com.duy.calculator.evaluator.MathEvaluator;
 
 /**
  * Created by Duy on 01-Jan-17.
@@ -52,6 +52,13 @@ public class SolveItem extends ExprInput {
      * @param inp - expression
      */
     private void processInput(String inp) {
+        while (inp.contains("==")) inp = inp.replace("==", "="); //clear ==
+        if (inp.contains("X")) {
+            var = "X";
+        } else {
+            var = "x";
+        }
+
         //2x + 1 = 2 ....
         if (inp.contains("=")) {
             String[] s = inp.split("=");
@@ -107,6 +114,7 @@ public class SolveItem extends ExprInput {
 
     /**
      * return input expression
+     *
      * @return - String
      */
     public String getExpr() {

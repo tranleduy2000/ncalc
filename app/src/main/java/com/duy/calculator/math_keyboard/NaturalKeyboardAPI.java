@@ -19,6 +19,7 @@ package com.duy.calculator.math_keyboard;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 
 /**
  * Created by Duy on 05-Jul-17.
@@ -39,6 +40,7 @@ public class NaturalKeyboardAPI {
         }
     }
 
+    @NonNull
     public static String processResult(Intent intent) {
         if (intent.hasExtra(Intent.EXTRA_RETURN_RESULT)) {
             return intent.getStringExtra(Intent.EXTRA_RETURN_RESULT);
