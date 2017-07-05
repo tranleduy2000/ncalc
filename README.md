@@ -1,9 +1,10 @@
-# Calculator Pro (NCalc+ pro)
+# NCalc+
 Powerful calculator for Android.
 
 Get lite version in Google Play Store
 
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="300">](https://play.google.com/store/apps/details?id=com.duy.calculator.free)
+<a href="https://play.google.com/store/apps/details?id=com.duy.calculator.free">
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="300"></a>
 
 ## ALGEBRA
 
@@ -42,6 +43,7 @@ Get lite version in Google Play Store
 	2. Modulo
 	3. Catalan number
 	4. Fibonacci number
+	5. Pi number
 
 ## Note
 
@@ -55,6 +57,12 @@ The computer can work in two modes:
 Fanpage application support: https://www.facebook.com/calculator.n.plus/
 
 Any suggestions on the application please send mail: Tranleduy1233@gmail.com.
+
+## Install Natural Keyboard for input math formula
+
+https://play.google.com/store/apps/details?id=com.duy.calc.casio
+
+![ICON](art/natural_icon-web.png)
 
 ## License
 
