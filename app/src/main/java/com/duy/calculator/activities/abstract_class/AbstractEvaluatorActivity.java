@@ -19,6 +19,7 @@ package com.duy.calculator.activities.abstract_class;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -108,6 +109,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             return false;
         }
     };
+    private Dialog dialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -446,4 +448,31 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     @Nullable
     public abstract Command<ArrayList<String>, String> getCommand();
 
+    public void showDialogInstallNaturalKeyboard() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.install_msg);
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                gotoPlayStore("com.duy.calc.casio");
+                dialogInterface.cancel();
+            }
+        });
+        builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (dialog!= null) {
+            dialog.dismiss();
+        }
+        super.onDestroy();
+    }
 }

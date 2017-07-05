@@ -350,4 +350,5 @@
     <string name="th_ng_h_ng">Straight</string>
     <string name="divisors">Делители</string>
     <string name="pi_number">Номер Pi</string>
+    <string name="install_msg">Are you want to install Natural Keyboard?</string>
 </resources>

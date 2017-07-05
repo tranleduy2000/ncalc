@@ -74,7 +74,7 @@ public class CheckUpdateTask {
                             builder.setPositiveButton(R.string.update, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    mActivity.rateApp();
+                                    mActivity.gotoPlayStore();
                                 }
                             });
                             builder.setNeutralButton(R.string.dismiss, new DialogInterface.OnClickListener() {

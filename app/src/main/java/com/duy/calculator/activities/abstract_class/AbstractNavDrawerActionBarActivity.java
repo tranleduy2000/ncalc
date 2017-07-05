@@ -143,7 +143,7 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
             @Override
             public void onClick(View v) {
                 closeDrawer();
-                rateApp();
+                gotoPlayStore();
             }
         });
         header.findViewById(R.id.img_back).setOnClickListener(new View.OnClickListener() {
@@ -220,7 +220,7 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
             intent = new Intent(getApplicationContext(), PrimitiveActivity.class);
             startIntent(intent);
         } else if (id == R.id.nav_rate) {
-            rateApp();
+            gotoPlayStore();
         } else if (id == R.id.nav_prime_factor) {
             intent = new Intent(getApplicationContext(), FactorPrimeActivity.class);
             startIntent(intent);

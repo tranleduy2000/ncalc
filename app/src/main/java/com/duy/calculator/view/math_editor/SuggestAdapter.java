@@ -57,7 +57,7 @@ public class SuggestAdapter extends ArrayAdapter<String> {
             FilterResults filterResults = new FilterResults();
             if (constraint != null) {
                 for (String item : clone) {
-                    if (item.toLowerCase().contains(constraint.toString().toLowerCase())) {
+                    if (item.toLowerCase().startsWith(constraint.toString().toLowerCase())) {
                         suggestions.add(item);
                     }
                 }

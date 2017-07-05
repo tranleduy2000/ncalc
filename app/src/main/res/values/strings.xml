@@ -758,5 +758,6 @@
     <string name="syntax_error" translatable="false">Syntax Error</string>
     <string name="divisors">Divisors</string>
     <string name="pi_number">Pi number</string>
+    <string name="install_msg">Are you want to install Natural Keyboard?</string>
 
 </resources>

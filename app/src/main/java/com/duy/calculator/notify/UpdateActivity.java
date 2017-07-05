@@ -31,7 +31,7 @@ public class UpdateActivity extends AbstractAppCompatActivity {
 
             @Override
             public void run() {
-                rateApp();
+                gotoPlayStore();
             }
 
         }, 300);

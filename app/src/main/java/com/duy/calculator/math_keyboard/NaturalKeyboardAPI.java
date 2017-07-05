@@ -16,10 +16,12 @@
 
 package com.duy.calculator.math_keyboard;
 
-import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+
+import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 
 /**
  * Created by Duy on 05-Jul-17.
@@ -28,13 +30,15 @@ import android.support.annotation.NonNull;
 public class NaturalKeyboardAPI {
     public static final int REQUEST_INPUT = 9991;
 
-    public static void getExpression(Activity activity) {
+    public static void getExpression(AbstractEvaluatorActivity activity) {
         try {
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.setComponent(new ComponentName("com.duy.calc.casio",
                     "com.duy.calc.casio.calculator.CalculatorActivity"));
             intent.putExtra("HAS_GET_INPUT", true);
             activity.startActivityForResult(intent, REQUEST_INPUT);
+        } catch (ActivityNotFoundException e) {
+            activity.showDialogInstallNaturalKeyboard();
         } catch (Exception e) {
             e.printStackTrace();
         }

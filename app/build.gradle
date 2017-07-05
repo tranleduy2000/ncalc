@@ -24,8 +24,8 @@ android {
         applicationId "com.duy.calculator.free"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 68
-        versionName "3.8.8"
+        versionCode 69
+        versionName "3.8.9"
         multiDexEnabled true
     }
 

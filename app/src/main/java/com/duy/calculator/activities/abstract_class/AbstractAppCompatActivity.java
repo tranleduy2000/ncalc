@@ -176,7 +176,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
         RateThisApp.setCallback(new RateThisApp.Callback() {
             @Override
             public void onYesClicked() {
-                rateApp();
+                gotoPlayStore();
             }
 
             @Override
@@ -296,8 +296,12 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
         }
     }
 
-    public void rateApp() {
-        Uri uri = Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID);
+    public void gotoPlayStore() {
+        gotoPlayStore(BuildConfig.APPLICATION_ID);
+    }
+
+    public void gotoPlayStore(String appId) {
+        Uri uri = Uri.parse("market://details?id=" + appId);
         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
         // To count with Play market backstack, After pressing back button,
         // to taken back to our application, we need to add following flags to intent.
@@ -306,7 +310,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
             startActivity(goToMarket);
         } catch (ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://playAnimatior.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID)));
+                    Uri.parse("http://playAnimatior.google.com/store/apps/details?id=" + appId)));
         }
     }
 
