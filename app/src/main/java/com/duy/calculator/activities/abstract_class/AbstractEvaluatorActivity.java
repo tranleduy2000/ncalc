@@ -20,9 +20,9 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,16 +51,13 @@ import com.duy.calculator.R;
 import com.duy.calculator.adapters.ResultAdapter;
 import com.duy.calculator.document.DialogFragmentHelpFunction;
 import com.duy.calculator.evaluator.EvaluateConfig;
-import com.duy.calculator.evaluator.LogicEvaluator;
-import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.exceptions.ParsingException;
 import com.duy.calculator.evaluator.thread.BaseThread;
 import com.duy.calculator.evaluator.thread.CalculateThread;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.ItemResult;
+import com.duy.calculator.math_keyboard.NaturalKeyboardAPI;
 import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ResizingEditText;
 import com.duy.calculator.view.RevealView;
@@ -171,6 +168,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         rcResult.setLayoutManager(linearLayoutManager);
         mResultAdapter = new ResultAdapter(this);
         rcResult.setAdapter(mResultAdapter);
+
+        findViewById(R.id.img_natural_keyboard).setOnClickListener(this);
     }
 
     /**
@@ -278,7 +277,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     @Override
     public void onClick(View v) {
-        Log.d(TAG, "onClick() called with: v = [" + v + "]");
 
         switch (v.getId()) {
             case R.id.btn_clear:
@@ -290,7 +288,22 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             case R.id.fab_help:
                 clickHelp();
                 break;
+            case R.id.img_natural_keyboard:
+                NaturalKeyboardAPI.getExpression(this);
+                break;
+        }
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case NaturalKeyboardAPI.REQUEST_INPUT:
+                if (resultCode == RESULT_OK) {
+                    String expr = NaturalKeyboardAPI.processResult(data);
+                    mInputFormula.setText(expr);
+                }
+                break;
         }
     }
 
