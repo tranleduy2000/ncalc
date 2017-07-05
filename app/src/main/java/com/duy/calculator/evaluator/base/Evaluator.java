@@ -18,8 +18,8 @@ package com.duy.calculator.evaluator.base;
 
 import android.util.Log;
 
-import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.Constants;
+import com.duy.calculator.evaluator.MathEvaluator;
 
 import org.javia.arity.Symbols;
 import org.javia.arity.SyntaxException;
@@ -105,8 +105,9 @@ public class Evaluator {
         String result = "";
         try {
             result = evaluator.evaluateWithResultNormal(decimalInput);
-            if (result.toLowerCase().equals(Constants.TRUE) || result.toLowerCase().equals(Constants.FALSE))
+            if (result.toLowerCase().equals(Constants.TRUE) || result.toLowerCase().equals(Constants.FALSE)) {
                 return result;
+            }
             result = clean(mBaseModule.changeBase(result, Base.DECIMAL, mBaseModule.getBase()));
             Log.d(TAG, "solver: " + result);
         } catch (Exception e) {

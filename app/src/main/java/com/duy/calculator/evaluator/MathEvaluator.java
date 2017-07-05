@@ -256,7 +256,7 @@ public class MathEvaluator extends LogicEvaluator {
      * Solve equation and return string result
      */
     public String solveEquation(String solveStr, final EvaluateConfig config, Context context) {
-        if (!(config.getEvaluateMode() == EvaluateConfig.DECIMAL)) {
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
             solveStr = "N(" + solveStr + ")";
         }
         String roots = EVAL_ENGINE.evaluate(solveStr).toString();

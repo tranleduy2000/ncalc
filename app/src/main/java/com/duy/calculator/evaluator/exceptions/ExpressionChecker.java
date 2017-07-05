@@ -16,8 +16,6 @@
 
 package com.duy.calculator.evaluator.exceptions;
 
-import org.matheclipse.core.eval.EvalEngine;
-
 import java.util.Stack;
 
 /**
@@ -44,6 +42,5 @@ public class ExpressionChecker {
 
     public static void checkExpression(String expr) {
         checkBalanceBracket(expr);
-        EvalEngine.get().parse(expr);
     }
 }
