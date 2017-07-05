@@ -300,8 +300,13 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         switch (requestCode) {
             case NaturalKeyboardAPI.REQUEST_INPUT:
                 if (resultCode == RESULT_OK) {
-                    String expr = NaturalKeyboardAPI.processResult(data);
-                    mInputFormula.setText(expr);
+                    final String expr = NaturalKeyboardAPI.processResult(data);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mInputFormula.setText(expr);
+                        }
+                    }, 100);
                 }
                 break;
         }
