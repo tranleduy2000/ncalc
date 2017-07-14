@@ -27,6 +27,8 @@ import com.duy.calculator.item_math_type.StepItem;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.eval.TeXUtilities;
+import org.matheclipse.core.expression.F;
+import org.matheclipse.core.expression.IntegerSym;
 import org.matheclipse.core.interfaces.AbstractEvalStepListener;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
@@ -100,10 +102,22 @@ public class MathEvaluator extends LogicEvaluator {
     public static IExpr evaluateSimple(String exprInput, EvaluateConfig config) {
         IExpr result = evaluate(exprInput);
         if (result.isNumber() && !result.isFraction()) {
-            return result;
+            if (result instanceof IntegerSym) {
+                return result;
+            } else {
+                return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
+            }
         }
         if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
-            return evaluate("N(" + exprInput + ")");
+            result = evaluate("N(" + exprInput + ")");
+            if (result.isNumber() && !result.isFraction()) {
+                if (result instanceof IntegerSym) {
+                    return result;
+                } else {
+                    return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
+                }
+            }
+            return result;
         } else {
             return result;
         }
