@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2017 Tran Le Duy
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,16 +15,16 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:app="http://schemas.android.com/apk/res-auto"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <android.support.v7.widget.CardView
             android:id="@+id/the_clear_animation"
@@ -46,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/enter_expression"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -64,7 +63,7 @@
                             android:id="@+id/edit_input"
                             style="@style/EditTextSolve"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -79,7 +78,7 @@
                             android:id="@+id/edit_input_2"
                             style="@style/EditTextSolve"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content" />
                     </android.support.design.widget.TextInputLayout>
 
                     <LinearLayout
@@ -97,7 +96,7 @@
                                 android:id="@+id/edit_lower"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/lower_limit"/>
+                                android:hint="@string/lower_limit" />
 
                         </android.support.design.widget.TextInputLayout>
 
@@ -110,7 +109,7 @@
                                 android:id="@+id/edit_upper"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/upper_limit"/>
+                                android:hint="@string/upper_limit" />
                         </android.support.design.widget.TextInputLayout>
 
 
@@ -126,7 +125,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/solve_for_var"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
                 </android.support.design.widget.TextInputLayout>
 
                 <RelativeLayout
@@ -140,7 +139,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="@string/solve"/>
+                        android:text="@string/solve" />
 
                     <android.support.v7.widget.AppCompatButton
                         android:id="@+id/btn_clear"
@@ -148,14 +147,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@+id/btn_solve"
-                        android:text="@string/delete_desc"/>
+                        android:text="@string/delete_desc" />
 
                     <android.support.v7.widget.AppCompatSpinner
                         android:id="@+id/spinner"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignBottom="@+id/btn_clear"
-                        android:layout_toEndOf="@+id/btn_clear"/>
+                        android:layout_toEndOf="@+id/btn_clear" />
 
                     <android.support.v7.widget.AppCompatImageButton
                         android:id="@+id/img_natural_keyboard"
@@ -167,7 +166,8 @@
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_keyboard_black_24dp"/>
+                        android:src="@drawable/ic_keyboard_black_24dp"
+                        android:tint="?colorAccent" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -183,7 +183,7 @@
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rc_result"

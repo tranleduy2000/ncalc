@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -28,6 +29,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.duy.calc.casio.activities.AbstractActivity;
+import com.duy.util.StoreUtil;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.adapters.ResultAdapter;
 import com.example.duy.calculator.hand_write.CalcHandWriteCallback;
@@ -37,6 +40,7 @@ import com.example.duy.calculator.item_math_type.IExprInput;
 import com.example.duy.calculator.item_math_type.ItemResult;
 import com.example.duy.calculator.math_eval.BigEvaluator;
 import com.example.duy.calculator.math_eval.LogicEvaluator;
+import com.example.duy.calculator.math_keyboard.NaturalKeyboardAPI;
 import com.example.duy.calculator.view.AnimationFinishedListener;
 import com.example.duy.calculator.view.FunctionRecyclerView;
 import com.example.duy.calculator.view.ResizingEditText;
@@ -155,6 +159,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         rcResult.setLayoutManager(linearLayoutManager);
         resultAdapter = new ResultAdapter(this);
         rcResult.setAdapter(resultAdapter);
+
+        findViewById(R.id.img_natural_keyboard).setOnClickListener(this);
     }
 
     private void createData() {
@@ -321,7 +327,38 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             case R.id.fab_help:
                 showHelp();
                 break;
+            case R.id.img_natural_keyboard:
+                NaturalKeyboardAPI.getExpression(this);
+                break;
+        }
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case NaturalKeyboardAPI.REQUEST_INPUT:
+                if (resultCode == RESULT_OK) {
+                    final String expr = NaturalKeyboardAPI.processResult(data);
+                    if (expr.isEmpty()) return;
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (mInputDisplay.hasFocus()) {
+                                mInputDisplay.setText(expr);
+                            } else if (mInputDisplay2.hasFocus()) {
+                                mInputDisplay2.setText(expr);
+                            } else if (editFrom.hasFocus()) {
+                                editFrom.setText(expr);
+                            } else if (editTo.hasFocus()) {
+                                editTo.setText(expr);
+                            } else {
+                                mInputDisplay.setText(expr);
+                            }
+                        }
+                    }, 100);
+                }
+                break;
         }
     }
 
@@ -448,6 +485,26 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         }
 
         mSlidingUpPanel.setScrollableView(mMathWidget);
+    }
+
+
+    public void showDialogInstallNaturalKeyboard() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.install_msg);
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                StoreUtil.gotoPlayStore(AbstractEvaluatorActivity.this, "com.duy.calc.casio");
+                dialogInterface.cancel();
+            }
+        });
+        builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.create().show();
     }
 
 

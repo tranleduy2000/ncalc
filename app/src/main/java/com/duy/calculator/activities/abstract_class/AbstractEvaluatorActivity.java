@@ -309,6 +309,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
                         public void run() {
                             if (mInputFormula.hasFocus()) {
                                 mInputFormula.setText(expr);
+                            } else if (mInputDisplay2.hasFocus()) {
+                                mInputDisplay2.setText(expr);
                             } else if (editFrom.hasFocus()) {
                                 editFrom.setText(expr);
                             } else if (editTo.hasFocus()) {
@@ -470,7 +472,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     @Override
     protected void onDestroy() {
-        if (dialog!= null) {
+        if (dialog != null) {
             dialog.dismiss();
         }
         super.onDestroy();

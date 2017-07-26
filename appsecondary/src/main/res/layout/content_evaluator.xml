@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -125,6 +125,7 @@
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:text="@string/solve" />
 
                 <android.support.v7.widget.AppCompatButton
@@ -132,14 +133,29 @@
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/btn_solve"
                     android:text="@string/delete_desc" />
 
                 <android.support.v7.widget.AppCompatSpinner
                     android:id="@+id/spinner"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:visibility="gone" />
-            </LinearLayout>
+                    android:layout_alignBottom="@+id/btn_clear"
+                    android:layout_toEndOf="@+id/btn_clear" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/img_natural_keyboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@+id/spinner"
+                    android:layout_alignParentEnd="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_keyboard_black_24dp"
+                    android:tint="?colorAccent" />
+            </RelativeLayout>
 
 
         </LinearLayout>
