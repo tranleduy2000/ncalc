@@ -67,7 +67,7 @@ Any suggestions on the application please send mail: Tranleduy1233@gmail.com.
 
 https://play.google.com/store/apps/details?id=com.duy.calc.casio
 
-![ICON](art/natural_icon-web.png)
+![ICON](art/Screenshot_20170730-232618_framed.png)
 
 ## License
 
