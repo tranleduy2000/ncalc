@@ -480,7 +480,7 @@ Ví dụ như 2x + 1, 2x^2-x-1
 </tr>
 <tr>
 <td width="43%">
-<p>GDC(a, b)</p>
+<p>GCD (a, b)</p>
 </td>
 <td width="56%">
 <p>Bội chung nhỏ nhất của a, b</p>

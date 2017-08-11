@@ -17,66 +17,66 @@
 <resources>
     <string name="all_unit_converter">Unit Converter</string>
     <string name="factor">Factor</string>
-    <string name="binomial_newton">Newton binomial expansion</string>
+    <string name="binomial_newton">Newton Binomial Expansion</string>
     <string name="circle">Circle</string>
     <string name="circle_interaction">Two circles intersect</string>
     <string name="circle_tangent">Two circles intersect</string>
     <string name="close">Close</string>
     <string name="collinear">Straight</string>
-    <string name="column">column</string>
+    <string name="column">columns</string>
     <string name="copied">Copied</string>
     <string name="create">Create</string>
     <string name="d_n_ph_n_m_m_ncalc">Software project NCalc +</string>
     <string name="delete_desc">Erase</string>
     <string name="derivative">Derivative</string>
-    <string name="error_input_num">Error type the number</string>
+    <string name="error_input_num">Number format error</string>
     <string name="error">Error</string>
     <string name="expand">Expand</string>
-    <string name="factor_prime">Prime factor</string>`
-    <string name="factor_polynomial">Factor polynomial</string>
+    <string name="factor_prime">Prime Factor</string>
+    <string name="factor_polynomial">Factor Polynomial</string>
     <string name="ellipse">Ellipse</string>
     <string name="feedback">Feedback</string>
-    <string name="gi_i_thi_u_v_calc">About Ncalc</string>
+    <string name="gi_i_thi_u_v_calc">About Ncalc+</string>
     <string name="gi_tr_nh_nh_t">Smallest value</string>
     <string name="graph">Graph</string>
     <string name="help">Help</string>
     <string name="enter_expression">Enter expression</string>
-    <string name="input_equation">Enter the equation</string>
+    <string name="input_equation">Enter an equation:</string>
     <string name="inside">Inside</string>
     <string name="interaction">Intersecting</string>
     <string name="l_ch_chu_n">Standard deviation</string>
     <string name="yes">Yes</string>
     <string name="vector">vector</string>
     <string name="title_activity_app_about">About NCalc+</string>
-    <string name="title_activity_geometry">2D Cartesian geometry</string>
+    <string name="title_activity_geometry">2D Cartesian Geometry</string>
     <string name="title_activity_graph">Graph</string>
     <string name="title_activity_matrix_calculator">Matrix</string>
-    <string name="title_activity_settings">Setting</string>
+    <string name="title_activity_settings">Settings</string>
     <string name="title_activity_unit_converter_acitvity">Unit Converter</string>
     <string name="th_m_ph_ng_tr_nh">More</string>
     <string name="table">Statistical</string>
     <string name="t_ng">sum</string>
-    <string name="speech_not_supported">does not support voice recognition</string>
+    <string name="speech_not_supported">Voice recognition is not supported</string>
     <string name="speak_expression">Read expressions</string>
-    <string name="solve_system_equation">Solve the system of equations</string>
-    <string name="solve_for_var">Solve equations with variable (x, y, z, …): </string>
-    <string name="solve_equation">Solve the equation</string>
+    <string name="solve_system_equation">Solve a system of equations</string>
+    <string name="solve_for_var">Solve equations with variables (x, y, z, …): </string>
+    <string name="solve_equation">Solve Equation</string>
 
-    <string name="simplify_expression">Simplify expression</string>
+    <string name="simplify_expression">Simplify Expression</string>
     <string name="simplify">Simplify</string>
     <string name="settings">Setting</string>
-    <string name="science_calculator">Calculator science</string>
-    <string name="row">row</string>
+    <string name="science_calculator">Scientific Calculator</string>
+    <string name="row">rows</string>
     <string name="process">Handling</string>
 
     <string name="polygon">polygon</string>
-    <string name="please_wait">Please wait until loaded</string>
+    <string name="please_wait">Loading, please wait</string>
     <string name="parallel">Parallel</string>
     <string name="outside">Outside</string>
     <string name="auto_process">Automatic data processing</string>
     <string name="line">Straight line</string>
-    <string name="linear_system">System equation</string>
-    <string name="logic_calculator">Calculator base</string>
+    <string name="linear_system">Solve System of Equations</string>
+    <string name="logic_calculator">Base-N Calculator</string>
     <string name="matrix">Matrix</string>
     <string name="matrix_op_inverse_a">Inverse A</string>
     <string name="matrix_op_inverse_b">Inverse B</string>
@@ -84,35 +84,35 @@
     <string name="matrix_op_tranpose_a">Trans A</string>
     <string name="maximum">The maximum value</string>
     <string name="more">More …</string>
-    <string name="msg_delete_matrix">Do you want to create the matrix, this job will delete the existing matrix?</string>
-    <string name="nav_descartes">2D geometry</string>
-    <string name="nh_p_c_c_n_c_a_h">Enter the variable of the system of equations</string>
-    <string name="nh_p_d_li_u">Insert information …</string>
+    <string name="msg_delete_matrix">Creating a new matrix will delete the existing matrix. Are you sure?</string>
+    <string name="nav_descartes">2D Geometry</string>
+    <string name="nh_p_c_c_n_c_a_h">Enter the variables of the system of equations:</string>
+    <string name="nh_p_d_li_u">Enter a value:</string>
     <string name="not_line">Not a straight line</string>
     <string name="not_interaction">No intersections</string>
     <string name="not_in_circle">None of the circle</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
-        Enter equations forming a system of equations, then enter the equation system hidden \n
-        For example: press the [more], then enter the following equation 3: \n
+        Enter equations forming a system of equations, then enter the equation system variables \n
+        For example: press [+] and enter the following equations: \n
          x + y + z = 2 \n
          x - y + 2z = 6 \n
          z + y = 2 \n
-        Then enter the hidden looking for is x, y, z \n
-        Press [find experimental]
+        Then enter the variables you are looking for: x, y, z \n
+        Press [SOLVE]
     </string>
-    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Data entry separated by a comma (,) \n \ For example: 12, 232.43, 4</string>
+    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Data entries separated by a comma (,) \n \ For example: 12, 232.43, 4</string>
     <string name="above_circle">Located on the circle</string>
     <string name="not_input_equation">Unknown equations</string>
     <string name="noFunDisp">There is no function to display</string>
-    <string name="tapFun">Choose to function</string>
+    <string name="tapFun">Choose a function</string>
     <string name="save">Save</string>
     <string name="add_function">Add function</string>
-    <string name="cannotwrite">Can not write</string>
+    <string name="cannotwrite">Unable to write the file</string>
     <string name="not_variable">
         <![CDATA[
-        No variable for solving equations </br>
-        Please enter equation with variable x</br>
-        Example 2x + 1 or 2x^2 + x - 2
+        No variable found </br>
+        Please enter an equation with variable x</br>
+        Examples: 2x + 1 or 2x^2 + x - 2
         ]]>
     </string>
     <string name="history">History</string>
@@ -120,15 +120,15 @@
     <string name="pref_title_theme">Theme</string>
     <string name="solve">Solve</string>
     <string name="tangent">tangent</string>
-    <string name="what_new">What new?</string>
+    <string name="what_new">What\'s new?</string>
     <string name="translate">Translate</string>
     <string name="license">License</string>
 
 
     <string name="help_main_calc" formatted="false"><![CDATA[
 
-<p>Default calculator mode Radian</p>
-<p>To calculate sin, cos, tan … the in degree, type <strong>sin (30 &deg;), cos (90 &deg;), </strong>…</p>
+<p>Default calculator mode: Radians</p>
+<p>To calculate sin, cos, tan … in degrees, type <strong>sin (30 &deg;), cos (90 &deg;), </strong>…</p>
 <p>&nbsp;</p>
 <p>For expressions that contain parameters, enter an * (multiplication) between parameters and variables. Example:</p>
 <p>$$ 2x ^ 2 + mx + 2 = 0 $$ Enter &nbsp;<strong>2x ^ 2 + m * x + 2 = 0</strong></p>
@@ -138,7 +138,7 @@
 <tbody>
 <tr>
 <td colspan="2" width="100%">
-<p><strong>LEARN SOME OPERATORS SUPPORT</strong></p>
+<p><strong>HELP WITH OPERATORS</strong></p>
 </td>
 </tr>
 <tr>
@@ -204,7 +204,7 @@
 <tbody>
 <tr>
 <td colspan="2" width="590">
-<p><strong>Constants</strong> (Keyboard mExpression)</p>
+<p><strong>CONSTANTS</strong> (not case-sensitive)</p>
 </td>
 </tr>
 <tr>
@@ -212,15 +212,15 @@
 <p>Pi</p>
 </td>
 <td width="337">
-<p>pi</p>
+<p>Value of Pi</p>
 </td>
 </tr>
 <tr>
 <td width="253">
-<p>HEY</p>
+<p>E</p>
 </td>
 <td width="337">
-<p>e</p>
+<p>Value of E</p>
 </td>
 </tr>
 <tr>
@@ -246,20 +246,20 @@
 <tbody>
 <tr>
 <td colspan="2" width="100%">
-<p><strong>SIGHT AND MATHEMATICS CONTENT IS SUPPORTED</strong></p>
+<p><strong>TRIGONOMETRIC AND MATHEMATIC FUNCTIONS</strong></p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Sqrt (x) or &radic; (x)</p>
+<p>sqrt (x) or &radic; (x)</p>
 </td>
 <td width="56%">
-<p>Returns the positive square root of x</p>
+<p>Positive square root of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Cbrt (x)</p>
+<p>cbrt (x)</p>
 </td>
 <td width="56%">
 <p>Cube root of x</p>
@@ -267,10 +267,10 @@
 </tr>
 <tr>
 <td width="43%">
-<p>Abs (x)</p>
+<p>abs (x)</p>
 </td>
 <td width="56%">
-<p>Returns the absolute value of a number</p>
+<p>Absolute value of x</p>
 </td>
 </tr>
 <tr>
@@ -278,7 +278,7 @@
 <p>sin (x)</p>
 </td>
 <td width="56%">
-<p>Returns the sine of angle x gave</p>
+<p>Sine of the angle x</p>
 </td>
 </tr>
 <tr>
@@ -286,7 +286,7 @@
 <p>cos (x)</p>
 </td>
 <td width="56%">
-<p>Returns the cosine of the angle x</p>
+<p>Cosine of the angle x</p>
 </td>
 </tr>
 <tr>
@@ -294,31 +294,31 @@
 <p>tan (x)</p>
 </td>
 <td width="56%">
-<p>Returns the tangent of the angle x</p>
+<p>Tangent of the angle x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Asin (x) or Arcsin (x)</p>
+<p>asin (x) or arcsin (x)</p>
 </td>
 <td width="56%">
-<p>Returns the inverse cosine of a number</p>
+<p>Inverse sine of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Acos (x) or Arccos(x)</p>
+<p>acos (x) or Arccos(x)</p>
 </td>
 <td width="56%">
-<p>Returns the arccosine of a number</p>
+<p>Inverse cosine of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Atan (x) or Arctan (x)</p>
+<p>atan (x) or arctan (x)</p>
 </td>
 <td width="56%">
-<p>The arctangent function.</p>
+<p>Inverse tangent of x</p>
 </td>
 </tr>
 <tr>
@@ -326,7 +326,7 @@
 <p>sinh (x)</p>
 </td>
 <td width="56%">
-<p>Sinh function</p>
+<p>Hyperbolic sine of x</p>
 </td>
 </tr>
 <tr>
@@ -334,7 +334,7 @@
 <p>cosh (x)</p>
 </td>
 <td width="56%">
-<p>Cosh function</p>
+<p>Hyperbolic cosine of x</p>
 </td>
 </tr>
 <tr>
@@ -342,12 +342,12 @@
 <p>tanh (x)</p>
 </td>
 <td width="56%">
-<p>Tanh function</p>
+<p>Hyperbolic tangent of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>C(n, k)</p>
+<p>C (n, k)</p>
 </td>
 <td width="56%">
 <p>Combinations</p>
@@ -355,10 +355,10 @@
 </tr>
 <tr>
 <td width="43%">
-<p>P(n, k)</p>
+<p>P (n, k)</p>
 </td>
 <td width="56%">
-<p>Permutation</p>
+<p>Permutations</p>
 </td>
 </tr>
 <tr>
@@ -366,7 +366,7 @@
 <p>asinh (x) or arcsinh (x)</p>
 </td>
 <td width="56%">
-<p>The hyperbolic arcsine function.</p>
+<p>Inverse hyperbolic sine of x</p>
 </td>
 </tr>
 <tr>
@@ -374,7 +374,7 @@
 <p>acosh (x) or arccosh (x)</p>
 </td>
 <td width="56%">
-<p>The hyperbolic arccosine function.</p>
+<p>Inverse hyperbolic cosine of x</p>
 </td>
 </tr>
 <tr>
@@ -382,60 +382,60 @@
 <p>atanh (x) or arctanh (x)</p>
 </td>
 <td width="56%">
-<p>The hyperbolic arctangent function.</p>
+<p>Inverse hyperbolic tangent of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>ln(x)</p>
+<p>ln (x)</p>
 </td>
 <td width="56%">
-<p>Logarithm base e</p>
+<p>Natural logarithm of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>log(x)</p>
+<p>log (x)</p>
 </td>
 <td width="56%">
-<p>Returns the natural logarithm of x..</p>
+<p>Natural logarithm of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Log(a, b)</p>
+<p>log (a, b)</p>
 </td>
 <td width="56%">
-<p>Logarithm base a of b</p>
+<p>Base a logarithm of b</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Exp(x)</p>
+<p>exp (x)</p>
 </td>
 <td width="56%">
-<p>Returns the ceiling value of&nbsp;x.</p>
+<p>Value of e to the power of x</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Celi (x)</p>
+<p>ceil (x)</p>
 </td>
 <td width="56%">
-<p>Rounds a number away from 0</p>
+<p>Round x up to the next whole number</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Floor (x)</p>
+<p>floor (x)</p>
 </td>
 <td width="56%">
-<p>Returns the floor value of x.</p>
+<p>Round x down to the next whole number</p>
 </td>
 </tr>
 <tr>
 <td width="43%">
-<p>Max (a, b)</p>
+<p>max (a, b)</p>
 </td>
 <td width="56%">
 <p>Returns the largest value in two numbers a and b</p>
@@ -443,7 +443,7 @@
 </tr>
 <tr>
 <td width="43%">
-<p>Min (a, b)</p>
+<p>min (a, b)</p>
 </td>
 <td width="56%">
 <p>Returns the smallest value in two numbers a and b</p>
@@ -451,7 +451,7 @@
 </tr>
 <tr>
 <td width="43%">
-<p>Rnd (a)</p>
+<p>rnd (a)</p>
 </td>
 <td width="56%">
 <p>Random function</p>
@@ -459,15 +459,7 @@
 </tr>
 <tr>
 <td width="43%">
-<p>GDC(a, b)</p>
-</td>
-<td width="56%">
-<p>The least common multiple of a and b</p>
-</td>
-</tr>
-<tr>
-<td width="43%">
-<p>LCM(a, b)</p>
+<p>GCD (a, b)</p>
 </td>
 <td width="56%">
 <p>Greatest common divisor of a and b</p>
@@ -475,10 +467,18 @@
 </tr>
 <tr>
 <td width="43%">
-<p>Sign(x)</p>
+<p>LCM (a, b)</p>
 </td>
 <td width="56%">
-<p>Gives -1, 0 or 1 depending on whether x is negative, zero or positive.</p>
+<p>Least common multiple of a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sign (x)</p>
+</td>
+<td width="56%">
+<p>Returns -1, 0 or 1 depending on whether x is negative, zero or positive</p>
 </td>
 </tr>
 </tbody>
@@ -492,12 +492,12 @@
     <string name="help_derivative" formatted="false">@string/help_main_calc</string>
     <string name="help_expression" formatted="false">@string/help_main_calc</string>
 
-    <string name="choose_mode">Select the mode 2D or 3D graphs</string>
+    <string name="choose_mode">Select the 2D or 3D graph mode</string>
     <string name="reason">Reason</string>
     <string name="math_error">Math Error</string>
     <string name="add_equation">Add equation</string>
     <string name="remove_equation">Delete equation</string>
-    <string name="enter_params">Enter the variable of the system of equations</string>
+    <string name="enter_params">Enter the variables of the system of equations:</string>
     <string name="calc">Calc</string>
 
     <string name="enter_value">Enter value</string>
@@ -509,7 +509,7 @@
     <string name="eval">Evaluate</string>
     <string name="input_limit">Input limit of function</string>
     <string name="limit">Find Limit</string>
-    <string name="rate_this_app">Rate this app</string>
+    <string name="rate_this_app">Rate App</string>
     <string name="integrate">Integrate</string>
     <string name="enter_function">Enter function</string>
     <string name="lower_limit">Lower limit</string>
@@ -536,8 +536,8 @@
     <string name="push_solve_button">Press this button to find root the equation, the calculation process can take longer for first-time initialization data</string>
     <string name="t_c_gi_tr_n_l_duy">Author: LE DUY TRAN</string>
     <string name="thpt_nguy_n_b_nh_khi_m">Nguyen Binh Khiem High School</string>
-    <string name="rate_desc">Rate this applications on the Google Play Store</string>
-    <string name="input_analyze_here">Enter polynomial needs analysis in this line!</string>
+    <string name="rate_desc">Rate this application on the Google Play Store</string>
+    <string name="input_analyze_here">Enter polynomial that needs analysis in this line!</string>
     <string name="input_simplify_here">Enter the expression to simplify in this line!</string>
     <string name="limit_to_desc">Upper limit</string>
     <string name="ln_hint">
@@ -555,30 +555,30 @@
     <string name="module">Modulo</string>
     <string name="input_number">Enter number</string>
     <string name="enter_number">Enter number</string>
-    <string name="help_permutation">Enter the number \\(N\\) (there are many elements) and \\(L\\) (the number of elements selected)</string>
+    <string name="help_permutation">Enter the number \\(N\\) (total amount of elements) and \\(L\\) (amount of elements selected)</string>
     <string name="trace_mode">Trace mode</string>
     <string name="dev_mode">Developer mode</string>
     <string name="not_a_number">The data entered is not a number!</string>
-    <string name="gt_zero">Two numbers entered must be greater than zero number.</string>
-    <string name="number_theory">Number theory</string>
-    <string name="summary_trace_mode">How computers perform expression problems</string>
+    <string name="gt_zero">Both numbers must be greater than zero.</string>
+    <string name="number_theory">Number Theory</string>
+    <string name="summary_trace_mode">How computers solve expression problems</string>
     <string name="summary_percision">Precision</string>
-    <string name="go_to_facebook">Go to Facebook</string>
-    <string name="fb_desc">Support of the application. Receive bug reports.</string>
-    <string name="enter_variable">Enter variables here. Variables are separated by semicolons</string>
+    <string name="go_to_facebook">Visit Facebook page</string>
+    <string name="fb_desc">Application support &amp; bug reports</string>
+    <string name="enter_variable">Enter variables here. Variables are separated by semicolons.</string>
     <string name="select_num_var">Select the number of variables</string>
-    <string name="num_of_var">Number of variable</string>
+    <string name="num_of_var">Number of variables</string>
     <string name="enter_coefficient">Enter coefficient here!</string>
-    <string name="select_num_var_des">Number of variable of the system equations need finding root.</string>
+    <string name="select_num_var_des">Number of variables in the system of equations need finding root.</string>
     <string name="enter_coeff_desc">
         Enter the coefficients of the equations. \n
-        Example\n
+        Example:\n
             2x + y = 0\n
             3x - 2y = 1\n
         Enter the coefficients:\n
             [1; 1; 0]\n
             [3, -2; 1]</string>
-    <string name="enter_var_hint">Enter variable of system equation</string>
+    <string name="enter_var_hint">Enter the variables of the system of equations</string>
     <string name="input_matrix">Input matrix</string>
     <string name="input_equation_">Input equation</string>
     <string name="my_own_title">Rate this app</string>
@@ -588,33 +588,33 @@
     <string name="my_own_cancel">Later</string>
     <string name="precision_">Precision</string>
     <string name="calculator">Calculator</string>
-    <string name="ui">User interface</string>
-    <string name="advance">Advance</string>
+    <string name="ui">User Interface</string>
+    <string name="advance">Advanced</string>
     <string name="fraction_mode">Fraction mode</string>
     <string name="fraction_decs">Show 1/2 instead of 0.5</string>
     <string name="summary_instant_res">Automatically calculate results</string>
-    <string name="instant_res">Instant res</string>
+    <string name="instant_res">Instant results</string>
     <string name="not_find_root">Can not find root of the equation.</string>
-    <string name="no_root">The equation has no solution</string>
-    <string name="change_lang_msg">Restart app to apply language!</string>
+    <string name="no_root">This equation has no solution.</string>
+    <string name="change_lang_msg">Please restart the app to apply the selected language.</string>
     <string name="latex_engine">LaTeX engine</string>
 
-    <string name="tit_trig_expand">Trigonometry Expand</string>
-    <string name="tit_trig_reduce">Trigonometry Reduce</string>
+    <string name="tit_trig_expand">Trigonometry - Expand</string>
+    <string name="tit_trig_reduce">Trigonometry - Reduce</string>
     <string name="tit_trig_to_exp">Trigonometry to Exponent</string>
     <string name="trigonometry">Trigonometry</string>
-    <string name="latex_summary">KaTeX is faster than MathJax on mobile environment, but MathJax supports more features and is much more beautiful.</string>
+    <string name="latex_summary">KaTeX is faster than MathJax on a mobile environment, but MathJax supports more features and is much more beautiful.</string>
     <string name="close_drawer">Close drawer</string>
-    <string name="cannot_factor_polynomial">Can not factors the polynomial expression.</string>
+    <string name="cannot_factor_polynomial">Can not factor the polynomial expression.</string>
     <string name="catalan_number">Catalan Number</string>
     <string name="prime">Prime Number</string>
-    <string name="fibonacci">Fibonaci Number</string>
+    <string name="fibonacci">Fibonacci Number</string>
     <string name="please_enter_number">Please enter the number</string>
     <string name="catalan_desc">Computes the nth Catalan number</string>
     <string name="fibo_desc">Computes the nth Fibonacci number.</string>
-    <string name="prime_desc">Computes the nth Prime number.</string>
+    <string name="prime_desc">Computes the nth prime number.</string>
     <string name="update">Update</string>
-    <string name="new_version_update">New version for app, do you want to update now!</string>
+    <string name="new_version_update">A new version for this app is available. Please update as soon as possible.</string>
     <string name="dismiss">Dismiss</string>
     <string name="notify_update">Update notifications</string>
 
@@ -629,11 +629,11 @@
     <string name="unit9">Bit Rate</string>
     <string name="unit10">Time</string>
 
-    <string name="weightunitkg">Kilogam (Kg)</string>
-    <string name="weightunitgm">Gam (g)</string>
+    <string name="weightunitkg">Kilogram (Kg)</string>
+    <string name="weightunitgm">Gram (g)</string>
     <string name="weightunitlb">Pound (lb)</string>
     <string name="weightunitounce">Ounce (oz)</string>
-    <string name="weightunitmg">Miligam (mg)</string>
+    <string name="weightunitmg">Miligram (mg)</string>
 
 
     <string name="temperatureunitc">Celsius (ºC)</string>
@@ -665,7 +665,7 @@
 
     <string name="energyunitcalories">Calories (cal)</string>
     <string name="energyunitkilocalories">Kilo Calories (kcal)</string>
-    <string name="energyunitjoules">Jun (J)</string>
+    <string name="energyunitjoules">Joules (J)</string>
 
     <string name="velocityunitkmph">Km/h</string>
     <string name="velocityunitmeterpers">m/s</string>
@@ -707,7 +707,7 @@
 
     <string name="hide_status_bar">Hide status bar</string>
     <string name="result">Result</string>
-    <string name="see_doc">See document</string>
+    <string name="see_doc">View Documentation</string>
     <string name="loading">Loading data…</string>
 
     <!--geometric -->
@@ -757,7 +757,7 @@
     <string name="th_ng_h_ng">Straight</string>
     <string name="syntax_error" translatable="false">Syntax Error</string>
     <string name="divisors">Divisors</string>
-    <string name="pi_number">Pi number</string>
-    <string name="install_msg">Are you want to install Natural Keyboard?</string>
+    <string name="pi_number">Pi Number</string>
+    <string name="install_msg">Do you want to install Natural Keyboard?</string>
 
 </resources>

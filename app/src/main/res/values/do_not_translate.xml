@@ -193,7 +193,7 @@
         <item name="bitrateunitkilobits">@string/bitrateunitkilobits</item>
         <item name="bitrateunitmegabits">@string/bitrateunitmegabits</item>
         <item name="bitrateunitgigabits">@string/bitrateunitgigabits</item>
-        <item name="bitrateunitterabits">T@string/bitrateunitterabits</item>
+        <item name="bitrateunitterabits">@string/bitrateunitterabits</item>
     </string-array>
 
     <string-array name="time" translatable="false">
