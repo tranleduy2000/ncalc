@@ -37,7 +37,7 @@ import java.util.Collections;
  */
 
 class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
-    private static final String DOC_PATH = "functions/";
+    private static final String DOC_PATH = "doc/functions/";
     private static final String TAG = "DocumentAdapter";
     private Context context;
     private ArrayList<String> names = new ArrayList<>();
@@ -54,7 +54,7 @@ class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
         Log.d(TAG, "loadData() called");
 
         try {
-            String[] functions = context.getAssets().list("functions");
+            String[] functions = context.getAssets().list("doc/functions");
             Collections.addAll(names, functions);
             originalData.addAll(names);
             Log.d(TAG, "loadData: " + Arrays.toString(functions));

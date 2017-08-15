@@ -92,10 +92,10 @@ public class DialogFragmentHelpFunction extends AppCompatDialogFragment {
             Log.d(TAG, "doInBackground() called with: params = [" + Arrays.toString(params) + "]");
             String key = params[0] + ".md";
             try {
-                String[] functions = assetManager.list("functions");
+                String[] functions = assetManager.list("doc/functions");
                 for (String function : functions) {
                     if (function.equalsIgnoreCase(key)) {
-                        return "functions/" + function;
+                        return "doc/functions/" + function;
                     }
                 }
             } catch (IOException e) {

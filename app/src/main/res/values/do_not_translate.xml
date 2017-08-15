@@ -65,7 +65,7 @@
     <string name="tan" translatable="false">tan</string>
     <string name="constant_e" translatable="false">E</string>
     <string name="ln" translatable="false">ln</string>
-    <string name="lg" translatable="false">log</string>
+    <string name="log10" translatable="false">log10</string>
     <string name="leftParen" translatable="false">(</string>
     <string name="rightParen" translatable="false">)</string>
     <string name="sqrt_sym" translatable="false">√</string>
@@ -95,7 +95,6 @@
     <string name="or" translatable="false">||</string>
     <string name="not" translatable="false">!</string>
     <string name="gcd_up" translatable="false">GCD</string>
-    <string name="log10" translatable="false">log10</string>
     <string name="log2" translatable="false">log2</string>
     <string name="sinh" translatable="false">sinh</string>
     <string name="cosh" translatable="false">cosh</string>

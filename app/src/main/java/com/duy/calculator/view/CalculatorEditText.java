@@ -162,7 +162,7 @@ public class CalculatorEditText extends ResizingEditText {
                 context.getString(R.string.mean) + "(",
                 context.getString(R.string.sqrt_sym) + "(",
                 context.getString(R.string.log2) + "(",
-                context.getString(R.string.lg) + "(",
+                context.getString(R.string.log10) + "(",
                 context.getString(R.string.cot) + "(",
                 context.getString(R.string.exp) + "(",
                 context.getString(R.string.sign) + "(",

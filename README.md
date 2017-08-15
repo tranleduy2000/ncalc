@@ -59,10 +59,6 @@ The computer can work in two modes:
 - 	Decimal mode: 0.12312312323
 - 	Mode fractions: for results with arbitrary precision, for example 9^99999
 
-Fanpage application support: https://www.facebook.com/calculator.n.plus/
-
-Any suggestions on the application please send mail: Tranleduy1233@gmail.com.
-
 ## Install Natural Keyboard for input math formula
 
 https://play.google.com/store/apps/details?id=com.duy.calc.casio

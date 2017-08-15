@@ -128,38 +128,12 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     private EInputState mEInputState = EInputState.PAD;
     private Handler handler = new Handler();
 
-    private void bindView() {
-        mFabClose = (FloatingActionButton) findViewById(R.id.fab_close);
-        mReview = (MathView) findViewById(R.id.math_view);
-        mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
-        mInputDisplay = (CalculatorEditText) findViewById(R.id.txtDisplay);
-        padAdvance = (SlidingUpPanelLayout) findViewById(R.id.slide);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mContainerSolve = (FrameLayout) findViewById(R.id.container_solve);
-        mFractionSwitch = (SwitchCompat) findViewById(R.id.sw_fraction);
-        mAnimateSolve = (FrameLayout) findViewById(R.id.result_animation);
-        mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar_main);
-        mMathView = (MathView) findViewById(R.id.math_result);
-
-        mFractionSwitch.setChecked(mCalculatorSetting.useFraction());
-        mFractionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mCalculatorSetting.setFraction(isChecked);
-                onChangeModeFraction();
-            }
-        });
-    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mEvaluator = MathEvaluator.getInstance();
-
         setContentView(R.layout.activity_basic_calculator);
         bindView();
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mInputDisplay.setShowSoftInputOnFocus(false);
@@ -183,6 +157,29 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         showHelp();
     }
 
+
+    private void bindView() {
+        mFabClose = (FloatingActionButton) findViewById(R.id.fab_close);
+        mReview = (MathView) findViewById(R.id.math_view);
+        mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
+        mInputDisplay = (CalculatorEditText) findViewById(R.id.txtDisplay);
+        padAdvance = (SlidingUpPanelLayout) findViewById(R.id.slide);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mContainerSolve = (FrameLayout) findViewById(R.id.container_solve);
+        mFractionSwitch = (SwitchCompat) findViewById(R.id.sw_fraction);
+        mAnimateSolve = (FrameLayout) findViewById(R.id.result_animation);
+        mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar_main);
+        mMathView = (MathView) findViewById(R.id.math_result);
+
+        mFractionSwitch.setChecked(mCalculatorSetting.useFraction());
+        mFractionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mCalculatorSetting.setFraction(isChecked);
+                onChangeModeFraction();
+            }
+        });
+    }
 
     private void setModeFraction() {
         mFractionSwitch.setChecked(mSetting.useFraction());
@@ -706,8 +703,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     public void onDefineAndCalc() {
-        //show acitivity parameter
-        //click ok and show
         Intent intent = new Intent(this, DefineVariableActivity.class);
         intent.putExtra(DATA, mInputDisplay.getCleanText());
         startActivityForResult(intent, REQ_CODE_DEFINE_VAR);

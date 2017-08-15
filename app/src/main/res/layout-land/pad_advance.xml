@@ -145,7 +145,7 @@
         <com.duy.calculator.view.BaseButton
             android:id="@+id/btn_log"
             style="?buttonAdvanceStyle"
-            android:text="@string/lg" />
+            android:text="@string/log10" />
 
         <com.duy.calculator.view.BaseButton
             style="?buttonAdvanceStyle"
