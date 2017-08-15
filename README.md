@@ -4,8 +4,9 @@
 This is a powerful android calculator contains most of the features needed. The power of the application is through the use of the Symja library. The results are displayed by Latex technology. The application is designed as material design. This project is an open source project that allows people to study, ad-free application.
 
 Get lite version in Google Play Store
+
 <a href="https://play.google.com/store/apps/details?id=com.duy.calculator.free">
-<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="100"></a>
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="150"></a>
 
 ## How to build and run this source
 
@@ -14,8 +15,7 @@ Get lite version in Google Play Store
 
 ## Screenshot
 
-<img src="art/screenshot/Screenshot_20170815-135135_framed.png" width="300">
-<img src="art/screenshot/Screenshot_20170815-135150_framed.png" width="300">
+<img src="art/screenshot/Screenshot_20170815-135135_framed.png" width="300"> <img src="art/screenshot/Screenshot_20170815-135150_framed.png" width="300">
 
 ## ALGEBRA
 
