@@ -15,7 +15,7 @@ Get lite version in Google Play Store
 
 ## Screenshot
 
-<img src="art/screenshot/Screenshot_20170815-135135_framed.png" width="300"> <img src="art/screenshot/Screenshot_20170815-135150_framed.png" width="300">
+<img src="art/screenshot/Screenshot_20170815-135135_framed.png" width="400"> <img src="art/screenshot/Screenshot_20170815-135150_framed.png" width="400">
 
 ## ALGEBRA
 
