@@ -1,15 +1,21 @@
-# NCalc+
-Powerful calculator for Android.
+# Calculator N+ - Powerful calculator for Android.
+
+## Overview
+This is a powerful android calculator contains most of the features needed. The power of the application is through the use of the Symja library. The results are displayed by Latex technology. The application is designed as material design. This project is an open source project that allows people to study, ad-free application.
 
 Get lite version in Google Play Store
-
 <a href="https://play.google.com/store/apps/details?id=com.duy.calculator.free">
-<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="300"></a>
+<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="100"></a>
 
 ## How to build and run this source
 
 1. Clone project by using Android Studio
 2. Select and build module **app**
+
+## Screenshot
+
+![](art/screenshot/Screenshot_20170815-135135_framed.png)
+![](art/screenshot/Screenshot_20170815-135150_framed.png)
 
 ## ALGEBRA
 
@@ -17,7 +23,6 @@ Get lite version in Google Play Store
 	2. Solving the equation:
 	3. Solve system equations
 	4. Graphing
-	5. Cartesian geometry sand(Viet Nam Education)
 	6. Unit Conversions
 	8. Simplify expressions
 	9. Polynomial factorization.
@@ -58,12 +63,6 @@ Enter sin(30°) to calculate sine Degree mode
 The computer can work in two modes:
 - 	Decimal mode: 0.12312312323
 - 	Mode fractions: for results with arbitrary precision, for example 9^99999
-
-## Install Natural Keyboard for input math formula
-
-https://play.google.com/store/apps/details?id=com.duy.calc.casio
-
-![ICON](art/Screenshot_20170730-232618_framed.png)
 
 ## License
 
