@@ -20,7 +20,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -43,8 +42,8 @@ public class InfoActivity extends AppCompatActivity {
     private static final String TAG = InfoActivity.class.getClass().getSimpleName();
     @BindView(com.duy.calculator.R.id.list_translate)
     RecyclerView mListTranslate;
-    @BindView(R.id.list_license)
-    RecyclerView mListLicense;
+//    @BindView(R.id.list_license)
+//    RecyclerView mListLicense;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
@@ -81,20 +80,19 @@ public class InfoActivity extends AppCompatActivity {
 
     class TaskLoadData extends AsyncTask<Void, Void, Void> {
         ArrayList<ItemInfo> dataTranslate;
-        ArrayList<ItemInfo> dataLicense;
+//        ArrayList<ItemInfo> dataLicense;
 
 
         @Override
         protected Void doInBackground(Void... params) {
             dataTranslate = InfoAppUtil.readListTranslate(getResources().openRawResource(R.raw.help_translate));
-//            dataLicense = InfoAppUtil.readListLicense(getResources().openRawResource(R.raw.license));
 
             final String[] name = getResources().getStringArray(R.array.libs);
             final String[] license = getResources().getStringArray(R.array.lics);
-            dataLicense = new ArrayList<>();
-            for (int i = 0; i < name.length; i++) {
-                dataLicense.add(new ItemInfo(name[i], license[i], ""));
-            }
+//            dataLicense = new ArrayList<>();
+//            for (int i = 0; i < name.length; i++) {
+//                dataLicense.add(new ItemInfo(name[i], license[i], ""));
+//            }
             return null;
         }
 
@@ -106,11 +104,11 @@ public class InfoActivity extends AppCompatActivity {
             mListTranslate.setHasFixedSize(false);
             mListTranslate.setAdapter(adapterTranslate);
 
-            LicenseAdapter adapterLicense = new LicenseAdapter(InfoActivity.this, dataLicense);
-            mListLicense.setLayoutManager(new LinearLayoutManager(InfoActivity.this));
-            mListLicense.setHasFixedSize(false);
-            mListLicense.setAdapter(adapterLicense);
-            mListLicense.addItemDecoration(new DividerItemDecoration(InfoActivity.this, DividerItemDecoration.VERTICAL));
+//            LicenseAdapter adapterLicense = new LicenseAdapter(InfoActivity.this, dataLicense);
+//            mListLicense.setLayoutManager(new LinearLayoutManager(InfoActivity.this));
+//            mListLicense.setHasFixedSize(false);
+//            mListLicense.setAdapter(adapterLicense);
+//            mListLicense.addItemDecoration(new DividerItemDecoration(InfoActivity.this, DividerItemDecoration.VERTICAL));
         }
     }
 

@@ -6,9 +6,6 @@ ContinuedFraction(number)
  
 > get the continued fraction representation of `number`.
 
-See:  
-* [Wikipedia - Continued fraction](https://en.wikipedia.org/wiki/Continued_fraction)
- 
 ### Examples
 
 ```

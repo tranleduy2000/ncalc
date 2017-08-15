@@ -15,9 +15,6 @@ Subsets(list, {n})
 ```
 > finds a list of all possible subsets containing exactly `n` elements.
 	 
-See:  
-* [Wikipedia - Combination](https://en.wikipedia.org/wiki/Combination)
-
 ### Examples
 
 ```

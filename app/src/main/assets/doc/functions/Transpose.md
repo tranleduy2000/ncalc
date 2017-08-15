@@ -6,9 +6,6 @@ Transpose(m)
 
 > transposes rows and columns in the matrix `m`.
 
-See:
-* [Wikipedia - Transpose](https://en.wikipedia.org/wiki/Transpose)
-
 ### Examples
 
 ``` 

@@ -4,9 +4,6 @@ Cross(a, b)
 ``` 
 > computes the vector cross product of `a` and `b`.
 
-See:
-* [Wikipedia: Cross product](https://en.wikipedia.org/wiki/Cross_product)
-
 ### Examples
 ``` 
 >> Cross({x1, y1, z1}, {x2, y2, z2})

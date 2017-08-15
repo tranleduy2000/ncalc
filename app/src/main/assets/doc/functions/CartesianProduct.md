@@ -6,9 +6,6 @@ CartesianProduct(list1, list2)
 
 > returns the cartesian product for multiple lists.
 
-See:  
-* [Wikipedia - Cartesian product](http://en.wikipedia.org/wiki/Cartesian_product)  
-
 ### Examples
 
 ``` 

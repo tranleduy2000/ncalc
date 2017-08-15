@@ -4,9 +4,6 @@ MatrixRank(matrix)
 ```
 
 > returns the rank of `matrix`.
- 
-See:
-* [Wikipedia - Rank (linear algebra](https://en.wikipedia.org/wiki/Rank_%28linear_algebra%29)
 
 ### Examples
 ```

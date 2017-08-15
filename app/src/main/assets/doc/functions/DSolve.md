@@ -5,9 +5,6 @@ DSolve(equation, f(var), var)
 ```
 > attempts to solve a linear differential `equation` for the function `f(var)` and variable `var`.
 
-See:  
-* [Wikipedia - Ordinary differential equation](https://en.wikipedia.org/wiki/Ordinary_differential_equation)
-
 ### Examples
 ``` 
 >> DSolve({y'(x)==y(x)+2},y(x), x)

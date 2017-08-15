@@ -16,13 +16,13 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:clickable="true"
-    android:foreground="?attr/selectableItemBackground"
-    android:orientation="vertical"
-    android:padding="16dp">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:clickable="true"
+              android:foreground="?attr/selectableItemBackground"
+              android:orientation="vertical"
+              android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:layout_height="120dp"
             android:layout_gravity=""
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/icon_splash" />
+            app:srcCompat="@drawable/icon_splash"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -42,8 +42,7 @@
             android:gravity="center"
             android:text="@string/app_name"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+            android:textSize="32sp"/>
 
     </LinearLayout>
 
@@ -51,5 +50,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/copy_right" />
+        android:text="@string/copy_right"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autoLink="web"
+        android:text="@string/open_source_project_in_github_https_github_com_tranleduy2000_ncalc"/>
 </LinearLayout>

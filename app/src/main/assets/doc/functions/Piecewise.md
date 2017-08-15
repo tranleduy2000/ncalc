@@ -10,10 +10,6 @@ Piecewise({{expr1, cond1}, ...}, expr)
 ```   
 > represents a piecewise function with default `expr`.
 
-See:
-
-* [Wikipedia - Piecewise](http://en.wikipedia.org/wiki/Piecewise)
-
 ### Examples
 
 ```   

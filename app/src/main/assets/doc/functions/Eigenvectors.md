@@ -6,11 +6,6 @@ Eigenvectors(matrix)
 
 > get the numerical eigenvectors of the `matrix`.
 
-See:
-
-* [Wikipedia - Eigenvalue](http://en.wikipedia.org/wiki/Eigenvalue)
-
-
 ### Examples
 
 ```

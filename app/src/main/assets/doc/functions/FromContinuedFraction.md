@@ -6,9 +6,6 @@ FromContinuedFraction({n1, n2, ...})
 
 > return the number which represents the continued fraction list `{n1, n2, ...}`.
   
-See:  
-* [Wikipedia - Continued fraction](https://en.wikipedia.org/wiki/Continued_fraction)
- 
 ### Examples
 
 ```
