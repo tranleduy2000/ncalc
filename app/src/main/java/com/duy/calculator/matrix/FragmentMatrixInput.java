@@ -48,7 +48,6 @@ import static com.duy.calculator.activities.BasicCalculatorActivity.TAG;
 public class FragmentMatrixInput extends Fragment implements View.OnClickListener {
     private static final int MAX_ROW = 100;
     private static final int MAX_COL = 100;
-    private EditText editRowA, editColA, editRowB, editColB;
     private RelativeLayout mContainerA, mContainerB;
     private int currentRowA = 0;
     private int currentColumnA = 0;
@@ -96,13 +95,9 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        editRowA = (EditText) findViewById(R.id.edit_row_a);
-        editColA = (EditText) findViewById(R.id.edit_colums_a);
-        Button btnCreA = (Button) findViewById(R.id.button_create_mA);
+        Button btnCreA = (Button) findViewById(R.id.btn_create);
         btnCreA.setOnClickListener(this);
 
-        editRowB = (EditText) findViewById(R.id.edit_row_b);
-        editColB = (EditText) findViewById(R.id.edit_colums_b);
         Button btnCreB = (Button) findViewById(R.id.button_create_mB);
         btnCreB.setOnClickListener(this);
 
@@ -113,11 +108,6 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
         initSpinOperator();
         Button btnSubmit = (Button) findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
-
-        editColA.setText("3");
-        editColB.setText("3");
-        editRowA.setText("3");
-        editRowB.setText("3");
 
         createLayoutMatrix(3, 3, mContainerA);
         createLayoutMatrix(3, 3, mContainerB);
@@ -142,30 +132,7 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
     }
 
     private void showDialogClearMatrixB() {
-        AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
-        builder2.setMessage(R.string.msg_delete_matrix);
-        builder2.setNegativeButton(this.getString(R.string.yes), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                try {
-                    currentRowB = Integer.parseInt(editRowB.getText().toString());
-                    currentColumnB = Integer.parseInt(editColB.getText().toString());
-                    createLayoutMatrix(currentColumnB, currentRowB, mContainerB);
-                } catch (NumberFormatException e) {
-                    showDialog(getResources().getString(R.string.error),
-                            getResources().getString(R.string.error_input_num) + " " + e.getMessage());
-                } catch (Exception e) {
-                    showDialog(null, e.getMessage());
-                }
-            }
-        });
-        builder2.setPositiveButton(this.getString(R.string.close), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        builder2.create().show();
+
     }
 
     private void createLayoutMatrix(int col, int row, ViewGroup viewGroup) {
@@ -176,10 +143,7 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
                 AppCompatEditText editText = new AppCompatEditText(getContext());
                 editText.setHint("[" + i + "," + j + "]");
                 RelativeLayout.LayoutParams params =
-                        new RelativeLayout.LayoutParams(
-                                100,
-                                RelativeLayout.LayoutParams.WRAP_CONTENT
-                        );
+                        new RelativeLayout.LayoutParams(100, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 editText.setSingleLine(true);
                 editText.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 editText.setId(index);
@@ -187,15 +151,13 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
                     editText.setText(String.valueOf(random.nextInt(200) - 100));
                 }
                 if (j == 0) {
-                    params.addRule(RelativeLayout.ALIGN_PARENT_LEFT,
-                            RelativeLayout.TRUE);
+                    params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
                 } else {
                     params.addRule(RelativeLayout.RIGHT_OF, index - 1);
                 }
 
                 if (i == 0) {
-                    params.addRule(RelativeLayout.ALIGN_PARENT_TOP,
-                            RelativeLayout.TRUE);
+                    params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
                 } else {
                     params.addRule(RelativeLayout.BELOW, index - col);
                 }
@@ -209,8 +171,8 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
 
     public String getMatrixA() {
         StringBuilder res = new StringBuilder();
-        int col = Integer.parseInt(editColA.getText().toString());
-        int row = Integer.parseInt(editRowA.getText().toString());
+        int col = (currentColumnA);
+        int row =(currentRowA);
         @IdRes int index = 1;
         res.append("{");
         for (int i = 0; i < row; i++) {
@@ -235,8 +197,8 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
     public String getMatrixB() {
         StringBuilder res = new StringBuilder();
         res.append("{");
-        int col = Integer.parseInt(editColB.getText().toString());
-        int row = Integer.parseInt(editRowB.getText().toString());
+        int col = (currentColumnB);
+        int row =(currentRowB);
         @IdRes int index = 1;
         for (int i = 0; i < row; i++) {
             res.append("{");
@@ -258,30 +220,46 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
         return res.toString();
     }
 
-    private void showDialogClearMatrixA() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+    @SuppressWarnings("ConstantConditions")
+    private void showDialogCreateMatrix(final boolean isMatrixA) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setView(R.layout.fragment_matrix_dimens);
         builder.setMessage(R.string.msg_delete_matrix);
-        builder.setNegativeButton(this.getString(R.string.yes), new DialogInterface.OnClickListener() {
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        final EditText editRow = (EditText) dialog.findViewById(R.id.edit_row);
+        final EditText editCol = (EditText) dialog.findViewById(R.id.edit_colums);
+        Button btnCreate = (Button) dialog.findViewById(R.id.btn_create);
+        Button btnCancel = (Button) dialog.findViewById(R.id.btn_cancel);
+        btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(View view) {
                 try {
-                    currentRowA = Integer.parseInt(editRowA.getText().toString());
-                    currentColumnA = Integer.parseInt(editColA.getText().toString());
-                    createLayoutMatrix(currentColumnA, currentRowA, mContainerA);
+                    if (isMatrixA) {
+                        currentRowA = Integer.parseInt(editRow.getText().toString());
+                        currentColumnA = Integer.parseInt(editCol.getText().toString());
+                        createLayoutMatrix(currentColumnA, currentRowA, mContainerA);
+                    } else {
+                        currentRowB = Integer.parseInt(editRow.getText().toString());
+                        currentColumnB = Integer.parseInt(editCol.getText().toString());
+                        createLayoutMatrix(currentColumnB, currentRowB, mContainerB);
+                    }
                 } catch (NumberFormatException e) {
-                    showDialog(getResources().getString(R.string.error), getResources().getString(R.string.error_input_num) + " " + e.getMessage());
+                    showDialog(getResources().getString(R.string.error),
+                            getResources().getString(R.string.error_input_num) + " " + e.getMessage());
                 } catch (Exception e) {
                     showDialog(null, e.getMessage());
                 }
+                dialog.cancel();
             }
         });
-        builder.setPositiveButton(this.getString(R.string.close), new DialogInterface.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
+            public void onClick(View view) {
+                dialog.cancel();
             }
         });
-        builder.create().show();
     }
 
     private void initSpinOperator() {
@@ -289,7 +267,7 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
         String op[] = getResources().getStringArray(R.array.matrix_operator);
         ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_list_item_1, op);
-        mAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        mAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
 
 
      /*   //add handler for spinner select, if user change operator,
@@ -311,11 +289,12 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.button_create_mA:
-                showDialogClearMatrixA();
+            case R.id.btn_create:
+                showDialogCreateMatrix(true);
                 break;
             case R.id.button_create_mB:
-                showDialogClearMatrixB();
+                showDialogCreateMatrix(false);
+                break;
             case R.id.btn_submit:
                 prepareAndCalculate();
                 break;

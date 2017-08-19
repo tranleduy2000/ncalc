@@ -23,46 +23,32 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDialogFragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import com.duy.calculator.R;
-import com.duy.calculator.item_math_type.StepItem;
 import com.duy.calculator.evaluator.MathEvaluator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import io.github.kexanie.library.MathView;
 
 
 /**
  * Created by Duy on 18-May-17.
  */
-public class FragmentStepEval extends AppCompatDialogFragment {
+public class FragmentMatrixResult extends AppCompatDialogFragment {
     public static final String TAG = "FragmentMatrixEval";
     private static final java.lang.String EXPRESSION_KEY = "expression_key";
-    private StepResultAdapter resultAdapter;
-    private RecyclerView resultView;
-    private ProgressBar progressBar;
+    private MathView mathView;
 
-    /**
-     * create new dialog calculate
-     *
-     * @param expression - input matrix
-     */
-    public static FragmentStepEval newInstance(String expression) {
+    public static FragmentMatrixResult newInstance(String expression) {
         Bundle args = new Bundle();
         args.putString(EXPRESSION_KEY, expression);
 
-        FragmentStepEval fragment = new FragmentStepEval();
+        FragmentMatrixResult fragment = new FragmentMatrixResult();
         fragment.setArguments(args);
         return fragment;
     }
-
 
     /**
      * set full height for dialog
@@ -86,7 +72,6 @@ public class FragmentStepEval extends AppCompatDialogFragment {
     }
 
     public void doCalculate(String expression) {
-        Log.d(TAG, "doCalculate() called with: expression = [" + expression + "]");
         if (isAdded()) {
             new MatrixEvaluateTask().execute(expression);
         }
@@ -95,16 +80,8 @@ public class FragmentStepEval extends AppCompatDialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         getDialog().setTitle(R.string.result);
-
-        resultView = (RecyclerView) view.findViewById(R.id.recycle_view);
-        resultView.setHasFixedSize(false);
-        resultView.setLayoutManager(new LinearLayoutManager(getContext()));
-        resultAdapter = new StepResultAdapter(getContext());
-        resultView.setAdapter(resultAdapter);
-        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
-
+        mathView = view.findViewById(R.id.math_view);
         doCalculate(getArguments().getString(EXPRESSION_KEY));
     }
 
@@ -112,28 +89,26 @@ public class FragmentStepEval extends AppCompatDialogFragment {
      * Created by Duy on 18-May-17.
      */
 
-    public class MatrixEvaluateTask extends AsyncTask<String, Void, ArrayList<StepItem>> {
+    public class MatrixEvaluateTask extends AsyncTask<String, Void, String> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
         }
 
         @Override
-        protected ArrayList<StepItem> doInBackground(String... params) {
-            Log.d(TAG, "doInBackground() called with: params = [" + Arrays.toString(params) + "]");
-            MathEvaluator evaluator = MathEvaluator.getInstance();
-            return evaluator.getStep(params[0]);
+        protected String doInBackground(String... params) {
+            try {
+                return MathEvaluator.getInstance().evaluateWithResultAsTex(params[0]);
+            } catch (Exception e) {
+                return e.getMessage();
+            }
         }
 
         @Override
-        protected void onPostExecute(ArrayList<StepItem> strings) {
+        protected void onPostExecute(String strings) {
             super.onPostExecute(strings);
-            progressBar.setVisibility(View.GONE);
-            resultAdapter.setResults(strings);
-            resultAdapter.notifyDataSetChanged();
+            mathView.setText(strings);
         }
-
     }
 }

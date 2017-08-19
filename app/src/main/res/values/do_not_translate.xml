@@ -140,6 +140,7 @@
         <item>@string/matrix_op_inverse_b</item>
         <item>@string/matrix_op_tranpose_a</item>
         <item>@string/matrix_op_tranpose_b</item>
+        <item>Conjugate Transpose Matrix A</item>
     </string-array>
     <string name="matrix_op_add" translatable="false">A + B</string>
     <string name="matrix_op_sub" translatable="false">A - B</string>

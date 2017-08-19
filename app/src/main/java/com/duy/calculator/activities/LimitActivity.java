@@ -170,8 +170,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
             public ArrayList<String> execute(String input) {
 
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        config.setEvalMode(EvaluateConfig.FRACTION));
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input);
 
                 return Lists.newArrayList(fraction);
             }

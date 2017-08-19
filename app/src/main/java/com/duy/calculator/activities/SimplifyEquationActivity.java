@@ -134,11 +134,11 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        config.setEvalMode(EvaluateConfig.FRACTION));
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input
+                );
 
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        config.setEvalMode(EvaluateConfig.DECIMAL));
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input
+                );
 
                 ArrayList<String> result = new ArrayList<>();
                 result.add(fraction);

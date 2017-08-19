@@ -760,5 +760,7 @@
     <string name="pi_number">Pi Number</string>
     <string name="install_msg">Do you want to install Natural Keyboard?</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Open source project in Github https://github.com/tranleduy2000/ncalc</string>
+    <string name="matrix_a">Matrix A</string>
+    <string name="matrix_b">Matrix B</string>
 
 </resources>

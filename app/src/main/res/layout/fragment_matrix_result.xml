@@ -15,11 +15,11 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?android:attr/windowBackground"
-    android:minHeight="200dp"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="?android:attr/windowBackground"
+              android:minHeight="200dp"
+              android:orientation="vertical">
 
     <TextView
         android:id="@+id/txt_title"
@@ -27,25 +27,18 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:text="@string/result"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle_view"
+        <com.duy.calculator.view.MathFormulaView
+            android:id="@+id/math_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+        </com.duy.calculator.view.MathFormulaView>
     </FrameLayout>
 
 

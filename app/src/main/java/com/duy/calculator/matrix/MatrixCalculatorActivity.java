@@ -25,16 +25,14 @@ import com.duy.calculator.activities.abstract_class.AbstractNavDrawerActionBarAc
 
 public class MatrixCalculatorActivity extends AbstractNavDrawerActionBarActivity
         implements FragmentMatrixInput.OnMatrixEvalListener {
-    private static final String TAG = MatrixCalculatorActivity.class.getName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matrix_calculator);
 
-        //show fragment input by add FragmentMatrixInput into screen
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container, new FragmentMatrixInput());
+        fragmentTransaction.replace(R.id.container, FragmentMatrixInput.newInstance());
         fragmentTransaction.commit();
     }
 
@@ -45,28 +43,7 @@ public class MatrixCalculatorActivity extends AbstractNavDrawerActionBarActivity
 
     @Override
     public void doCalculate(final String expression) {
-        FragmentStepEval fragmentMatrixEval = FragmentStepEval.newInstance(expression);
-        fragmentMatrixEval.show(getSupportFragmentManager(), FragmentStepEval.TAG);
+        FragmentMatrixResult fragmentMatrixEval = FragmentMatrixResult.newInstance(expression);
+        fragmentMatrixEval.show(getSupportFragmentManager(), FragmentMatrixResult.TAG);
     }
-
-
-    /*            result + "], resultId = [" + resultId + "]"
-        if (resultId == LogicEvaluator.RESULT_ERROR) {
-
-            //display the error by set an item error for recycleview adapter
-            resultAdapter.setResult(result);
-            resultAdapter.notifyDataSetChanged();
-
-        } else if (resultId == LogicEvaluator.RESULT_OK) {
-            ArrayList<String> entries = new ArrayList<>();
-            resultAdapter.setResults(entries);
-            resultAdapter.notifyDataSetChanged();
-
-        } else if (resultId == LogicEvaluator.INPUT_EMPTY) {
-            resultAdapter.clear();
-            resultAdapter.notifyDataSetChanged();
-
-            Toast.makeText(this, "Please enter your matrix", Toast.LENGTH_SHORT).show();
-        }*/
-
 }

@@ -119,8 +119,8 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
             public ArrayList<String> execute(String input) {
 
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(ExpandAllExpressionActivity.this);
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        config.setEvalMode(EvaluateConfig.FRACTION));
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input
+                );
 
                 String decimal = MathEvaluator.getInstance().derivativeFunction(input,
                         config.setEvalMode(EvaluateConfig.DECIMAL));

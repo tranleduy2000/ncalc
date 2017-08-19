@@ -23,7 +23,6 @@ import android.support.annotation.Nullable;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
 import com.duy.calculator.document.DialogFragmentHelpFunction;
-import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.item_math_type.NumberIntegerItem;
@@ -140,9 +139,8 @@ public class NumberActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.FRACTION));
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input
+                );
                 return Lists.newArrayList(fraction);
             }
         };
