@@ -49,10 +49,10 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
     private static final int MAX_ROW = 100;
     private static final int MAX_COL = 100;
     private RelativeLayout mContainerA, mContainerB;
-    private int currentRowA = 0;
-    private int currentColumnA = 0;
-    private int currentRowB = 0;
-    private int currentColumnB = 0;
+    private int currentRowA = 3;
+    private int currentColumnA = 3;
+    private int currentRowB = 3;
+    private int currentColumnB = 3;
     private boolean isDebug = false;
     private Random random = new Random(231378L);
     private Spinner spinOperator;
@@ -95,10 +95,10 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button btnCreA = (Button) findViewById(R.id.btn_create);
+        Button btnCreA = (Button) findViewById(R.id.btn_create_a);
         btnCreA.setOnClickListener(this);
 
-        Button btnCreB = (Button) findViewById(R.id.button_create_mB);
+        Button btnCreB = (Button) findViewById(R.id.btn_create_b);
         btnCreB.setOnClickListener(this);
 
         mContainerA = (RelativeLayout) findViewById(R.id.rl_matrixA);
@@ -129,10 +129,6 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
             }
         });
         builder.create().show();
-    }
-
-    private void showDialogClearMatrixB() {
-
     }
 
     private void createLayoutMatrix(int col, int row, ViewGroup viewGroup) {
@@ -171,14 +167,14 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
 
     public String getMatrixA() {
         StringBuilder res = new StringBuilder();
-        int col = (currentColumnA);
-        int row =(currentRowA);
+        int col = currentColumnA;
+        int row = currentRowA;
         @IdRes int index = 1;
         res.append("{");
         for (int i = 0; i < row; i++) {
             res.append("{");
             for (int j = 0; j < col; j++) {
-                EditText editText = (EditText) mContainerA.findViewById(index);
+                EditText editText = mContainerA.findViewById(index);
                 String s = editText.getText().toString();
                 if (s.isEmpty()) s = "0";
                 index++;
@@ -198,7 +194,7 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
         StringBuilder res = new StringBuilder();
         res.append("{");
         int col = (currentColumnB);
-        int row =(currentRowB);
+        int row = (currentRowB);
         @IdRes int index = 1;
         for (int i = 0; i < row; i++) {
             res.append("{");
@@ -268,20 +264,6 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
         ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_list_item_1, op);
         mAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
-
-
-     /*   //add handler for spinner select, if user change operator,
-        // it will be pre calculate matrix
-        spinOperator.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                prepareAndCalculate();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });*/
         spinOperator.setAdapter(mAdapter);
     }
 
@@ -289,10 +271,10 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.btn_create:
+            case R.id.btn_create_a:
                 showDialogCreateMatrix(true);
                 break;
-            case R.id.button_create_mB:
+            case R.id.btn_create_b:
                 showDialogCreateMatrix(false);
                 break;
             case R.id.btn_submit:

@@ -47,7 +47,7 @@
                     android:text="@string/matrix_a"/>
 
                 <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/btn_create"
+                    android:id="@+id/btn_create_a"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                     android:text="@string/matrix_b"/>
 
                 <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/button_create_mB"
+                    android:id="@+id/btn_create_b"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
