@@ -30,7 +30,7 @@ User-defined functions and variables typically start with a "$" character and ar
 Symja has an evaluation engine for mathematical expressions. The common arithmetic operations are:
 * ``+`` addition
 * ``-`` subtraction
-* ````* scalar multiplication
+* ``*`` scalar multiplication
 * ``/`` division
 * ``^`` exponentiation
 * ``.`` matrix multiplication
