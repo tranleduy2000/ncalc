@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.duy.calculator.R;
+import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 
 import io.github.kexanie.library.MathView;
@@ -99,7 +100,8 @@ public class FragmentMatrixResult extends AppCompatDialogFragment {
         @Override
         protected String doInBackground(String... params) {
             try {
-                return MathEvaluator.getInstance().evaluateWithResultAsTex(params[0]);
+                return MathEvaluator.getInstance().evaluateWithResultAsTex(params[0],
+                        EvaluateConfig.loadFromSetting(getContext()));
             } catch (Exception e) {
                 return e.getMessage();
             }

@@ -138,8 +138,9 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
             for (int j = 0; j < col; j++) {
                 AppCompatEditText editText = new AppCompatEditText(getContext());
                 editText.setHint("[" + i + "," + j + "]");
-                RelativeLayout.LayoutParams params =
-                        new RelativeLayout.LayoutParams(100, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
                 editText.setSingleLine(true);
                 editText.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 editText.setId(index);

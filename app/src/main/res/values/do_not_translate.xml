@@ -28,7 +28,7 @@
     <string name="arcsin" translatable="false">asin</string>
     <string name="arccos" translatable="false">acos</string>
     <string name="arctan" translatable="false">atan</string>
-    <string name="i" translatable="false">i</string>
+    <string name="i" translatable="false">I</string>
     <string name="percentage" translatable="false">%</string>
     <string name="dx" translatable="false">dX</string>
     <string name="dy" translatable="false">dY</string>
