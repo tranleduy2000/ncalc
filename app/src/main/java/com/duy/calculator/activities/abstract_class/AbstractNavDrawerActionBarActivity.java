@@ -34,14 +34,15 @@ import com.duy.calculator.activities.BasicCalculatorActivity;
 import com.duy.calculator.activities.DerivativeActivity;
 import com.duy.calculator.activities.ExpandAllExpressionActivity;
 import com.duy.calculator.activities.FactorExpressionActivity;
+import com.duy.calculator.activities.GettingStartedFragment;
 import com.duy.calculator.activities.IntegrateActivity;
 import com.duy.calculator.activities.LimitActivity;
 import com.duy.calculator.activities.LogicCalculatorActivity;
 import com.duy.calculator.activities.PrimitiveActivity;
 import com.duy.calculator.activities.SimplifyEquationActivity;
 import com.duy.calculator.activities.SolveEquationActivity;
-import com.duy.calculator.deprecated.StatisticActivity;
 import com.duy.calculator.converter.UnitConverterParentAcitvity;
+import com.duy.calculator.deprecated.StatisticActivity;
 import com.duy.calculator.document.DocumentActivity;
 import com.duy.calculator.document.InfoActivity;
 import com.duy.calculator.geom2d.GeometryDescartesActivity;
@@ -76,9 +77,11 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
     @Override
     public void onBackPressed() {
         if (mDrawerLayout != null) {
-            if (mDrawerLayout.isDrawerOpen(GravityCompat.START))
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
                 mDrawerLayout.closeDrawer(GravityCompat.START);
-            else super.onBackPressed();
+            } else {
+                super.onBackPressed();
+            }
         } else
             super.onBackPressed();
     }
@@ -165,118 +168,156 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
         int id = item.getItemId();
         closeDrawer();
         Intent intent;
-        if (id == R.id.nav_sci_calc) {
-            intent = new Intent(getApplicationContext(), BasicCalculatorActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_graph) {
-            intent = new Intent(getApplicationContext(), GraphActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_unit) {
-            intent = new Intent(getApplicationContext(), UnitConverterParentAcitvity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_base) {
-            intent = new Intent(getApplicationContext(), LogicCalculatorActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_geometric_descartes) {
-            intent = new Intent(getApplicationContext(), GeometryDescartesActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_setting) {
-            intent = new Intent(getApplicationContext(), SettingsActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_about_app) {
-            intent = new Intent(getApplicationContext(), InfoActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_matrix) {
-            intent = new Intent(getApplicationContext(), MatrixCalculatorActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.system_equation) {
-            intent = new Intent(getApplicationContext(), SystemEquationActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_solve_equation) {
-            intent = new Intent(getApplicationContext(), SolveEquationActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_simplify_equation) {
-            intent = new Intent(getApplicationContext(), SimplifyEquationActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_factor_equation) {
-            intent = new Intent(getApplicationContext(), FactorExpressionActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_derivitive) {
-            intent = new Intent(getApplicationContext(), DerivativeActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_table) {
-            intent = new Intent(getApplicationContext(), StatisticActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_expand_binomial) {
-            intent = new Intent(getApplicationContext(), ExpandAllExpressionActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_limit) {
-            intent = new Intent(getApplicationContext(), LimitActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_integrate) {
-            intent = new Intent(getApplicationContext(), IntegrateActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_primitive) {
-            intent = new Intent(getApplicationContext(), PrimitiveActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_rate) {
-            gotoPlayStore();
-        } else if (id == R.id.nav_prime_factor) {
-            intent = new Intent(getApplicationContext(), FactorPrimeActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_mod) {
-            intent = new Intent(getApplicationContext(), ModuleActivity.class);
-            startIntent(intent);
-        } else if (id == R.id.nav_trig_expand) {
-            intent = new Intent(getApplicationContext(), TrigActivity.class);
-            intent.putExtra(TrigActivity.TYPE, EXPAND);
-            startIntent(intent);
-        } else if (id == R.id.nav_trig_reduce) {
-            intent = new Intent(getApplicationContext(), TrigActivity.class);
-            intent.putExtra(TrigActivity.TYPE, REDUCE);
-            startIntent(intent);
-        } else if (id == R.id.nav_trig_to_exp) {
-            intent = new Intent(getApplicationContext(), TrigActivity.class);
-            intent.putExtra(TrigActivity.TYPE, EXPONENT);
-            startIntent(intent);
-        } else if (id == R.id.nav_permutation) {
-            intent = new Intent(getApplicationContext(), PermutationActivity.class);
-            intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_PERMUTATION);
-            startIntent(intent);
-        } else if (id == R.id.nav_combination) {
-            intent = new Intent(getApplicationContext(), PermutationActivity.class);
-            intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_COMBINATION);
-            startIntent(intent);
-        } else if (id == R.id.nav_catalan) {
-            intent = new Intent(getApplicationContext(), NumberActivity.class);
-            intent.putExtra(NumberActivity.DATA, NumberType.CATALAN);
-            startIntent(intent);
+        switch (id) {
+            case R.id.nav_sci_calc:
+                intent = new Intent(getApplicationContext(), BasicCalculatorActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_graph:
+                intent = new Intent(getApplicationContext(), GraphActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_unit:
+                intent = new Intent(getApplicationContext(), UnitConverterParentAcitvity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_base:
+                intent = new Intent(getApplicationContext(), LogicCalculatorActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_geometric_descartes:
+                intent = new Intent(getApplicationContext(), GeometryDescartesActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_setting:
+                intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_about_app:
+                intent = new Intent(getApplicationContext(), InfoActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_matrix:
+                intent = new Intent(getApplicationContext(), MatrixCalculatorActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.system_equation:
+                intent = new Intent(getApplicationContext(), SystemEquationActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_solve_equation:
+                intent = new Intent(getApplicationContext(), SolveEquationActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_simplify_equation:
+                intent = new Intent(getApplicationContext(), SimplifyEquationActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_factor_equation:
+                intent = new Intent(getApplicationContext(), FactorExpressionActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_derivitive:
+                intent = new Intent(getApplicationContext(), DerivativeActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_table:
+                intent = new Intent(getApplicationContext(), StatisticActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_expand_binomial:
+                intent = new Intent(getApplicationContext(), ExpandAllExpressionActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_limit:
+                intent = new Intent(getApplicationContext(), LimitActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_integrate:
+                intent = new Intent(getApplicationContext(), IntegrateActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_primitive:
+                intent = new Intent(getApplicationContext(), PrimitiveActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_rate:
+                gotoPlayStore();
+                break;
+            case R.id.nav_prime_factor:
+                intent = new Intent(getApplicationContext(), FactorPrimeActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_mod:
+                intent = new Intent(getApplicationContext(), ModuleActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.nav_trig_expand:
+                intent = new Intent(getApplicationContext(), TrigActivity.class);
+                intent.putExtra(TrigActivity.TYPE, EXPAND);
+                startIntent(intent);
+                break;
+            case R.id.nav_trig_reduce:
+                intent = new Intent(getApplicationContext(), TrigActivity.class);
+                intent.putExtra(TrigActivity.TYPE, REDUCE);
+                startIntent(intent);
+                break;
+            case R.id.nav_trig_to_exp:
+                intent = new Intent(getApplicationContext(), TrigActivity.class);
+                intent.putExtra(TrigActivity.TYPE, EXPONENT);
+                startIntent(intent);
+                break;
+            case R.id.nav_permutation:
+                intent = new Intent(getApplicationContext(), PermutationActivity.class);
+                intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_PERMUTATION);
+                startIntent(intent);
+                break;
+            case R.id.nav_combination:
+                intent = new Intent(getApplicationContext(), PermutationActivity.class);
+                intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_COMBINATION);
+                startIntent(intent);
+                break;
+            case R.id.nav_catalan:
+                intent = new Intent(getApplicationContext(), NumberActivity.class);
+                intent.putExtra(NumberActivity.DATA, NumberType.CATALAN);
+                startIntent(intent);
 
-        } else if (id == R.id.nav_fibo) {
-            intent = new Intent(getApplicationContext(), NumberActivity.class);
-            intent.putExtra(NumberActivity.DATA, NumberType.FIBONACCI);
-            startIntent(intent);
-
-        } else if (id == R.id.nav_prime) {
-            intent = new Intent(getApplicationContext(), NumberActivity.class);
-            intent.putExtra(NumberActivity.DATA, NumberType.PRIME);
-            startIntent(intent);
-
-        } else if (id == R.id.action_divisors) {
-            intent = new Intent(getApplicationContext(), NumberActivity.class);
-            intent.putExtra(NumberActivity.DATA, NumberType.DIVISORS);
-            startIntent(intent);
-
-        } else if (id == R.id.action_pi_number) {
-            intent = new Intent(getApplicationContext(), PiActivity.class);
-            startIntent(intent);
-
-        } else if (id == R.id.action_document) {
-            intent = new Intent(getApplicationContext(), DocumentActivity.class);
-            startActivity(intent);
+                break;
+            case R.id.nav_fibo:
+                intent = new Intent(getApplicationContext(), NumberActivity.class);
+                intent.putExtra(NumberActivity.DATA, NumberType.FIBONACCI);
+                startIntent(intent);
+                break;
+            case R.id.nav_prime:
+                intent = new Intent(getApplicationContext(), NumberActivity.class);
+                intent.putExtra(NumberActivity.DATA, NumberType.PRIME);
+                startIntent(intent);
+                break;
+            case R.id.action_divisors:
+                intent = new Intent(getApplicationContext(), NumberActivity.class);
+                intent.putExtra(NumberActivity.DATA, NumberType.DIVISORS);
+                startIntent(intent);
+                break;
+            case R.id.action_pi_number:
+                intent = new Intent(getApplicationContext(), PiActivity.class);
+                startIntent(intent);
+                break;
+            case R.id.action_document:
+                intent = new Intent(getApplicationContext(), DocumentActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_getting_started:
+                showFragmentGettingStarted();
+                break;
         }
         return true;
     }
+
+    private void showFragmentGettingStarted() {
+        GettingStartedFragment fragment = GettingStartedFragment.newInstance();
+        fragment.show(getSupportFragmentManager(), GettingStartedFragment.TAG);
+    }
+
 
     private void startIntent(final Intent intent) {
         handler.postDelayed(new Runnable() {

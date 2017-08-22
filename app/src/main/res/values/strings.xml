@@ -762,5 +762,7 @@
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Open source project in Github https://github.com/tranleduy2000/ncalc</string>
     <string name="matrix_a" translatable="false">Matrix A</string>
     <string name="matrix_b" translatable="false">Matrix B</string>
+    <string name="all_functions">All functions</string>
+    <string name="getting_started">Getting Started</string>
 
 </resources>
