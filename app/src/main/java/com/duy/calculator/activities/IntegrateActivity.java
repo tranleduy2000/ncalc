@@ -198,11 +198,11 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input
-                );
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input
-                );
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();
                 result.add(fraction);

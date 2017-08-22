@@ -27,6 +27,8 @@ import com.duy.calculator.item_math_type.StepItem;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.eval.TeXUtilities;
+import org.matheclipse.core.expression.F;
+import org.matheclipse.core.expression.IntegerSym;
 import org.matheclipse.core.interfaces.AbstractEvalStepListener;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
@@ -70,19 +72,25 @@ public class MathEvaluator extends LogicEvaluator {
     static {
         //init evaluator
         EVAL_ENGINE = new ExprEvaluator();
+
         String combination = "C(n_, k_):=(factorial(Ceiling(n)) / " + "(factorial(Ceiling(k)) * " +
                 "factorial(Ceiling(n - k))))";
         EVAL_ENGINE.evaluate(combination);
+
         String binomial = "P(n_, k_):=Binomial(n, k)";
         EVAL_ENGINE.evaluate(binomial);
+
         String cbrt = "cbrt(x_):= x^(1/3)";
         EVAL_ENGINE.evaluate(cbrt);
+
         String ceiling = "Ceil(x_):=Ceiling(x)";
         EVAL_ENGINE.evaluate(ceiling);
+
         TEX_ENGINE = new TeXUtilities(EVAL_ENGINE.getEvalEngine(), true);
     }
 
     private MathEvaluator() {
+
     }
 
 
@@ -91,29 +99,28 @@ public class MathEvaluator extends LogicEvaluator {
      * @return The  value of the expression
      * @throws IllegalArgumentException If the user has input a invalid expression
      */
-    public static IExpr evaluateSimple(String exprInput) {
+    public static IExpr evaluateSimple(String exprInput, EvaluateConfig config) {
         IExpr result = evaluate(exprInput);
-        return result;
-//        if (result.isNumber() && !result.isFraction()) {
-//            if (result instanceof IntegerSym) {
-//                return result;
-//            } else {
-//                return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
-//            }
-//        }
-//        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
-//            result = evaluate("N(" + exprInput + ")");
-//            if (result.isNumber() && !result.isFraction()) {
-//                if (result instanceof IntegerSym) {
-//                    return result;
-//                } else {
-//                    return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
-//                }
-//            }
-//            return result;
-//        } else {
-//            return result;
-//        }
+        if (result.isNumber() && !result.isFraction()) {
+            if (result instanceof IntegerSym) {
+                return result;
+            } else {
+                return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
+            }
+        }
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+            result = evaluate("N(" + exprInput + ")");
+            if (result.isNumber() && !result.isFraction()) {
+                if (result instanceof IntegerSym) {
+                    return result;
+                } else {
+                    return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
+                }
+            }
+            return result;
+        } else {
+            return result;
+        }
     }
 
     /**
@@ -171,7 +178,7 @@ public class MathEvaluator extends LogicEvaluator {
         expression = addUserDefinedVariable(expression); //$ans = ...
 
         try {
-            IExpr iExpr = evaluateSimple(expression);
+            IExpr iExpr = evaluateSimple(expression, config);
             callback.onEvaluated(expression, iExpr.toString(), RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
@@ -203,8 +210,8 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     public String evaluateWithResultNormal(String expression) {
-        IExpr iExpr = evaluateSimple(expression
-        );
+        IExpr iExpr = evaluateSimple(expression,
+                EvaluateConfig.newInstance().setEvalMode(EvaluateConfig.FRACTION));
         return iExpr.toString();
     }
 
@@ -215,7 +222,7 @@ public class MathEvaluator extends LogicEvaluator {
         if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
             diffStr = "N(" + diffStr + ")";
         }
-        String result = evaluateWithResultAsTex(diffStr);
+        String result = evaluateWithResultAsTex(diffStr, config);
 
         //result
         StringBuilder builder = new StringBuilder();
@@ -230,7 +237,7 @@ public class MathEvaluator extends LogicEvaluator {
     /**
      * return derivative of function
      */
-    public String evaluateWithResultAsTex(String exprStr) {
+    public String evaluateWithResultAsTex(String exprStr, EvaluateConfig config) {
         //if input is empty, do not working
         if (exprStr.isEmpty()) {
             return exprStr;
@@ -241,18 +248,18 @@ public class MathEvaluator extends LogicEvaluator {
 
         ExpressionChecker.checkExpression(exprStr);
 
-        IExpr result = evaluateSimple(exprStr);
+        IExpr result = evaluateSimple(exprStr, config);
         return LaTexFactory.toLaTeX(result);
     }
 
     /**
-     * @see #evaluateWithResultAsTex(String)
+     * @see MathEvaluator#evaluateWithResultAsTex(String, EvaluateConfig)
      * <p>
      * return derivative of function
      */
-    public void evaluateWithResultAsTex(String exprStr, EvaluateCallback callback) {
+    public void evaluateWithResultAsTex(String exprStr, EvaluateCallback callback, EvaluateConfig config) {
         try {
-            String result = evaluateWithResultAsTex(exprStr);
+            String result = evaluateWithResultAsTex(exprStr, config);
             callback.onEvaluated(exprStr, result, RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
@@ -288,7 +295,7 @@ public class MathEvaluator extends LogicEvaluator {
 
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < listRoot.size(); i++) {
-            result.append(evaluateWithResultAsTex(listRoot.get(i)));
+            result.append(evaluateWithResultAsTex(listRoot.get(i), config));
         }
         return result.toString();
     }

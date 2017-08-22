@@ -740,7 +740,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         Log.d(TAG, "onChangeModeFraction() called");
 
         mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(),
-                BasicCalculatorActivity.this);
+                BasicCalculatorActivity.this, EvaluateConfig.loadFromSetting(BasicCalculatorActivity.this));
     }
 
     @Override
@@ -1055,7 +1055,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 if (item instanceof PrimeFactorItem) {
                     return MathEvaluator.getInstance().factorPrime(((PrimeFactorItem) item).getNumber());
                 }
-                return MathEvaluator.getInstance().evaluateWithResultAsTex(expr);
+                return MathEvaluator.getInstance().evaluateWithResultAsTex(expr, config);
             } catch (Exception e) {
                 this.exception = e;
                 return null;
@@ -1088,7 +1088,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             setState(BasicCalculatorActivity.CalculatorState.INPUT);
             if (mSetting.instantResult()) {
                 mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(),
-                        BasicCalculatorActivity.this);
+                        BasicCalculatorActivity.this, EvaluateConfig.loadFromSetting(BasicCalculatorActivity.this));
             }
         }
     }
