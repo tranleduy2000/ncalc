@@ -200,7 +200,7 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
         for (int i = 0; i < row; i++) {
             res.append("{");
             for (int j = 0; j < col; j++) {
-                EditText editText = (EditText) mContainerB.findViewById(index);
+                EditText editText = mContainerB.findViewById(index);
                 String s = editText.getText().toString();
                 if (s.isEmpty()) s = "0";
                 index++;

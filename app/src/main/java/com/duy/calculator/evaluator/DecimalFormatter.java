@@ -16,7 +16,11 @@
 
 package com.duy.calculator.evaluator;
 
-import org.apache.commons.math4.util.Precision;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 /**
  * Created by Duy on 14-Jul-17.
@@ -24,7 +28,20 @@ import org.apache.commons.math4.util.Precision;
 
 public class DecimalFormatter {
 
-    public static double round(String value, int places) {
-        return Precision.round(Double.parseDouble(value), places);
+    public static String round(String value, int places) {
+        try {
+            String pattern = "0.";
+            if (places == 0) pattern += "#";
+            else {
+                for (int i = 0; i < places; i++) {
+                    pattern += "#";
+                }
+            }
+            DecimalFormat decimalFormat = new DecimalFormat(pattern);
+            decimalFormat.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.US));
+            return decimalFormat.format(new BigDecimal(value));
+        } catch (Exception e) { //complex number
+            return value;
+        }
     }
 }

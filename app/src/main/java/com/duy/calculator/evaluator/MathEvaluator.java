@@ -104,8 +104,8 @@ public class MathEvaluator extends LogicEvaluator {
         if (result.isNumber() && !result.isFraction()) {
             if (result instanceof IntegerSym) {
                 return result;
-            } else {
-                return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
+            } else { //numeric or complex
+                return F.num(DecimalFormatter.round(result.toString().replace("\"", ""), config.getRoundTo()));
             }
         }
         if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
@@ -114,7 +114,7 @@ public class MathEvaluator extends LogicEvaluator {
                 if (result instanceof IntegerSym) {
                     return result;
                 } else {
-                    return F.num(DecimalFormatter.round(result.toString(), config.getRoundTo()));
+                    return F.num(DecimalFormatter.round(result.toString().replace("\"", ""), config.getRoundTo()));
                 }
             }
             return result;
