@@ -20,14 +20,16 @@
         <shape android:shape="rectangle">
             <gradient
                 android:endColor="#fff"
-                android:startColor="#fff" />
+                android:startColor="#fff"/>
         </shape>
     </item>
-    <item>
+    <item
+        >
         <bitmap
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:src="@drawable/icon_splash" />
+            android:src="@mipmap/ic_launcher">
+        </bitmap>
     </item>
 </layer-list>

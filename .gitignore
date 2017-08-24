@@ -54,4 +54,5 @@ freeline.py
 freeline/
 freeline_project_description.json
 /store_listing.txt
-/appsencondary/src/main/java/com/duy/calc/casio/
+/appsecondary/src/main/java/com/duy/calc/casio/
+/appsecondary/src/main/java/com/duy/util/
