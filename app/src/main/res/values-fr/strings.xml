@@ -54,20 +54,20 @@
     <string name="title_activity_settings">Paramètres</string>
     <string name="title_activity_unit_converter_acitvity">Convertisseur d'unité</string>
     <string name="th_m_ph_ng_tr_nh">Plus</string>
-    <string name="table">Statistique</string>
+    <string name="table">Statistiques</string>
     <string name="t_ng">somme</string>
     <string name="speech_not_supported">La reconnaissance vocale n'est pas supportée</string>
     <string name="speak_expression">Lire l'expression</string>
     <string name="solve_system_equation">Résoudre un système d'équation</string>
     <string name="solve_for_var">Résolution d'équations avec variables (x, y, z, …) : </string>
-    <string name="solve_equation">Résolution d'équation</string>
+    <string name="solve_equation">Résolution d'équations</string>
 
     <string name="simplify_expression">Simplifier l'expression</string>
     <string name="simplify">Simplifier</string>
     <string name="settings">Paramètres</string>
     <string name="science_calculator">Calculateur scientifique</string>
     <string name="row">colonnes</string>
-    <string name="process">Handling</string>
+    <string name="process">Manipulation</string>
 
     <string name="polygon">polygone</string>
     <string name="please_wait">Chargement, veuillez patienter</string>
@@ -88,7 +88,7 @@
     <string name="nav_descartes">Géométrie 2D</string>
     <string name="nh_p_c_c_n_c_a_h">Entrez les variables du système d'équation :</string>
     <string name="nh_p_d_li_u">Entrez une valeur :</string>
-    <string name="not_line">Pas une ligne droite</string>
+    <string name="not_line">Ce n'est pas une ligne droite</string>
     <string name="not_interaction">Pas d'intersection</string>
     <string name="not_in_circle">Aucun des cercles</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
@@ -100,13 +100,13 @@
         Puis entrez les variables que vous voulez trouver : x, y, z \n
         Appuyer sur [Résoudre]
     </string>
-    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Données d'entré séparées par une virgule (,) \n \ Par exemple : 12, 232.43, 4</string>
+    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Données d'entrées séparées par une virgule (,) \n \ Par exemple : 12, 232.43, 4</string>
     <string name="above_circle">Situé sur le cercle</string>
     <string name="not_input_equation">Équation inconnue</string>
     <string name="noFunDisp">Il n'y a pas de fonction à afficher</string>
     <string name="tapFun">Choisir une fonction</string>
     <string name="save">Sauvegarder</string>
-    <string name="add_function">Ajoutter une fonction</string>
+    <string name="add_function">Ajouter une fonction</string>
     <string name="cannotwrite">Impossible d'écrire le fichier</string>
     <string name="not_variable">
         <![CDATA[
@@ -130,7 +130,7 @@
 <p>Mode de calcul par défaut : Radians</p>
 <p>Pour calculer des sin, cos, tan … en degrés, tapez <strong>sin (30 &deg;), cos (90 &deg;), </strong>…</p>
 <p>&nbsp;</p>
-<p>Pour des expressions qui contiennet des paramètres, entrez un * (multiplication) entre les paramètres et les variables. Exemple :</p>
+<p>Pour les expressions qui contiennent des paramètres, entrez un * (multiplication) entre les paramètres et les variables. Exemple :</p>
 <p>$$ 2x ^ 2 + mx + 2 = 0 $$ Entrez &nbsp;<strong>2x ^ 2 + m * x + 2 = 0</strong></p>
 <p>$$\\frac{1}{2ax + b}$$ Entrez <strong>1 &nbsp;/ (2a * x + b)</strong></p>
 <p>&nbsp;</p>
@@ -454,7 +454,7 @@
 <p>rnd (a)</p>
 </td>
 <td width="56%">
-<p>Fonction aléatoire</p>
+<p>Génération de nombre aléatoire</p>
 </td>
 </tr>
 <tr>
@@ -492,7 +492,7 @@
     <string name="help_derivative" formatted="false">@string/help_main_calc</string>
     <string name="help_expression" formatted="false">@string/help_main_calc</string>
 
-    <string name="choose_mode">Sélectionner le mode de graphique : 2D ou 3D</string>
+    <string name="choose_mode">Sélectionner le mode d'affichage graphique : 2D ou 3D</string>
     <string name="reason">Raison</string>
     <string name="math_error">Erreur mathématique</string>
     <string name="add_equation">Ajouter une équation</string>
@@ -507,18 +507,18 @@
     <string name="graph_2">Graphique</string>
     <string name="enter_limit">Entrer la limite</string>
     <string name="eval">Évaluer</string>
-    <string name="input_limit">Limite de la fonction en entré</string>
+    <string name="input_limit">Limite de la fonction en entrée</string>
     <string name="limit">Trouver la limite</string>
     <string name="rate_this_app">Noter l'application</string>
     <string name="integrate">Intégrer</string>
     <string name="enter_function">Entrer une fonction</string>
     <string name="lower_limit">Limite inférieur</string>
     <string name="upper_limit">Limite supérieur</string>
-    <string name="open_source_licenses">Licenses open-source</string>
+    <string name="open_source_licenses">Licenses open source</string>
 
     <string name="derivative_level">Niveau de dérivation</string>
     <string name="der_level_desc">Sélectionner le niveau de dérivation ici</string>
-    <string name="input_der_here">Entrez les fonctions dérivés sur cette ligne !</string>
+    <string name="input_der_here">Entrez les fonctions à dériver sur cette ligne !</string>
     <string name="input_equation_here">Entrer l'équation pour laquelle vous voulez trouver la racine sur cette ligne !</string>
     <string name="input_expand_here">Entrez l'expression devant être développée sur cette ligne !</string>
     <string name="input_graph_here">Cliquez ici pour ajouter plus de fonctions</string>
@@ -526,7 +526,7 @@
     <string name="input_primitive_here">Entrez la fonction à dérivé ici !</string>
     <string name="primitive">Primitive</string>
     <string name="limit_from_desc">Limite inférieur</string>
-    <string name="lic_desc">Application à license open-source</string>
+    <string name="lic_desc">Application à license open source</string>
     <string name="push_analyze_button">Appuyer sur ce bouton pour lancer la factorisation de polynomes, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
     <string name="push_button_primitive">Puis appuyez sur le bouton pour lancer le calcul, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
     <string name="push_der_button">Presser ce bouton pour dériver la fonction, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
@@ -561,7 +561,7 @@
     <string name="not_a_number">La donnée entrée n'est pas un nombre !</string>
     <string name="gt_zero">Les deux nombres doivent être plus grand que zéro.</string>
     <string name="number_theory">Théorie des nombres</string>
-    <string name="summary_trace_mode">Comment les ordinateurs résolvent-ils les problèmes d'expression</string>
+    <string name="summary_trace_mode">Comment les ordinateurs résolvent-ils les problèmes de résolution d'équations</string>
     <string name="summary_percision">Précision</string>
     <string name="go_to_facebook">Visiter la page Facebook</string>
     <string name="fb_desc">Soutenir l'application &amp; rapporter les bugs</string>
@@ -579,9 +579,9 @@
             [2; 1; 0]\n
             [3, -2; 1]</string>
     <string name="enter_var_hint">Entrez les variables du système d'équation</string>
-    <string name="input_matrix">Matrice en entré</string>
-    <string name="input_equation_">Équation en entré</string>
-    <string name="my_own_title">Noter cette application</string>
+    <string name="input_matrix">Matrice en entrée</string>
+    <string name="input_equation_">Équation en entrée</string>
+    <string name="my_own_title">Notez cette application</string>
     <string name="my_own_message">Si vous appreciez l'application, pourriez-vous prendre une minute pour la noter ? Ça ne vous prendra pas plus d'une minute. Merci de votre soutien !</string>
     <string name="my_own_rate">Noter maintenant</string>
     <string name="my_own_thanks">Non, merci</string>
@@ -599,13 +599,13 @@
     <string name="change_lang_msg">Merci de redémarrer l'application pour appliquer le langage sélectionné.</string>
     <string name="latex_engine">Moteur LaTeX</string>
 
-    <string name="tit_trig_expand">Trigonométrie - Développer</string>
+    <string name="tit_trig_expand">Trigonométrie - Développement</string>
     <string name="tit_trig_reduce">Trigonométrie - Réduction</string>
     <string name="tit_trig_to_exp">Trigonométrie à exponentielle</string>
     <string name="trigonometry">Trigonométrie</string>
     <string name="latex_summary">KaTeX is faster than MathJax on a mobile environment, but MathJax supports more features and is much more beautiful.</string>
     <string name="latex_summary">KaTeX est plus rapide que MathJax sur un environnement mobile, mais MathJax possède plus de fonctionnalités, et possède une interface plus belle.</string>
-    <string name="close_drawer">Fermer le tiroir</string>
+    <string name="close_drawer">Fermer le tiroir de navigation</string>
     <string name="cannot_factor_polynomial">Impossible de factoriser l'expression polynomiale.</string>
     <string name="catalan_number">Nombres de Catalan</string>
     <string name="prime">Nombres premiers</string>
@@ -615,7 +615,7 @@
     <string name="fibo_desc">Calculer le nième nombre de la suite de Fibonacci.</string>
     <string name="prime_desc">Calculer le nième nombre premier.</string>
     <string name="update">Mettre à jour</string>
-    <string name="new_version_update">Une nouvelle version de cette application est disponible. Merci de la mettre à jour dès que vous pouvez.</string>
+    <string name="new_version_update">Une nouvelle version de cette application est disponible. Merci de la mettre à jour dès que vous le pouvez.</string>
     <string name="dismiss">Réduire</string>
     <string name="notify_update">Notifications de mise à jour</string>
 
@@ -749,8 +749,8 @@
     <string name="vu_ng_g_c">Perpendiculaire</string>
     <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Vérifier si les deux vecteurs a et b sont perpendiculaires.</string>
     <string name="g_c_gi_a_hai_vector">Angle entre les deux vecteurs</string>
-    <string name="t_ng_2_vector">Somme des deux vectors</string>
-    <string name="hi_u_2_vector">Soustraction des 2 vectors</string>
+    <string name="t_ng_2_vector">Somme des deux vecteurs</string>
+    <string name="hi_u_2_vector">Soustraction des 2 vecteurs</string>
     <string name="t_ch_vector_v_i_s_k">Le produit des vecteurs avec le nombre k</string>
     <string name="t_ch_v_h_ng">Scalaire</string>
     <string name="t_ch_v_h_ng_c_a_2_vector">Le produit scalaire des deux vecteurs</string>
@@ -760,7 +760,7 @@
     <string name="divisors">Diviseurs</string>
     <string name="pi_number">Le nombre Pi</string>
     <string name="install_msg">Voulez-vous installer Natural Keyboard ?</string>
-    <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Projet open-source disponible sur Github https://github.com/tranleduy2000/ncalc</string>
+    <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Projet open source disponible sur Github à l'adresse https://github.com/tranleduy2000/ncalc</string>
     <string name="matrix_a" translatable="false">Matrice A</string>
     <string name="matrix_b" translatable="false">Matrice B</string>
     <string name="all_functions">Toutes les fonctions</string>
