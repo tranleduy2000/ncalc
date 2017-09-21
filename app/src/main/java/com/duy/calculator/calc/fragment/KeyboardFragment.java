@@ -32,6 +32,7 @@ import com.duy.calculator.document.activities.DocumentActivity;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.view.ButtonID;
 import com.duy.calculator.view.CalcButton;
+import com.duy.calculator.view.CalculatorEditText;
 
 /**
  * Created by Duy on 9/21/2017.
@@ -158,7 +159,7 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener, 
                     CalcButton calcButton = (CalcButton) view;
                     String text = calcButton.getText().toString();
                     if (text.length() >= 2) {
-                        mCalculatorListener.insertText(text + "(" + ")");
+                        mCalculatorListener.insertText(text + "(" + CalculatorEditText.CURSOR + ")");
                     } else {
                         mCalculatorListener.insertText(((Button) view).getText().toString());
                     }
