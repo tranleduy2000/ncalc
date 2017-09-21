@@ -19,7 +19,7 @@ package com.duy.calculator.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.duy.calculator.view.math_editor.AutoCompleteFunctionEditText;
+import com.duy.calculator.view.editor.AutoCompleteFunctionEditText;
 
 import static com.duy.calculator.userinterface.FontManager.loadTypefaceFromAsset;
 

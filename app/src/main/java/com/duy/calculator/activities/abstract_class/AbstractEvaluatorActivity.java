@@ -62,7 +62,7 @@ import com.duy.calculator.math_keyboard.NaturalKeyboardAPI;
 import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ResizingEditText;
 import com.duy.calculator.view.RevealView;
-import com.duy.calculator.view.math_editor.SuggestAdapter;
+import com.duy.calculator.view.editor.SuggestAdapter;
 
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;

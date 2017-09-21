@@ -100,7 +100,7 @@ public class PiActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                IExpr iExpr = MathEvaluator.evaluate(input);
+                IExpr iExpr = MathEvaluator.newInstance().evaluate(input);
                 String result = LaTexFactory.toLaTeX(iExpr);
                 return Lists.newArrayList(result);
             }

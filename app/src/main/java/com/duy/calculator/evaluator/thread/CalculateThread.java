@@ -52,7 +52,7 @@ public class CalculateThread extends BaseThread {
         Command<ArrayList<String>, String> task = new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                return Lists.newArrayList(MathEvaluator.getInstance().evaluateWithResultAsTex(input, config));
+                return Lists.newArrayList(MathEvaluator.newInstance().evaluateWithResultAsTex(input, config));
             }
         };
 

@@ -366,15 +366,15 @@ public class UndefineSystemEquationFragment extends AbstractFragment implements 
 
             String input = params[0];
 
-            if (MathEvaluator.getInstance().isSyntaxError(input)) {
+            if (MathEvaluator.newInstance().isSyntaxError(input)) {
                 exception = MathEvaluator.getError(input);
                 return null;
             }
             EvaluateConfig config = EvaluateConfig.loadFromSetting(context);
             try {
-                String fraction = MathEvaluator.getInstance()
+                String fraction = MathEvaluator.newInstance()
                         .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.FRACTION), context);
-                String decimal = MathEvaluator.getInstance()
+                String decimal = MathEvaluator.newInstance()
                         .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.DECIMAL), context);
                 return Lists.newArrayList(fraction, decimal);
             } catch (Exception e) {

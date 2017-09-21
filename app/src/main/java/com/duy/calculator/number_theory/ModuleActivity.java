@@ -120,7 +120,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                String fraction = MathEvaluator.newInstance().evaluateWithResultAsTex(input,
                         EvaluateConfig.loadFromSetting(getApplicationContext())
                                 .setEvalMode(EvaluateConfig.FRACTION));
                 return Lists.newArrayList(fraction);

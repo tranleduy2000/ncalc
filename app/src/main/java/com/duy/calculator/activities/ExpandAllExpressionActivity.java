@@ -119,10 +119,10 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
             public ArrayList<String> execute(String input) {
 
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(ExpandAllExpressionActivity.this);
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                String fraction = MathEvaluator.newInstance().evaluateWithResultAsTex(input,
                         config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String decimal = MathEvaluator.getInstance().derivativeFunction(input,
+                String decimal = MathEvaluator.newInstance().derivativeFunction(input,
                         config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();

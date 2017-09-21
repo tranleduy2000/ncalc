@@ -131,7 +131,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEvaluator = MathEvaluator.getInstance();
+        mEvaluator = MathEvaluator.newInstance();
         setContentView(R.layout.activity_basic_calculator);
         bindView();
 
@@ -354,7 +354,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public void define(String var, String value) {
         mEvaluator.define(var, value);
     }
-
 
     public void onDelete() {
         mInputDisplay.backspace();
@@ -1053,9 +1052,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             try {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
                 if (item instanceof PrimeFactorItem) {
-                    return MathEvaluator.getInstance().factorPrime(((PrimeFactorItem) item).getNumber());
+                    return MathEvaluator.newInstance().factorPrime(((PrimeFactorItem) item).getNumber());
                 }
-                return MathEvaluator.getInstance().evaluateWithResultAsTex(expr, config);
+                return MathEvaluator.newInstance().evaluateWithResultAsTex(expr, config);
             } catch (Exception e) {
                 this.exception = e;
                 return null;

@@ -92,7 +92,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-                String fraction = MathEvaluator.getInstance().factorPrime(input);
+                String fraction = MathEvaluator.newInstance().factorPrime(input);
                 return Lists.newArrayList(fraction);
             }
         };

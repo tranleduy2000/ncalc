@@ -381,17 +381,17 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
         protected ArrayList<String> doInBackground(SystemEquationItem... params) {
             String input = params[0].getInput();
 
-            if (params[0].isError(MathEvaluator.getInstance())) {
-                String msg = params[0].getError(MathEvaluator.getInstance(), context);
+            if (params[0].isError(MathEvaluator.newInstance())) {
+                String msg = params[0].getError(MathEvaluator.newInstance(), context);
                 exception = new RuntimeException(msg);
                 return null;
             }
 
             EvaluateConfig config = EvaluateConfig.loadFromSetting(context);
             try {
-                String fraction = MathEvaluator.getInstance()
+                String fraction = MathEvaluator.newInstance()
                         .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.FRACTION), context);
-                String decimal = MathEvaluator.getInstance()
+                String decimal = MathEvaluator.newInstance()
                         .solveSystemEquation(input, config.setEvalMode(EvaluateConfig.DECIMAL), context);
                 return Lists.newArrayList(fraction, decimal);
             } catch (Exception e) {

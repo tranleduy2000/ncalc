@@ -26,9 +26,12 @@ import java.io.StringWriter;
  */
 
 public class LaTexFactory {
+    /**
+     * Convert result to latex to display on {@link io.github.kexanie.library.MathView}
+     */
     public static String toLaTeX(IExpr result) {
         StringWriter stringWriter = new StringWriter();
-        TeXUtilities texEngine = MathEvaluator.getTexEngine();
+        TeXUtilities texEngine = MathEvaluator.newInstance().getTexEngine();
         texEngine.toTeX(result, stringWriter);
         return "$$" + stringWriter + "$$";
     }

@@ -17,6 +17,8 @@
 package com.duy.calculator.evaluator;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.duy.calculator.DLog;
@@ -27,8 +29,6 @@ import com.duy.calculator.item_math_type.StepItem;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.eval.TeXUtilities;
-import org.matheclipse.core.expression.F;
-import org.matheclipse.core.expression.IntegerSym;
 import org.matheclipse.core.interfaces.AbstractEvalStepListener;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
@@ -57,88 +57,35 @@ import java.util.Collections;
 public class MathEvaluator extends LogicEvaluator {
     private static final String ANS_VAR = "ans";
     private static final String TAG = "BigEvaluator";
-
     /**
      * evaluate engine
      */
-    private static final ExprEvaluator EVAL_ENGINE;
-
+    private final ExprEvaluator mExprEvaluator;
     /**
      * convert expr to latex
      */
-    private static final TeXUtilities TEX_ENGINE;
-    private static MathEvaluator INSTANCE = null;
-
-    static {
-        //init evaluator
-        EVAL_ENGINE = new ExprEvaluator();
-
-        String combination = "C(n_, k_):=(factorial(Ceiling(n)) / " + "(factorial(Ceiling(k)) * " +
-                "factorial(Ceiling(n - k))))";
-        EVAL_ENGINE.evaluate(combination);
-
-        String binomial = "P(n_, k_):=Binomial(n, k)";
-        EVAL_ENGINE.evaluate(binomial);
-
-        String cbrt = "cbrt(x_):= x^(1/3)";
-        EVAL_ENGINE.evaluate(cbrt);
-
-        String ceiling = "Ceil(x_):=Ceiling(x)";
-        EVAL_ENGINE.evaluate(ceiling);
-
-        TEX_ENGINE = new TeXUtilities(EVAL_ENGINE.getEvalEngine(), true);
-    }
+    private final TeXUtilities mTexEngine;
 
     private MathEvaluator() {
-
+        mExprEvaluator = new ExprEvaluator();
+        String combination = "C(n_, k_):=(factorial(Ceiling(n)) / " + "(factorial(Ceiling(k)) * " +
+                "factorial(Ceiling(n - k))))";
+        mExprEvaluator.evaluate(combination);
+        String binomial = "P(n_, k_):=Binomial(n, k)";
+        mExprEvaluator.evaluate(binomial);
+        String cbrt = "cbrt(x_):= x^(1/3)";
+        mExprEvaluator.evaluate(cbrt);
+        String ceiling = "Ceil(x_):=Ceiling(x)";
+        mExprEvaluator.evaluate(ceiling);
+        mTexEngine = new TeXUtilities(mExprEvaluator.getEvalEngine(), true);
     }
 
-
-    /**
-     * @param exprInput The expression to doCalculate
-     * @return The  value of the expression
-     * @throws IllegalArgumentException If the user has input a invalid expression
-     */
-    public static IExpr evaluateSimple(String exprInput, EvaluateConfig config) {
-        IExpr result = evaluate(exprInput);
-        if (result.isNumber() && !result.isFraction()) {
-            if (result instanceof IntegerSym) {
-                return result;
-            } else { //numeric or complex
-                return F.num(DecimalFormatter.round(result.toString().replace("\"", ""), config.getRoundTo()));
-            }
-        }
-        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
-            result = evaluate("N(" + exprInput + ")");
-            if (result.isNumber() && !result.isFraction()) {
-                if (result instanceof IntegerSym) {
-                    return result;
-                } else {
-                    return F.num(DecimalFormatter.round(result.toString().replace("\"", ""), config.getRoundTo()));
-                }
-            }
-            return result;
-        } else {
-            return result;
-        }
+    @NonNull
+    public static MathEvaluator newInstance() {
+        return new MathEvaluator();
     }
 
-    /**
-     * return BigEvaluator
-     *
-     * @return - mEvaluator
-     */
-    public static MathEvaluator getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new MathEvaluator();
-        }
-        return INSTANCE;
-    }
-
-    public static TeXUtilities getTexEngine() {
-        return TEX_ENGINE;
-    }
-
+    @Nullable
     public static Exception getError(String expr) {
         try {
             EvalEngine.get().parse(expr);
@@ -148,8 +95,27 @@ public class MathEvaluator extends LogicEvaluator {
         return null;
     }
 
-    public static IExpr evaluate(String exprInput) {
-        return EVAL_ENGINE.evaluate(exprInput);
+    /**
+     * @param exprInput The expression to calculate
+     * @return The  value of the expression
+     * @throws IllegalArgumentException If the user has input a invalid expression
+     */
+    public IExpr evaluateSimple(String exprInput, EvaluateConfig config) {
+        IExpr result;
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+            result = evaluate("N(" + exprInput + ")");
+        } else {
+            result = evaluate(exprInput);
+        }
+        return result;
+    }
+
+    public TeXUtilities getTexEngine() {
+        return mTexEngine;
+    }
+
+    public IExpr evaluate(String exprInput) {
+        return mExprEvaluator.evaluate(exprInput);
     }
 
     @Override
@@ -188,10 +154,10 @@ public class MathEvaluator extends LogicEvaluator {
     private String addUserDefinedVariable(String expression) {
         if (!expression.contains("ans")) return expression;
         try {
-            if (EVAL_ENGINE.getVariable("ans").toString().equals("null")) {
+            if (mExprEvaluator.getVariable("ans").toString().equals("null")) {
                 expression = expression.replace("ans", "(0)");
             } else {
-                expression = expression.replace("ans", "(" + EVAL_ENGINE.getVariable("ans") + ")");
+                expression = expression.replace("ans", "(" + mExprEvaluator.getVariable("ans") + ")");
             }
         } catch (Exception e) {
             expression = expression.replace("ans", "(0)");
@@ -273,7 +239,7 @@ public class MathEvaluator extends LogicEvaluator {
         if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
             solveStr = "N(" + solveStr + ")";
         }
-        String roots = EVAL_ENGINE.evaluate(solveStr).toString();
+        String roots = mExprEvaluator.evaluate(solveStr).toString();
 
         if (roots.toLowerCase().contains("solve")) {
             return context.getString(R.string.not_find_root);
@@ -303,7 +269,7 @@ public class MathEvaluator extends LogicEvaluator {
 
     public void define(String var, double value) {
         try {
-            EVAL_ENGINE.defineVariable(var, value);
+            mExprEvaluator.defineVariable(var, value);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -317,8 +283,8 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public void define(String var, String value) {
         try {
-            IExpr iExpr = EVAL_ENGINE.evaluate(value);
-            EVAL_ENGINE.defineVariable(var, iExpr);
+            IExpr iExpr = mExprEvaluator.evaluate(value);
+            mExprEvaluator.defineVariable(var, iExpr);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -329,7 +295,7 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public boolean isNumber(String value) {
         try {
-            return Boolean.valueOf(String.valueOf(EVAL_ENGINE.evaluate("NumberQ(" + value + ")")));
+            return Boolean.valueOf(String.valueOf(mExprEvaluator.evaluate("NumberQ(" + value + ")")));
         } catch (Exception e) {
             return false;
         }
@@ -341,7 +307,7 @@ public class MathEvaluator extends LogicEvaluator {
     public ArrayList<String> getListVariables(String expr) {
         ArrayList<String> variables = new ArrayList<>();
         try {
-            String res = EVAL_ENGINE.evaluate("Variables(" + expr + ")").toString();
+            String res = mExprEvaluator.evaluate("Variables(" + expr + ")").toString();
             res = res.replace("{", "");
             res = res.replace("}", "");
             String tmp[] = res.split(",");
@@ -360,7 +326,7 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public boolean isSyntaxError(String expr) {
         try {
-            EVAL_ENGINE.getEvalEngine().parse(expr);
+            mExprEvaluator.getEvalEngine().parse(expr);
         } catch (SyntaxError e) {
             DLog.printStack(e);
             return true;
@@ -378,7 +344,7 @@ public class MathEvaluator extends LogicEvaluator {
      * factor prime number
      */
     public String factorPrime(String input) {
-        String s = EVAL_ENGINE.evaluate("FactorInteger(" + input + ")").toString();
+        String s = mExprEvaluator.evaluate("FactorInteger(" + input + ")").toString();
         if (s.toLowerCase().contains("factorinteger")) {
             return input;
         }
@@ -441,10 +407,10 @@ public class MathEvaluator extends LogicEvaluator {
      */
     public String factorPolynomial(String input, final EvaluateConfig config) {
         String factorStr = "Factor(" + input + ")";
-        IExpr result = EVAL_ENGINE.evaluate(factorStr);
+        IExpr result = mExprEvaluator.evaluate(factorStr);
         if (result.toString().toLowerCase().contains("factor")) {
             factorStr = "Factor(" + input + ", GaussianIntegers->True)";
-            result = EVAL_ENGINE.evaluate(factorStr);
+            result = mExprEvaluator.evaluate(factorStr);
             if (result.toString().toLowerCase().contains("factor")) {
                 return input;
             } else {
@@ -469,9 +435,9 @@ public class MathEvaluator extends LogicEvaluator {
             @Override
             public void add(IExpr input, IExpr result, int depth, long l, String s) {
                 StringWriter stringWriterInput = new StringWriter();
-                TEX_ENGINE.toTeX(input, stringWriterInput);
+                mTexEngine.toTeX(input, stringWriterInput);
                 StringWriter stringWriterOutput = new StringWriter();
-                TEX_ENGINE.toTeX(result, stringWriterOutput);
+                mTexEngine.toTeX(result, stringWriterOutput);
                 listStep.add(new StepItem(stringWriterInput.toString(),
                         stringWriterOutput.toString(), depth));
 

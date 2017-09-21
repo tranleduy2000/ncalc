@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.view.math_editor;
+package com.duy.calculator.view.editor;
 
 import java.util.regex.Pattern;
 

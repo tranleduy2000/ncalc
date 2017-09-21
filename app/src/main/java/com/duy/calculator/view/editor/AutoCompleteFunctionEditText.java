@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.view.math_editor;
+package com.duy.calculator.view.editor;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 
 import com.duy.calculator.R;
@@ -95,16 +95,16 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
 
     public void highlight(Editable editable) {
         disableTextChangeListener();
-        ForegroundColorSpan[] spans = editable.getSpans(0, editable.length(), ForegroundColorSpan.class);
-        for (ForegroundColorSpan span : spans) {
+        StyleSpan[] spans = editable.getSpans(0, editable.length(), StyleSpan.class);
+        for (StyleSpan span : spans) {
             editable.removeSpan(span);
         }
 
         String s = editable.toString();
         Matcher matcher = Patterns.FUNCTION_PATTERN.matcher(s);
         while (matcher.find()) {
-            editable.setSpan(new ForegroundColorSpan(Color.RED), matcher.start(), matcher.end(),
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            StyleSpan styleSpan = new StyleSpan(Typeface.BOLD);
+            editable.setSpan(styleSpan, matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         enableTextChangeListener();
     }
