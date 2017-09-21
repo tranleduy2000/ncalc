@@ -131,11 +131,7 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask"/>
-        <activity
-            android:name=".view.MathViewActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
 
-            android:launchMode="singleTask"/>
         <activity
             android:name=".graph.GraphActivity"
             android:label="@string/title_activity_graph"/>

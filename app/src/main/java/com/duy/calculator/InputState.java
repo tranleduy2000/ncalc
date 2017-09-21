@@ -19,6 +19,6 @@ package com.duy.calculator;
 /**
  * Input state
  */
-public enum EInputState {
+public enum InputState {
     HAND_WRITE, OCR_SCAN, PAD, PAD_ADVANCE, RESULT_VIEW
 }

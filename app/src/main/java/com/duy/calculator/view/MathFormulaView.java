@@ -51,8 +51,7 @@ public class MathFormulaView extends MathView {
 
         SharedPreferences preferenceManager
                 = PreferenceManager.getDefaultSharedPreferences(context);
-        String engine = preferenceManager.getString(
-                context.getString(R.string.key_pref_latex_mode), "KaTeX");
+        String engine = preferenceManager.getString(context.getString(R.string.key_pref_latex_mode), "KaTeX");
         DLog.i("Mode latex is " + engine);
         if (engine.equals(context.getString(R.string.katex))) {
             setEngine(KATEX);

@@ -44,7 +44,6 @@ public class CalculatorEditText extends ResizingEditText {
     public static final String TAG = "CalculatorEditText";
     public static final char CURSOR = '\u273f';
 
-    private final Set<TextWatcher> mTextWatchers = new HashSet<>();
     /**
      * enable text watcher
      */
@@ -183,15 +182,6 @@ public class CalculatorEditText extends ResizingEditText {
         int select = getSelectionStart();
         setText(s);
         setSelection(select);
-    }
-
-    @Override
-    public void addTextChangedListener(TextWatcher watcher) {
-        if (watcher.equals(mCursorWatcher) || mTextWatchers == null) {
-            super.addTextChangedListener(watcher);
-        } else {
-            mTextWatchers.add(watcher);
-        }
     }
 
     @Override

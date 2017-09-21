@@ -38,10 +38,10 @@ import java.util.regex.Matcher;
  */
 public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppCompatMultiAutoCompleteTextView {
 
-    private final Handler handler = new Handler();
-    private HighlightWatcher watcher = new HighlightWatcher();
+    private final Handler mHandler = new Handler();
+    private HighlightWatcher mHighlightWatcher = new HighlightWatcher();
     private boolean isEnableTextListener;
-    private final Runnable updateHighlight = new Runnable() {
+    private final Runnable mUpdateHighlight = new Runnable() {
         @Override
         public void run() {
             highlight(getEditableText());
@@ -64,6 +64,14 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
         init();
     }
 
+    public void setAutoSuggestEnable(boolean enable) {
+        if (!enable) {
+            setAdapter(null);
+        } else {
+            init();
+        }
+    }
+
     private void init() {
         if (!isInEditMode()) {
             String[] keyWords = Patterns.KEY_WORDS;
@@ -83,14 +91,14 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
 
     private void enableTextChangeListener() {
         if (!isEnableTextListener) {
-            addTextChangedListener(watcher);
+            addTextChangedListener(mHighlightWatcher);
             isEnableTextListener = true;
         }
     }
 
     private void disableTextChangeListener() {
         this.isEnableTextListener = false;
-        removeTextChangedListener(watcher);
+        removeTextChangedListener(mHighlightWatcher);
     }
 
     public void highlight(Editable editable) {
@@ -177,8 +185,8 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
 
         @Override
         public void afterTextChanged(Editable s) {
-            handler.removeCallbacks(updateHighlight);
-            handler.postDelayed(updateHighlight, 1000);
+            mHandler.removeCallbacks(mUpdateHighlight);
+            mHandler.postDelayed(mUpdateHighlight, 1000);
         }
     }
 }

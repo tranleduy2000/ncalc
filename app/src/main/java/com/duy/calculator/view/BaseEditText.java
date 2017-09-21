@@ -46,7 +46,8 @@ public class BaseEditText extends AutoCompleteFunctionEditText {
     }
 
     private void setup(Context context) {
-        if (!isInEditMode())
+        if (!isInEditMode()) {
             setTypeface(loadTypefaceFromAsset(context));
+        }
     }
 }

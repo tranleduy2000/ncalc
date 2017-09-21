@@ -35,6 +35,7 @@ import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.TypedValue;
@@ -48,7 +49,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.duy.calculator.DLog;
-import com.duy.calculator.EInputState;
+import com.duy.calculator.InputState;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
 import com.duy.calculator.calc.fragment.KeyboardFragment;
@@ -99,7 +100,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public FrameLayout mAnimateSolve;
     private SwitchCompat mFractionSwitch;
     private FrameLayout mContainerSolve;
-    private DrawerLayout drawerLayout;
+    private DrawerLayout mDrawerLayout;
     private SlidingUpPanelLayout padAdvance;
     private CalculatorEditText mInputDisplay;
     private ViewGroup mDisplayForeground;
@@ -122,7 +123,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             return false;
         }
     };
-    private EInputState mInputState = EInputState.PAD;
+    private InputState mInputState = InputState.PAD;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -131,13 +132,12 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         setContentView(R.layout.activity_basic_calculator);
         bindView();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mInputDisplay.setShowSoftInputOnFocus(false);
-        }
-
+        mInputDisplay.setRawInputType(InputType.TYPE_NULL);
         mInputDisplay.addTextChangedListener(mFormulaTextWatcher);
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
-        setInputState(EInputState.PAD);
+        mInputDisplay.setAutoSuggestEnable(false);
+
+        setInputState(InputState.PAD);
         setState(CalculatorState.INPUT);
 
         initKeyboard();
@@ -161,7 +161,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
         mInputDisplay = (CalculatorEditText) findViewById(R.id.txtDisplay);
         padAdvance = (SlidingUpPanelLayout) findViewById(R.id.slide);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mContainerSolve = (FrameLayout) findViewById(R.id.container_solve);
         mFractionSwitch = (SwitchCompat) findViewById(R.id.sw_fraction);
         mAnimateSolve = (FrameLayout) findViewById(R.id.result_animation);
@@ -313,9 +313,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     /**
      * set input state
      *
-     * @param pad - enum {@link EInputState}
+     * @param pad - enum {@link InputState}
      */
-    private void setInputState(EInputState pad) {
+    private void setInputState(InputState pad) {
         mInputState = pad;
     }
 
@@ -647,7 +647,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * close Solve Result and animate
      */
     public void closeMathView() {
-        setInputState(EInputState.PAD);
+        setInputState(InputState.PAD);
         mHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -717,13 +717,13 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout != null) {
-            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.closeDrawers();
+        if (mDrawerLayout != null) {
+            if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                mDrawerLayout.closeDrawers();
                 return;
             }
         }
-        if (mInputState == EInputState.RESULT_VIEW) {
+        if (mInputState == InputState.RESULT_VIEW) {
             closeMathView();
             return;
         }
@@ -794,7 +794,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             super.onPreExecute();
             Toast.makeText(BasicCalculatorActivity.this, R.string.evaluating, Toast.LENGTH_SHORT).show();
             mContainerSolve.setVisibility(View.VISIBLE);
-            setInputState(EInputState.RESULT_VIEW);
+            setInputState(InputState.RESULT_VIEW);
             mProgress.show();
             mFabClose.hide();
         }
