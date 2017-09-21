@@ -73,12 +73,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".converter.UnitConverterParentAcitvity"
+            android:name=".converter.UnitCategoryActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_unit_converter_acitvity"
 
             android:launchMode="singleTask"/>
-        <activity android:name=".converter.UnitConverterChildActivity"/>
+        <activity android:name=".converter.ConverterActivity"/>
         <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -151,7 +151,7 @@
 
             android:launchMode="singleTask"/>
         <activity
-            android:name=".system_equation.SystemEquationActivity"
+            android:name=".equations.SystemEquationActivity"
             android:label="@string/solve_system_equation"
 
             android:launchMode="singleTask"/>
@@ -177,13 +177,13 @@
             android:launchMode="singleTask"/>
         <activity android:name=".document.InfoActivity"/>
         <activity
-            android:name=".number_theory.FactorPrimeActivity"
+            android:name=".number.FactorPrimeActivity"
             android:launchMode="singleTask"/>
         <activity
-            android:name=".number_theory.PermutationActivity"
+            android:name=".number.PermutationActivity"
             android:launchMode="singleTask"/>
         <activity
-            android:name=".number_theory.ModuleActivity"
+            android:name=".number.ModuleActivity"
             android:launchMode="singleTask"/>
 
         <activity
@@ -195,10 +195,10 @@
             android:name=".trigonometry.TrigActivity"
             android:launchMode="singleTask"/>
         <activity
-            android:name=".number_theory.NumberActivity"
+            android:name=".number.NumberActivity"
             android:launchMode="singleTask"/>
         <activity android:name=".document.DocumentActivity"/>
-        <activity android:name=".number_theory.PiActivity"/>
+        <activity android:name=".number.PiActivity"/>
     </application>
 
 </manifest>

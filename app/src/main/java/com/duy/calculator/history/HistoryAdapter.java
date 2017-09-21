@@ -28,7 +28,7 @@ import android.widget.TextView;
 
 import com.duy.calculator.DLog;
 import com.duy.calculator.R;
-import com.duy.calculator.data.Database;
+import com.duy.calculator.data.DatabaseHelper;
 import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ClipboardManager;
 
@@ -38,12 +38,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     private ArrayList<ResultEntry> itemHistories = new ArrayList<>();
     private Activity context;
     private HistoryListener listener = null;
-    private Database database;
+    private DatabaseHelper database;
     private Tokenizer tokenizer;
 
     public HistoryAdapter(Activity context, Tokenizer tokenizer) {
         this.context = context;
-        database = new Database(context);
+        database = new DatabaseHelper(context);
         this.itemHistories = database.getAllItemHistory();
         this.tokenizer = tokenizer;
         for (ResultEntry entry : itemHistories) {

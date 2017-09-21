@@ -23,7 +23,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;

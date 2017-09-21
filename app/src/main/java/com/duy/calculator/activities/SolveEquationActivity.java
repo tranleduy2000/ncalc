@@ -24,11 +24,11 @@ import android.support.design.widget.NavigationView;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
-import com.duy.calculator.item_math_type.SolveItem;
+import com.duy.calculator.model.SolveItem;
 import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;

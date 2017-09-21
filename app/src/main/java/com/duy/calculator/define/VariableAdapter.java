@@ -29,7 +29,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.duy.calculator.R;
-import com.duy.calculator.data.Database;
+import com.duy.calculator.data.DatabaseHelper;
 
 import java.util.ArrayList;
 
@@ -39,12 +39,12 @@ public class VariableAdapter extends RecyclerView.Adapter<VariableAdapter.ViewHo
     private Context context;
     private ArrayList<VariableEntry> entries = new ArrayList<>();
     private LayoutInflater inflater;
-    private Database database;
+    private DatabaseHelper database;
 
     public VariableAdapter(Context context) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
-        this.database = new Database(context);
+        this.database = new DatabaseHelper(context);
 //        this.entries = mDatabase.getAllVariable();
     }
 

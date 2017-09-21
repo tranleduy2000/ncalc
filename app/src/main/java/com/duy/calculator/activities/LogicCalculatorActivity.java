@@ -39,7 +39,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
+import com.duy.calculator.activities.base.AbstractCalculatorActivity;
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -310,10 +310,10 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
             }
         });
 
-        playAnimatior(animatorSet);
+        playAnimation(animatorSet);
     }
 
-    protected void playAnimatior(Animator animator) {
+    protected void playAnimation(Animator animator) {
         animator.addListener(new AnimationFinishedListener() {
             @Override
             public void onAnimationFinished() {
@@ -373,10 +373,10 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         revealAnimator.addListener(new AnimationFinishedListener() {
             @Override
             public void onAnimationFinished() {
-                playAnimatior(alphaAnimator);
+                playAnimation(alphaAnimator);
             }
         });
-        playAnimatior(revealAnimator);
+        playAnimation(revealAnimator);
     }
 
     @Override

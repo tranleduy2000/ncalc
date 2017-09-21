@@ -22,12 +22,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
-import com.duy.calculator.item_math_type.IntegrateItem;
+import com.duy.calculator.model.IntegrateItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;

@@ -38,7 +38,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.data.Database;
+import com.duy.calculator.data.DatabaseHelper;
 import com.duy.calculator.tokenizer.Tokenizer;
 import com.duy.calculator.view.AnimationFinishedListener;
 
@@ -61,7 +61,7 @@ public abstract class AbstractFragment extends Fragment
     /**
      * data for com.duy.calculator
      */
-    protected Database mDatabase;
+    protected DatabaseHelper mDatabase;
     protected SharedPreferences mPreferences;
     protected CalculatorSetting mSetting;
     /**
@@ -75,7 +75,7 @@ public abstract class AbstractFragment extends Fragment
         super.onAttach(acontext);
         this.mContext = getActivity();
 
-        mDatabase = new Database(mContext);
+        mDatabase = new DatabaseHelper(mContext);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         mSetting = new CalculatorSetting(mPreferences, mContext);
 

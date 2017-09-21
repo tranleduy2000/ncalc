@@ -23,7 +23,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.AbstractAppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

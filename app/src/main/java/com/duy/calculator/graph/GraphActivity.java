@@ -26,7 +26,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
-import com.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.AbstractAppCompatActivity;
 import com.duy.calculator.R;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;

@@ -27,7 +27,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.AbstractAppCompatActivity;
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.tokenizer.Tokenizer;

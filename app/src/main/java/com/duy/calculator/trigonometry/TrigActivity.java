@@ -22,20 +22,20 @@ import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractEvaluatorActivity;
+import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.data.SampleData;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
-import com.duy.calculator.item_math_type.TrigItem;
+import com.duy.calculator.model.TrigItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
-import static com.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPAND;
-import static com.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.EXPONENT;
-import static com.duy.calculator.item_math_type.TrigItem.TRIG_TYPE.REDUCE;
+import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPAND;
+import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPONENT;
+import static com.duy.calculator.model.TrigItem.TRIG_TYPE.REDUCE;
 
 /**
  * Trigonometric Activity

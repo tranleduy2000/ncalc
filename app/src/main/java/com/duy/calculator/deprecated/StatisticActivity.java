@@ -29,7 +29,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractNavDrawerActionBarActivity;
+import com.duy.calculator.activities.base.AbstractNavDrawerActionBarActivity;
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.utils.ColorUtil;
 import com.github.mikephil.charting.charts.BarChart;
@@ -58,7 +58,7 @@ public class StatisticActivity extends AbstractNavDrawerActionBarActivity {
 
     private static final String TAG = StatisticFragment.class.getSimpleName();
     private EditText mInput;
-    private Button btnSubmit;
+    private Button mBtnSubmit;
     private LineChart mLineChart;
     private BarChart mBarChart;
     private PieChart mPieChart;
@@ -99,8 +99,8 @@ public class StatisticActivity extends AbstractNavDrawerActionBarActivity {
 
             }
         });
-        btnSubmit = (Button) findViewById(R.id.btn_submit);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        mBtnSubmit = (Button) findViewById(R.id.btn_submit);
+        mBtnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 doSubmit();

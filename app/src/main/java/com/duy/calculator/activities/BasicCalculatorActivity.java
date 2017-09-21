@@ -51,7 +51,7 @@ import android.widget.Toast;
 import com.duy.calculator.DLog;
 import com.duy.calculator.EInputState;
 import com.duy.calculator.R;
-import com.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
+import com.duy.calculator.activities.base.AbstractCalculatorActivity;
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.define.DefineVariableActivity;
 import com.duy.calculator.document.DocumentActivity;
@@ -62,10 +62,10 @@ import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.evaluator.thread.ResultCallback;
 import com.duy.calculator.history.HistoryActivity;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.item_math_type.DerivativeItem;
-import com.duy.calculator.item_math_type.ExprInput;
-import com.duy.calculator.item_math_type.PrimeFactorItem;
-import com.duy.calculator.item_math_type.SolveItem;
+import com.duy.calculator.model.DerivativeItem;
+import com.duy.calculator.model.ExprInput;
+import com.duy.calculator.model.PrimeFactorItem;
+import com.duy.calculator.model.SolveItem;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.utils.ClipboardManager;
 import com.duy.calculator.utils.VoiceUtils;
@@ -147,9 +147,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         findViewById(R.id.img_history).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(
-                        new Intent(BasicCalculatorActivity.this, HistoryActivity.class),
-                        REQ_CODE_HISTORY);
+                Intent intent = new Intent(BasicCalculatorActivity.this, HistoryActivity.class);
+                startActivityForResult(intent, REQ_CODE_HISTORY);
             }
         });
 
@@ -452,7 +451,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 foreground.removeView(revealView);
             }
         });
-        playAnimatior(revealAnimator);
+        playAnimation(revealAnimator);
     }
 
     public void insertText(String text) {

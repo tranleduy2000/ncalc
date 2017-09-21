@@ -20,7 +20,7 @@ import android.content.DialogInterface;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 
-import com.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.AbstractAppCompatActivity;
 import com.duy.calculator.BuildConfig;
 import com.duy.calculator.DLog;
 import com.duy.calculator.R;

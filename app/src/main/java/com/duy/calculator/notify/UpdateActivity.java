@@ -19,7 +19,7 @@ package com.duy.calculator.notify;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.duy.calculator.activities.abstract_class.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.AbstractAppCompatActivity;
 
 public class UpdateActivity extends AbstractAppCompatActivity {
 
