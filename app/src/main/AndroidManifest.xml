@@ -187,11 +187,6 @@
             android:launchMode="singleTask"/>
 
         <activity
-            android:name=".notify.UpdateActivity"
-            android:noHistory="true"
-            android:theme="@style/AppTheme.Splash"/>
-
-        <activity
             android:name=".trigonometry.TrigActivity"
             android:launchMode="singleTask"/>
         <activity

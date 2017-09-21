@@ -154,6 +154,9 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener, 
             case R.id.btn_equal:
                 mCalculatorListener.onEqual();
                 break;
+            case R.id.btn_ans:
+                mCalculatorListener.insertText("Ans");
+                break;
             default:
                 if (view instanceof CalcButton) {
                     CalcButton calcButton = (CalcButton) view;

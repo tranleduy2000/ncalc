@@ -18,8 +18,7 @@ package com.duy.calculator;
 
 import android.support.multidex.MultiDexApplication;
 
-import com.duy.calculator.notify.RateManager;
-import com.google.firebase.FirebaseApp;
+import com.google.firebase.crash.FirebaseCrash;
 
 
 public class CalcApplication extends MultiDexApplication {
@@ -27,8 +26,6 @@ public class CalcApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        //init dialog rate
-        RateManager.init(this);
-        FirebaseApp.initializeApp(this);
+        FirebaseCrash.setCrashCollectionEnabled(!BuildConfig.DEBUG);
     }
 }

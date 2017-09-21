@@ -42,7 +42,7 @@ import java.util.Set;
  */
 public class CalculatorEditText extends ResizingEditText {
     public static final String TAG = "CalculatorEditText";
-    public static final String CURSOR = "✿";
+    public static final char CURSOR = '\u273f';
 
     private final Set<TextWatcher> mTextWatchers = new HashSet<>();
     /**
@@ -68,17 +68,25 @@ public class CalculatorEditText extends ResizingEditText {
 
         @Override
         public void afterTextChanged(Editable s) {
+            for (int i = start; i < start + count; i++) {
+                if (s.charAt(i) == CURSOR) {
+                    s.delete(i, i + 1);
+                    setSelection(i);
+                    break;
+                }
+            }
         }
     };
 
     private List<String> mKeywords;
     private boolean mIsInserting = false;
+    private boolean mCheckSyntax = false;
+
 
     public CalculatorEditText(Context context) {
         super(context);
         setUp(context, null);
     }
-
 
     public CalculatorEditText(Context context, AttributeSet attr) {
         super(context, attr);
@@ -204,66 +212,71 @@ public class CalculatorEditText extends ResizingEditText {
     }
 
     public void insert(String delta) {
-        String currentText = getText().toString();
-        int selectionStart = getSelectionStart();
-        int selectionEnd = getSelectionEnd();
-        String textBeforeInsertionHandle = currentText.substring(0, selectionStart);
-        String textAfterInsertionHandle = currentText.substring(selectionEnd, currentText.length());
+        if (mCheckSyntax) {
+            String currentText = getText().toString();
+            int selectionStart = getSelectionStart();
+            int selectionEnd = getSelectionEnd();
+            String textBeforeInsertionHandle = currentText.substring(0, selectionStart);
+            String textAfterInsertionHandle = currentText.substring(selectionEnd, currentText.length());
 
-        // Add extra rules for decimal points and operators
-        if (delta.length() == 1) {
-            char text = delta.charAt(0);
+            // Add extra rules for decimal points and operators
+            if (delta.length() == 1) {
+                char text = delta.charAt(0);
 
-            // don't allow two dots in the same number
-            if (text == Constants.DECIMAL_POINT) {
-                int p = selectionStart - 1;
-                while (p >= 0 && Evaluator.isDigit(getText().charAt(p))) {
-                    if (getText().charAt(p) == Constants.DECIMAL_POINT) {
-                        return;
+                // don't allow two dots in the same number
+                if (text == Constants.DECIMAL_POINT) {
+                    int p = selectionStart - 1;
+                    while (p >= 0 && Evaluator.isDigit(getText().charAt(p))) {
+                        if (getText().charAt(p) == Constants.DECIMAL_POINT) {
+                            return;
+                        }
+                        --p;
                     }
-                    --p;
-                }
-                p = selectionStart;
-                while (p < getText().length() && Evaluator.isDigit(getText().charAt(p))) {
-                    if (getText().charAt(p) == Constants.DECIMAL_POINT) {
-                        return;
+                    p = selectionStart;
+                    while (p < getText().length() && Evaluator.isDigit(getText().charAt(p))) {
+                        if (getText().charAt(p) == Constants.DECIMAL_POINT) {
+                            return;
+                        }
+                        ++p;
                     }
-                    ++p;
                 }
-            }
 
-            char prevChar = selectionStart > 0 ? getText().charAt(selectionStart - 1) : '\0';
+                char prevChar = selectionStart > 0 ? getText().charAt(selectionStart - 1) : '\0';
 
-            // don't allow the first character to be an operator
-            if (selectionStart == 0 && Evaluator.isOperator(text)
-                    && text != Constants.MINUS_UNICODE) {
-                return;
-            }
+                // don't allow the first character to be an operator
+                if (selectionStart == 0 && Evaluator.isOperator(text)
+                        && text != Constants.MINUS_UNICODE) {
+                    return;
+                }
 
-            // don't allow multiple successive operators
-            if (Evaluator.isOperator(text) &&
-                    text != Constants.MINUS_UNICODE) {
-                while (Evaluator.isOperator(prevChar)) {
-                    if (selectionStart == 1) {
-                        return;
+                // don't allow multiple successive operators
+                if (Evaluator.isOperator(text) &&
+                        text != Constants.MINUS_UNICODE) {
+                    while (Evaluator.isOperator(prevChar)) {
+                        if (selectionStart == 1) {
+                            return;
+                        }
+
+                        --selectionStart;
+                        prevChar = selectionStart > 0 ? getText().charAt(selectionStart - 1) : '\0';
+                        textBeforeInsertionHandle = textBeforeInsertionHandle.substring(0, selectionStart);
                     }
-
-                    --selectionStart;
-                    prevChar = selectionStart > 0 ? getText().charAt(selectionStart - 1) : '\0';
-                    textBeforeInsertionHandle = textBeforeInsertionHandle.substring(0, selectionStart);
+                }
+                // don't allow two degree symbol
+                Log.d(TAG, "insert: " + text + " " + (text == Constants.DEGREE_UNICODE));
+                if (text == Constants.DEGREE_UNICODE
+                        && Evaluator.isOperator(prevChar)) {
+                    return;
                 }
             }
-            // don't allow two degree symbol
-            Log.d(TAG, "insert: " + text + " " + (text == Constants.DEGREE_UNICODE));
-            if (text == Constants.DEGREE_UNICODE
-                    && Evaluator.isOperator(prevChar)) {
-                return;
-            }
+            mIsInserting = true;
+            setText(textBeforeInsertionHandle + delta + textAfterInsertionHandle);
+            setSelection(selectionStart + delta.length());
+            mIsInserting = false;
+        } else {
+            int selectionStart = Math.max(0, getSelectionStart());
+            getText().insert(selectionStart, delta);
         }
-        mIsInserting = true;
-        setText(textBeforeInsertionHandle + delta + textAfterInsertionHandle);
-        setSelection(selectionStart + delta.length());
-        mIsInserting = false;
     }
 
     public void clear() {
