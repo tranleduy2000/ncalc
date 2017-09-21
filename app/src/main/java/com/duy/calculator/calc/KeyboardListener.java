@@ -14,19 +14,35 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.activities.base;
+package com.duy.calculator.calc;
 
 /**
- * Created by Duy on 3/7/2016
+ * Created by Duy on 9/21/2017.
  */
-public interface ICalculator {
-    public void onResult(final String result);
 
-    public void onError(final String errorResourceId);
+public interface KeyboardListener {
 
-    public void onDelete();
+    void clickDerivative();
 
-    public void clickClear();
+    void clickGraph();
 
-    public void onEqual();
+    void insertText(String text);
+
+    void onDefineAndCalc();
+
+    void clickFactorPrime();
+
+    void clickSolveEquation();
+
+    void closeMathView();
+
+    void shareText();
+
+    void onDelete();
+
+    void clickClear();
+
+    void onEqual();
+
+    void insertOperator(String op);
 }

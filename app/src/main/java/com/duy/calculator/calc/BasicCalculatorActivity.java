@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.activities;
+package com.duy.calculator.calc;
 
 import android.animation.Animator;
 import android.annotation.TargetApi;
@@ -29,6 +29,7 @@ import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v4.widget.DrawerLayout;
@@ -42,19 +43,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.duy.calculator.DLog;
 import com.duy.calculator.EInputState;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
+import com.duy.calculator.calc.fragment.KeyboardFragment;
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.define.DefineVariableActivity;
-import com.duy.calculator.document.DocumentActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -66,11 +65,9 @@ import com.duy.calculator.model.DerivativeItem;
 import com.duy.calculator.model.ExprInput;
 import com.duy.calculator.model.PrimeFactorItem;
 import com.duy.calculator.model.SolveItem;
-import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.utils.ClipboardManager;
 import com.duy.calculator.utils.VoiceUtils;
 import com.duy.calculator.view.AnimationFinishedListener;
-import com.duy.calculator.view.ButtonID;
 import com.duy.calculator.view.CalculatorEditText;
 import com.duy.calculator.view.RevealView;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -85,7 +82,7 @@ import io.github.kexanie.library.MathView;
 
 
 public class BasicCalculatorActivity extends AbstractCalculatorActivity
-        implements LogicEvaluator.EvaluateCallback, View.OnClickListener, View.OnLongClickListener {
+        implements LogicEvaluator.EvaluateCallback, KeyboardListener {
     public static final String TAG = BasicCalculatorActivity.class.getSimpleName();
     public static final String DATA = "DATA_BUNDLE";
     private static final int REQ_CODE_HISTORY = 1111;
@@ -96,20 +93,20 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * Evaluate when text change
      */
     private final InstantResultWatcher mFormulaTextWatcher = new InstantResultWatcher();
-
+    private final Handler mHandler = new Handler();
     public MathView mMathView;
     public ContentLoadingProgressBar mProgress;
     public FrameLayout mAnimateSolve;
-    SwitchCompat mFractionSwitch;
-    FrameLayout mContainerSolve;
-    DrawerLayout drawerLayout;
-    SlidingUpPanelLayout padAdvance;
-    CalculatorEditText mInputDisplay;
-    ViewGroup mDisplayForeground;
-    MathView mReview;
-    FloatingActionButton mFabClose;
+    private SwitchCompat mFractionSwitch;
+    private FrameLayout mContainerSolve;
+    private DrawerLayout drawerLayout;
+    private SlidingUpPanelLayout padAdvance;
+    private CalculatorEditText mInputDisplay;
+    private ViewGroup mDisplayForeground;
+    private MathView mReview;
+    private FloatingActionButton mFabClose;
     private View mCurrentButton = null;
-    private BasicCalculatorActivity.CalculatorState mCurrentState = BasicCalculatorActivity.CalculatorState.INPUT;
+    private CalculatorState mCurrentState = CalculatorState.INPUT;
     private MathEvaluator mEvaluator;
     private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
         @Override
@@ -125,8 +122,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             return false;
         }
     };
-    private EInputState mEInputState = EInputState.PAD;
-    private Handler handler = new Handler();
+    private EInputState mInputState = EInputState.PAD;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -142,8 +138,10 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mInputDisplay.addTextChangedListener(mFormulaTextWatcher);
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
         setInputState(EInputState.PAD);
-        setState(BasicCalculatorActivity.CalculatorState.INPUT);
-        initPad();
+        setState(CalculatorState.INPUT);
+
+        initKeyboard();
+
         findViewById(R.id.img_history).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,30 +199,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     }
 
-    private void initPad() {
-        for (int id : ButtonID.getIdBasic()) {
-            try {
-                View v = findViewById(id);
-                if (v != null) {
-                    v.setOnClickListener(this);
-                    v.setOnLongClickListener(this);
-                } else {
-                    v = findViewById(R.id.pad_basic).findViewById(id);
-                    if (v != null) {
-                        v.setOnClickListener(this);
-                        v.setOnLongClickListener(this);
-                    } else {
-                        v = findViewById(R.id.pad_advance).findViewById(id);
-                        if (v != null) {
-                            v.setOnClickListener(this);
-                            v.setOnLongClickListener(this);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    private void initKeyboard() {
+        KeyboardFragment keyboardFragment = KeyboardFragment.newInstance();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container_keyboard, keyboardFragment, KeyboardFragment.TAG);
+        ft.commitAllowingStateLoss();
     }
 
     @Override
@@ -246,19 +225,13 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             }
         }
         if (mInputDisplay != null) mInputDisplay.requestFocus();
-
-        /**
-         * check for update
-         */
-//        checkUpdate();
-
     }
 
     private void showHelp() {
         if (mCalculatorSetting.getBoolean(BasicCalculatorActivity.class.getSimpleName())) {
             return;
         }
-        handler.postDelayed(new Runnable() {
+        mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TapTarget target = TapTarget.forView(mFractionSwitch,
@@ -343,7 +316,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * @param pad - enum {@link EInputState}
      */
     private void setInputState(EInputState pad) {
-        mEInputState = pad;
+        mInputState = pad;
     }
 
     public void define(String var, double value) {
@@ -367,12 +340,12 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             animateRipple(mDisplayForeground, mCurrentButton, color, new AnimationFinishedListener() {
                 @Override
                 public void onAnimationFinished() {
-                    setState(BasicCalculatorActivity.CalculatorState.ERROR);
+                    setState(CalculatorState.ERROR);
                     setTextError(error);
                 }
             }, true);
         } else {
-            setState(BasicCalculatorActivity.CalculatorState.ERROR);
+            setState(CalculatorState.ERROR);
             setTextError(error);
         }
     }
@@ -398,7 +371,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * @param listener
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private void animateRipple(final ViewGroup foreground, View sourceView,
+    private void animateRipple(final ViewGroup foreground,
+                               @Nullable View sourceView,
                                int color, final Animator.AnimatorListener listener, final boolean out) {
         if (color == -1) {
             TypedValue typedValue = new TypedValue();
@@ -457,13 +431,13 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public void insertText(String text) {
         //set text display is null if not as operator
         boolean b = mInputDisplay.getSelectionStart() == mInputDisplay.getCleanText().length() + 1;
-        if (mCurrentState == BasicCalculatorActivity.CalculatorState.RESULT && !Evaluator.isOperator(text) && b) {
+        if (mCurrentState == CalculatorState.RESULT && !Evaluator.isOperator(text) && b) {
             mInputDisplay.clear();
         }
         mInputDisplay.insert(text);
     }
 
-    public void onClear() {
+    public void clickClear() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             TypedValue typedValue = new TypedValue();
             Resources.Theme theme = this.getTheme();
@@ -472,13 +446,13 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             animateRipple(mDisplayForeground, mCurrentButton, color, new AnimationFinishedListener() {
                 @Override
                 public void onAnimationFinished() {
-                    setState(BasicCalculatorActivity.CalculatorState.INPUT);
+                    setState(CalculatorState.INPUT);
                     mInputDisplay.clear();
                     mReview.setText("");
                 }
             }, true);
         } else {
-            setState(BasicCalculatorActivity.CalculatorState.INPUT);
+            setState(CalculatorState.INPUT);
             mReview.setText("");
             mInputDisplay.clear();
         }
@@ -486,7 +460,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     public void onEqual() {
         String text = mInputDisplay.getCleanText();
-        setState(BasicCalculatorActivity.CalculatorState.EVALUATE);
+        setState(CalculatorState.EVALUATE);
         mEvaluator.evaluateWithResultNormal(text, BasicCalculatorActivity.this,
                 EvaluateConfig.loadFromSetting(this));
     }
@@ -514,7 +488,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      *
      * @param state - state
      */
-    void setState(BasicCalculatorActivity.CalculatorState state) {
+    void setState(CalculatorState state) {
         mCurrentState = state;
     }
 
@@ -524,9 +498,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * @param opt - operator
      */
     public void insertOperator(String opt) {
-        if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
+        if (mCurrentState == CalculatorState.INPUT) {
             //do something
-        } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.RESULT) {
+        } else if (mCurrentState == CalculatorState.RESULT) {
             //do some thing
         }
         insertText(opt);
@@ -558,11 +532,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     public void onEvaluated(String expr, String result, int resultId) {
         if (resultId == LogicEvaluator.RESULT_OK) {
-            if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
+            if (mCurrentState == CalculatorState.EVALUATE) {
                 onResult(result);
                 saveHistory(expr, result, true);
                 mEvaluator.define("ans", result);
-            } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
+            } else if (mCurrentState == CalculatorState.INPUT) {
                 if (result == null) {
                     setTextResult("");
                 } else {
@@ -574,9 +548,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
     @Override
     public void onCalculateError(Exception e) {
-        if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
+        if (mCurrentState == CalculatorState.INPUT) {
             setTextResult(""); //clear
-        } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
+        } else if (mCurrentState == CalculatorState.EVALUATE) {
             onError(getResources().getString(R.string.error) + " " + e.getMessage());
         }
     }
@@ -602,7 +576,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                     if (indexError >= 0) {
                         mInputDisplay.setSelection(indexError, indexError + 1);
                     }
-                    setState(BasicCalculatorActivity.CalculatorState.ERROR);
+                    setState(CalculatorState.ERROR);
                     setTextError(result);
                 }
             }, true);
@@ -611,7 +585,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             if (indexError >= 0) {
                 mInputDisplay.setSelection(indexError, indexError + 1);
             }
-            setState(BasicCalculatorActivity.CalculatorState.ERROR);
+            setState(CalculatorState.ERROR);
             setTextError(result);
         }
     }
@@ -647,11 +621,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             Toast.makeText(this, R.string.not_variable, Toast.LENGTH_SHORT).show();
             return;
         }
-        new ATaskEval(new ResultCallback() {
+        new EvaluateTask(new ResultCallback() {
             @Override
             public void onSuccess(ArrayList<String> result) {
                 mMathView.setText(result.get(0));
-                handler.postDelayed(new Runnable() {
+                mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         mProgress.hide();
@@ -672,9 +646,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     /**
      * close Solve Result and animate
      */
-    private void closeMathView() {
+    public void closeMathView() {
         setInputState(EInputState.PAD);
-        handler.post(new Runnable() {
+        mHandler.post(new Runnable() {
             @Override
             public void run() {
                 mContainerSolve.setVisibility(View.GONE);
@@ -713,11 +687,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             return;
         }
         PrimeFactorItem item = new PrimeFactorItem(mInputDisplay.getCleanText());
-        new ATaskEval(new ResultCallback() {
+        new EvaluateTask(new ResultCallback() {
             @Override
             public void onSuccess(ArrayList<String> result) {
                 mMathView.setText(result.get(0));
-                handler.postDelayed(new Runnable() {
+                mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         mProgress.hide();
@@ -749,7 +723,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 return;
             }
         }
-        if (mEInputState == EInputState.RESULT_VIEW) {
+        if (mInputState == EInputState.RESULT_VIEW) {
             closeMathView();
             return;
         }
@@ -762,143 +736,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         super.onBackPressed();
     }
 
-    @Override
-    public void onClick(View view) {
-        int id = view.getId();
-        if (view instanceof TextView) {
-            Log.d(TAG, "onClick: " + ((TextView) view).getText().toString());
-        }
-        switch (id) {
-            case R.id.btn_derivative:
-                clickDerivative();
-                break;
-            case R.id.btn_graph_main:
-                clickGraph();
-                break;
-            case R.id.btn_ten_power:
-                insertText("10^");
-                break;
-            case R.id.btn_power_2:
-                insertText("^");
-                insertText("2");
-                break;
-            case R.id.btn_power_3:
-                insertText("^");
-                insertText("3");
-                break;
-            case R.id.btn_calc:
-                onDefineAndCalc();
-                break;
-            case R.id.btn_fact:
-                clickFactorPrime();
-                break;
-            case R.id.btn_help:
-                startActivity(new Intent(getApplicationContext(), DocumentActivity.class));
-            case R.id.btn_solve_:
-                mCurrentButton = view;
-                clickSolveEquation();
-                break;
-            case R.id.fab_close:
-                mCurrentButton = view;
-                closeMathView();
-                break;
-//            case R.id.img_copy:
-//                copyText();
-//                break;
-//            case R.id.img_paste:
-//                pasteText();
-//                break;
-            case R.id.img_setting:
-                startActivity(new Intent(BasicCalculatorActivity.this, SettingsActivity.class));
-                break;
-            case R.id.img_share:
-                shareText();
-                break;
-            case R.id.btn_delete:
-                mCurrentButton = view;
-                onDelete();
-                break;
-            case R.id.btn_clear:
-                mCurrentButton = view;
-                onClear();
-                break;
-            case R.id.btn_equal:
-                onEqual();
-                break;
-            case R.id.btn_arcsin:
-            case R.id.btn_arccos:
-            case R.id.btn_arctan:
-            case R.id.btn_arctanh:
-            case R.id.btn_arccosh:
-            case R.id.btn_arcsinh:
-            case R.id.btn_sin:
-            case R.id.btn_cos:
-            case R.id.btn_tan:
-            case R.id.btn_tanh:
-            case R.id.btn_cosh:
-            case R.id.btn_sinh:
-            case R.id.btn_log:
-            case R.id.btn_ln:
-            case R.id.btn_abs:
-            case R.id.btn_floor:
-            case R.id.btn_ceil:
-            case R.id.btn_sign:
-            case R.id.btn_max:
-            case R.id.btn_min:
-            case R.id.btn_sqrt:
-            case R.id.btn_exp:
-            case R.id.btn_gcd:
-            case R.id.btn_percent:
-            case R.id.btn_perm:
-            case R.id.btn_combi:
-            case R.id.btn_cbrt:
-            case R.id.btn_mod:
-            case R.id.btn_lcm:
-                insertText(((Button) view).getText().toString() + getResources().getString(R.string.leftParen));
-                break;
-            case R.id.btn_power:
-            case R.id.btn_factorial:
-                insertOperator(((Button) view).getText().toString());
-                break;
-            case R.id.btn_plus:
-            case R.id.btn_div:
-            case R.id.btn_mul:
-            case R.id.btn_minus:
-                insertOperator("" + ((Button) view).getText().toString() + "");
-                break;
-            case R.id.btn_input_voice:
-//                ((AbstractCalculatorFragment) mHandler).onInputVoice();
-                break;
-            case R.id.op_and:
-            case R.id.op_or:
-            case R.id.op_xor:
-            case R.id.op_neg:
-            case R.id.op_equal:
-            case R.id.btn_leq:
-            case R.id.btn_geq:
-            case R.id.btn_lt:
-            case R.id.btn_gt:
-                insertText(" " + ((Button) view).getText().toString() + " ");
-                break;
-            default:
-                if (view instanceof Button) {
-                    insertText(((Button) view).getText().toString());
-                }
-                break;
-        }
-    }
 
-    @Override
-    public boolean onLongClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_delete:
-                onClear();
-                return true;
-        }
-        return false;
-    }
-
-    private void clickDerivative() {
+    public void clickDerivative() {
         String inp = mTokenizer.getNormalExpression(mInputDisplay.getCleanText());
         if (inp.isEmpty()) {
             Toast.makeText(this, R.string.enter_expression, Toast.LENGTH_SHORT).show();
@@ -907,11 +746,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
         //check error before evaluate
         DerivativeItem item = new DerivativeItem(mInputDisplay.getCleanText(), "x", "1");
-        new ATaskEval(new ResultCallback() {
+        new EvaluateTask(new ResultCallback() {
             @Override
             public void onSuccess(ArrayList<String> result) {
                 mMathView.setText(result.get(0));
-                handler.postDelayed(new Runnable() {
+                mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         mProgress.hide();
@@ -942,102 +781,18 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
 
-//    private class TaskEval extends AsyncTask<Void, String, ItemResult> {
-//        private String input;
-//        private boolean isReady = true;
-//
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//            this.input = mInputFormula.getCleanText();
-//            mProgressEval.setVisibility(View.VISIBLE);
-//        }
-//
-//        @Override
-//        protected ItemResult doInBackground(Void... params) {
-//            final ItemResult[] r = new ItemResult[1];
-//            mEvaluator.evaluateWithResultNormal(input, new LogicEvaluator.EvaluateCallback() {
-//                @Override
-//                public void onEvaluated(String expr, String result, int errorResourceId) {
-//                    r[0] = new ItemResult(errorResourceId, expr, result);
-//                }
-//            });
-//            return r[0];
-//        }
-//
-//        @Override
-//        protected void onPostExecute(ItemResult aVoid) {
-//            super.onPostExecute(aVoid);
-//            if (aVoid == null) return;
-//            if (aVoid.mResultState == LogicEvaluator.RESULT_ERROR) {
-//                if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
-//                    setTextResult(""); //clear
-//                } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
-//                    onError(getResources().getString(R.string.error)); //process error if user push equal button
-//                    saveHistory(aVoid.mExpression, getResources().getString(R.string.error), true); //save history
-//                }
-//            } else if (aVoid.mResultState == LogicEvaluator.RESULT_ERROR_WITH_INDEX) {
-//                if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
-//                    setTextResult("");
-//                } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
-//                    //process output
-//                    onError(aVoid.mResult, getResources().getString(R.string.error));
-//                    saveHistory(aVoid.mExpression, getResources().getString(R.string.error), true);
-//                }
-//            } else if (aVoid.mResultState == LogicEvaluator.RESULT_OK) {
-//                if (mCurrentState == BasicCalculatorActivity.CalculatorState.EVALUATE) {
-//                    onResult(aVoid.mResult);
-//                    saveHistory(aVoid.mExpression, aVoid.mResult, true);
-//                    mEvaluator.define("ans", aVoid.mResult);
-//                } else if (mCurrentState == BasicCalculatorActivity.CalculatorState.INPUT) {
-//                    if (aVoid.mResult == null) {
-//                        setTextResult("");
-//                    } else {
-//                        setTextResult(aVoid.mResult);
-//                    }
-//                }
-//            } else if (aVoid.mResultState == LogicEvaluator.INPUT_EMPTY) {
-//
-//            }
-//            mProgressEval.setVisibility(View.GONE);
-//        }
-//    }
-
-
-    /**
-     * class for eval extend AsyncTask
-     * <p>
-     * doInBackground: progress eval;
-     * <p>
-     * onPreExecute: hide keyboard, set math view empty text, show process bar
-     * <p>
-     * onPostExecute: hide process bar, set mResult to math view
-     */
-    protected class ATaskEval extends AsyncTask<ExprInput, Void, String> {
+    protected class EvaluateTask extends AsyncTask<ExprInput, Void, String> {
         private Exception exception;
-        private ResultCallback resultCallback;
+        private ResultCallback mCallback;
 
-        public ATaskEval(ResultCallback resultCallback) {
-            this.resultCallback = resultCallback;
+        public EvaluateTask(ResultCallback resultCallback) {
+            this.mCallback = resultCallback;
         }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(BasicCalculatorActivity.this, "Progressing...", Toast.LENGTH_SHORT).show();
-            //show math view with animate
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                animateRipple(mAnimateSolve, null, -2, new AnimationFinishedListener() {
-//                    @Override
-//                    public void onAnimationFinished() {
-//
-//                    }
-//                }, true);   } else {
-//                mContainerSolve.setVisibility(View.VISIBLE);
-//                setInputState(EInputState.RESULT_VIEW);
-//                mProgress.setVisibility(View.VISIBLE);
-//                mFabClose.hide();
-            }
+            Toast.makeText(BasicCalculatorActivity.this, R.string.evaluating, Toast.LENGTH_SHORT).show();
             mContainerSolve.setVisibility(View.VISIBLE);
             setInputState(EInputState.RESULT_VIEW);
             mProgress.show();
@@ -1064,9 +819,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         protected void onPostExecute(final String s) {
             super.onPostExecute(s);
             if (exception != null) {
-                resultCallback.onError(exception);
+                mCallback.onError(exception);
             } else {
-                resultCallback.onSuccess(Lists.newArrayList(s));
+                mCallback.onSuccess(Lists.newArrayList(s));
             }
 
         }
@@ -1083,10 +838,10 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
         @Override
         public void afterTextChanged(Editable editable) {
-            setState(BasicCalculatorActivity.CalculatorState.INPUT);
+            setState(CalculatorState.INPUT);
             if (mSetting.instantResult()) {
-                mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(),
-                        BasicCalculatorActivity.this, EvaluateConfig.loadFromSetting(BasicCalculatorActivity.this));
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(BasicCalculatorActivity.this);
+                mEvaluator.evaluateWithResultAsTex(mInputDisplay.getCleanText(), BasicCalculatorActivity.this, config);
             }
         }
     }

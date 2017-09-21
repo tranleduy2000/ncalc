@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.document;
+package com.duy.calculator.document.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractAppCompatActivity;
+import com.duy.calculator.document.DocumentAdapter;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import butterknife.BindView;

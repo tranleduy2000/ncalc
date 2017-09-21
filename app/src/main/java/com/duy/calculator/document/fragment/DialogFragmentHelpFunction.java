@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.document;
+package com.duy.calculator.document.fragment;
 
 import android.app.Dialog;
 import android.content.res.AssetManager;

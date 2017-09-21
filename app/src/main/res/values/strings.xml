@@ -764,5 +764,6 @@
     <string name="matrix_b" translatable="false">Matrix B</string>
     <string name="all_functions">All functions</string>
     <string name="getting_started">Getting Started</string>
+    <string name="evaluating">Evaluating...</string>
 
 </resources>

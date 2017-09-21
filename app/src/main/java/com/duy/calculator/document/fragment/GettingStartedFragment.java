@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.activities;
+package com.duy.calculator.document.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

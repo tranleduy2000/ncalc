@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.activities;
+package com.duy.calculator.calc;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -119,7 +119,6 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         }
         mInputDisplay.addTextChangedListener(mFormulaTextWatcher);
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
-        mInputDisplay.setFormatText(false);
 
         txtResult = (TextView) findViewById(R.id.txtResult);
     }
@@ -412,7 +411,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     @Override
-    public void onClear() {
+    public void clickClear() {
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = getTheme();
         theme.resolveAttribute(R.attr.colorClearScreen, typedValue, true);
@@ -487,7 +486,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
                 break;
             case R.id.btn_clear:
                 mCurrentButton = view;
-                onClear();
+                clickClear();
                 break;
             case R.id.btn_equal:
                 onEqual();

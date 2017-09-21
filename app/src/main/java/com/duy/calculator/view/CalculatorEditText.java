@@ -17,10 +17,8 @@
 package com.duy.calculator.view;
 
 import android.content.Context;
-import android.os.Build;
+import android.support.annotation.Nullable;
 import android.text.Editable;
-import android.text.Html;
-import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -30,7 +28,6 @@ import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.utils.TextUtil;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -45,74 +42,52 @@ import java.util.Set;
  */
 public class CalculatorEditText extends ResizingEditText {
     public static final String TAG = "CalculatorEditText";
+    public static final String CURSOR = "✿";
+
     private final Set<TextWatcher> mTextWatchers = new HashSet<>();
     /**
      * enable text watcher
      */
-    private boolean mTextWatchersEnabled = true;
+    private final TextWatcher mCursorWatcher = new TextWatcher() {
+        private CharSequence s;
+        private int start;
+        private int before;
+        private int count;
 
-    /**
-     * text is inserting
-     */
-    private boolean mIsInserting;
-
-    /**
-     * use format text
-     */
-    private boolean formatText = true;
-    private final TextWatcher mTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
+            this.s = s;
+            this.start = start;
+            this.before = before;
+            this.count = count;
         }
 
         @Override
         public void afterTextChanged(Editable s) {
-            if (!mTextWatchersEnabled || getSelectionStart() == -1) return;
-            mTextWatchersEnabled = false;
-            onFormat(s);
-            mTextWatchersEnabled = true;
         }
     };
-    /**
-     * key word for backspace event
-     */
+
     private List<String> mKeywords;
-    /**
-     * replace to display -> sin(x) -> <font size ... color ...>sin()</font>
-     */
-    private ArrayList<Translate> mReplacement = new ArrayList<>();
+    private boolean mIsInserting = false;
 
     public CalculatorEditText(Context context) {
         super(context);
-        Log.d(TAG, "CalculatorEditText: ");
         setUp(context, null);
     }
 
+
     public CalculatorEditText(Context context, AttributeSet attr) {
         super(context, attr);
-        Log.d(TAG, "CalculatorEditText: ");
         setUp(context, attr);
     }
 
-    public static Spanned fromHtml(String source) {
-        Spanned result;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            result = Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            result = Html.fromHtml(source);
-        }
-        return result;
-    }
-
-    private void setUp(Context context, AttributeSet attrs) {
-        addTextChangedListener(mTextWatcher);
-        generalReplacement(context);
+    private void setUp(Context context, @Nullable AttributeSet attrs) {
+        addTextChangedListener(mCursorWatcher);
         invalidateKeywords(context);
-        Log.d(TAG, "setUp: ");
     }
 
     public void invalidateKeywords(Context context) {
@@ -193,23 +168,18 @@ public class CalculatorEditText extends ResizingEditText {
         );
     }
 
-    private void generalReplacement(Context context) {
-        if (!formatText) return;
+    private void generalReplacement() {
     }
 
-    @SuppressWarnings("deprecation")
     protected void onFormat(Editable s) {
         int select = getSelectionStart();
-//        Log.d(TAG, "onFormat: original " + s.toString() + " =  " + fromHtml(s.toString()));
-        if (formatText) {
-            setText(s.toString());
-        } else setText(s.toString());
+        setText(s);
         setSelection(select);
     }
 
     @Override
     public void addTextChangedListener(TextWatcher watcher) {
-        if (watcher.equals(mTextWatcher) || mTextWatchers == null) {
+        if (watcher.equals(mCursorWatcher) || mTextWatchers == null) {
             super.addTextChangedListener(watcher);
         } else {
             mTextWatchers.add(watcher);
@@ -218,20 +188,9 @@ public class CalculatorEditText extends ResizingEditText {
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        if (mTextWatchersEnabled) {
-            for (TextWatcher textWatcher : mTextWatchers) {
-                textWatcher.beforeTextChanged(getCleanText(), 0, 0, 0);
-            }
-        }
         super.setText(text, type);
-        if (text != null && !mIsInserting) {
+        if (getText() != null) {
             setSelection(getText().length());
-        }
-        if (mTextWatchersEnabled) {
-            for (TextWatcher textWatcher : mTextWatchers) {
-                textWatcher.afterTextChanged(getEditableText());
-                textWatcher.onTextChanged(getCleanText(), 0, 0, 0);
-            }
         }
     }
 
@@ -319,8 +278,6 @@ public class CalculatorEditText extends ResizingEditText {
         }
     }
 
-    public void previous() {
-    }
 
     public void backspace() {
         // Check and remove keywords
@@ -355,39 +312,5 @@ public class CalculatorEditText extends ResizingEditText {
         }
     }
 
-    @Override
-    public void setSelection(int index) {
-        super.setSelection(Math.max(0, Math.min(getText().length(), index)));
-    }
-
-    @Override
-    public int getSelectionStart() {
-        // When mSetting a movement method, selectionStart() suddenly defaults to -1 instead of 0.
-        return Math.max(0, super.getSelectionStart());
-    }
-
-    public void setFormatText(boolean formatText) {
-        this.formatText = formatText;
-        if (!formatText) mReplacement.clear();
-        else generalReplacement(this.getContext());
-    }
-
-
-    class Translate {
-        String source, view;
-
-        Translate(String source, String view) {
-            this.source = source;
-            this.view = view;
-        }
-
-        public String getSource() {
-            return source;
-        }
-
-        public String getView() {
-            return view;
-        }
-    }
 
 }

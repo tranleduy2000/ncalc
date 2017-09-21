@@ -23,7 +23,7 @@ import android.text.InputType;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.BasicCalculatorActivity;
+import com.duy.calculator.calc.BasicCalculatorActivity;
 import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;

@@ -35,8 +35,7 @@ import java.util.Collections;
 /**
  * Created by Duy on 19-May-17.
  */
-
-class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
+public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
     private static final String DOC_PATH = "doc/functions/";
     private static final String TAG = "DocumentAdapter";
     private Context context;
@@ -44,7 +43,7 @@ class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
     private ArrayList<String> originalData = new ArrayList<>();
     private LayoutInflater inflater;
 
-    DocumentAdapter(Context context) {
+    public DocumentAdapter(Context context) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         loadData();

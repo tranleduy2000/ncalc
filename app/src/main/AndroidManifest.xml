@@ -62,7 +62,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.BasicCalculatorActivity"
+            android:name=".calc.BasicCalculatorActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.Light.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden">
@@ -91,7 +91,7 @@
             android:label="@string/title_activity_geometry"
             android:launchMode="singleTask"/>
         <activity
-            android:name=".activities.LogicCalculatorActivity"
+            android:name=".calc.LogicCalculatorActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:launchMode="singleTask"/>
 
@@ -175,7 +175,7 @@
             android:label="@string/primitive"
 
             android:launchMode="singleTask"/>
-        <activity android:name=".document.InfoActivity"/>
+        <activity android:name=".document.activities.InfoActivity"/>
         <activity
             android:name=".number.FactorPrimeActivity"
             android:launchMode="singleTask"/>
@@ -197,7 +197,7 @@
         <activity
             android:name=".number.NumberActivity"
             android:launchMode="singleTask"/>
-        <activity android:name=".document.DocumentActivity"/>
+        <activity android:name=".document.activities.DocumentActivity"/>
         <activity android:name=".number.PiActivity"/>
     </application>
 

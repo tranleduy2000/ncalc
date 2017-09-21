@@ -14,19 +14,13 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.activities.base;
+package com.duy.calculator.calc.fragment;
+
+import android.support.v4.app.Fragment;
 
 /**
- * Created by Duy on 3/7/2016
+ * Created by Duy on 9/21/2017.
  */
-public interface ICalculator {
-    public void onResult(final String result);
 
-    public void onError(final String errorResourceId);
-
-    public void onDelete();
-
-    public void clickClear();
-
-    public void onEqual();
+public class DisplayFragment extends Fragment {
 }

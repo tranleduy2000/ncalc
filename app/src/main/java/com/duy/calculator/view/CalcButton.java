@@ -14,19 +14,26 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.activities.base;
+package com.duy.calculator.view;
+
+import android.content.Context;
+import android.support.v7.widget.AppCompatButton;
+import android.util.AttributeSet;
 
 /**
- * Created by Duy on 3/7/2016
+ * Created by Duy on 9/21/2017.
  */
-public interface ICalculator {
-    public void onResult(final String result);
 
-    public void onError(final String errorResourceId);
+public class CalcButton extends AppCompatButton {
+    public CalcButton(Context context) {
+        super(context);
+    }
 
-    public void onDelete();
+    public CalcButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-    public void clickClear();
-
-    public void onEqual();
+    public CalcButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 }

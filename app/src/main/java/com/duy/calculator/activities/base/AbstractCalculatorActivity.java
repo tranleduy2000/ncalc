@@ -26,8 +26,7 @@ import com.duy.calculator.tokenizer.Tokenizer;
  * <p/>
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractCalculatorActivity extends AbstractNavDrawerActionBarActivity implements
-       ICalculator {
+public abstract class AbstractCalculatorActivity extends AbstractNavDrawerActionBarActivity implements ICalculator {
     public Tokenizer mTokenizer;
 
     @Override

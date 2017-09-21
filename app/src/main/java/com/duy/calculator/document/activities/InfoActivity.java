@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.calculator.document;
+package com.duy.calculator.document.activities;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -31,6 +31,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.duy.calculator.R;
+import com.duy.calculator.document.InfoAppUtil;
+import com.duy.calculator.document.ItemInfo;
 
 import java.util.ArrayList;
 
@@ -42,8 +44,6 @@ public class InfoActivity extends AppCompatActivity {
     private static final String TAG = InfoActivity.class.getClass().getSimpleName();
     @BindView(com.duy.calculator.R.id.list_translate)
     RecyclerView mListTranslate;
-//    @BindView(R.id.list_license)
-//    RecyclerView mListLicense;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 

@@ -22,7 +22,7 @@ import android.support.annotation.Nullable;
 import android.text.InputType;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.BasicCalculatorActivity;
+import com.duy.calculator.calc.BasicCalculatorActivity;
 import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;

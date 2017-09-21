@@ -22,6 +22,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.duy.calculator.R;
+import com.duy.calculator.calc.BasicCalculatorActivity;
 
 
 public class ActivitySplashScreen extends AppCompatActivity {
