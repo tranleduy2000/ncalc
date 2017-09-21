@@ -42,36 +42,6 @@
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
-    <FrameLayout
-        android:id="@+id/container_solve"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFF"
-        android:visibility="gone">
-
-        <com.duy.calculator.view.MathFormulaView
-            android:id="@+id/math_result"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </com.duy.calculator.view.MathFormulaView>
-
-        <android.support.v4.widget.ContentLoadingProgressBar
-            android:id="@+id/progress_bar_main"
-            style="@style/Widget.AppCompat.ProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_close"
-            android:layout_width="@dimen/fab_size_normal"
-            android:layout_height="@dimen/fab_size_normal"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_close" />
-    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/result_animation"

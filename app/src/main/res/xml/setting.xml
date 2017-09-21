@@ -27,11 +27,12 @@
             android:key="@string/key_pref_fraction"
             android:summary="@string/fraction_decs"
             android:title="@string/fraction_mode" />
-        <EditTextPreference
-            android:defaultValue="9"
-            android:key="@string/key_pref_precision"
-            android:summary="@string/summary_percision"
-            android:title="@string/precision_" />
+
+        <!--<EditTextPreference-->
+        <!--android:defaultValue="9"-->
+        <!--android:key="@string/key_pref_precision"-->
+        <!--android:summary="@string/summary_percision"-->
+        <!--android:title="@string/precision_" />-->
     </PreferenceCategory>
 
 
@@ -48,7 +49,6 @@
             android:defaultValue="@string/lang_default"
             android:entries="@array/language_entry"
             android:entryValues="@array/language_code"
-            android:icon="@drawable/ic_language_black_24dp"
             android:key="@string/key_pref_lang"
             android:title="@string/language" />
 
@@ -56,7 +56,6 @@
             android:defaultValue="@string/theme_default"
             android:entries="@array/arr_name_theme"
             android:entryValues="@array/arr_name_theme"
-            android:icon="@drawable/ic_color_lens_black_24dp"
             android:key="@string/key_pref_theme"
             android:title="@string/pref_title_theme" />
 
@@ -64,13 +63,13 @@
             android:defaultValue="@string/font_light"
             android:entries="@array/text_fonts"
             android:entryValues="@array/text_fonts"
-            android:icon="@drawable/ic_font_download_black_24dp"
+
             android:key="@string/key_pref_font"
             android:title="@string/pref_title_font" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:icon="@drawable/ic_local_bar_black_24dp"
+
             android:key="@string/key_hide_status_bar"
             android:title="@string/hide_status_bar" />
 
@@ -79,7 +78,7 @@
     <SwitchPreference
         android:defaultValue="true"
         android:enabled="false"
-        android:icon="@drawable/ic_system_update_black_24dp"
+
         android:key="@string/key_pref_update"
         android:title="@string/notify_update" />
 

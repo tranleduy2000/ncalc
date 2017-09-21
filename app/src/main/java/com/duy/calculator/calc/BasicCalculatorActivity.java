@@ -74,7 +74,6 @@ import com.duy.calculator.view.RevealView;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.common.collect.Lists;
-import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -101,7 +100,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     private SwitchCompat mFractionSwitch;
     private FrameLayout mContainerSolve;
     private DrawerLayout mDrawerLayout;
-    private SlidingUpPanelLayout padAdvance;
     private CalculatorEditText mInputDisplay;
     private ViewGroup mDisplayForeground;
     private MathView mReview;
@@ -160,7 +158,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mReview = (MathView) findViewById(R.id.math_view);
         mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
         mInputDisplay = (CalculatorEditText) findViewById(R.id.txtDisplay);
-        padAdvance = (SlidingUpPanelLayout) findViewById(R.id.slide);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mContainerSolve = (FrameLayout) findViewById(R.id.container_solve);
         mFractionSwitch = (SwitchCompat) findViewById(R.id.sw_fraction);
@@ -726,12 +723,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         if (mInputState == InputState.RESULT_VIEW) {
             closeMathView();
             return;
-        }
-        if (padAdvance != null) {
-            if (padAdvance.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
-                padAdvance.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
-                return;
-            }
         }
         super.onBackPressed();
     }
