@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="above_circle">Położony na okręgu</string>
+    <string name="add_equation">Dodaj równanie</string>
+    <string name="add_function">Dodaj funkcję</string>
+    <string name="advance">Zaawansowany</string>
+    <string name="algebra">Algebra</string>
+    <string name="all_functions">Wszystkie funkcje</string>
+    <string name="all_unit_converter">Konwerter jednostek</string>
+    <string name="analytics">Analityka</string>
+    <string name="areaunitsqcm">cm²</string>
+    <string name="areaunitsqkm">km²</string>
+    <string name="areaunitsqm">m²</string>
+    <string name="areaunitsqmiles">(Mile) mi²</string>
+    <string name="areaunitsqmm">mm²</string>
+    <string name="areaunitsqyard">(Jard) yd²</string>
+    <string name="auto_process">Automatyczne przetwarzanie danych</string>
+    <string name="binomial_newton">Dwumian Newtona</string>
+    <string name="bitrateunitbits">Bit (b)/s</string>
+    <string name="bitrateunitbytes">Bajt (B)/s</string>
+    <string name="bitrateunitgigabits">GigaBit (Gb)/s</string>
+    <string name="bitrateunitgigabytes">GigaBajt (GB)/s</string>
+    <string name="bitrateunitkilobits">KiloBit (Kb)/s</string>
+    <string name="bitrateunitkilobytes">KiloBajt (KB)/s</string>
+    <string name="bitrateunitmegabits">MegaBit (Mb)/s</string>
+    <string name="bitrateunitmegabytes">MegaBajt (Mb)/s</string>
+    <string name="bitrateunitterabits">TeraBit (Tb)/s</string>
+    <string name="bitrateunitterabytes">TeraBajt (TB)/s</string>
+    <string name="calculator">Kalkulator</string>
+    <string name="calc">Calc</string>
+    <string name="cannot_factor">Nie można rozłożyć na czynniki pierwsze</string>
+    <string name="cannot_factor_polynomial">Nie można rozłożyć wielomianu na czynniki.</string>
+    <string name="cannotwrite">Nie można zapisać pliku</string>
+    <string name="catalan_desc">Oblicza n-tą liczbę Catalana</string>
+    <string name="catalan_number">Liczba Catalana</string>
+    <string name="change_lang_msg">Zrestartuj aplikację, aby zmienić język.</string>
+    <string name="choose_mode">Wybierz tryb wyświetlania wykresu</string>
+    <string name="chu_vi">Obwód</string>
+    <string name="circle">Okrąg</string>
+    <string name="circle_interaction">Dwa kręgi przecinają się</string>
+    <string name="circle_tangent">Dwa kręgi są styczne</string>
+    <string name="close">Zamknij</string>
+    <string name="copied">Skopiowano</string>
+    <string name="close_drawer">Zamknij menu</string>
+    <string name="collinear">Współliniowy</string>
+    <string name="column">kolumny</string>
+    <string name="combination">Kombinacja</string>
+    <string name="create">Utwórz</string>
+    <string name="d_i_o_n_th_ng_ab">Długość odcinka AB</string>
+    <string name="d_n_ph_n_m_m_ncalc">Projekt programistyczny NCalc+</string>
+    <string name="default_">Systemowy</string>
+    <string name="define_var">Zdefiniuj zmienną</string>
+    <string name="delete_desc">Wyczyść</string>
+    <string name="der_level_desc">Tu wybierz stopień pochodnej</string>
+    <string name="derivative">Pochodna</string>
+    <string name="derivative_level">Stopień pochodnej</string>
+    <string name="dev_mode">Tryb programisty</string>
+    <string name="di_n_t_ch">Pole powierzchni</string>
+    <string name="dismiss">Odrzuć</string>
+    <string name="divisors">Dzielniki</string>
+    <string name="ellipse">Elipsa</string>
+    <string name="energyunitcalories">Kalorie (cal)</string>
+    <string name="energyunitjoules">Dżule (J)</string>
+    <string name="energyunitkilocalories">Kilokalorie (kcal)</string>
+    <string name="enter_coeff_desc">Wprowadź współczynniki układu równań:\nPrzykład:\n2x + y = 0\n3x - 2y = 1\nWprowadź współczynniki:\n[1; 1; 0]\n[3, -2; 1]</string>
+    <string name="enter_coefficient">Tu wprowadź współczynniki</string>
+    <string name="enter_expression">Wprowadź wyrażenie</string>
+    <string name="enter_function">Wprowadź funkcję</string>
+    <string name="enter_limit">Wprowadź limit</string>
+    <string name="enter_number">Wprowadź liczbę</string>
+    <string name="enter_params">Wprowadź zmienne układu równań:</string>
+    <string name="enter_value">Wprowadź wartość</string>
+    <string name="enter_var_hint">Wprowadź zmienne układu równań</string>
+    <string name="enter_variable">Wprowadź zmienne tutaj. Zmienne są rozdzielane średnikami.</string>
+    <string name="error">Błąd</string>
+    <string name="error_input_num">Błąd formatu liczby</string>
+    <string name="eval">Oblicz</string>
+    <string name="expand">Rozwiń</string>
+    <string name="factor_polynomial">Faktoryzacja wielomianu</string>
+    <string name="factor">Faktoryzuj</string>
+    <string name="factor_prime">Rozkład an czynniki</string>
+    <string name="fb_desc">Wsparcie aplikacji oraz zgłoszenia błędów.</string>
+    <string name="feedback">Opinie</string>
+    <string name="fibo_desc">Oblicza n-tą liczbę Fibonacciego</string>
+    <string name="fibonacci">Liczba Fibonacciego</string>
+    <string name="fraction_decs">Podaj wynik w ułamkach zwykłych zamiast w dziesiętnych.\nPokaż 1/2 zamiast 0.5</string>
+    <string name="fraction_mode">Typ ułamków</string>
+    <string name="g_c_gi_a_2_ng_th_ng">Kąt pomiędzy dwiema prostymi</string>
+    <string name="g_c_gi_a_hai_vector">Kąt pomiędzy dwoma wektorami</string>
+    <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Kąt pomiędzy prostą AB i osią Ox</string>
+    <string name="g_c_t_o_v_i_ox">Kąt z osią Ox</string>
+    <string name="getting_started">Pierwsze kroki</string>
+    <string name="gi_i_thi_u_v_calc">O Ncalc+</string>
+    <string name="gi_tr_nh_nh_t">Najmniejsza wartość</string>
+    <string name="go_to_facebook">Odwiedź stronę na Facebook</string>
+    <string name="graph">Wykres</string>
+    <string name="graph_2">Wykres</string>
+    <string name="gt_zero">Obie liczby muszą być większe od zera.</string>
+    <string name="help">Pomoc</string>
+    <string name="help_main_calc">
+        <![CDATA[
+
+            <p>Domyślny tryb kalkulatora: Radiany</p>
+            <p>Aby obliczać sin, cos, tan... w stopniach, wpisz <strong>sin(30 &deg;), cos(90 &deg;)</strong>...</p>
+            <p>&nbsp;</p>
+            <p>Dla wyrażeń zawierających parametry wprowadź * (mnożenie) pomiędzy parametry a zmienne. Przykład:</p>
+            <p>$$ 2x ^ 2 + mx + 2 = 0 $$ Wprowadź &nbsp;<strong>2x ^ 2 + m * x + 2 = 0</strong></p>
+            <p>$$\\frac{1}{2ax + b}$$ Wprowadź <strong>1 &nbsp;/ (2a * x + b)</strong></p>
+            <p>&nbsp;</p>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td colspan="2" width="100%">
+                            <p><strong>Pomoc z operatorami</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="42%">
+                            <p>+ (Symbol plus)</p>
+                        </td>
+                        <td width="57%">
+                            <p>Plus</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="42%">
+                            <p>- (Symbol minus)</p>
+                        </td>
+                        <td width="57%">
+                            <p>Minus</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="42%">
+                            <p>* (Symbol mnożenia)</p>
+                        </td>
+                        <td width="57%">
+                            <p>Mnożenie</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="42%">
+                            <p>/</p>
+                        </td>
+                        <td width="57%">
+                            <p>Dzielenie</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="42%">
+                            <p>% (Symbol procent)</p>
+                        </td>
+                        <td width="57%">
+                            <p>Procent</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="42%">
+                            <p>^</p>
+                        </td>
+                        <td width="57%">
+                            <p>Potęgowanie</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="42%">
+                            <p>!</p>
+                        </td>
+                        <td width="57%">
+                            <p>Silnia</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="2" width="590">
+                            <p><strong>Stałe</strong> (wielkość liter bez znaczenia)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="253">
+                            <p>Pi</p>
+                        </td>
+                        <td width="337">
+                            <p>Wartość Pi</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="253">
+                            <p>E</p>
+                        </td>
+                        <td width="337">
+                            <p>Wartość E</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="253">
+                            <p>i</p>
+                        </td>
+                        <td width="337">
+                            <p>Jednostka urojona</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="253">
+                            <p>Infinity</p>
+                        </td>
+                        <td width="337">
+                            <p>Nieskończoność</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td colspan="2" width="100%">
+                            <p><strong>Funkcje trygonometryczne i matematyczne</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>sqrt (x) lub &radic; (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Pierwiastek kwadratowy z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>cbrt (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Pierwiastek sześcienny z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>abs (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Wartość bezwzględna x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>sin (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Sinus kąta x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>cos (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Cosinus kąta x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>tan (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Tangens kąta x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>asin (x) or arcsin (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Funkcja odwrotna do sinusa z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>acos (x) or Arccos(x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Funkcja odwrotna do cosinusa z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>atan (x) or arctan (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Funkcja odwrotna do tangensa z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>sinh (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Sinus hiperboliczny z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>cosh (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Cosinus hiperboliczny z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>tanh (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Tangens hiperboliczny z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>C (n, k)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Kombinacje</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>P (n, k)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Permutacje</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>asinh (x) or arcsinh (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Funkcja odwrotna do sinusa hiperbolicznego z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>acosh (x) or arccosh (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Funkcja odwrotna do cosinusa hiperbolicznego z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>atanh (x) or arctanh (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Funkcja odwrotna do tangensa hiperbolicznego z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>ln (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Logarytm naturalny z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>log (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Logarytm naturalny z x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>log (a, b)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Logarytm z b o podstawie a</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>exp (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Wartość e do potęgi x</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>ceil (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Zaokrągla x w górę do najbliższej wartości całkowitej</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>floor (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Zaokrągla x w dół do najbliższej wartości całkowitej</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>max (a, b)</p>
+                        </td>
+                            <td width="56%">
+                        <p>Zwraca najwyższą wartość spośród dwóch liczb a i b</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>min (a, b)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Zwraca najniższą wartość spośród dwóch liczb a i b</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>rnd (a)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Losowa funkcja</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>GCD (a, b)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Największy wspólny dzielnik a i b</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>LCM (a, b)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Najmniejsza wspólna wielokrotność a i b</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="43%">
+                            <p>sign (x)</p>
+                        </td>
+                        <td width="56%">
+                            <p>Zwraca -1, 0 lub 1 w zależności czy x jest ujemne, zerem lub dodatnie</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+        ]]>
+    </string>
+    <string name="help_solve_equation">\@string/help_main_calc</string>
+    <string name="help_derivative">\@string/help_main_calc</string>
+    <string name="help_expression">\@string/help_main_calc</string>
+    <string name="help_permutation">Wprowadź liczbę \\(N\\) (całkowita liczba elementów) oraz \\(L\\) (liczba wybranych elementów)</string>
+    <string name="hi_u_2_vector">Odejmowanie dwóch wektorów</string>
+    <string name="hide_status_bar">Ukryj pasek stanu</string>
+    <string name="history">Historia</string>
+    <string name="input_analyze_here">Tu wprowadź wielomian do analizy!</string>
+    <string name="input_der_here">Tu wprowadź szukane pochodne funkcji!</string>
+    <string name="input_equation">Wprowadź równanie:</string>
+    <string name="input_equation_">Wprowadź równanie</string>
+    <string name="input_equation_here">Tu wprowadź równanie do rozwiązania!</string>
+    <string name="input_expand_here">Tu wprowadź wyrażenie do rozwinięcia!</string>
+    <string name="input_graph_here">Kliknij tutaj, aby dodać więcej funkcji</string>
+    <string name="input_integrate_here">Tu wprowadź funkcję do całkowania</string>
+    <string name="input_limit">Wprowadź granicę funkcji</string>
+    <string name="input_matrix">Wprowadź macierz</string>
+    <string name="input_number">Wprowadź liczbę</string>
+    <string name="input_primitive_here">Tu wprowadź funkcję!</string>
+    <string name="yes">Tak</string>
+    <string name="what_new">Co nowego?</string>
+    <string name="weightunitounce">Uncja (oz)</string>
+    <string name="weightunitmg">Miligram (mg)</string>
+    <string name="weightunitlb">Funt (lb)</string>
+    <string name="weightunitkg">Kilogram (Kg)</string>
+    <string name="weightunitgm">Gram (g)</string>
+    <string name="vu_ng_g_c">Prostopadły</string>
+    <string name="volumeunitcubicmm">mm³</string>
+    <string name="volumeunitcubicm">m³</string>
+    <string name="volumeunitcubicfeet">ft³</string>
+    <string name="volumeunitcubiccm">cm³</string>
+    <string name="velocityunitmilesperh">mile/h</string>
+    <string name="velocityunitmeterpers">m/s</string>
+    <string name="velocityunitkmph">Km/h</string>
+    <string name="velocityunitfeetpers">stopy/s</string>
+    <string name="vector">wektor</string>
+    <string name="vector_ch_ph_ng">Wektory</string>
+    <string name="vector_ph_p_tuy_n">Wektor normalny</string>
+    <string name="v_tr_t_ng_i_v_i_ng_th_ng">Pozycja względna do prostej</string>
+    <string name="v_tr_t_ng_i_v_i_i_m">Pozycja względna do punktu</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Pozycja względna pomiędzy dwoma okręgami</string>
+    <string name="v_tr_t_ng_i">Pozycja względna</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">Pozycja względna pomiędzy prostymi AB i CD</string>
+    <string name="update">Aktualizuj</string>
+    <string name="unit9">Przepływność</string>
+    <string name="unit8">Objętość</string>
+    <string name="unit7">Powierzchnia</string>
+    <string name="unit5">Energia</string>
+    <string name="unit3">Długość</string>
+    <string name="unit2">Waga</string>
+    <string name="unit10">Czas</string>
+    <string name="unit1">Temperatura</string>
+    <string name="unit4">Moc</string>
+    <string name="unit6">Prędkość</string>
+    <string name="ui">Interfejs użytkownika</string>
+    <string name="title_activity_settings">Ustawienia</string>
+    <string name="title_activity_graph">Wykres</string>
+    <string name="title_activity_matrix_calculator">Macierz</string>
+    <string name="title_activity_geometry">Kartezjańska geometria 2D</string>
+    <string name="title_activity_app_about">O NCalc+</string>
+    <string name="title_activity_unit_converter_acitvity">Konwerter jednostek</string>
+    <string name="timeunitweeks">Tygodnie</string>
+    <string name="timeunitsecond">Sekundy (s)</string>
+    <string name="timeunitminutes">Minuty (min)</string>
+    <string name="timeunitmiliseconds">Milisekundy (ms)</string>
+    <string name="timeunithours">Godziny (h)</string>
+    <string name="timeunitdays">Dni (d)</string>
+    <string name="thpt_nguy_n_b_nh_khi_m">Nguyen Binh Khiem High School</string>
+    <string name="th_ng_h_ng">Prosty</string>
+    <string name="th_m_ph_ng_tr_nh">Więcej</string>
+    <string name="upper_limit">Górna granica</string>
+    <string name="trung_i_m_c_a_o_n_th_ng_ab">Środek odcinka AB</string>
+    <string name="trigonometry">Trygonometria</string>
+    <string name="trung_i_m">Środek odcinka</string>
+    <string name="translate">Tłumaczenia</string>
+    <string name="trace_mode">Tryb śledzenia</string>
+    <string name="tit_trig_expand">Trygonometria - Rozwiń</string>
+    <string name="tit_trig_reduce">Trygonometria - zwiń</string>
+    <string name="tit_trig_to_exp">Funkcje trygonometryczne wykładnicze</string>
+    <string name="temperatureunitn">Niuton (ºN)</string>
+    <string name="temperatureunitk">Kelwin (ºK)</string>
+    <string name="temperatureunitf">Fahrenheit (ºF)</string>
+    <string name="temperatureunitc">Celsjusz (ºC)</string>
+    <string name="tapFun">Wybierz funkcję</string>
+    <string name="input_simplify_here">Tu wprowadź wyrażenie do uproszczenia!</string>
+    <string name="inside">Wewnątrz</string>
+    <string name="install_msg">Czy chcesz zainstalować Natural Keyboard?</string>
+    <string name="instant_res">Natychmiastowe wyniki</string>
+    <string name="integrate">Całkowanie</string>
+    <string name="interaction">Przecina się</string>
+    <string name="kho_ng_c_ch">Odległość</string>
+    <string name="kho_ng_c_ch_t_a_n_b">Odległość od A do B</string>
+    <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">Odległość od M do prostej AB</string>
+    <string name="tangent">styczna</string>
+    <string name="table">Statystyka</string>
+    <string name="t_ng_2_vector">Suma dwóch wektorów</string>
+    <string name="t_ng">suma</string>
+    <string name="t_ch_vector_v_i_s_k">Iloczyn wektora i liczby k</string>
+    <string name="t_c_gi_tr_n_l_duy">Autor: LE DUY TRAN</string>
+    <string name="t_ch_v_h_ng">Skalar</string>
+    <string name="t_ch_v_h_ng_c_a_2_vector">Iloczyn skalarny dwóch wektorów</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Sprawdź, czy wektory a i b są równoległe.</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Sprawdź czy wektory a i b są prostopadłe do siebie</string>
+    <string name="l_ch_chu_n">Odchylenie standardowe</string>
+    <string name="language">Język</string>
+    <string name="latex_engine">Silnik LaTeX</string>
+    <string name="latex_summary">KaTeX jest szybszy niż MathJax na telefonach, ale MathJax wspiera więcej funkcji i jest dużo ładniejszy.</string>
+    <string name="lengthunitcm">cm</string>
+    <string name="lengthunitdm">dm</string>
+    <string name="lengthunitfeet">ft</string>
+    <string name="lengthunitinch">cal</string>
+    <string name="lengthunitkm">km</string>
+    <string name="lengthunitm">m</string>
+    <string name="lengthunitmicrom">µm</string>
+    <string name="lengthunitmile">mila</string>
+    <string name="lengthunitmm">mm</string>
+    <string name="lengthunitnm">nm</string>
+    <string name="lengthunitpm">pm</string>
+    <string name="lic_desc">Aplikacja na licancji open source</string>
+    <string name="license">Licencja</string>
+    <string name="line">Prosta</string>
+    <string name="limit">Wyznacz granicę</string>
+    <string name="limit_from_desc">Dolna granica</string>
+    <string name="limit_to_desc">Górna granica</string>
+    <string name="linear_system">Rozwiąż układ równań</string>
+    <string name="ln_hint"><![CDATA[<font color="red">Log(x) jest logarytmem naturalnym</font>]]></string>
+    <string name="loading">Ładowanie danych</string>
+    <string name="logic_calculator">Kalkulator podstawowy</string>
+    <string name="lower_limit">Dolna granica</string>
+    <string name="math_error">Błąd matematyczny</string>
+    <string name="matrix">Macierze</string>
+    <string name="maximum">Wartość maksymalna</string>
+    <string name="more">Więcej …</string>
+    <string name="matrix_op_inverse_a">Odwróć A</string>
+    <string name="matrix_op_inverse_b">Odwróć B</string>
+    <string name="matrix_op_tranpose_a">Transpozycja A</string>
+    <string name="matrix_op_tranpose_b">Transpozycja B</string>
+    <string name="msg_delete_matrix">Tworzenie nowej macierzy usunie istniejącą. Jesteś pewien?</string>
+    <string name="my_own_cancel">Później</string>
+    <string name="my_own_message">Jeśli lubisz tą aplikację, możesz poświęcić chwilę, aby ją ocenić? To nie zajmie więcej niż minutę. Dziękuję za wsparcie!</string>
+    <string name="my_own_rate">Oceń teraz</string>
+    <string name="my_own_thanks">Nie, dziękuję</string>
+    <string name="my_own_title">Oceń tą aplikację</string>
+    <string name="module">Reszta z dzielenia</string>
+    <string name="nav_descartes">Geometria 2D</string>
+    <string name="name">Imię</string>
+    <string name="new_version_update">Nowa wersja aplikacji jest dostępna. Proszę zaktualizować najszybciej jak to możliwe.</string>
+    <string name="ng_th_ng_ab">Prosta AB</string>
+    <string name="ng_th_ng_cd">Prosta CD</string>
+    <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Środek okręgu O1, promień R1</string>
+    <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">Środek okręgu O2, promień R2</string>
+    <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">Wprowadź wektory a (x_a, y_a) oraz b (x_b,y_b)</string>
+    <string name="nh_p_c_c_n_c_a_h">Wprowadź zmienne układu równań:</string>
+    <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">Wprowadź równania tworzące układ równań, a następnie podaj zmienne układu równań\n\nNa przykład: naciśnij [+]  i wpisz te równania:\n\n    x + y + z = 2\n\n    x - y + 2z = 6\n\n    z + y = 2\n\nNastępnie podaj zmienne, których szukasz: x, y,z\n\nNaciśnij [ROZWIĄŻ]</string>
+    <string name="nh_p_d_li_u">Wprowadź wartość:</string>
+    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Wartości odzielone przcinkami (,)\nNa przykład: 12, 232.43, 4</string>
+    <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">Wprowadź współrzędne dwóch punktów należących do prostej CD</string>
+    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Wprowadź współrzędne prostej AB, początkiem jest punkt A(xa, ya), końcem jest B(xb, yb).</string>
+    <string name="nh_p_t_a_i_m_m">Wprowadź współrzędne punktu M</string>
+    <string name="nh_p_vector">Wprowadź wektor</string>
+    <string name="noFunDisp">Brak funkcji do wyświetlenia</string>
+    <string name="no_root">To równanie nie ma rozwiązań</string>
+    <string name="not_a_number">Wprowadzone dane nie są liczbą!</string>
+    <string name="not_find_root">Nie można znaleźć rozwiązania równania.</string>
+    <string name="not_in_circle">Nie leży na okręgu</string>
+    <string name="not_input_equation">Brak równań</string>
+    <string name="not_interaction">Brak przecięć</string>
+    <string name="not_line">Nie jest prostą</string>
+    <string name="notify_update">Powiadomienia o aktualizacji</string>
+    <string name="not_variable"><![CDATA[
+Nie znaleziono zmiennej</br>
+Proszę wprowadzić równanie ze zmienną x</br>
+Przykład: 2x +1 lub 2x^2 + x - 2
+]]></string>
+    <string name="num_of_var">Liczba zmiennych</string>
+    <string name="number_theory">Teoria liczb</string>
+    <string name="o1_x1_y1">O1(x1, y1)</string>
+    <string name="open_source_licenses">Licencje open source</string>
+    <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Projekt open source na GitHub https://github.com/tranleduy2000/ncalc</string>
+    <string name="outside">Na zewnątrz</string>
+    <string name="parallel">Równoległy</string>
+    <string name="permutation">Permutacje</string>
+    <string name="ph_ng_tr_nh_ng_tr_n">Równanie okręgu</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t">Równanie ogólne</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab">Równanie ogólne prostej AB</string>
+    <string name="ph_ng_tr_nh_tham_s">Równania parametryczne</string>
+    <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">Równanie prostej AB</string>
+    <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Równanie stycznej przechodzącej przez M</string>
+    <string name="pi_number">Liczba Pi</string>
+    <string name="please_enter_number">Proszę wprowadzić liczbę</string>
+    <string name="please_wait">Ładowanie, proszę czekać</string>
+    <string name="polygon">Wielokąt</string>
+    <string name="powerunitgigawatt">Gigawat (GW)</string>
+    <string name="powerunithorsepower">Konie mechaniczne (KM)</string>
+    <string name="powerunitkilowatts">Kilowat (kW)</string>
+    <string name="powerunitmegawatt">Megawat (MW)</string>
+    <string name="powerunitwatts">Wat (W)</string>
+    <string name="precision_">Dokładność</string>
+    <string name="pref_title_font">Czcionka</string>
+    <string name="pref_title_theme">Motyw</string>
+    <string name="prime">Liczba pierwsza</string>
+    <string name="prime_desc">Oblicza n-tą liczbę pierwszą.</string>
+    <string name="primitive">Funkcja pierwotna</string>
+    <string name="probability_statistics">Kombinatoryka</string>
+    <string name="process">Przetwarzanie</string>
+    <string name="push_analyze_button">Naciśnij ten przycisk aby rozpocząć faktoryzację wielomianu, proces inicjalizacji danych może potrwać trochę czasu.</string>
+    <string name="summary_trace_mode">Jak komputery rozwiązują problemy</string>
+    <string name="summary_percision">Liczba wyświetlanych miejsc dziesiętnych</string>
+    <string name="summary_instant_res">Automatycznie obliczaj wyniki</string>
+    <string name="summary_dev_mode">Tryb programisty (komenda)</string>
+    <string name="speech_not_supported">Rozpoznawanie głosu nie jest wspierane</string>
+    <string name="speak_expression">Przeczytaj wyrażenie</string>
+    <string name="solve_system_equation">Rozwiąż układ równań</string>
+    <string name="solve_for_var">Rozwiąż równanie ze zmiennymi (x, y, z, …):</string>
+    <string name="solve_equation">Rozwiąż równanie</string>
+    <string name="solve">Rozwiąż</string>
+    <string name="simplify">Uprość</string>
+    <string name="simplify_expression">Uprość wyrażenie</string>
+    <string name="reason">Powód</string>
+    <string name="rate_this_app">Oceń aplikację</string>
+    <string name="rate_desc">Oceń tą aplikację w Sklepie Google Play</string>
+    <string name="save">Zapisz</string>
+    <string name="row">rzędy</string>
+    <string name="remove_equation">Usuń równanie</string>
+    <string name="result">Wynik</string>
+    <string name="science_calculator">Kalkulator naukowy</string>
+    <string name="see_doc">Zobacz dokumentację</string>
+    <string name="select_num_var">Wybierz liczbę zmiennych</string>
+    <string name="select_num_var_des">Liczba zmiennych rozwiązywanego układu równań.</string>
+    <string name="settings">Ustawienia</string>
+    <string name="push_solve_button">Naciśnij ten przycisk aby rozwiązać równanie, proces inicjalizacji danych może potrwać trochę czasu.</string>
+    <string name="push_simplify_button">Naciśnij ten przycisk aby uprościć wyrażenie, proces inicjalizacji danych może potrwać trochę czasu.</string>
+    <string name="push_expand_button">Naciśnij ten przycisk aby rozwinąć wyrażenie, proces inicjalizacji danych może potrwać trochę czasu.</string>
+    <string name="push_integrate_button">Naciśnij ten przycisk aby całkować, proces inicjalizacji danych może potrwać trochę czasu.</string>
+    <string name="push_der_button">Naciśnij ten przycisk aby obliczyć pochodną funkcji, proces inicjalizacji danych może potrwać trochę czasu.</string>
+    <string name="push_button_primitive">Następnie naciśnij przycisk aby zacząć obliczanie, proces inicjalizacji danych może potrwać trochę czasu.</string>
+    <string name="evaluating">Obliczanie...</string>
+</resources>
