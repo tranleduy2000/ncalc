@@ -44,8 +44,6 @@
     <string name="bitrateunitterabytes">TeraBajt (TB)/s</string>
     <string name="calculator">Kalkulator</string>
     <string name="calc">Calc</string>
-    <string name="cannot_factor">Nie można rozłożyć na czynniki pierwsze</string>
-    <string name="cannot_factor_polynomial">Nie można rozłożyć wielomianu na czynniki.</string>
     <string name="cannotwrite">Nie można zapisać pliku</string>
     <string name="catalan_desc">Oblicza n-tą liczbę Catalana</string>
     <string name="catalan_number">Liczba Catalana</string>
@@ -63,16 +61,13 @@
     <string name="combination">Kombinacja</string>
     <string name="create">Utwórz</string>
     <string name="d_i_o_n_th_ng_ab">Długość odcinka AB</string>
-    <string name="d_n_ph_n_m_m_ncalc">Projekt programistyczny NCalc+</string>
     <string name="default_">Systemowy</string>
     <string name="define_var">Zdefiniuj zmienną</string>
     <string name="delete_desc">Wyczyść</string>
     <string name="der_level_desc">Tu wybierz stopień pochodnej</string>
     <string name="derivative">Pochodna</string>
     <string name="derivative_level">Stopień pochodnej</string>
-    <string name="dev_mode">Tryb programisty</string>
     <string name="di_n_t_ch">Pole powierzchni</string>
-    <string name="dismiss">Odrzuć</string>
     <string name="divisors">Dzielniki</string>
     <string name="ellipse">Elipsa</string>
     <string name="energyunitcalories">Kalorie (cal)</string>
@@ -95,7 +90,6 @@
     <string name="factor_polynomial">Faktoryzacja wielomianu</string>
     <string name="factor">Faktoryzuj</string>
     <string name="factor_prime">Rozkład an czynniki</string>
-    <string name="fb_desc">Wsparcie aplikacji oraz zgłoszenia błędów.</string>
     <string name="feedback">Opinie</string>
     <string name="fibo_desc">Oblicza n-tą liczbę Fibonacciego</string>
     <string name="fibonacci">Liczba Fibonacciego</string>
@@ -108,16 +102,15 @@
     <string name="getting_started">Pierwsze kroki</string>
     <string name="gi_i_thi_u_v_calc">O Ncalc+</string>
     <string name="gi_tr_nh_nh_t">Najmniejsza wartość</string>
-    <string name="go_to_facebook">Odwiedź stronę na Facebook</string>
     <string name="graph">Wykres</string>
     <string name="graph_2">Wykres</string>
     <string name="gt_zero">Obie liczby muszą być większe od zera.</string>
     <string name="help">Pomoc</string>
-    <string name="help_main_calc">
-        <![CDATA[
+    <string name="help_main_calc"><![CDATA[
+
 
             <p>Domyślny tryb kalkulatora: Radiany</p>
-            <p>Aby obliczać sin, cos, tan... w stopniach, wpisz <strong>sin(30 &deg;), cos(90 &deg;)</strong>...</p>
+            <p>Aby obliczać sin, cos, tan… w stopniach, wpisz <strong>sin(30 &deg;), cos(90 &deg;)</strong>…</p>
             <p>&nbsp;</p>
             <p>Dla wyrażeń zawierających parametry wprowadź * (mnożenie) pomiędzy parametry a zmienne. Przykład:</p>
             <p>$$ 2x ^ 2 + mx + 2 = 0 $$ Wprowadź &nbsp;<strong>2x ^ 2 + m * x + 2 = 0</strong></p>
@@ -476,11 +469,11 @@
             <p>&nbsp;</p>
             <p>&nbsp;</p>
 
-        ]]>
-    </string>
-    <string name="help_solve_equation">\@string/help_main_calc</string>
-    <string name="help_derivative">\@string/help_main_calc</string>
-    <string name="help_expression">\@string/help_main_calc</string>
+
+    ]]></string>
+    <string name="help_solve_equation">@string/help_main_calc</string>
+    <string name="help_derivative">@string/help_main_calc</string>
+    <string name="help_expression">@string/help_main_calc</string>
     <string name="help_permutation">Wprowadź liczbę \\(N\\) (całkowita liczba elementów) oraz \\(L\\) (liczba wybranych elementów)</string>
     <string name="hi_u_2_vector">Odejmowanie dwóch wektorów</string>
     <string name="hide_status_bar">Ukryj pasek stanu</string>
@@ -497,8 +490,6 @@
     <string name="input_matrix">Wprowadź macierz</string>
     <string name="input_number">Wprowadź liczbę</string>
     <string name="input_primitive_here">Tu wprowadź funkcję!</string>
-    <string name="yes">Tak</string>
-    <string name="what_new">Co nowego?</string>
     <string name="weightunitounce">Uncja (oz)</string>
     <string name="weightunitmg">Miligram (mg)</string>
     <string name="weightunitlb">Funt (lb)</string>
@@ -521,7 +512,6 @@
     <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Pozycja względna pomiędzy dwoma okręgami</string>
     <string name="v_tr_t_ng_i">Pozycja względna</string>
     <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">Pozycja względna pomiędzy prostymi AB i CD</string>
-    <string name="update">Aktualizuj</string>
     <string name="unit9">Przepływność</string>
     <string name="unit8">Objętość</string>
     <string name="unit7">Powierzchnia</string>
@@ -545,7 +535,6 @@
     <string name="timeunitmiliseconds">Milisekundy (ms)</string>
     <string name="timeunithours">Godziny (h)</string>
     <string name="timeunitdays">Dni (d)</string>
-    <string name="thpt_nguy_n_b_nh_khi_m">Nguyen Binh Khiem High School</string>
     <string name="th_ng_h_ng">Prosty</string>
     <string name="th_m_ph_ng_tr_nh">Więcej</string>
     <string name="upper_limit">Górna granica</string>
@@ -576,7 +565,6 @@
     <string name="t_ng_2_vector">Suma dwóch wektorów</string>
     <string name="t_ng">suma</string>
     <string name="t_ch_vector_v_i_s_k">Iloczyn wektora i liczby k</string>
-    <string name="t_c_gi_tr_n_l_duy">Autor: LE DUY TRAN</string>
     <string name="t_ch_v_h_ng">Skalar</string>
     <string name="t_ch_v_h_ng_c_a_2_vector">Iloczyn skalarny dwóch wektorów</string>
     <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Sprawdź, czy wektory a i b są równoległe.</string>
@@ -596,8 +584,6 @@
     <string name="lengthunitmm">mm</string>
     <string name="lengthunitnm">nm</string>
     <string name="lengthunitpm">pm</string>
-    <string name="lic_desc">Aplikacja na licancji open source</string>
-    <string name="license">Licencja</string>
     <string name="line">Prosta</string>
     <string name="limit">Wyznacz granicę</string>
     <string name="limit_from_desc">Dolna granica</string>
@@ -616,15 +602,9 @@
     <string name="matrix_op_tranpose_a">Transpozycja A</string>
     <string name="matrix_op_tranpose_b">Transpozycja B</string>
     <string name="msg_delete_matrix">Tworzenie nowej macierzy usunie istniejącą. Jesteś pewien?</string>
-    <string name="my_own_cancel">Później</string>
-    <string name="my_own_message">Jeśli lubisz tą aplikację, możesz poświęcić chwilę, aby ją ocenić? To nie zajmie więcej niż minutę. Dziękuję za wsparcie!</string>
-    <string name="my_own_rate">Oceń teraz</string>
-    <string name="my_own_thanks">Nie, dziękuję</string>
-    <string name="my_own_title">Oceń tą aplikację</string>
     <string name="module">Reszta z dzielenia</string>
     <string name="nav_descartes">Geometria 2D</string>
     <string name="name">Imię</string>
-    <string name="new_version_update">Nowa wersja aplikacji jest dostępna. Proszę zaktualizować najszybciej jak to możliwe.</string>
     <string name="ng_th_ng_ab">Prosta AB</string>
     <string name="ng_th_ng_cd">Prosta CD</string>
     <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Środek okręgu O1, promień R1</string>
@@ -655,7 +635,6 @@ Przykład: 2x +1 lub 2x^2 + x - 2
     <string name="num_of_var">Liczba zmiennych</string>
     <string name="number_theory">Teoria liczb</string>
     <string name="o1_x1_y1">O1(x1, y1)</string>
-    <string name="open_source_licenses">Licencje open source</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Projekt open source na GitHub https://github.com/tranleduy2000/ncalc</string>
     <string name="outside">Na zewnątrz</string>
     <string name="parallel">Równoległy</string>
@@ -667,8 +646,6 @@ Przykład: 2x +1 lub 2x^2 + x - 2
     <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">Równanie prostej AB</string>
     <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Równanie stycznej przechodzącej przez M</string>
     <string name="pi_number">Liczba Pi</string>
-    <string name="please_enter_number">Proszę wprowadzić liczbę</string>
-    <string name="please_wait">Ładowanie, proszę czekać</string>
     <string name="polygon">Wielokąt</string>
     <string name="powerunitgigawatt">Gigawat (GW)</string>
     <string name="powerunithorsepower">Konie mechaniczne (KM)</string>
@@ -685,9 +662,7 @@ Przykład: 2x +1 lub 2x^2 + x - 2
     <string name="process">Przetwarzanie</string>
     <string name="push_analyze_button">Naciśnij ten przycisk aby rozpocząć faktoryzację wielomianu, proces inicjalizacji danych może potrwać trochę czasu.</string>
     <string name="summary_trace_mode">Jak komputery rozwiązują problemy</string>
-    <string name="summary_percision">Liczba wyświetlanych miejsc dziesiętnych</string>
     <string name="summary_instant_res">Automatycznie obliczaj wyniki</string>
-    <string name="summary_dev_mode">Tryb programisty (komenda)</string>
     <string name="speech_not_supported">Rozpoznawanie głosu nie jest wspierane</string>
     <string name="speak_expression">Przeczytaj wyrażenie</string>
     <string name="solve_system_equation">Rozwiąż układ równań</string>
@@ -698,7 +673,6 @@ Przykład: 2x +1 lub 2x^2 + x - 2
     <string name="simplify_expression">Uprość wyrażenie</string>
     <string name="reason">Powód</string>
     <string name="rate_this_app">Oceń aplikację</string>
-    <string name="rate_desc">Oceń tą aplikację w Sklepie Google Play</string>
     <string name="save">Zapisz</string>
     <string name="row">rzędy</string>
     <string name="remove_equation">Usuń równanie</string>
@@ -714,5 +688,4 @@ Przykład: 2x +1 lub 2x^2 + x - 2
     <string name="push_integrate_button">Naciśnij ten przycisk aby całkować, proces inicjalizacji danych może potrwać trochę czasu.</string>
     <string name="push_der_button">Naciśnij ten przycisk aby obliczyć pochodną funkcji, proces inicjalizacji danych może potrwać trochę czasu.</string>
     <string name="push_button_primitive">Następnie naciśnij przycisk aby zacząć obliczanie, proces inicjalizacji danych może potrwać trochę czasu.</string>
-    <string name="evaluating">Obliczanie...</string>
 </resources>

@@ -63,7 +63,6 @@
     <string name="column">cột</string>
     <string name="create">Tạo</string>
     <string name="msg_delete_matrix">Bạn có muốn tạo lại ma trận, việc làm này sẽ xóa ma trận hiện có?</string>
-    <string name="yes">Có</string>
     <string name="error_input_num">Lỗi nhập số</string>
 
     <string name="linear_system">Hệ phương trình</string>
@@ -101,7 +100,6 @@
 
     <string name="expand">Khai triển</string>
     <string name="binomial_newton">Khai triển nhị thức Newton</string>
-    <string name="please_wait">Vui lòng đợi đến khi load xong</string>
 
     <string name="copied">Đã copy!</string>
     <string name="nh_p_d_li_u">Nhập dữ liệu …</string>
@@ -138,12 +136,10 @@ Vui lòng nhập phương trình có chứa ẩn x </br>
 Ví dụ như 2x + 1, 2x^2-x-1
     ]]></string>
     <string name="history">Lịch sử</string>
-    <string name="d_n_ph_n_m_m_ncalc">Dự án phần mềm NCalc+</string>
     <string name="delete_desc">Xóa</string>
     <string name="pref_title_font">Phông chữ</string>
     <string name="pref_title_theme">Chủ đề</string>
     <string name="solve">Tìm nghiệm</string>
-    <string name="what_new">Có gì mới?</string>
 
     <string name="help_main_calc" formatted="false"><![CDATA[
 
@@ -522,7 +518,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="remove_equation">Xóa phương trình</string>
     <string name="add_equation">Thêm phương trình</string>
     <string name="calc">Calc</string>
-    <string name="cannot_factor">Không thể phân tích thừa số nguyên tố</string>
     <string name="define_var">Định nghĩa giá trị của biến</string>
 
     <string name="enter_value">Nhập giá trị</string>
@@ -536,7 +531,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="enter_function">Nhập hàm số</string>
     <string name="upper_limit">Giới hạn trên</string>
     <string name="integrate">Tích phân</string>
-    <string name="open_source_licenses">Giấy phép nguồn mở</string>
     <string name="rate_this_app">Đánh giá ứng dụng</string>
 
 
@@ -544,10 +538,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="push_integrate_button">Nhấn nút này để tính tích phân, quá trình tính toán có thể mất nhiều thời gian cho lần đầu khởi tạo dữ liệu</string>
     <string name="limit_from_desc">Giới hạn dưới</string>
     <string name="limit_to_desc">Giới hạn trên</string>
-    <string name="t_c_gi_tr_n_l_duy">Tác giả: TRẦN LÊ DUY</string>
-    <string name="thpt_nguy_n_b_nh_khi_m">THPT Nguyễn Bỉnh Khiêm</string>
-    <string name="rate_desc">Đánh giá ứng dụng trên Google Play Store</string>
-    <string name="lic_desc">Giấy phép nguồn mở của ứng dụng</string>
 
     <string name="primitive">Nguyên hàm</string>
     <string name="input_primitive_here">Nhập biểu thức cần tính nguyên hàm vào dòng này</string>
@@ -582,18 +572,13 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="trace_mode">Chế độ truy vết</string>
     <string name="probability_statistics">Xác xuất, thống kê</string>
     <string name="module">Chia lấy dư</string>
-    <string name="dev_mode">Chế độ nhà phát triển</string>
     <string name="enter_number">Nhập số</string>
     <string name="gt_zero">Hai số nhập vào phải là số tự nhiên</string>
     <string name="input_number">Nhập số</string>
     <string name="not_a_number">Dữ liệu nhập vào không phải là số!</string>
     <string name="number_theory">Lý thuyết về số</string>
-    <string name="summary_dev_mode">Chế độ nhà phát triển (command)</string>
     <string name="summary_trace_mode">Cách máy tính thực hiện giải các bài toán</string>
-    <string name="summary_percision">Số chữ số thập phân sẽ được hiển thị</string>
     <string name="help_permutation">Nhập vào số \\(N\\) (có tất cả bao nhiêu phần tử) và số \\(K\\) (số phần tử được chọn)</string>
-    <string name="fb_desc">Hỗ trợ về ứng dụng. Nhận báo cáo lỗi.</string>
-    <string name="go_to_facebook">Truy cập Facebook của ứng dụng</string>
     <string name="enter_variable">Nhập các biến số vào đây. Các biến được ngăn cách nhau bởi dấu chấm phẩy</string>
     <string name="select_num_var">Chọn số lượng biến số</string>
     <string name="num_of_var">Số lượng biến</string>
@@ -610,11 +595,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     </string>
     <string name="input_matrix">Ma trận</string>
     <string name="input_equation_">Phương trình</string>
-    <string name="my_own_cancel">Để sau</string>
-    <string name="my_own_rate">Đánh giá</string>
-    <string name="my_own_thanks">Không, cảm ơn.</string>
-    <string name="my_own_title">Đánh giá ứng dụng</string>
-    <string name="my_own_message">Nếu bạn thích sử dụng ứng dụng này, bạn có thể chút thời gian để đánh giá để ủng hộ nhà phát triển? Nó sẽ không mất nhiều hơn một phút. Cảm ơn sự ủng hộ của bạn!</string>
     <string name="advance">Nâng cao</string>
     <string name="calculator">Máy tính</string>
     <string name="ui">Giao diện</string>
@@ -634,17 +614,12 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="tit_trig_to_exp">Hàm lượng giác sang hàm mũ</string>
     <string name="trigonometry">Lượng giác</string>
     <string name="close_drawer">Đóng drawer</string>
-    <string name="cannot_factor_polynomial">Không thể phân tích đa thức thành nhân tử</string>
     <string name="catalan_desc">Tính số Catalan thứ n</string>
-    <string name="please_enter_number">Vui lòng nhập số.</string>
     <string name="fibo_desc">Tính số Fibonacci thứ n</string>
     <string name="prime_desc">Số nguyên tố thứ n</string>
     <string name="catalan_number">Số Catalan</string>
     <string name="fibonacci">Số fibonacci</string>
     <string name="prime">Số nguyên tố</string>
-    <string name="update">Cập nhật</string>
-    <string name="new_version_update">Đã có bản cập nhật mới cho ứng dụng, bạn có muốn cập nhật bây giờ!</string>
-    <string name="dismiss">Không hiện lại</string>
     <string name="notify_update">Thông báo cập nhật ứng dụng.</string>
 
     <string name="unit1">Nhiệt độ</string>
@@ -731,7 +706,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="velocityunitmeterpers">m/s</string>
     <string name="velocityunitmilesperh">miles/h</string>
     <string name="translate">Dịch thuật</string>
-    <string name="license">Giấy phép nguồn mở</string>
     <string name="hide_status_bar">Ẩn thanh trạng thái</string>
     <string name="loading">Loading data...</string>
     <string name="result">Kết quả</string>

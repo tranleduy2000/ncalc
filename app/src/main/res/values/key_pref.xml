@@ -41,7 +41,6 @@
     </string-array>
 
     <string name="key_pref_precision" translatable="false">key_pref_precision</string>
-    <string name="key_pref_dev" translatable="false">key_pref_dev</string>
     <string name="key_pref_trace_mode" translatable="false">key_pref_trace_mode</string>
     <string name="key_pref_fraction" translatable="false">fraction_mode</string>
     <string name="key_pref_instant_res" translatable="false">key_pref_instant_res_</string>

@@ -22,16 +22,7 @@
     <color name="dThemePrimaryDark">#21303f</color>
     <color name="dThemePrimary">#ff34495d</color>
     <color name="dThemeTextColor">#ecf0f0</color>
-    <color name="dThemeHighlight">#ef4848</color>
 
-    <color name="pThemePrimaryDark">#1b0b22</color>
-    <color name="pThemePrimary">#3a215f</color>
-    <color name="pThemeTextColor">#ecf0f0</color>
-    <color name="pThemeHighlight">#d1a7ff</color>
-
-    <color name="bThemePrimaryDark">#1c393a</color>
-    <color name="bThemePrimary">#245554</color>
-    <color name="bThemeTextColor">#ecf0f0</color>
     <color name="bThemeHighlight">#9affd0</color>
 
     <color name="bgThemePrimaryDark">#0B486B</color>
@@ -45,9 +36,6 @@
     <color name="donateThemeHighlight">#ffe113</color>
 
     <color name="darkenOverlay">#33000000</color>
-    <color name="shift_color">#ffab40</color>
-    <color name="alpha_color">#ef5350</color>
-    <color name="base_color">#00838f</color>
 
 
 </resources>

@@ -103,7 +103,6 @@
         <activity
             android:name=".graph.GraphAddFunction"
             android:label="@string/add_function"/>
-        <activity android:name=".helper.HelperActivity"/>
         <activity android:name=".history.HistoryActivity"/>
         <activity
             android:name=".system_equation.SystemEquationActivity"
@@ -146,18 +145,6 @@
             android:launchMode="singleTask"/>
         <activity
             android:name=".document.DocumentActivity"/>
-        <!--Casio module-->
-        <activity
-            android:name="com.duy.calc.casio.calculator.CalculatorActivity">
-        </activity>
-        <activity
-            android:name="com.duy.calc.casio.settings.SettingsActivity">
-        </activity>
-        <activity
-            android:name="com.duy.calc.casio.activities.HistoryActivity"/>
-        <activity
-            android:name="com.duy.calc.casio.activities.ConstantsActivity"/>
-        <!--end region-->
 
     </application>
 </manifest>

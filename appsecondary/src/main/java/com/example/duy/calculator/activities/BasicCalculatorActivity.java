@@ -37,9 +37,10 @@ import com.example.duy.calculator.DLog;
 import com.example.duy.calculator.EInputState;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.SettingsActivity;
+import com.example.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
 import com.example.duy.calculator.data.CalculatorSetting;
 import com.example.duy.calculator.define.DefineVariableActivity;
-import com.example.duy.calculator.helper.HelperActivity;
+import com.example.duy.calculator.document.DocumentActivity;
 import com.example.duy.calculator.history.HistoryActivity;
 import com.example.duy.calculator.history.HistoryAdapter;
 import com.example.duy.calculator.history.HistoryEntry;
@@ -53,7 +54,6 @@ import com.example.duy.calculator.math_eval.base.Evaluator;
 import com.example.duy.calculator.ocr.OcrManager;
 import com.example.duy.calculator.utils.ClipboardManager;
 import com.example.duy.calculator.utils.VoiceUtils;
-import com.example.duy.calculator.activities.abstract_class.AbstractCalculatorActivity;
 import com.example.duy.calculator.view.AnimationFinishedListener;
 import com.example.duy.calculator.view.ButtonID;
 import com.example.duy.calculator.view.CalculatorEditText;
@@ -788,7 +788,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 clickFactorPrime();
                 break;
             case R.id.btn_help:
-                startActivity(new Intent(getApplicationContext(), HelperActivity.class));
+                startActivity(new Intent(getApplicationContext(), DocumentActivity.class));
             case R.id.btn_solve_:
                 mCurrentButton = view;
                 clickSolveEquation();

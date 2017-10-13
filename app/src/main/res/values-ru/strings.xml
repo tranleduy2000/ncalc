@@ -43,8 +43,6 @@
     <string name="bitrateunitterabytes">Терабайт (TB)/с</string>
     <string name="calc">Расчёт</string>
     <string name="calculator">Калькулятор</string>
-    <string name="cannot_factor">Невозможно определить коэффициент</string>
-    <string name="cannot_factor_polynomial">Не может влиять на выражение полинома.</string>
     <string name="cannotwrite">Не удается записать</string>
     <string name="catalan_desc">Введите номер числа Каталана</string>
     <string name="catalan_number">Числа Каталана</string>
@@ -60,15 +58,12 @@
     <string name="combination">Число сочетаний</string>
     <string name="copied">Скопировано</string>
     <string name="create">Создать</string>
-    <string name="d_n_ph_n_m_m_ncalc">Программный проект NCalc +</string>
     <string name="default_">Система</string>
     <string name="define_var">Определить переменную</string>
     <string name="delete_desc">Стереть</string>
     <string name="der_level_desc">Выберите здесь уровень производной</string>
     <string name="derivative">Производная</string>
     <string name="derivative_level">Уровень производной</string>
-    <string name="dev_mode">Режим разработчика</string>
-    <string name="dismiss">Отклонить</string>
     <string name="ellipse">Эллипс</string>
     <string name="energyunitcalories">Калории (кал)</string>
     <string name="energyunitjoules">Jun (J)</string>
@@ -96,7 +91,6 @@
     <string name="factor">Факторизация многочленов</string>
     <string name="factor_polynomial">Факторизация многочленов</string>
     <string name="factor_prime">Простые множители</string>
-    <string name="fb_desc">Поддержите приложение. Отправляете сообщения об ошибках.</string>
     <string name="feedback">Обратная связь</string>
     <string name="fibo_desc">Введите номер числа Фибоначчи</string>
     <string name="fibonacci">Числа Фибоначчи</string>
@@ -104,7 +98,6 @@
     <string name="fraction_mode">Натуральные числа</string>
     <string name="gi_i_thi_u_v_calc">О программе</string>
     <string name="gi_tr_nh_nh_t">Наименьшее значение</string>
-    <string name="go_to_facebook">Перейти на Facebook</string>
     <string name="graph">Построение графика</string>
     <string name="graph_2">Построение графика</string>
     <string name="gt_zero">Два введенных номера должны быть больше нуля.</string>
@@ -147,7 +140,6 @@
     <string name="lengthunitmm">мм</string>
     <string name="lengthunitnm">нм</string>
     <string name="lengthunitpm">пм</string>
-    <string name="lic_desc">Приложение с открытым исходным кодом</string>
     <string name="limit">Предел</string>
     <string name="limit_from_desc">Нижний предел</string>
     <string name="limit_to_desc">Верхний предел</string>
@@ -166,14 +158,8 @@
     <string name="module">Остаток от деления</string>
     <string name="more">Ещё</string>
     <string name="msg_delete_matrix">Вы хотите создать новую матрицу, удалив существующую матрицу?</string>
-    <string name="my_own_cancel">Позже</string>
-    <string name="my_own_message">Если вам нравится использовать это приложение, не могли бы вы воспользоваться моментом, чтобы оценить его? Это займет не больше минуты. Спасибо за вашу поддержку!</string>
-    <string name="my_own_rate">Оценить сейчас</string>
-    <string name="my_own_thanks">Нет, спасибо</string>
-    <string name="my_own_title">Оцените это приложение</string>
     <string name="name">Имя</string>
     <string name="nav_descartes">Двумерная геометрия</string>
-    <string name="new_version_update">Новая версия для приложения, которую вы хотите обновить прямо сейчас!</string>
     <string name="nh_p_c_c_n_c_a_h">Ввод переменных системы уравнений</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">"Для добавления нового уравнения в систему нажмите [плюс].
 После ввода системы уравнений не забудьте добавить названия переменных (x, y, z, …)
@@ -192,12 +178,9 @@
     <string name="notify_update">Уведомление об обновлениях</string>
     <string name="num_of_var">Количество переменных</string>
     <string name="number_theory">Теория чисел</string>
-    <string name="open_source_licenses">Лицензия с открытым исходным кодом</string>
     <string name="outside">За пределами</string>
     <string name="parallel">Параллельно</string>
     <string name="permutation">Число перестановок</string>
-    <string name="please_enter_number">Введите номер</string>
-    <string name="please_wait">Подождите, пока загрузится</string>
     <string name="polygon">Многоугольник</string>
     <string name="powerunitgigawatt">Гигаватт (ГВт)</string>
     <string name="powerunithorsepower">Лошадиная сила (ЛС)</string>
@@ -219,7 +202,6 @@
     <string name="push_integrate_button">Нажмите эту кнопку для начала расчёта интеграла. Процесс может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
     <string name="push_simplify_button">Нажмите эту кнопку для сокращения выражения. Процесс вычисления может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
     <string name="push_solve_button">Нажмите эту кнопку, чтобы найти корень уравнения. Процесс вычисления может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
-    <string name="rate_desc">Оцените это приложение в Google Play</string>
     <string name="rate_this_app">Оцени это приложение</string>
     <string name="reason">Причина</string>
     <string name="remove_equation">Удалить уравнение</string>
@@ -237,11 +219,8 @@
     <string name="solve_system_equation">Решение системы уравнений</string>
     <string name="speak_expression">Чтение выражений</string>
     <string name="speech_not_supported">не поддерживает распознавание голоса</string>
-    <string name="summary_dev_mode">Режим разработчика (команда)</string>
     <string name="summary_instant_res">Автоматически подсчитывать результаты</string>
-    <string name="summary_percision">Количество чисел после запятой.</string>
     <string name="summary_trace_mode">Вывод информации о работе приложения</string>
-    <string name="t_c_gi_tr_n_l_duy">Автор: LE DUY TRAN</string>
     <string name="t_ng">сумма</string>
     <string name="table">Статистический</string>
     <string name="tangent">касательный</string>
@@ -251,7 +230,6 @@
     <string name="temperatureunitk">Кельвин (ºK)</string>
     <string name="temperatureunitn">Ньютон (º N)</string>
     <string name="th_m_ph_ng_tr_nh">Больше</string>
-    <string name="thpt_nguy_n_b_nh_khi_m">Средняя школа Nguyen Binh Khiem</string>
     <string name="timeunitdays">Дней (д)</string>
     <string name="timeunithours">Часов (ч)</string>
     <string name="timeunitmiliseconds">Миллисекунд (мс)</string>
@@ -280,7 +258,6 @@
     <string name="unit7">Площадь</string>
     <string name="unit8">Объём</string>
     <string name="unit9">Битрейт</string>
-    <string name="update">Обновить</string>
     <string name="upper_limit">Верхний предел</string>
     <string name="vector">вектор</string>
     <string name="velocityunitfeetpers">фут/с</string>
@@ -296,9 +273,6 @@
     <string name="weightunitlb">Фунт (фунт)</string>
     <string name="weightunitmg">Милигам (мг)</string>
     <string name="weightunitounce">Унция (ун)</string>
-    <string name="what_new">Что нового?</string>
-    <string name="yes">Да</string>
-    <string name="license">лицензия</string>
     <string name="translate">перевести</string>
     <string name="hide_status_bar">Скрыть строку состояния</string>
     <string name="loading">Loading data...</string>

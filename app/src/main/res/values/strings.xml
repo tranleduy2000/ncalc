@@ -26,7 +26,6 @@
     <string name="column">columns</string>
     <string name="copied">Copied</string>
     <string name="create">Create</string>
-    <string name="d_n_ph_n_m_m_ncalc">Software project NCalc +</string>
     <string name="delete_desc">Erase</string>
     <string name="derivative">Derivative</string>
     <string name="error_input_num">Number format error</string>
@@ -45,7 +44,6 @@
     <string name="inside">Inside</string>
     <string name="interaction">Intersecting</string>
     <string name="l_ch_chu_n">Standard deviation</string>
-    <string name="yes">Yes</string>
     <string name="vector">vector</string>
     <string name="title_activity_app_about">About NCalc+</string>
     <string name="title_activity_geometry">2D Cartesian Geometry</string>
@@ -70,7 +68,6 @@
     <string name="process">Handling</string>
 
     <string name="polygon">polygon</string>
-    <string name="please_wait">Loading, please wait</string>
     <string name="parallel">Parallel</string>
     <string name="outside">Outside</string>
     <string name="auto_process">Automatic data processing</string>
@@ -120,9 +117,7 @@
     <string name="pref_title_theme">Theme</string>
     <string name="solve">Solve</string>
     <string name="tangent">tangent</string>
-    <string name="what_new">What\'s new?</string>
     <string name="translate">Translate</string>
-    <string name="license">License</string>
 
 
     <string name="help_main_calc" formatted="false"><![CDATA[
@@ -503,7 +498,6 @@
     <string name="enter_value">Enter value</string>
     <string name="name">Name</string>
     <string name="define_var">Define Variable</string>
-    <string name="cannot_factor">Can not prime factor</string>
     <string name="graph_2">Graph</string>
     <string name="enter_limit">Enter limit</string>
     <string name="eval">Evaluate</string>
@@ -514,7 +508,6 @@
     <string name="enter_function">Enter function</string>
     <string name="lower_limit">Lower limit</string>
     <string name="upper_limit">Upper limit</string>
-    <string name="open_source_licenses">Open source licenses</string>
 
     <string name="derivative_level">Derivative level</string>
     <string name="der_level_desc">Select derivative level here</string>
@@ -526,7 +519,6 @@
     <string name="input_primitive_here">Enter the function to primitive on this line!</string>
     <string name="primitive">Primitive</string>
     <string name="limit_from_desc">Lower limit</string>
-    <string name="lic_desc">Open source license application</string>
     <string name="push_analyze_button">Press this button to analyze the factorization of polynomials, the calculation process can take longer for first-time initialization data</string>
     <string name="push_button_primitive">Then press the button to start the calculation, the calculation may take a long time for the first time initialization data</string>
     <string name="push_der_button">Press this button to derivative function, the calculation process can take longer for first-time initialization data</string>
@@ -534,9 +526,6 @@
     <string name="push_integrate_button">Press this button to integrals, calculation process can take longer for first-time initialization data</string>
     <string name="push_simplify_button">Press this button to shortened expression, the calculation process can take longer for first-time initialization data</string>
     <string name="push_solve_button">Press this button to find root the equation, the calculation process can take longer for first-time initialization data</string>
-    <string name="t_c_gi_tr_n_l_duy">Author: LE DUY TRAN</string>
-    <string name="thpt_nguy_n_b_nh_khi_m">Nguyen Binh Khiem High School</string>
-    <string name="rate_desc">Rate this application on the Google Play Store</string>
     <string name="input_analyze_here">Enter polynomial that needs analysis in this line!</string>
     <string name="input_simplify_here">Enter the expression to simplify in this line!</string>
     <string name="limit_to_desc">Upper limit</string>
@@ -548,7 +537,6 @@
     <string name="algebra">Algebra</string>
     <string name="language">Language</string>
     <string name="default_">System</string>
-    <string name="summary_dev_mode">Developer mode (command)</string>
     <string name="probability_statistics">Probability statistics</string>
     <string name="combination">Combination</string>
     <string name="permutation">Permutation</string>
@@ -557,14 +545,10 @@
     <string name="enter_number">Enter number</string>
     <string name="help_permutation">Enter the number \\(N\\) (total amount of elements) and \\(L\\) (amount of elements selected)</string>
     <string name="trace_mode">Trace mode</string>
-    <string name="dev_mode">Developer mode</string>
     <string name="not_a_number">The data entered is not a number!</string>
     <string name="gt_zero">Both numbers must be greater than zero.</string>
     <string name="number_theory">Number Theory</string>
     <string name="summary_trace_mode">How computers solve expression problems</string>
-    <string name="summary_percision">Precision</string>
-    <string name="go_to_facebook">Visit Facebook page</string>
-    <string name="fb_desc">Application support &amp; bug reports</string>
     <string name="enter_variable">Enter variables here. Variables are separated by semicolons.</string>
     <string name="select_num_var">Select the number of variables</string>
     <string name="num_of_var">Number of variables</string>
@@ -581,11 +565,6 @@
     <string name="enter_var_hint">Enter the variables of the system of equations</string>
     <string name="input_matrix">Input matrix</string>
     <string name="input_equation_">Input equation</string>
-    <string name="my_own_title">Rate this app</string>
-    <string name="my_own_message">If you enjoy using this app, would you mind taking a moment to rate it? It will not take more than a minute. Thank for your support!</string>
-    <string name="my_own_rate">Rate now</string>
-    <string name="my_own_thanks">No, thanks</string>
-    <string name="my_own_cancel">Later</string>
     <string name="precision_">Precision</string>
     <string name="calculator">Calculator</string>
     <string name="ui">User Interface</string>
@@ -605,17 +584,12 @@
     <string name="trigonometry">Trigonometry</string>
     <string name="latex_summary">KaTeX is faster than MathJax on a mobile environment, but MathJax supports more features and is much more beautiful.</string>
     <string name="close_drawer">Close drawer</string>
-    <string name="cannot_factor_polynomial">Can not factor the polynomial expression.</string>
     <string name="catalan_number">Catalan Number</string>
     <string name="prime">Prime Number</string>
     <string name="fibonacci">Fibonacci Number</string>
-    <string name="please_enter_number">Please enter the number</string>
     <string name="catalan_desc">Computes the nth Catalan number</string>
     <string name="fibo_desc">Computes the nth Fibonacci number.</string>
     <string name="prime_desc">Computes the nth prime number.</string>
-    <string name="update">Update</string>
-    <string name="new_version_update">A new version for this app is available. Please update as soon as possible.</string>
-    <string name="dismiss">Dismiss</string>
     <string name="notify_update">Update notifications</string>
 
     <string name="unit1">Temperature</string>
@@ -764,5 +738,4 @@
     <string name="matrix_b" translatable="false">Matrix B</string>
     <string name="all_functions">All functions</string>
     <string name="getting_started">Getting Started</string>
-    <string name="evaluating">Evaluating…</string>
 </resources>

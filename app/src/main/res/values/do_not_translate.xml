@@ -23,15 +23,12 @@
     <string name="D" translatable="false">D</string>
     <string name="E" translatable="false">E</string>
     <string name="F" translatable="false">F</string>
-    <string name="Y" translatable="false">Y</string>
     <string name="sign" translatable="false">sign</string>
     <string name="arcsin" translatable="false">asin</string>
     <string name="arccos" translatable="false">acos</string>
     <string name="arctan" translatable="false">atan</string>
     <string name="i" translatable="false">I</string>
     <string name="percentage" translatable="false">%</string>
-    <string name="dx" translatable="false">dX</string>
-    <string name="dy" translatable="false">dY</string>
     <string name="mod" translatable="false">mod</string>
     <string name="hex" translatable="false">Hex</string>
     <string name="bin" translatable="false">Bin</string>
@@ -55,10 +52,6 @@
     <string name="mul" translatable="false">*</string>
     <string name="plus" translatable="false">+</string>
     <string name="minus" translatable="false">−</string>
-    <string name="minus2" translatable="false">\u2010</string>
-    <string name="minus3" translatable="false">\u2012</string>
-    <string name="minus4" translatable="false">\u2212</string>
-    <string name="minus5" translatable="false">\u2796</string>
     <string name="equal" translatable="false">=</string>
     <string name="sin" translatable="false">sin</string>
     <string name="cos" translatable="false">cos</string>
@@ -159,24 +152,7 @@
     <string name="solve_2" translatable="false">Solve</string>
     <string name="mtrue" translatable="false">true</string>
     <string name="mfalse" translatable="false">false</string>
-    <string-array name="precision" translatable="false">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-    </string-array>
     <string name="nullable" translatable="false"> </string>
-    <string name="an_giang" translatable="false">Châu Thành - An Giang</string>
-    <string name="email_tranleduy1233_gmail_com" translatable="false">Email: Tranleduy1233@Gmail.com</string>
     <string name="power_two" translatable="false">^2</string>
     <string name="power_three" translatable="false">^3</string>
     <string name="ten_power" translatable="false">10^x</string>

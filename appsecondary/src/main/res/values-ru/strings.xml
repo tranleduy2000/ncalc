@@ -150,7 +150,7 @@
     <string name="line">Прямая линия</string>
     <string name="linear_system">Система уравнений</string>
     <string name="ln_hint">&lt;font color=red&gt;Log(x) is the natural logarithm&lt;/font&gt;</string>
-    <string name="logic_calculator">Калькулятор программиста</string>
+    <string name="base_calculator">Калькулятор программиста</string>
     <string name="lower_limit">Нижний предел</string>
     <string name="math_error">Математическая ошибка</string>
     <string name="matrix">Операции с матрицами</string>

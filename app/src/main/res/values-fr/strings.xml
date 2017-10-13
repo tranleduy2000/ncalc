@@ -26,7 +26,6 @@
     <string name="column">colonnes</string>
     <string name="copied">Copié</string>
     <string name="create">Créer</string>
-    <string name="d_n_ph_n_m_m_ncalc">Projet logiciel NCalc +</string>
     <string name="delete_desc">Effacer</string>
     <string name="derivative">Dérivée</string>
     <string name="error_input_num">Erreur de format de nombre</string>
@@ -45,7 +44,6 @@
     <string name="inside">A l\'intérieur</string>
     <string name="interaction">Sécante</string>
     <string name="l_ch_chu_n">Écart type</string>
-    <string name="yes">Oui</string>
     <string name="vector">vecteur</string>
     <string name="title_activity_app_about">A propos de NCalc+</string>
     <string name="title_activity_geometry">Géométrie cartésienne 2D</string>
@@ -70,7 +68,6 @@
     <string name="process">Manipulation</string>
 
     <string name="polygon">polygone</string>
-    <string name="please_wait">Chargement, veuillez patienter</string>
     <string name="parallel">Parallèle</string>
     <string name="outside">A l\'extérieur</string>
     <string name="auto_process">Traitement automatique de données</string>
@@ -120,9 +117,7 @@
     <string name="pref_title_theme">Thème</string>
     <string name="solve">Résoudre</string>
     <string name="tangent">tangente</string>
-    <string name="what_new">Nouveautés</string>
     <string name="translate">Traduire</string>
-    <string name="license">License</string>
 
 
     <string name="help_main_calc" formatted="false"><![CDATA[
@@ -503,7 +498,6 @@
     <string name="enter_value">Entrez une valeur</string>
     <string name="name">Nom</string>
     <string name="define_var">Définir une variable</string>
-    <string name="cannot_factor">Impossible de factoriser l\'expression</string>
     <string name="graph_2">Graphique</string>
     <string name="enter_limit">Entrer la limite</string>
     <string name="eval">Évaluer</string>
@@ -514,7 +508,6 @@
     <string name="enter_function">Entrez une fonction</string>
     <string name="lower_limit">Limite inférieur</string>
     <string name="upper_limit">Limite supérieur</string>
-    <string name="open_source_licenses">Licenses open source</string>
 
     <string name="derivative_level">Niveau de dérivation</string>
     <string name="der_level_desc">Sélectionner le niveau de dérivation ici</string>
@@ -526,7 +519,6 @@
     <string name="input_primitive_here">Entrez la fonction à dériver ici !</string>
     <string name="primitive">Primitive</string>
     <string name="limit_from_desc">Limite inférieur</string>
-    <string name="lic_desc">Application à license open source</string>
     <string name="push_analyze_button">Appuyez sur ce bouton pour lancer la factorisation de polynômes, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
     <string name="push_button_primitive">Puis appuyez sur le bouton pour lancer le calcul, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
     <string name="push_der_button">Appuyez sur ce bouton pour dériver la fonction, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
@@ -534,9 +526,6 @@
     <string name="push_integrate_button">Appuyez sur ce bouton pour lancer l\'intégration, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
     <string name="push_simplify_button">Appuyez sur ce bouton pour simplifier l\'expression, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
     <string name="push_solve_button">Appuyez sur ce bouton pour trouver la racine de l\'équation, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
-    <string name="t_c_gi_tr_n_l_duy">Auteur : LE DUY TRAN</string>
-    <string name="thpt_nguy_n_b_nh_khi_m">Nguyen Binh Khiem High School</string>
-    <string name="rate_desc">Notez cette application sur le Google Play Store</string>
     <string name="input_analyze_here">Entrez le polynôme devant être analyser sur cette ligne !</string>
     <string name="input_simplify_here">Entrez l\'expression à simplifier sur cette ligne !</string>
     <string name="limit_to_desc">Limite supérieur</string>
@@ -548,7 +537,6 @@
     <string name="algebra">Algèbre</string>
     <string name="language">Langue</string>
     <string name="default_">Système</string>
-    <string name="summary_dev_mode">Mode développeur (commandes)</string>
     <string name="probability_statistics">Analyse combinatoire</string>
     <string name="combination">Combinaison</string>
     <string name="permutation">Permutations</string>
@@ -557,14 +545,10 @@
     <string name="enter_number">Entrez un nombre</string>
     <string name="help_permutation">Entrez le nombre \\(N\\) (nombre total d\'éléments) et \\(L\\) (total d\'éléments sélectionnés)</string>
     <string name="trace_mode">Mode pas à pas</string>
-    <string name="dev_mode">Mode développeur</string>
     <string name="not_a_number">La donnée entrée n\'est pas un nombre !</string>
     <string name="gt_zero">Les deux nombres doivent être plus grand que zéro.</string>
     <string name="number_theory">Théorie des nombres</string>
     <string name="summary_trace_mode">Comment les ordinateurs résolvent-ils les problèmes de résolution d\'équations</string>
-    <string name="summary_percision">Précision</string>
-    <string name="go_to_facebook">Visiter la page Facebook</string>
-    <string name="fb_desc">Soutenir l\'application &amp; rapporter les bugs</string>
     <string name="enter_variable">Entrer les variables ici. Les variables doivent-être séparées par un point-virgule.</string>
     <string name="select_num_var">Sélectionner le nombre de variables</string>
     <string name="num_of_var">Nombre de variables</string>
@@ -581,11 +565,6 @@
     <string name="enter_var_hint">Entrez les variables du système d\'équation</string>
     <string name="input_matrix">Matrice en entrée</string>
     <string name="input_equation_">Équation en entrée</string>
-    <string name="my_own_title">Notez cette application</string>
-    <string name="my_own_message">Si vous appreciez l\'application, pourriez-vous prendre une minute pour la noter ? Ça ne vous prendra pas plus d\'une minute. Merci de votre soutien !</string>
-    <string name="my_own_rate">Noter maintenant</string>
-    <string name="my_own_thanks">Non, merci</string>
-    <string name="my_own_cancel">Plus tard</string>
     <string name="precision_">Précision</string>
     <string name="calculator">Calculatrice</string>
     <string name="ui">Interface utilisateur</string>
@@ -605,17 +584,12 @@
     <string name="trigonometry">Trigonométrie</string>
     <string name="latex_summary">KaTeX est plus rapide que MathJax sur un environnement mobile, mais MathJax possède plus de fonctionnalités, et possède une interface plus belle.</string>
     <string name="close_drawer">Fermer le tiroir de navigation</string>
-    <string name="cannot_factor_polynomial">Impossible de factoriser l\'expression polynomiale.</string>
     <string name="catalan_number">Nombres de Catalan</string>
     <string name="prime">Nombres premiers</string>
     <string name="fibonacci">Suite de Fibonacci</string>
-    <string name="please_enter_number">Merci d\'entrer un nombre</string>
     <string name="catalan_desc">Calculer le nième nombre de Catalan</string>
     <string name="fibo_desc">Calculer le nième nombre de la suite de Fibonacci.</string>
     <string name="prime_desc">Calculer le nième nombre premier.</string>
-    <string name="update">Mettre à jour</string>
-    <string name="new_version_update">Une nouvelle version de cette application est disponible. Merci de la mettre à jour dès que vous le pouvez.</string>
-    <string name="dismiss">Réduire</string>
     <string name="notify_update">Notifications de mise à jour</string>
 
     <string name="unit1">Température</string>

@@ -72,7 +72,7 @@
     <string name="auto_process">Automatic data processing</string>
     <string name="line">Straight line</string>
     <string name="linear_system">System equation</string>
-    <string name="logic_calculator">Calculator base</string>
+    <string name="base_calculator">Calculator base</string>
     <string name="matrix">Matrix</string>
     <string name="matrix_op_inverse_a">Inverse A</string>
     <string name="matrix_op_inverse_b">Inverse B</string>
