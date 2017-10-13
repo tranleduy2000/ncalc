@@ -120,6 +120,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         }
         mInputDisplay.addTextChangedListener(mFormulaTextWatcher);
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
+        mInputDisplay.setAutoSuggestEnable(false);
 
         mTxtResult = (TextView) findViewById(R.id.txtResult);
     }
