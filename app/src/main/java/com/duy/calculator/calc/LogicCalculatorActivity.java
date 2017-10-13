@@ -57,12 +57,15 @@ import com.duy.calculator.view.RevealView;
 public class LogicCalculatorActivity extends AbstractCalculatorActivity
         implements LogicEvaluator.EvaluateCallback, View.OnClickListener {
     private static final String TAG = LogicCalculatorActivity.class.getName();
+
     private final ViewGroup.LayoutParams mLayoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
     private CalculatorEditText mInputDisplay;
-    private TextView txtResult;
+    private TextView mTxtResult;
     private ViewGroup mDisplayForeground;
     private View mCurrentButton = null;
     private LogicCalculatorActivity.CalculatorState mCurrentState = LogicCalculatorActivity.CalculatorState.INPUT;
+    private NumberBaseManager mBaseManager;
+    private MathEvaluator mMathEvaluator;
     private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
         @Override
         public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
@@ -90,11 +93,9 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         public void afterTextChanged(Editable editable) {
             setState(LogicCalculatorActivity.CalculatorState.INPUT);
             Log.d(TAG, mInputDisplay.getCleanText());
-            MathEvaluator.newInstance().evaluateBase(mInputDisplay.getCleanText(), LogicCalculatorActivity.this);
+            mMathEvaluator.evaluateBase(mInputDisplay.getCleanText(), LogicCalculatorActivity.this);
         }
     };
-    private NumberBaseManager mBaseManager;
-
 
     protected void onChangeModeFraction() {
     }
@@ -103,11 +104,12 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mMathEvaluator = MathEvaluator.newInstance();
         setContentView(R.layout.activity_base_calculator);
         setTitle(R.string.calculator);
         bindView();
         initPad();
-        mBaseManager = new NumberBaseManager(MathEvaluator.newInstance().getBaseEvaluator().getBase());
+        mBaseManager = new NumberBaseManager(mMathEvaluator.getBaseEvaluator().getBase());
     }
 
     private void bindView() {
@@ -119,7 +121,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         mInputDisplay.addTextChangedListener(mFormulaTextWatcher);
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
 
-        txtResult = (TextView) findViewById(R.id.txtResult);
+        mTxtResult = (TextView) findViewById(R.id.txtResult);
     }
 
     private void initPad() {
@@ -133,9 +135,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         }
     }
 
-    /**
-     * @param state
-     */
+
     void setState(LogicCalculatorActivity.CalculatorState state) {
         mCurrentState = state;
     }
@@ -165,7 +165,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
                 break;
         }
         mInputDisplay.setText(mSetting.getString(CalculatorSetting.INPUT_BASE));
-        txtResult.setText(mSetting.getString(CalculatorSetting.RESULT_BASE));
+        mTxtResult.setText(mSetting.getString(CalculatorSetting.RESULT_BASE));
     }
 
     /**
@@ -174,21 +174,21 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     public void onPause() {
         super.onPause();
-        Base base = MathEvaluator.newInstance().getBaseEvaluator().getBase();
-        int iBase = MathEvaluator.newInstance().getBaseEvaluator().getBaseModule().getBaseNumber(base);
+        Base base = mMathEvaluator.getBaseEvaluator().getBase();
+        int iBase = mMathEvaluator.getBaseEvaluator().getBaseModule().getBaseNumber(base);
         mSetting.put(CalculatorSetting.BASE, iBase);
         mSetting.put(CalculatorSetting.INPUT_BASE, mInputDisplay.getCleanText());
     }
 
     public void setBase(final Base base) {
         mBaseManager.setNumberBase(base);
-        MathEvaluator.newInstance().setBase(mInputDisplay.getCleanText(), base, new LogicEvaluator.EvaluateCallback() {
+        mMathEvaluator.setBase(mInputDisplay.getCleanText(), base, new LogicEvaluator.EvaluateCallback() {
             @Override
             public void onEvaluated(String expr, String result, int errorResourceId) {
                 if (errorResourceId == LogicEvaluator.RESULT_ERROR) {
                     onError(getResources().getString(R.string.error));
                 } else {
-                    txtResult.setText(result);
+                    mTxtResult.setText(result);
                     onResult(result);
                     setState(LogicCalculatorActivity.CalculatorState.INPUT);
                 }
@@ -203,7 +203,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     private void updateUI() {
-        setSelectionButton(MathEvaluator.newInstance().getBaseEvaluator().getBase());
+        setSelectionButton(mMathEvaluator.getBaseEvaluator().getBase());
         for (int id : mBaseManager.getViewIds()) {
             final View view = findViewById(id);
             if (view != null) {
@@ -250,58 +250,58 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     public void onResult(final String result) {
         Log.d(TAG, "clickEvaluate " + result);
         final float resultScale =
-                mInputDisplay.getTextSize() / txtResult.getTextSize();
+                mInputDisplay.getTextSize() / mTxtResult.getTextSize();
         final float resultTranslationX = (1.0f - resultScale) *
-                (txtResult.getWidth() / 2.0f - txtResult.getPaddingRight());
+                (mTxtResult.getWidth() / 2.0f - mTxtResult.getPaddingRight());
 
         final float formulaRealHeight = mInputDisplay.getHeight()
                 - mInputDisplay.getPaddingTop()
                 - mInputDisplay.getPaddingBottom();
 
         final float resultRealHeight = resultScale *
-                (txtResult.getHeight()
-                        - txtResult.getPaddingTop()
-                        - txtResult.getPaddingBottom());
+                (mTxtResult.getHeight()
+                        - mTxtResult.getPaddingTop()
+                        - mTxtResult.getPaddingBottom());
         final float resultTranslationY =
                 -mInputDisplay.getHeight()
-                        - resultScale * txtResult.getPaddingTop()
+                        - resultScale * mTxtResult.getPaddingTop()
                         + mInputDisplay.getPaddingTop()
                         + (formulaRealHeight - resultRealHeight) / 2;
 
         final float formulaTranslationY = -mInputDisplay.getBottom();
-        final int resultTextColor = txtResult.getCurrentTextColor();
+        final int resultTextColor = mTxtResult.getCurrentTextColor();
         final int formulaTextColor = mInputDisplay.getCurrentTextColor();
         final ValueAnimator textColorAnimator =
                 ValueAnimator.ofObject(new ArgbEvaluator(), resultTextColor, formulaTextColor);
         textColorAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                txtResult.setTextColor((Integer) valueAnimator.getAnimatedValue());
+                mTxtResult.setTextColor((Integer) valueAnimator.getAnimatedValue());
             }
         });
-        txtResult.setText(result);
-        txtResult.setPivotX(txtResult.getWidth() / 2);
-        txtResult.setPivotY(0f);
+        mTxtResult.setText(result);
+        mTxtResult.setPivotX(mTxtResult.getWidth() / 2);
+        mTxtResult.setPivotY(0f);
 
         final AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(
                 textColorAnimator,
-                ObjectAnimator.ofFloat(txtResult, View.SCALE_X, resultScale),
-                ObjectAnimator.ofFloat(txtResult, View.SCALE_Y, resultScale),
-                ObjectAnimator.ofFloat(txtResult, View.TRANSLATION_X, resultTranslationX),
-                ObjectAnimator.ofFloat(txtResult, View.TRANSLATION_Y, resultTranslationY),
+                ObjectAnimator.ofFloat(mTxtResult, View.SCALE_X, resultScale),
+                ObjectAnimator.ofFloat(mTxtResult, View.SCALE_Y, resultScale),
+                ObjectAnimator.ofFloat(mTxtResult, View.TRANSLATION_X, resultTranslationX),
+                ObjectAnimator.ofFloat(mTxtResult, View.TRANSLATION_Y, resultTranslationY),
                 ObjectAnimator.ofFloat(mInputDisplay, View.TRANSLATION_Y, formulaTranslationY));
         animatorSet.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
         animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
         animatorSet.addListener(new AnimationFinishedListener() {
             @Override
             public void onAnimationFinished() {
-                txtResult.setPivotY(txtResult.getHeight() / 2);
-                txtResult.setTextColor(resultTextColor);
-                txtResult.setScaleX(1.0f);
-                txtResult.setScaleY(1.0f);
-                txtResult.setTranslationX(0.0f);
-                txtResult.setTranslationY(0.0f);
+                mTxtResult.setPivotY(mTxtResult.getHeight() / 2);
+                mTxtResult.setTextColor(resultTextColor);
+                mTxtResult.setScaleX(1.0f);
+                mTxtResult.setScaleY(1.0f);
+                mTxtResult.setTranslationX(0.0f);
+                mTxtResult.setTranslationY(0.0f);
                 mInputDisplay.setTranslationY(0.0f);
                 mInputDisplay.setText(result);
                 setState(LogicCalculatorActivity.CalculatorState.RESULT);
@@ -381,7 +381,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     public void onError(final String errorResourceId) {
         if (mCurrentState != CalculatorState.EVALUATE) {
             // Only animate error on evaluate.
-            txtResult.setText(errorResourceId);
+            mTxtResult.setText(errorResourceId);
             return;
         }
 
@@ -395,12 +395,12 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
                 @Override
                 public void onAnimationFinished() {
                     setState(CalculatorState.ERROR);
-                    txtResult.setText(errorResourceId);
+                    mTxtResult.setText(errorResourceId);
                 }
             });
         } else {
             setState(CalculatorState.ERROR);
-            txtResult.setText(errorResourceId);
+            mTxtResult.setText(errorResourceId);
         }
     }
 
@@ -420,13 +420,13 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
                 @Override
                 public void onAnimationFinished() {
                     setState(LogicCalculatorActivity.CalculatorState.INPUT);
-                    txtResult.setText("");
+                    mTxtResult.setText("");
                     mInputDisplay.clear();
                 }
             });
         } else {
             setState(LogicCalculatorActivity.CalculatorState.INPUT);
-            txtResult.setText("");
+            mTxtResult.setText("");
             mInputDisplay.clear();
         }
     }
@@ -436,7 +436,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         String text = mInputDisplay.getCleanText();
         if (mCurrentState == LogicCalculatorActivity.CalculatorState.INPUT) {
             setState(LogicCalculatorActivity.CalculatorState.EVALUATE);
-            MathEvaluator.newInstance().evaluateBase(text, this);
+            mMathEvaluator.evaluateBase(text, this);
         }
     }
 
@@ -450,7 +450,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         Log.d(TAG, "onEvaluated " + expr + " = " + result + " with error " + resultId);
         if (resultId == LogicEvaluator.RESULT_ERROR) {
             if (mCurrentState == LogicCalculatorActivity.CalculatorState.INPUT) {
-                txtResult.setText(null);
+                mTxtResult.setText(null);
             } else if (mCurrentState == LogicCalculatorActivity.CalculatorState.EVALUATE) {
                 onError(result);
             }
@@ -460,9 +460,9 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
                 //      saveHistory(mExpression, mResult, ItemHistory.TYPE_LOGIC);
             } else if (mCurrentState == LogicCalculatorActivity.CalculatorState.INPUT) {
                 if (result == null) {
-                    txtResult.setText(null);
+                    mTxtResult.setText(null);
                 } else {
-                    txtResult.setText(result);
+                    mTxtResult.setText(result);
                 }
             }
         } else if (resultId == LogicEvaluator.INPUT_EMPTY) {
