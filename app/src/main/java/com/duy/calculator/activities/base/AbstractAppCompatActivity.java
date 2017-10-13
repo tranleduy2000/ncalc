@@ -220,7 +220,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
     protected void shareApp() {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, "http://playAnimatior.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
+        intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
         intent.setType("text/plain");
         startActivity(intent);
     }
@@ -258,7 +258,7 @@ public abstract class AbstractAppCompatActivity extends AppCompatActivity
             startActivity(goToMarket);
         } catch (ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://playAnimatior.google.com/store/apps/details?id=" + appId)));
+                    Uri.parse("https://play.google.com/store/apps/details?id=" + appId)));
         }
     }
 
