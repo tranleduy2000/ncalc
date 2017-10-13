@@ -18,8 +18,6 @@ package com.duy.calculator.geom2d.conic;
 
 import com.duy.calculator.geom2d.line.StraightLine2D;
 
-import static com.duy.calculator.R.string.dx;
-import static com.duy.calculator.R.string.dy;
 
 public class ConicStraightLine2D extends StraightLine2D implements Conic2D {
 
