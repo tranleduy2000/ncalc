@@ -108,7 +108,6 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
         bindView();
         initPad();
         mBaseManager = new NumberBaseManager(MathEvaluator.newInstance().getBaseEvaluator().getBase());
-
     }
 
     private void bindView() {

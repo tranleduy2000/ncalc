@@ -17,9 +17,6 @@
 package com.duy.calculator.evaluator;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.Html;
-import android.text.Spanned;
 
 import com.duy.calculator.evaluator.base.BaseModule;
 import com.duy.calculator.evaluator.base.Evaluator;
@@ -35,56 +32,26 @@ public class FormatExpression {
 
     /**
      * clean expression
-     * <p>
-     * append parentheses
-     * <p>
-     * replace char (div mul add, sub...)
-     *
-     * @param expr - input expression
-     * @return - math language
      */
     public static String cleanExpression(String expr, Tokenizer tokenizer) {
-        expr = expr.replace(ERROR_INDEX_STRING, "");
         expr = tokenizer.getNormalExpression(expr);
-        expr = appendParenthesis(expr);
-        while (expr.contains("--")) expr = expr.replace("--", "+");
-        while (expr.contains("++")) expr = expr.replace("++", "+");
-        if (expr.length() > 0) {
-            while (expr.length() > 0 &&
-                    Evaluator.isOperator(Character.toString(expr.charAt(expr.length() - 1)))) {
-                expr = expr.substring(0, expr.length() - 1);
-            }
-        }
-        return expr;
+        return cleanExpression(expr);
     }
 
     public static String cleanExpression(String expr) {
         expr = expr.replace(ERROR_INDEX_STRING, "");
-        expr = appendParenthesis(expr);
         while (expr.contains("--")) expr = expr.replace("--", "+");
         while (expr.contains("++")) expr = expr.replace("++", "+");
-        if (expr.length() > 0)
-            while (expr.length() > 0 &&
-                    Evaluator.isOperator(Character.toString(expr.charAt(expr.length() - 1)))) {
-                expr = expr.substring(0, expr.length() - 1);
-            }
+        expr = expr.replace("÷", "/");
+        expr = expr.replace("×", "*");
+        expr = expr.replace("√", "Sqrt");
+        expr = expr.replace("∑", "Sum");
+        expr = expr.replace("∫", "Int");
+        expr = expr.replace("∞", "Infinity");
+        expr = expr.replace("π", "Pi");
+        expr = expr.replace("∏", "Product");
+        expr = appendParenthesis(expr);
         return expr;
-    }
-
-    /**
-     * convert primitive text to html text
-     *
-     * @param source - text source
-     * @return - text in html
-     */
-    public static String toHtml(String source) {
-        Spanned result;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            result = Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            result = Html.fromHtml(source);
-        }
-        return result.toString();
     }
 
 

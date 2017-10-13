@@ -35,7 +35,6 @@ import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.TypedValue;
@@ -82,7 +81,7 @@ import io.github.kexanie.library.MathView;
 
 
 public class BasicCalculatorActivity extends AbstractCalculatorActivity
-        implements LogicEvaluator.EvaluateCallback, KeyboardListener {
+        implements LogicEvaluator.EvaluateCallback, KeyboardListener, View.OnClickListener {
     public static final String TAG = BasicCalculatorActivity.class.getSimpleName();
     public static final String DATA = "DATA_BUNDLE";
     private static final int REQ_CODE_HISTORY = 1111;
@@ -130,26 +129,35 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         setContentView(R.layout.activity_basic_calculator);
         bindView();
 
-        mInputDisplay.setRawInputType(InputType.TYPE_NULL);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mInputDisplay.setShowSoftInputOnFocus(false);
+        }
         mInputDisplay.addTextChangedListener(mFormulaTextWatcher);
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
         mInputDisplay.setAutoSuggestEnable(false);
 
         setInputState(InputState.PAD);
         setState(CalculatorState.INPUT);
-
         initKeyboard();
 
-        findViewById(R.id.img_history).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(BasicCalculatorActivity.this, HistoryActivity.class);
-                startActivityForResult(intent, REQ_CODE_HISTORY);
-            }
-        });
+        findViewById(R.id.img_history).setOnClickListener(this);
+        mFabClose.setOnClickListener(this);
 
         setModeFraction();
         showHelp();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.fab_close:
+                closeMathView();
+                break;
+            case R.id.img_history:
+                Intent intent = new Intent(BasicCalculatorActivity.this, HistoryActivity.class);
+                startActivityForResult(intent, REQ_CODE_HISTORY);
+                break;
+        }
     }
 
 
@@ -766,6 +774,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 //        mGraphView.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
     }
 
+
     public enum CalculatorState {
         INPUT,
         EVALUATE, RESULT, ERROR;
@@ -783,7 +792,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(BasicCalculatorActivity.this, R.string.evaluating, Toast.LENGTH_SHORT).show();
             mContainerSolve.setVisibility(View.VISIBLE);
             setInputState(InputState.RESULT_VIEW);
             mProgress.show();

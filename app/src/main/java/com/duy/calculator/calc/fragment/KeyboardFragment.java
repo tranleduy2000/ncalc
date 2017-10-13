@@ -136,9 +136,7 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener, 
             case R.id.btn_solve_:
                 mCalculatorListener.clickSolveEquation();
                 break;
-            case R.id.fab_close:
-                mCalculatorListener.closeMathView();
-                break;
+
             case R.id.img_setting:
                 startActivity(new Intent(getContext(), SettingsActivity.class));
                 break;
@@ -156,6 +154,9 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener, 
                 break;
             case R.id.btn_ans:
                 mCalculatorListener.insertText("Ans");
+                break;
+            case R.id.btn_sqrt:
+                mCalculatorListener.insertText("Sqrt(" + CalculatorEditText.CURSOR + ")");
                 break;
             default:
                 if (view instanceof CalcButton) {

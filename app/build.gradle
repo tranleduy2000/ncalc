@@ -24,8 +24,8 @@ android {
         applicationId "com.duy.calculator.free"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 73
-        versionName "3.9.3"
+        versionCode 74
+        versionName "3.9.4"
         multiDexEnabled true
     }
 
@@ -48,7 +48,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    lintOptions {
+        abortOnError false
+    }
 }
 repositories {
     mavenCentral()

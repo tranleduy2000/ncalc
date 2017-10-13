@@ -177,20 +177,6 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
 
 
     @Override
-    public void onClick(View view) {
-        int id = view.getId();
-        switch (id) {
-            case R.id.btn_solve:
-                clickEvaluate();
-                break;
-            case R.id.btn_clear:
-                super.clickClear();
-                break;
-        }
-    }
-
-
-    @Override
     public int getIdStringHelp() {
         return R.string.help_derivative;
     }

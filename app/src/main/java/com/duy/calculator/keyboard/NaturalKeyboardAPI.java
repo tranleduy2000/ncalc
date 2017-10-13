@@ -20,6 +20,7 @@ import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 
@@ -29,13 +30,16 @@ import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 
 public class NaturalKeyboardAPI {
     public static final int REQUEST_INPUT = 9991;
+    private static final String KEY_GET_INPUT = "HAS_GET_INPUT";
+    private static final String LAUNCHER_ACTIVITY = "com.duy.calc.casio.calculator.ScienceCalculatorActivity";
+    private static final String APP_ID = "com.duy.calc.casio";
+    private static final String TAG = "NaturalKeyboardAPI";
 
     public static void getExpression(AbstractEvaluatorActivity activity) {
         try {
             Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.setComponent(new ComponentName("com.duy.calc.casio",
-                    "com.duy.calc.casio.calculator.CalculatorActivity"));
-            intent.putExtra("HAS_GET_INPUT", true);
+            intent.setComponent(new ComponentName(APP_ID, LAUNCHER_ACTIVITY));
+            intent.putExtra(KEY_GET_INPUT, true);
             activity.startActivityForResult(intent, REQUEST_INPUT);
         } catch (ActivityNotFoundException e) {
             activity.showDialogInstallNaturalKeyboard();
@@ -46,6 +50,8 @@ public class NaturalKeyboardAPI {
 
     @NonNull
     public static String processResult(Intent intent) {
+        Log.d(TAG, "processResult() called with: intent = [" + intent + "]");
+
         if (intent.hasExtra(Intent.EXTRA_RETURN_RESULT)) {
             return intent.getStringExtra(Intent.EXTRA_RETURN_RESULT);
         }

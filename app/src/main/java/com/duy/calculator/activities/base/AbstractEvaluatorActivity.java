@@ -81,7 +81,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     protected EditText editFrom, editTo;
     protected LinearLayout mLayoutLimit;
     protected SharedPreferences mPreferences;
-    protected Handler handler = new Handler();
+    protected Handler mHandler = new Handler();
     protected Button btnSolve;
     protected ResizingEditText mInputFormula;
     protected ViewGroup mDisplayForeground;
@@ -279,7 +279,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.btn_clear:
                 clickClear();
@@ -304,7 +303,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
                 if (resultCode == RESULT_OK) {
                     final String expr = NaturalKeyboardAPI.processResult(data);
                     if (expr.isEmpty()) return;
-                    handler.postDelayed(new Runnable() {
+                    mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             if (mInputFormula.hasFocus()) {

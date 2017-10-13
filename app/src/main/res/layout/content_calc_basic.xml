@@ -69,6 +69,11 @@
                 android:layout_margin="@dimen/fab_margin"
                 android:src="@drawable/ic_close" />
         </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/result_animation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </FrameLayout>
 
 </LinearLayout>

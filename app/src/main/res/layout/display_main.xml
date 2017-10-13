@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2017 Tran Le Duy
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +16,7 @@
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardCornerRadius="0dp"
@@ -43,8 +43,8 @@
                 android:scrollbarAlwaysDrawVerticalTrack="true"
                 android:scrollbarStyle="outsideOverlay"
                 android:scrollbars="vertical"
-                android:text="1+1+3+4+5/12312"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                tools:text="1+1+3+4+5/12312" />
 
 
             <com.duy.calculator.view.MathFormulaView
