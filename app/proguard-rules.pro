@@ -1,118 +1,109 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in C:\Users\Duy\AppData\Local\Android\sdk/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# Add any project specific keep options here:
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class equation to the JavaScript interface
-# class:
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-   public *;
-}
-
-######################################
-
--keep class * extends java.util.ListResourceBundle {
-    protected Object[][] getContents();
-}
-
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-    @com.google.android.gms.common.annotation.KeepName *;
-}
-
--keepnames class * implements android.os.Parcelable {
-    public static final ** CREATOR;
-}
-
-#-keep class com.google.android.gms.** { *; }
-
--keep public class com.google.android.gms.* { public *; }
--dontwarn com.google.android.gms.**
-
-#############################################
-#############################################
-
--optimizationpasses 5
+# This is a configuration file for ProGuard.
+# http://proguard.sourceforge.net/index.html#manual/usage.html
 -dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
--dontpreverify
 -verbose
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
-
+# Optimization is turned off by default. Dex does not like code run
+# through the ProGuard optimize and preverify steps (and performs some
+# of these optimizations on its own).
+-dontoptimize
+-dontpreverify
+# If you want to enable optimization, you should include the
+# following:
+# -optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
+# -optimizationpasses 5
+# -allowaccessmodification
+#
+# Note that you cannot just include these flags in your own
+# configuration file; if you are including this file, optimization
+# will be turned off. You'll need to either edit this file, or
+# duplicate the contents of this file and remove the include of this
+# file from your project's proguard.config path property.
+-keepattributes *Annotation*
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep public class * extends android.content.ContentProvider
--keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.app.backup.BackupAgent
 -keep public class * extends android.preference.Preference
--keep public class com.android.vending.licensing.ILicensingService
-
-#keep all classes that might be used in XML layouts
--keep public class * extends android.view.View
+-keep public class * extends android.support.v4.app.Fragment
 -keep public class * extends android.app.Fragment
--keep public class * extends android.support.v4.Fragment
-
-# support-v4
--dontwarn android.support.v4.**
--keep class android.support.v4.app.** { *; }
--keep interface android.support.v4.app.** { *; }
-
-# support-v7
--dontwarn android.support.v7.**
--keep class android.support.v7.internal.** { *; }
--keep interface android.support.v7.internal.** { *; }
-
-# appcombat
--keep public class * extends android.support.v7.app.ActionBarActivity { *; }
-
-#keep all public and protected methods that could be used by java reflection
--keepclassmembernames class * {
-    public protected <methods>;
-}
-
-
+-keep public class com.android.vending.licensing.ILicensingService
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
 -keepclasseswithmembernames class * {
+    native <methods>;
+}
+-keep public class * extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+    public void set*(...);
+}
+-keepclasseswithmembers class * {
     public <init>(android.content.Context, android.util.AttributeSet);
 }
-
--keepclasseswithmembernames class * {
+-keepclasseswithmembers class * {
     public <init>(android.content.Context, android.util.AttributeSet, int);
 }
-
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
 -keepclassmembers enum * {
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
-
 -keep class * implements android.os.Parcelable {
-	public static final android.os.Parcelable$Creator *;
+  public static final android.os.Parcelable$Creator *;
 }
-
-##########################################
--dontwarn javax.annotation.**
--dontwarn org.apache.log4j.**
-############################
--dontwarn com.x5.**
--keep class com.x5.template.** { *; }
--keep class com.x5.util.* { *; }
-####################
--dontwarn java.beans.**
--dontwarn javax.swing.**
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+# The support library contains references to newer platform versions.
+# Don't warn about those in case this app is linking against an older
+# platform version.  We know about them, and they are safe.
+-dontwarn android.support.**
 -dontwarn java.awt.**
--keep class org.** { *; }
--keep class edu.** { *; }
--keep class de.lab4inf.** { *; }
--keep class com.google.** { *; }
+
+#Math library
+-keep class org.apache.log4j.** { *; }
+#-keep class org.apache.commons.csv.** { *; }
+-keep class org.slf4j.** { *; }
+-keep class org.matheclipse.** { *; }
+-keep class org.apfloat.** { *; }
+#-keep class org.hipparchus.** { *; }
+
+#-keep class com.github.rjeschke.txtmark.** { *; }
+#-keep class com.google.common.** { *; }
+
+-keep class de.lab4inf.math.** { *; }
 -keep class cc.redberry.** { *; }
+-keep class jp.ac.kobe_u.cs.cream.** { *; }
+
+-keep class com.duy.lambda.** { *; }
+-keep class com.duy.stream.** { *; }
+
+#IAB module
+-keep class com.android.vending.billing.** { *; }
+#-keep class aidl.util.**  { *; }
+
+-dontwarn javax.**
+-dontwarn java.beans.**
+-dontwarn java.lang.management.**
+-dontwarn de.lab4inf.math.**
+-dontwarn com.google.common.**
+-dontwarn java.lang.ClassValue
+-dontwarn java.rmi.MarshalledObject
+-dontwarn net.minidev.**
+-dontwarn com.madrobot.**
+-dontwarn sun.misc.**
+-dontwarn org.apache.log4j.**
+-dontwarn org.cheffo.jeplite.**
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+   public *;
+}
