@@ -43,11 +43,6 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
     SharedPreferences preferences;
     private boolean isDataNull = true;
 
-    @Override
-    public int getIdStringHelp() {
-        return R.string.help_expression;
-    }
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

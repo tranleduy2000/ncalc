@@ -62,11 +62,6 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public int getIdStringHelp() {
-        return R.string.nullable;
-    }
-
-    @Override
     public void clickHelp() {
 
     }

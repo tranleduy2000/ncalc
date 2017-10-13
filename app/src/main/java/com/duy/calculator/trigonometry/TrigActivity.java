@@ -115,13 +115,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public int getIdStringHelp() {
-        return 0;
-    }
-
-    @Override
     public void clickHelp() {
-
     }
 
 

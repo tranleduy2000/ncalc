@@ -47,11 +47,6 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
     private boolean isDataNull = true;
 
     @Override
-    public int getIdStringHelp() {
-        return R.string.help_expression;
-    }
-
-    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.factor));

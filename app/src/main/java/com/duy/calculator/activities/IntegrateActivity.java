@@ -86,11 +86,6 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
 
 
     @Override
-    public int getIdStringHelp() {
-        return R.string.help_expression;
-    }
-
-    @Override
     public void clickHelp() {
         final SharedPreferences.Editor editor = mPreferences.edit();
         TapTarget target0 = TapTarget.forView(mInputFormula,

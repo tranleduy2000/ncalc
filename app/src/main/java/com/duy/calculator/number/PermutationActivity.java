@@ -120,11 +120,6 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public int getIdStringHelp() {
-        return R.string.help_permutation;
-    }
-
-    @Override
     public void clickHelp() {
 
     }

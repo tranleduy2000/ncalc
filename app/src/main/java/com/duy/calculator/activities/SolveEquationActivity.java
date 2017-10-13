@@ -132,11 +132,6 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
     }
 
     @Override
-    public int getIdStringHelp() {
-        return R.string.help_solve_equation;
-    }
-
-    @Override
     protected String getExpression() {
         String expr = mInputFormula.getCleanText();
         SolveItem solveItem = new SolveItem(expr);

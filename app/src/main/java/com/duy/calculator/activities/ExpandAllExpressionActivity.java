@@ -45,11 +45,6 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
 
 
     @Override
-    public int getIdStringHelp() {
-        return R.string.help_expression;
-    }
-
-    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

@@ -176,9 +176,4 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
     }
 
 
-    @Override
-    public int getIdStringHelp() {
-        return R.string.help_derivative;
-    }
-
 }

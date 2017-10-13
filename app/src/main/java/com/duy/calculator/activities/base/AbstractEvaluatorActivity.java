@@ -425,13 +425,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     }
 
     /**
-     * get id from resources for help string.
-     *
-     * @return id - int
-     */
-    public abstract int getIdStringHelp();
-
-    /**
      * show target helper
      */
     public abstract void clickHelp();

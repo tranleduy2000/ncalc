@@ -107,11 +107,6 @@ public class NumberActivity extends AbstractEvaluatorActivity {
     }
 
     @Override
-    public int getIdStringHelp() {
-        return 0;
-    }
-
-    @Override
     public void clickHelp() {
         String function;
         switch (type) {
