@@ -30,6 +30,7 @@
         <item>English</item>
         <item>Russia</item>
         <item>French</item>
+        <item>Simplified Chinese</item>
     </string-array>
 
     <string-array name="language_code" translatable="false">
@@ -38,6 +39,7 @@
         <item>en</item>
         <item>ru</item>
         <item>fr</item>
+        <item>zh-rCN</item>
     </string-array>
 
     <string name="key_pref_precision" translatable="false">key_pref_precision</string>
