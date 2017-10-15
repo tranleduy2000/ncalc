@@ -30,7 +30,7 @@
         <item>English</item>
         <item>Russia</item>
         <item>French</item>
-        <item>Simplified Chinese</item>
+        <item>Chinese (Simplified)</item>
     </string-array>
 
     <string-array name="language_code" translatable="false">
