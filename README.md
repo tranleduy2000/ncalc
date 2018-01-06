@@ -8,9 +8,9 @@ Get lite version in Google Play Store
 <a href="https://play.google.com/store/apps/details?id=com.duy.calculator.free">
 <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="150"></a>
 
-## How to build and run this source
+## How to build this source by using Android Studio
 
-1. Clone project by using Android Studio
+1. Clone project, Select ``File``->``New``->``Project from Version Control
 2. Select and build module **app**
 
 ## Screenshot

@@ -3,12 +3,19 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\github\ncalc\app\app.iml" filepath="C:\github\ncalc\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/appsecondary/appsecondary.iml" filepath="$PROJECT_DIR$/appsecondary/appsecondary.iml" />
+      <module fileurl="file://C:\github\ncalc\appsecondary\appsecondary.iml" filepath="C:\github\ncalc\appsecondary\appsecondary.iml" />
       <module fileurl="file://$PROJECT_DIR$/floatingkeyboardview/floatingkeyboardview.iml" filepath="$PROJECT_DIR$/floatingkeyboardview/floatingkeyboardview.iml" />
+      <module fileurl="file://C:\github\ncalc\floatingkeyboardview\floatingkeyboardview.iml" filepath="C:\github\ncalc\floatingkeyboardview\floatingkeyboardview.iml" />
       <module fileurl="file://$PROJECT_DIR$/jcm1/jcm1.iml" filepath="$PROJECT_DIR$/jcm1/jcm1.iml" />
+      <module fileurl="file://C:\github\ncalc\jcm1\jcm1.iml" filepath="C:\github\ncalc\jcm1\jcm1.iml" />
       <module fileurl="file://$PROJECT_DIR$/mathlibrary/mathlibrary.iml" filepath="$PROJECT_DIR$/mathlibrary/mathlibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ncalc.iml" filepath="$PROJECT_DIR$/ncalc.iml" />
+      <module fileurl="file://C:\github\ncalc\mathlibrary\mathlibrary.iml" filepath="C:\github\ncalc\mathlibrary\mathlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ncalc.iml" filepath="$PROJECT_DIR$/.idea/ncalc.iml" />
+      <module fileurl="file://C:\github\ncalc\ncalc.iml" filepath="C:\github\ncalc\ncalc.iml" />
       <module fileurl="file://$PROJECT_DIR$/symja-release/symja-release.iml" filepath="$PROJECT_DIR$/symja-release/symja-release.iml" />
+      <module fileurl="file://C:\github\ncalc\symja-release\symja-release.iml" filepath="C:\github\ncalc\symja-release\symja-release.iml" />
     </modules>
   </component>
 </project>

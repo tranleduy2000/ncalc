@@ -18,10 +18,11 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
@@ -32,6 +33,7 @@ allprojects {
         flatDir {
             dirs '/libs'
         }
+        google()
     }
 
 }
@@ -39,12 +41,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-ext{
-    sdkVersion = 26
-    compileSdkVersion = 26
+ext {
+    sdkVersion = 27
+    compileSdkVersion = 27
     minSdkVersion = 15
-    minSdkVersionDev = 21
-    targetSdkVersion = 26
-    androidSupportVersion = '26.0.0-alpha1'
-    buildToolsVersion = "26.0.0"
+    targetSdkVersion = 27
+    androidSupportVersion = '27.0.3'
+    buildToolsVersion = "27.0.3"
 }
