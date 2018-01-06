@@ -10,7 +10,7 @@ Get lite version in Google Play Store
 
 ## How to build this source by using Android Studio
 
-1. Clone project, Select ``File``->``New``->``Project from Version Control
+1. Clone project, Select ``File``->``New``->``Project from Version Control``->``GitHub``
 2. Select and build module **app**
 
 ## Screenshot
