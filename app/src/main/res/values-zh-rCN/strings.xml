@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="all_unit_converter">单位转换</string>
+    <string name="factor">分解</string>
+    <string name="binomial_newton">牛顿二项式展开</string>
+    <string name="circle">圆</string>
+    <string name="circle_interaction">两圆相交</string>
+    <string name="circle_tangent">两圆相切</string>
+    <string name="close">关闭</string>
+    <string name="collinear">共线</string>
+    <string name="column">列数</string>
+    <string name="copied">已复制到剪贴板</string>
+    <string name="create">创建</string>
+    <string name="delete_desc">清除</string>
+    <string name="derivative">求导</string>
+    <string name="error_input_num">数字格式化错误</string>
+    <string name="error">错误</string>
+    <string name="expand">展开</string>
+    <string name="factor_prime">质因数分解</string>
+    <string name="factor_polynomial">多项式分解</string>
+    <string name="ellipse">椭圆</string>
+    <string name="feedback">反馈</string>
+    <string name="gi_i_thi_u_v_calc">关于 NCalc+</string>
+    <string name="gi_tr_nh_nh_t">最小值</string>
+    <string name="graph">图像</string>
+    <string name="help">帮助</string>
+    <string name="enter_expression">输入表达式</string>
+    <string name="input_equation">输入一个方程：</string>
+    <string name="inside">内部</string>
+    <string name="interaction">相交</string>
+    <string name="l_ch_chu_n">标准差</string>
+    <string name="vector">向量</string>
+    <string name="title_activity_app_about">关于 NCalc+</string>
+    <string name="title_activity_geometry">笛卡尔平面几何</string>
+    <string name="title_activity_graph">图像</string>
+    <string name="title_activity_matrix_calculator">矩阵</string>
+    <string name="title_activity_settings">设定</string>
+    <string name="title_activity_unit_converter_acitvity">单位转换</string>
+    <string name="th_m_ph_ng_tr_nh">更多</string>
+    <string name="table">统计</string>
+    <string name="t_ng">共计</string>
+    <string name="speech_not_supported">语音识别不受支持</string>
+    <string name="speak_expression">朗读表达式</string>
+    <string name="solve_system_equation">方程组求解</string>
+    <string name="solve_for_var">以变量 (x, y, z, …) 求解方程：</string>
+    <string name="solve_equation">方程求解</string>
+
+    <string name="simplify_expression">表达式化简</string>
+    <string name="simplify">化简</string>
+    <string name="settings">设定</string>
+    <string name="science_calculator">科学计算器</string>
+    <string name="row">行数</string>
+    <string name="process">处理</string>
+
+    <string name="polygon">多边形</string>
+    <string name="parallel">平行</string>
+    <string name="outside">外部</string>
+    <string name="auto_process">自动处理</string>
+    <string name="line">直线</string>
+    <string name="linear_system">方程组求解</string>
+    <string name="logic_calculator">进制转换</string>
+    <string name="matrix">矩阵</string>
+    <string name="matrix_op_inverse_a">逆 A</string>
+    <string name="matrix_op_inverse_b">逆 B</string>
+    <string name="matrix_op_tranpose_b">转置 B</string>
+    <string name="matrix_op_tranpose_a">转置 A</string>
+    <string name="maximum">最大值</string>
+    <string name="more">更多…</string>
+    <string name="msg_delete_matrix">重新创建矩阵将会清除当前矩阵，确定吗？</string>
+    <string name="nav_descartes">平面几何</string>
+    <string name="nh_p_c_c_n_c_a_h">输入方程组的变量：</string>
+    <string name="nh_p_d_li_u">输入一个值：</string>
+    <string name="not_line">非直线</string>
+    <string name="not_interaction">无交点</string>
+    <string name="not_in_circle">不在圆上</string>
+    <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
+        输入组成方程组的方程，随后输入方程组的变量 \n
+        例：点击 [+] 然后输入如下方程： \n
+         x + y + z = 2 \n
+         x - y + 2z = 6 \n
+         z + y = 2 \n
+        随后输入你希望得到的变量 x, y, z \n
+        点击 [求解]
+    </string>
+    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">以英文逗号 (,) 分隔数据\n\n例：12, 232.43, 4</string>
+    <string name="above_circle">在圆上</string>
+    <string name="not_input_equation">未输入方程</string>
+    <string name="noFunDisp">没有函数可供显示</string>
+    <string name="tapFun">选择一个函数</string>
+    <string name="save">保存</string>
+    <string name="add_function">添加函数</string>
+    <string name="cannotwrite">无法写入文件</string>
+    <string name="not_variable">
+        <![CDATA[
+        未找到变量</br>
+        请输入一个含有变量 x 的方程</br>
+        例：2x + 1 或 2x^2 + x - 2
+        ]]>
+    </string>
+    <string name="history">历史记录</string>
+    <string name="pref_title_font">字体</string>
+    <string name="pref_title_theme">主题</string>
+    <string name="solve">求解</string>
+    <string name="tangent">相切</string>
+    <string name="translate">翻译</string>
+
+
+    <string name="help_main_calc" formatted="false"><![CDATA[
+
+<p>Default calculator mode: Radians</p>
+<p>To calculate sin, cos, tan … in degrees, type <strong>sin (30 &deg;), cos (90 &deg;), </strong>…</p>
+<p>&nbsp;</p>
+<p>For expressions that contain parameters, enter an * (multiplication) between parameters and variables. Example:</p>
+<p>$$ 2x ^ 2 + mx + 2 = 0 $$ Enter &nbsp;<strong>2x ^ 2 + m * x + 2 = 0</strong></p>
+<p>$$\\frac{1}{2ax + b}$$ Enter <strong>1 &nbsp;/ (2a * x + b)</strong></p>
+<p>&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td colspan="2" width="100%">
+<p><strong>HELP WITH OPERATORS</strong></p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>+ (Plus sign)</p>
+</td>
+<td width="57%">
+<p>Plus</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>- (Minus sign)</p>
+</td>
+<td width="57%">
+<p>Minus</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>* (Multiply sign)</p>
+</td>
+<td width="57%">
+<p>Multiply</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>/</p>
+</td>
+<td width="57%">
+<p>Divide</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>% (Percent sign)</p>
+</td>
+<td width="57%">
+<p>Percent</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>^</p>
+</td>
+<td width="57%">
+<p>Exponentiation</p>
+</td>
+</tr>
+<tr>
+<td width="42%">
+<p>!</p>
+</td>
+<td width="57%">
+<p>Factorial</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<td colspan="2" width="590">
+<p><strong>CONSTANTS</strong> (not case-sensitive)</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>Pi</p>
+</td>
+<td width="337">
+<p>Value of Pi</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>E</p>
+</td>
+<td width="337">
+<p>Value of E</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>i</p>
+</td>
+<td width="337">
+<p>Imaginary unit</p>
+</td>
+</tr>
+<tr>
+<td width="253">
+<p>Infinity</p>
+</td>
+<td width="337">
+<p>Infinity</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td colspan="2" width="100%">
+<p><strong>TRIGONOMETRIC AND MATHEMATIC FUNCTIONS</strong></p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sqrt (x) or &radic; (x)</p>
+</td>
+<td width="56%">
+<p>Positive square root of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>cbrt (x)</p>
+</td>
+<td width="56%">
+<p>Cube root of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>abs (x)</p>
+</td>
+<td width="56%">
+<p>Absolute value of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sin (x)</p>
+</td>
+<td width="56%">
+<p>Sine of the angle x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>cos (x)</p>
+</td>
+<td width="56%">
+<p>Cosine of the angle x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>tan (x)</p>
+</td>
+<td width="56%">
+<p>Tangent of the angle x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>asin (x) or arcsin (x)</p>
+</td>
+<td width="56%">
+<p>Inverse sine of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>acos (x) or Arccos(x)</p>
+</td>
+<td width="56%">
+<p>Inverse cosine of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>atan (x) or arctan (x)</p>
+</td>
+<td width="56%">
+<p>Inverse tangent of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sinh (x)</p>
+</td>
+<td width="56%">
+<p>Hyperbolic sine of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>cosh (x)</p>
+</td>
+<td width="56%">
+<p>Hyperbolic cosine of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>tanh (x)</p>
+</td>
+<td width="56%">
+<p>Hyperbolic tangent of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>C (n, k)</p>
+</td>
+<td width="56%">
+<p>Combinations</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>P (n, k)</p>
+</td>
+<td width="56%">
+<p>Permutations</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>asinh (x) or arcsinh (x)</p>
+</td>
+<td width="56%">
+<p>Inverse hyperbolic sine of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>acosh (x) or arccosh (x)</p>
+</td>
+<td width="56%">
+<p>Inverse hyperbolic cosine of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>atanh (x) or arctanh (x)</p>
+</td>
+<td width="56%">
+<p>Inverse hyperbolic tangent of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>ln (x)</p>
+</td>
+<td width="56%">
+<p>Natural logarithm of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>log (x)</p>
+</td>
+<td width="56%">
+<p>Natural logarithm of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>log (a, b)</p>
+</td>
+<td width="56%">
+<p>Base a logarithm of b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>exp (x)</p>
+</td>
+<td width="56%">
+<p>Value of e to the power of x</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>ceil (x)</p>
+</td>
+<td width="56%">
+<p>Round x up to the next whole number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>floor (x)</p>
+</td>
+<td width="56%">
+<p>Round x down to the next whole number</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>max (a, b)</p>
+</td>
+<td width="56%">
+<p>Returns the largest value in two numbers a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>min (a, b)</p>
+</td>
+<td width="56%">
+<p>Returns the smallest value in two numbers a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>rnd (a)</p>
+</td>
+<td width="56%">
+<p>Random function</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>GCD (a, b)</p>
+</td>
+<td width="56%">
+<p>Greatest common divisor of a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>LCM (a, b)</p>
+</td>
+<td width="56%">
+<p>Least common multiple of a and b</p>
+</td>
+</tr>
+<tr>
+<td width="43%">
+<p>sign (x)</p>
+</td>
+<td width="56%">
+<p>Returns -1, 0 or 1 depending on whether x is negative, zero or positive</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+    ]]></string>
+    <string name="help_solve_equation" formatted="false">@string/help_main_calc</string>
+    <string name="help_derivative" formatted="false">@string/help_main_calc</string>
+    <string name="help_expression" formatted="false">@string/help_main_calc</string>
+
+    <string name="choose_mode">选择 2D 或 3D 图像模式</string>
+    <string name="reason">原因</string>
+    <string name="math_error">数学错误</string>
+    <string name="add_equation">添加方程</string>
+    <string name="remove_equation">移除方程</string>
+    <string name="enter_params">输入方程组的变量：</string>
+    <string name="calc">计算</string>
+
+    <string name="enter_value">输入值</string>
+    <string name="name">名称</string>
+    <string name="define_var">定义变量</string>
+    <string name="graph_2">图像</string>
+    <string name="enter_limit">输入极限</string>
+    <string name="eval">求值</string>
+    <string name="input_limit">输入函数的极限</string>
+    <string name="limit">极限计算</string>
+    <string name="rate_this_app">给此应用评分</string>
+    <string name="integrate">积分</string>
+    <string name="enter_function">输入函数</string>
+    <string name="lower_limit">下极限</string>
+    <string name="upper_limit">上极限</string>
+
+    <string name="derivative_level">阶数</string>
+    <string name="der_level_desc">在此设定求导阶数</string>
+    <string name="input_der_here">在此行输入需要求导的函数！</string>
+    <string name="input_equation_here">在此行输入需要求解的方程！</string>
+    <string name="input_expand_here">在此行输入需要展开的表达式！</string>
+    <string name="input_graph_here">点击此处添加更多函数</string>
+    <string name="input_integrate_here">在此行输入需要积分的函数！</string>
+    <string name="input_primitive_here">在此行输入需要不定积分的函数！</string>
+    <string name="primitive">不定积分</string>
+    <string name="limit_from_desc">下极限</string>
+    <string name="push_analyze_button">点击此按钮来分解多项式，首次初始化数据的计算过程可能需要更长时间</string>
+    <string name="push_button_primitive">点击此按钮来开始计算，首次初始化数据的计算过程可能需要更长时间</string>
+    <string name="push_der_button">点击此按钮来计算函数的不定积分，首次初始化数据的计算过程可能需要更长时间</string>
+    <string name="push_expand_button">点击此按钮来展开表达式，首次初始化数据的计算过程可能需要更长时间</string>
+    <string name="push_integrate_button">点击此按钮来积分，首次初始化数据的计算过程可能需要更长时间</string>
+    <string name="push_simplify_button">点击此按钮来化简表达式，首次初始化数据的计算过程可能需要更长时间</string>
+    <string name="push_solve_button">点击此按钮来求解方程，首次初始化数据的计算过程可能需要更长时间</string>
+    <string name="input_analyze_here">在此行输入需要分解的多项式！</string>
+    <string name="input_simplify_here">在此行输入需要化简的表达式！</string>
+    <string name="limit_to_desc">上极限</string>
+    <string name="ln_hint">
+        <![CDATA[
+<font color="red">Log(x) 为自然对数</font>
+        ]]>
+    </string>
+    <string name="analytics">分析</string>
+    <string name="algebra">代数</string>
+    <string name="language">语言</string>
+    <string name="default_">系统默认</string>
+    <string name="probability_statistics">概率统计</string>
+    <string name="combination">组合</string>
+    <string name="permutation">排列</string>
+    <string name="module">取模</string>
+    <string name="input_number">输入数字</string>
+    <string name="enter_number">输入数字</string>
+    <string name="help_permutation">输入数字 \\(N\\)（元素总数）和 \\(L\\)（所选元素数量）</string>
+    <string name="trace_mode">跟踪模式</string>
+    <string name="not_a_number">输入的数据不是数字！</string>
+    <string name="gt_zero">两个数字必须大于零</string>
+    <string name="number_theory">数论</string>
+    <string name="summary_trace_mode">计算机如何解决表达式问题</string>
+    <string name="enter_variable">在此输入变量，变量用分号分隔</string>
+    <string name="select_num_var">选择变量个数</string>
+    <string name="num_of_var">变量个数</string>
+    <string name="enter_coefficient">在此输入系数！</string>
+    <string name="select_num_var_des">方程组内需要求解的变量个数</string>
+    <string name="enter_coeff_desc">
+        输入方程的系数。\n
+        例：\n
+            2x + y = 0\n
+            3x - 2y = 1\n
+        输入系数：\n
+            [1; 1; 0]\n
+            [3, -2; 1]
+    </string>
+    <string name="enter_var_hint">输入方程组的变量</string>
+    <string name="input_matrix">输入矩阵</string>
+    <string name="input_equation_">输入方程</string>
+    <string name="precision_">精度</string>
+    <string name="calculator">计算器</string>
+    <string name="ui">用户界面</string>
+    <string name="advance">高级</string>
+    <string name="fraction_mode">分数模式</string>
+    <string name="fraction_decs">显示 1/2 而不是 0.5</string>
+    <string name="summary_instant_res">自动计算结果</string>
+    <string name="instant_res">即时结果</string>
+    <string name="not_find_root">无法找到方程的根</string>
+    <string name="no_root">此方程无解</string>
+    <string name="change_lang_msg">请重新启动应用以应用所选语言</string>
+    <string name="latex_engine">LaTeX 引擎</string>
+
+    <string name="tit_trig_expand">三角函数展开</string>
+    <string name="tit_trig_reduce">三角函数化简</string>
+    <string name="tit_trig_to_exp">三角函数转指数</string>
+    <string name="trigonometry">三角学</string>
+    <string name="latex_summary">KaTeX 在移动环境上快于 MathJax，但 MathJax 支持更多特性且更优美</string>
+    <string name="close_drawer">关闭抽屉栏</string>
+    <string name="catalan_number">卡塔兰数</string>
+    <string name="prime">质数</string>
+    <string name="fibonacci">斐波那契数</string>
+    <string name="catalan_desc">计算第 n 个卡塔兰数</string>
+    <string name="fibo_desc">计算第 n 个斐波那契数</string>
+    <string name="prime_desc">计算第 n 个质数</string>
+    <string name="notify_update">更新通知</string>
+
+    <string name="unit1">温度</string>
+    <string name="unit2">质量</string>
+    <string name="unit3">长度</string>
+    <string name="unit4">功率</string>
+    <string name="unit5">能量</string>
+    <string name="unit6">速度</string>
+    <string name="unit7">面积</string>
+    <string name="unit8">体积</string>
+    <string name="unit9">比特率</string>
+    <string name="unit10">时间</string>
+
+    <string name="weightunitkg">千克 (kg)</string>
+    <string name="weightunitgm">克 (g)</string>
+    <string name="weightunitlb">磅 (lb)</string>
+    <string name="weightunitounce">盎司 (oz)</string>
+    <string name="weightunitmg">毫克 (mg)</string>
+
+
+    <string name="temperatureunitc">摄氏度 (ºC)</string>
+    <string name="temperatureunitf">华氏度 (ºF)</string>
+    <string name="temperatureunitk">开氏度 (ºK)</string>
+    <string name="temperatureunitn">牛顿温标 (ºN)</string>
+
+    <string name="lengthunitnm">纳米 (nm)</string>
+    <string name="lengthunitmicrom">微米 (µm)</string>
+    <string name="lengthunitpm">皮米 (pm)</string>
+    <string name="lengthunitmm">毫米 (mm)</string>
+    <string name="lengthunitcm">厘米 (cm)</string>
+    <string name="lengthunitdm">分米 (dm)</string>
+    <string name="lengthunitm">米 (m)</string>
+    <string name="lengthunitkm">千米 (km)</string>
+
+
+    <string name="lengthunitfeet">英尺 (ft)</string>
+    <string name="lengthunitmile">英里 (mile)</string>
+    <string name="lengthunitinch">英寸 (inch)</string>
+
+
+    <string name="powerunithorsepower">马力 (HP)</string>
+    <string name="powerunitwatts">瓦特 (W)</string>
+    <string name="powerunitkilowatts">千瓦 (KW)</string>
+    <string name="powerunitmegawatt">百万瓦 (MW)</string>
+    <string name="powerunitgigawatt">吉瓦 (GW)</string>
+
+
+    <string name="energyunitcalories">卡路里 (cal)</string>
+    <string name="energyunitkilocalories">千卡 (kcal)</string>
+    <string name="energyunitjoules">焦耳 (J)</string>
+
+    <string name="velocityunitkmph">千米每小时 (km/h)</string>
+    <string name="velocityunitmeterpers">米每秒 (m/s)</string>
+    <string name="velocityunitmilesperh">英里每小时 (mph)</string>
+    <string name="velocityunitfeetpers">英尺每秒 (ft/s)</string>
+
+
+    <string name="areaunitsqmm">平方毫米 (mm²)</string>
+    <string name="areaunitsqm">平方米 (m²)</string>
+    <string name="areaunitsqcm">平方厘米 (cm²)</string>
+    <string name="areaunitsqkm">平方千米 (km²)</string>
+    <string name="areaunitsqmiles">平方英里 (mi²)</string>
+    <string name="areaunitsqyard">平方码 (yd²)</string>
+
+
+    <string name="volumeunitcubicmm">立方毫米 (mm³)</string>
+    <string name="volumeunitcubiccm">立方厘米 (cm³)</string>
+    <string name="volumeunitcubicm">立方米 (m³)</string>
+    <string name="volumeunitcubicfeet">立方英尺 (ft³)</string>
+
+
+    <string name="bitrateunitbytes">字节 (B)/s</string>
+    <string name="bitrateunitkilobytes">千字节 (KB)/s</string>
+    <string name="bitrateunitmegabytes">兆字节 (MB)/s</string>
+    <string name="bitrateunitgigabytes">吉字节 (GB)/s</string>
+    <string name="bitrateunitterabytes">太字节 (TB)/s</string>
+    <string name="bitrateunitbits">比特 (b)/s</string>
+    <string name="bitrateunitkilobits">千比特 (Kb)/s</string>
+    <string name="bitrateunitmegabits">兆比特 (Mb)/s</string>
+    <string name="bitrateunitgigabits">吉比特 (Gb)/s</string>
+    <string name="bitrateunitterabits">太比特 (Tb)/s</string>
+
+    <string name="timeunitsecond">秒 (s)</string>
+    <string name="timeunitminutes">分钟 (min)</string>
+    <string name="timeunithours">小时 (h)</string>
+    <string name="timeunitdays">天 (d)</string>
+    <string name="timeunitweeks">周</string>
+    <string name="timeunitmiliseconds">毫秒 (ms)</string>
+
+    <string name="hide_status_bar">隐藏状态栏</string>
+    <string name="result">结果</string>
+    <string name="see_doc">查看文档</string>
+    <string name="loading">加载数据中…</string>
+
+    <!--geometric -->
+    <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">圆心 O1，半径 R1</string>
+    <string name="o1_x1_y1">O1(x1, y1)</string>
+    <string name="ph_ng_tr_nh_ng_tr_n">圆的方程</string>
+    <string name="chu_vi">周长</string>
+    <string name="di_n_t_ch">面积</string>
+    <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">圆心 O2，半径 R2</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">两圆间的相对位置</string>
+    <string name="v_tr_t_ng_i_v_i_ng_th_ng">相对于直线的位置</string>
+    <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">M 的方程相等性</string>
+    <string name="v_tr_t_ng_i_v_i_i_m">相对于点的位置</string>
+    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">输入直线 AB 的坐标，起始点为 A(xa, ya)，结束点为 B(xb, yb)。</string>
+    <string name="d_i_o_n_th_ng_ab">线段 AB 的长度</string>
+    <string name="kho_ng_c_ch_t_a_n_b">A 到 B 的距离</string>
+    <string name="g_c_t_o_v_i_ox">与 x 轴的夹角</string>
+    <string name="g_c_gi_a_ng_th_ng_ab_v_ox">AB 与 x 轴的夹角</string>
+    <string name="trung_i_m">中点</string>
+    <string name="trung_i_m_c_a_o_n_th_ng_ab">线段 AB 的中心</string>
+    <string name="vector_ch_ph_ng">向量</string>
+    <string name="vector_ph_p_tuy_n">法向量</string>
+    <string name="ph_ng_tr_nh_tham_s">参数方程</string>
+    <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">直线 AB 的参数方程</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t">一般方程</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab">直线 AB 的一般方程</string>
+    <string name="ng_th_ng_cd">直线 CD</string>
+    <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">输入直线 CD 上两点的坐标</string>
+    <string name="v_tr_t_ng_i">相对位置</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">AB 与 CD 间的相对位置</string>
+    <string name="g_c_gi_a_2_ng_th_ng">两直线间的夹角</string>
+    <string name="nh_p_t_a_i_m_m">输入 M 点的坐标</string>
+    <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">点 M 到直线 AB 的距离</string>
+    <string name="kho_ng_c_ch">距离</string>
+    <string name="nh_p_vector">输入向量</string>
+    <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">输入两个向量 a (x_a, y_a), b (x_b, y_b)</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">检测两向量 a, b 是否相反</string>
+    <string name="vu_ng_g_c">垂直</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">检测两向量 a, b 是否互相垂直</string>
+    <string name="g_c_gi_a_hai_vector">两向量间的夹角</string>
+    <string name="t_ng_2_vector">两向量的和</string>
+    <string name="hi_u_2_vector">两向量的差</string>
+    <string name="t_ch_vector_v_i_s_k">向量与 k 的乘积</string>
+    <string name="t_ch_v_h_ng">数量积</string>
+    <string name="t_ch_v_h_ng_c_a_2_vector">两向量的数量积</string>
+    <string name="ng_th_ng_ab">直线 AB</string>
+    <string name="th_ng_h_ng">相反</string>
+    <string name="divisors">因数</string>
+    <string name="pi_number">圆周率</string>
+    <string name="install_msg">你想安装 Natural Keyboard 吗？</string>
+    <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">GitHub 上的开源项目 https://github.com/tranleduy2000/ncalc</string>
+    <string name="all_functions">所有函数</string>
+    <string name="getting_started">入门</string>
+</resources>

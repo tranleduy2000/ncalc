@@ -28,7 +28,7 @@
     <string name="create">Create</string>
     <string name="delete_desc">Erase</string>
     <string name="derivative">Derivative</string>
-    <string name="error_input_num">Number format error</string>
+    <string name="error_input_num">Formatting error</string>
     <string name="error">Error</string>
     <string name="expand">Expand</string>
     <string name="factor_prime">Prime Factor</string>
@@ -89,7 +89,7 @@
     <string name="not_interaction">No intersections</string>
     <string name="not_in_circle">None of the circle</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
-        Enter equations forming a system of equations, then enter the equation system variables \n
+        Enter equations to form a system of equations, then enter the equation system variables \n
         For example: press [+] and enter the following equations: \n
          x + y + z = 2 \n
          x - y + 2z = 6 \n
@@ -108,7 +108,7 @@
     <string name="not_variable">
         <![CDATA[
         No variable found </br>
-        Please enter an equation with variable x</br>
+        Please enter an equation with a variable x</br>
         Examples: 2x + 1 or 2x^2 + x - 2
         ]]>
     </string>
@@ -116,7 +116,7 @@
     <string name="pref_title_font">Font</string>
     <string name="pref_title_theme">Theme</string>
     <string name="solve">Solve</string>
-    <string name="tangent">tangent</string>
+    <string name="tangent">Tangent</string>
     <string name="translate">Translate</string>
 
 
@@ -487,9 +487,9 @@
     <string name="help_derivative" formatted="false">@string/help_main_calc</string>
     <string name="help_expression" formatted="false">@string/help_main_calc</string>
 
-    <string name="choose_mode">Select the 2D or 3D graph mode</string>
+    <string name="choose_mode">Select 2D or 3D graph mode</string>
     <string name="reason">Reason</string>
-    <string name="math_error">Math Error</string>
+    <string name="math_error">Math error</string>
     <string name="add_equation">Add equation</string>
     <string name="remove_equation">Delete equation</string>
     <string name="enter_params">Enter the variables of the system of equations:</string>
@@ -497,13 +497,13 @@
 
     <string name="enter_value">Enter value</string>
     <string name="name">Name</string>
-    <string name="define_var">Define Variable</string>
+    <string name="define_var">Define variable</string>
     <string name="graph_2">Graph</string>
     <string name="enter_limit">Enter limit</string>
     <string name="eval">Evaluate</string>
     <string name="input_limit">Input limit of function</string>
-    <string name="limit">Find Limit</string>
-    <string name="rate_this_app">Rate App</string>
+    <string name="limit">Find limit</string>
+    <string name="rate_this_app">Rate app</string>
     <string name="integrate">Integrate</string>
     <string name="enter_function">Enter function</string>
     <string name="lower_limit">Lower limit</string>
@@ -513,20 +513,20 @@
     <string name="der_level_desc">Select derivative level here</string>
     <string name="input_der_here">Enter derivative functions needed in this line!</string>
     <string name="input_equation_here">Enter equation need find root in this line!</string>
-    <string name="input_expand_here">Enter the expression need expand in this line!</string>
+    <string name="input_expand_here">Enter the expression to expand in this line!</string>
     <string name="input_graph_here">Click here to add more functions</string>
     <string name="input_integrate_here">Enter the function to integrate on this line!</string>
     <string name="input_primitive_here">Enter the function to primitive on this line!</string>
     <string name="primitive">Primitive</string>
     <string name="limit_from_desc">Lower limit</string>
-    <string name="push_analyze_button">Press this button to analyze the factorization of polynomials, the calculation process can take longer for first-time initialization data</string>
-    <string name="push_button_primitive">Then press the button to start the calculation, the calculation may take a long time for the first time initialization data</string>
-    <string name="push_der_button">Press this button to derivative function, the calculation process can take longer for first-time initialization data</string>
-    <string name="push_expand_button">Click this button to expand the expression, the calculation process can take longer for first-time initialization data</string>
-    <string name="push_integrate_button">Press this button to integrals, calculation process can take longer for first-time initialization data</string>
-    <string name="push_simplify_button">Press this button to shortened expression, the calculation process can take longer for first-time initialization data</string>
-    <string name="push_solve_button">Press this button to find root the equation, the calculation process can take longer for first-time initialization data</string>
-    <string name="input_analyze_here">Enter polynomial that needs analysis in this line!</string>
+    <string name="push_analyze_button">Press this button to determine the factorization of polynomials, the calculation process can take longer for a first-time data initialization</string>
+    <string name="push_button_primitive">Then press the button to start the calculation, the calculation may take a long time for a first-time data initialization</string>
+    <string name="push_der_button">Press this button to derivative function, the calculation process can take longer for a first-time data initialization</string>
+    <string name="push_expand_button">Click this button to expand the expression, the calculation process can take longer for a first-time data initialization</string>
+    <string name="push_integrate_button">Press this button to integrals, calculation process can take longer for a first-time data initialization</string>
+    <string name="push_simplify_button">Press this button to shortened expression, the calculation process can take longer for a first-time data initialization</string>
+    <string name="push_solve_button">Press this button to find root the equation, the calculation process can take longer for a first-time data initialization</string>
+    <string name="input_analyze_here">Enter a polynomial to analyze in this line!</string>
     <string name="input_simplify_here">Enter the expression to simplify in this line!</string>
     <string name="limit_to_desc">Upper limit</string>
     <string name="ln_hint">
@@ -548,7 +548,7 @@
     <string name="not_a_number">The data entered is not a number!</string>
     <string name="gt_zero">Both numbers must be greater than zero.</string>
     <string name="number_theory">Number Theory</string>
-    <string name="summary_trace_mode">How computers solve expression problems</string>
+    <string name="summary_trace_mode">Display how computers solve expressions</string>
     <string name="enter_variable">Enter variables here. Variables are separated by semicolons.</string>
     <string name="select_num_var">Select the number of variables</string>
     <string name="num_of_var">Number of variables</string>
@@ -573,7 +573,7 @@
     <string name="fraction_decs">Show 1/2 instead of 0.5</string>
     <string name="summary_instant_res">Automatically calculate results</string>
     <string name="instant_res">Instant results</string>
-    <string name="not_find_root">Can not find root of the equation.</string>
+    <string name="not_find_root">Cannot find root of the equation.</string>
     <string name="no_root">This equation has no solution.</string>
     <string name="change_lang_msg">Please restart the app to apply the selected language.</string>
     <string name="latex_engine">LaTeX engine</string>
@@ -582,7 +582,7 @@
     <string name="tit_trig_reduce">Trigonometry - Reduce</string>
     <string name="tit_trig_to_exp">Trigonometry to Exponent</string>
     <string name="trigonometry">Trigonometry</string>
-    <string name="latex_summary">KaTeX is faster than MathJax on a mobile environment, but MathJax supports more features and is much more beautiful.</string>
+    <string name="latex_summary">KaTeX is faster than MathJax on a mobile environment, but MathJax supports more features and is more beautiful.</string>
     <string name="close_drawer">Close drawer</string>
     <string name="catalan_number">Catalan Number</string>
     <string name="prime">Prime Number</string>
@@ -630,7 +630,7 @@
     <string name="lengthunitinch">inch</string>
 
 
-    <string name="powerunithorsepower">Horse Power (HP)</string>
+    <string name="powerunithorsepower">Horsepower (HP)</string>
     <string name="powerunitwatts">Watt (W)</string>
     <string name="powerunitkilowatts">Kilowatt (KW)</string>
     <string name="powerunitmegawatt">Megawatt (MW)</string>
@@ -638,7 +638,7 @@
 
 
     <string name="energyunitcalories">Calories (cal)</string>
-    <string name="energyunitkilocalories">Kilo Calories (kcal)</string>
+    <string name="energyunitkilocalories">Kilocalories (kcal)</string>
     <string name="energyunitjoules">Joules (J)</string>
 
     <string name="velocityunitkmph">Km/h</string>
@@ -662,26 +662,26 @@
 
 
     <string name="bitrateunitbytes">Byte (B)/s</string>
-    <string name="bitrateunitkilobytes">KiloByte (KB)/s</string>
-    <string name="bitrateunitmegabytes">MegaByte (MB)/s</string>
-    <string name="bitrateunitgigabytes">GigaByte (GB)/s</string>
-    <string name="bitrateunitterabytes">TeraByte (TB)/s</string>
+    <string name="bitrateunitkilobytes">Kilobyte (KB)/s</string>
+    <string name="bitrateunitmegabytes">Megabyte (MB)/s</string>
+    <string name="bitrateunitgigabytes">Gigabyte (GB)/s</string>
+    <string name="bitrateunitterabytes">Terabyte (TB)/s</string>
     <string name="bitrateunitbits">Bit (b)/s</string>
-    <string name="bitrateunitkilobits">KiloBit (Kb)/s</string>
-    <string name="bitrateunitmegabits">MegaBit (Mb)/s</string>
-    <string name="bitrateunitgigabits">GigaBit (Gb)/s</string>
-    <string name="bitrateunitterabits">TeraBit (Tb)/s</string>
+    <string name="bitrateunitkilobits">Kilobit (Kb)/s</string>
+    <string name="bitrateunitmegabits">Megabit (Mb)/s</string>
+    <string name="bitrateunitgigabits">Gigabit (Gb)/s</string>
+    <string name="bitrateunitterabits">Terabit (Tb)/s</string>
 
     <string name="timeunitsecond">Seconds (s)</string>
     <string name="timeunitminutes">Minutes (min)</string>
     <string name="timeunithours">Hours (h)</string>
-    <string name="timeunitdays">Day (d)</string>
+    <string name="timeunitdays">Days (d)</string>
     <string name="timeunitweeks">Weeks</string>
     <string name="timeunitmiliseconds">Miliseconds (ms)</string>
 
     <string name="hide_status_bar">Hide status bar</string>
     <string name="result">Result</string>
-    <string name="see_doc">View Documentation</string>
+    <string name="see_doc">View documentation</string>
     <string name="loading">Loading data…</string>
 
     <!--geometric -->
@@ -695,7 +695,7 @@
     <string name="v_tr_t_ng_i_v_i_ng_th_ng">Position relative to straight line</string>
     <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Equation equation in M</string>
     <string name="v_tr_t_ng_i_v_i_i_m">Position relative to the point</string>
-    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Enter the coordinates of the line AB, the starting point is A(xa, ya) and the endpoint is B(xb, yb).</string>
+    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Enter the coordinates of line AB, the starting point is A(xa, ya) and the endpoint is B(xb, yb).</string>
     <string name="d_i_o_n_th_ng_ab">AB straight line length</string>
     <string name="kho_ng_c_ch_t_a_n_b">Distance from A to B</string>
     <string name="g_c_t_o_v_i_ox">Angle with Ox axis</string>
@@ -711,31 +711,31 @@
     <string name="ng_th_ng_cd">Linear CD</string>
     <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">Enter two coordinates of a straight line CD</string>
     <string name="v_tr_t_ng_i">Relative position</string>
-    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">The relative position between AB and CD lines</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">The relative position between lines AB and CD</string>
     <string name="g_c_gi_a_2_ng_th_ng">Angle between two straight lines</string>
-    <string name="nh_p_t_a_i_m_m">Enter the coordinates point M</string>
+    <string name="nh_p_t_a_i_m_m">Enter the coordinates of point M</string>
     <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">Distance from M to straight line AB</string>
     <string name="kho_ng_c_ch">Distance</string>
     <string name="nh_p_vector">Enter vector</string>
     <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">Enter 2 vectors a (x_a, y_a), b (x_b, y_b)</string>
-    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Check if two vectors a, b are aligned or not.</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Check if two vectors, a and b, are aligned with each other.</string>
     <string name="vu_ng_g_c">Perpendicular</string>
-    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Check if two vectors a, b are perpendicular to each other.</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Check if two vectors, a and b, are perpendicular to each other.</string>
     <string name="g_c_gi_a_hai_vector">Angle between two vectors</string>
     <string name="t_ng_2_vector">Sum of 2 vectors</string>
     <string name="hi_u_2_vector">Subtraction of 2 vectors</string>
-    <string name="t_ch_vector_v_i_s_k">The product of the vector with the number k</string>
+    <string name="t_ch_vector_v_i_s_k">Product of the vector with number k</string>
     <string name="t_ch_v_h_ng">Scalar</string>
-    <string name="t_ch_v_h_ng_c_a_2_vector">The scalar product of two vectors</string>
+    <string name="t_ch_v_h_ng_c_a_2_vector">Scalar product of two vectors</string>
     <string name="ng_th_ng_ab">Linear AB</string>
     <string name="th_ng_h_ng">Straight</string>
-    <string name="syntax_error" translatable="false">Syntax Error</string>
+    <string name="syntax_error" translatable="false">Syntax error</string>
     <string name="divisors">Divisors</string>
     <string name="pi_number">Pi Number</string>
     <string name="install_msg">Do you want to install Natural Keyboard?</string>
-    <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Open source project in Github https://github.com/tranleduy2000/ncalc</string>
+    <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Open source project at Github https://github.com/tranleduy2000/ncalc</string>
     <string name="matrix_a" translatable="false">Matrix A</string>
     <string name="matrix_b" translatable="false">Matrix B</string>
     <string name="all_functions">All functions</string>
-    <string name="getting_started">Getting Started</string>
+    <string name="getting_started">Getting started</string>
 </resources>
