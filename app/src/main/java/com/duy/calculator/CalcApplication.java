@@ -18,14 +18,11 @@ package com.duy.calculator;
 
 import android.support.multidex.MultiDexApplication;
 
-import com.google.firebase.crash.FirebaseCrash;
-
 
 public class CalcApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        FirebaseCrash.setCrashCollectionEnabled(!BuildConfig.DEBUG);
     }
 }
