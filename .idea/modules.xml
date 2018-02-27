@@ -12,8 +12,8 @@
       <module fileurl="file://C:\github\ncalc\mathlibrary\mathlibrary.iml" filepath="C:\github\ncalc\mathlibrary\mathlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ncalc.iml" filepath="$PROJECT_DIR$/.idea/ncalc.iml" />
       <module fileurl="file://C:\github\ncalc\ncalc.iml" filepath="C:\github\ncalc\ncalc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/symja-release/symja-release.iml" filepath="$PROJECT_DIR$/symja-release/symja-release.iml" />
       <module fileurl="file://C:\github\ncalc\symja-release\symja-release.iml" filepath="C:\github\ncalc\symja-release\symja-release.iml" />
+      <module fileurl="file://$PROJECT_DIR$/symja_android_library-release/symja_android_library-release.iml" filepath="$PROJECT_DIR$/symja_android_library-release/symja_android_library-release.iml" />
     </modules>
   </component>
 </project>
