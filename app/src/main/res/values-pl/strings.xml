@@ -106,10 +106,6 @@
     <string name="graph_2">Wykres</string>
     <string name="gt_zero">Obie liczby muszą być większe od zera.</string>
     <string name="help">Pomoc</string>
-    <string name="help_solve_equation">@string/help_main_calc</string>
-    <string name="help_derivative">@string/help_main_calc</string>
-    <string name="help_expression">@string/help_main_calc</string>
-    <string name="help_permutation">Wprowadź liczbę \\(N\\) (całkowita liczba elementów) oraz \\(L\\) (liczba wybranych elementów)</string>
     <string name="hi_u_2_vector">Odejmowanie dwóch wektorów</string>
     <string name="hide_status_bar">Ukryj pasek stanu</string>
     <string name="history">Historia</string>

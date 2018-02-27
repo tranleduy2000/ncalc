@@ -124,11 +124,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.Light.Dialog" parent="Theme.AppCompat.Light.Dialog">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <style name="AppTheme.Light.NoActionBar" parent="AppTheme.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -291,20 +286,6 @@
     <color name="indigo_accent_200">#FF536DFE</color>
     <color name="white">#FFFFFF</color>
 
-    <color name="colorPrimary_blue_highlight">#263238</color>
-    <color name="colorPrimaryDark_blue_highlight">#37474f</color>
-    <color name="colorAccent_blue_highlight">#55d7c6</color>
-    <color name="colorBackground_blue_highlight">#2a3434</color>
-
     <!-- Base application theme. -->
-    <style name="AppTheme.BlueHighlight" parent="AppTheme">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary_blue_highlight</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark_blue_highlight</item>
-        <item name="colorAccent">@color/colorAccent_blue_highlight</item>
-        <item name="android:windowBackground">@color/colorBackground_blue_highlight</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 
 </resources>

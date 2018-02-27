@@ -17,8 +17,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="display_text_size">40sp</dimen>
-
     <dimen name="text_size_small_button_digit">16sp</dimen>
     <dimen name="text_size_button_digit">28sp</dimen>
 
