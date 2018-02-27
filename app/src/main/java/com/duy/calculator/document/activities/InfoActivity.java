@@ -86,13 +86,6 @@ public class InfoActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             dataTranslate = InfoAppUtil.readListTranslate(getResources().openRawResource(R.raw.help_translate));
-
-            final String[] name = getResources().getStringArray(R.array.libs);
-            final String[] license = getResources().getStringArray(R.array.lics);
-//            dataLicense = new ArrayList<>();
-//            for (int i = 0; i < name.length; i++) {
-//                dataLicense.add(new ItemInfo(name[i], license[i], ""));
-//            }
             return null;
         }
 
@@ -104,11 +97,6 @@ public class InfoActivity extends AppCompatActivity {
             mListTranslate.setHasFixedSize(false);
             mListTranslate.setAdapter(adapterTranslate);
 
-//            LicenseAdapter adapterLicense = new LicenseAdapter(InfoActivity.this, dataLicense);
-//            mListLicense.setLayoutManager(new LinearLayoutManager(InfoActivity.this));
-//            mListLicense.setHasFixedSize(false);
-//            mListLicense.setAdapter(adapterLicense);
-//            mListLicense.addItemDecoration(new DividerItemDecoration(InfoActivity.this, DividerItemDecoration.VERTICAL));
         }
     }
 
@@ -138,13 +126,6 @@ public class InfoActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, final int position) {
             holder.bindContent(listData.get(position));
-    //        holder.root.setOnClickListener(new View.OnClickListener() {
-    //            @Override
-    //            public void onClick(View v) {
-    //                Toast.makeText(mContext, listData.get(position).toString(), Toast.LENGTH_SHORT).show();
-    //            }
-    //        });
-
         }
 
         @Override

@@ -18,30 +18,27 @@ package com.duy.calculator.document.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractAppCompatActivity;
 import com.duy.calculator.document.DocumentAdapter;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+import com.mukesh.MarkdownView;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by Duy on 19-May-17.
  */
 
-public class DocumentActivity extends AbstractAppCompatActivity {
-    @BindView(R.id.recycle_view)
-    RecyclerView recyclerView;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+public class DocumentActivity extends AbstractAppCompatActivity implements MaterialSearchView.OnQueryTextListener, DocumentAdapter.OnDocumentClickListener {
     private MaterialSearchView searchView;
     private DocumentAdapter documentAdapter;
 
@@ -51,43 +48,21 @@ public class DocumentActivity extends AbstractAppCompatActivity {
         setContentView(R.layout.activity_document);
         ButterKnife.bind(this);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.see_doc);
 
         documentAdapter = new DocumentAdapter(this);
+        documentAdapter.setOnDocumentClickListener(this);
+        RecyclerView recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setHasFixedSize(false);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(documentAdapter);
 
-        searchView = (MaterialSearchView) findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                documentAdapter.query(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                //Do some magic
-                return false;
-            }
-        });
-
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            @Override
-            public void onSearchViewShown() {
-                //Do some magic
-            }
-
-            @Override
-            public void onSearchViewClosed() {
-                //Do some magic
-            }
-        });
-
-        Toast.makeText(this, R.string.loading, Toast.LENGTH_SHORT).show();
+        searchView = findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(this);
     }
 
     @Override
@@ -115,5 +90,29 @@ public class DocumentActivity extends AbstractAppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        documentAdapter.query(query);
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
+
+    @Override
+    public void onDocumentClick(String path) {
+        showDialogMarkdown(path);
+    }
+
+    private void showDialogMarkdown(String path) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        MarkdownView markdownView = new MarkdownView(this);
+        markdownView.loadMarkdownFromAssets(path);
+        builder.setView(markdownView);
+        builder.create().show();
     }
 }

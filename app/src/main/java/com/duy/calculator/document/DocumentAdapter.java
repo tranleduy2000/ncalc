@@ -18,17 +18,15 @@ package com.duy.calculator.document;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.duy.calculator.R;
-import com.mukesh.MarkdownView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 
@@ -39,9 +37,10 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHo
     private static final String DOC_PATH = "doc/functions/";
     private static final String TAG = "DocumentAdapter";
     private Context context;
-    private ArrayList<String> names = new ArrayList<>();
+    private ArrayList<String> fileNames = new ArrayList<>();
     private ArrayList<String> originalData = new ArrayList<>();
     private LayoutInflater inflater;
+    private OnDocumentClickListener onDocumentClickListener;
 
     public DocumentAdapter(Context context) {
         this.context = context;
@@ -50,13 +49,10 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHo
     }
 
     private void loadData() {
-        Log.d(TAG, "loadData() called");
-
         try {
             String[] functions = context.getAssets().list("doc/functions");
-            Collections.addAll(names, functions);
-            originalData.addAll(names);
-            Log.d(TAG, "loadData: " + Arrays.toString(functions));
+            Collections.addAll(fileNames, functions);
+            originalData.addAll(fileNames);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,37 +60,57 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.list_item_document, parent, false));
+        View view = inflater.inflate(R.layout.list_item_document, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder() called with: holder = [" + holder + "], position = [" + position + "]");
-        holder.markdownView.loadMarkdownFromAssets(DOC_PATH + names.get(position));
+        final String fileName = fileNames.get(position);
+        if (fileName.toLowerCase().endsWith(".md")) {
+            String functionName = fileName.substring(0, fileName.length() - 3);
+            holder.txtName.setText(functionName);
+            holder.txtName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onDocumentClickListener != null) {
+                        onDocumentClickListener.onDocumentClick(DOC_PATH + fileName);
+                    }
+                }
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return names.size();
+        return fileNames.size();
     }
 
     public void query(String query) {
-        names.clear();
+        fileNames.clear();
         notifyDataSetChanged();
         for (String s : originalData) {
             if (s.toLowerCase().contains(query.toLowerCase())) {
-                names.add(s);
-                notifyItemInserted(names.size() - 1);
+                fileNames.add(s);
+                notifyItemInserted(fileNames.size() - 1);
             }
         }
     }
 
+    public void setOnDocumentClickListener(OnDocumentClickListener onDocumentClickListener) {
+        this.onDocumentClickListener = onDocumentClickListener;
+    }
+
+    public interface OnDocumentClickListener {
+        void onDocumentClick(String path);
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
-        MarkdownView markdownView;
+        TextView txtName;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            markdownView = (MarkdownView) itemView.findViewById(R.id.markdown_view);
+            txtName = itemView.findViewById(R.id.txt_name);
         }
     }
 }

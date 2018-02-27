@@ -14,17 +14,23 @@
   ~ limitations under the License.
   -->
 
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="200dp"
     android:orientation="vertical"
     app:cardUseCompatPadding="true">
 
-    <com.mukesh.MarkdownView
-        android:id="@+id/markdown_view"
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/txt_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-</android.support.v7.widget.CardView>
+        android:layout_height="wrap_content"
+        android:foreground="?selectableItemBackground"
+        android:padding="8dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="?android:textColorPrimary"
+        android:typeface="monospace"
+        tools:text="Sin" />
+
+</LinearLayout>
