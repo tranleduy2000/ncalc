@@ -1,4 +1,5 @@
 # Calculator N+ - Powerful calculator for Android.
+I am no longer supported the development of this project, pull request are welcome.
 
 ## Overview
 This is a powerful android calculator that contains most of the features needed. The power of the application is through the use of the Symja library. The results are displayed by Latex technology. The application is designed as material design. This project is an open source project that allows people to study, ad-free application.
