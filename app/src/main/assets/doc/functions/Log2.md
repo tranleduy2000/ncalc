@@ -3,7 +3,7 @@
 ``` 
 Log2(z)
 ``` 
-> returns the base-2 logarithm of `z`.
+> returns the base-`2` logarithm of `z`. `Log2(z)` will be converted to `Log(z)/Log(2)` in symbolic mode.
 
 ### Examples 
 ``` 

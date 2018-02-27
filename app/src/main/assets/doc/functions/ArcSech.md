@@ -6,6 +6,9 @@ ArcSech(z)
 
 > returns the inverse hyperbolic secant of `z`.
 
+See:
+* [Wikipedia: Inverse hyperbolic function](https://en.wikipedia.org/wiki/Inverse_hyperbolic_function)
+
 ### Examples
 ``` 
 >> ArcSech(0)    

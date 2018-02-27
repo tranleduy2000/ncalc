@@ -7,6 +7,10 @@ Curl({f1, f2, f3}, {x1, x2, x3})
 ```
 
 > gives the curl.
+ 
+
+See:  
+* [Wikipedia - Curl (mathematics)](http://en.wikipedia.org/wiki/Curl_%28mathematics%29)
 
 ### Examples
 ```

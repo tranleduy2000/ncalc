@@ -5,7 +5,10 @@ Discriminant(poly, var)
 ```
 
 > computes the discriminant of the polynomial `poly` with respect to the variable `var`.
-
+  
+See:  
+* [Wikipedia - Discriminant](http://en.wikipedia.org/wiki/Discriminant)
+ 
 ### Examples
 
 ```

@@ -11,6 +11,9 @@ PolynomialExtendedGCD(p, q, x, Modulus -> prime)
 ``` 
 
 > returns the extended GCD ('greatest common divisor') of the univariate polynomials `p` and `q` modulus the `prime` integer.
+ 
+See:
+* [Wikipedia: Polynomial extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm#Polynomial_extended_Euclidean_algorithm)
 
 ### Examples
 ``` 

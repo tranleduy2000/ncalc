@@ -5,7 +5,10 @@ Resultant(polynomial1, polynomial2, var)
 ```
 
 > computes the resultant of the polynomials `polynomial1` and `polynomial2` with respect to the variable `var`.
-
+  
+See:  
+* [Wikipedia - Resultant](https://en.wikipedia.org/wiki/Resultant)
+ 
 ### Examples
 
 ```

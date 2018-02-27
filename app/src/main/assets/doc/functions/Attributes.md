@@ -8,6 +8,6 @@ Attributes(symbol)
   
 ### Examples
 ```
->>> Attributes(Plus)
+>> Attributes(Plus)
 {Flat,Listable,OneIdentity,Orderless,NumericFunction}
 ```

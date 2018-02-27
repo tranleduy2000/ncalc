@@ -6,6 +6,9 @@ ArcCosh(z)
 
 > returns the inverse hyperbolic cosine of `z`.
 
+See:
+* [Wikipedia: Inverse hyperbolic function](https://en.wikipedia.org/wiki/Inverse_hyperbolic_function)
+
 ### Examples
 ```
 >> ArcCosh(0)

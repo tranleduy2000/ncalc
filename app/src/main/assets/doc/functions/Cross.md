@@ -1,8 +1,11 @@
 ## Cross
-``` 
+```
 Cross(a, b)
-``` 
+```
 > computes the vector cross product of `a` and `b`.
+
+See:
+* [Wikipedia: Cross product](https://en.wikipedia.org/wiki/Cross_product)
 
 ### Examples
 ``` 

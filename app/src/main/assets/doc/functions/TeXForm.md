@@ -8,6 +8,6 @@ TeXForm(expr)
  
 ### Examples
 ```
->>> TeXForm(D(sin(x)*cos(x),x))
+>> TeXForm(D(sin(x)*cos(x),x))
 "{\cos(x)}^{2}-{\sin(x)}^{2}"
 ```

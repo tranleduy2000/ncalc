@@ -6,6 +6,10 @@ MersennePrimeExponentQ(n)
 
 > returns `True` if `2^n - 1` is a prime number. Currently `0 <= n <= 45` can be computed in reasonable time.
 
+See:  
+* [Wikipedia - Mersenne prime](https://en.wikipedia.org/wiki/Mersenne_prime)
+* [Wikipedia - List of perfect numbers](https://en.wikipedia.org/wiki/List_of_perfect_numbers)
+
 ### Examples
 
 ```

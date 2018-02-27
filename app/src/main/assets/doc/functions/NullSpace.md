@@ -6,6 +6,9 @@ NullSpace(matrix)
 
 > returns a list of vectors that span the nullspace of the `matrix`.
 
+See:     
+* [Wikipedia - Kernel (linear algebra)](http://en.wikipedia.org/wiki/Kernel_%28linear_algebra%29)
+
 ### Examples 
 
 ```

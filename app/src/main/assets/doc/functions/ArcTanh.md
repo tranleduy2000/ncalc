@@ -6,6 +6,9 @@ ArcTanh(z)
 
 > returns the inverse hyperbolic tangent of `z`.
 
+See:
+* [Wikipedia: Inverse hyperbolic function](https://en.wikipedia.org/wiki/Inverse_hyperbolic_function)
+
 ### Examples
 ``` 
 >> ArcTanh(0)    

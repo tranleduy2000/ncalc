@@ -6,6 +6,9 @@ ArcSinh(z)
 
 > returns the inverse hyperbolic sine of `z`.
 
+See:
+* [Wikipedia: Inverse hyperbolic function](https://en.wikipedia.org/wiki/Inverse_hyperbolic_function)
+
 ### Examples
 ```
 >> ArcSinh(0)

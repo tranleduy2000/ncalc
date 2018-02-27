@@ -11,6 +11,6 @@ Riffle(list1, list2)
 >> Riffle({a, b, c}, x)
 {a,x,b,x,c}
 
->>> Riffle({a, b, c}, {x, y, z})
+>> Riffle({a, b, c}, {x, y, z})
 {a,x,b,y,c,z}
 ```

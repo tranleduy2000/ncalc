@@ -5,6 +5,10 @@ Dot(x, y) or x . y
 ```
 
 > `x . y` computes the vector dot product or matrix product `x . y`.
+    
+
+See:    
+* [Wikipedia - Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication)
 
 ### Examples
 

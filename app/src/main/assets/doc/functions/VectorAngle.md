@@ -1,11 +1,14 @@
 ## VectorAngle
-``` 
+
+```
 VectorAngle(u, v)
-``` 
+```
+
 > gives the angles between vectors `u` and `v`
 
 ### Examples
-``` 
+
+```
 >> VectorAngle({1, 0}, {0, 1})
 Pi/2
 
@@ -17,4 +20,4 @@ Pi/3
 
 >> VectorAngle({0, 1}, {0, 1})
 0
-``` 
+```

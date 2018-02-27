@@ -6,6 +6,9 @@ ArcCoth(z)
 
 > returns the inverse hyperbolic cotangent of `z`.
 
+See:
+* [Wikipedia: Inverse hyperbolic function](https://en.wikipedia.org/wiki/Inverse_hyperbolic_function)
+
 ### Examples
 ``` 
 >> ArcCoth(0)    

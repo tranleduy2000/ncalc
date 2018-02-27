@@ -5,6 +5,11 @@ NMaximize(maximize_function, constraints, variables_list)
 
 > the `NMaximize` function provides an implementation of [George Dantzig's simplex algorithm](http://en.wikipedia.org/wiki/Simplex_algorithm) for solving linear optimization problems with linear equality and inequality constraints and implicit non-negative variables.
 
+See:  
+* [Wikipedia - Linear programming](http://en.wikipedia.org/wiki/Linear_programming)
+ 
+See also: [LinearProgramming](LinearProgramming.md), [NMinimize](NMinimize.md)
+
 ### Examples	
 ```
 >> NMaximize({-2*x+y-5, x+2*y<=6 && 3*x + 2*y <= 12 }, {x, y})

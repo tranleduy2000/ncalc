@@ -8,7 +8,7 @@ Together(expr)
 
 ### Examples 
 ``` 
->>> Together(a/b+x/y)
+>> Together(a/b+x/y)
 (a*y+b*x)*b^(-1)*y^(-1)
 
 >> Together(a / c + b / c)

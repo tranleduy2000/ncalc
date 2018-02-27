@@ -3,7 +3,7 @@
 ``` 
 Log10(z)
 ``` 
-> returns the base-10 logarithm of `z`.
+> returns the base-`10` logarithm of `z`. `Log10(z)` will be converted to `Log(z)/Log(10)` in symbolic mode.
 
 ### Examples 
 ``` 

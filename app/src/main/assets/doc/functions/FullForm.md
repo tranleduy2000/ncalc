@@ -10,9 +10,9 @@ FullForm(expression)
 
 FullForm shows the difference in the internal expression representation:
 ```  
->>> FullForm(x(x+1))
+>> FullForm(x(x+1))
 "x(Plus(1, x))"
 
->>> FullForm(x*(x+1))
+>> FullForm(x*(x+1))
 "Times(x, Plus(1, x))"
 ```

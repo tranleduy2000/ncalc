@@ -5,6 +5,9 @@ CoprimeQ(x, y)
 
 > tests whether `x` and `y` are coprime by computing their greatest common divisor.
 
+See:
+* [Wikipedia - Coprime](http://en.wikipedia.org/wiki/Coprime)
+
 ### Examples
 ```
 >> CoprimeQ(7, 9)

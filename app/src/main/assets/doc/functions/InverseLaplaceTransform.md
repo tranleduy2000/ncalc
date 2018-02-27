@@ -5,6 +5,9 @@ InverseLaplaceTransform(f,s,t)
 ```
 
 > returns the inverse laplace transform.
+ 
+See:
+* [Wikipedia - Laplace transform](https://en.wikipedia.org/wiki/Laplace_transform)
 
 ### Examples 
 ```  

@@ -8,7 +8,7 @@ Cot(expr)
  
 ### Examples
 ```
->>> Cot(Pi/4)
+>> Cot(Pi/4)
 1
 
 >> Cot(0)    

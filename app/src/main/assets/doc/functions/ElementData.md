@@ -11,6 +11,8 @@ ElementData(n, "property")
 
 > gives the value of the property for the nth chemical element.
 
+`ElementData` uses data from [Wikipedia - List of data references for chemical elements](https://en.wikipedia.org/wiki/List_of_data_references_for_chemical_elements)
+
 ### Examples
 
 ```

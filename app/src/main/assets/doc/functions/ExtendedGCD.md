@@ -6,6 +6,11 @@ ExtendedGCD(n1, n2, ...)
 
 > computes the extended greatest common divisor of the given integers. 
 
+See:
+* [Wikipedia: Extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
+* [Wikipedia: Bézout's identity](https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity)
+ 
+ 
 ### Examples
 
 ``` 

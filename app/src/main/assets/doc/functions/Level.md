@@ -5,15 +5,17 @@ Level(expr, levelspec)
 > gives a list of all sub-expressions of `expr` at the level(s) specified by `levelspec`.
 
 Level uses standard level specifications:
+
 ``` 
 n
 ```
-> levels 1 through `n`
+> levels `1` through `n`
 
 ```
 Infinity
 ```
-> all levels from level 1
+> all levels from level `1`
+
 
 ```
 {n}
@@ -26,10 +28,12 @@ Infinity
 > levels `m` through `n`
 
 Level 0 corresponds to the whole expression.
-A negative level '-`n`' consists of parts with depth `n`.
+A negative level `-n` consists of parts with depth `n`.
 
 ### Examples
-Level -1 is the set of atoms in an expression:
+
+Level `-1` is the set of atoms in an expression:
+
 ```
 >> Level(a + b ^ 3 * f(2 x ^ 2), {-1})
 {a,b,3,2,x,2}
@@ -47,7 +51,8 @@ Level -1 is the set of atoms in an expression:
 {a,h3(a),h2(h3(a)),h1(h2(h3(a))),h0(h1(h2(h3(a))))} 
 ```
 
-Use the option 'Heads -> True' to include heads:
+Use the option `Heads -> True` to include heads:
+
 ```
 >> Level({{{{a}}}}, 3, Heads -> True)
 {List,List,List,{a},{{a}},{{{a}}}} 

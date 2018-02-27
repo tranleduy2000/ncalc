@@ -5,6 +5,10 @@ Det(matrix)
 ``` 
 > computes the determinant of the `matrix`.
 
+See:
+* [Wikipedia: Determinant](https://en.wikipedia.org/wiki/Determinant)
+
+
 ### Examples
 ``` 
 >> Det({{1, 1, 0}, {1, 0, 1}, {0, 1, 1}})

@@ -7,6 +7,9 @@ SingularValueDecomposition(matrix)
 'SingularValueDecomposition' returns `u`, `s`, `w` such that `matrix =u s v`,
 `u' u`=1, `v' v`=1, and `s` is diagonal.
 
+See:
+* [Wikipedia: Singular value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition)
+
 ### Examples
 ```
 >> SingularValueDecomposition({{1.5, 2.0}, {2.5, 3.0}}) 

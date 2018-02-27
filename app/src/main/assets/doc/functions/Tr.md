@@ -5,6 +5,9 @@ Tr(matrix)
 ```
 
 > computes the trace of the `matrix`.
+ 
+See:   
+* [Wikipedia - Trace (linear algebra)](http://en.wikipedia.org/wiki/Trace_matrix)  
 
 ### Examples
 

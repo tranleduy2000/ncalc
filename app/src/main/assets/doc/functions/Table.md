@@ -17,7 +17,7 @@ Table(expr, {i, {e1, e2, ..., ei}})
 
 ### Examples
 ```
->>> Table(x!, {x, 8})
+>> Table(x!, {x, 8})
 {1,2,6,24,120,720,5040,40320}
 
 >> Table(x, {4})

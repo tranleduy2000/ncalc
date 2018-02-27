@@ -4,6 +4,8 @@ Inverse(matrix)
 ```
 > computes the inverse of the `matrix`. 
 
+See:  
+* [Wikipedia - Invertible matrix](https://en.wikipedia.org/wiki/Invertible_matrix)
 
 ### Examples
 ``` 

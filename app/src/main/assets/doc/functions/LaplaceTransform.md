@@ -5,6 +5,9 @@ LaplaceTransform(f,s,t)
 ```
 
 > returns the laplace transform.
+ 
+See:
+* [Wikipedia - Laplace transform](https://en.wikipedia.org/wiki/Laplace_transform)
 
 ### Examples 
 ```  

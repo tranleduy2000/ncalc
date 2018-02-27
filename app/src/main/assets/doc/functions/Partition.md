@@ -1,16 +1,19 @@
 ## Partition
 
-``` 
+```
 Partition(list, n)
-``` 
+```
+
 > partitions `list` into sublists of length `n`.
 
 ``` 
-Parition(list, n, d)
-``` 
-> partitions `list` into sublists of length `n` which overlap `d` indicies.
+Partition(list, n, d)
+```
+
+> partitions `list` into sublists of length `n` which overlap `d` indices.
 
 ### Examples
+
 ``` 
 >> Partition({a, b, c, d, e, f}, 2)
 {{a,b},{c,d},{e,f}}
