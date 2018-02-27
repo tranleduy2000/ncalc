@@ -20,15 +20,15 @@
 # duplicate the contents of this file and remove the include of this
 # file from your project's proguard.config path property.
 -keepattributes *Annotation*
--keep public class * extends android.app.Activity
+#-keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
 -keep public class * extends android.app.Service
--keep public class * extends android.content.BroadcastReceiver
+#-keep public class * extends android.content.BroadcastReceiver
 -keep public class * extends android.content.ContentProvider
 -keep public class * extends android.app.backup.BackupAgent
 -keep public class * extends android.preference.Preference
--keep public class * extends android.support.v4.app.Fragment
--keep public class * extends android.app.Fragment
+#-keep public class * extends android.support.v4.app.Fragment
+#-keep public class * extends android.app.Fragment
 -keep public class com.android.vending.licensing.ILicensingService
 # For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
 -keepclasseswithmembernames class * {
@@ -66,27 +66,28 @@
 -dontwarn android.support.**
 -dontwarn java.awt.**
 
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
 #Math library
 -keep class org.apache.log4j.** { *; }
-#-keep class org.apache.commons.csv.** { *; }
 -keep class org.slf4j.** { *; }
 -keep class org.matheclipse.** { *; }
 -keep class org.apfloat.** { *; }
-#-keep class org.hipparchus.** { *; }
-
-#-keep class com.github.rjeschke.txtmark.** { *; }
-#-keep class com.google.common.** { *; }
-
--keep class de.lab4inf.math.** { *; }
+#-keep class de.lab4inf.math.** { *; }
 -keep class cc.redberry.** { *; }
 -keep class jp.ac.kobe_u.cs.cream.** { *; }
 
 -keep class com.duy.lambda.** { *; }
 -keep class com.duy.stream.** { *; }
+-keep class com.duy.calc.casio.** { *; }
 
-#IAB module
 -keep class com.android.vending.billing.** { *; }
-#-keep class aidl.util.**  { *; }
+#-keep class aidl.util.** { *; }
 
 -dontwarn javax.**
 -dontwarn java.beans.**
@@ -100,10 +101,13 @@
 -dontwarn sun.misc.**
 -dontwarn org.apache.log4j.**
 -dontwarn org.cheffo.jeplite.**
+-dontwarn jp.ac.kobe_u.cs.cream.**
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-   public *;
+#Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
 }
+

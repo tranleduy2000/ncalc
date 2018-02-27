@@ -27,10 +27,14 @@ android {
         versionName "3.9.7"
         multiDexEnabled true
     }
-
+    signingConfigs {
+        release
+    }
+    setupSigningConfig()
     buildTypes {
         release {
             minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -42,6 +46,22 @@ android {
         abortOnError false
     }
 }
+
+def setupSigningConfig(){
+    Properties props = new Properties()
+    def propFile = new File('signing.properties')
+    if (propFile.canRead()) {
+        props.load(new FileInputStream(propFile))
+        android.signingConfigs.release.storeFile = file(props['RELEASE_STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['RELEASE_STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['RELEASE_KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['RELEASE_KEY_PASSWORD']
+    } else {
+        android.buildTypes.release.signingConfig = null
+        throw new GradleException('signing.properties not found')
+    }
+}
+
 repositories {
     mavenCentral()
 }

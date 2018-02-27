@@ -29,8 +29,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.duy.calc.casio.activities.AbstractActivity;
-import com.duy.util.StoreUtil;
 import com.example.duy.calculator.R;
 import com.example.duy.calculator.adapters.ResultAdapter;
 import com.example.duy.calculator.hand_write.CalcHandWriteCallback;
@@ -489,22 +487,7 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
 
     public void showDialogInstallNaturalKeyboard() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.install_msg);
-        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                StoreUtil.gotoPlayStore(AbstractEvaluatorActivity.this, "com.duy.calc.casio");
-                dialogInterface.cancel();
-            }
-        });
-        builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        builder.create().show();
+
     }
 
 
