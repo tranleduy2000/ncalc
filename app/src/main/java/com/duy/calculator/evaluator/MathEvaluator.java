@@ -71,7 +71,8 @@ public class MathEvaluator extends LogicEvaluator {
         String combination = "Comb(n_, k_):=(factorial(Ceiling(n)) / " + "(factorial(Ceiling(k)) * " +
                 "factorial(Ceiling(n - k))))";
         mExprEvaluator.evaluate(combination);
-        String binomial = "Perm(n_, k_):=Binomial(n, k)";
+        String binomial = "Perm(n_, k_):=(factorial(Ceiling(n)) / " +
+                "(factorial(Ceiling(n - k))))";
         mExprEvaluator.evaluate(binomial);
         String cbrt = "cbrt(x_):= x^(1/3)";
         mExprEvaluator.evaluate(cbrt);
