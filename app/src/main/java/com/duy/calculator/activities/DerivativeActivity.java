@@ -168,7 +168,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(DerivativeActivity.this);
-                String fraction = MathEvaluator.newInstance().derivativeFunction(input,
+                String fraction = MathEvaluator.getInstance().derivativeFunction(input,
                         config.setEvalMode(EvaluateConfig.FRACTION));
                 return Lists.newArrayList(fraction);
             }

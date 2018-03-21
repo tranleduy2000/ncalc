@@ -144,10 +144,10 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
-                String fraction = MathEvaluator.newInstance().solveEquation(input,
+                String fraction = MathEvaluator.getInstance().solveEquation(input,
                         config.setEvalMode(EvaluateConfig.FRACTION), SolveEquationActivity.this);
 
-                String decimal = MathEvaluator.newInstance().solveEquation(input,
+                String decimal = MathEvaluator.getInstance().solveEquation(input,
                         config.setEvalMode(EvaluateConfig.DECIMAL),  SolveEquationActivity.this);
 
                 ArrayList<String> result = new ArrayList<>();

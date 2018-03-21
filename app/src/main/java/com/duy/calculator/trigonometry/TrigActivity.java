@@ -125,7 +125,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
 
-                String fraction = MathEvaluator.newInstance().evaluateWithResultAsTex(input,
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         EvaluateConfig.loadFromSetting(getApplicationContext())
                                 .setEvalMode(EvaluateConfig.FRACTION));
                 return Lists.newArrayList(fraction);

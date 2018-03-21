@@ -100,7 +100,7 @@ public class FragmentMatrixResult extends AppCompatDialogFragment {
         @Override
         protected String doInBackground(String... params) {
             try {
-                return MathEvaluator.newInstance().evaluateWithResultAsTex(params[0],
+                return MathEvaluator.getInstance().evaluateWithResultAsTex(params[0],
                         EvaluateConfig.loadFromSetting(getContext()));
             } catch (Exception e) {
                 return e.getMessage();

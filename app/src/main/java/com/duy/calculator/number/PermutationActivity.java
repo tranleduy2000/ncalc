@@ -75,7 +75,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             finish();
             return;
         }
-        evaluator = MathEvaluator.newInstance();
+        evaluator = MathEvaluator.getInstance();
         btnSolve.setText(R.string.eval);
 
         mHint2.setVisibility(View.VISIBLE);
@@ -162,7 +162,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
 
-                String fraction = MathEvaluator.newInstance().evaluateWithResultAsTex(input,
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         EvaluateConfig.loadFromSetting(getApplicationContext())
                                 .setEvalMode(EvaluateConfig.FRACTION));
 

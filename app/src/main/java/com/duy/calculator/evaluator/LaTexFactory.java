@@ -31,7 +31,7 @@ public class LaTexFactory {
      */
     public static String toLaTeX(IExpr result) {
         StringWriter stringWriter = new StringWriter();
-        TeXUtilities texEngine = MathEvaluator.newInstance().getTexEngine();
+        TeXUtilities texEngine = MathEvaluator.getInstance().getTexEngine();
         texEngine.toTeX(result, stringWriter);
         return "$$" + stringWriter + "$$";
     }

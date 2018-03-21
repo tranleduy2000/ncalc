@@ -130,10 +130,10 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
-                String fraction = MathEvaluator.newInstance().evaluateWithResultAsTex(input,
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         config.setEvalMode(EvaluateConfig.FRACTION));
 
-                String decimal = MathEvaluator.newInstance().evaluateWithResultAsTex(input,
+                String decimal = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
                         config.setEvalMode(EvaluateConfig.DECIMAL));
 
                 ArrayList<String> result = new ArrayList<>();

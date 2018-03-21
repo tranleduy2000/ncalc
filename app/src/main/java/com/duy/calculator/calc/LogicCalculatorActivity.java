@@ -104,7 +104,7 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMathEvaluator = MathEvaluator.newInstance();
+        mMathEvaluator = MathEvaluator.getInstance();
         setContentView(R.layout.activity_base_calculator);
         setTitle(R.string.calculator);
         bindView();

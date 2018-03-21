@@ -46,10 +46,6 @@ import com.kobakei.ratethisapp.RateThisApp;
 
 
 /**
- * abstract theme for app
- * <p>
- * auto set theme when user changed theme
- * <p>
  * Created by Duy on 19/7/2016
  */
 public abstract class AbstractAppCompatActivity extends AppCompatActivity

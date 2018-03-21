@@ -55,6 +55,8 @@ import java.util.Collections;
  */
 
 public class MathEvaluator extends LogicEvaluator {
+    private static final MathEvaluator MATH_EVALUATOR = new MathEvaluator();
+
     private static final String ANS_VAR = "ans";
     private static final String TAG = "BigEvaluator";
     /**
@@ -68,21 +70,15 @@ public class MathEvaluator extends LogicEvaluator {
 
     private MathEvaluator() {
         mExprEvaluator = new ExprEvaluator();
-        String combination = "Comb(n_, k_):=(factorial(Ceiling(n)) / " + "(factorial(Ceiling(k)) * " +
-                "factorial(Ceiling(n - k))))";
-        mExprEvaluator.evaluate(combination);
-        String binomial = "Perm(n_, k_):=Binomial(n, k)";
-        mExprEvaluator.evaluate(binomial);
-        String cbrt = "cbrt(x_):= x^(1/3)";
-        mExprEvaluator.evaluate(cbrt);
-        String ceiling = "Ceil(x_):=Ceiling(x)";
-        mExprEvaluator.evaluate(ceiling);
         mTexEngine = new TeXUtilities(mExprEvaluator.getEvalEngine(), true);
+        for (String function : CustomFunctions.getAllCustomFunctions()) {
+            mExprEvaluator.eval(function);
+        }
     }
 
     @NonNull
-    public static MathEvaluator newInstance() {
-        return new MathEvaluator();
+    public static MathEvaluator getInstance() {
+        return MATH_EVALUATOR;
     }
 
     @Nullable
