@@ -90,7 +90,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
 
     @Override
     public ResultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mActivity).inflate(R.layout.evaluated_entry, parent, false);
+        View view = LayoutInflater.from(mActivity).inflate(R.layout.list_item_result, parent, false);
         return new ResultViewHolder(view);
     }
 
