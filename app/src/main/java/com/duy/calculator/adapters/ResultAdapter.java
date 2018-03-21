@@ -99,7 +99,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
     }
 
     @Override
-    public void onBindViewHolder(ResultViewHolder holder, final int position) {
+    public void onBindViewHolder(final ResultViewHolder holder,  int position) {
         final ResultEntry item = mResults.get(position);
         Log.d(TAG, "onBindViewHolder: " + item.getExpression() + " = " + item.getResult());
         holder.txtMath.setText(item.getExpression());
@@ -130,7 +130,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeItem(position);
+                removeItem(holder.getAdapterPosition());
             }
         });
     }

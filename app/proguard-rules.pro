@@ -74,8 +74,6 @@
 #}
 
 #Math library
--keep class org.apache.log4j.** { *; }
--keep class org.slf4j.** { *; }
 -keep class org.matheclipse.** { *; }
 -keep class org.apfloat.** { *; }
 #-keep class de.lab4inf.math.** { *; }
