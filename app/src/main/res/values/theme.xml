@@ -17,9 +17,8 @@
 <resources>
 
 
-
     <!-- Dark theme. -->
-    <style name="AppThemeDark" parent="Theme.AppCompat">
+    <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorResultError">#ff4081</item>
         <item name="colorClearScreen">#FF536DFE</item>
         <item name="textFunctionHintStyle">@style/AppTheme.TextFunctionHint</item>
@@ -37,21 +36,11 @@
         <item name="background_pad_numeric">@color/blue_grey_800</item>
         <item name="text_pad_basic_color">@color/white</item>
         <item name="text_pad_advance_color">@color/white</item>
+
+        <item name="imageTintColor">@color/white</item>
     </style>
 
-    <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@drawable/splash</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar" parent="AppThemeDark">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppThemeLight" parent="Theme.AppCompat.Light">
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorPrimary">#00BCD4</item>
         <item name="colorPrimaryDark">#0097A7</item>
@@ -74,12 +63,22 @@
         <item name="background_pad_numeric">@color/blue_grey_800</item>
         <item name="text_pad_basic_color">@color/white</item>
         <item name="text_pad_advance_color">@color/white</item>
+
+        <item name="imageTintColor">@color/black</item>
     </style>
     <!--Theme gradient-->
 
-    <style name="AppTheme.Gradient" parent="AppTheme.Light.NoActionBar">
+    <style name="AppTheme.Gradient" parent="AppThemeLight">
         <item name="background_pad_numeric">@drawable/gradient_under_the_lake</item>
     </style>
+
+    <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
 
     <!--Theme Indigo-->
     <style name="AppTheme.Indigo" parent="AppThemeLight">
@@ -87,37 +86,6 @@
         <item name="colorPrimaryDark">#303F9F</item>
         <item name="colorAccent">#FF4081</item>
         <item name="textButtonColor">#FFFFFF</item>
-    </style>
-
-    <style name="AppTheme.Indigo.NoActionBar" parent="AppTheme.Indigo">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.Light.NoActionBar" parent="AppThemeLight">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.Light.DarkActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="buttonDigitStyle">@style/AppTheme.ButtonDigitStyle.Small</item>
-        <item name="buttonEqualStyle">@style/AppTheme.ButtonDigitStyle.Small</item>
-        <item name="buttonDeleteStyle">@style/AppThemeDark.ButtonDeleteStyle</item>
-        <item name="buttonOptStyle">@style/AppTheme.BaseButton</item>
-        <item name="buttonClearStyle">@style/AppTheme.ButtonClearStyle</item>
-        <item name="buttonSmallDigitStyle">@style/AppTheme.ButtonDigitStyle.Small</item>
-        <item name="colorResultError">?colorAccent</item>
-        <item name="colorClearScreen">?colorPrimaryDark</item>
-        <item name="textEquationStyle">@style/AppTheme.TextEquationStyle</item>
-        <item name="graphPanelStyle">@style/AppThemeDark.GraphPanelStyle</item>
-        <item name="backgroundDeleteButton">@drawable/ic_backspace_black_24dp</item>
-        <item name="text_pad_basic_color">@color/white</item>
-        <item name="text_pad_advance_color">@color/white</item>
-    </style>
-
-    <style name="AppTheme.Light.DarkActionBar.NoActionBar" parent="AppTheme.Light.DarkActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
 
@@ -129,11 +97,6 @@
         <item name="textButtonColor">#FFFFFF</item>
     </style>
 
-    <style name="AppTheme.Brown.NoActionBar" parent="AppTheme.Brown">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <!--Theme Red-->
     <style name="AppTheme.Red" parent="AppThemeDark">
         <item name="colorPrimary">#F44336</item>
@@ -143,24 +106,12 @@
         <item name="backgroundDeleteButton">@drawable/ic_backspace_white_24dp</item>
     </style>
 
-    <style name="AppTheme.Red.NoActionBar" parent="AppTheme.Red">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-
-    </style>
-
-
     <!--Theme pink-->
     <style name="AppTheme.Pink" parent="AppThemeLight">
         <item name="colorPrimary">#E91E63</item>
         <item name="colorPrimaryDark">#C2185B</item>
         <item name="colorAccent">#536DFE</item>
         <item name="textButtonColor">#FFFFFF</item>
-    </style>
-
-    <style name="AppTheme.Pink.NoActionBar" parent="AppTheme.Pink">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <!--Theme Purple-->
@@ -171,11 +122,6 @@
         <item name="textButtonColor">#FFFFFF</item>
     </style>
 
-    <style name="AppTheme.Purple.NoActionBar" parent="AppTheme.Purple">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <!--Theme DeepPurple-->
     <style name="AppTheme.DeepPurple" parent="AppThemeDark">
         <item name="colorPrimary">#673AB7</item>
@@ -184,10 +130,6 @@
         <item name="textButtonColor">#FFFFFF</item>
     </style>
 
-    <style name="AppTheme.DeepPurple.NoActionBar" parent="AppTheme.DeepPurple">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 
     <!--Theme Blue-->
     <style name="AppTheme.Blue" parent="AppThemeLight">
@@ -197,20 +139,11 @@
         <item name="textButtonColor">#FFFFFF</item>
     </style>
 
-    <style name="AppTheme.Blue.NoActionBar" parent="AppTheme.Blue">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
     <!--Theme Cyan-->
     <style name="AppTheme.Cyan" parent="AppThemeLight">
         <item name="colorPrimary">#00BCD4</item>
         <item name="colorPrimaryDark">#0097A7</item>
         <item name="colorAccent">#7C4DFF</item>
-    </style>
-
-    <style name="AppTheme.Cyan.NoActionBar" parent="AppTheme.Cyan">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <!--Theme Teal-->
@@ -221,10 +154,7 @@
         <item name="textButtonColor">#FFFFFF</item>
     </style>
 
-    <style name="AppTheme.Teal.NoActionBar" parent="AppTheme.Teal">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
+
     <!--Theme Yellow-->
     <style name="AppTheme.Yellow" parent="AppThemeLight">
         <item name="colorPrimary">#FFEB3B</item>
@@ -233,22 +163,12 @@
         <item name="textButtonColor">#212121</item>
     </style>
 
-    <style name="AppTheme.Yellow.NoActionBar" parent="AppTheme.Yellow">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <!--Theme BlueGray-->
     <style name="AppTheme.BlueGray" parent="AppThemeLight">
         <item name="colorPrimary">#607D8B</item>
         <item name="colorPrimaryDark">#455A64</item>
         <item name="colorAccent">#E040FB</item>
         <item name="textButtonColor">#ffffff</item>
-    </style>
-
-    <style name="AppTheme.BlueGray.NoActionBar" parent="AppTheme.BlueGray">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <color name="blue_grey_800">#37474f</color>

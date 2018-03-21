@@ -40,26 +40,24 @@ public class ThemeEngine {
     private final int mLightTheme;
     private final int mDarkTheme;
     private final int mBrownTheme;
-    private final int mLightDarkActionBarTheme;
     private final int mGradientTheme;
     private Resources mResources;
 
     public ThemeEngine(Context applicationContext) {
         this.mResources = applicationContext.getResources();
-        mCyanTheme = R.style.AppTheme_Cyan_NoActionBar;
-        mBlueGrayTheme = R.style.AppTheme_BlueGray_NoActionBar;
-        mBlueTheme = R.style.AppTheme_Blue_NoActionBar;
-        mIndigoTheme = R.style.AppTheme_Indigo_NoActionBar;
-        mRedTheme = R.style.AppTheme_Red_NoActionBar;
-        mPinkTheme = R.style.AppTheme_Pink_NoActionBar;
-        mPurpleTheme = R.style.AppTheme_Purple_NoActionBar;
-        mDeepPurpleTheme = R.style.AppTheme_DeepPurple_NoActionBar;
-        mTealTheme = R.style.AppTheme_Teal_NoActionBar;
-        mYellowTheme = R.style.AppTheme_Yellow_NoActionBar;
-        mLightTheme = R.style.AppTheme_Light_NoActionBar;
-        mDarkTheme = R.style.AppTheme_NoActionBar;
-        mLightDarkActionBarTheme = R.style.AppTheme_Light_DarkActionBar_NoActionBar;
-        mBrownTheme = R.style.AppTheme_Brown_NoActionBar;
+        mCyanTheme = R.style.AppTheme_Cyan;
+        mBlueGrayTheme = R.style.AppTheme_BlueGray;
+        mBlueTheme = R.style.AppTheme_Blue;
+        mIndigoTheme = R.style.AppTheme_Indigo;
+        mRedTheme = R.style.AppTheme_Red;
+        mPinkTheme = R.style.AppTheme_Pink;
+        mPurpleTheme = R.style.AppTheme_Purple;
+        mDeepPurpleTheme = R.style.AppTheme_DeepPurple;
+        mTealTheme = R.style.AppTheme_Teal;
+        mYellowTheme = R.style.AppTheme_Yellow;
+        mLightTheme = R.style.AppThemeLight;
+        mDarkTheme = R.style.AppThemeDark;
+        mBrownTheme = R.style.AppTheme_Brown;
         mGradientTheme = R.style.AppTheme_Gradient;
     }
 

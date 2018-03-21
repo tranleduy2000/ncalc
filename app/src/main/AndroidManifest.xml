@@ -15,10 +15,10 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.duy.calculator">
+    package="com.duy.calculator">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".CalcApplication"
@@ -26,29 +26,28 @@
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme.Light.NoActionBar">
+        android:theme="@style/AppThemeLight">
 
         <activity
             android:name=".activities.ActivitySplashScreen"
             android:noHistory="true"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.APP_CALCULATOR"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_CALCULATOR" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".calc.BasicCalculatorActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.Light.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND" />
 
-                <data android:mimeType="text/plain"/>
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
@@ -56,119 +55,119 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_unit_converter_acitvity"
 
-            android:launchMode="singleTask"/>
-        <activity android:name=".converter.ConverterActivity"/>
+            android:launchMode="singleTask" />
+        <activity android:name=".converter.ConverterActivity" />
         <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".geom2d.GeometryDescartesActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:label="@string/title_activity_geometry"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".calc.LogicCalculatorActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".matrix.MatrixCalculatorActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_matrix_calculator"
             android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.SolveEquationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activities.SimplifyEquationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activities.FactorExpressionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activities.DerivativeActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".deprecated.StatisticActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activities.ExpandAllExpressionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".graph.GraphActivity"
-            android:label="@string/title_activity_graph"/>
+            android:label="@string/title_activity_graph" />
         <activity
             android:name=".graph.GraphAddFunction"
             android:label="@string/add_function"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".history.HistoryActivity"
             android:label="@string/history"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".equations.SystemEquationActivity"
             android:label="@string/solve_system_equation"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".define.DefineVariableActivity"
             android:label="@string/define_var"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activities.LimitActivity"
             android:label="@string/limit"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activities.IntegrateActivity"
             android:label="@string/integrate"
 
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activities.PrimitiveActivity"
             android:label="@string/primitive"
 
-            android:launchMode="singleTask"/>
-        <activity android:name=".document.activities.InfoActivity"/>
+            android:launchMode="singleTask" />
+        <activity android:name=".document.activities.InfoActivity" />
         <activity
             android:name=".number.FactorPrimeActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".number.PermutationActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".number.ModuleActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
 
         <activity
             android:name=".trigonometry.TrigActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".number.NumberActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".document.activities.DocumentActivity"/>
-        <activity android:name=".number.PiActivity"/>
+            android:launchMode="singleTask" />
+        <activity android:name=".document.activities.DocumentActivity" />
+        <activity android:name=".number.PiActivity" />
     </application>
 
 </manifest>
