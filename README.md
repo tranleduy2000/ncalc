@@ -1,3 +1,5 @@
+![Wallpaper](art/wallpaper.png)
+
 # Calculator N+ - Powerful calculator for Android.
 I am no longer supported the development of this project, pull request are welcome.
 
