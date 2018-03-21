@@ -29,18 +29,6 @@
         android:theme="@style/AppThemeLight">
 
         <activity
-            android:name=".activities.ActivitySplashScreen"
-            android:noHistory="true"
-            android:theme="@style/AppTheme.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.APP_CALCULATOR" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".calc.BasicCalculatorActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateAlwaysHidden">
@@ -48,6 +36,14 @@
                 <action android:name="android.intent.action.SEND" />
 
                 <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_CALCULATOR" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
