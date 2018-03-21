@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string-array name="arr_name_theme" translatable="false">
+        <item name="theme_light">@string/theme_light</item>
+        <item name="theme_dark">@string/theme_dark</item>
+        <item name="theme_cyan">@string/theme_cyan</item>
+        <item name="theme_indigo">@string/theme_indigo</item>
+        <item name="theme_brown">@string/theme_brown</item>
+        <item name="theme_red">@string/theme_red</item>
+        <item name="theme_purple">@string/theme_purple</item>
+        <item name="theme_deep_purple">DeepPurple</item>
+        <item name="theme_blue">@string/theme_blue</item>
+        <item name="theme_teal">@string/theme_teal</item>
+        <item name="theme_yellow">@string/theme_yellow</item>
+        <item name="theme_yellow">@string/theme_gradient</item>
+    </string-array>
+
+    <string name="theme_light" translatable="false">Light</string>
+    <string name="theme_dark" translatable="false">Dark</string>
+    <string name="theme_cyan" translatable="false">Cyan</string>
+    <string name="theme_indigo" translatable="false">Indigo</string>
+    <string name="theme_brown" translatable="false">Brown</string>
+    <string name="theme_red" translatable="false">Red</string>
+    <string name="theme_purple" translatable="false">Purple</string>
+    <string name="theme_deep_purple" translatable="false">DeepPurple</string>
+    <string name="theme_blue" translatable="false">Blue</string>
+    <string name="theme_teal" translatable="false">Teal</string>
+    <string name="theme_yellow" translatable="false">Yellow</string>
+    <string name="theme_gradient" translatable="false">Gradient</string>
+
+
+</resources>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2017 Tran Le Duy
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -48,5 +47,6 @@
         <attr name="background_pad_advance" format="integer" />
         <attr name="text_pad_basic_color" format="integer" />
         <attr name="text_pad_advance_color" format="integer" />
+        <attr name="imageTintColor" format="color" />
     </declare-styleable>
 </resources>

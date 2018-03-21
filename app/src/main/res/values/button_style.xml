@@ -48,7 +48,7 @@
         <!--<item name="android:background">?colorAccent</item>-->
     </style>
 
-    <style name="AppTheme.ButtonDeleteStyle">
+    <style name="AppThemeDark.ButtonDeleteStyle">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:src">?backgroundDeleteButton</item>
