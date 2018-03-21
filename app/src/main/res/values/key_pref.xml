@@ -39,7 +39,7 @@
         <item>en</item>
         <item>ru</item>
         <item>fr</item>
-        <item>zh-rCN</item>
+        <item>zh_rCN</item>
     </string-array>
 
     <string name="key_pref_precision" translatable="false">key_pref_precision</string>
