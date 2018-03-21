@@ -1,5 +1,4 @@
 mkdir release
-copy build\outputs\apk\release\app-release.apk release\
 
 adb uninstall com.duy.calculator.free
 adb install -r release\app-release.apk
