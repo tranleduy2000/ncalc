@@ -419,9 +419,9 @@ public class Graph2DView extends View implements OnTouchListener {
         int fontHeight = (int) (mTextAxisFontMetrics.descent - mTextAxisFontMetrics.ascent);
         int fontWidth = (int) mTextHintAxis.measureText(" ");
 
+        int y = getyPixel(0);
         //draw x hint
         for (double i = minX; i < maxX; i += step) {
-            int y = getyPixel(0);
             int yText = fontHeight;
             if (y < 0) {
                 y = 0;
@@ -439,14 +439,10 @@ public class Graph2DView extends View implements OnTouchListener {
 
         final double minY = Math.round(mMinY / step) * step;
         final double maxY = Math.round(mMaxY / step) * step;
+        int x = getxPixel(0);
         for (double i = minY; i < maxY; i += step) {
-            int x = getxPixel(0);
 
-            double y1Real = i;
-            double y2Real = -i;
-
-            int y1 = getyPixel(y1Real);
-            int y2 = getyPixel(y2Real);
+            int y1 = getyPixel(i);
             int xText = fontWidth * 3;
             if (x < 0) {
                 x = 0;
@@ -455,7 +451,7 @@ public class Graph2DView extends View implements OnTouchListener {
                 xText = -fontWidth * 3;
             }
             canvas.drawLine(0, y1, width, y1, mTextHintAxis);
-            canvas.drawText(mDecimalFormat.format(y1Real), x + xText, y1, mTextHintAxis);
+            canvas.drawText(mDecimalFormat.format(i), x + xText, y1, mTextHintAxis);
         }
 
         // Draws the axis
