@@ -18,7 +18,6 @@ package com.duy.calculator.graph;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -60,7 +59,6 @@ public class Graph2DView extends View implements OnTouchListener {
 
     private final DecimalFormat mDecimalFormat = new DecimalFormat("#.##");
     private final TextPaint mTextHintAxis = new TextPaint();
-    public Bitmap graphImage;
     public String[] functions, paramX, paramY;
     public boolean[] graphable = new boolean[]{false, false, false, false, false, false};
     public Context context;
@@ -78,6 +76,8 @@ public class Graph2DView extends View implements OnTouchListener {
     private boolean deriv = false;
     private boolean choose = false;
     private boolean rect = true;
+
+    private Paint.FontMetrics mTextAxisFontMetrics;
 
     public Graph2DView(Context context) {
         super(context);
@@ -111,15 +111,16 @@ public class Graph2DView extends View implements OnTouchListener {
             mTextHintAxis.setTypeface(Typeface.MONOSPACE);
             mTextHintAxis.setColor(Color.WHITE);
             mTextHintAxis.setTextSize(spTpPx(10));
+            mTextAxisFontMetrics = mTextHintAxis.getFontMetrics();
 
             helper = new GraphHelper(this);
-            graphImage = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
         }
     }
 
     private float spTpPx(int value) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, value, getResources().getDisplayMetrics());
     }
+
     private float dpTpPx(int value) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
     }
@@ -138,7 +139,6 @@ public class Graph2DView extends View implements OnTouchListener {
         height = h;
         if (width == 0) width = 1;
         if (height == 0) height = 1;
-        graphImage = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
     }
 
     public void importFunctions() {
@@ -416,27 +416,25 @@ public class Graph2DView extends View implements OnTouchListener {
         final double minX = (Math.round(mMinX / step)) * step;
         final double maxX = Math.round(mMaxX / step) * step;
 
-        Paint.FontMetrics fontMetrics = mTextHintAxis.getFontMetrics();
-        float fontHeight = fontMetrics.descent - fontMetrics.ascent;
+        int fontHeight = (int) (mTextAxisFontMetrics.descent - mTextAxisFontMetrics.ascent);
+        int fontWidth = (int) mTextHintAxis.measureText(" ");
 
         //draw x hint
         for (double i = minX; i < maxX; i += step) {
             int y = getyPixel(0);
-            int yText = 18;
+            int yText = fontHeight;
             if (y < 0) {
                 y = 0;
             } else if (y > height - 20) {
                 y = height;
-                yText = -18;
+                yText = -fontHeight;
             }
 
-            double x1Real = i;
-            double x2Real = -i;
-            int x1 = getxPixel(x1Real);
-            int x2 = getxPixel(x2Real);
+            int xValue = getxPixel(i);
 
-            canvas.drawLine(x1, 0, x1, height, mTextHintAxis);
-            canvas.drawText(mDecimalFormat.format(x1Real), x1, y + yText, mTextHintAxis);
+            canvas.drawLine(xValue, 0, xValue, height, mTextHintAxis);
+            String text = mDecimalFormat.format(i);
+            canvas.drawText(text, xValue - fontWidth * text.length() / 2, y + yText, mTextHintAxis);
         }
 
         final double minY = Math.round(mMinY / step) * step;
@@ -449,12 +447,12 @@ public class Graph2DView extends View implements OnTouchListener {
 
             int y1 = getyPixel(y1Real);
             int y2 = getyPixel(y2Real);
-            int xText = 10;
+            int xText = fontWidth * 3;
             if (x < 0) {
                 x = 0;
             } else if (x > width - 20) {
                 x = width;
-                xText = -20;
+                xText = -fontWidth * 3;
             }
             canvas.drawLine(0, y1, width, y1, mTextHintAxis);
             canvas.drawText(mDecimalFormat.format(y1Real), x + xText, y1, mTextHintAxis);
