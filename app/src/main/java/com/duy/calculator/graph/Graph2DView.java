@@ -116,6 +116,7 @@ public class Graph2DView extends View implements OnTouchListener {
             mTextAxisFontMetrics = mTextHintAxis.getFontMetrics();
 
             mFunctionPaint.setStrokeWidth(dpTpPx(2));
+            mFunctionPaint.setAntiAlias(true);
 
             mGraphHelper = new GraphHelper(this);
         }
@@ -179,12 +180,13 @@ public class Graph2DView extends View implements OnTouchListener {
                 double y1 = mGraphHelper.getVal(i, mMinX);
                 double y2 = y1;
                 for (int j = 0; j < width; j++) {
-                    double k = j;
                     y1 = y2;
-                    y2 = mGraphHelper.getVal(i, mMinX + (k + 1) * (mMaxX - mMinX) / width);
-                    if (y1 != Double.POSITIVE_INFINITY && y2 != Double.POSITIVE_INFINITY && (y1 >= 0 || y1 < 0) && (y2 >= 0 || y2 < 0)) {
-                        if (!((y1 > 20) && (y2 < -20)) && !((y1 < -20) && (y2 > 20))) {
-                            canvas.drawLine(j, getyPixel(y1), j + 1, getyPixel(y2), mFunctionPaint);
+                    y2 = mGraphHelper.getVal(i, mMinX + ((double) j + 1) * (mMaxX - mMinX) / width);
+                    if (y1 != Double.POSITIVE_INFINITY && y2 != Double.POSITIVE_INFINITY) {
+                        if ((y1 >= 0 || y1 < 0) && (y2 >= 0 || y2 < 0)) {
+                            if (!((y1 > 20) && (y2 < -20)) && !((y1 < -20) && (y2 > 20))) {
+                                canvas.drawLine(j, getyPixel(y1), j + 1, getyPixel(y2), mFunctionPaint);
+                            }
                         }
                     }
                 }
