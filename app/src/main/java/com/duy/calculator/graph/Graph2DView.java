@@ -59,13 +59,15 @@ public class Graph2DView extends View implements OnTouchListener {
 
     private final DecimalFormat mDecimalFormat = new DecimalFormat("#.##");
     private final TextPaint mTextHintAxis = new TextPaint();
+    private final Paint mFunctionPaint = new Paint();
+
     public String[] functions, paramX, paramY;
     public boolean[] graphable = new boolean[]{false, false, false, false, false, false};
     public Context context;
     public double mMinX = -3, mMaxX = 3, mMinY = -5, mMaxY = 5, scaleX = 1,
             scaleY = 1, initX = 0, initY = 0, startPolar = -1 * Math.PI, endPolar = Math.PI,
             startT = -20, endT = 20;
-    public GraphHelper helper;
+    public GraphHelper mGraphHelper;
     public float startX, startY, pinchDist;
     public int width, height, interA, interB, mode;
     private Paint axisPaint = new Paint();
@@ -102,7 +104,7 @@ public class Graph2DView extends View implements OnTouchListener {
             setDisplay();
             setMode();
             importFunctions();
-            helper = new GraphHelper(this);
+            mGraphHelper = new GraphHelper(this);
 
             axisPaint.setColor(Color.WHITE);
             axisPaint.setStrokeWidth(4f);
@@ -113,7 +115,9 @@ public class Graph2DView extends View implements OnTouchListener {
             mTextHintAxis.setTextSize(spTpPx(10));
             mTextAxisFontMetrics = mTextHintAxis.getFontMetrics();
 
-            helper = new GraphHelper(this);
+            mFunctionPaint.setStrokeWidth(dpTpPx(2));
+
+            mGraphHelper = new GraphHelper(this);
         }
     }
 
@@ -164,26 +168,23 @@ public class Graph2DView extends View implements OnTouchListener {
         Log.d(TAG, "drawGraph");
         setDisplay();
         importFunctions();
-        helper = new GraphHelper(this);
+        mGraphHelper = new GraphHelper(this);
         invalidate();
     }
 
     private void drawFunction(Canvas canvas) {
-
-        Paint paint = new Paint();
-        paint.setStrokeWidth(3f);
         for (int i = 0; i < 6; i++) {
             if (graphable[i]) {
-                paint.setColor(Color.rgb(colors[i][0], colors[i][1], colors[i][2]));
-                double y1 = helper.getVal(i, mMinX);
+                mFunctionPaint.setColor(Color.rgb(colors[i][0], colors[i][1], colors[i][2]));
+                double y1 = mGraphHelper.getVal(i, mMinX);
                 double y2 = y1;
                 for (int j = 0; j < width; j++) {
                     double k = j;
                     y1 = y2;
-                    y2 = helper.getVal(i, mMinX + (k + 1) * (mMaxX - mMinX) / width);
+                    y2 = mGraphHelper.getVal(i, mMinX + (k + 1) * (mMaxX - mMinX) / width);
                     if (y1 != Double.POSITIVE_INFINITY && y2 != Double.POSITIVE_INFINITY && (y1 >= 0 || y1 < 0) && (y2 >= 0 || y2 < 0)) {
                         if (!((y1 > 20) && (y2 < -20)) && !((y1 < -20) && (y2 > 20))) {
-                            canvas.drawLine(j, getyPixel(y1), j + 1, getyPixel(y2), paint);
+                            canvas.drawLine(j, getyPixel(y1), j + 1, getyPixel(y2), mFunctionPaint);
                         }
                     }
                 }
@@ -406,7 +407,6 @@ public class Graph2DView extends View implements OnTouchListener {
                 drawTrace(canvas);
             }
         }
-//        original.drawBitmap(graphImage, 0, 0, new Paint());
     }
 
     private void drawAxis(Canvas canvas) {
@@ -477,8 +477,8 @@ public class Graph2DView extends View implements OnTouchListener {
             if (trace || deriv) {
                 if (!choose) {
                     tracexVal = getX(event.getX());
-                    traceyVal = helper.getVal(traceFun, tracexVal);
-                    traceDeriv = helper.getDerivative(traceFun, tracexVal);
+                    traceyVal = mGraphHelper.getVal(traceFun, tracexVal);
+                    traceDeriv = mGraphHelper.getDerivative(traceFun, tracexVal);
                     invalidate();
                 }
             } else {
@@ -494,8 +494,8 @@ public class Graph2DView extends View implements OnTouchListener {
                 if (!choose) {
                     if (rect) {
                         tracexVal = getX(event.getX());
-                        traceyVal = helper.getVal(traceFun, tracexVal);
-                        traceDeriv = helper.getDerivative(traceFun, tracexVal);
+                        traceyVal = mGraphHelper.getVal(traceFun, tracexVal);
+                        traceDeriv = mGraphHelper.getDerivative(traceFun, tracexVal);
                     }
                     invalidate();
                 }
@@ -514,7 +514,7 @@ public class Graph2DView extends View implements OnTouchListener {
                 distance[0] = Double.MAX_VALUE;
                 for (int i = 0; i < 6; i++) {
                     if (graphable[i]) {
-                        distance[i] = Math.abs(helper.getVal(i, x) - y);
+                        distance[i] = Math.abs(mGraphHelper.getVal(i, x) - y);
                     }
                 }
                 int smallest = 0;
