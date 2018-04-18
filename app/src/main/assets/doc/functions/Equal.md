@@ -23,11 +23,12 @@ True
 >> a==b
 a == b
 
->> 1==1.
+>> 1==1
 True
 ```
 
 Lists are compared based on their elements:
+
 ```
 >> {{1}, {2}} == {{1}, {2}}
 True
@@ -36,6 +37,7 @@ False
 ```
 
 Symbolic constants are compared numerically:
+
 ```
 >> E > 1
 True

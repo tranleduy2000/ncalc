@@ -32,6 +32,7 @@
 * [Norm](functions/Norm.md)
 * [Normalize](functions/Normalize.md)
 * [NullSpace](functions/NullSpace.md)
+* [Orthogonalize](functions/Orthogonalize.md)
 * [Outer](functions/Outer.md)
 * [PseudoInverse](functions/PseudoInverse.md)
 * [QRDecomposition](functions/QRDecomposition.md)

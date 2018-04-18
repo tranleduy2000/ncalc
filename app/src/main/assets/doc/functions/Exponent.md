@@ -11,3 +11,8 @@ Exponent(polynomial, x)
 >> Exponent(1+x^2+a*x^3, x)
 3
 ```
+
+
+### Related terms
+
+[Coefficient](Coefficient.md), [CoefficientList](CoefficientList.md)

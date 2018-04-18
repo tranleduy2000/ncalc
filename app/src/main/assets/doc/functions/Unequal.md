@@ -17,11 +17,12 @@ lhs != rhs
 ### Examples
  
 ```
->> 1 != 1.
+>> 1 != 1
 False
 ```
 
 Lists are compared based on their elements:
+
 ```
 >> {1} != {2}
 True

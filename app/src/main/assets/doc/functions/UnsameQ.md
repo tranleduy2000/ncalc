@@ -17,7 +17,7 @@ Any object is the same as itself:
 ```
  
 ```
->> 1=!=1.
+>> 1=!=1
 True
 ```
 

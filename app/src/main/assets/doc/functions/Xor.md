@@ -1,12 +1,15 @@
 ## Xor
 
 ```
-Xor(expr1, expr2, ...)
+Xor(arg1, arg2, ...)
 ```
 
-> `Xor(expr1, expr2, ...)` evaluates each expression in turn, returning `True` as soon as not all expressions evaluate to the same value. If all expressions evaluate to the same value, `Xor` returns `False`.
+> Logical XOR (exclusive OR) function. Returns `True` if an odd number of the arguments are `True` and the rest are `False`. Returns `False` if an even number of the arguments are `True` and the rest are `False`.
+
+See: [Wikipedia: Exclusive or](https://en.wikipedia.org/wiki/Exclusive_or)
 	
 ### Examples
+
 ```
 >> Xor(False, True)
 True

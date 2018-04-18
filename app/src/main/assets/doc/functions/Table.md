@@ -41,9 +41,13 @@ Table(expr, {i, {e1, e2, ..., ei}})
  
 >> Table(x^2, {x, {a, b, c}})
 {a^2,b^2,c^2} 
+
+>> Table(a + dx, {dx, 0, 3, Pi/8})
+{a,a+Pi/8,a+Pi/4,a+3/8*Pi,a+Pi/2,a+5/8*Pi,a+3/4*Pi,a+7/8*Pi}
 ```
 
 `Table` supports multi-dimensional tables:
+
 ```
 >> Table({i, j}, {i, {a, b}}, {j, 1, 2})
 {{{a,1},{a,2}},{{b,1},{b,2}}} 
