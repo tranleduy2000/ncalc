@@ -22,7 +22,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -31,6 +33,8 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 
 import com.duy.calculator.evaluator.DecimalFactory;
+
+import java.text.DecimalFormat;
 
 import edu.hws.jcm.data.ParseError;
 import edu.hws.jcm.data.Parser;
@@ -54,18 +58,19 @@ public class Graph2DView extends View implements OnTouchListener {
         GraphMath.setUpParser(constantParser);
     }
 
+    private final DecimalFormat mDecimalFormat = new DecimalFormat("#.##");
+    private final TextPaint mTextHintAxis = new TextPaint();
     public Bitmap graphImage;
     public String[] functions, paramX, paramY;
     public boolean[] graphable = new boolean[]{false, false, false, false, false, false};
     public Context context;
-    public double minX = -3, maxX = 3, minY = -5, maxY = 5, scaleX = 1,
+    public double mMinX = -3, mMaxX = 3, mMinY = -5, mMaxY = 5, scaleX = 1,
             scaleY = 1, initX = 0, initY = 0, startPolar = -1 * Math.PI, endPolar = Math.PI,
             startT = -20, endT = 20;
     public GraphHelper helper;
     public float startX, startY, pinchDist;
     public int width, height, interA, interB, mode;
     private Paint axisPaint = new Paint();
-    private Paint textHintAxis = new Paint();
     private double tracexVal, traceyVal, traceDeriv;
     private int traceFun = -1;
     private boolean allowMove;
@@ -102,13 +107,21 @@ public class Graph2DView extends View implements OnTouchListener {
             axisPaint.setColor(Color.WHITE);
             axisPaint.setStrokeWidth(4f);
 
-            textHintAxis = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
-            textHintAxis.setColor(Color.WHITE);
-            textHintAxis.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10, getResources().getDisplayMetrics()));
+            mTextHintAxis.setAntiAlias(true);
+            mTextHintAxis.setTypeface(Typeface.MONOSPACE);
+            mTextHintAxis.setColor(Color.WHITE);
+            mTextHintAxis.setTextSize(spTpPx(10));
 
             helper = new GraphHelper(this);
             graphImage = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_4444);
         }
+    }
+
+    private float spTpPx(int value) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, value, getResources().getDisplayMetrics());
+    }
+    private float dpTpPx(int value) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
     }
 
     private void setDisplay() {
@@ -162,12 +175,12 @@ public class Graph2DView extends View implements OnTouchListener {
         for (int i = 0; i < 6; i++) {
             if (graphable[i]) {
                 paint.setColor(Color.rgb(colors[i][0], colors[i][1], colors[i][2]));
-                double y1 = helper.getVal(i, minX);
+                double y1 = helper.getVal(i, mMinX);
                 double y2 = y1;
                 for (int j = 0; j < width; j++) {
                     double k = j;
                     y1 = y2;
-                    y2 = helper.getVal(i, minX + (k + 1) * (maxX - minX) / width);
+                    y2 = helper.getVal(i, mMinX + (k + 1) * (mMaxX - mMinX) / width);
                     if (y1 != Double.POSITIVE_INFINITY && y2 != Double.POSITIVE_INFINITY && (y1 >= 0 || y1 < 0) && (y2 >= 0 || y2 < 0)) {
                         if (!((y1 > 20) && (y2 < -20)) && !((y1 < -20) && (y2 > 20))) {
                             canvas.drawLine(j, getyPixel(y1), j + 1, getyPixel(y2), paint);
@@ -260,9 +273,9 @@ public class Graph2DView extends View implements OnTouchListener {
                 canvas.drawText("f(" + roundX + ")=" + roundY, 20, height / 2, paint);
             } else if (deriv && !choose) {
                 // Draws a line tangent to the curve at the proper point
-                canvas.drawLine(getxPixel(tracexVal - (traceyVal - minY)
+                canvas.drawLine(getxPixel(tracexVal - (traceyVal - mMinY)
                         / traceDeriv), height, getxPixel(tracexVal
-                        + (maxY - traceyVal) / traceDeriv), 0, paint);
+                        + (mMaxY - traceyVal) / traceDeriv), 0, paint);
 
                 paint.setColor(Color.rgb(colors[traceFun][0], colors[traceFun][1],
                         colors[traceFun][2]));
@@ -318,35 +331,35 @@ public class Graph2DView extends View implements OnTouchListener {
      * Returns the values of all window variables
      */
     public double[] getWindow() {
-        return new double[]{minX, maxX, minY, maxY, scaleX, scaleY};
+        return new double[]{mMinX, mMaxX, mMinY, mMaxY, scaleX, scaleY};
     }
 
     /*
      * Converts an android x-coordinate to its corresponding x-value
      */
     private double getX(float x) {
-        return (x / width) * (maxX - minX) + minX;
+        return (x / width) * (mMaxX - mMinX) + mMinX;
     }
 
     /*
      * Converts an x-value to its corresponding android x-coordinate
      */
     private int getxPixel(double x) {
-        return (int) (width * (x - minX) / (maxX - minX));
+        return (int) (width * (x - mMinX) / (mMaxX - mMinX));
     }
 
     /*
      * Converts an android y-coordinate to its corresponding y-value
      */
     private double getY(float y) {
-        return (height - y) * (maxY - minY) / height + minY;
+        return (height - y) * (mMaxY - mMinY) / height + mMinY;
     }
 
     /*
      * Converts a y-value to its corresponding android y-coordinate
      */
     private int getyPixel(double y) {
-        return (int) (height - height * (y - minY) / (maxY - minY));
+        return (int) (height - height * (y - mMinY) / (mMaxY - mMinY));
     }
 
     public boolean isEmpty() {
@@ -364,12 +377,12 @@ public class Graph2DView extends View implements OnTouchListener {
         try {
             float x = startX - event.getX();
             float y = event.getY() - startY;
-            double difX = (maxX - minX) * x / width;
-            double difY = (maxY - minY) * y / height;
-            minX += difX;
-            maxX += difX;
-            minY += difY;
-            maxY += difY;
+            double difX = (mMaxX - mMinX) * x / width;
+            double difY = (mMaxY - mMinY) * y / height;
+            mMinX += difX;
+            mMaxX += difX;
+            mMinY += difY;
+            mMaxY += difY;
             startX = event.getX();
             startY = event.getY();
             invalidate();
@@ -398,10 +411,16 @@ public class Graph2DView extends View implements OnTouchListener {
 
     private void drawAxis(Canvas canvas) {
         //pre calc
-        double d = (maxX - minX);
-        double inc = Double.parseDouble(DecimalFactory.round(d / 8, 2));
+        final double lengthX = (mMaxX - mMinX);
+        final double step = Double.parseDouble(DecimalFactory.round(lengthX / 8, 2));
+        final double minX = (Math.round(mMinX / step)) * step;
+        final double maxX = Math.round(mMaxX / step) * step;
+
+        Paint.FontMetrics fontMetrics = mTextHintAxis.getFontMetrics();
+        float fontHeight = fontMetrics.descent - fontMetrics.ascent;
+
         //draw x hint
-        for (double i = minX; i < maxX; i += inc) {
+        for (double i = minX; i < maxX; i += step) {
             int y = getyPixel(0);
             int yText = 18;
             if (y < 0) {
@@ -416,26 +435,13 @@ public class Graph2DView extends View implements OnTouchListener {
             int x1 = getxPixel(x1Real);
             int x2 = getxPixel(x2Real);
 
-            canvas.drawLine(x1, 0, x1, height, textHintAxis);
-//            canvas.drawLine(x2, 0, x2, height, textHintAxis);
-
-//            Log.d("Graph", "drawAxis: " + x1Real + " ->  " + DecimalFactory.round(x1Real, 2) +
-//                    " x1 = " + x1 + " x2 = " + x2 + " y = " + y + " yText = " + yText);
-            canvas.drawText(DecimalFactory.round(x1Real, 2),
-                    x1,
-                    y + yText,
-                    textHintAxis);
-
-//            canvas.drawText(
-//                    DecimalFactory.round(x1Real, 2),
-//                    x2,
-//                    y + yText,
-//                    textHintAxis);
+            canvas.drawLine(x1, 0, x1, height, mTextHintAxis);
+            canvas.drawText(mDecimalFormat.format(x1Real), x1, y + yText, mTextHintAxis);
         }
 
-        d = maxY - minY;
-        inc = Double.parseDouble(DecimalFactory.round(d / 8, 2));
-        for (double i = minY; i < maxY; i += inc) {
+        final double minY = Math.round(mMinY / step) * step;
+        final double maxY = Math.round(mMaxY / step) * step;
+        for (double i = minY; i < maxY; i += step) {
             int x = getxPixel(0);
 
             double y1Real = i;
@@ -450,13 +456,8 @@ public class Graph2DView extends View implements OnTouchListener {
                 x = width;
                 xText = -20;
             }
-            canvas.drawLine(0, y1, width, y1, textHintAxis);
-//            canvas.drawLine(0, y2, width, y2, textHintAxis);
-
-            canvas.drawText(
-
-                    DecimalFactory.round(y1Real, 2), x + xText, y1, textHintAxis);
-//            canvas.drawText("" + (new BigDecimal(y2Real)).round(new MathContext(4)).floatValue(), x + xText, y2, textHintAxis);
+            canvas.drawLine(0, y1, width, y1, mTextHintAxis);
+            canvas.drawText(mDecimalFormat.format(y1Real), x + xText, y1, mTextHintAxis);
         }
 
         // Draws the axis
@@ -581,10 +582,10 @@ public class Graph2DView extends View implements OnTouchListener {
      */
     public void setWindow(double minx, double miny, double maxx, double maxy,
                           double scalex, double scaley) {
-        minX = minx;
-        minY = miny;
-        maxX = maxx;
-        maxY = maxy;
+        mMinX = minx;
+        mMinY = miny;
+        mMaxX = maxx;
+        mMaxY = maxy;
         scaleX = scalex;
         scaleY = scaley;
     }
@@ -608,12 +609,12 @@ public class Graph2DView extends View implements OnTouchListener {
     private void touchMove(MotionEvent event) {
         float x = startX - event.getX();
         float y = event.getY() - startY;
-        double difX = (maxX - minX) * x / width;
-        double difY = (maxY - minY) * y / height;
-        minX += difX;
-        maxX += difX;
-        minY += difY;
-        maxY += difY;
+        double difX = (mMaxX - mMinX) * x / width;
+        double difY = (mMaxY - mMinY) * y / height;
+        mMinX += difX;
+        mMaxX += difX;
+        mMinY += difY;
+        mMaxY += difY;
         startX = event.getX();
         startY = event.getY();
         invalidate();
@@ -623,12 +624,12 @@ public class Graph2DView extends View implements OnTouchListener {
      * Zooms the com.duy.example.com.duy.calculator.graph in and out
      */
     public void zoom(float perc) {
-        double realWidth = maxX - minX;
-        double realHeight = maxY - minY;
-        maxX += realWidth * perc / 2;
-        minX -= realWidth * perc / 2;
-        minY -= realHeight * perc / 2;
-        maxY += realHeight * perc / 2;
+        double realWidth = mMaxX - mMinX;
+        double realHeight = mMaxY - mMinY;
+        mMaxX += realWidth * perc / 2;
+        mMinX -= realWidth * perc / 2;
+        mMinY -= realHeight * perc / 2;
+        mMaxY += realHeight * perc / 2;
         scaleX += scaleX * perc;
         scaleY += scaleY * perc;
         invalidate();
