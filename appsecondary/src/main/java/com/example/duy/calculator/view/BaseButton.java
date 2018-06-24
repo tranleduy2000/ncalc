@@ -4,11 +4,9 @@ import android.content.Context;
 import android.os.Build;
 import android.text.Html;
 import android.util.AttributeSet;
-import android.widget.Button;
 
 import com.example.duy.calculator.userinterface.FontManager;
 
-import static org.apache.commons.math4.util.MathArrays.Position.HEAD;
 
 /**
  * Created by Duy on 21-Jan-17.

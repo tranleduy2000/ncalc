@@ -2,7 +2,6 @@ package com.example.duy.calculator.utils;
 
 import java.util.ArrayList;
 
-import static org.apache.commons.math4.util.MathArrays.Position.HEAD;
 
 /**
  * Created by edoga on 28-Oct-16.

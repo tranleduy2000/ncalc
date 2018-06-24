@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\github\ncalc\app\app.iml" filepath="C:\github\ncalc\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appsecondary/appsecondary.iml" filepath="$PROJECT_DIR$/appsecondary/appsecondary.iml" />
       <module fileurl="file://C:\github\ncalc\appsecondary\appsecondary.iml" filepath="C:\github\ncalc\appsecondary\appsecondary.iml" />
       <module fileurl="file://C:\github\ncalc\floatingkeyboardview\floatingkeyboardview.iml" filepath="C:\github\ncalc\floatingkeyboardview\floatingkeyboardview.iml" />
       <module fileurl="file://$PROJECT_DIR$/jcm1/jcm1.iml" filepath="$PROJECT_DIR$/jcm1/jcm1.iml" />
