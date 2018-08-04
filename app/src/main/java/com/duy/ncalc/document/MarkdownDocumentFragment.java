@@ -14,6 +14,7 @@ import com.duy.ncalc.view.DocumentView;
 import static com.duy.ncalc.document.MarkdownListDocumentFragment.KEY_ASSET_PATH;
 
 public class MarkdownDocumentFragment extends BottomSheetDialogFragment {
+    public static final String TAG = "MarkdownDocumentFragmen";
     public static MarkdownDocumentFragment newInstance(String assetPath) {
 
         Bundle args = new Bundle();

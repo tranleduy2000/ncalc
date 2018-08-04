@@ -52,7 +52,6 @@ import android.widget.Toast;
 import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.R;
 import com.duy.calculator.adapters.ResultAdapter;
-import com.duy.ncalc.document.DialogFragmentHelpFunction;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.exceptions.ParsingException;
@@ -65,6 +64,7 @@ import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ResizingEditText;
 import com.duy.calculator.view.RevealView;
 import com.duy.calculator.view.editor.SuggestAdapter;
+import com.duy.ncalc.document.MarkdownDocumentFragment;
 
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -431,14 +431,12 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
      */
     public abstract void clickHelp();
 
-    protected void onChangeModeFraction() {
-        clickEvaluate();
-    }
-
     @Override
-    public void onShowInfo(String key) {
-        DialogFragmentHelpFunction dialogFragmentHelp = DialogFragmentHelpFunction.newInstance(key);
-        dialogFragmentHelp.show(getSupportFragmentManager(), DialogFragmentHelpFunction.TAG);
+    public void clickOpenDocument(String functionName) {
+        String fileName = functionName.endsWith(".md") ? functionName : functionName + ".md";
+        MarkdownDocumentFragment dialogFragmentHelp = MarkdownDocumentFragment.newInstance(
+                "doc/functions/" + fileName);
+        dialogFragmentHelp.show(getSupportFragmentManager(), MarkdownDocumentFragment.TAG);
     }
 
     @Nullable

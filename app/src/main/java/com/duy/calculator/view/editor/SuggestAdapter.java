@@ -101,7 +101,7 @@ public class SuggestAdapter extends ArrayAdapter<String> {
             @Override
             public void onClick(View v) {
                 if (onSuggestionListener != null) {
-                    onSuggestionListener.onShowInfo(items.get(position));
+                    onSuggestionListener.clickOpenDocument(items.get(position));
                 }
             }
         });
@@ -125,6 +125,6 @@ public class SuggestAdapter extends ArrayAdapter<String> {
     }
 
     public interface OnSuggestionListener {
-        void onShowInfo(String key);
+        void clickOpenDocument(String key);
     }
 }
