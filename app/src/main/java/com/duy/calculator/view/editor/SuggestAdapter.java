@@ -84,7 +84,7 @@ public class SuggestAdapter extends ArrayAdapter<String> {
         super(context, resource, items);
         this.context = context;
         this.items = items;
-        this.clone = (ArrayList<String>) items.clone();
+        this.clone = new ArrayList<>(items);
         this.inflater = LayoutInflater.from(context);
     }
 

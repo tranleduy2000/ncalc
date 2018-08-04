@@ -168,8 +168,6 @@ public abstract class AbstractEvaluatorActivity extends NavDrawerActivity
         mResultView.setLayoutManager(linearLayoutManager);
         mResultAdapter = new ResultAdapter(this);
         mResultView.setAdapter(mResultAdapter);
-
-        findViewById(R.id.img_natural_keyboard).setOnClickListener(this);
     }
 
     /**

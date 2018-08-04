@@ -44,7 +44,6 @@ public class ButtonID {
                 R.id.btn_equal,
                 R.id.btn_ans,
                 R.id.btn_solve_,
-                R.id.btn_calc,
                 R.id.btn_fact,
                 R.id.btn_graph_main,
                 R.id.btn_input_voice,

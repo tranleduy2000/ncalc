@@ -31,9 +31,11 @@ import android.util.AttributeSet;
 
 import com.duy.calculator.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Duy on 19/7/2016
@@ -43,13 +45,14 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
     private final Handler mHandler = new Handler();
     private HighlightWatcher mHighlightWatcher = new HighlightWatcher();
     private boolean isEnableTextListener;
+    private SuggestAdapter mAdapter;
+    private Pattern mFunctionPattern;
     private final Runnable mUpdateHighlight = new Runnable() {
         @Override
         public void run() {
             highlight(getEditableText());
         }
     };
-    private SuggestAdapter mAdapter;
 
     public AutoCompleteFunctionEditText(Context context) {
         super(context);
@@ -75,16 +78,38 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
     }
 
     private void init() {
-        if (!isInEditMode()) {
-            String[] keyWords = Patterns.KEY_WORDS;
-            ArrayList<String> data = new ArrayList<>();
-            Collections.addAll(data, keyWords);
-            mAdapter = new SuggestAdapter(getContext(), R.layout.list_item_suggest, data);
-            setAdapter(mAdapter);
-            setTokenizer(new FunctionTokenizer());
-            setThreshold(1);
-            enableTextChangeListener();
+        if (isInEditMode()) {
+            return;
         }
+        String[] keyWords = new String[0];
+        try {
+            keyWords = getContext().getAssets().list("doc/functions");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < keyWords.length; i++) {
+            if (keyWords[i].endsWith(".md")) {
+                keyWords[i] = keyWords[i].substring(0, keyWords[i].length() - 3);
+            }
+        }
+        StringBuilder patternStr = new StringBuilder("\\b(");
+        for (int i = 0; i < keyWords.length; i++) {
+            patternStr.append(keyWords[i]);
+            if (i != keyWords.length - 1) {
+                patternStr.append("|");
+            }
+        }
+        patternStr.append(")\\b");
+        mFunctionPattern = Pattern.compile(patternStr.toString(),
+                Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
+
+        ArrayList<String> data = new ArrayList<>();
+        Collections.addAll(data, keyWords);
+        mAdapter = new SuggestAdapter(getContext(), R.layout.list_item_suggest, data);
+        setAdapter(mAdapter);
+        setTokenizer(new FunctionTokenizer());
+        setThreshold(1);
+        enableTextChangeListener();
     }
 
     public void setOnHelpListener(SuggestAdapter.OnSuggestionListener onHelpListener) {
@@ -111,7 +136,7 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
         }
 
         String s = editable.toString();
-        Matcher matcher = Patterns.FUNCTION_PATTERN.matcher(s);
+        Matcher matcher = mFunctionPattern.matcher(s);
         while (matcher.find()) {
             StyleSpan styleSpan = new StyleSpan(Typeface.BOLD);
             editable.setSpan(styleSpan, matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

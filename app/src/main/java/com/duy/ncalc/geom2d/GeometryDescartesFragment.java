@@ -32,7 +32,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.duy.calculator.Fragment;
 import com.duy.calculator.R;
 
 public class GeometryDescartesFragment extends Fragment {
