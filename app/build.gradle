@@ -87,8 +87,6 @@ dependencies {
 
     api 'io.github.kobakei:ratethisapp:1.2.0'
     api 'com.sothree.slidinguppanel:library:3.4.0'
-    api 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     api 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
     api 'com.miguelcatalan:materialsearchview:1.4.0'
 }

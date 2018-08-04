@@ -28,7 +28,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
-import com.duy.calculator.activities.base.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -42,7 +42,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 
-public class GraphActivity extends AbstractAppCompatActivity {
+public class GraphActivity extends BaseActivity {
     public static final String DATA = GraphActivity.class.getName();
     public static final String FUNC = GraphActivity.class.getName();
     public static final String TAG = "GraphActivity";

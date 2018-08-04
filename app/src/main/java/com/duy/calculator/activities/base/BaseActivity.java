@@ -50,7 +50,7 @@ import com.kobakei.ratethisapp.RateThisApp;
 /**
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractAppCompatActivity extends AppCompatActivity
+public abstract class BaseActivity extends AppCompatActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static final String TAG = "MainActivity";
     protected CalculatorSetting mCalculatorSetting;

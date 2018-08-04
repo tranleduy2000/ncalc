@@ -40,9 +40,6 @@ import com.duy.calculator.document.ItemInfo;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 
 public class InfoActivity extends AppCompatActivity {
     private static final String TAG = InfoActivity.class.getClass().getSimpleName();
@@ -54,7 +51,6 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: ");
         setContentView(R.layout.activity_info);
-        ButterKnife.bind(InfoActivity.this);
         mToolbar = findViewById(R.id.toolbar);
         mListTranslate = findViewById(R.id.list_translate);
         setupActionBar();
@@ -110,16 +106,15 @@ public class InfoActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            @BindView(R.id.txt_title)
             TextView txtTitle;
-            @BindView(R.id.txt_desc)
             TextView txtDesc;
-            @BindView(R.id.container)
             View root;
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                ButterKnife.bind(this, itemView);
+                txtTitle = itemView.findViewById(R.id.txt_title);
+                txtDesc = itemView.findViewById(R.id.txt_desc);
+                root = itemView.findViewById(R.id.container);
             }
 
             void bindContent(ItemInfo itemInfo) {
@@ -130,10 +125,6 @@ public class InfoActivity extends AppCompatActivity {
         }
 
     }
-
-    /**
-     * Created by Duy on 28-Mar-17.
-     */
 
     public static class LicenseAdapter extends RecyclerView.Adapter<LicenseAdapter.ViewHolder> {
         private static final String TAG = LicenseAdapter.class.getSimpleName();
@@ -151,20 +142,12 @@ public class InfoActivity extends AppCompatActivity {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = inflater.inflate(R.layout.list_item_info, parent, false);
-            Log.d(TAG, "onCreateViewHolder: ");
             return new ViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
             holder.bindContent(listData.get(position));
-            //        holder.root.setOnClickListener(new View.OnClickListener() {
-            //            @Override
-            //            public void onClick(View v) {
-            //                Toast.makeText(mContext, listData.get(position).toString(), Toast.LENGTH_SHORT).show();
-            //            }
-            //        });
-
         }
 
         @Override
@@ -173,16 +156,15 @@ public class InfoActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            @BindView(R.id.txt_title)
             TextView txtTitle;
-            @BindView(R.id.txt_desc)
             TextView txtDesc;
-            @BindView(R.id.container)
             View root;
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                ButterKnife.bind(this, itemView);
+                txtTitle = itemView.findViewById(R.id.txt_title);
+                txtDesc = itemView.findViewById(R.id.txt_desc);
+                root = itemView.findViewById(R.id.container);
             }
 
             void bindContent(ItemInfo itemInfo) {

@@ -28,11 +28,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.duy.calculator.activities.base.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
 
 
-public class GraphAddFunction extends AbstractAppCompatActivity {
+public class GraphAddFunction extends BaseActivity {
     private Button btnSave;
     private EditText[] editFunctions;
     private SharedPreferences preferences;

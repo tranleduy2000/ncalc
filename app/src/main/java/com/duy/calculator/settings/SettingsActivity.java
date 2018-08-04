@@ -22,41 +22,29 @@ package com.duy.calculator.settings;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractAppCompatActivity;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.duy.calculator.activities.base.BaseActivity;
 
 /**
  * Setting for calcualtor
  * <p>
  * Include precision of calculate. Font, theme, style. Dev mode, trace mode.
  */
-public class SettingsActivity extends AbstractAppCompatActivity {
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+public class SettingsActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        ButterKnife.bind(this);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.settings);
 
         getFragmentManager().beginTransaction().replace(R.id.container, new FragmentSetting()).commit();
     }
 
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

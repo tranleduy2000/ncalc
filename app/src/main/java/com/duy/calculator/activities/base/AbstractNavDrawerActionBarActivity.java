@@ -68,7 +68,7 @@ import static com.duy.calculator.model.TrigItem.TRIG_TYPE.REDUCE;
 /**
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
+public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
     protected DrawerLayout mDrawerLayout;
     private boolean debug = ConfigApp.DEBUG;
     private Handler handler = new Handler();

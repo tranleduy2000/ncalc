@@ -33,7 +33,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.converter.adapters.ItemUnitConverter;
 import com.duy.calculator.converter.adapters.UnitAdapter;
 import com.duy.calculator.converter.utils.AreaStrategy;
@@ -50,7 +50,7 @@ import com.duy.calculator.converter.utils.WeightStrategy;
 
 import java.util.ArrayList;
 
-public class ConverterActivity extends AbstractAppCompatActivity {
+public class ConverterActivity extends BaseActivity {
 
     String TAG = ConverterActivity.class.getName();
     RecyclerView mRecycleView;

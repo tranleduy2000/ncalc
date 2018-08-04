@@ -29,18 +29,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.document.FunctionsDocumentAdapter;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.mukesh.MarkdownView;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by Duy on 19-May-17.
  */
 
-public class FunctionsDocumentActivity extends AbstractAppCompatActivity implements MaterialSearchView.OnQueryTextListener, FunctionsDocumentAdapter.OnDocumentClickListener {
+public class FunctionsDocumentActivity extends BaseActivity implements MaterialSearchView.OnQueryTextListener, FunctionsDocumentAdapter.OnDocumentClickListener {
     private MaterialSearchView searchView;
     private FunctionsDocumentAdapter functionsDocumentAdapter;
 
@@ -48,7 +46,6 @@ public class FunctionsDocumentActivity extends AbstractAppCompatActivity impleme
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_document);
-        ButterKnife.bind(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

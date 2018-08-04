@@ -29,7 +29,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.duy.calculator.activities.base.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.tokenizer.Tokenizer;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
  * Created by Duy on 04-Dec-16.
  */
 
-public class DefineVariableActivity extends AbstractAppCompatActivity {
+public class DefineVariableActivity extends BaseActivity {
     String TAG = DefineVariableActivity.class.getSimpleName();
     private MathEvaluator mEvaluator;
     private Tokenizer mTokenizer;
