@@ -21,11 +21,11 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 import android.text.InputType;
 
 import com.duy.calculator.R;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.LaTexFactory;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
  * Created by Duy on 06-Jan-17.
  */
 
-public class PiActivity extends AbstractEvaluatorActivity {
+public class PiActivity extends BaseEvaluatorActivity {
     private static final String STARTED = PiActivity.class.getName() + "started";
     private boolean isDataNull = true;
 
@@ -49,7 +49,7 @@ public class PiActivity extends AbstractEvaluatorActivity {
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.pi_number));
 
-        btnSolve.setText(R.string.eval);
+        mBtnEvaluate.setText(R.string.eval);
         mHint1.setHint(getString(R.string.precision_));
         mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
@@ -95,6 +95,7 @@ public class PiActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 IExpr iExpr = MathEvaluator.getInstance().evaluate(input);

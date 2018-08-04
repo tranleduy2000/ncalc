@@ -21,10 +21,10 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.WorkerThread;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -42,7 +42,7 @@ import java.util.ArrayList;
  * Integrate of function f(x) with variable x, with lower limit a, upper limit b
  * Created by Duy on 07-Dec-16.
  */
-public class IntegrateActivity extends AbstractEvaluatorActivity {
+public class IntegrateActivity extends BaseEvaluatorActivity {
     private static final String STARTED = IntegrateActivity.class.getName() + "started";
     private boolean isDataNull = true;
 
@@ -52,7 +52,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
 
         setTitle(getString(R.string.integrate));
         mHint1.setHint(getString(R.string.enter_function));
-        btnSolve.setText(R.string.integrate);
+        mBtnEvaluate.setText(R.string.integrate);
 
         //hide and show view
         mLayoutLimit.setVisibility(View.VISIBLE);
@@ -62,8 +62,8 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("sqrt(1-x^2)/x^2");
-                editFrom.setText("sqrt(2)/2");
-                editTo.setText("1");
+                mEditLowerBound.setText("sqrt(2)/2");
+                mEditUpperBound.setText("1");
             }
             clickHelp();
         }
@@ -100,7 +100,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
-        TapTarget target1 = TapTarget.forView(editFrom,
+        TapTarget target1 = TapTarget.forView(mEditLowerBound,
                 getString(R.string.lower_limit),
                 getString(R.string.limit_from_desc))
                 .drawShadow(true)
@@ -110,7 +110,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
-        TapTarget target2 = TapTarget.forView(editTo,
+        TapTarget target2 = TapTarget.forView(mEditUpperBound,
                 getString(R.string.upper_limit),
                 getString(R.string.limit_to_desc));
         target2.drawShadow(true)
@@ -120,7 +120,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark);
 
-        TapTarget target3 = TapTarget.forView(btnSolve,
+        TapTarget target3 = TapTarget.forView(mBtnEvaluate,
                 getString(R.string.integrate),
                 getString(R.string.push_integrate_button));
         target3.drawShadow(true)
@@ -153,10 +153,10 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         String inp = mInputFormula.getCleanText();
 
         //check empty input
-        String from = editFrom.getText().toString();
+        String from = mEditLowerBound.getText().toString();
         if (from.isEmpty()) {
-            editFrom.requestFocus();
-            editFrom.setError(getString(R.string.enter_limit));
+            mEditLowerBound.requestFocus();
+            mEditLowerBound.setError(getString(R.string.enter_limit));
             return null;
         }
 
@@ -164,15 +164,15 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
             ExpressionChecker.checkExpression(from);
         } catch (Exception e) {
             hideKeyboard();
-            handleExceptions(editFrom, e);
+            handleExceptions(mEditLowerBound, e);
             return null;
         }
 
         //check empty input
-        String to = editTo.getText().toString();
+        String to = mEditUpperBound.getText().toString();
         if (to.isEmpty()) {
-            editTo.requestFocus();
-            editTo.setError(getString(R.string.enter_limit));
+            mEditUpperBound.requestFocus();
+            mEditUpperBound.setError(getString(R.string.enter_limit));
             return null;
         }
 
@@ -180,19 +180,20 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
             ExpressionChecker.checkExpression(to);
         } catch (Exception e) {
             hideKeyboard();
-            handleExceptions(editTo, e);
+            handleExceptions(mEditUpperBound, e);
             return null;
         }
 
         IntegrateItem integrateItem = new IntegrateItem(inp,
-                editFrom.getText().toString(),
-                editTo.getText().toString());
+                mEditLowerBound.getText().toString(),
+                mEditUpperBound.getText().toString());
         return integrateItem.getInput();
     }
 
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());

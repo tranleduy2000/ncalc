@@ -21,11 +21,11 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 import android.widget.Toast;
 
 import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
@@ -43,7 +43,7 @@ import static com.duy.calculator.symja.models.TrigItem.TRIG_TYPE.REDUCE;
  * Created by Duy on 31-Jan-17.
  */
 
-public class TrigActivity extends AbstractEvaluatorActivity {
+public class TrigActivity extends BaseEvaluatorActivity {
     public static final String TYPE = "TrigActivity";
     public static final String TAG = "TrigActivity";
     private int mType;
@@ -67,7 +67,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
      * - if this is first start activity or debug enable, give example data
      */
     private void init() {
-        btnSolve.setText(R.string.eval);
+        mBtnEvaluate.setText(R.string.eval);
         boolean started;
         switch (mType) {
             case EXPAND:
@@ -123,6 +123,7 @@ public class TrigActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
 

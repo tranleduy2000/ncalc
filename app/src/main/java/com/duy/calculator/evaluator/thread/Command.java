@@ -18,6 +18,8 @@
 
 package com.duy.calculator.evaluator.thread;
 
+import android.support.annotation.WorkerThread;
+
 /**
  * Uses the Command Design Pattern to effectively have lambda expressions in a pre-Java 8 environment.
  * Note: e is the return Object, F is the param Object.
@@ -26,5 +28,6 @@ package com.duy.calculator.evaluator.thread;
  * @version 3.0
  */
 public interface Command<RETURN, INPUT> {
+    @WorkerThread
     public RETURN execute(INPUT input);
 }

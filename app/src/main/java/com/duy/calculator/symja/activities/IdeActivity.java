@@ -1,0 +1,39 @@
+package com.duy.calculator.symja.activities;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
+
+import com.duy.calculator.evaluator.EvaluateConfig;
+import com.duy.calculator.evaluator.MathEvaluator;
+import com.duy.calculator.evaluator.thread.Command;
+import com.google.common.collect.Lists;
+
+import java.util.ArrayList;
+
+public class IdeActivity extends BaseEvaluatorActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void clickHelp() {
+
+    }
+
+    @Nullable
+    @Override
+    public Command<ArrayList<String>, String> getCommand() {
+        return new Command<ArrayList<String>, String>() {
+            @WorkerThread
+            @Override
+            public ArrayList<String> execute(String input) {
+                EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
+                        config.setEvalMode(EvaluateConfig.FRACTION));
+                return Lists.newArrayList(fraction);
+            }
+        };
+    }
+}

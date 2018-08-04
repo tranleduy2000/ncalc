@@ -21,6 +21,7 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +29,6 @@ import android.widget.Toast;
 
 import com.duy.calculator.R;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -45,7 +45,7 @@ import java.util.ArrayList;
  * Created by Duy on 06-Jan-17.
  */
 
-public class PermutationActivity extends AbstractEvaluatorActivity {
+public class PermutationActivity extends BaseEvaluatorActivity {
     public static final String TYPE_NUMBER = "TYPE_NUMBER";
     public static final int TYPE_PERMUTATION = 0;
     public static final int TYPE_COMBINATION = 1;
@@ -78,7 +78,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             return;
         }
         evaluator = MathEvaluator.getInstance();
-        btnSolve.setText(R.string.eval);
+        mBtnEvaluate.setText(R.string.eval);
 
         mHint2.setVisibility(View.VISIBLE);
         mHint1.setHint(Constants.C + " = ");
@@ -86,7 +86,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
 
         mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
-        mInputDisplay2.setInputType(InputType.TYPE_CLASS_NUMBER |
+        mInputFormula2.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
 
         getIntentData();
@@ -95,7 +95,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("100");
-                mInputDisplay2.setText("20");
+                mInputFormula2.setText("20");
             }
             clickHelp();
         }
@@ -112,7 +112,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
 
                 String num2 = bundle.getString("num2");
                 if (num2 == null) return;
-                mInputDisplay2.setText(num2);
+                mInputFormula2.setText(num2);
                 isDataNull = false;
                 clickEvaluate();
             } catch (Exception e) {
@@ -141,13 +141,13 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
 
     @Override
     protected String getExpression() {
-        if (mInputDisplay2.getCleanText().isEmpty()) {
-            mInputDisplay2.requestFocus();
-            mInputDisplay2.setError(getString(R.string.enter_number));
+        if (mInputFormula2.getCleanText().isEmpty()) {
+            mInputFormula2.requestFocus();
+            mInputFormula2.setError(getString(R.string.enter_number));
             return null;
         }
         String numberC = mInputFormula.getCleanText();
-        String numberK = mInputDisplay2.getCleanText();
+        String numberK = mInputFormula2.getCleanText();
         ExprInput item;
 
         if (type == TYPE_PERMUTATION) {
@@ -161,6 +161,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
 

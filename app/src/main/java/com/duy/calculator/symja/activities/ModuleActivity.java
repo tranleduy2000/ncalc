@@ -21,12 +21,12 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 import android.text.InputType;
 import android.view.View;
 
 import com.duy.calculator.R;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
  * Created by Duy on 06-Jan-17.
  */
 
-public class ModuleActivity extends AbstractEvaluatorActivity {
+public class ModuleActivity extends BaseEvaluatorActivity {
     public static final String TYPE_NUMBER = "TYPE_NUMBER";
     public static final int TYPE_PERMUTATION = 0;
     public static final int TYPE_COMBINATION = 1;
@@ -55,11 +55,11 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         mHint1.setHint("A = ");
         mHint2.setVisibility(View.VISIBLE);
         mHint2.setHint("B = ");
-        btnSolve.setText("A mod B");
+        mBtnEvaluate.setText("A mod B");
 
         mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
-        mInputDisplay2.setInputType(InputType.TYPE_CLASS_NUMBER |
+        mInputFormula2.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
 
         getIntentData();
@@ -68,7 +68,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
         if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("100");
-                mInputDisplay2.setText("20");
+                mInputFormula2.setText("20");
             }
             clickHelp();
         }
@@ -85,7 +85,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
 
                 String num2 = bundle.getString("num2");
                 if (num2 == null) return;
-                mInputDisplay2.setText(num2);
+                mInputFormula2.setText(num2);
                 isDataNull = false;
                 clickEvaluate();
             } catch (Exception e) {
@@ -102,12 +102,12 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
     @Override
     protected String getExpression() {
         String numberA = mInputFormula.getCleanText();
-        if (mInputDisplay2.getCleanText().isEmpty()) {
-            mInputDisplay2.requestFocus();
-            mInputDisplay2.setError(getString(R.string.enter_expression));
+        if (mInputFormula2.getCleanText().isEmpty()) {
+            mInputFormula2.requestFocus();
+            mInputFormula2.setError(getString(R.string.enter_expression));
             return null;
         }
-        String numberB = mInputDisplay2.getCleanText();
+        String numberB = mInputFormula2.getCleanText();
         return new ModuleItem(numberA, numberB).getInput();
 
     }
@@ -115,6 +115,7 @@ public class ModuleActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,

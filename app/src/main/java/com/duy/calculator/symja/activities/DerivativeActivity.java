@@ -23,12 +23,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -48,7 +48,7 @@ import static com.duy.calculator.R.string.derivative;
  * Đạo hàm cấp n
  * Created by Duy on 19/7/2016
  */
-public class DerivativeActivity extends AbstractEvaluatorActivity {
+public class DerivativeActivity extends BaseEvaluatorActivity {
     private static final String STARTED
             = DerivativeActivity.class.getName() + "started";
     private boolean isDataNull = true;
@@ -61,7 +61,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
 
         setTitle(getString(R.string.derivative));
         mHint1.setHint(getString(R.string.enter_function));
-        btnSolve.setText(derivative);
+        mBtnEvaluate.setText(derivative);
 
         //add data
         for (int i = 1; i < 21; i++) {
@@ -125,7 +125,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
         //if is not start
-        TapTarget target = TapTarget.forView(btnSolve,
+        TapTarget target = TapTarget.forView(mBtnEvaluate,
                 getString(derivative),
                 getString(R.string.push_der_button))
                 .drawShadow(true)
@@ -167,6 +167,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(DerivativeActivity.this);

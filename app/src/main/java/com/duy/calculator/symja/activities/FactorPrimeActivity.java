@@ -21,11 +21,11 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 import android.text.InputType;
 
 import com.duy.calculator.R;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.BuildConfig;
@@ -37,7 +37,7 @@ import java.util.ArrayList;
  * Created by Duy on 06-Jan-17.
  */
 
-public class FactorPrimeActivity extends AbstractEvaluatorActivity {
+public class FactorPrimeActivity extends BaseEvaluatorActivity {
     private static final String STARTED = FactorPrimeActivity.class.getName() + "started";
     private boolean isDataNull = true;
 
@@ -46,7 +46,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.factor_prime));
 
-        btnSolve.setText(R.string.factor);
+        mBtnEvaluate.setText(R.string.factor);
         mHint1.setHint(getString(R.string.input_number));
         mInputFormula.setInputType(InputType.TYPE_CLASS_NUMBER |
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
@@ -87,6 +87,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 String fraction = MathEvaluator.getInstance().factorPrime(input);

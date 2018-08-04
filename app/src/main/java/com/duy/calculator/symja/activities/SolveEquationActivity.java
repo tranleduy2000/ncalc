@@ -22,11 +22,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.WorkerThread;
 import android.support.design.widget.NavigationView;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import static com.duy.calculator.R.string.solve;
 
 
-public class SolveEquationActivity extends AbstractEvaluatorActivity
+public class SolveEquationActivity extends BaseEvaluatorActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         View.OnClickListener {
     private static final String STARTED = SolveEquationActivity.class.getName() + "started";
@@ -60,7 +60,7 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
         super.onCreate(savedInstanceState);
         setTitle(R.string.solve_equation);
         mHint1.setHint(getString(R.string.input_equation));
-        btnSolve.setText(solve);
+        mBtnEvaluate.setText(solve);
         getIntentData();
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -84,7 +84,7 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
-        TapTarget target = TapTarget.forView(btnSolve,
+        TapTarget target = TapTarget.forView(mBtnEvaluate,
                 getString(R.string.solve_equation),
                 getString(R.string.push_solve_button))
                 .drawShadow(true)
@@ -143,6 +143,7 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());

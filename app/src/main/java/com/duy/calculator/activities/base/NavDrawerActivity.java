@@ -38,7 +38,6 @@ import com.duy.calculator.symja.activities.IntegrateActivity;
 import com.duy.calculator.symja.activities.LimitActivity;
 import com.duy.calculator.symja.activities.ModuleActivity;
 import com.duy.calculator.symja.activities.NumberActivity;
-import com.duy.calculator.symja.activities.NumberType;
 import com.duy.calculator.symja.activities.PermutationActivity;
 import com.duy.calculator.symja.activities.PiActivity;
 import com.duy.calculator.symja.activities.PrimitiveActivity;
@@ -265,22 +264,22 @@ public abstract class NavDrawerActivity extends BaseActivity implements Navigati
                 break;
             case R.id.nav_catalan:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                intent.putExtra(NumberActivity.DATA, NumberType.CATALAN);
+                intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.CATALAN);
                 postStartActivity(intent);
                 break;
             case R.id.nav_fibo:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                intent.putExtra(NumberActivity.DATA, NumberType.FIBONACCI);
+                intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.FIBONACCI);
                 postStartActivity(intent);
                 break;
             case R.id.nav_prime:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                intent.putExtra(NumberActivity.DATA, NumberType.PRIME);
+                intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.PRIME);
                 postStartActivity(intent);
                 break;
             case R.id.action_divisors:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                intent.putExtra(NumberActivity.DATA, NumberType.DIVISORS);
+                intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.DIVISORS);
                 postStartActivity(intent);
                 break;
             case R.id.action_pi_number:

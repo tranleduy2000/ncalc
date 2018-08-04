@@ -57,7 +57,7 @@ import java.util.Collections;
  */
 
 public class MathEvaluator extends LogicEvaluator {
-    private static final MathEvaluator MATH_EVALUATOR = new MathEvaluator();
+    private static final MathEvaluator INSTACE = new MathEvaluator();
 
     private static final String TAG = "BigEvaluator";
     /**
@@ -79,7 +79,7 @@ public class MathEvaluator extends LogicEvaluator {
 
     @NonNull
     public static MathEvaluator getInstance() {
-        return MATH_EVALUATOR;
+        return INSTACE;
     }
 
     @Nullable

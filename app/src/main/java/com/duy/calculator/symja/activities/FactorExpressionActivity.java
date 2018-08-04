@@ -23,9 +23,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -41,7 +41,7 @@ import java.util.ArrayList;
 /**
  * Created by Duy on 19/7/2016
  */
-public class FactorExpressionActivity extends AbstractEvaluatorActivity {
+public class FactorExpressionActivity extends BaseEvaluatorActivity {
 
     private static final String STARTED = FactorExpressionActivity.class.getName() + "started";
     private final static String TAG = FactorExpressionActivity.class.getSimpleName();
@@ -53,7 +53,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.factor));
 
-        btnSolve.setText(R.string.factor);
+        mBtnEvaluate.setText(R.string.factor);
         mHint1.setHint(getString(R.string.enter_expression));
         getIntentData();
 
@@ -80,7 +80,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
-        TapTarget target = TapTarget.forView(btnSolve,
+        TapTarget target = TapTarget.forView(mBtnEvaluate,
                 getString(R.string.factor_polynomial),
                 getString(R.string.push_analyze_button))
                 .drawShadow(true)
@@ -133,6 +133,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
 

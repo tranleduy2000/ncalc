@@ -116,17 +116,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.v7.widget.AppCompatEditText
-                        android:id="@+id/edit_params"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/solve_for_var"
-                        android:visibility="gone" />
-                </android.support.design.widget.TextInputLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

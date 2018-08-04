@@ -21,10 +21,10 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.WorkerThread;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -42,7 +42,7 @@ import java.util.ArrayList;
  * Created by Duy on 07-Dec-16.
  */
 
-public class PrimitiveActivity extends AbstractEvaluatorActivity {
+public class PrimitiveActivity extends BaseEvaluatorActivity {
     private static final String STARTED = PrimitiveActivity.class.getName() + "started";
     private boolean isDataNull = true;
 
@@ -52,7 +52,7 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
         mLayoutLimit.setVisibility(View.GONE);
         setTitle(R.string.primitive);
         mHint1.setHint(getString(R.string.enter_function));
-        btnSolve.setText(R.string.primitive);
+        mBtnEvaluate.setText(R.string.primitive);
 
         //receive data from another activity
         getIntentData();
@@ -103,7 +103,7 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
 
-        TapTarget target3 = TapTarget.forView(btnSolve,
+        TapTarget target3 = TapTarget.forView(mBtnEvaluate,
                 getString(R.string.primitive),
                 getString(R.string.push_button_primitive))
                 .drawShadow(true)
@@ -134,6 +134,7 @@ public class PrimitiveActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());

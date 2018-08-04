@@ -21,11 +21,11 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.WorkerThread;
 import android.view.Gravity;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
  * Created by Duy on 07-Dec-16.
  */
 
-public class LimitActivity extends AbstractEvaluatorActivity {
+public class LimitActivity extends BaseEvaluatorActivity {
     private static final String STARTED = LimitActivity.class.getName() + "started";
     private boolean isDataNull = true;
 
@@ -52,17 +52,17 @@ public class LimitActivity extends AbstractEvaluatorActivity {
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.limit));
         mHint1.setHint(getString(R.string.enter_function));
-        btnSolve.setText(R.string.eval);
+        mBtnEvaluate.setText(R.string.eval);
 
         mLayoutLimit.setVisibility(View.VISIBLE);
         mHint1.setHint("");
-        editFrom.post(new Runnable() {
+        mEditLowerBound.post(new Runnable() {
             @Override
             public void run() {
-                editFrom.setText("x → ");
-                editFrom.setEnabled(false);
-                editFrom.setHint(null);
-                editFrom.setGravity(Gravity.END);
+                mEditLowerBound.setText("x → ");
+                mEditLowerBound.setEnabled(false);
+                mEditLowerBound.setHint(null);
+                mEditLowerBound.setGravity(Gravity.END);
             }
         });
 
@@ -71,7 +71,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
         if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("1/x + 2");
-                editTo.setText("inf");
+                mEditUpperBound.setText("inf");
             }
             clickHelp();
         }
@@ -106,7 +106,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
-        TapTarget target1 = TapTarget.forView(editTo,
+        TapTarget target1 = TapTarget.forView(mEditUpperBound,
                 getString(R.string.input_limit));
         target1.drawShadow(true)
                 .cancelable(true)
@@ -115,7 +115,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
-        TapTarget target2 = TapTarget.forView(btnSolve,
+        TapTarget target2 = TapTarget.forView(mBtnEvaluate,
                 getString(R.string.eval));
         target2.drawShadow(true)
                 .cancelable(true)
@@ -147,13 +147,13 @@ public class LimitActivity extends AbstractEvaluatorActivity {
     @Override
     protected String getExpression() {
         String expr = mInputFormula.getCleanText();
-        String limit = editTo.getText().toString();
+        String limit = mEditUpperBound.getText().toString();
 
         try {
             ExpressionChecker.checkExpression(limit);
         } catch (Exception e) {
             hideKeyboard();
-            handleExceptions(editTo, e);
+            handleExceptions(mEditUpperBound, e);
             return null;
         }
 
@@ -164,6 +164,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
 

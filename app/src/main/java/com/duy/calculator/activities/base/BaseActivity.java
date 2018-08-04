@@ -21,14 +21,12 @@ package com.duy.calculator.activities.base;
 import android.animation.Animator;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -39,10 +37,10 @@ import android.widget.EditText;
 
 import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
-import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.calculator.history.DatabaseHelper;
-import com.duy.ncalc.userinterface.LocaleHelper;
+import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.ncalc.userinterface.FontManager;
+import com.duy.ncalc.userinterface.LocaleHelper;
 import com.duy.ncalc.userinterface.ThemeEngine;
 import com.kobakei.ratethisapp.RateThisApp;
 
@@ -201,24 +199,6 @@ public abstract class BaseActivity extends AppCompatActivity
         intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID);
         intent.setType("text/plain");
         startActivity(intent);
-    }
-
-    /**
-     * show dialog with title and messenger
-     *
-     * @param title - title
-     * @param msg   - messenger
-     */
-    protected void showDialog(String title, String msg) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(title).setMessage(msg);
-        builder.setNegativeButton(this.getString(R.string.close), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        builder.create().show();
     }
 
 

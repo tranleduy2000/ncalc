@@ -21,9 +21,9 @@ package com.duy.calculator.symja.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
@@ -33,14 +33,14 @@ import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 
-import static com.duy.calculator.symja.activities.NumberType.CATALAN_FUNCTION;
+import static com.duy.calculator.symja.activities.NumberActivity.NumberType.CATALAN_FUNCTION;
 
 /**
  * Number activity
  * Created by Duy on 15-Feb-17.
  */
 
-public class NumberActivity extends AbstractEvaluatorActivity {
+public class NumberActivity extends BaseEvaluatorActivity {
     public static final String DATA = "DATA";
     private int type;
 
@@ -62,7 +62,7 @@ public class NumberActivity extends AbstractEvaluatorActivity {
      * - hint of mInputFormula
      */
     private void setup() {
-        btnSolve.setText(R.string.eval);
+        mBtnEvaluate.setText(R.string.eval);
         switch (type) {
             case NumberType.CATALAN:
                 mHint1.setHint(getString(R.string.catalan_desc));
@@ -136,6 +136,7 @@ public class NumberActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
@@ -144,5 +145,26 @@ public class NumberActivity extends AbstractEvaluatorActivity {
                 return Lists.newArrayList(fraction);
             }
         };
+    }
+
+    /**
+     * Created by Duy on 15-Feb-17.
+     */
+
+    public static class NumberType {
+        public static final int PRIME = 1;
+        public static final int PRIME_Q = 2;
+        public static final int CO_PRIME_Q = 3;
+        public static final int FACTOR_PRIME = 4;
+        public static final int CATALAN = 5;
+        public static final int FIBONACCI = 6;
+        public static final int LCM = 7;
+        public static final int GCD = 8;
+        public static final int DIVISORS = 9;
+
+        public static final String PRIME_FUNCTION = "Prime";
+        public static final String CATALAN_FUNCTION = "CatalanNumber";
+        public static final String FIBONACCI_FUNCTION = "Fibonacci";
+        public static final String DIVISORS_FUNCTION = "Divisors";
     }
 }

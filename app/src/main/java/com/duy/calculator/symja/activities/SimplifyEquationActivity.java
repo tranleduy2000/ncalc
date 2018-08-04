@@ -23,9 +23,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 /**
  * Created by Duy on 19/7/2016
  */
-public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
+public class SimplifyEquationActivity extends BaseEvaluatorActivity {
     private static final String STARTED = SimplifyEquationActivity.class.getName() + "started";
     SharedPreferences preferences;
     private boolean isDataNull = true;
@@ -50,7 +50,7 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.simplify_expression);
-        btnSolve.setText(R.string.simplify);
+        mBtnEvaluate.setText(R.string.simplify);
         mHint1.setHint(getString(R.string.enter_expression));
         getIntentData();
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -77,7 +77,7 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
 
 
         //if is not start
-        TapTarget target = TapTarget.forView(btnSolve,
+        TapTarget target = TapTarget.forView(mBtnEvaluate,
                 getString(R.string.simplify_expression),
                 getString(R.string.push_simplify_button))
                 .drawShadow(true)
@@ -129,6 +129,7 @@ public class SimplifyEquationActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 EvaluateConfig config = EvaluateConfig.loadFromSetting(getApplicationContext());

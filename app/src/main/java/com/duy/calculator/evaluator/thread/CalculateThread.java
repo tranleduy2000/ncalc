@@ -20,6 +20,7 @@ package com.duy.calculator.evaluator.thread;
 
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -51,6 +52,7 @@ public class CalculateThread extends BaseThread {
     @Override
     public void execute(String expr, final EvaluateConfig config) {
         Command<ArrayList<String>, String> task = new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 return Lists.newArrayList(MathEvaluator.getInstance().evaluateWithResultAsTex(input, config));

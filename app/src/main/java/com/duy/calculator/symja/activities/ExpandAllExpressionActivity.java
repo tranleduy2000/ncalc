@@ -23,9 +23,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 /**
  * Created by Duy on 19/7/2016
  */
-public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
+public class ExpandAllExpressionActivity extends BaseEvaluatorActivity {
     private static final String STARTED = ExpandAllExpressionActivity.class.getName() + "started";
     SharedPreferences preferences;
     private boolean isDataNull = true;
@@ -52,7 +52,7 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
 
         setTitle(getString(R.string.expand));
         mHint1.setHint(getString(R.string.enter_expression));
-        btnSolve.setText(R.string.expand);
+        mBtnEvaluate.setText(R.string.expand);
         getIntentData();
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -77,7 +77,7 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
-        TapTarget target = TapTarget.forView(btnSolve,
+        TapTarget target = TapTarget.forView(mBtnEvaluate,
                 getString(R.string.expand),
                 getString(R.string.push_expand_button));
         target.drawShadow(true)
@@ -113,6 +113,7 @@ public class ExpandAllExpressionActivity extends AbstractEvaluatorActivity {
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
 
