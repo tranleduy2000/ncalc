@@ -30,7 +30,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.ncalc.settings.SettingsActivity;
 import com.duy.calculator.symja.activities.DerivativeActivity;
 import com.duy.calculator.symja.activities.ExpandAllExpressionActivity;
 import com.duy.calculator.symja.activities.FactorExpressionActivity;
@@ -54,6 +53,7 @@ import com.duy.ncalc.document.MarkdownListDocumentFragment;
 import com.duy.ncalc.geom2d.GeometryDescartesActivity;
 import com.duy.ncalc.graph.GraphActivity;
 import com.duy.ncalc.matrix.MatrixCalculatorActivity;
+import com.duy.ncalc.settings.SettingsActivity;
 import com.duy.ncalc.systemequations.SystemEquationActivity;
 import com.duy.ncalc.unitconverter.UnitCategoryActivity;
 
@@ -64,9 +64,9 @@ import static com.duy.calculator.symja.models.TrigItem.TRIG_TYPE.REDUCE;
 /**
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
-    protected DrawerLayout mDrawerLayout;
+public abstract class NavDrawerActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected final Handler handler = new Handler();
+    protected DrawerLayout mDrawerLayout;
 
     /**
      * call on user click back

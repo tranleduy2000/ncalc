@@ -23,8 +23,9 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,7 +40,6 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.duy.calculator.AbstractFragment;
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.EvaluateConfig;
@@ -59,7 +59,7 @@ import io.github.kexanie.library.MathView;
 
 import static android.view.View.GONE;
 
-public class DefineSystemEquationFragment extends AbstractFragment implements View.OnClickListener {
+public class DefineSystemEquationFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = DefineSystemEquationFragment.class.getName();
     private static final String STARTED = DefineSystemEquationFragment.class.getSimpleName() + "started";
     char[] defaultVariable = "xyztuvabcdefgh".toCharArray();
@@ -74,16 +74,15 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
     private Button btnClear;
     private EditText editVar;
 
+    @Nullable
     @Override
-    protected View getView(LayoutInflater inflater, ViewGroup container) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.define_system_equation, container, false);
     }
 
-    @Override
-    protected void onChangeModeFraction() {
-
+    public View findViewById(int id) {
+        return getView().findViewById(id);
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -111,7 +110,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
         String[] s = new String[10];
         for (int i = 0; i < 10; i++) s[i] = String.valueOf(i + 2);
 
-        ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_selectable_list_item, s);
+        ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_selectable_list_item, s);
         mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerVariable.setAdapter(mAdapter);
         mSpinnerVariable.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -143,7 +142,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
     }
 
     private void clear(int row, int col) {
-        @IdRes int index = 1;
+        int index = 1;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 EditText editText = (EditText) mContainer.findViewById(index);
@@ -157,7 +156,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
 
     public String[][] getMatrix(int row, int col) {
         String res[][] = new String[row][col];
-        @IdRes int index = 1;
+        int index = 1;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 EditText editText = mContainer.findViewById(index);
@@ -171,7 +170,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
     }
 
     public void setMatrix(String[][] matrix, int row, int col) {
-//        @IdRes int index = 1;
+//       int index = 1;
 //        for (int i = 0; i < row; i++) {
 //            for (int j = 0; j < col; j++) {
 //                EditText editText = (EditText) mContainer.findViewById(index);
@@ -191,7 +190,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
             String msg = "Number variable is " + numberVariable
                     + ". But current number variable is " + var.length;
             editVar.setError(msg);
-            Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -222,7 +221,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
     }
 
     private void showHelp() {
-        final SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(mContext).edit();
+        final SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
         TapTarget target1 = TapTarget.forView(mSpinnerVariable,
                 getString(R.string.select_num_var),
                 getString(R.string.select_num_var_des))
@@ -312,7 +311,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
         @Override
         protected Void doInBackground(Void... params) {
             Log.d(TAG, "createLayoutMatrix: " + col + " " + row);
-            @IdRes int index = 1;
+            int index = 1;
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     publishProgress(i, j, index);
@@ -328,7 +327,7 @@ public class DefineSystemEquationFragment extends AbstractFragment implements Vi
             int i = values[0];
             int j = values[1];
             int index = values[2];
-            ResizingEditText editText = new ResizingEditText(mContext);
+            ResizingEditText editText = new ResizingEditText(getContext());
             editText.setHint("[" + (i + 1) + "," + (j + 1) + "]");
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(130, RelativeLayout.LayoutParams.WRAP_CONTENT);
             editText.setSingleLine(true);

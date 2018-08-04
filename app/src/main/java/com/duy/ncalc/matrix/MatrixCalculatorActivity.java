@@ -23,9 +23,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractNavDrawerActionBarActivity;
+import com.duy.calculator.activities.base.NavDrawerActivity;
 
-public class MatrixCalculatorActivity extends AbstractNavDrawerActionBarActivity
+public class MatrixCalculatorActivity extends NavDrawerActivity
         implements FragmentMatrixInput.OnMatrixEvalListener {
 
     @Override

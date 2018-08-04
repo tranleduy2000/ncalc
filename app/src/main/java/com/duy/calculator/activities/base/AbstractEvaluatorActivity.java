@@ -74,7 +74,7 @@ import java.util.ArrayList;
  * <p>
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionBarActivity
+public abstract class AbstractEvaluatorActivity extends NavDrawerActivity
         implements View.OnClickListener, SuggestAdapter.OnSuggestionListener {
     protected String TAG = AbstractEvaluatorActivity.class.getName();
     protected EditText editFrom, editTo;

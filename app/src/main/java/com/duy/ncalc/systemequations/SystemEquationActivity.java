@@ -27,15 +27,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractNavDrawerActionBarActivity;
+import com.duy.calculator.activities.base.NavDrawerActivity;
 
 
 /**
  * Created by Duy on 18-Nov-16.
  */
 
-public class SystemEquationActivity extends AbstractNavDrawerActionBarActivity {
-    private static final String STARTED = SystemEquationActivity.class.getName() + "started";
+public class SystemEquationActivity extends NavDrawerActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -28,7 +28,7 @@ import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
  * <p/>
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractCalculatorActivity extends AbstractNavDrawerActionBarActivity implements ICalculator {
+public abstract class AbstractCalculatorActivity extends NavDrawerActivity implements ICalculator {
     public ExpressionTokenizer mTokenizer;
 
     @Override

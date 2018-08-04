@@ -21,6 +21,7 @@ package com.duy.ncalc.geom2d;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -31,10 +32,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.duy.calculator.AbstractFragment;
+import com.duy.calculator.Fragment;
 import com.duy.calculator.R;
 
-public class GeometryDescartesFragment extends AbstractFragment {
+public class GeometryDescartesFragment extends Fragment {
 
     private static final int mCount = 3;
 
@@ -44,23 +45,22 @@ public class GeometryDescartesFragment extends AbstractFragment {
 
         ViewPager mPager = (ViewPager) findViewById(R.id.viewpager);
         mPager.setOffscreenPageLimit(mCount);
-        SectionPagerAdapter mAdapter = new SectionPagerAdapter(getChildFragmentManager(), mContext);
+        SectionPagerAdapter mAdapter = new SectionPagerAdapter(getChildFragmentManager(), getContext());
         mPager.setAdapter(mAdapter);
         TabLayout mTab = (TabLayout) findViewById(R.id.tab);
         mTab.setupWithViewPager(mPager, true);
     }
 
-
+    @Nullable
     @Override
-    protected View getView(LayoutInflater inflater, ViewGroup container) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.app_bar_geometry_descartes, container, false);
     }
 
-    @Override
-    protected void onChangeModeFraction() {
 
+    public View findViewById(int id) {
+        return getView().findViewById(id);
     }
-
 
     public static class SectionPagerAdapter extends FragmentPagerAdapter {
         private final Context context;

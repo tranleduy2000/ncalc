@@ -18,12 +18,16 @@
 
 package com.duy.ncalc.systemequations;
 
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,12 +40,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.duy.calculator.AbstractFragment;
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.BaseThread;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.duy.ncalc.view.ResizingEditText;
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -54,7 +58,7 @@ import io.github.kexanie.library.MathView;
 
 import static android.view.View.GONE;
 
-public class UndefineSystemEquationFragment extends AbstractFragment implements View.OnClickListener {
+public class UndefineSystemEquationFragment extends Fragment implements View.OnClickListener {
     private static final String STARTED = "UndefineSystemEquationFragment";
     private static final String TAG = UndefineSystemEquationFragment.class.getSimpleName();
     private ProgressBar mProgressBar;
@@ -154,17 +158,19 @@ public class UndefineSystemEquationFragment extends AbstractFragment implements 
     }
 
 
+    @Nullable
     @Override
-    protected View getView(LayoutInflater inflater, ViewGroup container) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.undefine_system_equation, container, false);
     }
 
-    @Override
-    protected void onChangeModeFraction() {
+    public View findViewById(int id) {
+        return getView().findViewById(id);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         mContainer = (LinearLayout) findViewById(R.id.container);
@@ -319,7 +325,7 @@ public class UndefineSystemEquationFragment extends AbstractFragment implements 
         for (int i = 0; i < mContainer.getChildCount(); i++) {
             ResizingEditText editText = (ResizingEditText) mContainer.getChildAt(i);
             String exp = editText.getCleanText();
-            exp = mTokenizer.getNormalExpression(exp);
+            exp = new ExpressionTokenizer().getNormalExpression(exp);
             exp = replaceEqualSymbol(exp);
             if (!exp.isEmpty()) arrayList.add(exp);
         }

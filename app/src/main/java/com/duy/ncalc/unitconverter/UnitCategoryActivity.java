@@ -32,13 +32,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractNavDrawerActionBarActivity;
+import com.duy.calculator.activities.base.NavDrawerActivity;
 import com.duy.ncalc.unitconverter.adapters.CategoryAdapter;
 
 import java.util.ArrayList;
 
 
-public class UnitCategoryActivity extends AbstractNavDrawerActionBarActivity
+public class UnitCategoryActivity extends NavDrawerActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     protected static final String TAG = UnitCategoryActivity.class.getName();
 

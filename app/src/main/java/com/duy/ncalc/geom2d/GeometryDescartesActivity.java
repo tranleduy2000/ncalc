@@ -36,9 +36,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.activities.base.AbstractNavDrawerActionBarActivity;
+import com.duy.calculator.activities.base.NavDrawerActivity;
 
-public class GeometryDescartesActivity extends AbstractNavDrawerActionBarActivity
+public class GeometryDescartesActivity extends NavDrawerActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, ViewPager.OnPageChangeListener {
 
     private static final int mCount = 3;
