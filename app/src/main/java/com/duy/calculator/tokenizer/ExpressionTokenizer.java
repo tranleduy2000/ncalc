@@ -29,11 +29,11 @@ import java.util.ArrayList;
  * <p>
  * view -> translate -> english -> calculate
  */
-public class Tokenizer {
+public class ExpressionTokenizer {
     private final ArrayList<Localize> mReplacements;
-    private String TAG = Tokenizer.class.getName();
+    private String TAG = ExpressionTokenizer.class.getName();
 
-    public Tokenizer() {
+    public ExpressionTokenizer() {
         mReplacements = new ArrayList<>();
     }
 

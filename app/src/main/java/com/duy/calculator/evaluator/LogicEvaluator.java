@@ -20,7 +20,7 @@ package com.duy.calculator.evaluator;
 
 import com.duy.calculator.evaluator.base.Base;
 import com.duy.calculator.evaluator.base.Evaluator;
-import com.duy.calculator.tokenizer.Tokenizer;
+import com.duy.calculator.tokenizer.ExpressionTokenizer;
 
 import org.javia.arity.SyntaxException;
 
@@ -31,15 +31,15 @@ public abstract class LogicEvaluator {
     public static final int INPUT_EMPTY = 2;
     public static final int RESULT_ERROR_WITH_INDEX = 3;
     public static final String ERROR_INDEX_STRING = "?";
-    protected final Tokenizer mTokenizer;
+    protected final ExpressionTokenizer mTokenizer;
     private final Evaluator mEvaluator;
 
     public LogicEvaluator() {
         mEvaluator = new Evaluator();
-        mTokenizer = new Tokenizer();
+        mTokenizer = new ExpressionTokenizer();
     }
 
-    public Tokenizer getTokenizer() {
+    public ExpressionTokenizer getTokenizer() {
         return mTokenizer;
     }
 

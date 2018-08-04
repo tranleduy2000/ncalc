@@ -32,7 +32,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.model.SolveItem;
-import com.duy.calculator.tokenizer.Tokenizer;
+import com.duy.calculator.tokenizer.ExpressionTokenizer;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
@@ -122,7 +122,7 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
                 mInputFormula.setText(data);
-                data = new Tokenizer().getNormalExpression(data);
+                data = new ExpressionTokenizer().getNormalExpression(data);
                 isDataNull = false;
                 if (!data.isEmpty()) {
                     clickEvaluate();

@@ -36,11 +36,6 @@
             android:orientation="horizontal"
             android:weightSum="6">
 
-            <com.duy.calculator.view.CalcButton
-                android:id="@+id/btn_calc"
-                style="?buttonAdvanceStyle"
-                android:text="@string/calc"
-                android:visibility="gone" />
 
             <com.duy.calculator.view.CalcButton
                 android:id="@+id/btn_solve_"

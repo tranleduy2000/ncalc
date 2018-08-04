@@ -55,7 +55,6 @@ import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
 import com.duy.ncalc.calculator.fragment.KeyboardFragment;
 import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.define.DefineVariableActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -679,12 +678,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         DLog.i("Save history: " + expr + " = " + result);
         mHistoryDatabase.saveHistory(new ResultEntry(expr, result));
         return false;
-    }
-
-    public void onDefineAndCalc() {
-        Intent intent = new Intent(this, DefineVariableActivity.class);
-        intent.putExtra(DATA, mInputDisplay.getCleanText());
-        startActivityForResult(intent, REQ_CODE_DEFINE_VAR);
     }
 
     public void clickFactorPrime() {

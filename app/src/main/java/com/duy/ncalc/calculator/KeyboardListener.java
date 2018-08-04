@@ -30,8 +30,6 @@ public interface KeyboardListener {
 
     void insertText(String text);
 
-    void onDefineAndCalc();
-
     void clickFactorPrime();
 
     void clickSolveEquation();

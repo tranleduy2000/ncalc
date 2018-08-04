@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.equations;
+package com.duy.ncalc.systemequations;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;

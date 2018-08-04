@@ -128,9 +128,6 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener, 
                 mCalculatorListener.insertText("^");
                 mCalculatorListener.insertText("3");
                 break;
-            case R.id.btn_calc:
-                mCalculatorListener.onDefineAndCalc();
-                break;
             case R.id.btn_fact:
                 mCalculatorListener.clickFactorPrime();
                 break;

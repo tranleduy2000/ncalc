@@ -26,7 +26,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.duy.calculator.DLog;
-import com.duy.calculator.define.VariableEntry;
 import com.duy.calculator.history.ResultEntry;
 
 import java.util.ArrayList;
@@ -201,29 +200,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d(TAG, "updateValueVariable: " + name + " " + newValue);
         long res = sqLiteDatabase.update(TABLE_VARIABLE_NAME, contentValues, KEY_VAR_NAME + "=?", new String[]{name});
         Log.d(TAG, "updateValueVariable: " + res);
-    }
-
-    /**
-     * get list variable from database
-     * - name: name of variable
-     * - value: value of variable
-     *
-     * @return list variable
-     */
-    public ArrayList<VariableEntry> getAllVariable() {
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String query = "SELECT * FROM " + TABLE_VARIABLE_NAME;
-        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
-        ArrayList<VariableEntry> list = new ArrayList<>();
-        if (cursor.moveToFirst()) {
-            do {
-                String key = cursor.getString(cursor.getColumnIndex(KEY_VAR_NAME));
-                String value = cursor.getString(cursor.getColumnIndex(KEY_VAR_VALUE));
-                list.add(new VariableEntry(key, value));
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        return list;
     }
 
     public void saveHistory(ArrayList<ResultEntry> histories) {

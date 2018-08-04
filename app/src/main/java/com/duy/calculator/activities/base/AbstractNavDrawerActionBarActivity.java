@@ -44,7 +44,7 @@ import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.ncalc.calculator.LogicCalculatorActivity;
 import com.duy.ncalc.unitconverter.UnitCategoryActivity;
 import com.duy.calculator.deprecated.StatisticActivity;
-import com.duy.calculator.equations.SystemEquationActivity;
+import com.duy.ncalc.systemequations.SystemEquationActivity;
 import com.duy.calculator.geom2d.GeometryDescartesActivity;
 import com.duy.calculator.graph.GraphActivity;
 import com.duy.calculator.matrix.MatrixCalculatorActivity;

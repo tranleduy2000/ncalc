@@ -22,7 +22,7 @@ import android.content.Context;
 
 import com.duy.calculator.evaluator.base.BaseModule;
 import com.duy.calculator.evaluator.base.Evaluator;
-import com.duy.calculator.tokenizer.Tokenizer;
+import com.duy.calculator.tokenizer.ExpressionTokenizer;
 
 import java.util.regex.Pattern;
 
@@ -35,7 +35,7 @@ public class FormatExpression {
     /**
      * clean expression
      */
-    public static String cleanExpression(String expr, Tokenizer tokenizer) {
+    public static String cleanExpression(String expr, ExpressionTokenizer tokenizer) {
         expr = tokenizer.getNormalExpression(expr);
         return cleanExpression(expr);
     }
@@ -68,7 +68,7 @@ public class FormatExpression {
      * @return - math language
      */
     public static String cleanExpression(String expr, Context context) {
-        return cleanExpression(expr, new Tokenizer());
+        return cleanExpression(expr, new ExpressionTokenizer());
     }
 
     /**

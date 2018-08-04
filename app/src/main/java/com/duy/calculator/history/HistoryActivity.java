@@ -32,7 +32,7 @@ import android.widget.Toast;
 
 import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
-import com.duy.calculator.tokenizer.Tokenizer;
+import com.duy.calculator.tokenizer.ExpressionTokenizer;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class HistoryActivity extends BaseActivity implements HistoryAdapter.Hist
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Tokenizer tokenizer = new Tokenizer();
+        ExpressionTokenizer tokenizer = new ExpressionTokenizer();
 
         mHistoryAdapter = new HistoryAdapter(this, tokenizer);
         mHistoryAdapter.setListener(this);

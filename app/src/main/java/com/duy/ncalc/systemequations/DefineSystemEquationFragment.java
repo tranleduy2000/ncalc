@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.equations;
+package com.duy.ncalc.systemequations;
 
 import android.content.Context;
 import android.content.SharedPreferences;

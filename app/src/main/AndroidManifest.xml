@@ -121,13 +121,8 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".equations.SystemEquationActivity"
+            android:name="com.duy.ncalc.systemequations.SystemEquationActivity"
             android:label="@string/solve_system_equation"
-
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".define.DefineVariableActivity"
-            android:label="@string/define_var"
 
             android:launchMode="singleTask" />
         <activity

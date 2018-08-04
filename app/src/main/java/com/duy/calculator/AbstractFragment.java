@@ -41,7 +41,7 @@ import android.widget.Toast;
 
 import com.duy.calculator.data.CalculatorSetting;
 import com.duy.calculator.data.DatabaseHelper;
-import com.duy.calculator.tokenizer.Tokenizer;
+import com.duy.calculator.tokenizer.ExpressionTokenizer;
 import com.duy.calculator.view.AnimationFinishedListener;
 
 import java.util.Locale;
@@ -58,7 +58,7 @@ public abstract class AbstractFragment extends Fragment
     /**
      * translator and evaluator
      */
-    protected Tokenizer mTokenizer;
+    protected ExpressionTokenizer mTokenizer;
 
     /**
      * data for com.duy.calculator
@@ -81,7 +81,7 @@ public abstract class AbstractFragment extends Fragment
         mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         mSetting = new CalculatorSetting(mPreferences, mContext);
 
-        mTokenizer = new Tokenizer();
+        mTokenizer = new ExpressionTokenizer();
 
 
     }

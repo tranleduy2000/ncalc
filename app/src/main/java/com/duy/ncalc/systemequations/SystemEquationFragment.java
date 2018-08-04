@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.equations;
+package com.duy.ncalc.systemequations;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
