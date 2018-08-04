@@ -50,7 +50,6 @@
             android:name="com.duy.ncalc.unitconverter.UnitCategoryActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_unit_converter_acitvity"
-
             android:launchMode="singleTask" />
         <activity android:name="com.duy.ncalc.unitconverter.ConverterActivity" />
         <activity
@@ -154,7 +153,9 @@
             android:launchMode="singleTask" />
         <activity android:name=".symja.activities.PiActivity" />
         <activity android:name="com.duy.ncalc.document.MarkdownListDocumentActivity" />
-        <activity android:name=".symja.activities.IdeActivity" />
+        <activity
+            android:name=".symja.activities.IdeActivity"
+            android:label="@string/ide_mode" />
     </application>
 
 </manifest>

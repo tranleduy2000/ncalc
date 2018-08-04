@@ -208,7 +208,6 @@ public abstract class BaseEvaluatorActivity extends NavDrawerActivity
         mBtnEvaluate.setEnabled(false);
         mBtnClear.setEnabled(false);
         hideKeyboard();
-        mResultAdapter.clear();
 
         EvaluateConfig config = EvaluateConfig.loadFromSetting(this);
         CalculateThread calculateThread = new CalculateThread(config, new BaseThread.ResultCallback() {
