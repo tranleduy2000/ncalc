@@ -30,7 +30,7 @@ import android.view.MenuItem;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractAppCompatActivity;
-import com.duy.calculator.document.DocumentAdapter;
+import com.duy.calculator.document.FunctionsDocumentAdapter;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.mukesh.MarkdownView;
 
@@ -40,9 +40,9 @@ import butterknife.ButterKnife;
  * Created by Duy on 19-May-17.
  */
 
-public class DocumentActivity extends AbstractAppCompatActivity implements MaterialSearchView.OnQueryTextListener, DocumentAdapter.OnDocumentClickListener {
+public class FunctionsDocumentActivity extends AbstractAppCompatActivity implements MaterialSearchView.OnQueryTextListener, FunctionsDocumentAdapter.OnDocumentClickListener {
     private MaterialSearchView searchView;
-    private DocumentAdapter documentAdapter;
+    private FunctionsDocumentAdapter functionsDocumentAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,13 +55,13 @@ public class DocumentActivity extends AbstractAppCompatActivity implements Mater
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.see_doc);
 
-        documentAdapter = new DocumentAdapter(this);
-        documentAdapter.setOnDocumentClickListener(this);
+        functionsDocumentAdapter = new FunctionsDocumentAdapter(this);
+        functionsDocumentAdapter.setOnDocumentClickListener(this);
         RecyclerView recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setHasFixedSize(false);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(documentAdapter);
+        recyclerView.setAdapter(functionsDocumentAdapter);
 
         searchView = findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(this);
@@ -96,7 +96,7 @@ public class DocumentActivity extends AbstractAppCompatActivity implements Mater
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        documentAdapter.query(query);
+        functionsDocumentAdapter.query(query);
         return false;
     }
 

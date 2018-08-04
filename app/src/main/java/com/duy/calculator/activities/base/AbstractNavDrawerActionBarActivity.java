@@ -45,7 +45,7 @@ import com.duy.calculator.activities.SimplifyEquationActivity;
 import com.duy.calculator.activities.SolveEquationActivity;
 import com.duy.calculator.converter.UnitCategoryActivity;
 import com.duy.calculator.deprecated.StatisticActivity;
-import com.duy.calculator.document.activities.DocumentActivity;
+import com.duy.calculator.document.activities.FunctionsDocumentActivity;
 import com.duy.calculator.document.activities.InfoActivity;
 import com.duy.calculator.geom2d.GeometryDescartesActivity;
 import com.duy.calculator.graph.GraphActivity;
@@ -127,7 +127,7 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
             @Override
             public void onClick(View v) {
                 closeDrawer();
-                startActivity(new Intent(getApplicationContext(), DocumentActivity.class));
+                startActivity(new Intent(getApplicationContext(), FunctionsDocumentActivity.class));
             }
         });
         header.findViewById(R.id.img_setting).setOnClickListener(new View.OnClickListener() {
@@ -305,7 +305,7 @@ public abstract class AbstractNavDrawerActionBarActivity extends AbstractAppComp
                 startIntent(intent);
                 break;
             case R.id.action_document:
-                intent = new Intent(getApplicationContext(), DocumentActivity.class);
+                intent = new Intent(getApplicationContext(), FunctionsDocumentActivity.class);
                 startActivity(intent);
                 break;
             case R.id.action_getting_started:

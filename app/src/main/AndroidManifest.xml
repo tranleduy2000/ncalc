@@ -162,7 +162,7 @@
         <activity
             android:name=".number.NumberActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".document.activities.DocumentActivity" />
+        <activity android:name=".document.activities.FunctionsDocumentActivity" />
         <activity android:name=".number.PiActivity" />
     </application>
 

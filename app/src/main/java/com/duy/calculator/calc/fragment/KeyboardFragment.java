@@ -30,7 +30,7 @@ import android.widget.Button;
 
 import com.duy.calculator.R;
 import com.duy.calculator.calc.KeyboardListener;
-import com.duy.calculator.document.activities.DocumentActivity;
+import com.duy.calculator.document.activities.FunctionsDocumentActivity;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.view.ButtonID;
 import com.duy.calculator.view.CalcButton;
@@ -134,7 +134,7 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener, 
                 mCalculatorListener.clickFactorPrime();
                 break;
             case R.id.btn_help:
-                startActivity(new Intent(getContext(), DocumentActivity.class));
+                startActivity(new Intent(getContext(), FunctionsDocumentActivity.class));
             case R.id.btn_solve_:
                 mCalculatorListener.clickSolveEquation();
                 break;
