@@ -20,22 +20,14 @@ package com.duy.calculator.evaluator;
 
 import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 
-import static com.duy.calculator.evaluator.base.LogicEvaluator.ERROR_INDEX_STRING;
-
 public class FormatExpression {
 
-    /**
-     * clean expression
-     */
     public static String cleanExpression(String expr, ExpressionTokenizer tokenizer) {
         expr = tokenizer.getNormalExpression(expr);
         return cleanExpression(expr);
     }
 
     public static String cleanExpression(String expr) {
-        expr = expr.replace(ERROR_INDEX_STRING, "");
-        while (expr.contains("--")) expr = expr.replace("--", "+");
-        while (expr.contains("++")) expr = expr.replace("++", "+");
         expr = expr.replace("÷", "/");
         expr = expr.replace("×", "*");
         expr = expr.replace("√", "Sqrt");
