@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.graph;
+package com.duy.ncalc.graph;
 
 import edu.hws.jcm.data.Constant;
 import edu.hws.jcm.data.Parser;

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package com.duy.calculator.graph;
+package com.duy.ncalc.graph;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

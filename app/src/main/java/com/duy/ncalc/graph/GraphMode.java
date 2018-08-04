@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.graph;
+package com.duy.ncalc.graph;
 
 public final class GraphMode {
     public static final int TWO_D = 1;

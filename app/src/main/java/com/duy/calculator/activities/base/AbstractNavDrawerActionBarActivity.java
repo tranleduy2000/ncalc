@@ -19,10 +19,8 @@
 package com.duy.calculator.activities.base;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -32,33 +30,33 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.duy.calculator.R;
+import com.duy.calculator.deprecated.StatisticActivity;
+import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.symja.DerivativeActivity;
 import com.duy.calculator.symja.ExpandAllExpressionActivity;
 import com.duy.calculator.symja.FactorExpressionActivity;
+import com.duy.calculator.symja.FactorPrimeActivity;
 import com.duy.calculator.symja.IntegrateActivity;
 import com.duy.calculator.symja.LimitActivity;
-import com.duy.calculator.symja.PrimitiveActivity;
-import com.duy.calculator.symja.SimplifyEquationActivity;
-import com.duy.calculator.symja.SolveEquationActivity;
-import com.duy.ncalc.calculator.BasicCalculatorActivity;
-import com.duy.ncalc.calculator.LogicCalculatorActivity;
-import com.duy.ncalc.unitconverter.UnitCategoryActivity;
-import com.duy.calculator.deprecated.StatisticActivity;
-import com.duy.ncalc.systemequations.SystemEquationActivity;
-import com.duy.ncalc.geom2d.GeometryDescartesActivity;
-import com.duy.calculator.graph.GraphActivity;
-import com.duy.ncalc.matrix.MatrixCalculatorActivity;
-import com.duy.calculator.symja.FactorPrimeActivity;
 import com.duy.calculator.symja.ModuleActivity;
 import com.duy.calculator.symja.NumberActivity;
 import com.duy.calculator.symja.NumberType;
 import com.duy.calculator.symja.PermutationActivity;
 import com.duy.calculator.symja.PiActivity;
-import com.duy.calculator.settings.SettingsActivity;
+import com.duy.calculator.symja.PrimitiveActivity;
+import com.duy.calculator.symja.SimplifyEquationActivity;
+import com.duy.calculator.symja.SolveEquationActivity;
 import com.duy.calculator.symja.TrigActivity;
+import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.calculator.LogicCalculatorActivity;
 import com.duy.ncalc.document.InfoActivity;
 import com.duy.ncalc.document.MarkdownListDocumentActivity;
 import com.duy.ncalc.document.MarkdownListDocumentFragment;
+import com.duy.ncalc.geom2d.GeometryDescartesActivity;
+import com.duy.ncalc.graph.GraphActivity;
+import com.duy.ncalc.matrix.MatrixCalculatorActivity;
+import com.duy.ncalc.systemequations.SystemEquationActivity;
+import com.duy.ncalc.unitconverter.UnitCategoryActivity;
 
 import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPAND;
 import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPONENT;
@@ -69,7 +67,7 @@ import static com.duy.calculator.model.TrigItem.TRIG_TYPE.REDUCE;
  */
 public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout mDrawerLayout;
-    private Handler handler = new Handler();
+    protected final Handler handler = new Handler();
 
     /**
      * call on user click back
@@ -86,18 +84,8 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
             super.onBackPressed();
     }
 
-    /**
-     * close drawer when user click on history
-     * and close when user click item navigation
-     */
     public void closeDrawer() {
         mDrawerLayout.closeDrawers();
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -174,144 +162,141 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
 
             case R.id.nav_sci_calc:
                 intent = new Intent(getApplicationContext(), BasicCalculatorActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_graph:
                 intent = new Intent(getApplicationContext(), GraphActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_unit:
                 intent = new Intent(getApplicationContext(), UnitCategoryActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_base:
                 intent = new Intent(getApplicationContext(), LogicCalculatorActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_geometric_descartes:
                 intent = new Intent(getApplicationContext(), GeometryDescartesActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_setting:
                 intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_about_app:
                 intent = new Intent(getApplicationContext(), InfoActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_matrix:
                 intent = new Intent(getApplicationContext(), MatrixCalculatorActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.system_equation:
                 intent = new Intent(getApplicationContext(), SystemEquationActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_solve_equation:
                 intent = new Intent(getApplicationContext(), SolveEquationActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_simplify_equation:
                 intent = new Intent(getApplicationContext(), SimplifyEquationActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_factor_equation:
                 intent = new Intent(getApplicationContext(), FactorExpressionActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_derivitive:
                 intent = new Intent(getApplicationContext(), DerivativeActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_table:
                 intent = new Intent(getApplicationContext(), StatisticActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_expand_binomial:
                 intent = new Intent(getApplicationContext(), ExpandAllExpressionActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_limit:
                 intent = new Intent(getApplicationContext(), LimitActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_integrate:
                 intent = new Intent(getApplicationContext(), IntegrateActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_primitive:
                 intent = new Intent(getApplicationContext(), PrimitiveActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_rate:
                 gotoPlayStore();
                 break;
             case R.id.nav_prime_factor:
                 intent = new Intent(getApplicationContext(), FactorPrimeActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_mod:
                 intent = new Intent(getApplicationContext(), ModuleActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_trig_expand:
                 intent = new Intent(getApplicationContext(), TrigActivity.class);
                 intent.putExtra(TrigActivity.TYPE, EXPAND);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_trig_reduce:
                 intent = new Intent(getApplicationContext(), TrigActivity.class);
                 intent.putExtra(TrigActivity.TYPE, REDUCE);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_trig_to_exp:
                 intent = new Intent(getApplicationContext(), TrigActivity.class);
                 intent.putExtra(TrigActivity.TYPE, EXPONENT);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_permutation:
                 intent = new Intent(getApplicationContext(), PermutationActivity.class);
                 intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_PERMUTATION);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_combination:
                 intent = new Intent(getApplicationContext(), PermutationActivity.class);
                 intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_COMBINATION);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_catalan:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
                 intent.putExtra(NumberActivity.DATA, NumberType.CATALAN);
-                startIntent(intent);
-
+                postStartActivity(intent);
                 break;
             case R.id.nav_fibo:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
                 intent.putExtra(NumberActivity.DATA, NumberType.FIBONACCI);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.nav_prime:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
                 intent.putExtra(NumberActivity.DATA, NumberType.PRIME);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.action_divisors:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
                 intent.putExtra(NumberActivity.DATA, NumberType.DIVISORS);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
             case R.id.action_pi_number:
                 intent = new Intent(getApplicationContext(), PiActivity.class);
-                startIntent(intent);
+                postStartActivity(intent);
                 break;
-
-
         }
         return true;
     }
 
-    private void startIntent(final Intent intent) {
+    private void postStartActivity(final Intent intent) {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

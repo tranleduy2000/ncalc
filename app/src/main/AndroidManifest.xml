@@ -107,10 +107,10 @@
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".graph.GraphActivity"
+            android:name="com.duy.ncalc.graph.GraphActivity"
             android:label="@string/title_activity_graph" />
         <activity
-            android:name=".graph.GraphAddFunction"
+            android:name="com.duy.ncalc.graph.GraphAddFunction"
             android:label="@string/add_function"
 
             android:launchMode="singleTask" />

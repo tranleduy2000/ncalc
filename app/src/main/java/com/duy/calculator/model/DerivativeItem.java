@@ -35,20 +35,11 @@ public class DerivativeItem extends ExprInput {
     private String var = "x";
     private String level = "1";
 
-    public DerivativeItem(String input, String var) {
-        this.input = FormatExpression.cleanExpression(input);
-        //if var = "", do not set var
-        if (!var.isEmpty()) this.var = var;
-    }
 
     public DerivativeItem(String input, String var, String level) {
         this.input = FormatExpression.cleanExpression(input);
         if (!var.isEmpty()) this.var = var;     //if var = "", do not set var
         this.level = level;
-    }
-
-    public DerivativeItem(String input) {
-        this.input = FormatExpression.cleanExpression(input);
     }
 
     public String getVar() {

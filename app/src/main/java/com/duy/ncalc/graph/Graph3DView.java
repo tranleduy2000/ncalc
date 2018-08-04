@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.graph;
+package com.duy.ncalc.graph;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;

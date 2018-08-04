@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.graph;
+package com.duy.ncalc.graph;
 
 import edu.hws.jcm.data.Expression;
 import edu.hws.jcm.data.ParseError;

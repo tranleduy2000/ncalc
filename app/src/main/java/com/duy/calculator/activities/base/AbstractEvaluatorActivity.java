@@ -23,12 +23,10 @@ import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
@@ -51,7 +49,6 @@ import android.widget.Toast;
 
 import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.R;
-import com.duy.calculator.symja.ResultAdapter;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.exceptions.ParsingException;
@@ -59,7 +56,7 @@ import com.duy.calculator.evaluator.thread.BaseThread;
 import com.duy.calculator.evaluator.thread.CalculateThread;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.keyboard.NaturalKeyboardAPI;
+import com.duy.calculator.symja.ResultAdapter;
 import com.duy.calculator.view.AnimationFinishedListener;
 import com.duy.calculator.view.ResizingEditText;
 import com.duy.calculator.view.RevealView;
@@ -83,7 +80,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     protected EditText editFrom, editTo;
     protected LinearLayout mLayoutLimit;
     protected SharedPreferences mPreferences;
-    protected Handler mHandler = new Handler();
     protected Button btnSolve;
     protected ResizingEditText mInputFormula;
     protected ViewGroup mDisplayForeground;
@@ -291,40 +287,9 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             case R.id.fab_help:
                 clickHelp();
                 break;
-            case R.id.img_natural_keyboard:
-                NaturalKeyboardAPI.getExpression(this);
-                break;
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case NaturalKeyboardAPI.REQUEST_INPUT:
-                if (resultCode == RESULT_OK) {
-                    final String expr = NaturalKeyboardAPI.processResult(data);
-                    if (expr.isEmpty()) return;
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (mInputFormula.hasFocus()) {
-                                mInputFormula.setText(expr);
-                            } else if (mInputDisplay2.hasFocus()) {
-                                mInputDisplay2.setText(expr);
-                            } else if (editFrom.hasFocus()) {
-                                editFrom.setText(expr);
-                            } else if (editTo.hasFocus()) {
-                                editTo.setText(expr);
-                            } else {
-                                mInputFormula.setText(expr);
-                            }
-                        }
-                    }, 100);
-                }
-                break;
-        }
-    }
 
     public void clickClear() {
         mInputFormula.setText("");
@@ -441,26 +406,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
 
     @Nullable
     public abstract Command<ArrayList<String>, String> getCommand();
-
-    public void showDialogInstallNaturalKeyboard() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.install_msg);
-        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                gotoPlayStore("com.duy.calc.casio");
-                dialogInterface.cancel();
-            }
-        });
-        builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        mDialog = builder.create();
-        mDialog.show();
-    }
 
     @Override
     protected void onDestroy() {

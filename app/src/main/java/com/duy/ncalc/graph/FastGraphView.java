@@ -16,13 +16,13 @@
  *
  */
 
-package com.duy.calculator.graph;
+package com.duy.ncalc.graph;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 
-public class FastGraphView extends com.duy.calculator.graph.Graph2DView {
+public class FastGraphView extends com.duy.ncalc.graph.Graph2DView {
 
 
     public FastGraphView(Context context) {
