@@ -18,7 +18,10 @@
 
 package com.duy.ncalc;
 
+import android.preference.PreferenceManager;
 import android.support.multidex.MultiDexApplication;
+
+import com.duy.calculator.R;
 
 
 public class CalcApplication extends MultiDexApplication {
@@ -26,5 +29,6 @@ public class CalcApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        PreferenceManager.setDefaultValues(this, R.xml.setting, false);
     }
 }

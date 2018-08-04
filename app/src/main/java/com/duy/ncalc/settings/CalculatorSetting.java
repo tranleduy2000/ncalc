@@ -23,9 +23,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.EvaluateConfig;
-import com.duy.calculator.BuildConfig;
 
 /**
  * Setting for application
@@ -206,4 +206,15 @@ public class CalculatorSetting {
 
     }
 
+    public boolean isParserUseLowercaseSymbol() {
+        return getBoolean(context.getString(R.string.pref_key_parser_use_lowercase_symbol), true);
+    }
+
+    public boolean isDominantImplicitTimes() {
+        return getBoolean(context.getString(R.string.pref_key_DOMINANT_IMPLICIT_TIMES), false);
+    }
+
+    public boolean isExplicitTimesOperator() {
+        return getBoolean(context.getString(R.string.pref_key_EXPLICIT_TIMES_OPERATOR), false);
+    }
 }

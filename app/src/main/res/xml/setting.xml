@@ -77,16 +77,21 @@
 
         <CheckBoxPreference
             android:defaultValue="true"
+            android:enabled="false"
             android:key="@string/pref_key_parser_use_lowercase_symbol"
             android:summary="@string/pref_summary_parser_use_lowercase_symbol"
             android:title="PARSER_USE_LOWERCASE_SYMBOLS" />
 
         <CheckBoxPreference
             android:defaultValue="false"
+            android:enabled="false"
+            android:key="@string/pref_key_DOMINANT_IMPLICIT_TIMES"
             android:summary="@string/pref_summary_dominant_implicit_times"
             android:title="DOMINANT_IMPLICIT_TIMES" />
 
         <CheckBoxPreference
+            android:enabled="false"
+            android:key="@string/pref_key_EXPLICIT_TIMES_OPERATOR"
             android:summary="@string/pref_summary_EXPLICIT_TIMES_OPERATOR"
             android:title="EXPLICIT_TIMES_OPERATOR" />
 
