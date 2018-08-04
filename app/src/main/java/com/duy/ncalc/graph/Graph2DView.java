@@ -33,8 +33,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-import com.duy.calculator.evaluator.DecimalFactory;
-
 import java.text.DecimalFormat;
 
 import edu.hws.jcm.data.ParseError;
@@ -413,10 +411,11 @@ public class Graph2DView extends View implements OnTouchListener {
         }
     }
 
+
     private void drawAxis(Canvas canvas) {
         //pre calc
         final double lengthX = (mMaxX - mMinX);
-        final double step = Double.parseDouble(DecimalFactory.round(lengthX / 8, 2));
+        final double step = (long) (lengthX / 8) / 100d;
         final double minX = (Math.round(mMinX / step)) * step;
         final double maxX = Math.round(mMaxX / step) * step;
 

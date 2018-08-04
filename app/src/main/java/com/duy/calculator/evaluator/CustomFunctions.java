@@ -26,8 +26,7 @@ import java.util.ArrayList;
 
 public class CustomFunctions {
     private static final String COMBINATION = "Comb(n_, k_):=(factorial(Ceiling(n))/(factorial(Ceiling(k))*factorial(Ceiling(n-k))))";
-    private static final String BINOMIAL = "Perm(n_, k_):=(factorial(Ceiling(n)) / " +
-            "(factorial(Ceiling(n - k))))";
+    private static final String BINOMIAL = "Perm(n_, k_):=(factorial(Ceiling(n))/(factorial(Ceiling(n - k))))";
     private static final String CUBEROOT = "cbrt(x_):= x^(1/3)";
     private static final String CEILING = "Ceil(x_):=Ceiling(x)";
 

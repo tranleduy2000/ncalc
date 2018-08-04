@@ -25,7 +25,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.duy.calculator.DLog;
+import com.duy.ncalc.utils.DLog;
 
 import java.util.ArrayList;
 

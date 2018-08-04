@@ -25,7 +25,7 @@ import android.preference.PreferenceManager;
 
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.EvaluateConfig;
-import com.duy.ncalc.utils.BuildConfig;
+import com.duy.calculator.BuildConfig;
 
 /**
  * Setting for application

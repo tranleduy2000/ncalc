@@ -31,7 +31,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.ModuleItem;
-import com.duy.ncalc.utils.BuildConfig;
+import com.duy.calculator.BuildConfig;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;

@@ -57,22 +57,19 @@ public class CalculateThread extends BaseThread {
             }
         };
 
-        //Passes the rest onto the Thread
         Thread thread = new Thread(task, resultCallback);
         thread.executeOnExecutor(EXECUTOR, expr);
     }
 
     @Override
     public void execute(@Nullable Command<ArrayList<String>, String> command, String expr) {
-
-        //Passes the rest onto the Thread
         Thread thread = new Thread(command, resultCallback);
         thread.executeOnExecutor(EXECUTOR, expr);
     }
 
 
     /**
-     * A generalization of the Thread that all the heavy worload calculus functions will use.
+     * A generalization of the Thread that all the heavy overload calculus functions will use.
      */
     private static class Thread extends AsyncTask<String, Void, ArrayList<String>> {
         public Exception error; //If any Exception were to occur

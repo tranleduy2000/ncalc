@@ -28,7 +28,7 @@ import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
-import com.duy.ncalc.utils.BuildConfig;
+import com.duy.calculator.BuildConfig;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;

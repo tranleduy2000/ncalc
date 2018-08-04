@@ -26,7 +26,6 @@ import java.util.regex.Pattern;
 public class Constants {
     public static final char INFINITY_UNICODE = '\u221e';
     public static final char DEGREE_UNICODE = '\u00b0';
-    public static final char POWER_PLACEHOLDER = '\u200B';
 
     public static final char LEFT_PAREN = '(';
     public static final char RIGHT_PAREN = ')';

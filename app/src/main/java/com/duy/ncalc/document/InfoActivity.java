@@ -34,7 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.duy.calculator.DLog;
+import com.duy.ncalc.utils.DLog;
 import com.duy.calculator.R;
 
 import org.w3c.dom.Document;

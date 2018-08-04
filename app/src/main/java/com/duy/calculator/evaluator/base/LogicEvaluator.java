@@ -15,11 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package com.duy.calculator.evaluator;
+package com.duy.calculator.evaluator.base;
 
 
-import com.duy.calculator.evaluator.base.Base;
-import com.duy.calculator.evaluator.base.Evaluator;
+import com.duy.calculator.evaluator.FormatExpression;
+import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 
 import org.javia.arity.SyntaxException;

@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator;
+package com.duy.ncalc;
 
 import android.support.multidex.MultiDexApplication;
 

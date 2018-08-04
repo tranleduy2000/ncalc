@@ -12,7 +12,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.duy.calculator.DLog;
+import com.duy.ncalc.utils.DLog;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

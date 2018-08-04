@@ -30,7 +30,7 @@ import android.widget.Toast;
 
 import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
-import com.duy.ncalc.utils.BuildConfig;
+import com.duy.calculator.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 

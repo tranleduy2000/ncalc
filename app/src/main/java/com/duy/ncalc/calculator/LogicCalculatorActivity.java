@@ -43,7 +43,7 @@ import android.widget.TextView;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
 import com.duy.ncalc.settings.CalculatorSetting;
-import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.base.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Base;
 import com.duy.calculator.evaluator.base.NumberBaseManager;

@@ -47,11 +47,11 @@ import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.duy.calculator.DLog;
+import com.duy.ncalc.utils.DLog;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
-import com.duy.calculator.evaluator.LogicEvaluator;
+import com.duy.calculator.evaluator.base.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Evaluator;
 import com.duy.calculator.evaluator.thread.ResultCallback;

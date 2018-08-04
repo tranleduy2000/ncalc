@@ -31,7 +31,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.IntegrateItem;
-import com.duy.ncalc.utils.BuildConfig;
+import com.duy.calculator.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
