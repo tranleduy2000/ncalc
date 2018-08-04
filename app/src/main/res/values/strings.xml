@@ -372,4 +372,5 @@
     <string name="all_functions">All functions</string>
     <string name="getting_started">Getting started</string>
     <string name="document">Document</string>
+    <string name="ide_mode">IDE mode</string>
 </resources>

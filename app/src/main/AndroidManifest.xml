@@ -157,7 +157,9 @@
         <activity android:name=".symja.activities.PiActivity" />
         <activity android:name="com.duy.ncalc.document.MarkdownListDocumentActivity" />
         <activity android:name="com.duy.ncalc.document.MarkdownActivity" />
-        <activity android:name=".symja.activities.IdeActivity" />
+        <activity
+            android:name=".symja.activities.IdeActivity"
+            android:label="@string/ide_mode" />
     </application>
 
 </manifest>

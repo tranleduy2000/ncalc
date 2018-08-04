@@ -34,6 +34,7 @@ import com.duy.calculator.symja.activities.DerivativeActivity;
 import com.duy.calculator.symja.activities.ExpandAllExpressionActivity;
 import com.duy.calculator.symja.activities.FactorExpressionActivity;
 import com.duy.calculator.symja.activities.FactorPrimeActivity;
+import com.duy.calculator.symja.activities.IdeActivity;
 import com.duy.calculator.symja.activities.IntegrateActivity;
 import com.duy.calculator.symja.activities.LimitActivity;
 import com.duy.calculator.symja.activities.ModuleActivity;
@@ -157,7 +158,10 @@ public abstract class NavDrawerActivity extends BaseActivity implements Navigati
                 startActivity(intent);
                 break;
             }
-
+            case R.id.action_ide_mode:
+                intent = new Intent(getApplicationContext(), IdeActivity.class);
+                postStartActivity(intent);
+                break;
             case R.id.nav_sci_calc:
                 intent = new Intent(getApplicationContext(), BasicCalculatorActivity.class);
                 postStartActivity(intent);
