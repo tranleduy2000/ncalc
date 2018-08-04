@@ -67,14 +67,14 @@ public class MarkdownListDocumentActivity extends BaseActivity
     @Override
     public boolean onQueryTextSubmit(String query) {
         FragmentManager fm = getSupportFragmentManager();
-        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getSimpleName());
+        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getName());
         return fragment != null && fragment.onQueryTextSubmit(query);
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
         FragmentManager fm = getSupportFragmentManager();
-        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getSimpleName());
+        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getName());
         return fragment != null && fragment.onQueryTextChange(newText);
     }
 }

@@ -50,7 +50,7 @@ android {
 
 def setupSigningConfig() {
     Properties props = new Properties()
-    def propFile = new File('signing.properties')
+    def propFile = new File(rootProject.projectDir, 'signing.properties')
     if (propFile.canRead()) {
         props.load(new FileInputStream(propFile))
         android.signingConfigs.release.storeFile = file(props['RELEASE_STORE_FILE'])
