@@ -46,16 +46,16 @@ public class UnitCategoryActivity extends AbstractNavDrawerActionBarActivity
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_unit_converter_acitvity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -70,7 +70,7 @@ public class UnitCategoryActivity extends AbstractNavDrawerActionBarActivity
         arrayList.add(R.drawable.ic_bitrate);
         arrayList.add(R.drawable.ic_time);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rcview);
+        RecyclerView recyclerView = findViewById(R.id.rcview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         CategoryAdapter adapter = new CategoryAdapter(arrayList, UnitCategoryActivity.this);
@@ -92,7 +92,7 @@ public class UnitCategoryActivity extends AbstractNavDrawerActionBarActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         assert drawer != null;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);

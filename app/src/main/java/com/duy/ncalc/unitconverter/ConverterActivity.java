@@ -70,7 +70,7 @@ public class ConverterActivity extends BaseActivity {
         int pos = bundle.getInt("POS");
         String name = bundle.getString("NAME");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(name);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -145,7 +145,7 @@ public class ConverterActivity extends BaseActivity {
     }
 
     private void initView() {
-        mEditText = (EditText) findViewById(R.id.editInput);
+        mEditText = findViewById(R.id.editInput);
         mEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -168,8 +168,8 @@ public class ConverterActivity extends BaseActivity {
         String text = bundle.getString("input", "");
         mEditText.append(text);
 
-        mSpinner = (Spinner) findViewById(R.id.spinner_unit);
-        mRecycleView = (RecyclerView) findViewById(R.id.listview);
+        mSpinner = findViewById(R.id.spinner_unit);
+        mRecycleView = findViewById(R.id.listview);
         mRecycleView.setHasFixedSize(true);
         LinearLayoutManager mLayout = new LinearLayoutManager(this);
         mRecycleView.setLayoutManager(mLayout);
