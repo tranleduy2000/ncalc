@@ -59,7 +59,7 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".geom2d.GeometryDescartesActivity"
+            android:name="com.duy.ncalc.geom2d.GeometryDescartesActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:label="@string/title_activity_geometry"
@@ -70,28 +70,28 @@
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".matrix.MatrixCalculatorActivity"
+            android:name="com.duy.ncalc.matrix.MatrixCalculatorActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_matrix_calculator"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".activities.SolveEquationActivity"
+            android:name=".symja.SolveEquationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.SimplifyEquationActivity"
+            android:name=".symja.SimplifyEquationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.FactorExpressionActivity"
+            android:name=".symja.FactorExpressionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.DerivativeActivity"
+            android:name=".symja.DerivativeActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
@@ -101,7 +101,7 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.ExpandAllExpressionActivity"
+            android:name=".symja.ExpandAllExpressionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
@@ -126,38 +126,38 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.LimitActivity"
+            android:name=".symja.LimitActivity"
             android:label="@string/limit"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.IntegrateActivity"
+            android:name=".symja.IntegrateActivity"
             android:label="@string/integrate"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".activities.PrimitiveActivity"
+            android:name=".symja.PrimitiveActivity"
             android:label="@string/primitive"
 
             android:launchMode="singleTask" />
         <activity android:name="com.duy.ncalc.document.InfoActivity" />
         <activity
-            android:name=".number.FactorPrimeActivity"
+            android:name=".symja.FactorPrimeActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".number.PermutationActivity"
+            android:name=".symja.PermutationActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".number.ModuleActivity"
+            android:name=".symja.ModuleActivity"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".activities.TrigActivity"
+            android:name=".symja.TrigActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".number.NumberActivity"
+            android:name=".symja.NumberActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".number.PiActivity" />
+        <activity android:name=".symja.PiActivity" />
         <activity android:name="com.duy.ncalc.document.MarkdownListDocumentActivity" />
     </application>
 
