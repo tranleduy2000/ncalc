@@ -27,7 +27,7 @@ import android.util.TypedValue;
 import android.widget.TextView;
 
 import com.duy.calculator.R;
-import com.duy.calculator.utils.TextUtil;
+import com.duy.ncalc.utils.TextUtil;
 
 
 /**

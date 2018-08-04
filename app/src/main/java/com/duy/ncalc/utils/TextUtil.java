@@ -16,13 +16,26 @@
  *
  */
 
-package com.duy.ncalc.calculator.fragment;
+package com.duy.ncalc.utils;
 
-import android.support.v4.app.Fragment;
+import android.widget.TextView;
+
 
 /**
- * Created by Duy on 9/21/2017.
+ * For formatting text in the display
  */
+public class TextUtil {
+    public static String getCleanText(TextView textView) {
+        return textView.getText().toString();
+    }
 
-public class DisplayFragment extends Fragment {
+    public static int countOccurrences(String haystack, char needle) {
+        int count = 0;
+        for (int i = 0; i < haystack.length(); i++) {
+            if (haystack.charAt(i) == needle) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

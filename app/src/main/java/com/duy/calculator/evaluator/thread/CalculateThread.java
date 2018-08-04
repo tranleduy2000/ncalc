@@ -21,7 +21,6 @@ package com.duy.calculator.evaluator.thread;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
-import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.google.common.collect.Lists;
@@ -37,9 +36,9 @@ import static android.os.Process.setThreadPriority;
 
 public class CalculateThread extends BaseThread {
 
-    public CalculateThread(CalculatorPresenter presenter, EvaluateConfig config,
+    public CalculateThread(EvaluateConfig config,
                            ResultCallback resultCallback) {
-        super(presenter, config, resultCallback);
+        super(config, resultCallback);
     }
 
     @SuppressWarnings("unchecked")

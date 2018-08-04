@@ -36,7 +36,7 @@ import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.CombinationItem;
 import com.duy.calculator.symja.models.ExprInput;
 import com.duy.calculator.symja.models.PermutationItem;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         getIntentData();
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("100");
                 mInputDisplay2.setText("20");

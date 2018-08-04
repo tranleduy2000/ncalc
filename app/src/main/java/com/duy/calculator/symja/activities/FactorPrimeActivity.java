@@ -28,7 +28,7 @@ import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class FactorPrimeActivity extends AbstractEvaluatorActivity {
         getIntentData();
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("102013124");
             }

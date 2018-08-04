@@ -20,7 +20,6 @@ package com.duy.calculator.evaluator.thread;
 
 import android.support.annotation.Nullable;
 
-import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.evaluator.EvaluateConfig;
 
 import java.util.ArrayList;
@@ -55,12 +54,10 @@ public abstract class BaseThread {
             TimeUnit.SECONDS,
             sPoolWorkQueue,
             threadFactory);
-    protected CalculatorPresenter presenter;
     protected EvaluateConfig mConfig;
     protected ResultCallback resultCallback;
 
-    public BaseThread(CalculatorPresenter presenter, EvaluateConfig config, ResultCallback resultCallback) {
-        this.presenter = presenter;
+    public BaseThread(EvaluateConfig config, ResultCallback resultCallback) {
         this.mConfig = config;
         this.resultCallback = resultCallback;
     }

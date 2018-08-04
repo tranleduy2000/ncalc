@@ -31,7 +31,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.calculator.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.common.collect.Lists;
@@ -59,7 +59,7 @@ public class FactorExpressionActivity extends AbstractEvaluatorActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = preferences.getBoolean(STARTED, false);
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) mInputFormula.setText("x^4 - 1");
             clickHelp();
         }

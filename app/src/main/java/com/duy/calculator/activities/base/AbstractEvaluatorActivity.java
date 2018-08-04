@@ -47,7 +47,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
@@ -57,11 +56,11 @@ import com.duy.calculator.evaluator.thread.CalculateThread;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.history.ResultEntry;
 import com.duy.calculator.symja.activities.ResultAdapter;
+import com.duy.ncalc.document.MarkdownDocumentFragment;
 import com.duy.ncalc.view.AnimationFinishedListener;
 import com.duy.ncalc.view.ResizingEditText;
 import com.duy.ncalc.view.RevealView;
-import com.duy.calculator.view.editor.SuggestAdapter;
-import com.duy.ncalc.document.MarkdownDocumentFragment;
+import com.duy.ncalc.view.editor.SuggestAdapter;
 
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -92,7 +91,6 @@ public abstract class AbstractEvaluatorActivity extends NavDrawerActivity
     protected TextInputLayout mHint2;
     protected RecyclerView mResultView;
     private ResultAdapter mResultAdapter;
-    private CalculatorPresenter mPresenter;
     private final View.OnKeyListener mFormulaOnKeyListener = new View.OnKeyListener() {
         @Override
         public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
@@ -138,30 +136,30 @@ public abstract class AbstractEvaluatorActivity extends NavDrawerActivity
     }
 
     private void initView() {
-        btnSolve = (Button) findViewById(R.id.btn_solve);
-        mInputFormula = (ResizingEditText) findViewById(R.id.edit_input);
+        btnSolve = findViewById(R.id.btn_solve);
+        mInputFormula = findViewById(R.id.edit_input);
         mInputFormula.setOnHelpListener(this);
 
-        mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
-        mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar);
-        mSpinner = (AppCompatSpinner) findViewById(R.id.spinner);
-        btnClear = (Button) findViewById(R.id.btn_clear);
-        editParam = (EditText) findViewById(R.id.edit_params);
-        mInputDisplay2 = (ResizingEditText) findViewById(R.id.edit_input_2);
-        mHint1 = (TextInputLayout) findViewById(R.id.hint_1);
-        mHint2 = (TextInputLayout) findViewById(R.id.hint_2);
+        mDisplayForeground = findViewById(R.id.the_clear_animation);
+        mProgress = findViewById(R.id.progress_bar);
+        mSpinner = findViewById(R.id.spinner);
+        btnClear = findViewById(R.id.btn_clear);
+        editParam = findViewById(R.id.edit_params);
+        mInputDisplay2 = findViewById(R.id.edit_input_2);
+        mHint1 = findViewById(R.id.hint_1);
+        mHint2 = findViewById(R.id.hint_2);
 
         btnClear.setOnClickListener(this);
         btnSolve.setOnClickListener(this);
         mProgress.hide();
         findViewById(R.id.fab_help).setOnClickListener(this);
-        editFrom = (EditText) findViewById(R.id.edit_lower);
-        editTo = (EditText) findViewById(R.id.edit_upper);
-        mLayoutLimit = (LinearLayout) findViewById(R.id.layout_limit);
+        editFrom = findViewById(R.id.edit_lower);
+        editTo = findViewById(R.id.edit_upper);
+        mLayoutLimit = findViewById(R.id.layout_limit);
         mLayoutLimit.setVisibility(View.GONE);
         mInputFormula.setOnKeyListener(mFormulaOnKeyListener);
 
-        mResultView = (RecyclerView) findViewById(R.id.rc_result);
+        mResultView = findViewById(R.id.rc_result);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(false);
         mResultView.setHasFixedSize(true);
@@ -329,7 +327,7 @@ public abstract class AbstractEvaluatorActivity extends NavDrawerActivity
         hideKeyboard();
         mResultAdapter.clear();
 
-        CalculateThread calculateThread = new CalculateThread(mPresenter,
+        CalculateThread calculateThread = new CalculateThread(
                 EvaluateConfig.loadFromSetting(this), new BaseThread.ResultCallback() {
             @Override
             public void onSuccess(ArrayList<String> result) {

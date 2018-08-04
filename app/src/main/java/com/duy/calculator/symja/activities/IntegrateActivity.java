@@ -31,7 +31,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.IntegrateItem;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
@@ -59,7 +59,7 @@ public class IntegrateActivity extends AbstractEvaluatorActivity {
         getIntentData();
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("sqrt(1-x^2)/x^2");
                 editFrom.setText("sqrt(2)/2");

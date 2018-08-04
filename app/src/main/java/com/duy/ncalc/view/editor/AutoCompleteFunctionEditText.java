@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.view.editor;
+package com.duy.ncalc.view.editor;
 
 import android.content.Context;
 import android.graphics.Typeface;

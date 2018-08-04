@@ -34,7 +34,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.DerivativeItem;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.common.collect.Lists;
@@ -79,7 +79,7 @@ public class DerivativeActivity extends AbstractEvaluatorActivity {
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) mInputFormula.setText("sqrt(x) + ln(x)");
             clickHelp();
         }

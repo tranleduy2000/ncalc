@@ -20,7 +20,6 @@ package com.duy.ncalc.calculator;
 
 import android.animation.Animator;
 import android.annotation.TargetApi;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -28,7 +27,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
@@ -50,11 +48,8 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.duy.calculator.DLog;
-import com.duy.calculator.InputState;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
-import com.duy.ncalc.calculator.fragment.KeyboardFragment;
-import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
@@ -66,8 +61,8 @@ import com.duy.calculator.symja.models.DerivativeItem;
 import com.duy.calculator.symja.models.ExprInput;
 import com.duy.calculator.symja.models.PrimeFactorItem;
 import com.duy.calculator.symja.models.SolveItem;
-import com.duy.calculator.utils.ClipboardManager;
-import com.duy.calculator.utils.VoiceUtils;
+import com.duy.ncalc.utils.ClipboardManager;
+import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.ncalc.view.AnimationFinishedListener;
 import com.duy.ncalc.view.CalculatorEditText;
 import com.duy.ncalc.view.RevealView;
@@ -76,7 +71,6 @@ import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import io.github.kexanie.library.MathView;
 
@@ -87,7 +81,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     public static final String DATA = "DATA_BUNDLE";
     private static final int REQ_CODE_HISTORY = 1111;
     private static final int REQ_CODE_DEFINE_VAR = 1234;
-    private static final int REQ_CODE_SPEECH_INPUT = 1235;
 
     /**
      * Evaluate when text change
@@ -121,7 +114,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             return false;
         }
     };
-    private InputState mInputState = InputState.PAD;
+    private CalculateState mCalculateState = CalculateState.INPUT;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -137,7 +130,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mInputDisplay.setOnKeyListener(mFormulaOnKeyListener);
         mInputDisplay.setAutoSuggestEnable(false);
 
-        setInputState(InputState.PAD);
+        setInputState(CalculateState.INPUT);
         setState(CalculatorState.INPUT);
         initKeyboard();
 
@@ -279,21 +272,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
-            case REQ_CODE_SPEECH_INPUT:
-                if (resultCode == RESULT_OK && null != data) {
-                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    Toast.makeText(this, result.get(0), Toast.LENGTH_SHORT).show();
-                    String res = result.get(0);
-                    res = VoiceUtils.replace(res);
-                    final String finalRes = res;
-                    mInputDisplay.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            mInputDisplay.setText(finalRes);
-                        }
-                    });
-                }
-                break;
             case REQ_CODE_HISTORY:
                 Log.d(TAG, "onActivityResult: history");
                 if (resultCode == RESULT_OK) {
@@ -319,10 +297,10 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     /**
      * set input state
      *
-     * @param pad - enum {@link InputState}
+     * @param pad - enum {@link CalculateState}
      */
-    private void setInputState(InputState pad) {
-        mInputState = pad;
+    private void setInputState(CalculateState pad) {
+        mCalculateState = pad;
     }
 
     public void define(String var, double value) {
@@ -471,29 +449,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 EvaluateConfig.loadFromSetting(this));
     }
 
-    public void onInputVoice() {
-        /**
-         * Showing google speech input dialog
-         */
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speak_expression));
-        try {
-            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
-        } catch (ActivityNotFoundException a) {
-            Toast.makeText(this,
-                    getString(R.string.speech_not_supported),
-                    Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    /**
-     * set state
-     *
-     * @param state - state
-     */
     void setState(CalculatorState state) {
         mCurrentState = state;
     }
@@ -653,7 +608,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      * close Solve Result and animate
      */
     public void closeMathView() {
-        setInputState(InputState.PAD);
+        setInputState(CalculateState.INPUT);
         mHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -723,7 +678,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 return;
             }
         }
-        if (mInputState == InputState.RESULT_VIEW) {
+        if (mCalculateState == CalculateState.RESULT) {
             closeMathView();
             return;
         }
@@ -788,7 +743,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         protected void onPreExecute() {
             super.onPreExecute();
             mContainerSolve.setVisibility(View.VISIBLE);
-            setInputState(InputState.RESULT_VIEW);
+            setInputState(CalculateState.RESULT);
             mProgress.show();
             mFabClose.hide();
         }

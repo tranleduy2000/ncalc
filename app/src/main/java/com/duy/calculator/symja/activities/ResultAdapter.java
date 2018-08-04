@@ -30,7 +30,7 @@ import android.widget.ImageView;
 
 import com.duy.calculator.R;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.utils.ClipboardManager;
+import com.duy.ncalc.utils.ClipboardManager;
 
 import java.util.ArrayList;
 

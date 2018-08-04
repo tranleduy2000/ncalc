@@ -33,7 +33,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.SolveItem;
 import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
@@ -65,7 +65,7 @@ public class SolveEquationActivity extends AbstractEvaluatorActivity
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = preferences.getBoolean(STARTED, false);
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) mInputFormula.setText("2x^2 + 3x + 1");
             clickHelp();
         }

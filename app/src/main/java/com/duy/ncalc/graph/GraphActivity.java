@@ -30,7 +30,7 @@ import android.widget.Toast;
 
 import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
@@ -133,7 +133,7 @@ public class GraphActivity extends BaseActivity {
         });
 
         if (!(mCalculatorSetting.getBoolean(GRAPH_STATED, false))
-                || ConfigApp.DEBUG)
+                || BuildConfig.DEBUG)
             showHelp();
 
         if (!mCalculatorSetting.getBoolean(GRAPH_STATED, false)) {

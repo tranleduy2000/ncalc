@@ -32,7 +32,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.LimitItem;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.common.collect.Lists;
@@ -68,7 +68,7 @@ public class LimitActivity extends AbstractEvaluatorActivity {
 
         getIntentData();
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
             if (isDataNull) {
                 mInputFormula.setText("1/x + 2");
                 editTo.setText("inf");

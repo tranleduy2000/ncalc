@@ -21,7 +21,7 @@ package com.duy.ncalc.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.duy.calculator.view.editor.AutoCompleteFunctionEditText;
+import com.duy.ncalc.view.editor.AutoCompleteFunctionEditText;
 
 import static com.duy.ncalc.userinterface.FontManager.loadTypefaceFromAsset;
 

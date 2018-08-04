@@ -46,7 +46,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.BaseThread;
 import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 import com.duy.ncalc.view.ResizingEditText;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
@@ -213,7 +213,7 @@ public class UndefineSystemEquationFragment extends Fragment implements View.OnC
                 showHelp();
             }
         });
-        if ((!isStarted) || ConfigApp.DEBUG) {
+        if ((!isStarted) || BuildConfig.DEBUG) {
 //            clickHelp();
         }
 

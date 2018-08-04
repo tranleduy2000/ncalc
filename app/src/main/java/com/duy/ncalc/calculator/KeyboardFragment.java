@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.ncalc.calculator.fragment;
+package com.duy.ncalc.calculator;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +29,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.duy.calculator.R;
-import com.duy.ncalc.calculator.KeyboardListener;
 import com.duy.ncalc.settings.SettingsActivity;
 import com.duy.ncalc.view.ButtonID;
 import com.duy.ncalc.view.CalcButton;

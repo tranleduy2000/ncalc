@@ -25,7 +25,7 @@ import android.preference.PreferenceManager;
 
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.EvaluateConfig;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.utils.BuildConfig;
 
 /**
  * Setting for application
@@ -43,7 +43,7 @@ public class CalculatorSetting {
     public static final String IS_FRACTION = "fraction_mode";
 
     public static final String NOTIFY_UPDATE = "NOTIFY_UPDATE";
-    private static final String IS_UPDATE = "IS_UPDATE_" + ConfigApp.VERSION_CODE;
+    private static final String IS_UPDATE = "IS_UPDATE_" + BuildConfig.VERSION_CODE;
     private final SharedPreferences sharedPreferences;
     private final SharedPreferences.Editor editor;
     private Context context;
