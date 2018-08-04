@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.document.activities;
+package com.duy.calculator.document;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -34,11 +34,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.duy.calculator.DLog;
 import com.duy.calculator.R;
-import com.duy.calculator.document.InfoAppUtil;
-import com.duy.calculator.document.ItemInfo;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 
 public class InfoActivity extends AppCompatActivity {
@@ -171,6 +182,97 @@ public class InfoActivity extends AppCompatActivity {
                 txtTitle.setText(itemInfo.getTitle());
                 txtDesc.setText(itemInfo.getLink());
             }
+        }
+
+    }
+
+    public static class ItemInfo {
+        private String title;
+        private String link;
+        private String imgPath;
+        private String lang;
+
+        public ItemInfo(String title, String link, String imgPath, String lang) {
+            this.title = title;
+            this.link = link;
+            this.imgPath = imgPath;
+            this.lang = lang;
+        }
+
+        public ItemInfo(String title, String link, String imgPath) {
+            this.title = title;
+            this.link = link;
+            this.imgPath = imgPath;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getLink() {
+            return link;
+        }
+
+        public void setLink(String link) {
+            this.link = link;
+        }
+
+        public String getImgPath() {
+            return imgPath;
+        }
+
+        public void setImgPath(String imgPath) {
+            this.imgPath = imgPath;
+        }
+
+        @Override
+        public String toString() {
+            return title;
+        }
+
+        public String getLang() {
+            return lang;
+        }
+
+        public void setLang(String lang) {
+            this.lang = lang;
+        }
+    }
+
+    /**
+     * Created by Duy on 29-Mar-17.
+     */
+
+    public static class InfoAppUtil {
+
+        public static ArrayList<ItemInfo> readListTranslate(InputStream inputStream) {
+            ArrayList<ItemInfo> result = new ArrayList<>();
+            try {
+                DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+                Document document = documentBuilder.parse(inputStream);
+                Element root = document.getDocumentElement();
+                NodeList nodeList = root.getChildNodes();
+                DLog.i(nodeList.getLength());
+                for (int index = 0; index < nodeList.getLength(); index++) {
+                    Node node = nodeList.item(index);
+                    if (node instanceof Element) {
+                        String name = ((Element) node).getAttribute("name");
+                        String link = ((Element) node).getAttribute("link");
+                        String img = ((Element) node).getAttribute("image");
+                        String lang = ((Element) node).getAttribute("lang");
+                        result.add(new ItemInfo(name, link, img, lang));
+                    }
+                }
+            } catch (ParserConfigurationException | SAXException | IOException e) {
+                // e.printStackTrace();
+            }
+
+            return result;
         }
 
     }

@@ -30,7 +30,7 @@ import android.widget.Button;
 
 import com.duy.calculator.R;
 import com.duy.calculator.calc.KeyboardListener;
-import com.duy.calculator.document.activities.FunctionsDocumentActivity;
+import com.duy.calculator.document.FunctionsDocumentActivity;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.view.ButtonID;
 import com.duy.calculator.view.CalcButton;

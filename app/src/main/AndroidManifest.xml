@@ -145,7 +145,7 @@
             android:label="@string/primitive"
 
             android:launchMode="singleTask" />
-        <activity android:name=".document.activities.InfoActivity" />
+        <activity android:name=".document.InfoActivity" />
         <activity
             android:name=".number.FactorPrimeActivity"
             android:launchMode="singleTask" />
@@ -162,7 +162,7 @@
         <activity
             android:name=".number.NumberActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".document.activities.FunctionsDocumentActivity" />
+        <activity android:name=".document.FunctionsDocumentActivity" />
         <activity android:name=".number.PiActivity" />
     </application>
 
