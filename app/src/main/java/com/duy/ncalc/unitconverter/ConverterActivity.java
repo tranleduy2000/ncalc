@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.converter;
+package com.duy.ncalc.unitconverter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,19 +34,19 @@ import android.widget.Spinner;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseActivity;
-import com.duy.calculator.converter.adapters.ItemUnitConverter;
-import com.duy.calculator.converter.adapters.UnitAdapter;
-import com.duy.calculator.converter.utils.AreaStrategy;
-import com.duy.calculator.converter.utils.BitrateStrategy;
-import com.duy.calculator.converter.utils.EnergyStrategy;
-import com.duy.calculator.converter.utils.LengthStrategy;
-import com.duy.calculator.converter.utils.PowerStrategy;
-import com.duy.calculator.converter.utils.Strategy;
-import com.duy.calculator.converter.utils.TemperatureStrategy;
-import com.duy.calculator.converter.utils.TimeStratery;
-import com.duy.calculator.converter.utils.VelocityStrategy;
-import com.duy.calculator.converter.utils.VolumeStrategy;
-import com.duy.calculator.converter.utils.WeightStrategy;
+import com.duy.ncalc.unitconverter.adapters.ItemUnitConverter;
+import com.duy.ncalc.unitconverter.adapters.UnitAdapter;
+import com.duy.ncalc.unitconverter.utils.AreaStrategy;
+import com.duy.ncalc.unitconverter.utils.BitrateStrategy;
+import com.duy.ncalc.unitconverter.utils.EnergyStrategy;
+import com.duy.ncalc.unitconverter.utils.LengthStrategy;
+import com.duy.ncalc.unitconverter.utils.PowerStrategy;
+import com.duy.ncalc.unitconverter.utils.Strategy;
+import com.duy.ncalc.unitconverter.utils.TemperatureStrategy;
+import com.duy.ncalc.unitconverter.utils.TimeStratery;
+import com.duy.ncalc.unitconverter.utils.VelocityStrategy;
+import com.duy.ncalc.unitconverter.utils.VolumeStrategy;
+import com.duy.ncalc.unitconverter.utils.WeightStrategy;
 
 import java.util.ArrayList;
 

@@ -27,7 +27,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.duy.calculator.R;
-import com.duy.calculator.calc.BasicCalculatorActivity;
+import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
 import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.EvaluateConfig;

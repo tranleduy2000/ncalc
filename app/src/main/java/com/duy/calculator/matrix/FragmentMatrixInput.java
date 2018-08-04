@@ -41,7 +41,7 @@ import com.duy.calculator.R;
 
 import java.util.Random;
 
-import static com.duy.calculator.calc.BasicCalculatorActivity.TAG;
+import static com.duy.ncalc.calculator.BasicCalculatorActivity.TAG;
 
 /**
  * Created by Duy on 18-May-17.

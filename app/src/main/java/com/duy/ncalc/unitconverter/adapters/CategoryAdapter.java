@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.converter.adapters;
+package com.duy.ncalc.unitconverter.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;

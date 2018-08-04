@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.converter;
+package com.duy.ncalc.unitconverter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,7 +32,7 @@ import android.view.MenuItem;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractNavDrawerActionBarActivity;
-import com.duy.calculator.converter.adapters.CategoryAdapter;
+import com.duy.ncalc.unitconverter.adapters.CategoryAdapter;
 
 import java.util.ArrayList;
 

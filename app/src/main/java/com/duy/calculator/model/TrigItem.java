@@ -23,7 +23,7 @@ import android.util.Log;
 import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPAND;
 import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPONENT;
 import static com.duy.calculator.model.TrigItem.TRIG_TYPE.REDUCE;
-import static com.duy.calculator.trigonometry.TrigActivity.TAG;
+import static com.duy.calculator.activities.TrigActivity.TAG;
 
 /**
  * Trigonometric Item

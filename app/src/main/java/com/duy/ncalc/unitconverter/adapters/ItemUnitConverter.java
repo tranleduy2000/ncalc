@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.converter.adapters;
+package com.duy.ncalc.unitconverter.adapters;
 
 import java.io.Serializable;
 

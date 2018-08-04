@@ -16,12 +16,13 @@
  *
  */
 
-package com.duy.calculator.converter.utils;
+package com.duy.ncalc.calculator.fragment;
+
+import android.support.v4.app.Fragment;
 
 /**
- * Created by tranleduy on 27-May-16.
+ * Created by Duy on 9/21/2017.
  */
-public interface Strategy {
-    public String getUnitDefault();
-    public double Convert(String from, String to, double input);
+
+public class DisplayFragment extends Fragment {
 }

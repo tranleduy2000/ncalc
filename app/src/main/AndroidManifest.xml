@@ -29,7 +29,7 @@
         android:theme="@style/AppThemeLight">
 
         <activity
-            android:name=".calc.BasicCalculatorActivity"
+            android:name="com.duy.ncalc.calculator.BasicCalculatorActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
@@ -47,12 +47,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".converter.UnitCategoryActivity"
+            android:name="com.duy.ncalc.unitconverter.UnitCategoryActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/title_activity_unit_converter_acitvity"
 
             android:launchMode="singleTask" />
-        <activity android:name=".converter.ConverterActivity" />
+        <activity android:name="com.duy.ncalc.unitconverter.ConverterActivity" />
         <activity
             android:name=".settings.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -65,7 +65,7 @@
             android:label="@string/title_activity_geometry"
             android:launchMode="singleTask" />
         <activity
-            android:name=".calc.LogicCalculatorActivity"
+            android:name="com.duy.ncalc.calculator.LogicCalculatorActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:launchMode="singleTask" />
 
@@ -157,7 +157,7 @@
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".trigonometry.TrigActivity"
+            android:name=".activities.TrigActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".number.NumberActivity"

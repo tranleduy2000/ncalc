@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.converter.utils;
+package com.duy.ncalc.unitconverter.utils;
 
 import android.content.Context;
 

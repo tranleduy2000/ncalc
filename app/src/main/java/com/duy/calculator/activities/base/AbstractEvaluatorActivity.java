@@ -51,7 +51,7 @@ import android.widget.Toast;
 
 import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.R;
-import com.duy.calculator.adapters.ResultAdapter;
+import com.duy.calculator.activities.ResultAdapter;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.exceptions.ParsingException;

@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.trigonometry;
+package com.duy.calculator.activities;
 
 import android.content.Intent;
 import android.os.Bundle;

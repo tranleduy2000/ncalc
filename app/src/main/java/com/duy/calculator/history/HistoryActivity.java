@@ -33,7 +33,7 @@ import android.widget.Toast;
 import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
 import com.duy.calculator.tokenizer.Tokenizer;
-import com.duy.calculator.calc.BasicCalculatorActivity;
+import com.duy.ncalc.calculator.BasicCalculatorActivity;
 
 import java.util.ArrayList;
 

@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.adapters;
+package com.duy.calculator.activities;
 
 import android.app.Activity;
 import android.content.Intent;
