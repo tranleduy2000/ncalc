@@ -105,7 +105,7 @@ public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownLi
         fileNames.clear();
         notifyDataSetChanged();
         for (String s : originalData) {
-            if (s.toLowerCase().contains(query.toLowerCase())) {
+            if (s.toLowerCase().replace(" ", "").contains(query.toLowerCase())) {
                 fileNames.add(s);
             }
         }
