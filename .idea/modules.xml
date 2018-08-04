@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appsecondary/appsecondary.iml" filepath="$PROJECT_DIR$/appsecondary/appsecondary.iml" />
       <module fileurl="file://$PROJECT_DIR$/jcm1/jcm1.iml" filepath="$PROJECT_DIR$/jcm1/jcm1.iml" />
       <module fileurl="file://$PROJECT_DIR$/ncalc.iml" filepath="$PROJECT_DIR$/ncalc.iml" />
       <module fileurl="file://$PROJECT_DIR$/symja_android_library-release/symja_android_library-release.iml" filepath="$PROJECT_DIR$/symja_android_library-release/symja_android_library-release.iml" />
