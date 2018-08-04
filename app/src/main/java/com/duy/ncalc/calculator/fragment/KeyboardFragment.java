@@ -30,10 +30,10 @@ import android.widget.Button;
 
 import com.duy.calculator.R;
 import com.duy.ncalc.calculator.KeyboardListener;
-import com.duy.calculator.settings.SettingsActivity;
-import com.duy.calculator.view.ButtonID;
-import com.duy.calculator.view.CalcButton;
-import com.duy.calculator.view.CalculatorEditText;
+import com.duy.ncalc.settings.SettingsActivity;
+import com.duy.ncalc.view.ButtonID;
+import com.duy.ncalc.view.CalcButton;
+import com.duy.ncalc.view.CalculatorEditText;
 import com.duy.ncalc.document.MarkdownListDocumentActivity;
 import com.duy.ncalc.document.MarkdownListDocumentFragment;
 

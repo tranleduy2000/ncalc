@@ -20,7 +20,7 @@ package com.duy.calculator.evaluator;
 
 import com.duy.calculator.evaluator.base.Base;
 import com.duy.calculator.evaluator.base.Evaluator;
-import com.duy.calculator.tokenizer.ExpressionTokenizer;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 
 import org.javia.arity.SyntaxException;
 

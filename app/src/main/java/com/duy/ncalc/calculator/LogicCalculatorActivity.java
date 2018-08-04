@@ -42,15 +42,15 @@ import android.widget.TextView;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
-import com.duy.calculator.data.CalculatorSetting;
+import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.calculator.evaluator.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Base;
 import com.duy.calculator.evaluator.base.NumberBaseManager;
-import com.duy.calculator.view.AnimationFinishedListener;
-import com.duy.calculator.view.ButtonID;
-import com.duy.calculator.view.CalculatorEditText;
-import com.duy.calculator.view.RevealView;
+import com.duy.ncalc.view.AnimationFinishedListener;
+import com.duy.ncalc.view.ButtonID;
+import com.duy.ncalc.view.CalculatorEditText;
+import com.duy.ncalc.view.RevealView;
 
 
 /**

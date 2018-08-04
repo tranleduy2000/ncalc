@@ -39,11 +39,11 @@ import android.widget.EditText;
 
 import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
-import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.data.DatabaseHelper;
-import com.duy.calculator.helper.LocaleHelper;
-import com.duy.calculator.userinterface.FontManager;
-import com.duy.calculator.userinterface.ThemeEngine;
+import com.duy.ncalc.settings.CalculatorSetting;
+import com.duy.calculator.history.DatabaseHelper;
+import com.duy.ncalc.userinterface.LocaleHelper;
+import com.duy.ncalc.userinterface.FontManager;
+import com.duy.ncalc.userinterface.ThemeEngine;
 import com.kobakei.ratethisapp.RateThisApp;
 
 

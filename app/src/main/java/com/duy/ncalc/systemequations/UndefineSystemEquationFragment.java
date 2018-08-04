@@ -43,7 +43,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.BaseThread;
 import com.duy.calculator.utils.ConfigApp;
-import com.duy.calculator.view.ResizingEditText;
+import com.duy.ncalc.view.ResizingEditText;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.common.collect.Lists;

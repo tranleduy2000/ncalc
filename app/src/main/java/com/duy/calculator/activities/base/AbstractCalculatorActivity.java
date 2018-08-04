@@ -21,7 +21,7 @@ package com.duy.calculator.activities.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.duy.calculator.tokenizer.ExpressionTokenizer;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 
 /**
  * abstract app

@@ -59,7 +59,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.duy.calculator.view.ResizingEditText
+                        <com.duy.ncalc.view.ResizingEditText
                             android:id="@+id/edit_input"
                             style="@style/EditTextSolve"
                             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone">
 
-                        <com.duy.calculator.view.ResizingEditText
+                        <com.duy.ncalc.view.ResizingEditText
                             android:id="@+id/edit_input_2"
                             style="@style/EditTextSolve"
                             android:layout_width="match_parent"

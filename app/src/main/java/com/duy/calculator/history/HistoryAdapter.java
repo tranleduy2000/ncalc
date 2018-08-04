@@ -30,8 +30,7 @@ import android.widget.TextView;
 
 import com.duy.calculator.DLog;
 import com.duy.calculator.R;
-import com.duy.calculator.data.DatabaseHelper;
-import com.duy.calculator.tokenizer.ExpressionTokenizer;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 import com.duy.calculator.utils.ClipboardManager;
 
 import java.util.ArrayList;

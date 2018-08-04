@@ -26,7 +26,7 @@ import android.util.Log;
 import com.duy.calculator.DLog;
 import com.duy.calculator.R;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
-import com.duy.calculator.model.StepItem;
+import com.duy.calculator.symja.models.StepItem;
 
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;

@@ -54,7 +54,7 @@
             android:launchMode="singleTask" />
         <activity android:name="com.duy.ncalc.unitconverter.ConverterActivity" />
         <activity
-            android:name=".settings.SettingsActivity"
+            android:name="com.duy.ncalc.settings.SettingsActivity"
             android:label="@string/title_activity_settings"
 
             android:launchMode="singleTask" />
@@ -76,32 +76,27 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".symja.SolveEquationActivity"
+            android:name=".symja.activities.SolveEquationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.SimplifyEquationActivity"
+            android:name=".symja.activities.SimplifyEquationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.FactorExpressionActivity"
+            android:name=".symja.activities.FactorExpressionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.DerivativeActivity"
+            android:name=".symja.activities.DerivativeActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".deprecated.StatisticActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".symja.ExpandAllExpressionActivity"
+            android:name=".symja.activities.ExpandAllExpressionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />
@@ -126,38 +121,38 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.LimitActivity"
+            android:name=".symja.activities.LimitActivity"
             android:label="@string/limit"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.IntegrateActivity"
+            android:name=".symja.activities.IntegrateActivity"
             android:label="@string/integrate"
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.PrimitiveActivity"
+            android:name=".symja.activities.PrimitiveActivity"
             android:label="@string/primitive"
 
             android:launchMode="singleTask" />
         <activity android:name="com.duy.ncalc.document.InfoActivity" />
         <activity
-            android:name=".symja.FactorPrimeActivity"
+            android:name=".symja.activities.FactorPrimeActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.PermutationActivity"
+            android:name=".symja.activities.PermutationActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.ModuleActivity"
+            android:name=".symja.activities.ModuleActivity"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".symja.TrigActivity"
+            android:name=".symja.activities.TrigActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.NumberActivity"
+            android:name=".symja.activities.NumberActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".symja.PiActivity" />
+        <activity android:name=".symja.activities.PiActivity" />
         <activity android:name="com.duy.ncalc.document.MarkdownListDocumentActivity" />
     </application>
 

@@ -128,11 +128,6 @@
                 android:icon="@drawable/ic_permutation_black"
                 android:title="@string/permutation"/>
 
-            <item
-                android:id="@+id/nav_table"
-                android:icon="@mipmap/ic_fraction_black"
-                android:title="@string/table"
-                android:visible="false"/>
         </menu>
     </item>
     <item android:title="@string/number_theory">

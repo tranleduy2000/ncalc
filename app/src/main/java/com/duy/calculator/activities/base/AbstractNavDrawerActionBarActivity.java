@@ -30,23 +30,22 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.deprecated.StatisticActivity;
-import com.duy.calculator.settings.SettingsActivity;
-import com.duy.calculator.symja.DerivativeActivity;
-import com.duy.calculator.symja.ExpandAllExpressionActivity;
-import com.duy.calculator.symja.FactorExpressionActivity;
-import com.duy.calculator.symja.FactorPrimeActivity;
-import com.duy.calculator.symja.IntegrateActivity;
-import com.duy.calculator.symja.LimitActivity;
-import com.duy.calculator.symja.ModuleActivity;
-import com.duy.calculator.symja.NumberActivity;
-import com.duy.calculator.symja.NumberType;
-import com.duy.calculator.symja.PermutationActivity;
-import com.duy.calculator.symja.PiActivity;
-import com.duy.calculator.symja.PrimitiveActivity;
-import com.duy.calculator.symja.SimplifyEquationActivity;
-import com.duy.calculator.symja.SolveEquationActivity;
-import com.duy.calculator.symja.TrigActivity;
+import com.duy.ncalc.settings.SettingsActivity;
+import com.duy.calculator.symja.activities.DerivativeActivity;
+import com.duy.calculator.symja.activities.ExpandAllExpressionActivity;
+import com.duy.calculator.symja.activities.FactorExpressionActivity;
+import com.duy.calculator.symja.activities.FactorPrimeActivity;
+import com.duy.calculator.symja.activities.IntegrateActivity;
+import com.duy.calculator.symja.activities.LimitActivity;
+import com.duy.calculator.symja.activities.ModuleActivity;
+import com.duy.calculator.symja.activities.NumberActivity;
+import com.duy.calculator.symja.activities.NumberType;
+import com.duy.calculator.symja.activities.PermutationActivity;
+import com.duy.calculator.symja.activities.PiActivity;
+import com.duy.calculator.symja.activities.PrimitiveActivity;
+import com.duy.calculator.symja.activities.SimplifyEquationActivity;
+import com.duy.calculator.symja.activities.SolveEquationActivity;
+import com.duy.calculator.symja.activities.TrigActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.ncalc.calculator.LogicCalculatorActivity;
 import com.duy.ncalc.document.InfoActivity;
@@ -58,9 +57,9 @@ import com.duy.ncalc.matrix.MatrixCalculatorActivity;
 import com.duy.ncalc.systemequations.SystemEquationActivity;
 import com.duy.ncalc.unitconverter.UnitCategoryActivity;
 
-import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPAND;
-import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPONENT;
-import static com.duy.calculator.model.TrigItem.TRIG_TYPE.REDUCE;
+import static com.duy.calculator.symja.models.TrigItem.TRIG_TYPE.EXPAND;
+import static com.duy.calculator.symja.models.TrigItem.TRIG_TYPE.EXPONENT;
+import static com.duy.calculator.symja.models.TrigItem.TRIG_TYPE.REDUCE;
 
 /**
  * Created by Duy on 19/7/2016
@@ -210,10 +209,6 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
                 break;
             case R.id.nav_derivitive:
                 intent = new Intent(getApplicationContext(), DerivativeActivity.class);
-                postStartActivity(intent);
-                break;
-            case R.id.nav_table:
-                intent = new Intent(getApplicationContext(), StatisticActivity.class);
                 postStartActivity(intent);
                 break;
             case R.id.nav_expand_binomial:

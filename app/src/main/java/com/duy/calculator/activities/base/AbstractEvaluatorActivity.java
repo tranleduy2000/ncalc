@@ -56,10 +56,10 @@ import com.duy.calculator.evaluator.thread.BaseThread;
 import com.duy.calculator.evaluator.thread.CalculateThread;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.history.ResultEntry;
-import com.duy.calculator.symja.ResultAdapter;
-import com.duy.calculator.view.AnimationFinishedListener;
-import com.duy.calculator.view.ResizingEditText;
-import com.duy.calculator.view.RevealView;
+import com.duy.calculator.symja.activities.ResultAdapter;
+import com.duy.ncalc.view.AnimationFinishedListener;
+import com.duy.ncalc.view.ResizingEditText;
+import com.duy.ncalc.view.RevealView;
 import com.duy.calculator.view.editor.SuggestAdapter;
 import com.duy.ncalc.document.MarkdownDocumentFragment;
 

@@ -39,10 +39,10 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.duy.calculator.data.CalculatorSetting;
-import com.duy.calculator.data.DatabaseHelper;
-import com.duy.calculator.tokenizer.ExpressionTokenizer;
-import com.duy.calculator.view.AnimationFinishedListener;
+import com.duy.ncalc.settings.CalculatorSetting;
+import com.duy.calculator.history.DatabaseHelper;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
+import com.duy.ncalc.view.AnimationFinishedListener;
 
 import java.util.Locale;
 

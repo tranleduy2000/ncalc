@@ -22,7 +22,7 @@ import android.content.Context;
 
 import com.duy.calculator.evaluator.base.BaseModule;
 import com.duy.calculator.evaluator.base.Evaluator;
-import com.duy.calculator.tokenizer.ExpressionTokenizer;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 
 import java.util.regex.Pattern;
 

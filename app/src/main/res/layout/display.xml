@@ -34,7 +34,7 @@
             android:orientation="vertical"
             android:weightSum="1">
 
-            <com.duy.calculator.view.CalculatorEditText
+            <com.duy.ncalc.view.CalculatorEditText
                 android:id="@+id/txtDisplay"
                 style="@style/AppTheme.EditText.Formula"
                 android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:textSize="40sp" />
 
 
-            <com.duy.calculator.view.CalculatorEditText
+            <com.duy.ncalc.view.CalculatorEditText
                 android:id="@+id/txtResult"
                 style="@style/AppTheme.EditText.Result"
                 android:layout_width="match_parent"

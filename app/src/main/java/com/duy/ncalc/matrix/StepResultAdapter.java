@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.duy.calculator.R;
-import com.duy.calculator.model.StepItem;
+import com.duy.calculator.symja.models.StepItem;
 
 import java.util.ArrayList;
 
