@@ -40,7 +40,6 @@ import com.duy.calculator.R;
 import com.duy.calculator.history.DatabaseHelper;
 import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.ncalc.userinterface.FontManager;
-import com.duy.ncalc.userinterface.LocaleHelper;
 import com.duy.ncalc.userinterface.ThemeEngine;
 import com.kobakei.ratethisapp.RateThisApp;
 
@@ -60,11 +59,6 @@ public abstract class BaseActivity extends AppCompatActivity
         animator.start();
     }
 
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.onAttach(newBase));
-    }
 
     /**
      * set theme and init mHistoryDatabase for history

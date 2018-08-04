@@ -350,4 +350,10 @@
     <string name="getting_started">Getting started</string>
     <string name="document">Document</string>
     <string name="ide_mode">IDE mode</string>
+    <string name="pref_summary_dominant_implicit_times">If true the implicit * operator has a higher precedence than all other operators. I.e. 1/2Pi is parsed as Power(Times(2, Pi), -1). If false the implicit * operator has a normal precedence as in all other cases. I.e. 1/2Pi is parsed as Times(Rational(1,2), Pi).</string>
+    <string name="pref_summary_parser_use_lowercase_symbol">If true the parser doesn\'t distinguish between lower- or uppercase symbols (i.e. constants, function names,...), with the exception of symbols with only one character (i.e. the variable \'i\' is different from the imaginary unit \'I\')</string>
+    <string name="pref_summary_EXPLICIT_TIMES_OPERATOR">If true the * operator must be written for a Times() expression. I.e. you cannot write 2(b+c) anymore, but have to write 2*(b+c) to get Times(2, Plus(b, c)). You also enable scientific E-notation. I.e. 1E-2 is converted to a double value 0.01 for floating point numbers and not parsed as Plus(-2, E) anymore.</string>
+    <string name="pref_summary_INTEGRATE_BY_PARTS_RECURSION_LIMIT">Define the recursion limit for Integrate#integrateByParts() method.</string>
+    <string name="pref_summary_DEFAULT_ROOTS_CHOP_DELTA">Replace double values in root algorithms by 0 if they are below this tolerance.</string>
+    <string name="pref_summary_RUBI_CONVERT_SYMBOLS">Used to parse Rubi files</string>
 </resources>
