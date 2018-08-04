@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.duy.ncalc.view.DocumentView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/markdown_view"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-</com.duy.ncalc.view.DocumentView>
+    <com.duy.ncalc.view.DocumentView
+        android:id="@+id/markdown_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </com.duy.ncalc.view.DocumentView>
+</android.support.v4.widget.NestedScrollView>

@@ -44,7 +44,7 @@ public class MarkdownListDocumentFragment extends Fragment implements MarkdownLi
         mAdapter.setOnDocumentClickListener(this);
         RecyclerView recyclerView = view.findViewById(R.id.recycle_view);
         recyclerView.setHasFixedSize(false);
-        recyclerView.setNestedScrollingEnabled(true);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(mAdapter);
