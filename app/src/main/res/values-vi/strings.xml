@@ -73,7 +73,6 @@
 
     <string name="solve_equation">Giải phương trình</string>
 
-    <string name="table">Thống kê</string>
     <string name="simplify_expression">Rút gọn biểu thức</string>
     <string name="factor_polynomial">Phân tích đa thức thành nhân tử</string>
 
@@ -83,15 +82,9 @@
     <string name="simplify">Đơn giản</string>
     <string name="derivative">Đạo hàm</string>
 
-    <string name="solve_for_var">Giải hệ với các ẩn (x,y,z,…):</string>
     <string name="solve_system_equation">Giải hệ phương trình</string>
 
-    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Nhập dữ liệu cách nhau bởi dấu phẩy (,) \n \nVí dụ: 12, 232,43, 4</string>
-    <string name="process">Xử lý</string>
-    <string name="auto_process">Tự động xử lý dữ liệu</string>
     <string name="more">Thêm …</string>
-
-    <string name="speech_not_supported">không hỗ trợ nhận dạng giọng nói</string>
 
     <string name="matrix_op_inverse_a">Nghịch đảo A</string>
     <string name="matrix_op_inverse_b">Nghịch đảo B</string>
@@ -105,12 +98,7 @@
     <string name="nh_p_d_li_u">Nhập dữ liệu …</string>
 
     <string name="graph">Đồ thị</string>
-    <string name="maximum">Giá trị lớn nhất</string>
-    <string name="gi_tr_nh_nh_t">Giá trị nhỏ nhất</string>
-    <string name="l_ch_chu_n">Độ lệch chuẩn</string>
-    <string name="t_ng">Tổng</string>
 
-    <string name="speak_expression">Đọc biểu thức</string>
     <string name="nh_p_c_c_n_c_a_h">Nhập các ẩn của hệ phương trình</string>
     <string name="th_m_ph_ng_tr_nh">Thêm</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">Nhập các phương trình tạo thành hệ phương trình, sau đó nhập các ẩn của hệ phương trình\n
@@ -145,16 +133,10 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="choose_mode">
         Chọn chế độ đồ thị 2D hoặc 3D
     </string>
-    <string name="reason">Nguyên nhân</string>
-    <string name="math_error">Math Error</string>
     <string name="enter_params">Nhập các tham số của hệ phương trình</string>
     <string name="remove_equation">Xóa phương trình</string>
     <string name="add_equation">Thêm phương trình</string>
-    <string name="calc">Calc</string>
-    <string name="define_var">Định nghĩa giá trị của biến</string>
 
-    <string name="enter_value">Nhập giá trị</string>
-    <string name="name">Tên</string>
     <string name="graph_2">Graph</string>
     <string name="eval">Tính</string>
     <string name="enter_limit">Nhập giới hạn</string>
@@ -238,7 +220,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="instant_res">Tự động tính kết quả trong khi nhập</string>
     <string name="no_root">Phương trình vô nghiệm</string>
     <string name="not_find_root">Không thể tìm nghiệm</string>
-    <string name="change_lang_msg">Khởi động lại ứng dụng để thay đổi ngôn ngữ.</string>
     <string name="latex_summary">KaTeX là nhanh hơn so với MathJax trên môi trường di động, nhưng MathJax hỗ trợ nhiều tính năng hơn và đẹp hơn rất nhiều.</string>
     <string name="latex_engine">LaTeX engine</string>
     <string name="tit_trig_expand">Phân tích hàm lượng giác</string>
@@ -339,9 +320,7 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="velocityunitmilesperh">miles/h</string>
     <string name="translate">Dịch thuật</string>
     <string name="hide_status_bar">Ẩn thanh trạng thái</string>
-    <string name="loading">Loading data...</string>
     <string name="result">Kết quả</string>
-    <string name="see_doc">Xem tài liệu</string>
     <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Đường tròn tâm O1, bán kính R1</string>
     <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">Đường tròn tâm O2, bán kính R2</string>
     <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Vị trí tương đối giữa 2 đường tròn</string>
@@ -388,7 +367,6 @@ Ví dụ như 2x + 1, 2x^2-x-1
     <string name="th_ng_h_ng">Thẳng hàng</string>
     <string name="divisors">Ước số</string>
     <string name="pi_number">Số pi</string>
-    <string name="install_msg">Bạn có muốn cài đặt Natural Keyboard?</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Open source project in Github https://github.com/tranleduy2000/ncalc</string>
     <string name="all_functions">All functions</string>
     <string name="getting_started">Getting Started</string>

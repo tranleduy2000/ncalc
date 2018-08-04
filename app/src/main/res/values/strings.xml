@@ -36,14 +36,12 @@
     <string name="ellipse">Ellipse</string>
     <string name="feedback">Feedback</string>
     <string name="gi_i_thi_u_v_calc">About Ncalc+</string>
-    <string name="gi_tr_nh_nh_t">Smallest value</string>
     <string name="graph">Graph</string>
     <string name="help">Help</string>
     <string name="enter_expression">Enter expression</string>
     <string name="input_equation">Enter an equation:</string>
     <string name="inside">Inside</string>
     <string name="interaction">Intersecting</string>
-    <string name="l_ch_chu_n">Standard deviation</string>
     <string name="vector">vector</string>
     <string name="title_activity_app_about">About NCalc+</string>
     <string name="title_activity_geometry">2D Cartesian Geometry</string>
@@ -52,12 +50,7 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_unit_converter_acitvity">Unit Converter</string>
     <string name="th_m_ph_ng_tr_nh">More</string>
-    <string name="table">Statistical</string>
-    <string name="t_ng">sum</string>
-    <string name="speech_not_supported">Voice recognition is not supported</string>
-    <string name="speak_expression">Read expressions</string>
     <string name="solve_system_equation">Solve a system of equations</string>
-    <string name="solve_for_var">Solve equations with variables (x, y, z, …): </string>
     <string name="solve_equation">Solve Equation</string>
 
     <string name="simplify_expression">Simplify Expression</string>
@@ -65,12 +58,10 @@
     <string name="settings">Setting</string>
     <string name="science_calculator">Scientific Calculator</string>
     <string name="row">rows</string>
-    <string name="process">Handling</string>
 
     <string name="polygon">polygon</string>
     <string name="parallel">Parallel</string>
     <string name="outside">Outside</string>
-    <string name="auto_process">Automatic data processing</string>
     <string name="line">Straight line</string>
     <string name="linear_system">Solve System of Equations</string>
     <string name="logic_calculator">Base-N Calculator</string>
@@ -79,7 +70,6 @@
     <string name="matrix_op_inverse_b">Inverse B</string>
     <string name="matrix_op_tranpose_b">Trans B</string>
     <string name="matrix_op_tranpose_a">Trans A</string>
-    <string name="maximum">The maximum value</string>
     <string name="more">More …</string>
     <string name="msg_delete_matrix">Creating a new matrix will delete the existing matrix. Are you sure?</string>
     <string name="nav_descartes">2D Geometry</string>
@@ -97,7 +87,6 @@
         Then enter the variables you are looking for: x, y, z \n
         Press [SOLVE]
     </string>
-    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Data entries separated by a comma (,) \n \ For example: 12, 232.43, 4</string>
     <string name="above_circle">Located on the circle</string>
     <string name="not_input_equation">Unknown equations</string>
     <string name="noFunDisp">There is no function to display</string>
@@ -121,16 +110,10 @@
 
 
     <string name="choose_mode">Select 2D or 3D graph mode</string>
-    <string name="reason">Reason</string>
-    <string name="math_error">Math error</string>
     <string name="add_equation">Add equation</string>
     <string name="remove_equation">Delete equation</string>
     <string name="enter_params">Enter the variables of the system of equations:</string>
-    <string name="calc">Calc</string>
 
-    <string name="enter_value">Enter value</string>
-    <string name="name">Name</string>
-    <string name="define_var">Define variable</string>
     <string name="graph_2">Graph</string>
     <string name="enter_limit">Enter limit</string>
     <string name="eval">Evaluate</string>
@@ -207,7 +190,6 @@
     <string name="instant_res">Instant results</string>
     <string name="not_find_root">Cannot find root of the equation.</string>
     <string name="no_root">This equation has no solution.</string>
-    <string name="change_lang_msg">Please restart the app to apply the selected language.</string>
     <string name="latex_engine">LaTeX engine</string>
 
     <string name="tit_trig_expand">Trigonometry - Expand</string>
@@ -313,8 +295,6 @@
 
     <string name="hide_status_bar">Hide status bar</string>
     <string name="result">Result</string>
-    <string name="see_doc">View documentation</string>
-    <string name="loading">Loading data…</string>
 
     <!--geometric -->
     <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Center circle O1, radius R1</string>
@@ -361,10 +341,8 @@
     <string name="t_ch_v_h_ng_c_a_2_vector">Scalar product of two vectors</string>
     <string name="ng_th_ng_ab">Linear AB</string>
     <string name="th_ng_h_ng">Straight</string>
-    <string name="syntax_error">Syntax error</string>
     <string name="divisors">Divisors</string>
     <string name="pi_number">Pi Number</string>
-    <string name="install_msg">Do you want to install Natural Keyboard?</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Open source project at Github https://github.com/tranleduy2000/ncalc</string>
     <string name="matrix_a">Matrix A</string>
     <string name="matrix_b">Matrix B</string>

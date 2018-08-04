@@ -152,7 +152,6 @@
     <string name="solve_2" translatable="false">Solve</string>
     <string name="mtrue" translatable="false">true</string>
     <string name="mfalse" translatable="false">false</string>
-    <string name="nullable" translatable="false"> </string>
     <string name="power_two" translatable="false">^2</string>
     <string name="power_three" translatable="false">^3</string>
     <string name="ten_power" translatable="false">10^x</string>

@@ -71,13 +71,6 @@
         <item name="background_pad_numeric">@drawable/gradient_under_the_lake</item>
     </style>
 
-    <style name="AppTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@drawable/splash</item>
-    </style>
-
 
     <!--Theme Indigo-->
     <style name="AppTheme.Indigo" parent="AppThemeLight">

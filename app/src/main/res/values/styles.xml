@@ -34,10 +34,6 @@
         <item name="android:layout_gravity">center_vertical</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="AppTheme.EditText.Formula" parent="TextAppearance.AppCompat">
         <item name="android:inputType">text|textNoSuggestions|textMultiLine</item>
         <item name="minTextSize">24sp</item>

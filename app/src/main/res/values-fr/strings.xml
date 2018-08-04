@@ -36,14 +36,12 @@
     <string name="ellipse">Ellipse</string>
     <string name="feedback">Retours</string>
     <string name="gi_i_thi_u_v_calc">A propos de Ncalc+</string>
-    <string name="gi_tr_nh_nh_t">Plus petite valeur</string>
     <string name="graph">Graphique</string>
     <string name="help">Aide</string>
     <string name="enter_expression">Entrez une expression</string>
     <string name="input_equation">Entrez une équation :</string>
     <string name="inside">A l\'intérieur</string>
     <string name="interaction">Sécante</string>
-    <string name="l_ch_chu_n">Écart type</string>
     <string name="vector">vecteur</string>
     <string name="title_activity_app_about">A propos de NCalc+</string>
     <string name="title_activity_geometry">Géométrie cartésienne 2D</string>
@@ -52,12 +50,7 @@
     <string name="title_activity_settings">Paramètres</string>
     <string name="title_activity_unit_converter_acitvity">Convertisseur d\'unité</string>
     <string name="th_m_ph_ng_tr_nh">Plus</string>
-    <string name="table">Statistiques</string>
-    <string name="t_ng">somme</string>
-    <string name="speech_not_supported">La reconnaissance vocale n\'est pas supportée</string>
-    <string name="speak_expression">Lire l\'expression</string>
     <string name="solve_system_equation">Résoudre le système d\'équation</string>
-    <string name="solve_for_var">Résolution d\'équations avec variables (x, y, z, …) : </string>
     <string name="solve_equation">Résolution d\'équations</string>
 
     <string name="simplify_expression">Simplifier l\'expression</string>
@@ -65,12 +58,10 @@
     <string name="settings">Paramètres</string>
     <string name="science_calculator">Calculatrice scientifique</string>
     <string name="row">colonnes</string>
-    <string name="process">Manipulation</string>
 
     <string name="polygon">polygone</string>
     <string name="parallel">Parallèle</string>
     <string name="outside">A l\'extérieur</string>
-    <string name="auto_process">Traitement automatique de données</string>
     <string name="line">Ligne droite</string>
     <string name="linear_system">Résoudre le système d\'équations</string>
     <string name="logic_calculator">Calculatrice base-n</string>
@@ -79,7 +70,6 @@
     <string name="matrix_op_inverse_b">Inverse de B</string>
     <string name="matrix_op_tranpose_b">Transposée de B</string>
     <string name="matrix_op_tranpose_a">Transposée de A</string>
-    <string name="maximum">La valeur maximum</string>
     <string name="more">Plus …</string>
     <string name="msg_delete_matrix">Créer une nouvelle matrice va supprimer l\'actuelle. Êtes-vous sûr ?</string>
     <string name="nav_descartes">Géométrie 2D</string>
@@ -97,7 +87,6 @@
         Puis entrez les variables que vous voulez trouver : x, y, z \n
         Appuyer sur [Résoudre]
     </string>
-    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Données d\'entrées séparées par une virgule (,) \n \ Par exemple : 12, 232.43, 4</string>
     <string name="above_circle">Situé sur le cercle</string>
     <string name="not_input_equation">Équation inconnue</string>
     <string name="noFunDisp">Il n\'y a pas de fonction à afficher</string>
@@ -121,16 +110,10 @@
 
 
     <string name="choose_mode">Sélectionner le mode d\'affichage : 2D ou 3D</string>
-    <string name="reason">Raison</string>
-    <string name="math_error">Erreur mathématique</string>
     <string name="add_equation">Ajouter une équation</string>
     <string name="remove_equation">Supprimer une équation</string>
     <string name="enter_params">Entrez les variables du système d\'équation :</string>
-    <string name="calc">Calc</string>
 
-    <string name="enter_value">Entrez une valeur</string>
-    <string name="name">Nom</string>
-    <string name="define_var">Définir une variable</string>
     <string name="graph_2">Graphique</string>
     <string name="enter_limit">Entrer la limite</string>
     <string name="eval">Évaluer</string>
@@ -207,7 +190,6 @@
     <string name="instant_res">Résultats instantanés</string>
     <string name="not_find_root">Impossible de trouver les racines de l\'équation.</string>
     <string name="no_root">Cette équation n\'a pas de solution.</string>
-    <string name="change_lang_msg">Merci de redémarrer l\'application pour appliquer le langage sélectionné.</string>
     <string name="latex_engine">Moteur LaTeX</string>
 
     <string name="tit_trig_expand">Développement</string>
@@ -313,8 +295,6 @@
 
     <string name="hide_status_bar">Masquer la barre d\'état</string>
     <string name="result">Résultat</string>
-    <string name="see_doc">Voir la documentation</string>
-    <string name="loading">Chargement des données …</string>
 
     <!--geometric -->
     <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Centre du cercle O1, rayon R1</string>
@@ -361,10 +341,8 @@
     <string name="t_ch_v_h_ng_c_a_2_vector">Le produit scalaire des deux vecteurs</string>
     <string name="ng_th_ng_ab">Ligne AB</string>
     <string name="th_ng_h_ng">Colinéaire</string>
-    <string name="syntax_error">Erreur de syntaxe</string>
     <string name="divisors">Diviseurs</string>
     <string name="pi_number">Le nombre Pi</string>
-    <string name="install_msg">Voulez-vous installer Natural Keyboard ?</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Projet open source disponible sur Github à l\'adresse https://github.com/tranleduy2000/ncalc</string>
     <string name="all_functions">Toutes les fonctions</string>
     <string name="getting_started">Commencer</string>

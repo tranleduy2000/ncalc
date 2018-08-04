@@ -37,14 +37,12 @@
     <string name="ellipse">椭圆</string>
     <string name="feedback">反馈</string>
     <string name="gi_i_thi_u_v_calc">关于 NCalc+</string>
-    <string name="gi_tr_nh_nh_t">最小值</string>
     <string name="graph">图像</string>
     <string name="help">帮助</string>
     <string name="enter_expression">输入表达式</string>
     <string name="input_equation">输入一个方程：</string>
     <string name="inside">内部</string>
     <string name="interaction">相交</string>
-    <string name="l_ch_chu_n">标准差</string>
     <string name="vector">向量</string>
     <string name="title_activity_app_about">关于 NCalc+</string>
     <string name="title_activity_geometry">笛卡尔平面几何</string>
@@ -53,12 +51,7 @@
     <string name="title_activity_settings">设定</string>
     <string name="title_activity_unit_converter_acitvity">单位转换</string>
     <string name="th_m_ph_ng_tr_nh">更多</string>
-    <string name="table">统计</string>
-    <string name="t_ng">共计</string>
-    <string name="speech_not_supported">语音识别不受支持</string>
-    <string name="speak_expression">朗读表达式</string>
     <string name="solve_system_equation">方程组求解</string>
-    <string name="solve_for_var">以变量 (x, y, z, …) 求解方程：</string>
     <string name="solve_equation">方程求解</string>
 
     <string name="simplify_expression">表达式化简</string>
@@ -66,12 +59,10 @@
     <string name="settings">设定</string>
     <string name="science_calculator">科学计算器</string>
     <string name="row">行数</string>
-    <string name="process">处理</string>
 
     <string name="polygon">多边形</string>
     <string name="parallel">平行</string>
     <string name="outside">外部</string>
-    <string name="auto_process">自动处理</string>
     <string name="line">直线</string>
     <string name="linear_system">方程组求解</string>
     <string name="logic_calculator">进制转换</string>
@@ -80,7 +71,6 @@
     <string name="matrix_op_inverse_b">逆 B</string>
     <string name="matrix_op_tranpose_b">转置 B</string>
     <string name="matrix_op_tranpose_a">转置 A</string>
-    <string name="maximum">最大值</string>
     <string name="more">更多…</string>
     <string name="msg_delete_matrix">重新创建矩阵将会清除当前矩阵，确定吗？</string>
     <string name="nav_descartes">平面几何</string>
@@ -98,7 +88,6 @@
         随后输入你希望得到的变量 x, y, z \n
         点击 [求解]
     </string>
-    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">以英文逗号 (,) 分隔数据\n\n例：12, 232.43, 4</string>
     <string name="above_circle">在圆上</string>
     <string name="not_input_equation">未输入方程</string>
     <string name="noFunDisp">没有函数可供显示</string>
@@ -122,16 +111,10 @@
 
 
     <string name="choose_mode">选择 2D 或 3D 图像模式</string>
-    <string name="reason">原因</string>
-    <string name="math_error">数学错误</string>
     <string name="add_equation">添加方程</string>
     <string name="remove_equation">移除方程</string>
     <string name="enter_params">输入方程组的变量：</string>
-    <string name="calc">计算</string>
 
-    <string name="enter_value">输入值</string>
-    <string name="name">名称</string>
-    <string name="define_var">定义变量</string>
     <string name="graph_2">图像</string>
     <string name="enter_limit">输入极限</string>
     <string name="eval">求值</string>
@@ -210,7 +193,6 @@
     <string name="instant_res">即时结果</string>
     <string name="not_find_root">无法找到方程的根</string>
     <string name="no_root">此方程无解</string>
-    <string name="change_lang_msg">请重新启动应用以应用所选语言</string>
     <string name="latex_engine">LaTeX 引擎</string>
 
     <string name="tit_trig_expand">三角函数展开</string>
@@ -316,8 +298,6 @@
 
     <string name="hide_status_bar">隐藏状态栏</string>
     <string name="result">结果</string>
-    <string name="see_doc">查看文档</string>
-    <string name="loading">加载数据中…</string>
 
     <!--geometric -->
     <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">圆心 O1，半径 R1</string>
@@ -366,7 +346,6 @@
     <string name="th_ng_h_ng">相反</string>
     <string name="divisors">因数</string>
     <string name="pi_number">圆周率</string>
-    <string name="install_msg">你想安装 Natural Keyboard 吗？</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">GitHub 上的开源项目 https://github.com/tranleduy2000/ncalc</string>
     <string name="all_functions">所有函数</string>
     <string name="getting_started">入门</string>

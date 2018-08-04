@@ -29,7 +29,6 @@
     <string name="areaunitsqmiles">(Миль) миль²</string>
     <string name="areaunitsqmm">мм²</string>
     <string name="areaunitsqyard">(Ярдов) ярдов²</string>
-    <string name="auto_process">Автоматическая обработка данных</string>
     <string name="binomial_newton">Бином Ньютона</string>
     <string name="bitrateunitbits">Бит (b)/с</string>
     <string name="bitrateunitbytes">Байт (B)/с</string>
@@ -41,12 +40,10 @@
     <string name="bitrateunitmegabytes">Мегабайт (MB)/с</string>
     <string name="bitrateunitterabits">Терабит (Tb)/с</string>
     <string name="bitrateunitterabytes">Терабайт (TB)/с</string>
-    <string name="calc">Расчёт</string>
     <string name="calculator">Калькулятор</string>
     <string name="cannotwrite">Не удается записать</string>
     <string name="catalan_desc">Введите номер числа Каталана</string>
     <string name="catalan_number">Числа Каталана</string>
-    <string name="change_lang_msg">Перезапустите приложение, чтобы применить язык!</string>
     <string name="choose_mode">Выберите режим отображения графика</string>
     <string name="circle">Круг</string>
     <string name="circle_interaction">Два круга пересекаются</string>
@@ -59,7 +56,6 @@
     <string name="copied">Скопировано</string>
     <string name="create">Создать</string>
     <string name="default_">Система</string>
-    <string name="define_var">Определить переменную</string>
     <string name="delete_desc">Стереть</string>
     <string name="der_level_desc">Выберите здесь уровень производной</string>
     <string name="derivative">Производная</string>
@@ -81,7 +77,6 @@
     <string name="enter_limit">Введите ограничение</string>
     <string name="enter_number">Введите номер</string>
     <string name="enter_params">Введите переменные системы уравнений через запятую</string>
-    <string name="enter_value">Введите значение</string>
     <string name="enter_var_hint">Введите переменные системы уравнений через запятую</string>
     <string name="enter_variable">Введите здесь переменные. Переменные разделяются точкой с запятой</string>
     <string name="error">Ошибка</string>
@@ -97,7 +92,6 @@
     <string name="fraction_decs">Показывать ответ в натуральных числах. Это обеспечит абсолютную точность</string>
     <string name="fraction_mode">Натуральные числа</string>
     <string name="gi_i_thi_u_v_calc">О программе</string>
-    <string name="gi_tr_nh_nh_t">Наименьшее значение</string>
     <string name="graph">Построение графика</string>
     <string name="graph_2">Построение графика</string>
     <string name="gt_zero">Два введенных номера должны быть больше нуля.</string>
@@ -120,7 +114,6 @@
     <string name="instant_res">Мгновенное решение</string>
     <string name="integrate">Определённый интеграл</string>
     <string name="interaction">Пересечение</string>
-    <string name="l_ch_chu_n">Стандартное отклонение</string>
     <string name="language">Язык</string>
     <string name="latex_engine">LaTeX работает</string>
     <string name="latex_summary">KaTeX быстрее MathJax в мобильной среде, но MathJax поддерживает больше функций и гораздо красивее.</string>
@@ -143,24 +136,20 @@
     <string name="ln_hint">&lt;font color=red&gt;Log(x) is the natural logarithm&lt;/font&gt;</string>
     <string name="logic_calculator">Калькулятор программиста</string>
     <string name="lower_limit">Нижний предел</string>
-    <string name="math_error">Математическая ошибка</string>
     <string name="matrix">Операции с матрицами</string>
     <string name="matrix_op_inverse_a">Инверсия A</string>
     <string name="matrix_op_inverse_b">Инверсия B</string>
     <string name="matrix_op_tranpose_a">Транспонирование A</string>
     <string name="matrix_op_tranpose_b">Транспонирование B</string>
-    <string name="maximum">Максимальное значение переменной</string>
     <string name="module">Остаток от деления</string>
     <string name="more">Ещё</string>
     <string name="msg_delete_matrix">Вы хотите создать новую матрицу, удалив существующую матрицу?</string>
-    <string name="name">Имя</string>
     <string name="nav_descartes">Двумерная геометрия</string>
     <string name="nh_p_c_c_n_c_a_h">Ввод переменных системы уравнений</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">"Для добавления нового уравнения в систему нажмите [плюс].
 После ввода системы уравнений не забудьте добавить названия переменных (x, y, z, …)
 Теперь осталось только нажать [РЕШИТЬ]"</string>
     <string name="nh_p_d_li_u">Введите значение для перевода</string>
-    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Ввод данных через запятую (,) n Например: 12, 232.43, 4</string>
     <string name="noFunDisp">Нет функции для отображения</string>
     <string name="no_root">Уравнение не имеет решения</string>
     <string name="not_a_number">Введенные данные не являются числом!</string>
@@ -189,7 +178,6 @@
     <string name="prime_desc">Введите номер простого числа</string>
     <string name="primitive">Первообразная</string>
     <string name="probability_statistics">Теория вероятности</string>
-    <string name="process">Обработка</string>
     <string name="push_analyze_button">Нажмите эту кнопку, чтобы проанализировать факторизацию многочленов. Процесс расчёта может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
     <string name="push_button_primitive">Затем нажмите кнопку, чтобы начать расчет. Расчёт может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
     <string name="push_der_button">Нажмите эту кнопку для получения производной функции. Процесс расчёта может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
@@ -198,7 +186,6 @@
     <string name="push_simplify_button">Нажмите эту кнопку для сокращения выражения. Процесс вычисления может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
     <string name="push_solve_button">Нажмите эту кнопку, чтобы найти корень уравнения. Процесс вычисления может занять некоторое время в зависимости от мощности устройства и сложности вычислений</string>
     <string name="rate_this_app">Оцени это приложение</string>
-    <string name="reason">Причина</string>
     <string name="remove_equation">Удалить уравнение</string>
     <string name="row">ряд</string>
     <string name="save">Сохранить</string>
@@ -210,14 +197,9 @@
     <string name="simplify_expression">Сокращение​ формул</string>
     <string name="solve">Решить</string>
     <string name="solve_equation">Линейное уравнение</string>
-    <string name="solve_for_var">Решите уравнения с переменными (x, y, z, …):</string>
     <string name="solve_system_equation">Решение системы уравнений</string>
-    <string name="speak_expression">Чтение выражений</string>
-    <string name="speech_not_supported">не поддерживает распознавание голоса</string>
     <string name="summary_instant_res">Автоматически подсчитывать результаты</string>
     <string name="summary_trace_mode">Вывод информации о работе приложения</string>
-    <string name="t_ng">сумма</string>
-    <string name="table">Статистический</string>
     <string name="tangent">касательный</string>
     <string name="tapFun">Выберите функцию</string>
     <string name="temperatureunitc">Цельсий (ºC)</string>
@@ -270,9 +252,7 @@
     <string name="weightunitounce">Унция (ун)</string>
     <string name="translate">перевести</string>
     <string name="hide_status_bar">Скрыть строку состояния</string>
-    <string name="loading">Loading data...</string>
     <string name="result">pезультат</string>
-    <string name="see_doc">См. Документ</string>
     <string name="chu_vi">Perimeter</string>
     <string name="d_i_o_n_th_ng_ab">AB straight line length</string>
     <string name="di_n_t_ch">Acreage</string>
@@ -319,7 +299,6 @@
     <string name="th_ng_h_ng">Straight</string>
     <string name="divisors">Делители</string>
     <string name="pi_number">Номер Pi</string>
-    <string name="install_msg">Are you want to install Natural Keyboard?</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Open source project in Github https://github.com/tranleduy2000/ncalc</string>
     <string name="all_functions">All functions</string>
     <string name="getting_started">Getting Started</string>
