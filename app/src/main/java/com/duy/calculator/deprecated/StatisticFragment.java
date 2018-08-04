@@ -53,7 +53,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
-import org.apache.commons.math4.stat.descriptive.DescriptiveStatistics;
+import org.hipparchus.stat.descriptive.DescriptiveStatistics;
 
 import java.util.ArrayList;
 

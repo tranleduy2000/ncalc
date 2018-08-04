@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-include ':app', ':jcm1', ':symja_android_library-release'
+include ':app', ':symja_android_library-release'
