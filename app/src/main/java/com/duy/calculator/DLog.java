@@ -25,7 +25,7 @@ import android.util.Log;
  * Created by Duy on 18-Jan-17.
  */
 public class DLog {
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = BuildConfig.DEBUG;
 
     private static final String TAG = "DLog";
 

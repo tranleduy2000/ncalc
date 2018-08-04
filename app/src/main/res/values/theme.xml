@@ -16,7 +16,6 @@
 
 <resources>
 
-
     <!-- Dark theme. -->
     <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
         <item name="colorResultError">#ff4081</item>

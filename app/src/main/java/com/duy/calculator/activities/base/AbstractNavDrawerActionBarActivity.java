@@ -21,32 +21,30 @@ package com.duy.calculator.activities.base;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.duy.calculator.R;
-import com.duy.calculator.calc.BasicCalculatorActivity;
 import com.duy.calculator.activities.DerivativeActivity;
 import com.duy.calculator.activities.ExpandAllExpressionActivity;
 import com.duy.calculator.activities.FactorExpressionActivity;
-import com.duy.calculator.document.GettingStartedFragment;
 import com.duy.calculator.activities.IntegrateActivity;
 import com.duy.calculator.activities.LimitActivity;
-import com.duy.calculator.calc.LogicCalculatorActivity;
 import com.duy.calculator.activities.PrimitiveActivity;
 import com.duy.calculator.activities.SimplifyEquationActivity;
 import com.duy.calculator.activities.SolveEquationActivity;
+import com.duy.calculator.calc.BasicCalculatorActivity;
+import com.duy.calculator.calc.LogicCalculatorActivity;
 import com.duy.calculator.converter.UnitCategoryActivity;
 import com.duy.calculator.deprecated.StatisticActivity;
-import com.duy.calculator.document.FunctionsDocumentActivity;
-import com.duy.calculator.document.InfoActivity;
+import com.duy.calculator.equations.SystemEquationActivity;
 import com.duy.calculator.geom2d.GeometryDescartesActivity;
 import com.duy.calculator.graph.GraphActivity;
 import com.duy.calculator.matrix.MatrixCalculatorActivity;
@@ -57,9 +55,10 @@ import com.duy.calculator.number.NumberType;
 import com.duy.calculator.number.PermutationActivity;
 import com.duy.calculator.number.PiActivity;
 import com.duy.calculator.settings.SettingsActivity;
-import com.duy.calculator.equations.SystemEquationActivity;
 import com.duy.calculator.trigonometry.TrigActivity;
-import com.duy.calculator.utils.ConfigApp;
+import com.duy.ncalc.document.InfoActivity;
+import com.duy.ncalc.document.MarkdownListDocumentActivity;
+import com.duy.ncalc.document.MarkdownListDocumentFragment;
 
 import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPAND;
 import static com.duy.calculator.model.TrigItem.TRIG_TYPE.EXPONENT;
@@ -68,9 +67,8 @@ import static com.duy.calculator.model.TrigItem.TRIG_TYPE.REDUCE;
 /**
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
+public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout mDrawerLayout;
-    private boolean debug = ConfigApp.DEBUG;
     private Handler handler = new Handler();
 
     /**
@@ -105,19 +103,16 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
     @Override
     protected void onResume() {
         super.onResume();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.setDrawerListener(toggle);
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-        mDrawerLayout.addDrawerListener(this);
-
         setupHeaderNavigation(navigationView);
     }
 
@@ -127,13 +122,12 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
             @Override
             public void onClick(View v) {
                 closeDrawer();
-                startActivity(new Intent(getApplicationContext(), FunctionsDocumentActivity.class));
+                startActivity(new Intent(getApplicationContext(), MarkdownListDocumentActivity.class));
             }
         });
         header.findViewById(R.id.img_setting).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "setLocale: default");
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
             }
         });
@@ -159,18 +153,25 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
         });
     }
 
-    /**
-     * event for item navigation click
-     *
-     * @param item - item
-     * @return boolean
-     */
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         closeDrawer();
         Intent intent;
         switch (id) {
+            case R.id.action_getting_started: {
+                intent = new Intent(getApplicationContext(), MarkdownListDocumentActivity.class);
+                intent.putExtra(MarkdownListDocumentFragment.KEY_ASSET_PATH, "doc");
+                startActivity(intent);
+                break;
+            }
+            case R.id.action_all_functions: {
+                intent = new Intent(getApplicationContext(), MarkdownListDocumentActivity.class);
+                intent.putExtra(MarkdownListDocumentFragment.KEY_ASSET_PATH, "doc/functions");
+                startActivity(intent);
+                break;
+            }
+
             case R.id.nav_sci_calc:
                 intent = new Intent(getApplicationContext(), BasicCalculatorActivity.class);
                 startIntent(intent);
@@ -304,22 +305,11 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
                 intent = new Intent(getApplicationContext(), PiActivity.class);
                 startIntent(intent);
                 break;
-            case R.id.action_document:
-                intent = new Intent(getApplicationContext(), FunctionsDocumentActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.action_getting_started:
-                showFragmentGettingStarted();
-                break;
+
+
         }
         return true;
     }
-
-    private void showFragmentGettingStarted() {
-        GettingStartedFragment fragment = GettingStartedFragment.newInstance();
-        fragment.show(getSupportFragmentManager(), GettingStartedFragment.TAG);
-    }
-
 
     private void startIntent(final Intent intent) {
         handler.postDelayed(new Runnable() {
@@ -330,35 +320,4 @@ public abstract class AbstractNavDrawerActionBarActivity extends BaseActivity im
         }, 100);
     }
 
-    /**
-     * open drawer left, menu of math
-     */
-    protected void openMenuDrawer() {
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawerLayout != null) {
-            if (!drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        }
-    }
-
-    @Override
-    public void onDrawerSlide(View drawerView, float slideOffset) {
-
-    }
-
-    @Override
-    public void onDrawerOpened(View drawerView) {
-        hideKeyboard(null);
-    }
-
-    @Override
-    public void onDrawerClosed(View drawerView) {
-
-    }
-
-    @Override
-    public void onDrawerStateChanged(int newState) {
-
-    }
 }

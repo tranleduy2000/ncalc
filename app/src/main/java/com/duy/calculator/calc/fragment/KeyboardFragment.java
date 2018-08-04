@@ -30,11 +30,12 @@ import android.widget.Button;
 
 import com.duy.calculator.R;
 import com.duy.calculator.calc.KeyboardListener;
-import com.duy.calculator.document.FunctionsDocumentActivity;
 import com.duy.calculator.settings.SettingsActivity;
 import com.duy.calculator.view.ButtonID;
 import com.duy.calculator.view.CalcButton;
 import com.duy.calculator.view.CalculatorEditText;
+import com.duy.ncalc.document.MarkdownListDocumentActivity;
+import com.duy.ncalc.document.MarkdownListDocumentFragment;
 
 /**
  * Created by Duy on 9/21/2017.
@@ -133,8 +134,11 @@ public class KeyboardFragment extends Fragment implements View.OnClickListener, 
             case R.id.btn_fact:
                 mCalculatorListener.clickFactorPrime();
                 break;
-            case R.id.btn_help:
-                startActivity(new Intent(getContext(), FunctionsDocumentActivity.class));
+            case R.id.btn_help: {
+                Intent intent = new Intent(getContext(), MarkdownListDocumentActivity.class);
+                intent.putExtra(MarkdownListDocumentFragment.KEY_ASSET_PATH, "doc");
+                startActivity(intent);
+            }
             case R.id.btn_solve_:
                 mCalculatorListener.clickSolveEquation();
                 break;

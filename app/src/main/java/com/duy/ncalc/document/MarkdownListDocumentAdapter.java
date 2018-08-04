@@ -16,9 +16,10 @@
  *
  */
 
-package com.duy.calculator.document;
+package com.duy.ncalc.document;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,54 +30,66 @@ import com.duy.calculator.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 
 /**
  * Created by Duy on 19-May-17.
  */
-public class FunctionsDocumentAdapter extends RecyclerView.Adapter<FunctionsDocumentAdapter.ViewHolder> {
-    private static final String DOC_PATH = "doc/functions/";
-    private static final String TAG = "DocumentAdapter";
+public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownListDocumentAdapter.ViewHolder> {
+    private static final String TAG = "FunctionsDocumentAdapter";
+    private static final String DOT_MD = ".md";
+
     private Context context;
     private ArrayList<String> fileNames = new ArrayList<>();
     private ArrayList<String> originalData = new ArrayList<>();
     private LayoutInflater inflater;
+    private String assetPath;
     private OnDocumentClickListener onDocumentClickListener;
 
-    public FunctionsDocumentAdapter(Context context) {
+    MarkdownListDocumentAdapter(Context context, String assetPath) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
+        this.assetPath = assetPath;
         loadData();
     }
 
     private void loadData() {
         try {
-            String[] functions = context.getAssets().list("doc/functions");
-            Collections.addAll(fileNames, functions);
+            String[] functions = context.getAssets().list(assetPath);
+            for (String function : functions) {
+                if (function.endsWith(".md")) {
+                    fileNames.add(function);
+                }
+            }
             originalData.addAll(fileNames);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.list_item_document, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final String fileName = fileNames.get(position);
-        if (fileName.toLowerCase().endsWith(".md")) {
-            String functionName = fileName.substring(0, fileName.length() - 3);
-            holder.txtName.setText(functionName);
+        if (fileName.toLowerCase().endsWith(DOT_MD)) {
+            String nameWithoutExt = fileName.substring(0, fileName.length() - 3);
+            nameWithoutExt = nameWithoutExt.replace("-", " ");
+            String name = StringHelper.capitalize(nameWithoutExt);
+            name = StringHelper.addSpaceBeforeUpperCase(name);
+
+            holder.txtName.setText(name);
             holder.txtName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (onDocumentClickListener != null) {
-                        onDocumentClickListener.onDocumentClick(DOC_PATH + fileName);
+                        onDocumentClickListener.onDocumentClick(
+                                assetPath + "/" + fileName);
                     }
                 }
             });
@@ -94,9 +107,9 @@ public class FunctionsDocumentAdapter extends RecyclerView.Adapter<FunctionsDocu
         for (String s : originalData) {
             if (s.toLowerCase().contains(query.toLowerCase())) {
                 fileNames.add(s);
-                notifyItemInserted(fileNames.size() - 1);
             }
         }
+        notifyDataSetChanged();
     }
 
     public void setOnDocumentClickListener(OnDocumentClickListener onDocumentClickListener) {

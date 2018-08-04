@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.document;
+package com.duy.ncalc.document;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

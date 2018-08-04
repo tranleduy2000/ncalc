@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.document;
+package com.duy.ncalc.document;
 
 import android.app.Dialog;
 import android.content.res.AssetManager;
