@@ -5,7 +5,10 @@ ChebyshevU(n, x)
 ```
 
 > returns the Chebyshev polynomial of the second kind `U_n(x)`.
- 
+
+See:  
+* [Wikipedia - Chebyshev polynomials](https://en.wikipedia.org/wiki/Chebyshev_polynomials)
+
 ### Examples
 ```   
 >> ChebyshevU(8, x)    

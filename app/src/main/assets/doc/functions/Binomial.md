@@ -11,9 +11,10 @@ For negative integers `k` this function will return `0` no matter what value is 
 See:
 * [Wikipedia - Binomial coefficient](http://en.wikipedia.org/wiki/Binomial_coefficient)
 * [John D. Cook - Binomial coefficients definition](https://www.johndcook.com/blog/binomial_coefficients/)
-* [The Binomial Coefficient for Negative Arguments](https://arxiv.org/pdf/1105.3689.pdf)
+* [Kronenburg 2011 - The Binomial Coefficient for Negative Arguments](https://arxiv.org/pdf/1105.3689.pdf)
 
 ### Examples
+
 ``` 
 >> Binomial(4,2)
 6

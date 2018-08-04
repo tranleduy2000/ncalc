@@ -6,6 +6,8 @@ Dot(x, y) or x . y
 
 > `x . y` computes the vector dot product or matrix product `x . y`.
 
+**Note**: the `Dot` operator has the attribute `Flat` ([associative property](https://en.wikipedia.org/wiki/Associative_property)) but not `Orderless` ([commutative property](https://en.wikipedia.org/wiki/Commutative_property)).
+
 See:
 * [Wikipedia - Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication)
 
@@ -34,3 +36,6 @@ Matrix product:
 >> a . b
 a.b
 ```
+
+### Related terms
+[Flat](Flat.md), [MatrixPower](MatrixPower.md), [Orderless](Orderless.md), [Times](Times.md)

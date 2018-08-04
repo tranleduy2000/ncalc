@@ -5,7 +5,10 @@ ChebyshevT(n, x)
 ```
 
 > returns the Chebyshev polynomial of the first kind `T_n(x)`.
- 
+
+See:  
+* [Wikipedia - Chebyshev polynomials](https://en.wikipedia.org/wiki/Chebyshev_polynomials)
+
 ### Examples
 ```   
 >> ChebyshevT(8, x)    
