@@ -86,7 +86,7 @@ dependencies {
     compile 'com.getkeepsafe.taptargetview:taptargetview:1.6.0'
 
     compile 'io.github.kobakei:ratethisapp:1.2.0'
-    compile 'com.sothree.slidinguppanel:library:3.3.1'
+    compile 'com.sothree.slidinguppanel:library:3.4.0'
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
