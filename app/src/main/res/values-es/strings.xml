@@ -1,0 +1,374 @@
+<!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="all_unit_converter">Conversor de unidades</string>
+    <string name="factor">Factor</string>
+    <string name="binomial_newton">Binomio de Newton</string>
+    <string name="circle">Cercle</string>
+    <string name="circle_interaction">Deux cercles se croisent</string>
+    <string name="circle_tangent">Deux cercles se croisent</string>
+    <string name="close">Fermer</string>
+    <string name="collinear">Droit</string>
+    <string name="column">colonnes</string>
+    <string name="copied">Copié</string>
+    <string name="create">Créer</string>
+    <string name="delete_desc">Effacer</string>
+    <string name="derivative">Dérivée</string>
+    <string name="error_input_num">Erreur de format de nombre</string>
+    <string name="error">Erreur</string>
+    <string name="expand">Développer</string>
+    <string name="factor_prime">Décomposition facteurs premiers</string>
+    <string name="factor_polynomial">Facteur polynomial</string>
+    <string name="ellipse">Ellipse</string>
+    <string name="feedback">Retours</string>
+    <string name="gi_i_thi_u_v_calc">A propos de Ncalc+</string>
+    <string name="gi_tr_nh_nh_t">Plus petite valeur</string>
+    <string name="graph">Graphique</string>
+    <string name="help">Aide</string>
+    <string name="enter_expression">Entrez une expression</string>
+    <string name="input_equation">Entrez une équation :</string>
+    <string name="inside">A l\'intérieur</string>
+    <string name="interaction">Sécante</string>
+    <string name="l_ch_chu_n">Écart type</string>
+    <string name="vector">vecteur</string>
+    <string name="title_activity_app_about">A propos de NCalc+</string>
+    <string name="title_activity_geometry">Géométrie cartésienne 2D</string>
+    <string name="title_activity_graph">Graphique</string>
+    <string name="title_activity_matrix_calculator">Matrice</string>
+    <string name="title_activity_settings">Paramètres</string>
+    <string name="title_activity_unit_converter_acitvity">Convertisseur d\'unité</string>
+    <string name="th_m_ph_ng_tr_nh">Plus</string>
+    <string name="table">Statistiques</string>
+    <string name="t_ng">somme</string>
+    <string name="speech_not_supported">La reconnaissance vocale n\'est pas supportée</string>
+    <string name="speak_expression">Lire l\'expression</string>
+    <string name="solve_system_equation">Résoudre le système d\'équation</string>
+    <string name="solve_for_var">Résolution d\'équations avec variables (x, y, z, …) : </string>
+    <string name="solve_equation">Résolution d\'équations</string>
+
+    <string name="simplify_expression">Simplifier l\'expression</string>
+    <string name="simplify">Simplifier</string>
+    <string name="settings">Paramètres</string>
+    <string name="science_calculator">Calculatrice scientifique</string>
+    <string name="row">colonnes</string>
+    <string name="process">Manipulation</string>
+
+    <string name="polygon">polygone</string>
+    <string name="parallel">Parallèle</string>
+    <string name="outside">A l\'extérieur</string>
+    <string name="auto_process">Traitement automatique de données</string>
+    <string name="line">Ligne droite</string>
+    <string name="linear_system">Résoudre le système d\'équations</string>
+    <string name="logic_calculator">Calculatrice base-n</string>
+    <string name="matrix">Matrice</string>
+    <string name="matrix_op_inverse_a">Inverse de A</string>
+    <string name="matrix_op_inverse_b">Inverse de B</string>
+    <string name="matrix_op_tranpose_b">Transposée de B</string>
+    <string name="matrix_op_tranpose_a">Transposée de A</string>
+    <string name="maximum">La valeur maximum</string>
+    <string name="more">Plus …</string>
+    <string name="msg_delete_matrix">Créer une nouvelle matrice va supprimer l\'actuelle. Êtes-vous sûr ?</string>
+    <string name="nav_descartes">Géométrie 2D</string>
+    <string name="nh_p_c_c_n_c_a_h">Entrez les variables du système d\'équation :</string>
+    <string name="nh_p_d_li_u">Entrez une valeur :</string>
+    <string name="not_line">Ce n\'est pas une ligne droite</string>
+    <string name="not_interaction">Pas d\'intersection</string>
+    <string name="not_in_circle">Aucun des cercles</string>
+    <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
+        Entrez les équations formant le système d\'équations, puis entrez les variables de ce système d\'équations \n
+        Par exemple, appuyez sur [+] et entrez les équations suivantes : \n
+         x + y + z = 2 \n
+         x - y + 2z = 6 \n
+         z + y = 2 \n
+        Puis entrez les variables que vous voulez trouver : x, y, z \n
+        Appuyer sur [Résoudre]
+    </string>
+    <string name="nh_p_d_li_u_c_ch_nhau_b_i_d_u_ph_y_nv_d_12_232_43_4">Données d\'entrées séparées par une virgule (,) \n \ Par exemple : 12, 232.43, 4</string>
+    <string name="above_circle">Situé sur le cercle</string>
+    <string name="not_input_equation">Équation inconnue</string>
+    <string name="noFunDisp">Il n\'y a pas de fonction à afficher</string>
+    <string name="tapFun">Choisir une fonction</string>
+    <string name="save">Sauvegarder</string>
+    <string name="add_function">Ajouter une fonction</string>
+    <string name="cannotwrite">Impossible d\'écrire le fichier</string>
+    <string name="not_variable">
+        <![CDATA[
+        Aucune variable trouvée </br>
+        Merci d\'entrer une équation avec la variable x</br>
+        Exemples : 2x + 1 ou 2x^2 + x - 2
+        ]]>
+    </string>
+    <string name="history">Historique</string>
+    <string name="pref_title_font">Police</string>
+    <string name="pref_title_theme">Thème</string>
+    <string name="solve">Résoudre</string>
+    <string name="tangent">tangente</string>
+    <string name="translate">Traduire</string>
+
+
+    <string name="choose_mode">Sélectionner le mode d\'affichage : 2D ou 3D</string>
+    <string name="reason">Raison</string>
+    <string name="math_error">Erreur mathématique</string>
+    <string name="add_equation">Ajouter une équation</string>
+    <string name="remove_equation">Supprimer une équation</string>
+    <string name="enter_params">Entrez les variables du système d\'équation :</string>
+    <string name="calc">Calc</string>
+
+    <string name="enter_value">Entrez une valeur</string>
+    <string name="name">Nom</string>
+    <string name="define_var">Définir une variable</string>
+    <string name="graph_2">Graphique</string>
+    <string name="enter_limit">Entrer la limite</string>
+    <string name="eval">Évaluer</string>
+    <string name="input_limit">Limite de la fonction en entrée</string>
+    <string name="limit">Trouver la limite</string>
+    <string name="rate_this_app">Noter l\'application</string>
+    <string name="integrate">Intégrer</string>
+    <string name="enter_function">Entrez une fonction</string>
+    <string name="lower_limit">Limite inférieur</string>
+    <string name="upper_limit">Limite supérieur</string>
+
+    <string name="derivative_level">Niveau de dérivation</string>
+    <string name="der_level_desc">Sélectionner le niveau de dérivation ici</string>
+    <string name="input_der_here">Entrez les fonctions à dériver sur cette ligne !</string>
+    <string name="input_equation_here">Entrer l\'équation pour laquelle vous voulez trouver les racines sur cette ligne !</string>
+    <string name="input_expand_here">Entrez l\'expression devant être développée sur cette ligne !</string>
+    <string name="input_graph_here">Cliquez ici pour ajouter de nouvelles fonctions</string>
+    <string name="input_integrate_here">Entrez la fonction à intégrer sur cette ligne !</string>
+    <string name="input_primitive_here">Entrez la fonction à dériver ici !</string>
+    <string name="primitive">Primitive</string>
+    <string name="limit_from_desc">Limite inférieur</string>
+    <string name="push_analyze_button">Appuyez sur ce bouton pour lancer la factorisation de polynômes, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
+    <string name="push_button_primitive">Puis appuyez sur le bouton pour lancer le calcul, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
+    <string name="push_der_button">Appuyez sur ce bouton pour dériver la fonction, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
+    <string name="push_expand_button">Appuyez sur ce bouton pour développer l\'expression, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
+    <string name="push_integrate_button">Appuyez sur ce bouton pour lancer l\'intégration, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
+    <string name="push_simplify_button">Appuyez sur ce bouton pour simplifier l\'expression, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
+    <string name="push_solve_button">Appuyez sur ce bouton pour trouver la racine de l\'équation, le processus de calcul peut prendre du temps lors de la première initialisation de données</string>
+    <string name="input_analyze_here">Entrez le polynôme devant être analyser sur cette ligne !</string>
+    <string name="input_simplify_here">Entrez l\'expression à simplifier sur cette ligne !</string>
+    <string name="limit_to_desc">Limite supérieur</string>
+    <string name="ln_hint">
+        <![CDATA[
+<font color="red">Log(x) est le logarithme naturel</font>
+        ]]></string>
+    <string name="analytics">Analyse</string>
+    <string name="algebra">Algèbre</string>
+    <string name="language">Langue</string>
+    <string name="default_">Système</string>
+    <string name="probability_statistics">Analyse combinatoire</string>
+    <string name="combination">Combinaison</string>
+    <string name="permutation">Permutations</string>
+    <string name="module">Modulo</string>
+    <string name="input_number">Entrez un nombre</string>
+    <string name="enter_number">Entrez un nombre</string>
+    <string name="trace_mode">Mode pas à pas</string>
+    <string name="not_a_number">La donnée entrée n\'est pas un nombre !</string>
+    <string name="gt_zero">Les deux nombres doivent être plus grand que zéro.</string>
+    <string name="number_theory">Théorie des nombres</string>
+    <string name="summary_trace_mode">Comment les ordinateurs résolvent-ils les problèmes de résolution d\'équations</string>
+    <string name="enter_variable">Entrer les variables ici. Les variables doivent-être séparées par un point-virgule.</string>
+    <string name="select_num_var">Sélectionner le nombre de variables</string>
+    <string name="num_of_var">Nombre de variables</string>
+    <string name="enter_coefficient">Entrer les coefficients ici !</string>
+    <string name="select_num_var_des">Le nombre de variables dans le système d\'équation pour trouver les racines.</string>
+    <string name="enter_coeff_desc">
+        Entrez les coefficients de l\'équation. \n
+        Exemple :\n
+            2x + y = 0\n
+            3x - 2y = 1\n
+        Entrez les coefficients:\n
+            [2; 1; 0]\n
+            [3, -2; 1]</string>
+    <string name="enter_var_hint">Entrez les variables du système d\'équation</string>
+    <string name="input_matrix">Matrice en entrée</string>
+    <string name="input_equation_">Équation en entrée</string>
+    <string name="precision_">Précision</string>
+    <string name="calculator">Calculatrice</string>
+    <string name="ui">Interface utilisateur</string>
+    <string name="advance">Avancé</string>
+    <string name="fraction_mode">Mode fractionnaire</string>
+    <string name="fraction_decs">Montrer 1/2 au lieu de 0.5</string>
+    <string name="summary_instant_res">Calculer automatiquement les résultats</string>
+    <string name="instant_res">Résultats instantanés</string>
+    <string name="not_find_root">Impossible de trouver les racines de l\'équation.</string>
+    <string name="no_root">Cette équation n\'a pas de solution.</string>
+    <string name="change_lang_msg">Merci de redémarrer l\'application pour appliquer le langage sélectionné.</string>
+    <string name="latex_engine">Moteur LaTeX</string>
+
+    <string name="tit_trig_expand">Développement</string>
+    <string name="tit_trig_reduce">Réduction</string>
+    <string name="tit_trig_to_exp">Convertion en exponentielle</string>
+    <string name="trigonometry">Trigonométrie</string>
+    <string name="latex_summary">KaTeX est plus rapide que MathJax sur un environnement mobile, mais MathJax possède plus de fonctionnalités, et possède une interface plus belle.</string>
+    <string name="close_drawer">Fermer le tiroir de navigation</string>
+    <string name="catalan_number">Nombres de Catalan</string>
+    <string name="prime">Nombres premiers</string>
+    <string name="fibonacci">Suite de Fibonacci</string>
+    <string name="catalan_desc">Calculer le nième nombre de Catalan</string>
+    <string name="fibo_desc">Calculer le nième nombre de la suite de Fibonacci.</string>
+    <string name="prime_desc">Calculer le nième nombre premier.</string>
+    <string name="notify_update">Notifications de mise à jour</string>
+
+    <string name="unit1">Température</string>
+    <string name="unit2">Masse</string>
+    <string name="unit3">Longeur</string>
+    <string name="unit4">Puissance</string>
+    <string name="unit5">Énergie</string>
+    <string name="unit6">Vitesse</string>
+    <string name="unit7">Aire</string>
+    <string name="unit8">Volume</string>
+    <string name="unit9">Débit binaire</string>
+    <string name="unit10">Temps</string>
+
+    <string name="weightunitkg">Kilogramme (Kg)</string>
+    <string name="weightunitgm">Gramme (g)</string>
+    <string name="weightunitlb">Livre (lb)</string>
+    <string name="weightunitounce">Once (oz)</string>
+    <string name="weightunitmg">Miligramme (mg)</string>
+
+
+    <string name="temperatureunitc">Celsius (ºC)</string>
+    <string name="temperatureunitf">Fahrenheit (ºF)</string>
+    <string name="temperatureunitk">Kelvin (ºK)</string>
+    <string name="temperatureunitn">Newton (ºN)</string>
+
+    <string name="lengthunitnm">nm</string>
+    <string name="lengthunitmicrom">µm</string>
+    <string name="lengthunitpm">pm</string>
+    <string name="lengthunitmm">mm</string>
+    <string name="lengthunitcm">cm</string>
+    <string name="lengthunitdm">dm</string>
+    <string name="lengthunitm">m</string>
+    <string name="lengthunitkm">km</string>
+
+
+    <string name="lengthunitfeet">ft</string>
+    <string name="lengthunitmile">mile</string>
+    <string name="lengthunitinch">pouce</string>
+
+
+    <string name="powerunithorsepower">Cheval-vapeur (HP)</string>
+    <string name="powerunitwatts">Watt (W)</string>
+    <string name="powerunitkilowatts">Kilowatt (KW)</string>
+    <string name="powerunitmegawatt">Megawatt (MW)</string>
+    <string name="powerunitgigawatt">Gigawatt (GW)</string>
+
+
+    <string name="energyunitcalories">Calories (cal)</string>
+    <string name="energyunitkilocalories">Kilo Calories (kcal)</string>
+    <string name="energyunitjoules">Joules (J)</string>
+
+    <string name="velocityunitkmph">Km/h</string>
+    <string name="velocityunitmeterpers">m/s</string>
+    <string name="velocityunitmilesperh">miles/h</string>
+    <string name="velocityunitfeetpers">feet/s</string>
+
+
+    <string name="areaunitsqmm">mm²</string>
+    <string name="areaunitsqm">m²</string>
+    <string name="areaunitsqcm">cm²</string>
+    <string name="areaunitsqkm">km²</string>
+    <string name="areaunitsqmiles">(Miles) mi²</string>
+    <string name="areaunitsqyard">(Yard) yd²</string>
+
+
+    <string name="volumeunitcubicmm">mm³</string>
+    <string name="volumeunitcubiccm">cm³</string>
+    <string name="volumeunitcubicm">m³</string>
+    <string name="volumeunitcubicfeet">ft³</string>
+
+
+    <string name="bitrateunitbytes">Byte (B)/s</string>
+    <string name="bitrateunitkilobytes">KiloByte (KB)/s</string>
+    <string name="bitrateunitmegabytes">MegaByte (MB)/s</string>
+    <string name="bitrateunitgigabytes">GigaByte (GB)/s</string>
+    <string name="bitrateunitterabytes">TeraByte (TB)/s</string>
+    <string name="bitrateunitbits">Бином Ньютона</string>
+    <string name="bitrateunitkilobits">KiloBit (Kb)/s</string>
+    <string name="bitrateunitmegabits">MegaBit (Mb)/s</string>
+    <string name="bitrateunitgigabits">GigaBit (Gb)/s</string>
+    <string name="bitrateunitterabits">TeraBit (Tb)/s</string>
+
+    <string name="timeunitsecond">Secondes (s)</string>
+    <string name="timeunitminutes">Minutes (min)</string>
+    <string name="timeunithours">Heures (h)</string>
+    <string name="timeunitdays">Jours (d)</string>
+    <string name="timeunitweeks">Semaines</string>
+    <string name="timeunitmiliseconds">Millisecondes (ms)</string>
+
+    <string name="hide_status_bar">Masquer la barre d\'état</string>
+    <string name="result">Résultat</string>
+    <string name="see_doc">Voir la documentation</string>
+    <string name="loading">Chargement des données …</string>
+
+    <!--geometric -->
+    <string name="ng_tr_n_t_m_o1_b_n_k_nh_r1">Centre du cercle O1, rayon R1</string>
+    <string name="o1_x1_y1">O1(x1, y1)</string>
+    <string name="ph_ng_tr_nh_ng_tr_n">Équation du cercle</string>
+    <string name="chu_vi">Périmètre</string>
+    <string name="di_n_t_ch">Superficie</string>
+    <string name="ng_tr_n_t_m_o2_b_n_k_nh_r2">Centre du cercle O2, rayon R2</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_tr_n">Position relative entre deux cercles</string>
+    <string name="v_tr_t_ng_i_v_i_ng_th_ng">Position relative à la ligne droite</string>
+    <string name="ph_ng_tr_nh_ti_p_tuy_n_t_i_m">Équation équation en M</string>
+    <string name="v_tr_t_ng_i_v_i_i_m">Position relative au point</string>
+    <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Entrez les coordonnées de la ligne AB, le point de départ est A(xa, ya) et le point d\'arrivé est B(xb, yb).</string>
+    <string name="d_i_o_n_th_ng_ab">Taille de la ligne droite AB</string>
+    <string name="kho_ng_c_ch_t_a_n_b">Distance de A à B</string>
+    <string name="g_c_t_o_v_i_ox">Angle avec Ox en axe</string>
+    <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Angle entre les axes AB et Ox</string>
+    <string name="trung_i_m">Point du milieu</string>
+    <string name="trung_i_m_c_a_o_n_th_ng_ab">Centre du segment AB</string>
+    <string name="vector_ch_ph_ng">Vecteurs</string>
+    <string name="vector_ph_p_tuy_n">Vecteur normal</string>
+    <string name="ph_ng_tr_nh_tham_s">Paramètres de l\'équation</string>
+    <string name="ph_ng_tr_nh_tham_s_c_a_ng_th_ng_ab">Ligne d\'équation équation AB</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t">Équation générale</string>
+    <string name="ph_ng_tr_nh_t_ng_qu_t_c_a_ng_th_ng_ab">Équation générale de la ligne droite AB</string>
+    <string name="ng_th_ng_cd">Ligne CD</string>
+    <string name="nh_p_t_a_2_i_m_thu_c_ng_th_ng_cd">Entrez les deux coordonnées de la ligne droite CD</string>
+    <string name="v_tr_t_ng_i">Position relative</string>
+    <string name="v_tr_t_ng_i_gi_a_2_ng_th_ng_ab_v_cd">Position relative entre les lignes AB and CD</string>
+    <string name="g_c_gi_a_2_ng_th_ng">Angle entre les deux lignes droites</string>
+    <string name="nh_p_t_a_i_m_m">Entrer les coordonnées du point M</string>
+    <string name="kho_ng_c_ch_t_m_n_ng_th_ng_ab">Distance depuis M à la ligne droite AB</string>
+    <string name="kho_ng_c_ch">Distance</string>
+    <string name="nh_p_vector">Entrez les vecteurs</string>
+    <string name="nh_p_2_vector_a_x_a_y_a_b_x_b_y">Entrez 2 vecteur : a (x_a, y_a) et b (x_b, y_b)</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_th_ng_h_ng_hay_kh_ng">Vérifier si les deux vecteurs a et b sont alignés.</string>
+    <string name="vu_ng_g_c">Perpendiculaire</string>
+    <string name="ki_m_tra_xem_2_vector_a_b_c_vu_ng_g_c_v_i_nhau_hay_kh_ng">Vérifier si les deux vecteurs a et b sont perpendiculaires.</string>
+    <string name="g_c_gi_a_hai_vector">Angle entre les deux vecteurs</string>
+    <string name="t_ng_2_vector">Somme des deux vecteurs</string>
+    <string name="hi_u_2_vector">Soustraction des 2 vecteurs</string>
+    <string name="t_ch_vector_v_i_s_k">Le produit des vecteurs avec le nombre k</string>
+    <string name="t_ch_v_h_ng">Scalaire</string>
+    <string name="t_ch_v_h_ng_c_a_2_vector">Le produit scalaire des deux vecteurs</string>
+    <string name="ng_th_ng_ab">Ligne AB</string>
+    <string name="th_ng_h_ng">Colinéaire</string>
+    <string name="syntax_error">Erreur de syntaxe</string>
+    <string name="divisors">Diviseurs</string>
+    <string name="pi_number">Le nombre Pi</string>
+    <string name="install_msg">Voulez-vous installer Natural Keyboard ?</string>
+    <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Projet open source disponible sur Github à l\'adresse https://github.com/tranleduy2000/ncalc</string>
+    <string name="all_functions">Toutes les fonctions</string>
+    <string name="getting_started">Commencer</string>
+    <string name="matrix_a">Matrice A</string>
+    <string name="matrix_b">Matrice B</string>
+
+</resources>
