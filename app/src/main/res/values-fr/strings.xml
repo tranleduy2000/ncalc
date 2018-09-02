@@ -90,7 +90,7 @@
     <string name="not_in_circle">Aucun des cercles</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
         Entrez les équations formant le système d\'équations, puis entrez les variables de ce système d\'équations \n
-        Par exemple, appuyez sur [+] et entrez les équations suivantes : \n
+        Par exemple, appuyez sur [Plus] et entrez les équations suivantes : \n
          x + y + z = 2 \n
          x - y + 2z = 6 \n
          z + y = 2 \n
