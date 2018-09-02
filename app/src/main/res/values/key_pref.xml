@@ -26,19 +26,21 @@
 
     <string-array name="language_entry" translatable="false">
         <item>@string/default_</item>
-        <item>Tiếng Việt</item>
         <item>English</item>
+        <item>Spanish (International)</item>
         <item>Russia</item>
         <item>French</item>
+        <item>Tiếng Việt</item>
         <item>Chinese (Simplified)</item>
     </string-array>
 
     <string-array name="language_code" translatable="false">
         <item>default_lang</item>
-        <item>vi</item>
         <item>en</item>
-        <item>ru</item>
+        <item>es</item>
         <item>fr</item>
+        <item>ru</item>
+        <item>vi</item>
         <item>zh_rCN</item>
     </string-array>
 
