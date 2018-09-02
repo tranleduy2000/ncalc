@@ -27,10 +27,16 @@
         image=""
         lang="Russia"
         link="" />
-        
+
     <user
         name="Scallop Ye"
         image=""
         lang="Chinese (Simplified)"
         link="https://github.com/yescallop" />
+
+    <user
+        name="Diego Sanguinetti"
+        image=""
+        lang="Spanish"
+        link="" />
 </help_translate>
