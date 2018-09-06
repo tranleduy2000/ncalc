@@ -1,6 +1,6 @@
 <resources>
     <string name="all_unit_converter">Convertidor de unidades</string>
-    <string name="factor">Factor</string>
+    <string name="factor">Factorizar</string>
     <string name="binomial_newton">Expansión binomial de Newton</string>
     <string name="circle">Circulo</string>
     <string name="circle_interaction">Secante de dos círculos</string>
@@ -24,7 +24,7 @@
     <string name="graph">Grafico</string>
     <string name="help">Ayuda</string>
     <string name="enter_expression">Ingrese la expresión</string>
-    <string name="input_equation">Ingrese una ecuación:</string>
+    <string name="input_equation">Introduzca la ecuación:</string>
     <string name="inside">Interior</string>
     <string name="interaction">Intersectando</string>
     <string name="l_ch_chu_n">Desviación estándar</string>
@@ -132,8 +132,8 @@
     <string name="input_expand_here">¡Ingresa la expresión para expandir en esta línea!</string>
     <string name="input_graph_here">Ingrese la función a agregar en esa línea</string>
     <string name="input_integrate_here">¡Ingrese la función para integrar en esta línea!</string>
-    <string name="input_primitive_here">¡Ingrese la función a primitivo en esta línea!</string>
-    <string name="primitive">Primitivo</string>
+    <string name="input_primitive_here">¡Ingrese la función para antiderivar en esta línea!</string>
+    <string name="primitive">Antiderivada</string>
     <string name="limit_from_desc">Límite inferior</string>
     <string name="push_analyze_button">Presione este botón para determinar la factorización de los polinomios, el proceso de cálculo puede tomar más tiempo para una primera inicialización de datos</string>
     <string name="push_button_primitive">Luego presione el botón para comenzar el cálculo, el cálculo puede tomar mucho tiempo para una primera inicialización de datos</string>
@@ -179,8 +179,8 @@
         [1; 1; 0]\n
         [3, -2; 1]</string>
     <string name="enter_var_hint">Ingrese las variables del sistema de ecuaciones</string>
-    <string name="input_matrix">Ingrese la matriz</string>
-    <string name="input_equation_">Introduzca la ecucación</string>
+    <string name="input_matrix">Ingresar matriz</string>
+    <string name="input_equation_">Ingresar ecucación</string>
     <string name="precision_">Precisión</string>
     <string name="calculator">Calculadora</string>
     <string name="ui">Interfaz de usuario</string>
