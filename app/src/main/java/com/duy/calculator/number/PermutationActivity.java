@@ -33,11 +33,11 @@ import com.duy.calculator.evaluator.Constants;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
-import com.duy.calculator.model.CombinationItem;
-import com.duy.calculator.model.ExprInput;
-import com.duy.calculator.model.PermutationItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.gx.common.collect.Lists;
+
+import org.matheclipse.core.expression.F;
+import org.matheclipse.core.interfaces.IExpr;
 
 import java.util.ArrayList;
 
@@ -51,29 +51,36 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
     public static final int TYPE_COMBINATION = 1;
     private static final String STARTED = FactorPrimeActivity.class.getName() + "started";
     private boolean isDataNull = true;
-    private int type;
+    private int type = TYPE_PERMUTATION;
     private MathEvaluator evaluator;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+
         Intent intent = this.getIntent();
-        int bundle = intent.getIntExtra(TYPE_NUMBER, -1);
+        int bundle = intent.getIntExtra(PermutationActivity.TYPE_NUMBER, -1);
         if (bundle == -1) {
             Toast.makeText(this, "Bundle nullable", Toast.LENGTH_SHORT).show();
-            Log.e(TAG, "onCreate: bundle nullable, please input type for activity");
+            Log.e(TAG, "onStart: bundle nullable, please input type for activity");
             finish();
             return;
         }
 
         if (bundle == TYPE_PERMUTATION) {
+            type = TYPE_PERMUTATION;
             setTitle(R.string.permutation);
         } else if (bundle == TYPE_COMBINATION) {
+            type = TYPE_COMBINATION;
             setTitle(R.string.combination);
         } else {
             Toast.makeText(this, "Can not init activity", Toast.LENGTH_SHORT).show();
-            Log.e(TAG, "onCreate: bundle nullable, please input type for activity");
+            Log.e(TAG, "onStart: bundle nullable, please input type for activity");
             finish();
             return;
         }
@@ -99,9 +106,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             }
             clickHelp();
         }
-
     }
-
     private void getIntentData() {
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra(BasicCalculatorActivity.DATA);
@@ -146,16 +151,7 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
             mInputDisplay2.setError(getString(R.string.enter_number));
             return null;
         }
-        String numberC = mInputFormula.getCleanText();
-        String numberK = mInputDisplay2.getCleanText();
-        ExprInput item;
-
-        if (type == TYPE_PERMUTATION) {
-            item = new PermutationItem(numberC, numberK);
-        } else {
-            item = new CombinationItem(numberC, numberK);
-        }
-        return item.getInput();
+        return "";
     }
 
     @Override
@@ -163,13 +159,20 @@ public class PermutationActivity extends AbstractEvaluatorActivity {
         return new Command<ArrayList<String>, String>() {
             @Override
             public ArrayList<String> execute(String input) {
-
-                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(input,
-                        EvaluateConfig.loadFromSetting(getApplicationContext())
-                                .setEvalMode(EvaluateConfig.FRACTION));
+                IExpr function = F.Binomial;
+                if (type == TYPE_PERMUTATION) {
+                    // ( Gamma(#+1) / Gamm(#2+1) )&
+                    function = F.Function( //
+                              F.Divide(F.Gamma(F.Plus(F.C1,F.Slot1)),F.Gamma(F.Plus(F.C1,F.Slot2))) //
+                    );
+                }
+                String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(
+                            EvaluateConfig.loadFromSetting(getApplicationContext())
+                                    .setEvalMode(EvaluateConfig.FRACTION), function, mInputFormula.getCleanText(), mInputDisplay2.getCleanText());
 
                 return Lists.newArrayList(fraction);
             }
         };
     }
+
 }
