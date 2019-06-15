@@ -37,7 +37,7 @@ import com.duy.calculator.model.CombinationItem;
 import com.duy.calculator.model.ExprInput;
 import com.duy.calculator.model.PermutationItem;
 import com.duy.calculator.utils.ConfigApp;
-import com.google.common.collect.Lists;
+import com.gx.common.collect.Lists;
 
 import java.util.ArrayList;
 

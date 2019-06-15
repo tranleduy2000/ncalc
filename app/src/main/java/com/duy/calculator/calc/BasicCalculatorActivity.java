@@ -74,7 +74,7 @@ import com.duy.calculator.view.CalculatorEditText;
 import com.duy.calculator.view.RevealView;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
-import com.google.common.collect.Lists;
+import com.gx.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.Locale;
