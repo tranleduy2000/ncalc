@@ -143,7 +143,7 @@ public class UndefineSystemEquationFragment extends AbstractFragment implements 
                 editParams.setText("x, y, z");
                 break;
             default:
-                Toast.makeText(context, "Nhập các ẩn của hệ phương trình", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Enter the system of equations", Toast.LENGTH_SHORT).show();
         }
     }
 
