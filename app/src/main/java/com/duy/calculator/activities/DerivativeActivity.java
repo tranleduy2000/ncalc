@@ -37,7 +37,7 @@ import com.duy.calculator.model.DerivativeItem;
 import com.duy.calculator.utils.ConfigApp;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
-import com.google.common.collect.Lists;
+import com.gx.common.collect.Lists;
 
 import java.util.ArrayList;
 

@@ -31,7 +31,10 @@ import com.duy.calculator.model.StepItem;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.eval.TeXUtilities;
+import org.matheclipse.core.expression.F;
 import org.matheclipse.core.interfaces.AbstractEvalStepListener;
+import org.matheclipse.core.interfaces.IAST;
+import org.matheclipse.core.interfaces.IBuiltInSymbol;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -108,12 +111,26 @@ public class MathEvaluator extends LogicEvaluator {
         return result;
     }
 
+    public IExpr evaluateSimple(IAST function, EvaluateConfig config) {
+        IExpr result;
+        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+            result = evaluate(F.N(function));
+        } else {
+            result = evaluate(function);
+        }
+        return result;
+    }
+
     public TeXUtilities getTexEngine() {
         return mTexEngine;
     }
 
     public IExpr evaluate(String exprInput) {
-        return mExprEvaluator.evaluate(exprInput);
+        return mExprEvaluator.eval(exprInput);
+    }
+
+    public IExpr evaluate(IExpr expr) {
+        return mExprEvaluator.eval(expr);
     }
 
     @Override
@@ -214,6 +231,26 @@ public class MathEvaluator extends LogicEvaluator {
 
         IExpr result = evaluateSimple(exprStr, config);
         return LaTexFactory.toLaTeX(result);
+    }
+
+    public String evaluateWithResultAsTex(EvaluateConfig config, IExpr head, String... args) {
+        //if input is empty, do not working
+        if (args==null || args.length==0 || args[0].isEmpty()) {
+            return "";
+        }
+        try {
+            IExpr[] exprArgs = new IExpr[args.length];
+
+            for (int i = 0; i < args.length; i++) {
+                exprArgs[i] = evaluate(args[i]);
+            }
+            IAST function = F.ast(exprArgs, head);
+
+            IExpr result = evaluateSimple(function, config);
+            return LaTexFactory.toLaTeX(result);
+        } catch (RuntimeException rex){
+            return "";
+        }
     }
 
     /**

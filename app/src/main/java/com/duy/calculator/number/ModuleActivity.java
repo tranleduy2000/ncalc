@@ -32,7 +32,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.model.ModuleItem;
 import com.duy.calculator.utils.ConfigApp;
-import com.google.common.collect.Lists;
+import com.gx.common.collect.Lists;
 
 import java.util.ArrayList;
 

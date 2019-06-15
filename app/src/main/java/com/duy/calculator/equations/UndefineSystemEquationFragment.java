@@ -46,7 +46,7 @@ import com.duy.calculator.utils.ConfigApp;
 import com.duy.calculator.view.ResizingEditText;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
-import com.google.common.collect.Lists;
+import com.gx.common.collect.Lists;
 
 import java.util.ArrayList;
 
@@ -143,7 +143,7 @@ public class UndefineSystemEquationFragment extends AbstractFragment implements 
                 editParams.setText("x, y, z");
                 break;
             default:
-                Toast.makeText(context, "Nhập các ẩn của hệ phương trình", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Enter the system of equations", Toast.LENGTH_SHORT).show();
         }
     }
 

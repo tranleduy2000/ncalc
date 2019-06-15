@@ -24,7 +24,7 @@ import android.support.annotation.Nullable;
 import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
-import com.google.common.collect.Lists;
+import com.gx.common.collect.Lists;
 
 import java.util.ArrayList;
 

@@ -53,7 +53,6 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
-import org.hipparchus.stat.descriptive.DescriptiveStatistics;
 
 import java.util.ArrayList;
 
@@ -119,27 +118,27 @@ public class StatisticFragment extends AbstractFragment {
     private void doSubmit() {
         Log.d(TAG, "doSubmit: ");
         try {
-            DescriptiveStatistics mStatistics = new DescriptiveStatistics();
-            final String[] input = mInput.getText().toString().split(",");
-            for (int i = 0; i < input.length; i++) {
-                mStatistics.addValue(Double.parseDouble(input[i]));
-            }
-
-            ((TextView) findViewById(R.id.txt_geo_mean)).setText(String.valueOf(mStatistics.getGeometricMean()));
-            ((TextView) findViewById(R.id.txtKurtosis)).setText(String.valueOf(mStatistics.getKurtosis()));
-            ((TextView) findViewById(R.id.txt_maximum)).setText(String.valueOf(mStatistics.getMax()));
-            ((TextView) findViewById(R.id.txt_minimum)).setText(String.valueOf(mStatistics.getMin()));
-            ((TextView) findViewById(R.id.txt_arithmetic_mean)).setText(String.valueOf(mStatistics.getMean()));
-//            ((TextView) findViewById(R.id.txt_n)).setText(String.valueOf(mStatistics.getN()));
-            ((TextView) findViewById(R.id.txt_population_variance)).setText(String.valueOf(mStatistics.getPopulationVariance()));
-            ((TextView) findViewById(R.id.txt_quadratic_mean)).setText(String.valueOf(mStatistics.getQuadraticMean()));
-            ((TextView) findViewById(R.id.txt_skewness)).setText(String.valueOf(mStatistics.getSkewness()));
-            ((TextView) findViewById(R.id.txt_sum)).setText(String.valueOf(mStatistics.getSum()));
-            ((TextView) findViewById(R.id.txt_variance)).setText(String.valueOf(mStatistics.getVariance()));
-
-            drawLineChart(input);
-            drawBarChart(input);
-            drawPieChart(input);
+//            DescriptiveStatistics mStatistics = new DescriptiveStatistics();
+//            final String[] input = mInput.getText().toString().split(",");
+//            for (int i = 0; i < input.length; i++) {
+//                mStatistics.addValue(Double.parseDouble(input[i]));
+//            }
+//
+//            ((TextView) findViewById(R.id.txt_geo_mean)).setText(String.valueOf(mStatistics.getGeometricMean()));
+//            ((TextView) findViewById(R.id.txtKurtosis)).setText(String.valueOf(mStatistics.getKurtosis()));
+//            ((TextView) findViewById(R.id.txt_maximum)).setText(String.valueOf(mStatistics.getMax()));
+//            ((TextView) findViewById(R.id.txt_minimum)).setText(String.valueOf(mStatistics.getMin()));
+//            ((TextView) findViewById(R.id.txt_arithmetic_mean)).setText(String.valueOf(mStatistics.getMean()));
+////            ((TextView) findViewById(R.id.txt_n)).setText(String.valueOf(mStatistics.getN()));
+//            ((TextView) findViewById(R.id.txt_population_variance)).setText(String.valueOf(mStatistics.getPopulationVariance()));
+//            ((TextView) findViewById(R.id.txt_quadratic_mean)).setText(String.valueOf(mStatistics.getQuadraticMean()));
+//            ((TextView) findViewById(R.id.txt_skewness)).setText(String.valueOf(mStatistics.getSkewness()));
+//            ((TextView) findViewById(R.id.txt_sum)).setText(String.valueOf(mStatistics.getSum()));
+//            ((TextView) findViewById(R.id.txt_variance)).setText(String.valueOf(mStatistics.getVariance()));
+//
+//            drawLineChart(input);
+//            drawBarChart(input);
+//            drawPieChart(input);
         } catch (Exception e) {
             e.printStackTrace();
         }
