@@ -32,6 +32,7 @@ import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.eval.TeXUtilities;
 import org.matheclipse.core.expression.F;
+import org.matheclipse.core.form.output.OutputFormFactory;
 import org.matheclipse.core.interfaces.AbstractEvalStepListener;
 import org.matheclipse.core.interfaces.IAST;
 import org.matheclipse.core.interfaces.IBuiltInSymbol;
@@ -39,9 +40,13 @@ import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
 
+import java.io.IOException;
 import java.io.StringWriter;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 
 /**
@@ -68,17 +73,18 @@ public class MathEvaluator extends LogicEvaluator {
      * evaluate engine
      */
     private final ExprEvaluator mExprEvaluator;
-    /**
-     * convert expr to latex
-     */
-    private final TeXUtilities mTexEngine;
+
+    private final OutputFormFactory mOutputFactory;
 
     private MathEvaluator() {
         mExprEvaluator = new ExprEvaluator();
-        mTexEngine = new TeXUtilities(mExprEvaluator.getEvalEngine(), true);
+        //mTexEngine = new TeXUtilities(mExprEvaluator.getEvalEngine(), true);
         for (String function : CustomFunctions.getAllCustomFunctions()) {
             mExprEvaluator.eval(function);
         }
+        DecimalFormatSymbols usSymbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat decimalFormat = new DecimalFormat("0.0####", usSymbols);
+        mOutputFactory = OutputFormFactory.get(true, false, decimalFormat);
     }
 
     @NonNull
@@ -121,10 +127,6 @@ public class MathEvaluator extends LogicEvaluator {
         return result;
     }
 
-    public TeXUtilities getTexEngine() {
-        return mTexEngine;
-    }
-
     public IExpr evaluate(String exprInput) {
         return mExprEvaluator.eval(exprInput);
     }
@@ -160,10 +162,17 @@ public class MathEvaluator extends LogicEvaluator {
 
         try {
             IExpr iExpr = evaluateSimple(expression, config);
-            callback.onEvaluated(expression, iExpr.toString(), RESULT_OK);
+            callback.onEvaluated(expression, toFormattedString(iExpr), RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
         }
+    }
+
+    private String toFormattedString(IExpr expr) throws IOException {
+        StringBuilder strBuffer = new StringBuilder();
+        mOutputFactory.reset();
+        mOutputFactory.convert(strBuffer, expr);
+        return strBuffer.toString();
     }
 
     private String addUserDefinedVariable(String expression) {
@@ -193,6 +202,10 @@ public class MathEvaluator extends LogicEvaluator {
     public String evaluateWithResultNormal(String expression) {
         IExpr iExpr = evaluateSimple(expression,
                 EvaluateConfig.newInstance().setEvalMode(EvaluateConfig.FRACTION));
+        try {
+            return toFormattedString(iExpr);
+        } catch (IOException ioe) {
+        }
         return iExpr.toString();
     }
 
@@ -235,7 +248,7 @@ public class MathEvaluator extends LogicEvaluator {
 
     public String evaluateWithResultAsTex(EvaluateConfig config, IExpr head, String... args) {
         //if input is empty, do not working
-        if (args==null || args.length==0 || args[0].isEmpty()) {
+        if (args == null || args.length == 0 || args[0].isEmpty()) {
             return "";
         }
         try {
@@ -248,7 +261,7 @@ public class MathEvaluator extends LogicEvaluator {
 
             IExpr result = evaluateSimple(function, config);
             return LaTexFactory.toLaTeX(result);
-        } catch (RuntimeException rex){
+        } catch (RuntimeException rex) {
             return "";
         }
     }
@@ -470,9 +483,13 @@ public class MathEvaluator extends LogicEvaluator {
             @Override
             public void add(IExpr input, IExpr result, int depth, long l, String s) {
                 StringWriter stringWriterInput = new StringWriter();
-                mTexEngine.toTeX(input, stringWriterInput);
+                LaTexFactory latex = new LaTexFactory(EvalEngine.get(), true);
+                latex.toTeX(input, stringWriterInput);
+                //mTexEngine.toTeX(input, stringWriterInput);
                 StringWriter stringWriterOutput = new StringWriter();
-                mTexEngine.toTeX(result, stringWriterOutput);
+
+                latex.toTeX(result, stringWriterOutput);
+                //mTexEngine.toTeX(result, stringWriterOutput);
                 listStep.add(new StepItem(stringWriterInput.toString(),
                         stringWriterOutput.toString(), depth));
 
