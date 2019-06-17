@@ -38,6 +38,7 @@ import java.util.ArrayList;
 public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownListDocumentAdapter.ViewHolder> {
     private static final String TAG = "FunctionsDocumentAdapter";
     private static final String DOT_MD = ".md";
+
     private Context context;
     private ArrayList<String> fileNames = new ArrayList<>();
     private ArrayList<String> originalData = new ArrayList<>();
@@ -104,7 +105,7 @@ public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownLi
         fileNames.clear();
         notifyDataSetChanged();
         for (String s : originalData) {
-            if (s.toLowerCase().contains(query.toLowerCase())) {
+            if (s.toLowerCase().replace(" ", "").contains(query.toLowerCase())) {
                 fileNames.add(s);
             }
         }
