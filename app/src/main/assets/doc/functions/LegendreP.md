@@ -5,6 +5,9 @@ LegendreP(n, x)
 ```
 
 > returns the Legendre polynomial `P_n(x)`.
+
+See:  
+* [Wikipedia - Legendre polynomials](https://en.wikipedia.org/wiki/Legendre_polynomials)
  
 ### Examples
 ```   

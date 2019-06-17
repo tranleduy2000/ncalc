@@ -2,11 +2,12 @@
 
 ```
 Gamma(z) 
-``` 
+```
 
 > is the gamma function on the complex number `z`.
 
 ### Examples
+
 ```  
 >> Gamma(8)
 5040

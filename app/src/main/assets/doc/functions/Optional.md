@@ -5,6 +5,7 @@ Optional(patt, default)
 ```
 
 or
+
 ```
 patt : default
 ```
@@ -15,6 +16,7 @@ patt : default
 
 ```
 >> f(x_, y_:1) := {x, y}
+
 >> f(1, 2)
 {1,2}
 

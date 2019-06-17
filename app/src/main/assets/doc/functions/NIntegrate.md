@@ -4,6 +4,10 @@ NIntegrate(f, {x,a,b})
 ```
 > computes the numerical univariate real integral of `f` with respect to `x` from `a` to `b`.
 
+
+See: 
+* [Wikipedia - Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
+
 ### Examples
 ```   
 >> NIntegrate((x-1)*(x-0.5)*x*(x+0.5)*(x+1), {x,0,1})

@@ -5,19 +5,19 @@ unless it is an atom, i.e. it can not be subdivided any further.
 To put it another way: everything is a function call. This can be best seen when displaying expressions in their “full form”:
 ```
 >> FullForm(a + b + c)
-"Plus(a, b, c)"
+Plus(a, b, c)
 ```
 
 Nested calculations are nested function calls:
 ```
 >> FullForm(a + b * (c + d))
-"Plus(a, Times(b, Plus(c, d)))"
+Plus(a, Times(b, Plus(c, d)))
 ```
 
 Even lists are function calls of the function `List`:
 ```
 >> FullForm({1, 2, 3})
-"List(1, 2, 3)"
+List(1, 2, 3)
 ```
 
 The head of an expression can be determined with `Head`:
@@ -88,10 +88,10 @@ False
 The full form of rational and complex numbers looks like they were compound expressions:
 ```
 >> FullForm(3 / 5)
-"Rational(3,5)"
+Rational(3,5)
 
 >> FullForm(3 + 4 * I)
-"Complex(3,4)"
+Complex(3,4)
 ```
 
 However, they are still atoms, thus unaffected by applying functions, for instance:

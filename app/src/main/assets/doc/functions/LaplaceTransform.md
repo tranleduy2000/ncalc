@@ -1,7 +1,7 @@
 ## LaplaceTransform
 
 ```
-LaplaceTransform(f,s,t)
+LaplaceTransform(f,t,s)
 ```
 
 > returns the laplace transform.

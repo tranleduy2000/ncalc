@@ -6,14 +6,14 @@ NumberQ(expr)
 
 ### Examples
 ```
->> NumberQ[3+I]
- = True
+>> NumberQ(3+I)
+True
  
->> NumberQ[5!]
- = True
+>> NumberQ(5!)
+True
  
->> NumberQ[Pi]
- = False
+>> NumberQ(Pi)
+False
 ```
  
 

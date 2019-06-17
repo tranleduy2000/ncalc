@@ -1,4 +1,5 @@
 ## PrimePi
+
 ```
 PrimePi(x)
 ```
@@ -6,6 +7,7 @@ PrimePi(x)
 > gives the number of primes less than or equal to `x`.
  
 ### Examples
+
 ```
 >> PrimePi(100)
 25

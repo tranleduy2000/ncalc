@@ -1,11 +1,13 @@
 ## Denominator
-``` 
+
+```
 Denominator(expr)
-``` 
+```
 
 > gives the denominator in `expr`.
 
 ### Examples
+
 ```
 >> Denominator(a / b)
 b

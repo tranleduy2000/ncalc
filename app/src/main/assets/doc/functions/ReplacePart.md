@@ -51,3 +51,7 @@ Negative part numbers count from the end:
 >> ReplacePart({a, b, c}, -1 -> t)
 {a,b,t}
 ```
+
+
+### Related terms 
+[Replace](Replace.md), [ReplaceAll](ReplaceAll.md), [ReplaceList](ReplaceList.md), [ReplaceRepeated](ReplaceRepeated.md)

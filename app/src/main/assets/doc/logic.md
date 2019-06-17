@@ -5,6 +5,7 @@
 * [And](functions/And.md)
 * [Boole](functions/Boole.md)
 * [BooleanConvert](functions/BooleanConvert.md)
+* [BooleanMinimize](functions/BooleanMinimize.md)
 * [BooleanQ](functions/BooleanQ.md)
 * [Booleans](functions/Booleans.md)
 * [Equivalent](functions/Equivalent.md)

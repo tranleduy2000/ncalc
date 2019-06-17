@@ -1,4 +1,5 @@
 ## NextPrime
+
 ```
 NextPrime(n)
 ```
@@ -12,6 +13,7 @@ NextPrime(n, k)
 > gives the `k`th  prime after `n`.
 
 ### Examples
+
 ```
 >> NextPrime(10000)
 10007

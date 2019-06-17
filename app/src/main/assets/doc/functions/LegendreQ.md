@@ -4,8 +4,11 @@
 LegendreQ(n, x)
 ```
 
-> returns the Legendre polynomial `Q_n(x)`.
+> returns the Legendre functions of the second kind `Q_n(x)`.
  
+See:  
+* [Wikipedia - Legendre polynomials](https://en.wikipedia.org/wiki/Legendre_polynomials)
+
 ### Examples
 ```   
 >> Expand(LegendreQ(4,z))   

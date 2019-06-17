@@ -12,7 +12,7 @@ NormalDistribution()
 
 > returns the standard normal distribution for `m = 0` and `s = 1`.
 
-See:
+See:  
 * [Wikipedia - Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution)
 
 ### Examples
@@ -60,3 +60,6 @@ The [random variates](https://en.wikipedia.org/wiki/Normal_distribution#Generati
 >> RandomVariate(NormalDistribution(2,3), 10^1)
 {1.14364,6.09674,5.16495,2.39937,-0.52143,-1.46678,3.60142,-0.85405,2.06373,-0.29795}
 ```
+
+### Related terms 
+[CDF](CDF.md), [Mean](Mean.md), [Median](Mean.md), [PDF](PDF.md), [Quantile](Quantile.md), [StandardDeviation](StandardDeviation.md), [Variance](Variance.md) 

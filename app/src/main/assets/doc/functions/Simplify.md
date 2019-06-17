@@ -58,3 +58,6 @@ With this "complexity function" the `Abs` expression gets a "heavier weight".
 >> Simplify(Abs(x), x<0, ComplexityFunction->complexity)
 -x
 ```
+
+### Related terms 
+[FullSimplify](FullSimplify.md) 

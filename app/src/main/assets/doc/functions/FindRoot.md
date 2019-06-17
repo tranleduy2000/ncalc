@@ -18,24 +18,23 @@ FindRoot(f, {x, xmin, xmax}, Method->method_name)
 
 > searches for a numerical root of `f` for the variable `x`, with one of the following method names:
 
+#### Brent
+
+Implements the Brent algorithm for finding zeros of real univariate functions (`BracketingNthOrderBrentSolver`). 
+The function should be continuous but not necessarily smooth. 
+The solve method returns a zero `x` of the function `f` in the given interval `[xmin, xmax]`.
+
+This is the default method, if no `method_name` is given.
 
 #### Newton
 
 Implements Newton's method for finding zeros of real univariate functions.
-The function should be continuous but not necessarily smooth. This is the default method, if no method name is given
+The function should be continuous but not necessarily smooth. 
 
 #### Bisection
 
 Implements the bisection algorithm for finding zeros of univariate real functions.
 The function should be continuous but not necessarily smooth.
-
-#### Brent
-
-Implements the Brent algorithm for finding zeros of real univariate functions. 
-The function should be continuous but not necessarily smooth. 
-The solve method returns a zero `x` of the function `f` in the given interval `[xmin, xmax]` to within a 
-tolerance `6*eps*abs(x)+t` where `eps` is the relative accuracy and `t` is the absolute accuracy. 
-The given interval must bracket the root.
 
 #### Muller
 

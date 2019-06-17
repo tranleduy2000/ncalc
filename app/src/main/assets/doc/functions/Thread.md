@@ -12,6 +12,7 @@ Thread(f(args), h)
 > threads over any parts with head `h`. 
 
 ### Examples
+
 ```
 >> Thread(f({a, b, c}))
 {f(a),f(b),f(c)}
@@ -24,6 +25,7 @@ f(a)+f(b)+f(c)
 ```
 
 Functions with attribute `Listable` are automatically threaded over lists:
+
 ```
 >> {a, b, c} + {d, e, f} + g
 {a+d+g,b+e+g,c+f+g} 

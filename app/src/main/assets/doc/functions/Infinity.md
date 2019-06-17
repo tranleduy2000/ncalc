@@ -3,9 +3,11 @@
 ``` 
 Infinity
 ``` 
+
 > represents an infinite real quantity.
 
 ### Examples
+
 ```
 >> 1 / Infinity
 0
@@ -15,6 +17,7 @@ Infinity
 ```
 
 Use `Infinity` in sum and limit calculations:
+
 ```
 >> Sum(1/x^2, {x, 1, Infinity})
 Pi ^ 2 / 6
@@ -30,6 +33,7 @@ Infinity
 ```
 
 Indeterminate expression `0` Infinity encountered.
+
 ```
 >> Infinity / Infinity
 Indeterminate

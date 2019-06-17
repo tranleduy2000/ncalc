@@ -1,4 +1,5 @@
 ## IntegerExponent
+
 ```
 IntegerExponent(n, b)
 ```
@@ -6,6 +7,7 @@ IntegerExponent(n, b)
 > gives the highest exponent of `b` that divides `n`.
 
 ### Examples
+
 ```
 >> IntegerExponent(16, 2)
 4

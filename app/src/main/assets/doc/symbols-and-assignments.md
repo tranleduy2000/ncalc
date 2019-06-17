@@ -26,7 +26,7 @@ You can assign values to symbols:
 2
 
 >> a ^ 3
-6
+8
 
 >> a = 4
 4

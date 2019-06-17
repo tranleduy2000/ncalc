@@ -3,6 +3,7 @@
 ``` 
 BitLengthi(x)
 ``` 
+
 > gives the number of bits needed to represent the integer `x`. The sign of `x` is ignored. 
  
 ### Examples

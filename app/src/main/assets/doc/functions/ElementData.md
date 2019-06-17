@@ -1,7 +1,7 @@
 ## ElementData
 
 ```
-ElementData("name“, ”property")
+ElementData("name", "property")
 ```
 > gives the value of the property for the chemical specified by name.
 

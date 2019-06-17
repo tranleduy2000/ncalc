@@ -23,3 +23,8 @@ expr /. {i1 -> new1, i2 -> new2, ... }
 >> f(a) + f(b) /. f(x_) -> x^2
 a^2+b^2
 ```
+
+
+### Related terms 
+[Replace](Replace.md),  [ReplaceList](ReplaceList.md), [ReplacePart](ReplacePart.md), [ReplaceRepeated](ReplaceRepeated.md)
+

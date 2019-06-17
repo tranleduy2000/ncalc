@@ -5,7 +5,11 @@ HermiteH(n, x)
 ```
 
 > returns the Hermite polynomial `H_n(x)`.
- 
+
+
+See:  
+* [Wikipedia - Hermite polynomials](https://en.wikipedia.org/wiki/Hermite_polynomials)
+
 ### Examples
 ```   
 >> HermiteH(8, x)    

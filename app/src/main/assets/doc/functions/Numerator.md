@@ -1,10 +1,13 @@
 ## Numerator
+
 ```
 Numerator(expr)
 ```
+
 > gives the numerator in `expr`. 
 
 ### Examples
+
 ```
 >> Numerator(a / b)
 a

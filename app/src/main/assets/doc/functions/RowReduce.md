@@ -10,6 +10,7 @@ See:
 * [Wikipedia - Row echelon form](http://en.wikipedia.org/wiki/Row_echelon_form)
 
 ### Examples
+
 ```
 >> RowReduce({{1,1,0,1,5},{1,0,0,2,2},{0,0,1,4,-1},{0,0,0,0,0}})
 {{1,0,0,2,2},  
@@ -25,10 +26,11 @@ See:
 {{1,0,-1},
  {0,1,2},
  {0,0,0}}
-```  
+```
 
-Argument {{1, 0}, {0}} at position 1 is not a non-empty rectangular matrix.  
-```  
+Argument {{1, 0}, {0}} at position 1 is not a non-empty rectangular matrix.
+
+```
 >> RowReduce({{1, 0}, {0}})   
 RowReduce({{1, 0}, {0}})  
-```   
+```
