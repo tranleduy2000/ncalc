@@ -36,19 +36,19 @@ import java.io.InputStream;
 /**
  * Created by Duy on 23-May-17.
  */
-public class MarkdownDocumentFragment extends Fragment {
+public class DocumentFragment extends Fragment {
 
-    public static final String TAG = MarkdownDocumentFragment.class.getSimpleName();
+    public static final String TAG = DocumentFragment.class.getSimpleName();
     public static final String EXTRA_PATH = "MarkdownFragment.EXTRA_PATH";
     private DocumentView markdownView;
 
     /**
      * @param relativePath relative path of doc/functions
      */
-    public static MarkdownDocumentFragment newInstance(String relativePath) {
+    public static DocumentFragment newInstance(String relativePath) {
         Bundle args = new Bundle();
         args.putString(EXTRA_PATH, relativePath);
-        MarkdownDocumentFragment fragment = new MarkdownDocumentFragment();
+        DocumentFragment fragment = new DocumentFragment();
         fragment.setArguments(args);
         return fragment;
     }

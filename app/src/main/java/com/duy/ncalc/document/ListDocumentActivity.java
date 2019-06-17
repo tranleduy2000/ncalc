@@ -30,9 +30,9 @@ import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseActivity;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-import static com.duy.ncalc.document.MarkdownListDocumentFragment.KEY_ASSET_PATH;
+import static com.duy.ncalc.document.ListDocumentFragment.KEY_ASSET_PATH;
 
-public class MarkdownListDocumentActivity extends BaseActivity
+public class ListDocumentActivity extends BaseActivity
         implements MaterialSearchView.OnQueryTextListener {
     private MaterialSearchView mSearchView;
 
@@ -54,9 +54,9 @@ public class MarkdownListDocumentActivity extends BaseActivity
         setTitle(R.string.document);
 
         final String assetPath = intent.getStringExtra(KEY_ASSET_PATH);
-        final String tag = MarkdownListDocumentFragment.class.getName();
+        final String tag = ListDocumentFragment.class.getName();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content, MarkdownListDocumentFragment.newInstance(assetPath), tag)
+                .replace(R.id.content, ListDocumentFragment.newInstance(assetPath), tag)
                 .commit();
 
         mSearchView = findViewById(R.id.search_view);
@@ -85,14 +85,14 @@ public class MarkdownListDocumentActivity extends BaseActivity
     @Override
     public boolean onQueryTextSubmit(String query) {
         FragmentManager fm = getSupportFragmentManager();
-        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getName());
+        ListDocumentFragment fragment = (ListDocumentFragment) fm.findFragmentByTag(ListDocumentFragment.class.getName());
         return fragment != null && fragment.onQueryTextSubmit(query);
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
         FragmentManager fm = getSupportFragmentManager();
-        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getName());
+        ListDocumentFragment fragment = (ListDocumentFragment) fm.findFragmentByTag(ListDocumentFragment.class.getName());
         return fragment != null && fragment.onQueryTextChange(newText);
     }
 }

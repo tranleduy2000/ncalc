@@ -137,55 +137,6 @@ public class InfoActivity extends AppCompatActivity {
 
     }
 
-    public static class LicenseAdapter extends RecyclerView.Adapter<LicenseAdapter.ViewHolder> {
-        private static final String TAG = LicenseAdapter.class.getSimpleName();
-        private LayoutInflater inflater;
-        private ArrayList<ItemInfo> listData = new ArrayList<>();
-        private Context mContext;
-
-        public LicenseAdapter(Context context, ArrayList<ItemInfo> listData) {
-            this.inflater = LayoutInflater.from(context);
-            this.listData = listData;
-            this.mContext = context;
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = inflater.inflate(R.layout.list_item_info, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-            holder.bindContent(listData.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return listData.size();
-        }
-
-        class ViewHolder extends RecyclerView.ViewHolder {
-            TextView txtTitle;
-            TextView txtDesc;
-            View root;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                txtTitle = itemView.findViewById(R.id.txt_title);
-                txtDesc = itemView.findViewById(R.id.txt_desc);
-                root = itemView.findViewById(R.id.container);
-            }
-
-            void bindContent(ItemInfo itemInfo) {
-                txtTitle.setText(itemInfo.getTitle());
-                txtDesc.setText(itemInfo.getLink());
-            }
-        }
-
-    }
-
     public static class ItemInfo {
         private String title;
         private String link;

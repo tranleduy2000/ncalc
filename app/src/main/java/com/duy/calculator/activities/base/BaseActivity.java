@@ -42,6 +42,7 @@ import com.duy.calculator.history.DatabaseHelper;
 import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.ncalc.userinterface.FontManager;
 import com.duy.ncalc.userinterface.ThemeEngine;
+import com.duy.ncalc.utils.DLog;
 import com.kobakei.ratethisapp.RateThisApp;
 
 
@@ -119,16 +120,12 @@ public abstract class BaseActivity extends AppCompatActivity
         if (mCalculatorSetting != null) {
             mCalculatorSetting.registerOnSharedPreferenceChangeListener(this);
         }
-        // Monitor launch times and interval from installation
-        RateThisApp.onStart(this);
-        // If the criteria is satisfied, "Rate this app" dialog will be shown
-        RateThisApp.showRateDialogIfNeeded(this);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
+        if (!DLog.UI_TESTING_MODE) {
+            // Monitor launch times and interval from installation
+            RateThisApp.onStart(this);
+            // If the criteria is satisfied, "Rate this app" dialog will be shown
+            RateThisApp.showRateDialogIfNeeded(this);
+        }
     }
 
     /**
@@ -176,18 +173,6 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     /**
-     * show dialog choose email client
-     * send mail
-     */
-    protected void sendMail() {
-        Intent email = new Intent(Intent.ACTION_SEND);
-        email.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.dev_mail)});
-        email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback));
-        email.setType("message/rfc822");
-        startActivity(Intent.createChooser(email, "Choose an Email client :"));
-    }
-
-    /**
      * share app
      */
     protected void shareApp() {
@@ -217,16 +202,21 @@ public abstract class BaseActivity extends AppCompatActivity
         }
     }
 
+    @SuppressWarnings("unused")
     protected void hideKeyboard(EditText editText) {
         if (editText != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+            }
         } else {
             // Check if no view has focus:
             View view = this.getCurrentFocus();
             if (view != null) {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
             }
         }
     }
@@ -237,7 +227,9 @@ public abstract class BaseActivity extends AppCompatActivity
         View view = this.getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
         }
     }
 

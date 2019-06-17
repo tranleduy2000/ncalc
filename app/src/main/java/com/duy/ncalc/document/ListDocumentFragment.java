@@ -14,15 +14,15 @@ import android.view.ViewGroup;
 import com.duy.calculator.R;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-public class MarkdownListDocumentFragment extends Fragment implements MarkdownListDocumentAdapter.OnDocumentClickListener, MaterialSearchView.OnQueryTextListener {
+public class ListDocumentFragment extends Fragment implements ListDocumentAdapter.OnDocumentClickListener, MaterialSearchView.OnQueryTextListener {
     public static final String KEY_ASSET_PATH = "KEY_ASSET_PATH";
-    private MarkdownListDocumentAdapter mAdapter;
+    private ListDocumentAdapter mAdapter;
 
-    public static MarkdownListDocumentFragment newInstance(String assetPath) {
+    public static ListDocumentFragment newInstance(String assetPath) {
 
         Bundle args = new Bundle();
         args.putString(KEY_ASSET_PATH, assetPath);
-        MarkdownListDocumentFragment fragment = new MarkdownListDocumentFragment();
+        ListDocumentFragment fragment = new ListDocumentFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -40,7 +40,7 @@ public class MarkdownListDocumentFragment extends Fragment implements MarkdownLi
 
         String assetPath = getArguments().getString(KEY_ASSET_PATH);
 
-        mAdapter = new MarkdownListDocumentAdapter(getContext(), assetPath);
+        mAdapter = new ListDocumentAdapter(getContext(), assetPath);
         mAdapter.setOnDocumentClickListener(this);
         RecyclerView recyclerView = view.findViewById(R.id.recycle_view);
         recyclerView.setHasFixedSize(false);
