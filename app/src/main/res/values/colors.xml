@@ -20,17 +20,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <!-- Text color for the formula in the  calculator display. -->
-
-    <!-- Text color for the res in the  calculator display. -->
-
-    <!-- card colors -->
-
-    <!--OCR color-->
-
     <color name="transparent">#00000000</color>
 
-    <!--Graph-->
     <color name="black">#000000</color>
     <color name="color_grey_700">#616161</color>
 </resources>
