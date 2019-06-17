@@ -110,7 +110,7 @@ public class SolveEquationActivity extends BaseEvaluatorActivity
                 clickEvaluate();
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     /**

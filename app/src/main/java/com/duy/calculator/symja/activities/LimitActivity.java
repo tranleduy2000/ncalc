@@ -142,7 +142,7 @@ public class LimitActivity extends BaseEvaluatorActivity {
                 clickEvaluate();
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     @Override

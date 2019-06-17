@@ -41,8 +41,8 @@ import java.util.ArrayList;
 /**
  * Created by Duy on 19/7/2016
  */
-public class SimplifyEquationActivity extends BaseEvaluatorActivity {
-    private static final String STARTED = SimplifyEquationActivity.class.getName() + "started";
+public class SimplifyExpressionActivity extends BaseEvaluatorActivity {
+    private static final String STARTED = SimplifyExpressionActivity.class.getName() + "started";
     SharedPreferences preferences;
     private boolean isDataNull = true;
 
@@ -57,7 +57,9 @@ public class SimplifyEquationActivity extends BaseEvaluatorActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = preferences.getBoolean(STARTED, false);
         if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) mInputFormula.setText("a - b + 2a - b");
+            if (isDataNull) {
+                mInputFormula.setText("a - b + 2a - b");
+            }
             clickHelp();
         }
     }
@@ -87,7 +89,7 @@ public class SimplifyEquationActivity extends BaseEvaluatorActivity {
                 .transparentTarget(true)
                 .outerCircleColor(R.color.colorPrimary)
                 .dimColor(R.color.colorPrimaryDark).targetRadius(70);
-        TapTargetSequence sequence = new TapTargetSequence(SimplifyEquationActivity.this);
+        TapTargetSequence sequence = new TapTargetSequence(SimplifyExpressionActivity.this);
         sequence.targets(target0, target);
         sequence.listener(new TapTargetSequence.Listener() {
             @Override
@@ -102,7 +104,7 @@ public class SimplifyEquationActivity extends BaseEvaluatorActivity {
                 clickEvaluate();
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     @Override

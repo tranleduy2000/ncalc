@@ -129,7 +129,7 @@ public class PrimitiveActivity extends BaseEvaluatorActivity {
 
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     @Override

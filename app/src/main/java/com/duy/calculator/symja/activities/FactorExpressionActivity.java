@@ -106,7 +106,7 @@ public class FactorExpressionActivity extends BaseEvaluatorActivity {
 
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     /**

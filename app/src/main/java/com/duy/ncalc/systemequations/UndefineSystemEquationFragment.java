@@ -276,7 +276,7 @@ public class UndefineSystemEquationFragment extends Fragment implements View.OnC
         });
 //        addParams("2x - y = 2");
 //        addParams("3x + 2y = 0");
-        sequence.start();
+         // sequence.start();
     }
 
     @Override

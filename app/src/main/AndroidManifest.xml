@@ -83,7 +83,7 @@
 
             android:launchMode="singleTask" />
         <activity
-            android:name=".symja.activities.SimplifyEquationActivity"
+            android:name=".symja.activities.SimplifyExpressionActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             android:launchMode="singleTask" />

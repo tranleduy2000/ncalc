@@ -154,7 +154,7 @@ public class DerivativeActivity extends BaseEvaluatorActivity {
                 clickEvaluate();
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     @Override

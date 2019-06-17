@@ -275,7 +275,7 @@ public class DefineSystemEquationFragment extends Fragment implements View.OnCli
         });
 //        addParams("2x - y = 2");
 //        addParams("3x + 2y = 0");
-        sequence.start();
+         // sequence.start();
     }
 
     /**

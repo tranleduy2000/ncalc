@@ -146,7 +146,7 @@ public class IntegrateActivity extends BaseEvaluatorActivity {
 
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     @Override

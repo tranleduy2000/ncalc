@@ -102,7 +102,7 @@ public class ExpandAllExpressionActivity extends BaseEvaluatorActivity {
 
             }
         });
-        sequence.start();
+         // sequence.start();
     }
 
     @Override
