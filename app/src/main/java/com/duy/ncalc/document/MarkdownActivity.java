@@ -17,7 +17,7 @@ public class MarkdownActivity extends BaseActivity {
      */
     public static void open(@NonNull Context context, @NonNull String relativePath) {
         Intent intent = new Intent(context, MarkdownActivity.class);
-        intent.putExtra(MarkdownDocumentFragment.EXTRA_PATH, relativePath);
+        intent.putExtra(DocumentFragment.EXTRA_PATH, relativePath);
         context.startActivity(intent);
     }
 
@@ -26,12 +26,13 @@ public class MarkdownActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_fragment_content);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String path = getDocumentPath();
         setTitle(makeTitle(path));
         if (path != null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.content, MarkdownDocumentFragment.newInstance(path))
+                    .replace(R.id.content, DocumentFragment.newInstance(path))
                     .commitAllowingStateLoss();
         }
     }
@@ -49,6 +50,6 @@ public class MarkdownActivity extends BaseActivity {
 
     @Nullable
     private String getDocumentPath() {
-        return getIntent().getStringExtra(MarkdownDocumentFragment.EXTRA_PATH);
+        return getIntent().getStringExtra(DocumentFragment.EXTRA_PATH);
     }
 }

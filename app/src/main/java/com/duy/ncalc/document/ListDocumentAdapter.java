@@ -35,8 +35,7 @@ import java.util.ArrayList;
 /**
  * Created by Duy on 19-May-17.
  */
-public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownListDocumentAdapter.ViewHolder> {
-    private static final String TAG = "FunctionsDocumentAdapter";
+public class ListDocumentAdapter extends RecyclerView.Adapter<ListDocumentAdapter.ViewHolder> {
     private static final String DOT_MD = ".md";
 
     private Context context;
@@ -46,7 +45,7 @@ public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownLi
     private String assetPath;
     private OnDocumentClickListener onDocumentClickListener;
 
-    MarkdownListDocumentAdapter(Context context, String assetPath) {
+    ListDocumentAdapter(Context context, String assetPath) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.assetPath = assetPath;

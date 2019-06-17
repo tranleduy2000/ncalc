@@ -155,7 +155,7 @@
             android:name=".symja.activities.NumberActivity"
             android:launchMode="singleTask" />
         <activity android:name=".symja.activities.PiActivity" />
-        <activity android:name="com.duy.ncalc.document.MarkdownListDocumentActivity" />
+        <activity android:name="com.duy.ncalc.document.ListDocumentActivity" />
         <activity android:name="com.duy.ncalc.document.MarkdownActivity" />
         <activity
             android:name=".symja.activities.IdeActivity"

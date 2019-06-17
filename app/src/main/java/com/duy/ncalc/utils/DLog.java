@@ -26,8 +26,9 @@ import android.util.Log;
  */
 public class DLog {
     public static final boolean DEBUG = false;
-
     private static final String TAG = "DLog";
+
+    public static boolean UI_TESTING_MODE = false;
 
     public static void d(String msg) {
         Log.d(TAG, msg);
