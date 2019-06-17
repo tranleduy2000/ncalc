@@ -1,10 +1,10 @@
 ![Wallpaper](art/wallpaper.png)
 
 # Calculator N+ - Powerful calculator for Android.
-I am no longer supported the development of this project, pull request are welcome.
+I am no longer supported the development of this project, pull requests are welcome.
 
 ## Overview
-This is a powerful android calculator that contains most of the features needed. The power of the application is through the use of the Symja library. The results are displayed by Latex technology. The application is designed as material design. This project is an open source project that allows people to study, ad-free application.
+This is a powerful android calculator that contains most of the features needed. The power of the application is through the use of the Symja library. The results are displayed by Latex. This project is an open source project that allows people to study, ad-free application.
 
 Get lite version in Google Play Store
 
@@ -61,7 +61,7 @@ Get lite version in Google Play Store
 ## Note
 
 The Calculator does not show the steps to solve the equations, system of equations, derivative... but only for the final result.
-Enter sin(30°) to calculate sine Degree mode
+Enter Sin(30°) to calculate sine Degree mode
 
 The computer can work in two modes:
 - 	Decimal mode: 0.12312312323
