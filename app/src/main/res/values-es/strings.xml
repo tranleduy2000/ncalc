@@ -345,10 +345,8 @@
     <string name="t_ch_v_h_ng_c_a_2_vector">Producto escalar de dos vectores</string>
     <string name="ng_th_ng_ab">Linear AB</string>
     <string name="th_ng_h_ng">Derecho</string>
-    <string name="syntax_error">Error de sintaxis</string>
     <string name="divisors">Divisores</string>
     <string name="pi_number">Número Pi</string>
-    <string name="install_msg">¿Desea instalar Natural Keyboard?</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Proyecto de código abierto en Github https://github.com/tranleduy2000/ncalc</string>
     <string name="matrix_a">Matriz A</string>
     <string name="matrix_b">Matriz B</string>
