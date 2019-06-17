@@ -4,7 +4,7 @@
     <string name="binomial_newton">Expansión binomial de Newton</string>
     <string name="circle">Circulo</string>
     <string name="circle_interaction">Secante de dos círculos</string>
-    <string name="circle_tangent"Tangente de dos círculos</string>
+    <string name="circle_tangent">Tangente de dos círculos</string>
     <string name="close">Cerrar</string>
     <string name="collinear">Colineal</string>
     <string name="column">columnas</string>
