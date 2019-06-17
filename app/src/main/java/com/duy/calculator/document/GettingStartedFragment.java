@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.document.fragment;
+package com.duy.calculator.document;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

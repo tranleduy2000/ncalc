@@ -52,7 +52,7 @@ import android.widget.Toast;
 import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.R;
 import com.duy.calculator.adapters.ResultAdapter;
-import com.duy.calculator.document.fragment.DialogFragmentHelpFunction;
+import com.duy.calculator.document.MarkdownActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.exceptions.ParsingException;
@@ -129,16 +129,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         super.onResume();
         String input = mCalculatorSetting.getString("input_key" + getClass().getSimpleName());
         mInputFormula.setText(input);
-    }
-
-    /**
-     * save input
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mCalculatorSetting.put("input_key" + getClass().getSimpleName(),
-                mInputFormula.getText().toString());
     }
 
     private void initView() {
@@ -264,21 +254,6 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
         }, true);
     }
 
-    /**
-     * show dialog with title and messenger
-     */
-    protected void showDialog(String title, String msg) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(title).setMessage(msg);
-        builder.setNegativeButton(this.getString(R.string.close), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        builder.create().show();
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -324,6 +299,16 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
                 }
                 break;
         }
+    }
+
+    /**
+     * save input
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mCalculatorSetting.put("input_key" + getClass().getSimpleName(),
+                mInputFormula.getText().toString());
     }
 
     public void clickClear() {
@@ -436,9 +421,8 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
     }
 
     @Override
-    public void onShowInfo(String key) {
-        DialogFragmentHelpFunction dialogFragmentHelp = DialogFragmentHelpFunction.newInstance(key);
-        dialogFragmentHelp.show(getSupportFragmentManager(), DialogFragmentHelpFunction.TAG);
+    public void onShowInfo(String functionName) {
+        MarkdownActivity.open(this, functionName);
     }
 
     @Nullable
@@ -470,5 +454,20 @@ public abstract class AbstractEvaluatorActivity extends AbstractNavDrawerActionB
             mDialog.dismiss();
         }
         super.onDestroy();
+    }
+
+    /**
+     * show dialog with title and messenger
+     */
+    protected void showDialog(String title, String msg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title).setMessage(msg);
+        builder.setNegativeButton(this.getString(R.string.close), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.create().show();
     }
 }

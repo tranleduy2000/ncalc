@@ -314,6 +314,7 @@
     <string name="hide_status_bar">Hide status bar</string>
     <string name="result">Result</string>
     <string name="see_doc">View documentation</string>
+    <string name="documentation">Documentation</string>
     <string name="loading">Loading data…</string>
 
     <!--geometric -->

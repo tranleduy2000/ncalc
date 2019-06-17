@@ -125,6 +125,6 @@ public class SuggestAdapter extends ArrayAdapter<String> {
     }
 
     public interface OnSuggestionListener {
-        void onShowInfo(String key);
+        void onShowInfo(String functionName);
     }
 }

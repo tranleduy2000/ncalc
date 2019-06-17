@@ -24,7 +24,7 @@ import android.support.annotation.Nullable;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractEvaluatorActivity;
-import com.duy.calculator.document.fragment.DialogFragmentHelpFunction;
+import com.duy.calculator.document.MarkdownActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
@@ -128,8 +128,7 @@ public class NumberActivity extends AbstractEvaluatorActivity {
                 function = "";
                 break;
         }
-        DialogFragmentHelpFunction dialogFragmentHelp = DialogFragmentHelpFunction.newInstance(function);
-        dialogFragmentHelp.show(getSupportFragmentManager(), DialogFragmentHelpFunction.TAG);
+        MarkdownActivity.open(this, function);
     }
 
     @Override

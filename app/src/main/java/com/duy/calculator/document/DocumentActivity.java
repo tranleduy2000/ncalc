@@ -16,11 +16,10 @@
  *
  */
 
-package com.duy.calculator.document.activities;
+package com.duy.calculator.document;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,9 +29,7 @@ import android.view.MenuItem;
 
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractAppCompatActivity;
-import com.duy.calculator.document.DocumentAdapter;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
-import com.mukesh.MarkdownView;
 
 import butterknife.ButterKnife;
 
@@ -53,7 +50,7 @@ public class DocumentActivity extends AbstractAppCompatActivity implements Mater
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle(R.string.see_doc);
+        setTitle(R.string.documentation);
 
         documentAdapter = new DocumentAdapter(this);
         documentAdapter.setOnDocumentClickListener(this);
@@ -68,13 +65,12 @@ public class DocumentActivity extends AbstractAppCompatActivity implements Mater
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_document, menu);
-
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-
-        return true;
+    public void onBackPressed() {
+        if (searchView.isSearchOpen()) {
+            searchView.closeSearch();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -86,12 +82,13 @@ public class DocumentActivity extends AbstractAppCompatActivity implements Mater
     }
 
     @Override
-    public void onBackPressed() {
-        if (searchView.isSearchOpen()) {
-            searchView.closeSearch();
-        } else {
-            super.onBackPressed();
-        }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_document, menu);
+
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+
+        return true;
     }
 
     @Override
@@ -107,14 +104,7 @@ public class DocumentActivity extends AbstractAppCompatActivity implements Mater
 
     @Override
     public void onDocumentClick(String path) {
-        showDialogMarkdown(path);
+        MarkdownActivity.open(this, path);
     }
 
-    private void showDialogMarkdown(String path) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        MarkdownView markdownView = new MarkdownView(this);
-        markdownView.loadMarkdownFromAssets(path);
-        builder.setView(markdownView);
-        builder.create().show();
-    }
 }

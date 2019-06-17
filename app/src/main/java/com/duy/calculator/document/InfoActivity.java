@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.calculator.document.activities;
+package com.duy.calculator.document;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -35,8 +35,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.duy.calculator.R;
-import com.duy.calculator.document.InfoAppUtil;
-import com.duy.calculator.document.ItemInfo;
 
 import java.util.ArrayList;
 
