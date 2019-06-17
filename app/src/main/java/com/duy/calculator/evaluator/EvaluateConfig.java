@@ -20,7 +20,7 @@ package com.duy.calculator.evaluator;
 
 import android.content.Context;
 
-import com.duy.calculator.data.CalculatorSetting;
+import com.duy.ncalc.settings.CalculatorSetting;
 
 
 /**

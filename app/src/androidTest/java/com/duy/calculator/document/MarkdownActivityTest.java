@@ -19,7 +19,7 @@ public class MarkdownActivityTest extends BaseTestCase {
         onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
 
         onView(withText("All functions")).perform(click());
-        onView(withText("AbsArg")).perform(click());
+        onView(withText("Abs Arg")).perform(click());
 
         onView(withText("AbsArg")).check(matches(isDisplayed()));
     }

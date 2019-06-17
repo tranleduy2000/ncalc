@@ -38,22 +38,22 @@
         android:orientation="horizontal"
         android:weightSum="5">
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_arcsin"
             style="?buttonAdvanceStyle"
             android:text="@string/arcsin" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_sinh"
             style="?buttonAdvanceStyle"
             android:text="@string/sinh" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_cosh"
             style="?buttonAdvanceStyle"
             android:text="@string/cosh" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_tanh"
             style="?buttonAdvanceStyle"
             android:text="@string/tanh" />
@@ -63,7 +63,7 @@
         <!--style="?buttonAdvanceStyle"-->
         <!---->
         <!--android:text="@string/table"/>-->
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_exp"
             style="?buttonAdvanceStyle"
             android:text="@string/exp" />
@@ -76,27 +76,27 @@
         android:orientation="horizontal"
         android:weightSum="5">
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_arccos"
             style="?buttonAdvanceStyle"
             android:text="@string/arccos" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_arcsinh"
             style="?buttonAdvanceStyle"
             android:text="@string/arcsinh" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_arccosh"
             style="?buttonAdvanceStyle"
             android:text="@string/arccosh" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_arctanh"
             style="?buttonAdvanceStyle"
             android:text="@string/arctanh" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_mod"
             style="?buttonAdvanceStyle"
             android:text="@string/mod" />
@@ -109,27 +109,27 @@
         android:orientation="horizontal"
         android:weightSum="5">
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_arctan"
             style="?buttonAdvanceStyle"
             android:text="@string/arctan" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_ln"
             style="?buttonAdvanceStyle"
             android:text="@string/ln" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_abs"
             style="?buttonAdvanceStyle"
             android:text="@string/abs" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             style="?buttonAdvanceStyle"
             android:id="@+id/btn_var_e"
             android:text="@string/constant_e" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_percent"
             style="?buttonAdvanceStyle"
             android:text="@string/percentage" />
@@ -142,32 +142,32 @@
         android:orientation="horizontal"
         android:weightSum="5">
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_log"
             style="?buttonAdvanceStyle"
             android:text="@string/log10" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             style="?buttonAdvanceStyle"
             android:text="@string/i" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_gcd"
             style="?buttonAdvanceStyle"
             android:text="@string/gcd" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_lcm"
             style="?buttonAdvanceStyle"
             android:text="@string/lcm" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_combi"
             style="?buttonAdvanceStyle"
             android:layout_weight="0.5"
             android:text="@string/binomial" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_perm"
             style="?buttonAdvanceStyle"
             android:layout_weight="0.5"
@@ -181,27 +181,27 @@
         android:orientation="horizontal"
         android:weightSum="5">
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_ceil"
             style="?buttonAdvanceStyle"
             android:text="@string/ceil" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_floor"
             style="?buttonAdvanceStyle"
             android:text="@string/floor" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_sign"
             style="?buttonAdvanceStyle"
             android:text="@string/sgn" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_max"
             style="?buttonAdvanceStyle"
             android:text="@string/max" />
 
-        <com.duy.calculator.view.CalcButton
+        <com.duy.ncalc.view.CalcButton
             android:id="@+id/btn_min"
             style="?buttonAdvanceStyle"
             android:text="@string/min" />

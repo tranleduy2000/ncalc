@@ -23,7 +23,7 @@
     android:weightSum="300"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/appbar" />
 
     <include
         layout="@layout/display"

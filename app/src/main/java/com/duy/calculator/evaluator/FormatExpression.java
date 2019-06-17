@@ -18,24 +18,16 @@
 
 package com.duy.calculator.evaluator;
 
-import android.content.Context;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 
-import com.duy.calculator.evaluator.base.BaseModule;
-import com.duy.calculator.evaluator.base.Evaluator;
-import com.duy.calculator.tokenizer.Tokenizer;
-
-import java.util.regex.Pattern;
-
-import static com.duy.calculator.evaluator.LogicEvaluator.ERROR_INDEX_STRING;
+import static com.duy.calculator.evaluator.base.LogicEvaluator.ERROR_INDEX_STRING;
 
 public class FormatExpression {
-
-    private String TAG = FormatExpression.class.getName();
 
     /**
      * clean expression
      */
-    public static String cleanExpression(String expr, Tokenizer tokenizer) {
+    public static String cleanExpression(String expr, ExpressionTokenizer tokenizer) {
         expr = tokenizer.getNormalExpression(expr);
         return cleanExpression(expr);
     }
@@ -56,20 +48,6 @@ public class FormatExpression {
         return expr;
     }
 
-
-    /**
-     * clean expression
-     * <p>
-     * append parentheses
-     * <p>
-     * replace char (div mul add, sub...)
-     *
-     * @param expr - input expression
-     * @return - math language
-     */
-    public static String cleanExpression(String expr, Context context) {
-        return cleanExpression(expr, new Tokenizer());
-    }
 
     /**
      * Append parenthesis at the end of unclosed functions
@@ -128,116 +106,6 @@ public class FormatExpression {
                 result.insert(0, "{");
             }
         return result.toString();
-    }
-
-    public static String clean(String string) {
-        return string.replaceAll(Pattern.quote("\\"), "").replaceAll("\\s+", "");
-    }
-
-    /**
-     * Insert html superscripts so that exponents appear properly.
-     * <p/>
-     * ie. 2^3 becomes 2<sup>3</sup>
-     */
-    public String insertSupScripts(String input) {
-        final StringBuilder formattedInput = new StringBuilder();
-
-        int sub_open = 0;
-        int sub_closed = 0;
-        int paren_open = 0;
-        int paren_closed = 0;
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if (c == Constants.POWER_UNICODE) {
-                formattedInput.append("<sup>");
-                if (sub_open == 0) formattedInput.append("<small>");
-                sub_open++;
-                if (i + 1 == input.length()) {
-                    formattedInput.append(c);
-                    if (sub_closed == 0) formattedInput.append("</small>");
-                    formattedInput.append("</sup>");
-                    sub_closed++;
-                } else {
-                    formattedInput.append(Constants.POWER_PLACEHOLDER);
-                }
-                continue;
-            }
-
-            if (sub_open > sub_closed) {
-                if (paren_open == paren_closed) {
-                    // Decide when to break the <sup> started by ^
-                    if (c == Constants.PLUS_UNICODE // 2^3+1
-                            || (c == Constants.MINUS_UNICODE && input.charAt(i - 1) != Constants.POWER_UNICODE) // 2^3-1
-                            || c == Constants.MUL_UNICODE // 2^3*1
-                            || c == Constants.DIV_UNICODE // 2^3/1
-                            || c == Constants.EQUAL_UNICODE // X^3=1
-                            || (c == Constants.LEFT_PAREN && (Evaluator.isDigit(input.charAt(i - 1)) || input.charAt(i - 1) == Constants.RIGHT_PAREN)) // 2^3(1)
-                            // or
-                            // 2^(3-1)(0)
-                            || (Evaluator.isDigit(c) && input.charAt(i - 1) == Constants.RIGHT_PAREN) // 2^(3)1
-                            || (!Evaluator.isDigit(c) && Evaluator.isDigit(input.charAt(i - 1))) && c != Constants.DECIMAL_POINT) { // 2^3log(1)
-                        while (sub_open > sub_closed) {
-                            if (sub_closed == 0) formattedInput.append("</small>");
-                            formattedInput.append("</sup>");
-                            sub_closed++;
-                        }
-                        sub_open = 0;
-                        sub_closed = 0;
-                        paren_open = 0;
-                        paren_closed = 0;
-                        if (c == Constants.LEFT_PAREN) {
-                            paren_open--;
-                        } else if (c == Constants.RIGHT_PAREN) {
-                            paren_closed--;
-                        }
-                    }
-                }
-                if (c == Constants.LEFT_PAREN) {
-                    paren_open++;
-                } else if (c == Constants.RIGHT_PAREN) {
-                    paren_closed++;
-                }
-            }
-            formattedInput.append(c);
-        }
-        while (sub_open > sub_closed) {
-            if (sub_closed == 0) formattedInput.append("</small>");
-            formattedInput.append("</sup>");
-            sub_closed++;
-        }
-        return formattedInput.toString();
-    }
-
-    /**
-     * Add comas to an equation or mResult
-     * <p/>
-     * 12345 becomes 12,345
-     * <p/>
-     * 10101010 becomes 1010 1010
-     * <p/>
-     * ABCDEF becomes AB CD EF
-     */
-    public String addComas(Evaluator evaluator, String text) {
-        return addComas(evaluator, text, -1).replace(BaseModule.SELECTION_HANDLE + "", "");
-    }
-
-    /**
-     * Add comas to an equation or mResult.
-     * A temp character (BaseModule.SELECTION_HANDLE) will be added
-     * where the selection handle should be.
-     * <p/>
-     * 12345 becomes 12,345
-     * <p/>
-     * 10101010 becomes 1010 1010
-     * <p/>
-     * ABCDEF becomes AB CD EF
-     */
-    public String addComas(Evaluator evaluator, String text, int selectionHandle) {
-        return evaluator.getBaseModule().groupSentence(text, selectionHandle);
-    }
-
-    public String format(Evaluator evaluator, String text) {
-        return appendParenthesis(insertSupScripts(addComas(evaluator, text)));
     }
 
 }

@@ -23,19 +23,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.duy.calculator.DLog;
 import com.duy.calculator.R;
+import com.duy.calculator.evaluator.base.LogicEvaluator;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
-import com.duy.calculator.model.StepItem;
+import com.duy.calculator.symja.models.StepItem;
+import com.duy.ncalc.utils.DLog;
 
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
-import org.matheclipse.core.eval.TeXUtilities;
 import org.matheclipse.core.expression.F;
 import org.matheclipse.core.form.output.OutputFormFactory;
 import org.matheclipse.core.interfaces.AbstractEvalStepListener;
 import org.matheclipse.core.interfaces.IAST;
-import org.matheclipse.core.interfaces.IBuiltInSymbol;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -67,7 +66,6 @@ import java.util.Locale;
 public class MathEvaluator extends LogicEvaluator {
     private static final MathEvaluator MATH_EVALUATOR = new MathEvaluator();
 
-    private static final String ANS_VAR = "ans";
     private static final String TAG = "BigEvaluator";
     /**
      * evaluate engine
@@ -147,7 +145,7 @@ public class MathEvaluator extends LogicEvaluator {
      *
      * @param expression - input expression S
      * @param callback   - interface for call back event
-     * @ {@link com.duy.calculator.evaluator.LogicEvaluator.EvaluateCallback}
+     * @ {@link LogicEvaluator.EvaluateCallback}
      */
     public void evaluateWithResultNormal(String expression, LogicEvaluator.EvaluateCallback callback,
                                          EvaluateConfig config) {

@@ -20,7 +20,7 @@
         android:icon="@drawable/ic_book_black_24dp"
         android:title="@string/getting_started"/>
     <item
-        android:id="@+id/action_document"
+        android:id="@+id/action_all_functions"
         android:icon="@drawable/ic_book_black_24dp"
         android:title="@string/all_functions"/>
 
@@ -128,11 +128,6 @@
                 android:icon="@drawable/ic_permutation_black"
                 android:title="@string/permutation"/>
 
-            <item
-                android:id="@+id/nav_table"
-                android:icon="@mipmap/ic_fraction_black"
-                android:title="@string/table"
-                android:visible="false"/>
         </menu>
     </item>
     <item android:title="@string/number_theory">

@@ -3,7 +3,7 @@ package com.duy.calculator;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.duy.calculator.calc.BasicCalculatorActivity;
+import com.duy.ncalc.calculator.BasicCalculatorActivity;
 
 import org.junit.Rule;
 import org.junit.runner.RunWith;

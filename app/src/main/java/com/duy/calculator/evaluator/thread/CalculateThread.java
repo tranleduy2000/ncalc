@@ -20,8 +20,8 @@ package com.duy.calculator.evaluator.thread;
 
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
+import android.support.annotation.WorkerThread;
 
-import com.duy.calculator.CalculatorPresenter;
 import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.gx.common.collect.Lists;
@@ -37,9 +37,9 @@ import static android.os.Process.setThreadPriority;
 
 public class CalculateThread extends BaseThread {
 
-    public CalculateThread(CalculatorPresenter presenter, EvaluateConfig config,
+    public CalculateThread(EvaluateConfig config,
                            ResultCallback resultCallback) {
-        super(presenter, config, resultCallback);
+        super(config, resultCallback);
     }
 
     @SuppressWarnings("unchecked")
@@ -52,28 +52,26 @@ public class CalculateThread extends BaseThread {
     @Override
     public void execute(String expr, final EvaluateConfig config) {
         Command<ArrayList<String>, String> task = new Command<ArrayList<String>, String>() {
+            @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
                 return Lists.newArrayList(MathEvaluator.getInstance().evaluateWithResultAsTex(input, config));
             }
         };
 
-        //Passes the rest onto the Thread
         Thread thread = new Thread(task, resultCallback);
         thread.executeOnExecutor(EXECUTOR, expr);
     }
 
     @Override
     public void execute(@Nullable Command<ArrayList<String>, String> command, String expr) {
-
-        //Passes the rest onto the Thread
         Thread thread = new Thread(command, resultCallback);
         thread.executeOnExecutor(EXECUTOR, expr);
     }
 
 
     /**
-     * A generalization of the Thread that all the heavy worload calculus functions will use.
+     * A generalization of the Thread that all the heavy overload calculus functions will use.
      */
     private static class Thread extends AsyncTask<String, Void, ArrayList<String>> {
         public Exception error; //If any Exception were to occur

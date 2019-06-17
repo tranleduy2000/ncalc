@@ -30,10 +30,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.duy.calculator.activities.base.AbstractAppCompatActivity;
+import com.duy.calculator.activities.base.BaseActivity;
 import com.duy.calculator.R;
-import com.duy.calculator.tokenizer.Tokenizer;
-import com.duy.calculator.calc.BasicCalculatorActivity;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
+import com.duy.ncalc.calculator.BasicCalculatorActivity;
 
 import java.util.ArrayList;
 
@@ -42,7 +42,7 @@ import java.util.ArrayList;
  * Created by Duy on 29-Nov-16.
  */
 
-public class HistoryActivity extends AbstractAppCompatActivity implements HistoryAdapter.HistoryListener {
+public class HistoryActivity extends BaseActivity implements HistoryAdapter.HistoryListener {
     private RecyclerView mRecyclerView;
     private FloatingActionButton btnClear;
     private HistoryAdapter mHistoryAdapter;
@@ -59,7 +59,7 @@ public class HistoryActivity extends AbstractAppCompatActivity implements Histor
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Tokenizer tokenizer = new Tokenizer();
+        ExpressionTokenizer tokenizer = new ExpressionTokenizer();
 
         mHistoryAdapter = new HistoryAdapter(this, tokenizer);
         mHistoryAdapter.setListener(this);

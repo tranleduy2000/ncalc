@@ -21,20 +21,20 @@ package com.duy.calculator.activities.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.duy.calculator.tokenizer.Tokenizer;
+import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 
 /**
  * abstract app
  * <p/>
  * Created by Duy on 19/7/2016
  */
-public abstract class AbstractCalculatorActivity extends AbstractNavDrawerActionBarActivity implements ICalculator {
-    public Tokenizer mTokenizer;
+public abstract class AbstractCalculatorActivity extends NavDrawerActivity implements ICalculator {
+    public ExpressionTokenizer mTokenizer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTokenizer = new Tokenizer();
+        mTokenizer = new ExpressionTokenizer();
     }
 
 

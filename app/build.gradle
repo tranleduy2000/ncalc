@@ -93,8 +93,9 @@ dependencies {
 
     implementation 'io.github.kobakei:ratethisapp:1.2.0'
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
-    implementation 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
     implementation 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+    implementation 'com.simplecityapps:recyclerview-fastscroll:1.0.18'
+
 }
