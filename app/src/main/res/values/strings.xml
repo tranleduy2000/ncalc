@@ -19,8 +19,8 @@
     <string name="factor">Factor</string>
     <string name="binomial_newton">Newton Binomial Expansion</string>
     <string name="circle">Circle</string>
-    <string name="circle_interaction">Two circles intersect</string>
-    <string name="circle_tangent">Two circles intersect</string>
+    <string name="circle_interaction">Secant of two circles</string>
+    <string name="circle_tangent">Tangent of two circles</string>
     <string name="close">Close</string>
     <string name="collinear">Straight</string>
     <string name="column">columns</string>
@@ -90,7 +90,7 @@
     <string name="not_in_circle">None of the circle</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">
         Enter equations to form a system of equations, then enter the equation system variables \n
-        For example: press [+] and enter the following equations: \n
+        For example: press [plus] and enter the following equations: \n
          x + y + z = 2 \n
          x - y + 2z = 6 \n
          z + y = 2 \n
