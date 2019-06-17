@@ -100,6 +100,8 @@
 -dontwarn org.apache.log4j.**
 -dontwarn org.cheffo.jeplite.**
 -dontwarn jp.ac.kobe_u.cs.cream.**
+-dontwarn com.simplecityapps.recyclerview_fastscroll.**
+-dontwarn com.sothree.slidinguppanel.**
 
 #Glide
 -keep public class * implements com.bumptech.glide.module.GlideModule
