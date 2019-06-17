@@ -42,7 +42,7 @@ public class ListDocumentFragment extends Fragment implements ListDocumentAdapte
 
         mAdapter = new ListDocumentAdapter(getContext(), assetPath);
         mAdapter.setOnDocumentClickListener(this);
-        RecyclerView recyclerView = view.findViewById(R.id.recycle_view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(false);
         recyclerView.setNestedScrollingEnabled(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));

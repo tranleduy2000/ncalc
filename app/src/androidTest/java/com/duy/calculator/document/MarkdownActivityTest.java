@@ -1,26 +1,77 @@
 package com.duy.calculator.document;
 
+import android.support.test.espresso.contrib.RecyclerViewActions;
+
 import com.duy.calculator.BaseTestCase;
 import com.duy.calculator.R;
 
 import org.junit.Test;
 
+import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.pressBack;
+import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.RootMatchers.isPlatformPopup;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.CoreMatchers.instanceOf;
 
 public class MarkdownActivityTest extends BaseTestCase {
 
     @Test
-    public void openOpenDocument() {
+    public void testOpenOpenDocument() {
         onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
 
         onView(withText("All functions")).perform(click());
-        onView(withText("Abs Arg")).perform(click());
+        onView(withText("AbsArg")).perform(click());
 
         onView(withText("AbsArg")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testSearch() {
+        onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
+
+        onView(withText("All functions")).perform(click());
+        onView(withId(R.id.action_search)).perform(click());
+        onView(withId(R.id.searchTextView)).perform(typeText("ArcSin"));
+
+        onView(withId(R.id.recycler_view)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        onView(withText("ArcSin")).check(matches(isDisplayed()));
+
+        pressBack();
+
+        onView(withText("Document")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testOpenDocumentationFromIDEActivity() {
+        onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
+
+        onView(withText("IDE mode")).perform(click());
+        onView(withId(R.id.btn_help)).perform(click());
+
+        onView(withText("Document")).check(matches(isDisplayed()));
+
+        pressBack();
+
+        onView(withText("IDE mode")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void testOpenDocumentationSuggestionPopupActivity() {
+        onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
+
+        onView(withText("IDE mode")).perform(click());
+        onView(withId(R.id.edit_input)).perform(clearText(), typeText("ArcS"));
+
+        onData(instanceOf(String.class)).inRoot(isPlatformPopup()).atPosition(0).perform(click()); //ArcSec
+        onView(withId(R.id.edit_input)).check(matches(withText("ArcSec")));
+
     }
 }
