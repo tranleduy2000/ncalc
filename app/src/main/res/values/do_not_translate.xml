@@ -152,12 +152,14 @@
     <string name="solve_2" translatable="false">Solve</string>
     <string name="mtrue" translatable="false">true</string>
     <string name="mfalse" translatable="false">false</string>
-    <string name="nullable" translatable="false"> </string>
     <string name="power_two" translatable="false">^2</string>
     <string name="power_three" translatable="false">^3</string>
     <string name="ten_power" translatable="false">10^x</string>
     <string name="d_dx" translatable="false">d/dx</string>
     <string name="copy_right" translatable="false">Copyright (C) 2015-2017 by Le Duy Tran.\n All right reserve.</string>
+    <string name="pref_key_parser_use_lowercase_symbol">pref_key_parser_use_lowercase_symbol</string>
+    <string name="pref_key_DOMINANT_IMPLICIT_TIMES">pref_key_DOMINANT_IMPLICIT_TIMES</string>
+    <string name="pref_key_EXPLICIT_TIMES_OPERATOR">pref_key_EXPLICIT_TIMES_OPERATOR</string>
 
     <string-array name="bitrate" translatable="false">
         <item name="bitrateunitbytes">@string/bitrateunitbytes</item>

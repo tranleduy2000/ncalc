@@ -27,8 +27,10 @@ import com.duy.calculator.R;
 import com.duy.calculator.evaluator.base.LogicEvaluator;
 import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.symja.models.StepItem;
+import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.ncalc.utils.DLog;
 
+import org.matheclipse.core.basic.Config;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.expression.F;
@@ -64,7 +66,7 @@ import java.util.Locale;
  */
 
 public class MathEvaluator extends LogicEvaluator {
-    private static final MathEvaluator MATH_EVALUATOR = new MathEvaluator();
+    private static final MathEvaluator INSTANCE = new MathEvaluator();
 
     private static final String TAG = "BigEvaluator";
     /**
@@ -87,7 +89,13 @@ public class MathEvaluator extends LogicEvaluator {
 
     @NonNull
     public static MathEvaluator getInstance() {
-        return MATH_EVALUATOR;
+        return INSTANCE;
+    }
+
+    public static void initFromSetting(CalculatorSetting setting) {
+        Config.PARSER_USE_LOWERCASE_SYMBOLS = setting.isParserUseLowercaseSymbol();
+        Config.DOMINANT_IMPLICIT_TIMES = setting.isDominantImplicitTimes();
+        Config.EXPLICIT_TIMES_OPERATOR = setting.isExplicitTimesOperator();
     }
 
     @Nullable

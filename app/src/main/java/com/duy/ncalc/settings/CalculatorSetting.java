@@ -206,4 +206,15 @@ public class CalculatorSetting {
 
     }
 
+    public boolean isParserUseLowercaseSymbol() {
+        return getBoolean(context.getString(R.string.pref_key_parser_use_lowercase_symbol), true);
+    }
+
+    public boolean isDominantImplicitTimes() {
+        return getBoolean(context.getString(R.string.pref_key_DOMINANT_IMPLICIT_TIMES), false);
+    }
+
+    public boolean isExplicitTimesOperator() {
+        return getBoolean(context.getString(R.string.pref_key_EXPLICIT_TIMES_OPERATOR), false);
+    }
 }

@@ -28,11 +28,6 @@
             android:summary="@string/fraction_decs"
             android:title="@string/fraction_mode" />
 
-        <!--<EditTextPreference-->
-        <!--android:defaultValue="9"-->
-        <!--android:key="@string/key_pref_precision"-->
-        <!--android:summary="@string/summary_percision"-->
-        <!--android:title="@string/precision_" />-->
     </PreferenceCategory>
 
 
@@ -75,24 +70,49 @@
 
     </PreferenceCategory>
 
-    <SwitchPreference
-        android:defaultValue="true"
-        android:enabled="false"
-
-        android:key="@string/key_pref_update"
-        android:title="@string/notify_update" />
-
 
     <PreferenceCategory
         android:shouldDisableView="false"
         android:title="@string/advance">
 
-        <SwitchPreference
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:enabled="false"
+            android:key="@string/pref_key_parser_use_lowercase_symbol"
+            android:summary="@string/pref_summary_parser_use_lowercase_symbol"
+            android:title="PARSER_USE_LOWERCASE_SYMBOLS" />
+
+        <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="false"
-            android:key="@string/key_pref_trace_mode"
-            android:summary="@string/summary_trace_mode"
-            android:title="@string/trace_mode" />
+            android:key="@string/pref_key_DOMINANT_IMPLICIT_TIMES"
+            android:summary="@string/pref_summary_dominant_implicit_times"
+            android:title="DOMINANT_IMPLICIT_TIMES" />
+
+        <CheckBoxPreference
+            android:enabled="false"
+            android:key="@string/pref_key_EXPLICIT_TIMES_OPERATOR"
+            android:summary="@string/pref_summary_EXPLICIT_TIMES_OPERATOR"
+            android:title="EXPLICIT_TIMES_OPERATOR" />
+
+        <CheckBoxPreference
+            android:defaultValue="10"
+            android:enabled="false"
+            android:summary="@string/pref_summary_INTEGRATE_BY_PARTS_RECURSION_LIMIT"
+            android:title="INTEGRATE_BY_PARTS_RECURSION_LIMIT" />
+
+        <EditTextPreference
+            android:defaultValue="1.0e-5"
+            android:enabled="false"
+            android:summary="@string/pref_summary_DEFAULT_ROOTS_CHOP_DELTA"
+            android:title="DEFAULT_ROOTS_CHOP_DELTA" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:enabled="false"
+            android:summary="@string/pref_summary_RUBI_CONVERT_SYMBOLS"
+            android:title="RUBI_CONVERT_SYMBOLS" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

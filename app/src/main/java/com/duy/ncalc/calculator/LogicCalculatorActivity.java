@@ -325,10 +325,6 @@ public class LogicCalculatorActivity extends AbstractCalculatorActivity
 
     /**
      * only use animate on device lollipop
-     *
-     * @param sourceView
-     * @param color
-     * @param listener
      */
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void animateRipple(View sourceView, int color, final Animator.AnimatorListener listener) {

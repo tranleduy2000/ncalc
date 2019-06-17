@@ -39,11 +39,13 @@ public class MarkdownListDocumentActivity extends BaseActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Intent intent = getIntent();
         if (intent == null || !intent.hasExtra(KEY_ASSET_PATH)) {
             finish();
             return;
         }
+
         setContentView(R.layout.activity_document);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -71,7 +73,6 @@ public class MarkdownListDocumentActivity extends BaseActivity
         return true;
     }
 
-
     @Override
     public void onBackPressed() {
         if (mSearchView.isSearchOpen()) {
@@ -84,16 +85,14 @@ public class MarkdownListDocumentActivity extends BaseActivity
     @Override
     public boolean onQueryTextSubmit(String query) {
         FragmentManager fm = getSupportFragmentManager();
-        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getSimpleName());
+        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getName());
         return fragment != null && fragment.onQueryTextSubmit(query);
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
         FragmentManager fm = getSupportFragmentManager();
-        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getSimpleName());
+        MarkdownListDocumentFragment fragment = (MarkdownListDocumentFragment) fm.findFragmentByTag(MarkdownListDocumentFragment.class.getName());
         return fragment != null && fragment.onQueryTextChange(newText);
     }
-
-
 }
