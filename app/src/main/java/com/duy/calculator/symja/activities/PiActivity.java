@@ -24,13 +24,13 @@ import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 import android.text.InputType;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.LaTexFactory;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.gx.common.collect.Lists;
 
 import org.matheclipse.core.interfaces.IExpr;
@@ -58,11 +58,8 @@ public class PiActivity extends BaseEvaluatorActivity {
         getIntentData();
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) {
-                mInputFormula.setText("1000");
-            }
-            clickHelp();
+        if ((!isStarted || DLog.UI_TESTING_MODE) && isDataNull) {
+            mInputFormula.setText("1000");
         }
 
     }

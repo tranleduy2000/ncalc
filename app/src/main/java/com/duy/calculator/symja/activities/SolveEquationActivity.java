@@ -26,7 +26,6 @@ import android.support.annotation.WorkerThread;
 import android.support.design.widget.NavigationView;
 import android.view.View;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
@@ -35,6 +34,7 @@ import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.SolveItem;
 import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
@@ -66,9 +66,8 @@ public class SolveEquationActivity extends BaseEvaluatorActivity
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = preferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) mInputFormula.setText("2x^2 + 3x + 1");
-            clickHelp();
+        if ((!isStarted || DLog.UI_TESTING_MODE) && isDataNull) {
+            mInputFormula.setText("2x^2 + 3x + 1");
         }
     }
 
@@ -110,7 +109,7 @@ public class SolveEquationActivity extends BaseEvaluatorActivity
                 clickEvaluate();
             }
         });
-        sequence.start();
+         sequence.start();
     }
 
     /**

@@ -25,7 +25,6 @@ import android.support.annotation.WorkerThread;
 import android.view.Gravity;
 import android.view.View;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
@@ -34,6 +33,7 @@ import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.LimitItem;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.gx.common.collect.Lists;
@@ -69,12 +69,9 @@ public class LimitActivity extends BaseEvaluatorActivity {
 
         getIntentData();
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) {
-                mInputFormula.setText("1/x + 2");
-                mEditUpperBound.setText("inf");
-            }
-            clickHelp();
+        if ((!isStarted || DLog.UI_TESTING_MODE) && isDataNull) {
+            mInputFormula.setText("1/x + 2");
+            mEditUpperBound.setText("inf");
         }
 
     }
@@ -142,7 +139,7 @@ public class LimitActivity extends BaseEvaluatorActivity {
                 clickEvaluate();
             }
         });
-        sequence.start();
+         sequence.start();
     }
 
     @Override

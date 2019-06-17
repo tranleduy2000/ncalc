@@ -27,7 +27,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.Constants;
@@ -35,6 +34,7 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.gx.common.collect.Lists;
 
 import org.matheclipse.core.expression.F;
@@ -93,12 +93,9 @@ public class PermutationActivity extends BaseEvaluatorActivity {
         getIntentData();
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) {
-                mInputFormula.setText("100");
-                mInputFormula2.setText("20");
-            }
-            clickHelp();
+        if ((!isStarted || DLog.UI_TESTING_MODE) && isDataNull) {
+            mInputFormula.setText("100");
+            mInputFormula2.setText("20");
         }
 
     }

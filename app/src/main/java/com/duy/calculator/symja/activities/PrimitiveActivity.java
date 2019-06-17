@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.support.annotation.WorkerThread;
 import android.view.View;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
@@ -32,6 +31,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.PrimitiveItem;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
@@ -59,11 +59,8 @@ public class PrimitiveActivity extends BaseEvaluatorActivity {
         getIntentData();
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) {
-                mInputFormula.setText("x * sin(x)");
-            }
-            clickHelp();
+        if ((!isStarted || DLog.UI_TESTING_MODE) && isDataNull) {
+            mInputFormula.setText("x * sin(x)");
         }
 
     }
@@ -129,7 +126,7 @@ public class PrimitiveActivity extends BaseEvaluatorActivity {
 
             }
         });
-        sequence.start();
+         sequence.start();
     }
 
     @Override

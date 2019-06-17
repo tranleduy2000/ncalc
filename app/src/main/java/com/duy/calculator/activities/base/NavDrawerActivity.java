@@ -42,7 +42,7 @@ import com.duy.calculator.symja.activities.NumberActivity;
 import com.duy.calculator.symja.activities.PermutationActivity;
 import com.duy.calculator.symja.activities.PiActivity;
 import com.duy.calculator.symja.activities.PrimitiveActivity;
-import com.duy.calculator.symja.activities.SimplifyEquationActivity;
+import com.duy.calculator.symja.activities.SimplifyExpressionActivity;
 import com.duy.calculator.symja.activities.SolveEquationActivity;
 import com.duy.calculator.symja.activities.TrigActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
@@ -203,7 +203,7 @@ public abstract class NavDrawerActivity extends BaseActivity implements Navigati
                 postStartActivity(intent);
                 break;
             case R.id.nav_simplify_equation:
-                intent = new Intent(getApplicationContext(), SimplifyEquationActivity.class);
+                intent = new Intent(getApplicationContext(), SimplifyExpressionActivity.class);
                 postStartActivity(intent);
                 break;
             case R.id.nav_factor_equation:

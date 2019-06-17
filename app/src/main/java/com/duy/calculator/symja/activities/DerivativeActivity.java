@@ -28,7 +28,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
@@ -36,6 +35,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.DerivativeItem;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.gx.common.collect.Lists;
@@ -80,9 +80,10 @@ public class DerivativeActivity extends BaseEvaluatorActivity {
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) mInputFormula.setText("sqrt(x) + ln(x)");
-            clickHelp();
+        if (!isStarted || DLog.UI_TESTING_MODE) {
+            if (isDataNull) {
+                mInputFormula.setText("sqrt(x) + ln(x)");
+            }
         }
     }
 
@@ -154,7 +155,7 @@ public class DerivativeActivity extends BaseEvaluatorActivity {
                 clickEvaluate();
             }
         });
-        sequence.start();
+         sequence.start();
     }
 
     @Override

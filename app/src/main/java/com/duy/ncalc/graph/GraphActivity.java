@@ -268,7 +268,7 @@ public class GraphActivity extends BaseActivity {
                 mCalculatorSetting.getEditor().putBoolean(GRAPH_STATED, true).apply();
             }
         });
-        sequence.start();
+         sequence.start();
     }
 
     /**

@@ -25,7 +25,6 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
@@ -33,6 +32,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.tokenizer.ExpressionTokenizer;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.gx.common.collect.Lists;
@@ -60,9 +60,10 @@ public class FactorExpressionActivity extends BaseEvaluatorActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = preferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) mInputFormula.setText("x^4 - 1");
-            clickHelp();
+        if (!isStarted || DLog.UI_TESTING_MODE) {
+            if (isDataNull) {
+                mInputFormula.setText("x^4 - 1");
+            }
         }
     }
 
@@ -106,7 +107,7 @@ public class FactorExpressionActivity extends BaseEvaluatorActivity {
 
             }
         });
-        sequence.start();
+         sequence.start();
     }
 
     /**
@@ -118,8 +119,8 @@ public class FactorExpressionActivity extends BaseEvaluatorActivity {
         if (bundle != null) {
             String data = bundle.getString(BasicCalculatorActivity.DATA);
             if (data != null) {
-                mInputFormula.setText(data);
                 data = new ExpressionTokenizer().getNormalExpression(data);
+                mInputFormula.setText(data);
                 isDataNull = false;
                 clickEvaluate();
             }

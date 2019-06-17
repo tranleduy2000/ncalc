@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.support.annotation.WorkerThread;
 import android.view.View;
 
-import com.duy.calculator.BuildConfig;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.BaseEvaluatorActivity;
 import com.duy.calculator.evaluator.EvaluateConfig;
@@ -33,6 +32,7 @@ import com.duy.calculator.evaluator.exceptions.ExpressionChecker;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.IntegrateItem;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
+import com.duy.ncalc.utils.DLog;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
 
@@ -60,13 +60,10 @@ public class IntegrateActivity extends BaseEvaluatorActivity {
         getIntentData();
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
-        if ((!isStarted) || BuildConfig.DEBUG) {
-            if (isDataNull) {
-                mInputFormula.setText("sqrt(1-x^2)/x^2");
-                mEditLowerBound.setText("sqrt(2)/2");
-                mEditUpperBound.setText("1");
-            }
-            clickHelp();
+        if ((!isStarted || DLog.UI_TESTING_MODE) && isDataNull) {
+            mInputFormula.setText("sqrt(1-x^2)/x^2");
+            mEditLowerBound.setText("sqrt(2)/2");
+            mEditUpperBound.setText("1");
         }
 
     }
@@ -146,7 +143,7 @@ public class IntegrateActivity extends BaseEvaluatorActivity {
 
             }
         });
-        sequence.start();
+         sequence.start();
     }
 
     @Override
