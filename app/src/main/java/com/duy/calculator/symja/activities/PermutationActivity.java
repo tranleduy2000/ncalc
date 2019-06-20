@@ -67,6 +67,7 @@ public class PermutationActivity extends BaseEvaluatorActivity {
             finish();
             return;
         }
+        type = bundle;
 
         if (bundle == TYPE_PERMUTATION) {
             setTitle(R.string.permutation);

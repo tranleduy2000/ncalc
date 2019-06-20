@@ -258,37 +258,49 @@ public abstract class NavDrawerActivity extends BaseActivity implements Navigati
                 break;
             case R.id.nav_permutation:
                 intent = new Intent(getApplicationContext(), PermutationActivity.class);
-                finish();
+                if (this instanceof PermutationActivity) {
+                    finish();
+                }
                 intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_PERMUTATION);
                 postStartActivity(intent);
                 break;
             case R.id.nav_combination:
                 intent = new Intent(getApplicationContext(), PermutationActivity.class);
-                finish();
+                if (this instanceof PermutationActivity) {
+                    finish();
+                }
                 intent.putExtra(PermutationActivity.TYPE_NUMBER, PermutationActivity.TYPE_COMBINATION);
                 postStartActivity(intent);
                 break;
             case R.id.nav_catalan:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                finish();
+                if (this instanceof NumberActivity) {
+                    finish();
+                }
                 intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.CATALAN);
                 postStartActivity(intent);
                 break;
             case R.id.nav_fibo:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                finish();
+                if (this instanceof NumberActivity) {
+                    finish();
+                }
                 intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.FIBONACCI);
                 postStartActivity(intent);
                 break;
             case R.id.nav_prime:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                finish();
+                if (this instanceof NumberActivity) {
+                    finish();
+                }
                 intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.PRIME);
                 postStartActivity(intent);
                 break;
             case R.id.action_divisors:
                 intent = new Intent(getApplicationContext(), NumberActivity.class);
-                finish();
+                if (this instanceof NumberActivity) {
+                    finish();
+                }
                 intent.putExtra(NumberActivity.DATA, NumberActivity.NumberType.DIVISORS);
                 postStartActivity(intent);
                 break;
