@@ -352,4 +352,12 @@
     <string name="matrix_b">Matriz B</string>
     <string name="all_functions">Todas las funciones</string>
     <string name="getting_started">Primeros pasos</string>
+    <string name="ide_mode">Modo IDE</string>
+    
+    <string name="pref_summary_dominant_implicit_times">Si es verdadero se activa el operador implícito * tiene mayor proridad que los otros operadores. I.e. 1/2Pi es analizado como Power(Times(2, Pi), -1). Si es falso el operador implícito * tiene igual proridad como los demás casos. I.e. 1/2Pi es analizado como Times(Rational(1,2), Pi).</string>
+    <string name="pref_summary_parser_use_lowercase_symbol">Si es verdadero el análisis no distingue entre mayúsculas y minúsculas (I.e. constantes, nombres de funciones,...), con la excepción de los símbolos con un caracter (I.e. la variable \'i\' es distinta a la unidad imaginaria \'I\')</string>
+    <string name="pref_summary_EXPLICIT_TIMES_OPERATOR">Si es verdadero el operador * operator debe escribirse para la expresión Times(). I.e. ya no puedes escribir 2(b+c), pero sí debes escribir 2*(b+c) para conseguir Times(2, Plus(b, c)). También activa la notación E científica. I.e. 1E-2 es convertido a un doble valor 0.01 for para números de punto flotante y no ya analiza como Plus(-2, E).</string>
+    <string name="pref_summary_INTEGRATE_BY_PARTS_RECURSION_LIMIT">Define el límite de recursión para el método Integrate#integrateByParts().</string>
+    <string name="pref_summary_DEFAULT_ROOTS_CHOP_DELTA">Remplaza valores dobles en algoritmos de raíz por 0 si están por debajo de esta tolerancia.</string>
+<string name="pref_summary_RUBI_CONVERT_SYMBOLS">Usado para analizar archivos Rubi</string>
 </resources>
