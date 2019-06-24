@@ -128,7 +128,7 @@
     <string name="derivative_level">Nivel de derivado</string>
     <string name="der_level_desc">Seleccione el nivel derivado en esta línea</string>
     <string name="input_der_here">¡Ingrese las funciones derivadas necesarias en esta línea!</string>
-    <string name="input_equation_here">¡Ingrese la ecuación necesita encontrar la raíz en esta línea!</string>
+    <string name="input_equation_here">¡Ingrese la ecuación que necesita encontrar la solución en esta línea!</string>
     <string name="input_expand_here">¡Ingresa la expresión para expandir en esta línea!</string>
     <string name="input_graph_here">Ingrese la función a agregar en esa línea</string>
     <string name="input_integrate_here">¡Ingrese la función para integrar en esta línea!</string>
