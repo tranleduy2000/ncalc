@@ -343,7 +343,7 @@
     <string name="t_ch_vector_v_i_s_k">Producto del vector con el número k</string>
     <string name="t_ch_v_h_ng">Escalar</string>
     <string name="t_ch_v_h_ng_c_a_2_vector">Producto escalar de dos vectores</string>
-    <string name="ng_th_ng_ab">Linear AB</string>
+    <string name="ng_th_ng_ab">Lineal AB</string>
     <string name="th_ng_h_ng">Recta</string>
     <string name="divisors">Divisores</string>
     <string name="pi_number">Número Pi</string>
