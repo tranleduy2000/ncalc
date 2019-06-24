@@ -2,7 +2,7 @@
     <string name="all_unit_converter">Convertidor de unidades</string>
     <string name="factor">Factorizar</string>
     <string name="binomial_newton">Expansión binomial Newton</string>
-    <string name="circle">Circulo</string>
+    <string name="circle">Círculo</string>
     <string name="circle_interaction">Secante de dos círculos</string>
     <string name="circle_tangent">Tangente de dos círculos</string>
     <string name="close">Cerrar</string>
@@ -21,7 +21,7 @@
     <string name="feedback">Comentarios</string>
     <string name="gi_i_thi_u_v_calc">Acerca de Ncalc</string>
     <string name="gi_tr_nh_nh_t">Valor mínimo</string>
-    <string name="graph">Grafico</string>
+    <string name="graph">Graficar</string>
     <string name="help">Ayuda</string>
     <string name="enter_expression">Ingrese la expresión</string>
     <string name="input_equation">Introduzca la ecuación:</string>
@@ -69,7 +69,7 @@
     <string name="nav_descartes">Geometría 2D</string>
     <string name="nh_p_c_c_n_c_a_h">Ingrese las variables del sistema de ecuaciones:</string>
     <string name="nh_p_d_li_u">Ingrese un valor:</string>
-    <string name="not_line">No es una linea recta</string>
+    <string name="not_line">No es una línea recta</string>
     <string name="not_interaction">Sin intersecciones</string>
     <string name="not_in_circle">Nada del círculo</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">Ingrese las expresiones que forman el sistema de ecuaciones, luego ingrese las variables del sistema de ecuaciones\n
@@ -114,16 +114,16 @@
     <string name="enter_value">Ingrese valor</string>
     <string name="name">Nombre</string>
     <string name="define_var">Definir variable</string>
-    <string name="graph_2">Grafico</string>
+    <string name="graph_2">Gráfico</string>
     <string name="enter_limit">Ingrese el límite</string>
     <string name="eval">Evaluar</string>
     <string name="input_limit">Ingrese el límite de la función</string>
     <string name="limit">Encontrar límite</string>
-    <string name="rate_this_app">Calificar aplicacion</string>
+    <string name="rate_this_app">Calificar aplicación</string>
     <string name="integrate">Integrar</string>
     <string name="enter_function">Introduzca la función</string>
     <string name="lower_limit">Límite inferior</string>
-    <string name="upper_limit">Limite superior</string>
+    <string name="upper_limit">Límite superior</string>
 
     <string name="derivative_level">Nivel de derivado</string>
     <string name="der_level_desc">Seleccione el nivel derivado en esta línea</string>
@@ -157,7 +157,7 @@
     <string name="probability_statistics">Estadísticas de probabilidad</string>
     <string name="combination">Combinación</string>
     <string name="permutation">Permutación</string>
-    <string name="module">Modulo</string>
+    <string name="module">Módulo</string>
     <string name="input_number">Ingrese número</string>
     <string name="enter_number">Introduzca el número</string>
     <string name="trace_mode">Modo de seguimiento</string>
@@ -185,7 +185,7 @@
     <string name="calculator">Calculadora</string>
     <string name="ui">Interfaz de usuario</string>
     <string name="advance">Avanzado</string>
-    <string name="fraction_mode">Modo de fraccion</string>
+    <string name="fraction_mode">Modo de fracción</string>
     <string name="fraction_decs">Mostrar 1/2 en lugar de 0.5</string>
     <string name="summary_instant_res">Calcula automáticamente los resultados</string>
     <string name="instant_res">Respuestas instantáneas</string>
@@ -211,7 +211,7 @@
     <string name="unit1">Temperatura</string>
     <string name="unit2">Peso</string>
     <string name="unit3">Longitud</string>
-    <string name="unit4">Poder</string>
+    <string name="unit4">Potencia</string>
     <string name="unit5">Energía</string>
     <string name="unit6">Velocidad</string>
     <string name="unit7">Zona</string>
