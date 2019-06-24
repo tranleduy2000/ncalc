@@ -1,7 +1,7 @@
 <resources>
     <string name="all_unit_converter">Convertidor de unidades</string>
     <string name="factor">Factorizar</string>
-    <string name="binomial_newton">Expansión binomial de Newton</string>
+    <string name="binomial_newton">Expansión binomial Newton</string>
     <string name="circle">Circulo</string>
     <string name="circle_interaction">Secante de dos círculos</string>
     <string name="circle_tangent">Tangente de dos círculos</string>
@@ -31,7 +31,7 @@
     <string name="vector">vector</string>
     <string name="title_activity_app_about">Acerca de NCalc</string>
     <string name="title_activity_geometry">Geometría cartesiana 2D</string>
-    <string name="title_activity_graph">Grafico</string>
+    <string name="title_activity_graph">Graficar</string>
     <string name="title_activity_matrix_calculator">Matriz</string>
     <string name="title_activity_settings">Ajustes</string>
     <string name="title_activity_unit_converter_acitvity">Conversor de unidades</string>
@@ -56,7 +56,7 @@
     <string name="outside">Exterior</string>
     <string name="auto_process">Procesamiento de datos automático</string>
     <string name="line">Línea recta</string>
-    <string name="linear_system">Resolver el sistema de ecuaciones</string>
+    <string name="linear_system">Resolver sist. ecuaciones</string>
     <string name="logic_calculator">Calculadora de bases</string>
     <string name="matrix">Matriz</string>
     <string name="matrix_op_inverse_a">Inverso de A</string>
@@ -133,7 +133,7 @@
     <string name="input_graph_here">Ingrese la función a agregar en esa línea</string>
     <string name="input_integrate_here">¡Ingrese la función para integrar en esta línea!</string>
     <string name="input_primitive_here">¡Ingrese la función para antiderivar en esta línea!</string>
-    <string name="primitive">Antiderivada</string>
+    <string name="primitive">Antiderivadar</string>
     <string name="limit_from_desc">Límite inferior</string>
     <string name="push_analyze_button">Presione este botón para determinar la factorización de los polinomios, el proceso de cálculo puede tomar más tiempo para una primera inicialización de datos</string>
     <string name="push_button_primitive">Luego presione el botón para comenzar el cálculo, el cálculo puede tomar mucho tiempo para una primera inicialización de datos</string>
@@ -196,7 +196,7 @@
 
     <string name="tit_trig_expand">Trigonometría - Análisis</string>
     <string name="tit_trig_reduce">Trigonometría - Reducción</string>
-    <string name="tit_trig_to_exp">Trigonometría al exponente</string>
+    <string name="tit_trig_to_exp">Trigonometría exponencial</string>
     <string name="trigonometry">Trigonometría</string>
     <string name="latex_summary">KaTeX es más rápido que MathJax en un entorno móvil, pero MathJax admite más funciones y es más hermoso.</string>
     <string name="close_drawer">Cerrar el cajón</string>
