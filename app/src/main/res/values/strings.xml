@@ -145,7 +145,7 @@
     <string name="derivative_level">Derivative level</string>
     <string name="der_level_desc">Select derivative level here</string>
     <string name="input_der_here">Enter derivative functions needed in this line!</string>
-    <string name="input_equation_here">Enter equation need find root in this line!</string>
+    <string name="input_equation_here">Enter the equation needed to find the solution in this line!</string>
     <string name="input_expand_here">Enter the expression to expand in this line!</string>
     <string name="input_graph_here">Click here to add more functions</string>
     <string name="input_integrate_here">Enter the function to integrate on this line!</string>
