@@ -314,7 +314,7 @@
     <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Ingrese las coordenadas de la línea AB, el punto de partida es A (xa, ya) y el punto final es B (xb, yb).</string>
     <string name="d_i_o_n_th_ng_ab">Longitud de línea recta AB</string>
     <string name="kho_ng_c_ch_t_a_n_b">Distancia de A a B</string>
-    <string name="g_c_t_o_v_i_ox">Ángulo con eje OX</string>
+    <string name="g_c_t_o_v_i_ox">Ángulo con eje Ox</string>
     <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Ángulo entre los ejes AB y Ox</string>
     <string name="trung_i_m">Punto medio</string>
     <string name="trung_i_m_c_a_o_n_th_ng_ab">Centro del segmento AB</string>
