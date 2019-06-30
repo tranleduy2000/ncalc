@@ -5,7 +5,7 @@ Tuples(list, n)
 > creates a list of all `n`-tuples of elements in `list`.
 
 ``` 
-Tuples({list1, list2, ...})
+Tuples({list1, list2, …})
 ``` 
 > returns a list of tuples with elements from the given lists.
 

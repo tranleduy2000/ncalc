@@ -1,9 +1,9 @@
 ## Equivalent
 
 ``` 
-Equivalent(expr1, expr2, ...)
+Equivalent(expr1, expr2, …)
 ``` 
-> `Equivalent(expr1, expr2, ...)` is equivalent to `(expr1 && expr2 && ...) || (!expr1 && !expr2 && ...)`.
+> `Equivalent(expr1, expr2, …)` is equivalent to `(expr1 && expr2 && …) || (!expr1 && !expr2 && …)`.
 
 ### Examples
 ```

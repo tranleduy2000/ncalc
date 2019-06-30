@@ -10,11 +10,11 @@ expr /. i -> new
 > replaces all `i` in `expr` with `new`.
 
 ```
-ReplaceAll(expr, {i1 -> new1, i2 -> new2, ... } )
+ReplaceAll(expr, {i1 -> new1, i2 -> new2, … } )
 ```
 or
 ```
-expr /. {i1 -> new1, i2 -> new2, ... }
+expr /. {i1 -> new1, i2 -> new2, … }
 ```
 > replaces all `i`s in `expr` with `new`s.
  

@@ -1,7 +1,7 @@
 ## LCM
 
 ```
-LCM(n1, n2, ...)
+LCM(n1, n2, …)
 ```
 
 > computes the least common multiple of the given integers.

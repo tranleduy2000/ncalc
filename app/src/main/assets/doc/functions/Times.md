@@ -1,12 +1,12 @@
 ## Times
 
 ```
-Times(a, b, ...)
+Times(a, b, …)
 
-a * b * ...
+a * b * …
 ```
 
-> represents the product of the terms `a, b, ...`.
+> represents the product of the terms `a, b, …`.
 
 **Note**: the `Times` operator has the attribute `Flat` ([associative property](https://en.wikipedia.org/wiki/Associative_property)), `Orderless` ([commutative property](https://en.wikipedia.org/wiki/Commutative_property)), `OneIdentity` and `Listable`.
 

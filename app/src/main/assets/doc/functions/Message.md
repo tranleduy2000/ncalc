@@ -1,7 +1,7 @@
 ## Message
 
 ```
-Message(symbol::msg, expr1, expr2, ...)
+Message(symbol::msg, expr1, expr2, …)
 ```
 
 > displays the specified message, replacing placeholders in the message text with the corresponding expressions.

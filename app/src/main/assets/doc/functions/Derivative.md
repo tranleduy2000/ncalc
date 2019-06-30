@@ -6,7 +6,7 @@ Derivative(n)[f]
 > represents the `n`-th derivative of the function `f`.   
 
 ```
-Derivative(n1, n2, n3,...)[f]
+Derivative(n1, n2, n3,…)[f]
 ```
 > represents a multivariate derivative.
 

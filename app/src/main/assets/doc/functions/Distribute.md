@@ -1,7 +1,7 @@
 ## Distribute  
 
 ```
-Distribute(f(x1, x2, x3,...))
+Distribute(f(x1, x2, x3,…))
 ```
 
 > distributes `f` over `Plus` appearing in any of the `xi`.

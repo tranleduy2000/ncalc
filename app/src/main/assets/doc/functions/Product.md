@@ -13,9 +13,9 @@ Product(expr, {i, imin, imax, di})
 > `i` ranges from `imin` to `imax` in steps of `di`.
 
 ```
-Product(expr, {i, imin, imax}, {j, jmin, jmax}, ...)
+Product(expr, {i, imin, imax}, {j, jmin, jmax}, …)
 ```
->> evaluates `expr` as a multiple sum, with `{i, ...}, {j, ...}, ...` being in outermost-to-innermost order.
+>> evaluates `expr` as a multiple sum, with `{i, …}, {j, …}, …` being in outermost-to-innermost order.
 		
 ### Examples
 ```

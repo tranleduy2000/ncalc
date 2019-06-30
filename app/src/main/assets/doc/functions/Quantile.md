@@ -7,7 +7,7 @@ Quantile(list, q)
 > returns the `q`-Quantile of `list`. 
 
 ```
-Quantile(list, {q1, q2, ...})
+Quantile(list, {q1, q2, …})
 ```
 
 > returns a list of the `q`-Quantiles of `list`. 

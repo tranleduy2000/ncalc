@@ -1,7 +1,7 @@
 ## SeriesData
 
 ```
-SeriesData(x, x0, {coeff0, coeff1, coeff2,...}, nMin, nMax, denominator})
+SeriesData(x, x0, {coeff0, coeff1, coeff2,…}, nMin, nMax, denominator})
 ```
 
 > internal structure of a power series at the point `x = x0` the `coeff`-i are coefficients of the power series.

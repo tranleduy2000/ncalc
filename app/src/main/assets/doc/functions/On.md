@@ -8,13 +8,13 @@ On( )
  
 
 ```
-On({head1, head2,... })
+On({head1, head2,… })
 ```
 
 > switch on the interactive trace only for the `head`s defined in the list. The output is printed in the defined `out` stream.
 
 ```
-On({head1, head2,... }, Unique)
+On({head1, head2,… }, Unique)
 ```
 
 or

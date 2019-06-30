@@ -10,10 +10,10 @@ complex numbers (ComplexSym), numerical numbers (Num, ComplexNum, ApfloatNum, Ap
 patterns (Pattern), strings (StringX) or symbols (Symbol) are derived from the abstract class 
 `org.matheclipse.core.expression.ExprImpl`.
 
-The Symja parser maps the source code of math functions (like Sin(x), a+b+c, PrimeQ(17),...) 
+The Symja parser maps the source code of math functions (like Sin(x), a+b+c, PrimeQ(17),…) 
 in a tree form called [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree). These functions are represented as AST objects 
 (derived from the IAST and IExpr interfaces). 
-The head (i.e. `Sin, Plus, PrimeQ,...`) of a function is stored at index `0` in the list. 
+The head (i.e. `Sin, Plus, PrimeQ,…`) of a function is stored at index `0` in the list. 
 The n arguments of the function are stored in the indexes `1..n`.
 
 For example the function `f(x,y,z)` is internally represented by an AST list. Of course these lists can be nested and form a tree of 
@@ -97,7 +97,7 @@ public class CalculusExample {
 	public static void main(String[] args) {
 		try { 
 			ExprEvaluator util = new ExprEvaluator(); 
-			// D(...) gives the derivative of the function Sin(x)*Cos(x)
+			// D(…) gives the derivative of the function Sin(x)*Cos(x)
 			IAST function = D(Times(Sin(x), Cos(x)), x);
 			IExpr result = util.evaluate(function);
 			// print: Cos(x)^2-Sin(x)^2
@@ -121,13 +121,13 @@ The common arithmetic operations are represented by these methods:
 * `Dot(x, y)` for the matrix multiplication operator `.`
     
 You can define other Symja objects in (`org.matheclipse.core.expression.F`) like for example:  
-* integer numbers with the method `F.ZZ()` or the constants `C1` (1), `C2` (2),...
-* fractional numbers with the method `F.QQ()` or the constants `C1D2` (1/2), `C1D3` (1/3),...
+* integer numbers with the method `F.ZZ()` or the constants `C1` (1), `C2` (2),…
+* fractional numbers with the method `F.QQ()` or the constants `C1D2` (1/2), `C1D3` (1/3),…
 * complex numbers with the method `F.CC()` or the constant `CI` (I) 
 * numeric numbers with the method `F.num()` representing a `double` or `Apfloat` value
 * complex numeric numbers with the method `F.complexNum()` representing a commons math `Complex` or a `Apcomplex` value
-* symbol names with the constants `a, b, c, ... , x, y, z` or `Pi`, `Degree` ,...
-* pattern names with the constants `a_, b_, c_, ... , x_, y_, z_` 
+* symbol names with the constants `a, b, c, … , x, y, z` or `Pi`, `Degree` ,…
+* pattern names with the constants `a_, b_, c_, … , x_, y_, z_` 
 * strings with the method `F.stringx()` 
 
 With the `toJavaForm` method you can convert an expression to the internal Java form. 

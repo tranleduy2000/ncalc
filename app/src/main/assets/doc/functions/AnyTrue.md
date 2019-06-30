@@ -1,9 +1,9 @@
 ## AnyTrue
 
 ``` 
-AnyTrue({expr1, expr2, ...}, test)
+AnyTrue({expr1, expr2, …}, test)
 ``` 
-> returns `True` if any application of `test` to `expr1, expr2, ...` evaluates to `True`.
+> returns `True` if any application of `test` to `expr1, expr2, …` evaluates to `True`.
 
 ``` 
 AnyTrue(list, test, level)

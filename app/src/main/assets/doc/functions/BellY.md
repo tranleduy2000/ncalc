@@ -1,7 +1,7 @@
 ## BellY
 
 ```
-BellY(n, k, {x1, x2, ... , xN}) 
+BellY(n, k, {x1, x2, … , xN}) 
 ```
 
 > the second kind of Bell polynomials (incomplete Bell polynomials).

@@ -21,12 +21,12 @@ Do(expr, {i, min, max, step})
 > uses a step size of `step`.
 
 ```
-Do(expr, {i, {i1, i2, ...}})
+Do(expr, {i, {i1, i2, …}})
 ```
-> uses values `i1, i2, ... for i`.
+> uses values `i1, i2, … for i`.
 
 ```
-Do(expr, {i, imin, imax}, {j, jmin, jmax}, ...)
+Do(expr, {i, imin, imax}, {j, jmin, jmax}, …)
 ```
 
 > evaluates expr for each j from jmin to jmax, for each i from imin to imax, etc. 

@@ -7,7 +7,7 @@ GatherBy(list, f)
 > gathers leaves of `list` into sub lists of items whose image under `f` identical.
  
 ```
-GatherBy(list, {f, g,...}) 
+GatherBy(list, {f, g,…}) 
 ```
 
 > gathers leaves of `list` into sub lists of items whose image under `f` identical. Then, gathers these sub lists again into sub sub lists, that are identical under `g`.

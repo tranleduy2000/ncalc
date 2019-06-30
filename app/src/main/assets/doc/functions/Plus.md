@@ -1,12 +1,12 @@
 ## Plus
 
 ```
-Plus(a, b, ...)
+Plus(a, b, …)
 
-a + b + ...
+a + b + …
 ```
 
-> represents the sum of the terms `a, b, ...`.
+> represents the sum of the terms `a, b, …`.
 
 **Note**: the `Plus` operator has the attribute `Flat` ([associative property](https://en.wikipedia.org/wiki/Associative_property)), `Orderless` ([commutative property](https://en.wikipedia.org/wiki/Commutative_property)), `OneIdentity` and `Listable`.
 

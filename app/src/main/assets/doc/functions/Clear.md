@@ -1,7 +1,7 @@
 ## Clear 
 
 ```
-Clear(symbol1, symbol2,...)
+Clear(symbol1, symbol2,…)
 ```
 > clears all values of the given symbols.
 

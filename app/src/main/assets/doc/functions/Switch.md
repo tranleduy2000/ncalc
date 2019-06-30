@@ -1,7 +1,7 @@
 ## Switch
 
 ```
-Switch(expr, pattern1, value1, pattern2, value2, ...)
+Switch(expr, pattern1, value1, pattern2, value2, …)
 ```
 
 > yields the first `value` for which `expr` matches the corresponding pattern.

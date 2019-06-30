@@ -29,7 +29,7 @@ In the next line `Coefficient` returns the coefficient of a particular term of a
 -210*c^2
 ```
 
-`CoefficientList` gets the same information as a list of coefficients. In the line below `Part(coeff, 3,2,5)` returns the coefficient of `x^(3-1)*y^(2-1)*z^(5-1)`. In general if we say `lst=CoefficientList(poly,{x1,x2,x3,...})`  then  `Part(lst,  n1, n2, ,n3, ...)` will be the coefficient of  `x1^(n1-1)*x2^(n2-1)*x3^(n3-1)...`.
+`CoefficientList` gets the same information as a list of coefficients. In the line below `Part(coeff, 3,2,5)` returns the coefficient of `x^(3-1)*y^(2-1)*z^(5-1)`. In general if we say `lst=CoefficientList(poly,{x1,x2,x3,…})`  then  `Part(lst,  n1, n2, ,n3, …)` will be the coefficient of  `x1^(n1-1)*x2^(n2-1)*x3^(n3-1)…`.
 
 ```
 >> coeff=CoefficientList(poly,{x,y,z}); Part(coeff, 3,2,5)

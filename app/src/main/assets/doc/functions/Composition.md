@@ -1,7 +1,7 @@
 ## Composition
 
 ```
-Composition(sym1, sym2,...)[arg1, arg2,...]
+Composition(sym1, sym2,…)[arg1, arg2,…]
 ```
 
 > creates a composition of the symbols applied at the arguments.

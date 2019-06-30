@@ -7,7 +7,7 @@ FullSimplify(expr)
 > works like `Simplify` but additionally tries some `FunctionExpand` rule transformations to simplify `expr`.
 
 ```
-FullSimplify(expr, option1, option2, ...)
+FullSimplify(expr, option1, option2, …)
 ```
 
 > full simplifies `expr` with some additional options set

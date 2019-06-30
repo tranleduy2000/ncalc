@@ -3,12 +3,12 @@
 ``` 
 Array(f, n)
 ```
-> returns the `n`-element list `{f(1), ..., f(n)}`.
+> returns the `n`-element list `{f(1), …, f(n)}`.
 	
 ```
 Array(f, n, a)
 ```
-> returns the n-element list `{f(a), ..., f(a + n)}`.
+> returns the n-element list `{f(a), …, f(a + n)}`.
 
 ```
 Array(f, {n, m}, {a, b})

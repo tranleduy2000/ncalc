@@ -1,9 +1,9 @@
 ## AllTrue
 
 ``` 
-AllTrue({expr1, expr2, ...}, test)
+AllTrue({expr1, expr2, …}, test)
 ``` 
-> returns `True` if all applications of `test` to `expr1, expr2, ...` evaluate to `True`.
+> returns `True` if all applications of `test` to `expr1, expr2, …` evaluate to `True`.
 
 ```
 AllTrue(list, test, level)

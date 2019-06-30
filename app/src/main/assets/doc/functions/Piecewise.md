@@ -1,12 +1,12 @@
 ## Piecewise
 
 ```  
-Piecewise({{expr1, cond1}, ...})
+Piecewise({{expr1, cond1}, …})
 ```   
 > represents a piecewise function. 
 
 ```  
-Piecewise({{expr1, cond1}, ...}, expr)
+Piecewise({{expr1, cond1}, …}, expr)
 ```   
 > represents a piecewise function with default `expr`.
 

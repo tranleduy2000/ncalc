@@ -1,7 +1,7 @@
 ## Max
 
 ```
-Max(e_1, e_2, ..., e_i) 
+Max(e_1, e_2, …, e_i) 
 ```
 
 > returns the expression with the greatest value among the `e_i`.

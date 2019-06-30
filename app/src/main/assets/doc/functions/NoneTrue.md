@@ -1,9 +1,9 @@
 ## NoneTrue
 
 ``` 
-NoneTrue({expr1, expr2, ...}, test)
+NoneTrue({expr1, expr2, …}, test)
 ``` 
-> returns `True` if no application of `test` to `expr1, expr2, ...` evaluates to `True`.
+> returns `True` if no application of `test` to `expr1, expr2, …` evaluates to `True`.
 
 ``` 
 NoneTrue(list, test, level)

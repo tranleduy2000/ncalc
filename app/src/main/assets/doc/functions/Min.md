@@ -1,7 +1,7 @@
 ## Min
 
 ```
-Min(e_1, e_2, ..., e_i) 
+Min(e_1, e_2, …, e_i) 
 ```
 
 > returns the expression with the lowest value among the `e_i`.

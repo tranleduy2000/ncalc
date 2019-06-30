@@ -1,7 +1,7 @@
 ## GCD
 
 ```
-GCD(n1, n2, ...)
+GCD(n1, n2, …)
 ```
 
 > computes the greatest common divisor of the given integers. 

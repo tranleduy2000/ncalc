@@ -1,9 +1,9 @@
 ## And
 
 ``` 
-And(expr1, expr2, ...) 
+And(expr1, expr2, …) 
 ``` 
-> `expr1 && expr2 && ...` evaluates each expression in turn, returning `False` as soon as an expression evaluates to `False`. If all expressions evaluate to `True`, `And` returns `True`.
+> `expr1 && expr2 && …` evaluates each expression in turn, returning `False` as soon as an expression evaluates to `False`. If all expressions evaluate to `True`, `And` returns `True`.
  
 ### Examples
 

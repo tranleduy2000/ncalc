@@ -7,7 +7,7 @@ D(f, x)
 
 
 ``` 
-D(f, x, y, ...)
+D(f, x, y, …)
 ``` 
 > differentiates successively with respect to `x`, `y`, etc. 
 
@@ -17,7 +17,7 @@ D(f, {x,n})
 > gives the multiple derivative of order `n`.  
   
 ``` 
-D(f, {{x1, x2, ...}})
+D(f, {{x1, x2, …}})
 ``` 
 > gives the vector derivative of `f` with respect to `x1`, `x2`, etc.
 		

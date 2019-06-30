@@ -1,7 +1,7 @@
 ## Select
 
 ```
-Select({e1, e2, ...}, f)
+Select({e1, e2, …}, f)
 ```
 > returns a list of the elements `ei` for which `f(ei)` returns `True`.
 

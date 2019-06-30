@@ -1,13 +1,13 @@
 ## MapThread
 
 ```
-MapThread(f, {{a1, a2, ...}, {b1, b2, ...}, ...})
+MapThread(f, {{a1, a2, …}, {b1, b2, …}, …})
 ```
 
-> returns `{f(a1, b1, ...), f(a2, b2, ...), ...}`.   
+> returns `{f(a1, b1, …), f(a2, b2, …), …}`.   
 
 ```  
-MapThread(f, {expr1, expr2, ...}, n)
+MapThread(f, {expr1, expr2, …}, n)
 ```
 
 > applies `f` at level `n`.    

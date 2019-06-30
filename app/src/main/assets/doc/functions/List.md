@@ -1,12 +1,12 @@
 ## List
 ```
-List(e1, e2, ..., ei)
+List(e1, e2, …, ei)
 ```
 or
 ```
-{e1, e2, ..., ei}
+{e1, e2, …, ei}
 ```
-> represents a list containing the elements `e1...ei`.
+> represents a list containing the elements `e1…ei`.
 
 ### Examples
 'List' is the head of lists:

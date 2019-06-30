@@ -1,7 +1,7 @@
 ## Div 
 
 ```
-Div({f1, f2, f3,...},{x1, x2, x3,...})
+Div({f1, f2, f3,…},{x1, x2, x3,…})
 ```
 
 > compute the divergence.

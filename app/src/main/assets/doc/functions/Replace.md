@@ -7,7 +7,7 @@ Replace(expr, lhs -> rhs)
 > replaces the left-hand-side pattern expression `lhs` in `expr` with the right-hand-side `rhs`.
 
 ```
-Replace(expr, {lhs1 -> rhs1, lhs2 -> rhs2, ... } )
+Replace(expr, {lhs1 -> rhs1, lhs2 -> rhs2, … } )
 ```
  
 > replaces the left-hand-side patterns expression `lhsX` in `expr` with the right-hand-side `rhsX`.

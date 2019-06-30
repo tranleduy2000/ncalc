@@ -5,8 +5,8 @@ StandardDeviation(list)
 ```
 > computes the standard deviation of `list`. `list` may consist of numerical values or symbols. Numerical values may be real or complex.
 
-`StandardDeviation({{a1, a2, ...}, {b1, b2, ...}, ...})` will yield
-`{StandardDeviation({a1, b1, ...}, StandardDeviation({a2, b2, ...}), ...}`.
+`StandardDeviation({{a1, a2, …}, {b1, b2, …}, …})` will yield
+`{StandardDeviation({a1, b1, …}, StandardDeviation({a2, b2, …}), …}`.
 
 `StandardDeviation` can be applied to the following distributions:
 

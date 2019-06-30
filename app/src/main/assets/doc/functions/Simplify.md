@@ -7,7 +7,7 @@ Simplify(expr)
 > simplifies `expr`
 
 ```
-Simplify(expr, option1, option2, ...)
+Simplify(expr, option1, option2, …)
 ```
 
 > simplify `expr` with some additional options set

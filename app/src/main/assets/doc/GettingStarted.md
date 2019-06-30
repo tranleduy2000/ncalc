@@ -45,7 +45,7 @@ gives ``42``.
 ``  Strings ``
 A string is a representation of text as a sequence of characters. Strings must be surrounded by double quotes. An example string:
 ```
-  "...Hello world..." 
+  "…Hello world…" 
 ```
 
 
@@ -59,12 +59,12 @@ A string is a representation of text as a sequence of characters. Strings must b
 |Complex                | complex numbers                                                                                                 | `` 2+I*(1/3) ``                         |
 |Real                   | double values                                                                                                   | `` 0.5 ``                               |
 |Complex Real           | complex double values                                                                                           | `` 0.5-I*0.25 ``                        |
-|Evaluation Precedence	| control precedence with `` (...) ``                                                                             | `` (a+b)*c ``                           |
-|Lists                  | comma separated list of elements which are sourrounded by `` { ... } ``                                         | `` {a, b, c, d} ``                      |
-|Vectors	            | vectors are like list, but cannot contain sublists `` { ... } ``                                                | `` {1, 2, 3, 4} ``                      |
+|Evaluation Precedence	| control precedence with `` (…) ``                                                                             | `` (a+b)*c ``                           |
+|Lists                  | comma separated list of elements which are sourrounded by `` { … } ``                                         | `` {a, b, c, d} ``                      |
+|Vectors	            | vectors are like list, but cannot contain sublists `` { … } ``                                                | `` {1, 2, 3, 4} ``                      |
 |Matrices	            | a matrix contains the rows as sublists                                                                          | `` { {1, 2}, {3, 4} } ``                |
-|Predefined Functions	| predefined function names start with an upper case character and the arguments are surrounded by `` ( ... ) ``  | `` Sin(0), PrimeQ(13) ``                |
-|Predefined Constants	| predefined constant names start with an upper case character                                                    | `` Degree, E, Pi, False, True, ... ``   |
+|Predefined Functions	| predefined function names start with an upper case character and the arguments are surrounded by `` ( … ) ``  | `` Sin(0), PrimeQ(13) ``                |
+|Predefined Constants	| predefined constant names start with an upper case character                                                    | `` Degree, E, Pi, False, True, … ``   |
 |Userdefined variables	| identifiers which you would like to assign a value start with a '``$``' character                               | `` $a=42 ``                             |
 |Userdefined rules	    | identifiers which you would like to assign a rule start with a '``$``' character                                | `` $f(x_,y_):={x,y} ``                  |
 |Pattern Symbols	    | patterns end with a preceding '``_``' and could have a constraint                                               | `` $f(x_IntegerQ):={x} ``               |

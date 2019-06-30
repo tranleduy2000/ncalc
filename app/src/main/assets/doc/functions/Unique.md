@@ -4,13 +4,13 @@
 Unique(expr)
 ```
  
-> create a unique symbol of the form `expr$...`.
+> create a unique symbol of the form `expr$…`.
 
 ```
 Unique("expr")
 ```
  
-> create a unique symbol of the form `expr...`.
+> create a unique symbol of the form `expr…`.
 
 ### Examples
  

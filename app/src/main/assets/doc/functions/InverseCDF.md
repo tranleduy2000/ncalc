@@ -8,10 +8,10 @@ InverseCDF(dist, q)
 
 
 ```
-InverseCDF(dist, {x1, x2, ...})
+InverseCDF(dist, {x1, x2, …})
 ```
 
-> returns the inverse CDF evaluated at `{x1, x2, ...}` 
+> returns the inverse CDF evaluated at `{x1, x2, …}` 
 
 ```
 InverseCDF(dist)

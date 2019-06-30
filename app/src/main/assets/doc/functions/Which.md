@@ -1,7 +1,7 @@
 ## Which
 
 ```
-Which(cond1, expr1, cond2, expr2, ...)
+Which(cond1, expr1, cond2, expr2, …)
 ```
 
 > yields `expr1` if `cond1` evaluates to `True`, `expr2` if `cond2` evaluates to `True`, etc.

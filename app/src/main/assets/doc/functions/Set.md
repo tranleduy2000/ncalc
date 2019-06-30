@@ -10,7 +10,7 @@ expr = value
 ``` 
 {s1, s2, s3} = {v1, v2, v3}
 ``` 
-> sets multiple symbols `(s1, s2, ...)` to the corresponding values `(v1, v2, ...)`.
+> sets multiple symbols `(s1, s2, …)` to the corresponding values `(v1, v2, …)`.
 
 ### Examples
 `Set` can be used to give a symbol a value:  

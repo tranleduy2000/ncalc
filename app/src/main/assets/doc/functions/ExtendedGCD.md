@@ -1,7 +1,7 @@
 ## ExtendedGCD
 
 ```
-ExtendedGCD(n1, n2, ...)
+ExtendedGCD(n1, n2, …)
 ```
 
 > computes the extended greatest common divisor of the given integers. 
