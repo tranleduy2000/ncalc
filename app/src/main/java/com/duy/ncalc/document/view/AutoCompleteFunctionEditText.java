@@ -16,11 +16,12 @@
  *
  */
 
-package com.duy.ncalc.view.editor;
+package com.duy.ncalc.document.view;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -30,10 +31,10 @@ import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 
 import com.duy.calculator.R;
+import com.duy.ncalc.document.FunctionSuggestionAdapter;
+import com.duy.ncalc.document.MarkdownListDocumentFragment;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +46,8 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
     private final Handler mHandler = new Handler();
     private HighlightWatcher mHighlightWatcher = new HighlightWatcher();
     private boolean isEnableTextListener;
-    private SuggestAdapter mAdapter;
+    @Nullable
+    private FunctionSuggestionAdapter adapter;
     private Pattern mFunctionPattern;
     private final Runnable mUpdateHighlight = new Runnable() {
         @Override
@@ -82,8 +84,9 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
             return;
         }
         String[] keyWords = new String[0];
+        Context context = getContext();
         try {
-            keyWords = getContext().getAssets().list("doc/functions");
+            keyWords = context.getAssets().list("doc/functions");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,17 +106,18 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
         mFunctionPattern = Pattern.compile(patternStr.toString(),
                 Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
 
-        ArrayList<String> data = new ArrayList<>();
-        Collections.addAll(data, keyWords);
-        mAdapter = new SuggestAdapter(getContext(), R.layout.list_item_suggest, data);
-        setAdapter(mAdapter);
+        adapter = new FunctionSuggestionAdapter(context, R.layout.list_item_suggest,
+                MarkdownListDocumentFragment.loadDocumentStructure(context));
+        setAdapter(adapter);
         setTokenizer(new FunctionTokenizer());
         setThreshold(1);
         enableTextChangeListener();
     }
 
-    public void setOnHelpListener(SuggestAdapter.OnSuggestionListener onHelpListener) {
-        mAdapter.setOnSuggestionListener(onHelpListener);
+    public void setOnSuggestionClickListener(FunctionSuggestionAdapter.OnSuggestionClickListener onHelpListener) {
+        if (adapter != null) {
+            adapter.setOnSuggestionClickListener(onHelpListener);
+        }
     }
 
     private void enableTextChangeListener() {

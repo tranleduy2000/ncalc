@@ -16,10 +16,6 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_getting_started"
-        android:icon="@drawable/ic_book_black_24dp"
-        android:title="@string/getting_started"/>
-    <item
         android:id="@+id/action_all_functions"
         android:icon="@drawable/ic_book_black_24dp"
         android:title="@string/all_functions" />

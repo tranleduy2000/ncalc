@@ -47,9 +47,8 @@ import com.duy.calculator.symja.activities.SolveEquationActivity;
 import com.duy.calculator.symja.activities.TrigActivity;
 import com.duy.ncalc.calculator.BasicCalculatorActivity;
 import com.duy.ncalc.calculator.LogicCalculatorActivity;
-import com.duy.ncalc.document.InfoActivity;
-import com.duy.ncalc.document.ListDocumentActivity;
-import com.duy.ncalc.document.ListDocumentFragment;
+import com.duy.ncalc.document.MarkdownListDocumentActivity;
+import com.duy.ncalc.document.info.InfoActivity;
 import com.duy.ncalc.geom2d.GeometryDescartesActivity;
 import com.duy.ncalc.graph.GraphActivity;
 import com.duy.ncalc.matrix.MatrixCalculatorActivity;
@@ -109,7 +108,7 @@ public abstract class NavDrawerActivity extends BaseActivity implements Navigati
             @Override
             public void onClick(View v) {
                 closeDrawer();
-                startActivity(new Intent(getApplicationContext(), ListDocumentActivity.class));
+                startActivity(new Intent(getApplicationContext(), MarkdownListDocumentActivity.class));
             }
         });
         header.findViewById(R.id.img_setting).setOnClickListener(new View.OnClickListener() {
@@ -146,15 +145,8 @@ public abstract class NavDrawerActivity extends BaseActivity implements Navigati
         closeDrawer();
         Intent intent;
         switch (id) {
-            case R.id.action_getting_started: {
-                intent = new Intent(getApplicationContext(), ListDocumentActivity.class);
-                intent.putExtra(ListDocumentFragment.KEY_ASSET_PATH, "doc");
-                startActivity(intent);
-                break;
-            }
             case R.id.action_all_functions: {
-                intent = new Intent(getApplicationContext(), ListDocumentActivity.class);
-                intent.putExtra(ListDocumentFragment.KEY_ASSET_PATH, "doc/functions");
+                intent = new Intent(getApplicationContext(), MarkdownListDocumentActivity.class);
                 startActivity(intent);
                 break;
             }

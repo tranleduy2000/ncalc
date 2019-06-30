@@ -137,7 +137,7 @@
             android:label="@string/primitive"
 
             android:launchMode="singleTask" />
-        <activity android:name="com.duy.ncalc.document.InfoActivity" />
+        <activity android:name="com.duy.ncalc.document.info.InfoActivity" />
         <activity
             android:name=".symja.activities.FactorPrimeActivity"
             android:launchMode="singleTask" />
@@ -155,11 +155,11 @@
             android:name=".symja.activities.NumberActivity"
             android:launchMode="singleTask" />
         <activity android:name=".symja.activities.PiActivity" />
-        <activity android:name="com.duy.ncalc.document.ListDocumentActivity" />
-        <activity android:name="com.duy.ncalc.document.MarkdownActivity" />
+        <activity android:name="com.duy.ncalc.document.MarkdownDocumentActivity" />
         <activity
             android:name=".symja.activities.IdeActivity"
             android:label="@string/ide_mode" />
+        <activity android:name="com.duy.ncalc.document.MarkdownListDocumentActivity" />
     </application>
 
 </manifest>

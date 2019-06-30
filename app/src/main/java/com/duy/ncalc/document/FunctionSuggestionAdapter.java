@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.ncalc.view.editor;
+package com.duy.ncalc.document;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -30,48 +30,51 @@ import android.widget.Filter;
 import android.widget.TextView;
 
 import com.duy.calculator.R;
+import com.duy.ncalc.document.model.FunctionDocumentItem;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by Duy on 23-May-17.
  */
 
-public class SuggestAdapter extends ArrayAdapter<String> {
-    @NonNull
-    private final Context context;
+public class FunctionSuggestionAdapter extends ArrayAdapter<FunctionDocumentItem> {
     private LayoutInflater inflater;
-    private ArrayList<String> items;
-    private ArrayList<String> suggestions = new ArrayList<>();
-    private ArrayList<String> clone;
+    private List<FunctionDocumentItem> displayItems;
+    private ArrayList<FunctionDocumentItem> filterItems = new ArrayList<>();
+    private ArrayList<FunctionDocumentItem> originalItems;
     @Nullable
-    private OnSuggestionListener onSuggestionListener;
+    private OnSuggestionClickListener onSuggestionListener;
 
-    private Filter mFilter = new Filter() {
+    private Filter filter = new Filter() {
         @Override
         public CharSequence convertResultToString(Object resultValue) {
-            return super.convertResultToString(resultValue);
+            FunctionDocumentItem functionDocumentItem = (FunctionDocumentItem) resultValue;
+            return super.convertResultToString(functionDocumentItem.getName());
         }
 
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            suggestions.clear();
+            filterItems.clear();
             FilterResults filterResults = new FilterResults();
             if (constraint != null) {
-                for (String item : clone) {
-                    if (item.toLowerCase().startsWith(constraint.toString().toLowerCase())) {
-                        suggestions.add(item);
+                for (FunctionDocumentItem item : originalItems) {
+                    if (item.getName().toLowerCase().startsWith(constraint.toString().toLowerCase())) {
+                        filterItems.add(item);
                     }
                 }
-                filterResults.count = suggestions.size();
-                filterResults.values = suggestions;
+                filterResults.count = filterItems.size();
+                filterResults.values = filterItems;
             }
             return filterResults;
         }
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            ArrayList<String> filteredList = (ArrayList<String>) results.values;
+            //noinspection unchecked
+            ArrayList<FunctionDocumentItem> filteredList = (ArrayList<FunctionDocumentItem>) results.values;
             clear();
             if (filteredList != null) {
                 addAll(filteredList);
@@ -80,11 +83,10 @@ public class SuggestAdapter extends ArrayAdapter<String> {
         }
     };
 
-    public SuggestAdapter(@NonNull Context context, @LayoutRes int resource, ArrayList<String> items) {
-        super(context, resource, items);
-        this.context = context;
-        this.items = items;
-        this.clone = new ArrayList<>(items);
+    public FunctionSuggestionAdapter(@NonNull Context context, @LayoutRes int resource, ArrayList<FunctionDocumentItem> displayItems) {
+        super(context, resource, displayItems);
+        this.displayItems = displayItems;
+        this.originalItems = new ArrayList<>(displayItems);
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -94,14 +96,25 @@ public class SuggestAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_item_suggest, parent, false);
         }
+        final FunctionDocumentItem functionDocumentItem = displayItems.get(position);
+
         TextView txtName = convertView.findViewById(R.id.txt_name);
-        txtName.setText(items.get(position));
+        txtName.setText(functionDocumentItem.getName());
+
+        TextView txtDescription = convertView.findViewById(R.id.txt_description);
+        if (functionDocumentItem.getDescription() == null || functionDocumentItem.getDescription().isEmpty()) {
+            txtDescription.setVisibility(View.GONE);
+        } else  {
+            txtDescription.setVisibility(View.VISIBLE);
+        }
+        txtDescription.setText(functionDocumentItem.getDescription());
+
         View btnInfo = convertView.findViewById(R.id.img_info);
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (onSuggestionListener != null) {
-                    onSuggestionListener.clickOpenDocument(items.get(position));
+                    onSuggestionListener.clickOpenDocument(functionDocumentItem);
                 }
             }
         });
@@ -110,21 +123,21 @@ public class SuggestAdapter extends ArrayAdapter<String> {
 
     @Override
     public int getCount() {
-        return items.size();
+        return displayItems.size();
     }
 
     @NonNull
     @Override
     public Filter getFilter() {
-        return mFilter;
+        return filter;
     }
 
 
-    public void setOnSuggestionListener(OnSuggestionListener onSuggestionListener) {
+    public void setOnSuggestionClickListener(@Nullable OnSuggestionClickListener onSuggestionListener) {
         this.onSuggestionListener = onSuggestionListener;
     }
 
-    public interface OnSuggestionListener {
-        void clickOpenDocument(String functionName);
+    public interface OnSuggestionClickListener {
+        void clickOpenDocument(FunctionDocumentItem functionDocumentItem);
     }
 }

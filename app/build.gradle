@@ -27,6 +27,7 @@ android {
         versionName "3.4.2-beta"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -107,6 +108,7 @@ dependencies {
     implementation 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     implementation 'com.simplecityapps:recyclerview-fastscroll:1.0.18'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.3'
 
 
 }

@@ -4,6 +4,7 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 
 import com.duy.calculator.BaseTestCase;
 import com.duy.calculator.R;
+import com.duy.ncalc.document.model.FunctionDocumentItem;
 
 import org.junit.Test;
 
@@ -20,17 +21,18 @@ import static android.support.test.espresso.matcher.ViewMatchers.withContentDesc
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.core.AllOf.allOf;
 
-public class MarkdownActivityTest extends BaseTestCase {
+public class MarkdownDocumentActivityTest extends BaseTestCase {
 
     @Test
     public void testOpenOpenDocument() {
         onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
 
         onView(withText("All functions")).perform(click());
-        onView(withText("AbsArg")).perform(click());
+        onView(withText("Combinatorial")).perform(click());
 
-        onView(withText("AbsArg")).check(matches(isDisplayed()));
+        onView(withText("Combinatorial")).check(matches(isDisplayed()));
     }
 
     @Test
@@ -38,15 +40,14 @@ public class MarkdownActivityTest extends BaseTestCase {
         onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
 
         onView(withText("All functions")).perform(click());
-        onView(withId(R.id.action_search)).perform(click());
-        onView(withId(R.id.searchTextView)).perform(typeText("ArcSin"));
+        onView(withId(R.id.edit_search_view)).perform(typeText("ArcSin"));
 
         onView(withId(R.id.recycler_view)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         onView(withText("ArcSin")).check(matches(isDisplayed()));
 
         pressBack();
 
-        onView(withText("Document")).check(matches(isDisplayed()));
+        onView(withText("Documentation")).check(matches(isDisplayed()));
     }
 
     @Test
@@ -54,13 +55,13 @@ public class MarkdownActivityTest extends BaseTestCase {
         onView(withContentDescription(R.string.navigation_drawer_open)).perform(click());
 
         onView(withText("IDE mode")).perform(click());
-        onView(withId(R.id.btn_help)).perform(click());
+        onView(withId(R.id.fab_help)).perform(click());
 
-        onView(withText("Document")).check(matches(isDisplayed()));
+        onView(withText("Documentation")).check(matches(isDisplayed()));
 
         pressBack();
 
-        onView(withText("IDE mode")).check(matches(isDisplayed()));
+        onView(allOf(isDisplayed(), withText("IDE mode"))).check(matches(isDisplayed()));
     }
 
     @Test
@@ -70,7 +71,7 @@ public class MarkdownActivityTest extends BaseTestCase {
         onView(withText("IDE mode")).perform(click());
         onView(withId(R.id.edit_input)).perform(clearText(), typeText("ArcS"));
 
-        onData(instanceOf(String.class)).inRoot(isPlatformPopup()).atPosition(0).perform(click()); //ArcSec
+        onData(instanceOf(FunctionDocumentItem.class)).inRoot(isPlatformPopup()).atPosition(0).perform(click()); //ArcSec
         onView(withId(R.id.edit_input)).check(matches(withText("ArcSec")));
 
     }

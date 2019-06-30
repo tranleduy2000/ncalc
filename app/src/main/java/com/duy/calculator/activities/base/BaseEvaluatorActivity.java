@@ -45,9 +45,10 @@ import com.duy.calculator.evaluator.thread.CalculateThread;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.history.ResultEntry;
 import com.duy.calculator.symja.activities.ResultAdapter;
-import com.duy.ncalc.document.MarkdownActivity;
+import com.duy.ncalc.document.FunctionSuggestionAdapter;
+import com.duy.ncalc.document.MarkdownDocumentActivity;
+import com.duy.ncalc.document.model.FunctionDocumentItem;
 import com.duy.ncalc.view.ResizingEditText;
-import com.duy.ncalc.view.editor.SuggestAdapter;
 
 import org.matheclipse.parser.client.SyntaxError;
 import org.matheclipse.parser.client.math.MathException;
@@ -61,7 +62,7 @@ import java.util.ArrayList;
  * Created by Duy on 19/7/2016
  */
 public abstract class BaseEvaluatorActivity extends NavDrawerActivity
-        implements View.OnClickListener, SuggestAdapter.OnSuggestionListener {
+        implements View.OnClickListener, FunctionSuggestionAdapter.OnSuggestionClickListener {
     protected String TAG = BaseEvaluatorActivity.class.getName();
 
     /*Limit, integrate, derivative*/
@@ -125,7 +126,7 @@ public abstract class BaseEvaluatorActivity extends NavDrawerActivity
     private void initView() {
         mBtnEvaluate = findViewById(R.id.btn_solve);
         mInputFormula = findViewById(R.id.edit_input);
-        mInputFormula.setOnHelpListener(this);
+        mInputFormula.setOnSuggestionClickListener(this);
 
         mProgress = findViewById(R.id.progress_bar);
         mSpinner = findViewById(R.id.spinner);
@@ -276,9 +277,10 @@ public abstract class BaseEvaluatorActivity extends NavDrawerActivity
     public abstract void clickHelp();
 
     @Override
-    public void clickOpenDocument(String functionName) {
-        MarkdownActivity.open(this, functionName);
+    public void clickOpenDocument(FunctionDocumentItem functionDocumentItem) {
+        MarkdownDocumentActivity.open(this, functionDocumentItem);
     }
+
 
     @Nullable
     public abstract Command<ArrayList<String>, String> getCommand();

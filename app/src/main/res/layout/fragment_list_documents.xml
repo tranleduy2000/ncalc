@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:fastScrollPopupBgColor="?colorAccent"
-    app:fastScrollPopupTextColor="?android:textColorPrimary"
-    app:fastScrollThumbColor="?colorAccent">
+    android:orientation="vertical">
 
-</com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView>
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/edit_search_view"
+        android:layout_margin="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search" />
+
+    <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:fastScrollPopupBgColor="?colorPrimary"
+        app:fastScrollPopupTextColor="?android:textColorPrimary"
+        app:fastScrollThumbColor="?colorAccent">
+
+    </com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView>
+</LinearLayout>

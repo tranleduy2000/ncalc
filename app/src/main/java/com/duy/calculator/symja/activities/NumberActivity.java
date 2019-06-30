@@ -29,7 +29,8 @@ import com.duy.calculator.evaluator.EvaluateConfig;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.thread.Command;
 import com.duy.calculator.symja.models.NumberIntegerItem;
-import com.duy.ncalc.document.MarkdownActivity;
+import com.duy.ncalc.document.MarkdownDocumentActivity;
+import com.duy.ncalc.document.model.FunctionDocumentItem;
 import com.gx.common.collect.Lists;
 
 import java.util.ArrayList;
@@ -129,7 +130,7 @@ public class NumberActivity extends BaseEvaluatorActivity {
                 function = "";
                 break;
         }
-        MarkdownActivity.open(this, function);
+        MarkdownDocumentActivity.open(this, new FunctionDocumentItem("doc/functions/" + function, function, ""));
     }
 
     @Override

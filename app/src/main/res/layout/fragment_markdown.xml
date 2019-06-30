@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.duy.ncalc.view.DocumentView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/markdown_view"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/white">
 
-</com.duy.ncalc.view.DocumentView>
+    <com.duy.ncalc.document.view.MarkdownDocumentView
+        android:id="@+id/markdown_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </com.duy.ncalc.document.view.MarkdownDocumentView>
+</FrameLayout>

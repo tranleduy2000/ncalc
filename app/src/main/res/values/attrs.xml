@@ -49,4 +49,8 @@
         <attr name="text_pad_advance_color" format="integer" />
         <attr name="imageTintColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="CalcImageButton">
+        <attr name="android:textColor" format="color|reference" />
+    </declare-styleable>
 </resources>

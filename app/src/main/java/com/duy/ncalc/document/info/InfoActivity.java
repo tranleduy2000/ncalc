@@ -16,7 +16,7 @@
  *
  */
 
-package com.duy.ncalc.document;
+package com.duy.ncalc.document.info;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

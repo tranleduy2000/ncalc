@@ -28,6 +28,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -77,6 +78,28 @@ public abstract class BaseActivity extends AppCompatActivity
         setFullScreen();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mCalculatorSetting != null) {
+            mCalculatorSetting.registerOnSharedPreferenceChangeListener(this);
+        }
+        if (!DLog.UI_TESTING_MODE) {
+            // Monitor launch times and interval from installation
+            RateThisApp.onStart(this);
+            // If the criteria is satisfied, "Rate this app" dialog will be shown
+            RateThisApp.showRateDialogIfNeeded(this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mCalculatorSetting != null) {
+            mCalculatorSetting.unregisterOnSharedPreferenceChangeListener(this);
+        }
+        super.onDestroy();
+    }
+
     private void setFullScreen() {
         if (mSetting.useFullScreen()) {
             hideStatusBar();
@@ -108,24 +131,9 @@ public abstract class BaseActivity extends AppCompatActivity
         }
     }
 
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mCalculatorSetting != null) {
-            mCalculatorSetting.registerOnSharedPreferenceChangeListener(this);
-        }
-        if (!DLog.UI_TESTING_MODE) {
-            // Monitor launch times and interval from installation
-            RateThisApp.onStart(this);
-            // If the criteria is satisfied, "Rate this app" dialog will be shown
-            RateThisApp.showRateDialogIfNeeded(this);
-        }
     }
 
     /**
@@ -162,14 +170,6 @@ public abstract class BaseActivity extends AppCompatActivity
         } else {
             MathEvaluator.initFromSetting(mSetting);
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (mCalculatorSetting != null) {
-            mCalculatorSetting.unregisterOnSharedPreferenceChangeListener(this);
-        }
-        super.onDestroy();
     }
 
     /**
@@ -243,5 +243,16 @@ public abstract class BaseActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Call after {@link #setContentView(int)}
+     */
+    @SuppressWarnings("ConstantConditions")
+    protected void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
 }

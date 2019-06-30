@@ -377,4 +377,5 @@
     <string name="pref_summary_INTEGRATE_BY_PARTS_RECURSION_LIMIT">Define the recursion limit for Integrate#integrateByParts() method.</string>
     <string name="pref_summary_DEFAULT_ROOTS_CHOP_DELTA">Replace double values in root algorithms by 0 if they are below this tolerance.</string>
     <string name="pref_summary_RUBI_CONVERT_SYMBOLS">Used to parse Rubi files</string>
+    <string name="search">Search</string>
 </resources>
