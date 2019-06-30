@@ -40,6 +40,11 @@ android {
             debuggable true
         }
     }
+//
+//    testOptions {
+//        unitTests.returnDefaultValues = true
+//    }
+
     lintOptions {
         abortOnError false
         disable 'MissingTranslation'
@@ -48,12 +53,17 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
+    google()
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.json:json:20140107'
+    testImplementation group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    testImplementation group: 'commons-io', name: 'commons-io', version: '2.6'
     androidTestImplementation group: 'commons-lang', name: 'commons-lang', version: '2.6'
 
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
