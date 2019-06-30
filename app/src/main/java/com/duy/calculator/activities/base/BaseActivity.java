@@ -42,7 +42,7 @@ import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.history.DatabaseHelper;
 import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.ncalc.userinterface.FontManager;
-import com.duy.ncalc.userinterface.ThemeEngine;
+import com.duy.ncalc.userinterface.ThemeManager;
 import com.duy.ncalc.utils.DLog;
 import com.kobakei.ratethisapp.RateThisApp;
 
@@ -143,9 +143,9 @@ public abstract class BaseActivity extends AppCompatActivity
      */
     protected void setTheme(boolean recreate) {
         String name = mCalculatorSetting.getString(getResources().getString(R.string.key_pref_theme), "");
-        ThemeEngine themeEngine = new ThemeEngine(getApplicationContext());
-        int themeId = themeEngine.getTheme(name);
-        if (themeId != ThemeEngine.THEME_NOT_FOUND) {
+        ThemeManager themeManager = new ThemeManager(getApplicationContext());
+        int themeId = themeManager.getTheme(name);
+        if (themeId != ThemeManager.THEME_NOT_FOUND) {
             super.setTheme(themeId);
             if (recreate) recreate();
             Log.d(TAG, "Set theme ok");

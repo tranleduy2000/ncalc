@@ -47,14 +47,12 @@ import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.duy.ncalc.utils.DLog;
 import com.duy.calculator.R;
 import com.duy.calculator.activities.base.AbstractCalculatorActivity;
-import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.calculator.evaluator.EvaluateConfig;
-import com.duy.calculator.evaluator.base.LogicEvaluator;
 import com.duy.calculator.evaluator.MathEvaluator;
 import com.duy.calculator.evaluator.base.Evaluator;
+import com.duy.calculator.evaluator.base.LogicEvaluator;
 import com.duy.calculator.evaluator.thread.ResultCallback;
 import com.duy.calculator.history.HistoryActivity;
 import com.duy.calculator.history.ResultEntry;
@@ -62,7 +60,10 @@ import com.duy.calculator.symja.models.DerivativeItem;
 import com.duy.calculator.symja.models.ExprInput;
 import com.duy.calculator.symja.models.PrimeFactorItem;
 import com.duy.calculator.symja.models.SolveItem;
+import com.duy.ncalc.settings.CalculatorSetting;
+import com.duy.ncalc.userinterface.ThemeManager;
 import com.duy.ncalc.utils.ClipboardManager;
+import com.duy.ncalc.utils.DLog;
 import com.duy.ncalc.view.AnimationFinishedListener;
 import com.duy.ncalc.view.CalculatorEditText;
 import com.duy.ncalc.view.RevealView;
@@ -87,15 +88,15 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
      */
     private final InstantResultWatcher mFormulaTextWatcher = new InstantResultWatcher();
     private final Handler mHandler = new Handler();
-    public MathView mMathView;
+    public MathView mSecondaryResultView;
     public ContentLoadingProgressBar mProgress;
-    public FrameLayout mAnimateSolve;
+    public FrameLayout mSolveAnimView;
     private SwitchCompat mFractionSwitch;
     private FrameLayout mContainerSolve;
     private DrawerLayout mDrawerLayout;
     private CalculatorEditText mInputDisplay;
     private ViewGroup mDisplayForeground;
-    private MathView mReview;
+    private MathView mCalculatorResultView;
     private FloatingActionButton mFabClose;
     private View mCurrentButton = null;
     private CalculatorState mCurrentState = CalculatorState.INPUT;
@@ -141,6 +142,43 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         showHelp();
     }
 
+    public void insertText(String text) {
+        //set text display is null if not as operator
+        boolean b = mInputDisplay.getSelectionStart() == mInputDisplay.getCleanText().length() + 1;
+        if (mCurrentState == CalculatorState.RESULT && !Evaluator.isOperator(text) && b) {
+            mInputDisplay.clear();
+        }
+        mInputDisplay.insert(text);
+    }
+
+    /**
+     * insert text to display
+     *
+     * @param opt - operator
+     */
+    public void insertOperator(String opt) {
+        if (mCurrentState == CalculatorState.INPUT) {
+            //do something
+        } else if (mCurrentState == CalculatorState.RESULT) {
+            //do some thing
+        }
+        insertText(opt);
+    }
+
+    public String getTextClean() {
+        return mInputDisplay.getCleanText();
+    }
+
+    @Override
+    public void setTextDisplay(final String textDisplay) {
+        mInputDisplay.post(new Runnable() {
+            @Override
+            public void run() {
+                mInputDisplay.setText(mTokenizer.getLocalizedExpression(textDisplay));
+            }
+        });
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -154,18 +192,22 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         }
     }
 
-
     private void bindView() {
-        mFabClose = (FloatingActionButton) findViewById(R.id.fab_close);
-        mReview = (MathView) findViewById(R.id.math_view);
-        mDisplayForeground = (ViewGroup) findViewById(R.id.the_clear_animation);
-        mInputDisplay = (CalculatorEditText) findViewById(R.id.txtDisplay);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mContainerSolve = (FrameLayout) findViewById(R.id.container_solve);
-        mFractionSwitch = (SwitchCompat) findViewById(R.id.sw_fraction);
-        mAnimateSolve = (FrameLayout) findViewById(R.id.result_animation);
-        mProgress = (ContentLoadingProgressBar) findViewById(R.id.progress_bar_main);
-        mMathView = (MathView) findViewById(R.id.math_result);
+        mFabClose = findViewById(R.id.fab_close);
+
+        mCalculatorResultView = findViewById(R.id.math_view);
+        mCalculatorResultView.setDarkTextColor(ThemeManager.isLightTheme(this));
+
+        mDisplayForeground = findViewById(R.id.the_clear_animation);
+        mInputDisplay = findViewById(R.id.txtDisplay);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mContainerSolve = findViewById(R.id.container_solve);
+        mFractionSwitch = findViewById(R.id.sw_fraction);
+        mSolveAnimView = findViewById(R.id.result_animation);
+        mProgress = findViewById(R.id.progress_bar_main);
+
+        mSecondaryResultView = findViewById(R.id.math_result);
+//        mResultView.setDarkTextColor(ThemeManager.isLightTheme(this));
 
         mFractionSwitch.setChecked(mCalculatorSetting.useFraction());
         mFractionSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -203,27 +245,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container_keyboard, keyboardFragment, KeyboardFragment.TAG);
         ft.commitAllowingStateLoss();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        CalculatorSetting preferences = new CalculatorSetting(this);
-        String math = preferences.getString(CalculatorSetting.INPUT_MATH);
-        mInputDisplay.setText(math);
-
-        ///receive data from another application
-        Intent intent = new Intent();
-        String action = intent.getAction();
-        String type = intent.getType();
-        //process data
-        if (Intent.ACTION_SEND.equals(action) && type != null) {
-            if ("text/plain".equals(type)) {
-                mInputDisplay.setText(intent.getStringExtra(Intent.EXTRA_TEXT));
-            }
-        }
-        if (mInputDisplay != null) mInputDisplay.requestFocus();
     }
 
     private void showHelp() {
@@ -269,6 +290,11 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
@@ -294,6 +320,15 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         }
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        CalculatorSetting preferences = new CalculatorSetting(this);
+        String math = mInputDisplay.getCleanText();
+        preferences.put(CalculatorSetting.INPUT_MATH, math);
+        mCalculatorResultView.setText("");
+    }
+
     /**
      * set input state
      *
@@ -311,8 +346,17 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mEvaluator.define(var, value);
     }
 
-    public void onDelete() {
-        mInputDisplay.backspace();
+    public void setTextResult(String result) {
+        mCalculatorResultView.setText(result);
+    }
+
+    public void setTextError(String msg) {
+        mCalculatorResultView.setText(msg);
+    }
+
+    public void onResult(final String result) {
+        setTextDisplay(result.replace("\\", "").replace("\n", ""));
+        setTextResult("");
     }
 
     public void onError(final String error) {
@@ -334,17 +378,36 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         }
     }
 
-    public void setTextResult(String result) {
-        mReview.setText(result);
+    public void onDelete() {
+        mInputDisplay.backspace();
     }
 
-    public void setTextError(String msg) {
-        mReview.setText(msg);
+    public void clickClear() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            TypedValue typedValue = new TypedValue();
+            Resources.Theme theme = this.getTheme();
+            theme.resolveAttribute(R.attr.colorAccent, typedValue, true);
+            int color = typedValue.data;
+            animateRipple(mDisplayForeground, mCurrentButton, color, new AnimationFinishedListener() {
+                @Override
+                public void onAnimationFinished() {
+                    setState(CalculatorState.INPUT);
+                    mInputDisplay.clear();
+                    mCalculatorResultView.setText("");
+                }
+            }, true);
+        } else {
+            setState(CalculatorState.INPUT);
+            mCalculatorResultView.setText("");
+            mInputDisplay.clear();
+        }
     }
 
-    public void onResult(final String result) {
-        setTextDisplay(result.replace("\\", "").replace("\n", ""));
-        setTextResult("");
+    public void onEqual() {
+        String text = mInputDisplay.getCleanText();
+        setState(CalculatorState.EVALUATE);
+        mEvaluator.evaluateWithResultNormal(text, BasicCalculatorActivity.this,
+                EvaluateConfig.loadFromSetting(this));
     }
 
     /**
@@ -412,82 +475,8 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         playAnimation(revealAnimator);
     }
 
-    public void insertText(String text) {
-        //set text display is null if not as operator
-        boolean b = mInputDisplay.getSelectionStart() == mInputDisplay.getCleanText().length() + 1;
-        if (mCurrentState == CalculatorState.RESULT && !Evaluator.isOperator(text) && b) {
-            mInputDisplay.clear();
-        }
-        mInputDisplay.insert(text);
-    }
-
-    public void clickClear() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            TypedValue typedValue = new TypedValue();
-            Resources.Theme theme = this.getTheme();
-            theme.resolveAttribute(R.attr.colorAccent, typedValue, true);
-            int color = typedValue.data;
-            animateRipple(mDisplayForeground, mCurrentButton, color, new AnimationFinishedListener() {
-                @Override
-                public void onAnimationFinished() {
-                    setState(CalculatorState.INPUT);
-                    mInputDisplay.clear();
-                    mReview.setText("");
-                }
-            }, true);
-        } else {
-            setState(CalculatorState.INPUT);
-            mReview.setText("");
-            mInputDisplay.clear();
-        }
-    }
-
-    public void onEqual() {
-        String text = mInputDisplay.getCleanText();
-        setState(CalculatorState.EVALUATE);
-        mEvaluator.evaluateWithResultNormal(text, BasicCalculatorActivity.this,
-                EvaluateConfig.loadFromSetting(this));
-    }
-
     void setState(CalculatorState state) {
         mCurrentState = state;
-    }
-
-    /**
-     * insert text to display
-     *
-     * @param opt - operator
-     */
-    public void insertOperator(String opt) {
-        if (mCurrentState == CalculatorState.INPUT) {
-            //do something
-        } else if (mCurrentState == CalculatorState.RESULT) {
-            //do some thing
-        }
-        insertText(opt);
-    }
-
-    public String getTextClean() {
-        return mInputDisplay.getCleanText();
-    }
-
-    @Override
-    public void setTextDisplay(final String textDisplay) {
-        mInputDisplay.post(new Runnable() {
-            @Override
-            public void run() {
-                mInputDisplay.setText(mTokenizer.getLocalizedExpression(textDisplay));
-            }
-        });
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        CalculatorSetting preferences = new CalculatorSetting(this);
-        String math = mInputDisplay.getCleanText();
-        preferences.put(CalculatorSetting.INPUT_MATH, math);
-        mReview.setText("");
     }
 
     @Override
@@ -559,108 +548,10 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         mInputDisplay.setText(ClipboardManager.getClipboard(this));
     }
 
-    public void shareText() {
-        String s = mInputDisplay.getCleanText();
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_TEXT, s);
-        intent.setType("text/plain");
-        startActivity(intent);
-    }
-
-    /**
-     * clickSolveEquation equation
-     */
-    public void clickSolveEquation() {
-        String inp = mTokenizer.getNormalExpression(mInputDisplay.getCleanText());
-        if (inp.isEmpty()) {
-            Toast.makeText(this, R.string.enter_expression, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        final SolveItem item = new SolveItem(inp);
-        if (!item.getInput().contains("x")) {
-            Toast.makeText(this, R.string.not_variable, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        new EvaluateTask(new ResultCallback() {
-            @Override
-            public void onSuccess(ArrayList<String> result) {
-                mMathView.setText(result.get(0));
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mProgress.hide();
-                        mFabClose.show();
-                        Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
-                    }
-                }, 500);
-            }
-
-            @Override
-            public void onError(Exception e) {
-                onCalculateError(e);
-            }
-        }).execute(item);
-    }
-
-
-    /**
-     * close Solve Result and animate
-     */
-    public void closeMathView() {
-        setInputState(CalculateState.INPUT);
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                mContainerSolve.setVisibility(View.GONE);
-            }
-        });
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            animateRipple(mAnimateSolve, null, -2, new AnimationFinishedListener() {
-                @Override
-                public void onAnimationFinished() {
-                }
-            }, false);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
     protected boolean saveHistory(String expr, String result, boolean ensureResult) {
         DLog.i("Save history: " + expr + " = " + result);
         mHistoryDatabase.saveHistory(new ResultEntry(expr, result));
         return false;
-    }
-
-    public void clickFactorPrime() {
-        String inp = mTokenizer.getNormalExpression(mInputDisplay.getCleanText());
-        if (inp.isEmpty()) {
-            Toast.makeText(this, R.string.enter_expression, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        PrimeFactorItem item = new PrimeFactorItem(mInputDisplay.getCleanText());
-        new EvaluateTask(new ResultCallback() {
-            @Override
-            public void onSuccess(ArrayList<String> result) {
-                mMathView.setText(result.get(0));
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mProgress.hide();
-                        mFabClose.show();
-                        Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
-                    }
-                }, 500);
-            }
-
-            @Override
-            public void onError(Exception e) {
-                onCalculateError(e);
-            }
-        }).execute(item);
     }
 
     protected void onChangeModeFraction() {
@@ -685,6 +576,26 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         super.onBackPressed();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        CalculatorSetting preferences = new CalculatorSetting(this);
+        String math = preferences.getString(CalculatorSetting.INPUT_MATH);
+        mInputDisplay.setText(math);
+
+        ///receive data from another application
+        Intent intent = new Intent();
+        String action = intent.getAction();
+        String type = intent.getType();
+        //process data
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                mInputDisplay.setText(intent.getStringExtra(Intent.EXTRA_TEXT));
+            }
+        }
+        if (mInputDisplay != null) mInputDisplay.requestFocus();
+    }
 
     public void clickDerivative() {
         String inp = mTokenizer.getNormalExpression(mInputDisplay.getCleanText());
@@ -698,7 +609,7 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
         new EvaluateTask(new ResultCallback() {
             @Override
             public void onSuccess(ArrayList<String> result) {
-                mMathView.setText(result.get(0));
+                mSecondaryResultView.setText(result.get(0));
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -724,10 +635,102 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 //        mGraphView.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
     }
 
+    public void clickFactorPrime() {
+        String inp = mTokenizer.getNormalExpression(mInputDisplay.getCleanText());
+        if (inp.isEmpty()) {
+            Toast.makeText(this, R.string.enter_expression, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        PrimeFactorItem item = new PrimeFactorItem(mInputDisplay.getCleanText());
+        new EvaluateTask(new ResultCallback() {
+            @Override
+            public void onSuccess(ArrayList<String> result) {
+                mSecondaryResultView.setText(result.get(0));
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mProgress.hide();
+                        mFabClose.show();
+                        Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                    }
+                }, 500);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                onCalculateError(e);
+            }
+        }).execute(item);
+    }
+
+    /**
+     * clickSolveEquation equation
+     */
+    public void clickSolveEquation() {
+        String inp = mTokenizer.getNormalExpression(mInputDisplay.getCleanText());
+        if (inp.isEmpty()) {
+            Toast.makeText(this, R.string.enter_expression, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        final SolveItem item = new SolveItem(inp);
+        if (!item.getInput().contains("x")) {
+            Toast.makeText(this, R.string.not_variable, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        new EvaluateTask(new ResultCallback() {
+            @Override
+            public void onSuccess(ArrayList<String> result) {
+                mSecondaryResultView.setText(result.get(0));
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mProgress.hide();
+                        mFabClose.show();
+                        Toast.makeText(BasicCalculatorActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                    }
+                }, 500);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                onCalculateError(e);
+            }
+        }).execute(item);
+    }
+
+    /**
+     * close Solve Result and animate
+     */
+    public void closeMathView() {
+        setInputState(CalculateState.INPUT);
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                mContainerSolve.setVisibility(View.GONE);
+            }
+        });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            animateRipple(mSolveAnimView, null, -2, new AnimationFinishedListener() {
+                @Override
+                public void onAnimationFinished() {
+                }
+            }, false);
+        }
+    }
+
+    public void shareText() {
+        String s = mInputDisplay.getCleanText();
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, s);
+        intent.setType("text/plain");
+        startActivity(intent);
+    }
+
 
     public enum CalculatorState {
         INPUT,
-        EVALUATE, RESULT, ERROR;
+        EVALUATE, RESULT, ERROR
     }
 
 
@@ -737,15 +740,6 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
 
         public EvaluateTask(ResultCallback resultCallback) {
             this.mCallback = resultCallback;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mContainerSolve.setVisibility(View.VISIBLE);
-            setInputState(CalculateState.RESULT);
-            mProgress.show();
-            mFabClose.hide();
         }
 
         @Override
@@ -762,6 +756,15 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
                 this.exception = e;
                 return null;
             }
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mContainerSolve.setVisibility(View.VISIBLE);
+            setInputState(CalculateState.RESULT);
+            mProgress.show();
+            mFabClose.hide();
         }
 
         @Override

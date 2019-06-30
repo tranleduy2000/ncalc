@@ -22,11 +22,12 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.duy.calculator.R;
+import com.duy.ncalc.utils.ViewUtils;
 
 /**
  * Created by Duy on 3/7/2016
  */
-public class ThemeEngine {
+public class ThemeManager {
     public static final String NULL = "";
     public static final int THEME_NOT_FOUND = -1;
     private final int mCyanTheme;
@@ -45,7 +46,7 @@ public class ThemeEngine {
     private final int mGradientTheme;
     private Resources mResources;
 
-    public ThemeEngine(Context applicationContext) {
+    public ThemeManager(Context applicationContext) {
         this.mResources = applicationContext.getResources();
         mCyanTheme = R.style.AppTheme_Cyan;
         mBlueGrayTheme = R.style.AppTheme_BlueGray;
@@ -100,6 +101,11 @@ public class ThemeEngine {
             return mGradientTheme;
         }
         return mLightTheme;
+    }
+
+
+    public static boolean isLightTheme(Context context) {
+        return ViewUtils.getBoolean(context, R.attr.isLightTheme, false);
     }
 }
 

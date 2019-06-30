@@ -37,7 +37,9 @@ import static io.github.kexanie.library.MathView.Engine.MATHJAX;
 public class MathFormulaView extends MathView {
     public MathFormulaView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        if (!isInEditMode()) setup(context);
+        if (!isInEditMode()) {
+            setup(context);
+        }
     }
 
     /**
