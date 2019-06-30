@@ -1,0 +1,3 @@
+[submodule "mathview"]
+	path = mathview
+	url = https://github.com/tranleduy2000/MathView.git

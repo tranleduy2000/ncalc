@@ -78,6 +78,7 @@ dependencies {
     }
 
     implementation project(':symja_android_library-release')
+    implementation project(':mathview:MathView')
 
     implementation "com.android.support:appcompat-v7:$androidSupportVersion"
     implementation "com.android.support:support-annotations:$androidSupportVersion"
@@ -87,7 +88,6 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$androidSupportVersion"
     implementation 'com.android.support:multidex:1.0.2'
 
-    implementation 'io.github.kexanie.library:MathView:0.0.4'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.6.0'
 
@@ -97,5 +97,6 @@ dependencies {
     implementation 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     implementation 'com.simplecityapps:recyclerview-fastscroll:1.0.18'
+
 
 }
