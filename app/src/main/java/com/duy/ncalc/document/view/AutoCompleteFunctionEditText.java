@@ -149,12 +149,11 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
     }
 
     public class FunctionTokenizer implements Tokenizer {
-        String token = "!@#$%^&*()_+-={}|[]:'<>/<.?1234567890";
 
         @Override
         public int findTokenStart(CharSequence text, int cursor) {
             int i = cursor;
-            while (i > 0 && !token.contains(Character.toString(text.charAt(i - 1)))) {
+            while (i > 0 && Character.isJavaIdentifierStart(text.charAt(i - 1))) {
                 i--;
             }
             while (i < cursor && text.charAt(i) == ' ') {
@@ -169,7 +168,7 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
             int len = text.length();
 
             while (i < len) {
-                if (token.contains(Character.toString(text.charAt(i - 1)))) {
+                if (!Character.isJavaIdentifierStart(text.charAt(i - 1))) {
                     return i;
                 } else {
                     i++;
@@ -187,7 +186,7 @@ public class AutoCompleteFunctionEditText extends android.support.v7.widget.AppC
                 i--;
             }
 
-            if (i > 0 && token.contains(Character.toString(text.charAt(i - 1)))) {
+            if (i > 0 && Character.isJavaIdentifierStart(text.charAt(i - 1))) {
                 return text;
             } else {
                 if (text instanceof Spanned) {
