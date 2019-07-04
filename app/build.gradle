@@ -23,8 +23,8 @@ android {
         applicationId "com.duy.calculator.free"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 402
-        versionName "3.4.2-beta"
+        versionCode 403
+        versionName "3.4.3-beta"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -89,7 +89,7 @@ dependencies {
     }
 
     implementation project(':symja_android_library-release')
-    implementation project(':mathview:MathView')
+    implementation project(':MathView-release')
 
     implementation "com.android.support:appcompat-v7:$androidSupportVersion"
     implementation "com.android.support:support-annotations:$androidSupportVersion"

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mathview/MathView/MathView.iml" filepath="$PROJECT_DIR$/mathview/MathView/MathView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MathView-release/MathView-release.iml" filepath="$PROJECT_DIR$/MathView-release/MathView-release.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mathview/mathview.iml" filepath="$PROJECT_DIR$/mathview/mathview.iml" />
       <module fileurl="file://$PROJECT_DIR$/ncalc.iml" filepath="$PROJECT_DIR$/ncalc.iml" />
