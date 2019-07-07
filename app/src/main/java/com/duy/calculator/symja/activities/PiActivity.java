@@ -96,7 +96,7 @@ public class PiActivity extends BaseEvaluatorActivity {
             @WorkerThread
             @Override
             public ArrayList<String> execute(String input) {
-                IExpr iExpr = MathEvaluator.getInstance().evaluate(input);
+                IExpr iExpr = MathEvaluator.getInstance().evalStr(input);
                 String result = LaTexFactory.toLaTeX(iExpr);
                 return Lists.newArrayList(result);
             }

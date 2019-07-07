@@ -113,12 +113,12 @@ public class MathEvaluator extends LogicEvaluator {
      * @return The  value of the expression
      * @throws IllegalArgumentException If the user has input a invalid expression
      */
-    public IExpr evaluateSimple(String exprInput, EvaluateConfig config) {
+    public IExpr evalStrSimple(String exprInput, EvaluateConfig config) {
         IExpr result;
         if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
-            result = evaluate("N(" + exprInput + ")");
+            result = evalStr("N(" + exprInput + ")");
         } else {
-            result = evaluate(exprInput);
+            result = evalStr(exprInput);
         }
         return result;
     }
@@ -133,7 +133,7 @@ public class MathEvaluator extends LogicEvaluator {
         return result;
     }
 
-    public IExpr evaluate(String exprInput) {
+    public IExpr evalStr(String exprInput) {
         return mExprEvaluator.eval(exprInput);
     }
 
@@ -167,7 +167,7 @@ public class MathEvaluator extends LogicEvaluator {
         expression = addUserDefinedVariable(expression); //$ans = ...
 
         try {
-            IExpr iExpr = evaluateSimple(expression, config);
+            IExpr iExpr = evalStrSimple(expression, config);
             callback.onEvaluated(expression, toFormattedString(iExpr), RESULT_OK);
         } catch (Exception e) {
             callback.onCalculateError(e);
@@ -206,7 +206,7 @@ public class MathEvaluator extends LogicEvaluator {
     }
 
     public String evaluateWithResultNormal(String expression) {
-        IExpr iExpr = evaluateSimple(expression,
+        IExpr iExpr = evalStrSimple(expression,
                 EvaluateConfig.newInstance().setEvalMode(EvaluateConfig.FRACTION));
         try {
             return toFormattedString(iExpr);
@@ -248,7 +248,7 @@ public class MathEvaluator extends LogicEvaluator {
 
         ExpressionChecker.checkExpression(exprStr);
 
-        IExpr result = evaluateSimple(exprStr, config);
+        IExpr result = evalStrSimple(exprStr, config);
         return LaTexFactory.toLaTeX(result);
     }
 
@@ -261,7 +261,7 @@ public class MathEvaluator extends LogicEvaluator {
             IExpr[] exprArgs = new IExpr[args.length];
 
             for (int i = 0; i < args.length; i++) {
-                exprArgs[i] = evaluate(args[i]);
+                exprArgs[i] = evalStr(args[i]);
             }
             IAST function = F.ast(exprArgs, head);
 
@@ -293,31 +293,14 @@ public class MathEvaluator extends LogicEvaluator {
         if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
             solveStr = "N(" + solveStr + ")";
         }
-        String roots = mExprEvaluator.evaluate(solveStr).toString();
+        IExpr roots = mExprEvaluator.evaluate(solveStr);
 
-        if (roots.toLowerCase().contains("solve")) {
+        if (!roots.isFree(F.Solve)) {
             return context.getString(R.string.not_find_root);
-        } else if (roots.contains("{}")) {
+        } else if (!roots.isListOfLists()) {
             return context.getString(R.string.no_root);
         }
-
-        roots = roots.replaceAll("\\s+", "").replaceAll("->", "==");
-        int j = 1;
-        ArrayList<String> listRoot = new ArrayList<>();
-        for (int i = 1; i < roots.length() - 1; i++) {
-            if (roots.charAt(i) == '}') {
-                String tmp = roots.substring(j + 1, i);
-                i += 2;
-                j = i;
-                listRoot.add(tmp);
-            }
-        }
-
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < listRoot.size(); i++) {
-            result.append(evaluateWithResultAsTex(listRoot.get(i), config));
-        }
-        return result.toString();
+        return LaTexFactory.toLaTeX(roots);
     }
 
 
@@ -426,16 +409,22 @@ public class MathEvaluator extends LogicEvaluator {
      * Solve system equations and return string result
      */
     public String solveSystemEquation(String expr, EvaluateConfig config, Context context) {
-        if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
-            expr = "N(" + expr + ")";
+        try {
+            IExpr temp = mExprEvaluator.parse(expr);
+            if (config.getEvaluateMode() == EvaluateConfig.DECIMAL) {
+                temp = F.N(temp);
+            }
+            IExpr result = evaluate(temp);
+            if (result.toString().toLowerCase().contains("solve")) {
+                return context.getString(R.string.not_find_root);
+            } else if (result.toString().equalsIgnoreCase("{}")) {
+                return context.getString(R.string.no_root);
+            }
+            return LaTexFactory.toLaTeX(result);
+        } catch (RuntimeException rex) {
+
         }
-        IExpr result = evaluate(expr);
-        if (result.toString().toLowerCase().contains("solve")) {
-            return context.getString(R.string.not_find_root);
-        } else if (result.toString().equalsIgnoreCase("{}")) {
-            return context.getString(R.string.no_root);
-        }
-        return LaTexFactory.toLaTeX(result);
+        return LaTexFactory.toLaTeX(F.stringx("Error in input: " + expr.toString()));
        /* ArrayList<String> listRoots = new ArrayList<>();
         String[] s1 = result.split(Pattern.quote("},{"));
         for (int i = 0; i < s1.length; i++) {
