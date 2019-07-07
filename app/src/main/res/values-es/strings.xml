@@ -1,8 +1,8 @@
 <resources>
     <string name="all_unit_converter">Convertidor de unidades</string>
     <string name="factor">Factorizar</string>
-    <string name="binomial_newton">Expansión binomial de Newton</string>
-    <string name="circle">Circulo</string>
+    <string name="binomial_newton">Expansión binomial Newton</string>
+    <string name="circle">Círculo</string>
     <string name="circle_interaction">Secante de dos círculos</string>
     <string name="circle_tangent">Tangente de dos círculos</string>
     <string name="close">Cerrar</string>
@@ -21,17 +21,17 @@
     <string name="feedback">Comentarios</string>
     <string name="gi_i_thi_u_v_calc">Acerca de Ncalc</string>
     <string name="gi_tr_nh_nh_t">Valor mínimo</string>
-    <string name="graph">Grafico</string>
+    <string name="graph">Graficar</string>
     <string name="help">Ayuda</string>
     <string name="enter_expression">Ingrese la expresión</string>
     <string name="input_equation">Introduzca la ecuación:</string>
     <string name="inside">Interior</string>
-    <string name="interaction">Intersectando</string>
+    <string name="interaction">Intersección</string>
     <string name="l_ch_chu_n">Desviación estándar</string>
     <string name="vector">vector</string>
     <string name="title_activity_app_about">Acerca de NCalc</string>
     <string name="title_activity_geometry">Geometría cartesiana 2D</string>
-    <string name="title_activity_graph">Grafico</string>
+    <string name="title_activity_graph">Graficar</string>
     <string name="title_activity_matrix_calculator">Matriz</string>
     <string name="title_activity_settings">Ajustes</string>
     <string name="title_activity_unit_converter_acitvity">Conversor de unidades</string>
@@ -56,7 +56,7 @@
     <string name="outside">Exterior</string>
     <string name="auto_process">Procesamiento de datos automático</string>
     <string name="line">Línea recta</string>
-    <string name="linear_system">Resolver el sistema de ecuaciones</string>
+    <string name="linear_system">Resolver sist. ecuaciones</string>
     <string name="logic_calculator">Calculadora de bases</string>
     <string name="matrix">Matriz</string>
     <string name="matrix_op_inverse_a">Inverso de A</string>
@@ -69,7 +69,7 @@
     <string name="nav_descartes">Geometría 2D</string>
     <string name="nh_p_c_c_n_c_a_h">Ingrese las variables del sistema de ecuaciones:</string>
     <string name="nh_p_d_li_u">Ingrese un valor:</string>
-    <string name="not_line">No es una linea recta</string>
+    <string name="not_line">No es una línea recta</string>
     <string name="not_interaction">Sin intersecciones</string>
     <string name="not_in_circle">Nada del círculo</string>
     <string name="nh_p_c_c_ph_ng_tr_nh_t_o_th_nh_h_ph">Ingrese las expresiones que forman el sistema de ecuaciones, luego ingrese las variables del sistema de ecuaciones\n
@@ -114,26 +114,26 @@
     <string name="enter_value">Ingrese valor</string>
     <string name="name">Nombre</string>
     <string name="define_var">Definir variable</string>
-    <string name="graph_2">Grafico</string>
+    <string name="graph_2">Gráfico</string>
     <string name="enter_limit">Ingrese el límite</string>
     <string name="eval">Evaluar</string>
     <string name="input_limit">Ingrese el límite de la función</string>
     <string name="limit">Encontrar límite</string>
-    <string name="rate_this_app">Calificar aplicacion</string>
+    <string name="rate_this_app">Calificar aplicación</string>
     <string name="integrate">Integrar</string>
-    <string name="enter_function">Funcion agregada</string>
+    <string name="enter_function">Introduzca la función</string>
     <string name="lower_limit">Límite inferior</string>
-    <string name="upper_limit">Limite superior</string>
+    <string name="upper_limit">Límite superior</string>
 
     <string name="derivative_level">Nivel de derivado</string>
     <string name="der_level_desc">Seleccione el nivel derivado en esta línea</string>
     <string name="input_der_here">¡Ingrese las funciones derivadas necesarias en esta línea!</string>
-    <string name="input_equation_here">¡Ingrese la ecuación necesita encontrar la raíz en esta línea!</string>
+    <string name="input_equation_here">¡Ingrese la ecuación necesaria para encontrar la solución en esta línea!</string>
     <string name="input_expand_here">¡Ingresa la expresión para expandir en esta línea!</string>
     <string name="input_graph_here">Ingrese la función a agregar en esa línea</string>
     <string name="input_integrate_here">¡Ingrese la función para integrar en esta línea!</string>
     <string name="input_primitive_here">¡Ingrese la función para antiderivar en esta línea!</string>
-    <string name="primitive">Antiderivada</string>
+    <string name="primitive">Antiderivar</string>
     <string name="limit_from_desc">Límite inferior</string>
     <string name="push_analyze_button">Presione este botón para determinar la factorización de los polinomios, el proceso de cálculo puede tomar más tiempo para una primera inicialización de datos</string>
     <string name="push_button_primitive">Luego presione el botón para comenzar el cálculo, el cálculo puede tomar mucho tiempo para una primera inicialización de datos</string>
@@ -150,14 +150,14 @@
       <font color="red">Log(x) es el logaritmo natural</font>
       ]]>
     </string>
-    <string name="analytics">C. analítico</string>
+    <string name="analytics">Cálculo analítico</string>
     <string name="algebra">Álgebra</string>
     <string name="language">Idioma</string>
     <string name="default_">Sistema</string>
     <string name="probability_statistics">Estadísticas de probabilidad</string>
     <string name="combination">Combinación</string>
     <string name="permutation">Permutación</string>
-    <string name="module">Modulo</string>
+    <string name="module">Módulo</string>
     <string name="input_number">Ingrese número</string>
     <string name="enter_number">Introduzca el número</string>
     <string name="trace_mode">Modo de seguimiento</string>
@@ -185,7 +185,7 @@
     <string name="calculator">Calculadora</string>
     <string name="ui">Interfaz de usuario</string>
     <string name="advance">Avanzado</string>
-    <string name="fraction_mode">Modo de fraccion</string>
+    <string name="fraction_mode">Modo de fracción</string>
     <string name="fraction_decs">Mostrar 1/2 en lugar de 0.5</string>
     <string name="summary_instant_res">Calcula automáticamente los resultados</string>
     <string name="instant_res">Respuestas instantáneas</string>
@@ -196,7 +196,7 @@
 
     <string name="tit_trig_expand">Trigonometría - Análisis</string>
     <string name="tit_trig_reduce">Trigonometría - Reducción</string>
-    <string name="tit_trig_to_exp">Trigonometría al exponente</string>
+    <string name="tit_trig_to_exp">Trigonometría exponencial</string>
     <string name="trigonometry">Trigonometría</string>
     <string name="latex_summary">KaTeX es más rápido que MathJax en un entorno móvil, pero MathJax admite más funciones y es más hermoso.</string>
     <string name="close_drawer">Cerrar el cajón</string>
@@ -211,7 +211,7 @@
     <string name="unit1">Temperatura</string>
     <string name="unit2">Peso</string>
     <string name="unit3">Longitud</string>
-    <string name="unit4">Poder</string>
+    <string name="unit4">Potencia</string>
     <string name="unit5">Energía</string>
     <string name="unit6">Velocidad</string>
     <string name="unit7">Zona</string>
@@ -314,7 +314,7 @@
     <string name="nh_p_t_a_c_a_ng_th_ng_ab_i_m_u_l_a_xa_ya_v_i_m_cu_i_c_t_a_l_b_xb_yb">Ingrese las coordenadas de la línea AB, el punto de partida es A (xa, ya) y el punto final es B (xb, yb).</string>
     <string name="d_i_o_n_th_ng_ab">Longitud de línea recta AB</string>
     <string name="kho_ng_c_ch_t_a_n_b">Distancia de A a B</string>
-    <string name="g_c_t_o_v_i_ox">Ángulo con eje de buey</string>
+    <string name="g_c_t_o_v_i_ox">Ángulo con eje Ox</string>
     <string name="g_c_gi_a_ng_th_ng_ab_v_ox">Ángulo entre los ejes AB y Ox</string>
     <string name="trung_i_m">Punto medio</string>
     <string name="trung_i_m_c_a_o_n_th_ng_ab">Centro del segmento AB</string>
@@ -343,8 +343,8 @@
     <string name="t_ch_vector_v_i_s_k">Producto del vector con el número k</string>
     <string name="t_ch_v_h_ng">Escalar</string>
     <string name="t_ch_v_h_ng_c_a_2_vector">Producto escalar de dos vectores</string>
-    <string name="ng_th_ng_ab">Linear AB</string>
-    <string name="th_ng_h_ng">Derecho</string>
+    <string name="ng_th_ng_ab">Lineal AB</string>
+    <string name="th_ng_h_ng">Recta</string>
     <string name="divisors">Divisores</string>
     <string name="pi_number">Número Pi</string>
     <string name="open_source_project_in_github_https_github_com_tranleduy2000_ncalc">Proyecto de código abierto en Github https://github.com/tranleduy2000/ncalc</string>
@@ -352,4 +352,12 @@
     <string name="matrix_b">Matriz B</string>
     <string name="all_functions">Todas las funciones</string>
     <string name="getting_started">Primeros pasos</string>
+    <string name="ide_mode">Modo IDE</string>
+    
+    <string name="pref_summary_dominant_implicit_times">Si es verdadero se activa el operador implícito * tiene mayor proridad que los otros operadores. I.e. 1/2Pi es analizado como Power(Times(2, Pi), -1). Si es falso el operador implícito * tiene igual proridad como los demás casos. I.e. 1/2Pi es analizado como Times(Rational(1,2), Pi).</string>
+    <string name="pref_summary_parser_use_lowercase_symbol">Si es verdadero el análisis no distingue entre mayúsculas y minúsculas (I.e. constantes, nombres de funciones,...), con la excepción de los símbolos con un caracter (I.e. la variable \'i\' es distinta a la unidad imaginaria \'I\')</string>
+    <string name="pref_summary_EXPLICIT_TIMES_OPERATOR">Si es verdadero el operador * operator debe escribirse para la expresión Times(). I.e. ya no puedes escribir 2(b+c), pero sí debes escribir 2*(b+c) para conseguir Times(2, Plus(b, c)). También activa la notación E científica. I.e. 1E-2 es convertido a un doble valor 0.01 for para números de punto flotante y no ya analiza como Plus(-2, E).</string>
+    <string name="pref_summary_INTEGRATE_BY_PARTS_RECURSION_LIMIT">Define el límite de recursión para el método Integrate#integrateByParts().</string>
+    <string name="pref_summary_DEFAULT_ROOTS_CHOP_DELTA">Remplaza valores dobles en algoritmos de raíz por 0 si están por debajo de esta tolerancia.</string>
+<string name="pref_summary_RUBI_CONVERT_SYMBOLS">Usado para analizar archivos Rubi</string>
 </resources>
