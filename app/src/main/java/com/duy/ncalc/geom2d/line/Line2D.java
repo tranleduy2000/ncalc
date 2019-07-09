@@ -91,7 +91,7 @@ public class Line2D extends AbstractSmoothCurve2D
     }
 
     public Line2D(com.duy.ncalc.geom2d.line.StraightLine2D mLine) {
-        this(mLine.x0, mLine.y0, mLine.dx, mLine.dx);
+        this(mLine.x0, mLine.y0, mLine.dx, mLine.dy);
     }
 
     /**
