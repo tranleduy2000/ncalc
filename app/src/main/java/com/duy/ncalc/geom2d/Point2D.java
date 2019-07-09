@@ -92,8 +92,9 @@ public class Point2D
      * Constructs a new Point2D at the given given position.
      */
     public Point2D(double x, double y) {
-        this.x = x;
-        this.y = y;
+        // +0.0 should avoid "negtiave" double zeros
+        this.x = x + 0.0;
+        this.y = y + 0.0;
     }
 
     /**

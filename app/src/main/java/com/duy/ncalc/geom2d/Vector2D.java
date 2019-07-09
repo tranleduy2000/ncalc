@@ -66,11 +66,11 @@ public class Vector2D implements GeometricObject2D, Cloneable {
     /**
      * the x-coordinate of the vector
      */
-    public double x;
+    final public double x;
     /**
      * the y-coordinate of the vector
      */
-    public double y;
+    final public double y;
 
     /**
      * Constructs a new Vectors initialized with x=1 and y=0.
@@ -84,8 +84,9 @@ public class Vector2D implements GeometricObject2D, Cloneable {
      * Consider creating a new Vector using static factory.
      */
     public Vector2D(double x, double y) {
-        this.x = x;
-        this.y = y;
+        // +0.0 should avoid negative zeros
+        this.x = x + 0.0;
+        this.y = y + 0.0;
     }
 
     /**
