@@ -71,7 +71,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:hint="x_a"
-                            android:inputType="numberSigned" />
+                            android:inputType="numberDecimal|numberSigned" />
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
@@ -84,7 +84,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:hint="y_a"
-                            android:inputType="numberSigned" />
+                            android:inputType="numberDecimal|numberSigned" />
                     </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
@@ -108,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:hint="x_b"
-                        android:inputType="numberSigned" />
+                        android:inputType="numberDecimal|numberSigned" />
 
                     <android.support.v7.widget.AppCompatEditText
                         android:id="@+id/editYb"
@@ -116,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:hint="y_b"
-                        android:inputType="numberSigned" />
+                        android:inputType="numberDecimal|numberSigned" />
                 </LinearLayout>
 
             </LinearLayout>

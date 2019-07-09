@@ -188,8 +188,10 @@ public abstract class AbstractLine2D extends AbstractSmoothCurve2D
     protected boolean supportContains(double x, double y) {
         double denom = Math.hypot(dx, dy);
         if (denom < Shape2D.ACCURACY)
+        {
             throw new DegeneratedLine2DException(this);
-        return (Math.abs((x - x0) * dy - (y - y0) * dx) / denom < Shape2D.ACCURACY);
+        }
+        return (Math.abs((x - x0) * dy - (y - y0) * dx) / (denom * denom) < Shape2D.ACCURACY);
     }
 
     /**

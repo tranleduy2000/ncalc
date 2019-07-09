@@ -144,67 +144,71 @@ public class FragmentVector extends Fragment implements Geometric, TextWatcher {
      */
     public void onResult() {
 //        Log.d(TAG, String.valueOf(isVectorA) + String.valueOf(isVectorB));
-        java.text.DecimalFormat format = new java.text.DecimalFormat("#.###");
-        if (isVectorA && isVectorB) {
+        try {
+            java.text.DecimalFormat format = new java.text.DecimalFormat("#.###");
+            if (isVectorA && isVectorB) {
 
-            boolean isCollinear = mVectorA.isColinear(mVectorB);
-            boolean isOrthoganol = mVectorA.isOrthogonal(mVectorB);
+                boolean isCollinear = mVectorA.isColinear(mVectorB);
+                boolean isOrthoganol = mVectorA.isOrthogonal(mVectorB);
 
-            ckbCollinear.setChecked(isCollinear);
-            ckbOrthogonal.setChecked(isOrthoganol);
+                ckbCollinear.setChecked(isCollinear);
+                ckbOrthogonal.setChecked(isOrthoganol);
 
-            //angle vector a vs vector b
-            double angle = Angle2D.angle(mVectorA, mVectorB);
-            txtAngle.setText(format.format(angle) + " (RAD)\n " +
-                    format.format(Math.toDegrees(angle)) + " (DEG)");
+                //angle vector a vs vector b
+                double angle = Angle2D.angle(mVectorA, mVectorB);
+                txtAngle.setText(format.format(angle) + " (RAD)\n " +
+                        format.format(Math.toDegrees(angle)) + " (DEG)");
 
-            Vector2D plus = mVectorA.plus(mVectorB);
-            txtPlus.setText(plus.toString());
+                Vector2D plus = mVectorA.plus(mVectorB);
+                txtPlus.setText(plus.toString());
 
-            Vector2D minus = mVectorA.minus(mVectorB);
-            txtMinus.setText(minus.toString());
+                Vector2D minus = mVectorA.minus(mVectorB);
+                txtMinus.setText(minus.toString());
 
-            //angle
-            double angleA = Angle2D.horizontalAngle(mVectorA);
-            double angleB = Angle2D.horizontalAngle(mVectorB);
-
-            txtAngleA.setText(format.format(angleA) + " (RAD)\n" +
-                    format.format(Math.toDegrees(angleA)) + " (DEG)");
-
-            txtAngleB.setText(format.format(angleB) + " (RAD)\n" +
-                    format.format(Math.toDegrees(angleB)) + " (DEG)");
-            //times
-            if (isNumK) {
-                txtTimeA.setText(
-                        mVectorA.times(Double.parseDouble(editK.getText().toString()))
-                                .toString());
-
-                txtTimeB.setText(
-                        mVectorB.times(Double.parseDouble(editK.getText().toString()))
-                                .toString());
-            } else {
-                txtTimeB.setText(null);
-                txtTimeA.setText(null);
-            }
-
-            double scalar = mVectorA.getScalar(mVectorB);
-            txtScalar.setText(String.valueOf(scalar));
-
-        } else if (isVectorA || isVectorB) {
-            txtAngleA.setText(null);
-            txtAngleB.setText(null);
-            txtAngle.setText(null);
-            txtPlus.setText(null);
-            txtMinus.setText(null);
-
-            Log.d(TAG, String.valueOf(isVectorA));
-            if (isVectorA) {
+                //angle
                 double angleA = Angle2D.horizontalAngle(mVectorA);
-                txtAngleA.setText(String.valueOf(angleA));
-            } else if (isVectorB) {
                 double angleB = Angle2D.horizontalAngle(mVectorB);
-                txtAngleB.setText(String.valueOf(angleB));
+
+                txtAngleA.setText(format.format(angleA) + " (RAD)\n" +
+                        format.format(Math.toDegrees(angleA)) + " (DEG)");
+
+                txtAngleB.setText(format.format(angleB) + " (RAD)\n" +
+                        format.format(Math.toDegrees(angleB)) + " (DEG)");
+                //times
+                if (isNumK) {
+                    txtTimeA.setText(
+                            mVectorA.times(Double.parseDouble(editK.getText().toString()))
+                                    .toString());
+
+                    txtTimeB.setText(
+                            mVectorB.times(Double.parseDouble(editK.getText().toString()))
+                                    .toString());
+                } else {
+                    txtTimeB.setText(null);
+                    txtTimeA.setText(null);
+                }
+
+                double scalar = mVectorA.getScalar(mVectorB);
+                txtScalar.setText(String.valueOf(scalar));
+
+            } else if (isVectorA || isVectorB) {
+                txtAngleA.setText(null);
+                txtAngleB.setText(null);
+                txtAngle.setText(null);
+                txtPlus.setText(null);
+                txtMinus.setText(null);
+
+                Log.d(TAG, String.valueOf(isVectorA));
+                if (isVectorA) {
+                    double angleA = Angle2D.horizontalAngle(mVectorA);
+                    txtAngleA.setText(String.valueOf(angleA));
+                } else if (isVectorB) {
+                    double angleB = Angle2D.horizontalAngle(mVectorB);
+                    txtAngleB.setText(String.valueOf(angleB));
+                }
             }
+        } catch (RuntimeException rex){
+            Log.e(TAG, rex.getMessage());
         }
     }
 

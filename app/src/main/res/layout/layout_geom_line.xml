@@ -69,7 +69,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="xa"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal" />
 
                     <android.support.v7.widget.AppCompatEditText
                         android:id="@+id/editYa"
@@ -77,7 +77,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="ya"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -99,7 +99,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="xb"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal" />
 
                     <android.support.v7.widget.AppCompatEditText
                         android:id="@+id/editYb"
@@ -107,7 +107,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="yb"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal" />
                 </LinearLayout>
 
                 <TextView
@@ -334,7 +334,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="xc"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal" />
 
                     <android.support.v7.widget.AppCompatEditText
                         android:id="@+id/editYc"
@@ -342,7 +342,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="yc"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -364,7 +364,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="xd"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal"
+                        android:digits="0123456789.-" />
 
                     <android.support.v7.widget.AppCompatEditText
                         android:id="@+id/editYd"
@@ -372,7 +373,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:hint="yd"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberSigned|numberDecimal"
+                        android:digits="0123456789.-" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -471,7 +473,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:hint="xm"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberSigned|numberDecimal" />
 
                 <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/editYm"
@@ -479,7 +481,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:hint="ym"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberSigned|numberDecimal" />
             </LinearLayout>
         </LinearLayout>
 
