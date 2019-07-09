@@ -201,23 +201,25 @@ public class FragmentLine extends Fragment implements Geometric, TextWatcher {
             }
 
             if (isLine2) {
-                boolean isCollinear = mLine.isColinear(mLine2);
-                if (isCollinear) {
-                    txtPositon.setText(getResources().getString(R.string.collinear));
-                } else {
-                    boolean isParallel = mLine.isParallel(mLine2);
-                    if (isParallel) {
-                        txtPositon.setText(getResources().getString(R.string.parallel));
-                    } else {
-                        Collection<Point2D> point2Ds = mLine.intersections(mLine2);
-                        ArrayList<Point2D> list = new ArrayList<>(point2Ds);
-                        txtPositon.setText(getResources().getString(R.string.interaction)
-                                + "\n"
-                                + list.get(0).toString());
-                    }
-                }
+                Line2D line2D_2 = new Line2D(mLine2);
+                 boolean isCollinear = line2D.isColinear(line2D_2);
+                 if (isCollinear) {
+                     txtPositon.setText(getResources().getString(R.string.collinear));
+                 } else {
+                     boolean isParallel = line2D.isParallel(line2D_2);
+                     if (isParallel) {
+                         txtPositon.setText(getResources().getString(R.string.parallel));
+                     } else {
+                        Point2D point2Ds = line2D.intersection(line2D_2);
+                        if (point2Ds!=null) {
+                            txtPositon.setText(getResources().getString(R.string.interaction)
+                                    + "\n"
+                                    + point2Ds.toString());
+                        }
+                     }
+                 }
                 //angle
-                txtAngle.setText(String.valueOf(Angle2D.angle(mLine, mLine2)));
+                txtAngle.setText(String.valueOf(Angle2D.angle(line2D, line2D_2)));
             } else {
                 txtAngle.setText(null);
                 txtPositon.setText(null);
