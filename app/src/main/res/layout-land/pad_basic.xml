@@ -313,6 +313,7 @@
                 android:text="@string/digit0" />
 
             <com.duy.ncalc.view.CalcButton
+                android:id="@+id/btn_dot"
                 style="?buttonSmallDigitStyle"
                 android:text="@string/dot" />
 
