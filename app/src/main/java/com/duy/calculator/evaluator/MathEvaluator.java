@@ -31,6 +31,7 @@ import com.duy.ncalc.settings.CalculatorSetting;
 import com.duy.ncalc.utils.DLog;
 
 import org.matheclipse.core.basic.Config;
+import org.matheclipse.core.basic.ToggleFeature;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
 import org.matheclipse.core.expression.F;
@@ -77,6 +78,7 @@ public class MathEvaluator extends LogicEvaluator {
     private final OutputFormFactory mOutputFactory;
 
     private MathEvaluator() {
+        ToggleFeature.QUANTITY = true;
         mExprEvaluator = new ExprEvaluator();
         //mTexEngine = new TeXUtilities(mExprEvaluator.getEvalEngine(), true);
         for (String function : CustomFunctions.getAllCustomFunctions()) {
@@ -84,7 +86,7 @@ public class MathEvaluator extends LogicEvaluator {
         }
         DecimalFormatSymbols usSymbols = new DecimalFormatSymbols(Locale.US);
         DecimalFormat decimalFormat = new DecimalFormat("0.0####", usSymbols);
-        mOutputFactory = OutputFormFactory.get(true, false, decimalFormat);
+        mOutputFactory = OutputFormFactory.get(true, false, 5, 7);
     }
 
     @NonNull

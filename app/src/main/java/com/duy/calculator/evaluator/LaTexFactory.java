@@ -48,7 +48,7 @@ public class LaTexFactory {
         EvalEngine.set(evalEngine);
         DecimalFormatSymbols usSymbols = new DecimalFormatSymbols(Locale.US);
         DecimalFormat decimalFormat = new DecimalFormat("0.0####", usSymbols);
-        fTeXFactory = new TeXFormFactory("", decimalFormat);
+        fTeXFactory = new TeXFormFactory(5,7);
         fParser = new ExprParser(evalEngine, relaxedSyntax);
     }
 
