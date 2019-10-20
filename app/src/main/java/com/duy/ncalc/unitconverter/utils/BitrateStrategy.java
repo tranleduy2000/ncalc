@@ -95,13 +95,13 @@ public class BitrateStrategy implements Strategy {
         }
         if ((from.equals(context.getResources().getString(R.string.bitrateunitbytes))) &&
                 (to.equals(context.getResources().getString(R.string.bitrateunitgigabits)))) {
-            double ret = input * 8 / BIT_RATE_1 / BIT_RATE_1;
+            double ret = input * 8 / BIT_RATE_1 / BIT_RATE_1 / BIT_RATE_1;
             return ret;
         }
 
         if ((from.equals(context.getResources().getString(R.string.bitrateunitbytes))) &&
                 (to.equals(context.getResources().getString(R.string.bitrateunitterabits)))) {
-            double ret = input * 8 / BIT_RATE_1 / BIT_RATE_1;
+            double ret = input * 8 / BIT_RATE_1 / BIT_RATE_1 / BIT_RATE_1 / BIT_RATE_1;
             return ret;
         }
 
