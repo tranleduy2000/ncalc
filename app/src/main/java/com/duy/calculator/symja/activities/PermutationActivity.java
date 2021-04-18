@@ -158,7 +158,7 @@ public class PermutationActivity extends BaseEvaluatorActivity {
                 if (type == TYPE_PERMUTATION) {
                     // ( Gamma(#+1) / Gamm(#2+1) )&
                     function = F.Function( //
-                              F.Divide(F.Gamma(F.Plus(F.C1,F.Slot1)),F.Gamma(F.Plus(F.C1,F.Slot2))) //
+                            F.Divide(F.Gamma(F.Plus(F.C1,F.Slot1)),F.Gamma(F.Subtract(F.Plus(F.C3, F.Slot1),F.Plus(F.C2,F.Slot2))))//
                     );
                 }
                 String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(
