@@ -148,6 +148,7 @@ public class PermutationActivity extends BaseEvaluatorActivity {
         return "";
     }
 
+
     @Override
     public Command<ArrayList<String>, String> getCommand() {
         return new Command<ArrayList<String>, String>() {
@@ -156,9 +157,13 @@ public class PermutationActivity extends BaseEvaluatorActivity {
             public ArrayList<String> execute(String input) {
                 IExpr function = F.Binomial;
                 if (type == TYPE_PERMUTATION) {
-                    // ( Gamma(#+1) / Gamm(#2+1) )&
-                    function = F.Function( //
-                            F.Divide(F.Gamma(F.Plus(F.C1,F.Slot1)),F.Gamma(F.Subtract(F.Plus(F.C3, F.Slot1),F.Plus(F.C2,F.Slot2))))//
+                    /*
+                       P(n,k) = n! / (n-k)! (According to Wikipedia: https://en.wikipedia.org/wiki/Permutation#k-permutations_of_n)
+                       Gamma(n) = (n-1)!
+                       P(n,k) = Gamma(#1+1) / Gamma((#1-#2)+1) where n is #1 and k is #2.
+                    */
+                    function = F.Function(
+                            F.Divide(F.Gamma(F.Plus(F.C1,F.Slot1)), F.Gamma(F.Plus(F.C1,F.Subtract(F.Slot1,F.Slot2))))
                     );
                 }
                 String fraction = MathEvaluator.getInstance().evaluateWithResultAsTex(
