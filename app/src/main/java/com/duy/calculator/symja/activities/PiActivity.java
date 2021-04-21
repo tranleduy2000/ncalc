@@ -44,7 +44,8 @@ import java.util.ArrayList;
 public class PiActivity extends BaseEvaluatorActivity {
     private static final String STARTED = PiActivity.class.getName() + "started";
     private boolean isDataNull = true;
-    private String precision="";
+    private String precision = "";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,13 +70,14 @@ public class PiActivity extends BaseEvaluatorActivity {
 
     }
 
-    private  void setPrecision(String precision){
+    private void setPrecision(String precision) {
         this.precision = precision;
     }
 
-    private  String getPrecision(){
+    private String getPrecision() {
         return this.precision;
     }
+
     /**
      * get data from activity start it
      */
@@ -95,10 +97,14 @@ public class PiActivity extends BaseEvaluatorActivity {
     @Override
     protected String getExpression() {
         setPrecision(mInputFormula.getCleanText());
-        if(Integer.parseInt(getPrecision())<=16)
-            return "N(Pi," + "18" + ")";
-        else
-        return "N(Pi," +getPrecision() + ")";
+        try {
+            if (Integer.parseInt(getPrecision()) <= 16) {
+                return "N(Pi, 18)";
+            }
+        } catch (NumberFormatException nfex) {
+            return "N(Pi, 18)";
+        }
+        return "N(Pi," + getPrecision() + ")";
     }
 
     @Override
@@ -109,8 +115,11 @@ public class PiActivity extends BaseEvaluatorActivity {
             public ArrayList<String> execute(String input) {
                 IExpr iExpr = MathEvaluator.getInstance().evalStr(input);
                 String result = LaTexFactory.toLaTeX(iExpr);
-                if(Integer.parseInt(getPrecision())<=16){
-                    result = result.substring(0,Integer.parseInt(getPrecision())+3)+"$$";
+                try {
+                    if (Integer.parseInt(getPrecision()) <= 16) {
+                        result = result.substring(0, Integer.parseInt(getPrecision()) + 3) + "$$";
+                    }
+                } catch (NumberFormatException nfex) {
                 }
                 return Lists.newArrayList(result);
             }
