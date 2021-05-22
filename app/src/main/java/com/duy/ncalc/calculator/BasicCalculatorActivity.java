@@ -532,10 +532,10 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             String operator = expr.substring(0,3).toLowerCase();
             String nums = expr.substring(4, expr.length() - 1);
             if(operator.equals("gcd")){
-                result = "$$" + executeGCD(nums) + "$$";
+                result = executeGCD(nums);
             }
             if(operator.equals("lcm")){
-                result = "$$" + executeLCM(nums) + "$$";
+                result = executeLCM(nums);
             }
             if (mCurrentState == CalculatorState.EVALUATE) {
                 onResult(result);
