@@ -300,10 +300,22 @@ public class FragmentMatrixInput extends Fragment implements View.OnClickListene
                     String matrixA = getMatrixA();
                     String matrixB = getMatrixB();
                     if (opt == MatrixOpt.ADD) {
+                        if (currentColumnA != currentColumnB){
+                            throw new IllegalAccessException("inconsistent dimension");
+                        }
+                        if (currentRowA != currentRowB){
+                            throw new IllegalAccessException("inconsistent dimension");
+                        }
                         expr = matrixA + " + " + matrixB;
                     } else if (opt == MatrixOpt.MUL) {
                         expr = matrixA + " . " + matrixB;
                     } else {
+                        if (currentColumnA != currentColumnB){
+                            throw new IllegalAccessException("inconsistent dimension");
+                        }
+                        if (currentRowA != currentRowB){
+                            throw new IllegalAccessException("inconsistent dimension");
+                        }
                         expr = matrixA + " - " + matrixB;
                     }
                     if (listener != null) {
