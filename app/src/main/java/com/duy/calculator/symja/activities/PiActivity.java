@@ -121,8 +121,43 @@ public class PiActivity extends BaseEvaluatorActivity {
                     }
                 } catch (NumberFormatException nfex) {
                 }
+                newLineUtil nlu = new newLineUtil(result);
+                result = nlu.getNewLine(nlu.result);
                 return Lists.newArrayList(result);
             }
         };
+    }
+}
+
+class newLineUtil {
+    String result;
+    public newLineUtil(String result){
+        this.result = result;
+    }
+
+    /**
+     * Fixs the final expression, which makes the long expression can be
+     * displayed completely, rather than some parts may hind out of the screen.
+     *
+     * @param result The ture expression result without hinden.
+     * @return ans
+     * The result after do the improvement to the result
+     * which can be changed a new line.
+     */
+    public String getNewLine(String result) {
+        int len = 21;
+        result = result.substring(2, result.length() - 2);
+        String ans = "";
+        int enterNum = result.length() / len;
+        if (result.length() > len) {
+            int i = 0;
+            for (i = 0; i < enterNum; i++) {
+                ans += ("$$" + result.substring(i * len, (i + 1) * len) + "$$" + "\n");
+            }
+            ans += "$$" + result.substring(i * len, result.length()) + "$$";
+        } else {
+            ans = result;
+        }
+        return ans;
     }
 }
