@@ -480,6 +480,23 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     }
 
     /**
+     * Parse out the two integers entered by the user and execute the lcm
+     * algorithm to solve the least common multiple of these two integers.
+     * @param nums
+     *        The string entered by the user, including parentheses and commas.
+     * @return The least common multiple of two integers
+     */
+
+    public String executeLCM(String nums){
+        int num1 = Integer.parseInt(nums.split(",")[0].trim());
+        int num2 = Integer.parseInt(nums.split(",")[1].trim());
+        int gcd = gcd(num1, num2);
+        //lcm(a,b) = |a*b| / gcd(a,b) (According to Wikipedia: https://en.wikipedia.org/wiki/Least_common_multiple)
+        int lcm = (num1 * num2) / gcd;
+        return lcm + "";
+    }
+
+    /**
      * Parse out the two integers entered by the user and execute the gcd
      * algorithm to solve the greatest common factor of these two integers.
      * @param nums
@@ -516,6 +533,9 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
             String nums = expr.substring(4, expr.length() - 1);
             if(operator.equals("gcd")){
                 result = "$$" + executeGCD(nums) + "$$";
+            }
+            if(operator.equals("lcm")){
+                result = "$$" + executeLCM(nums) + "$$";
             }
             if (mCurrentState == CalculatorState.EVALUATE) {
                 onResult(result);
