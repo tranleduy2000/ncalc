@@ -18,6 +18,8 @@
 
 package com.duy.calculator.symja.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -87,6 +89,10 @@ public class NumberActivity extends BaseEvaluatorActivity {
         }
     }
 
+    /**
+     * get the expression by calculate module and user's input
+     * @return The expression by input
+     */
     @Override
     protected String getExpression() {
         String number = mInputFormula.getCleanText();
@@ -96,6 +102,22 @@ public class NumberActivity extends BaseEvaluatorActivity {
                 item.setFunction(CATALAN_FUNCTION);
                 break;
             case NumberType.FIBONACCI:
+                int num = Integer.parseInt(number);
+                if(num<0){
+                    new AlertDialog.Builder(this)
+                            .setTitle("Error!")
+                            .setMessage("Fibonacci number can't be less than 0, so the input becomes its absolute value")
+                            .setNegativeButton("OK",new DialogInterface.OnClickListener(){
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                    num = -num;
+                }
+                number = String.valueOf(num);
+                item = new NumberIntegerItem(number);
+
                 item.setFunction(NumberType.FIBONACCI_FUNCTION);
                 break;
             case NumberType.PRIME:
