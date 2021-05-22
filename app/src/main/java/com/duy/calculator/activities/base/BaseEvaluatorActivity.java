@@ -223,7 +223,7 @@ public abstract class BaseEvaluatorActivity extends NavDrawerActivity
                 mBtnClear.setEnabled(true);
 
                 for (String entry : result) {
-                    mResultAdapter.addItem(new ResultEntry("", entry));
+                    mResultAdapter.addItem(new ResultEntry("", entry.charAt(2)=='-'?"$$"+entry.substring(3):entry));
                 }
 
                 if (mResultAdapter.getItemCount() > 0) {
