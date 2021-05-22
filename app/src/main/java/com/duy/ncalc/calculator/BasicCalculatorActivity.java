@@ -478,10 +478,38 @@ public class BasicCalculatorActivity extends AbstractCalculatorActivity
     void setState(CalculatorState state) {
         mCurrentState = state;
     }
+    
+     /**
+     * When input is tan((2k+1)*Pi/2) the result should be Infinity.
+     * @param result
+     *        The original result of tan function .
+     * @return
+     *        If the original result is larger than 1, then return Infinity,
+     *        or return original result.
+     */
+    public String executeTAN(String result){
+        int index = result.indexOf('^');
+        if(index != -1){
+            String firstPart = result.substring(0, index + 1);
+            String secondPart = result.substring(index + 1, result.length());
+            String exponent = result.substring(index + 1, result.length() - 2);
+            if(Integer.parseInt(exponent) > 1){
+                result = "$$Infinity$$";
+            }
+            return result;
+        }
+        return result;
+    }
 
     @Override
     public void onEvaluated(String expr, String result, int resultId) {
         if (resultId == LogicEvaluator.RESULT_OK) {
+            //Parse user input to get the function to be executed and operand.
+            String operator = expr.substring(0,3).toLowerCase();
+            String nums = expr.substring(4, expr.length() - 1);
+            if(operator.equals("tan")){
+                result = executeTAN(result);
+            }
             if (mCurrentState == CalculatorState.EVALUATE) {
                 onResult(result);
                 saveHistory(expr, result, true);
