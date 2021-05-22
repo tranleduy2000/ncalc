@@ -34,9 +34,6 @@ import com.duy.ncalc.geom2d.line.Line2D;
 import com.duy.ncalc.geom2d.line.StraightLine2D;
 import com.duy.ncalc.geom2d.util.Angle2D;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 /**
  * Created by Duy on 3/7/2016
  */
@@ -108,11 +105,13 @@ public class FragmentLine extends Fragment implements Geometric, TextWatcher {
                     && !editYb.getText().toString().isEmpty()) {
                 try {
                     mLine = new StraightLine2D(
-                            Double.parseDouble(editXa.getText().toString()),
-                            Double.parseDouble(editYa.getText().toString()),
-                            Double.parseDouble(editXb.getText().toString()),
-                            Double.parseDouble(editYb.getText().toString())
+                            new Point2D(Double.parseDouble(editXa.getText().toString()),
+                                    Double.parseDouble(editYa.getText().toString()))
+                            ,
+                            new Point2D(Double.parseDouble(editXb.getText().toString()),
+                                    Double.parseDouble(editYb.getText().toString()))
                     );
+
                     isLine = true;
                     txtInfo.setText(null);
                 } catch (RuntimeException e) {
@@ -160,7 +159,9 @@ public class FragmentLine extends Fragment implements Geometric, TextWatcher {
         }
     }
 
-
+    /**
+     * In geom2d mode, when user input the two points' coordinates, this method will be called.
+     */
     @Override
     public void onResult() {
         if (isLine) {
@@ -169,7 +170,9 @@ public class FragmentLine extends Fragment implements Geometric, TextWatcher {
             double length = new Line2D(mLine).length();
             txtLenght.setText(String.valueOf(length));
             //góc
-            txtAngleOx.setText(String.valueOf(Angle2D.horizontalAngle(mLine)));
+            double tmp = Angle2D.horizontalAngle(mLine);
+            tmp = (tmp + Math.PI) %Math.PI;
+            txtAngleOx.setText(String.valueOf(tmp));
             //trung điểm
             Point2D midP = line2D.getMidPoint();
             txtMidPoint.setText(midP.toString());
